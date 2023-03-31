@@ -1,0 +1,5 @@
+@media only screen and (max-width: 768px) {
+  .swiper-wrapper p {
+    font-size: 12px;
+  }
+}

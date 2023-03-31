@@ -1,0 +1,52 @@
+#shopify-section-sticky-footer {
+  position: sticky;
+  bottom: 0px;
+  z-index: 3333;
+  overflow: visible;
+  max-width: 136.8rem;
+  margin-right: auto;
+  margin-left: auto;
+  width: calc(100% - 60px);
+  overflow: hidden;
+  transform: translateY(100%);
+  transition: transform .4s ease;
+}
+
+#shopify-section-sticky-footer.scrolled {
+  transform: translateY(0);
+}
+
+.sticky-footer__button {
+  background: var(--blue);
+  color: white;
+  text-align: center;
+  padding: 12.5px 12.5px 25px;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  transform: translateY(12.5px);
+  transition: all .3s ease;
+}
+
+.sticky-footer__button > * {
+  pointer-events: none;
+}
+
+.sticky-footer__button:hover {
+  transform: translateY(0);
+}
+
+.sticky-footer__button.hide {
+  transform: translateY(100%);
+
+}
+
+@media screen and (max-width: 768px) {
+  #shopify-section-sticky-footer {
+    width: calc(100% - 24px);
+  }
+}

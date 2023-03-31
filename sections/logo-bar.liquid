@@ -1,0 +1,64 @@
+{{ 'section-logo-bar.css' | asset_url | stylesheet_tag }}
+
+<section class="logo-bar">
+    <div class="logo-bar__inner">
+      {% for i in (i..5)%}
+      <ul class="logo-bar__list list-unstyled">
+        {% for block in section.blocks %}
+          <li class="logo-bar__list-item">
+            {% if block.settings.svg != blank %}
+              {{ block.settings.svg }}
+            {% elsif block.settings.png != blank %}
+              <img
+                srcset="{{ block.settings.png | image_url: width: 300 }} 1x, {{ block.settings.png | image_url: width: 300, scale: 2 }} 2x"
+                src="{{ block.settings.png | image_url: width: 300}}"
+                loading="lazy"
+                class="header__heading-logo"
+                width="{{ block.settings.png.width }}"
+                height="{{ block.settings.png.height }}"
+                alt="{{ block.settings.png.alt }}"
+                {% if block.settings.opacity != blank%}style="opacity: 0.{{ block.settings.opacity }}"{% endif %}
+              >
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Logo Bar",
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "svg",
+          "label": "SVG Logo"
+        },
+        {
+          "type": "image_picker",
+          "id": "png",
+          "label": "PNG Logo",
+          "info": "SVG is preferred, but PNG can be used instead"
+        },
+        {
+          "type": "number",
+          "id": "opacity",
+          "label": "(Optional) Opacity level: 1-9",
+          "info": "1 = lightest, 9 = darkest)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo Bar"
+    }
+  ]
+}
+{% endschema %}

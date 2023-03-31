@@ -1,0 +1,144 @@
+{{ 'section-benefit-cards.css' | asset_url | stylesheet_tag }}
+
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+
+{% liquid
+  capture show_ingredients
+    for ingredient in product.selected_or_first_available_variant.metafields.custom.ingredients.value
+      echo ingredient | downcase
+      unless forloop.last
+        echo ','
+      endunless
+    endfor
+  endcapture
+  assign ingredient_list = show_ingredients | split: ','
+%}
+
+<section class="benefit-cards {% if section.settings.margin_bottom %}with-spacing{% endif %}">
+  <div class="page-width">
+    <div class="benefit-cards__inner">
+      <div class="benefit__header-column">
+        {% if formatted_heading != blank %}
+          <h4 class="benefit__heading m-h4">{{ formatted_heading }}</h4>
+        {% endif %}
+        {% if section.settings.text != blank %}
+          <p class="body-lg benefit__paragraph">{{ section.settings.text }}</p>
+        {% endif %}
+      </div>
+
+      <div class="benefit__cards-column">
+        <div class="benefit__card-carousel swiper">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              {% assign ingredient_name = block.settings.heading | downcase %}
+              <div class="swiper-slide {% unless ingredient_list contains ingredient_name %}hidden{% endunless %}" data-ingredient="{{ ingredient_name }}">
+                {% assign formatted_card_heading = block.settings.heading
+                  | replace: '{', "<span class='stylized'>"
+                  | replace: '}', '</span>'
+                %}
+                <div class="benefit__card">
+                  {% if formatted_heading != blank %}
+                    <h4 class="benefit__card-heading m-h4">
+                      {{ formatted_card_heading }}
+                      {% if block.settings.title %}
+                        <br>
+                        <span class="stylized">{{ block.settings.title }}</span>
+                      {% endif %}
+                    </h4>
+                  {% endif %}
+                  {% if block.settings.text != blank %}
+                    <p class="body benefit__card-paragraph">{{ block.settings.text }}</p>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="benefit__navigation-wrapper">
+          <div class="swiper-button-prev benefit-prev"></div>
+          <div class="swiper-button-next benefit-next"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% javascript %}
+  const benefitsSwiper = new Swiper('.benefit__card-carousel', {
+    slidesPerView: 1.25,
+    spaceBetween: 12,
+    observer: true,
+    navigation: {
+      nextEl: '.benefit-next',
+      prevEl: '.benefit-prev',
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 1.75,
+        spaceBetween: 20,
+      },
+    },
+    on: {
+      observerUpdate: function(){
+        console.log('update')
+      }
+    }
+  });
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Benefits Cards",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Wrap italized text in {}"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "checkbox",
+      "id": "margin_bottom",
+      "label": "Margin bottom",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Card",
+      "type": "card",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "heading",
+          "label": "Ingredient"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Benefit",
+          "info": "Will display as italized text"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefits Cards"
+    }
+  ]
+}
+{% endschema %}

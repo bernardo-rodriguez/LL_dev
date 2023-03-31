@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="{{ 'section-main-page.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'section-main-page.css' | asset_url | stylesheet_tag }}</noscript>
+
+{% if section.settings.heading != blank %}
+  {% assign formatted_title = section.settings.heading
+    | escape
+    | replace: '{', "<span class='stylized'>"
+    | replace: '}', '</span>'
+  %}
+{% else %}
+  {% assign formatted_title = page.title | escape | replace: '{', "<span class='stylized'>" | replace: '}', '</span>' %}
+{% endif %}
+
+<div class="Default_Page_Header">
+  {%- for i in (1..5) -%}
+    <h1 class="main-page-title page-title h1">
+      {{ formatted_title | newline_to_br }}
+    </h1>
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Marquee Header",
+  "tag": "section",
+  "class": "marquee-header",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Wrap italic text in {}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Maquee Header"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,250 @@
+.quiz {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -3334;
+  opacity: 0;
+  /* transform: translateY(100%); */
+  background: var(--blue);
+  transition: opacity .5s ease 1.3s, background .5s ease 1.3s;
+}
+
+.quiz[aria-hidden='false'] {
+  z-index: 9999;
+  opacity: 1;
+  background: var(--blue-tint-20);
+  overflow-y: scroll;
+}
+
+@media screen and (max-width: 768px) {
+  .quiz {
+    overflow: scroll;
+  }
+}
+
+.quiz__inner {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+      "header"
+      "content"
+      "footer";
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 768px) {
+  .quiz__inner {
+    height: auto;
+  }
+}
+
+.quiz__header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
+  grid-template-areas: 'empty logo close';
+  text-align: right;
+  padding: 15px 15px 0;
+}
+
+.quiz__logo {
+  grid-area: logo;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.quiz__logo-svg {
+  display: inline-block;
+}
+
+.quiz__close {
+  grid-area: close;
+  background: white;
+  width: 34px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.quiz__content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas: "headline card";
+  column-gap: 66px;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  overflow-y: visible;
+}
+
+@media screen and (max-width: 768px) {
+  .quiz__content {
+    display: block;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    min-height: 100vh;
+  }
+}
+
+.quiz__headline:not(.active) {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .quiz__headline {
+    max-width: 293px;
+  }
+}
+
+.quiz__content-card {
+  max-width: 433px;
+  height: 100%;
+  /* overflow: hidden; */
+}
+
+.color_container input:checked ~ svg {
+  filter: drop-shadow(0px 0px 3px #46BDF0);
+}
+
+@media screen and (max-width: 768px) {
+  .quiz__content-card {
+    margin-top: 24px;
+  }
+}
+
+.quiz__form {
+  background: white;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px 20px 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .quiz__form {
+    min-height: 235px;
+  }
+}
+
+.quiz__form form {
+  width: 100%;
+}
+
+.quiz__form .h5 {
+  margin-bottom: 6px;
+}
+
+.quiz__input-group {
+  margin-top: 14px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.quiz__input-group > * {
+  width: 100%;
+}
+
+.quiz__input-group-columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  column-gap: 5px;
+}
+
+.quiz__input-group-columns > * {
+  flex-basis: 50%;
+  flex: 1;
+}
+
+.quiz__input-group label{
+  /* margin-bottom: 12px; */
+}
+
+.quiz__form input[type='radio'],
+.quiz__form input[type='checkbox'] {
+  display: none!important;
+}
+
+.form__step-wrapper:not(.active) {
+  display: none;
+}
+
+.quiz__content-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 10vh;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px){
+  .quiz__content-buttons {
+    margin-top: 40px;
+  }
+}
+
+.quiz__footer {
+  padding: 0 32px 17px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--navy-tint-40);
+}
+
+@media screen and (max-width: 768px) {
+  .quiz__footer {
+    flex-direction: column;
+  }
+}
+
+.quiz__footer-links .footer__menu {
+  flex-direction: row;
+}
+
+@media screen and (max-width: 768px) {
+  .quiz__footer-links .footer__menu{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .quiz__footer-links .footer__menu li {
+    margin: 0;
+  }
+
+  .quiz__footer-copyright {
+    margin-top: 40px;
+  }
+}
+
+/* State */
+
+formula-quiz[data-state='1'] [data-form-back] {
+  opacity: 0;
+}
+
+.quiz::-webkit-scrollbar {
+  width: 5px;
+}
+ 
+.quiz::-webkit-scrollbar-track {
+  background: var(--cream-tint-50);
+}
+ 
+.quiz::-webkit-scrollbar-thumb {
+  background-color: var(--navy);
+}

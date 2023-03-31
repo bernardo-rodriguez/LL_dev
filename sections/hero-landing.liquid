@@ -1,0 +1,211 @@
+{{ 'section-hero-landing.css' | asset_url | stylesheet_tag }}
+
+{% assign formatted_title = section.settings.title
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+
+{% assign formatted_sub_title = section.settings.sub_title
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+
+<div class="Landing_Hero">
+  {% if section.settings.mobile_image != blank %}
+    {% render 'lazy-image', image: section.settings.image, fade: true, fill: true, classes: 'hide-mobile' %}
+    {% render 'lazy-image', image: section.settings.mobile_image, fade: true, fill: true, classes: 'hide-desktop' %}
+  {% elsif section.settings.image != blank %}
+    {% render 'lazy-image', image: section.settings.image, fade: true, fill: true %}
+  {% endif %}
+  <div class="page-width Hero_Inner">
+    <div class="Hero_Container">
+      {% if section.settings.review != blank %}
+        <h5 class="Hero_Review">{% render 'icon' icon: 'review-5-star' %}<span class='stylized'>{{ section.settings.review }}</span></h5>
+      {% endif %}
+      <h2 class="Hero_Title">{{ formatted_title | newline_to_br }}</h2>
+      {% if formatted_sub_title != blank %}
+        <h5 class="Hero_Subtitle h5">{{- formatted_sub_title -}}</h5>
+      {% endif %}
+      {% if section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}"  {% if section.settings.button_action == "quiz" %}data-open-quiz{% endif %}  {% if settings.discount_code != blank %}onclick="window.localStorage.setItem('landing_page_product_discount','{{ settings.discount_code }}')" {% endif %} class="button {% if section.settings.button_style == 'secondary' %}button--secondary{% else %}button--primary{% endif %}">
+          {{- section.settings.button_label -}}
+        </a>
+      {% else %}
+        <button class="button button--secondary"  {% if section.settings.button_action == "quiz" %}data-open-quiz{% endif %}  {% if settings.discount_code != blank %}onclick="window.localStorage.setItem('landing_page_product_discount','{{ settings.discount_code }}')" {% endif %}>{{ section.settings.button_label }}</button>
+      {% endif %}
+      {% if section.settings.hero_badges != blank %}
+        <div class="Hero_Badges">
+          <img src="{{ section.settings.hero_badges | img_url: '160x' }}">
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script>
+  function getCookie(cname) {
+    // const value = `; ${document.cookie}`;
+    // const parts = value.split(`; ${name}=`);
+    // if (parts.length === 2) return parts.pop().split(';').shift();
+
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return null;
+  }
+
+  function getSubPrice() {
+      const cookies = ['redirect_ut', 'redirect_ut_direct', 'shareasaleShopifySSCID', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans']
+  
+      let subscriptionCookie = cookies.filter( cookieName => getCookie(cookieName) != null )
+      let subPrice = ''
+  
+      switch(subscriptionCookie[0]) {
+        case 'redirect_ut':
+          subPrice = '9'
+          break;
+        case 'redirect_ut_direct':
+          subPrice = '9'
+          break
+        case 'redirect_paceline':
+          subPrice = '29'
+          break
+        case 'redirect_sweatcoin':
+          subPrice = '9'
+          break
+        case 'redirect_miles':
+          subPrice = '9'
+          break
+        case 'redirect_studentbeans':
+          subPrice = '9'
+          break
+        default:
+          subPrice = '19'
+          break
+      }
+  
+      return subPrice
+  }
+  subPrice = getSubPrice()
+  console.log(subPrice)
+  
+  setTimeout(function(){
+    $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>"+subPrice+"")
+  }, 100);
+  
+  $(window).load(function(){
+    $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>"+subPrice+"")
+  })
+  
+</script>
+
+{% schema %}
+{
+  "name": "Hero Landing",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "review",
+      "label": "Review"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "info": "Wrap italized text in {}"
+    },
+    {
+      "type": "textarea",
+      "id": "sub_title",
+      "label": "Sub Title"
+    },
+    {
+      "type": "header",
+      "content": "Badges"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_badges",
+      "label": "Hero Badges"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        }
+      ],
+      "default": "secondary",
+      "label": "Button Style"
+    },
+    {
+      "type":"select",
+      "id":"button_action",
+      "label":"Button Actons",
+      "options":[
+        {
+          "label":"Redirect on URL",
+          "value":"url"
+        },
+        {
+          "label":"Open Quiz",
+          "value":"quiz"
+        }
+      ],
+      "default":"quiz"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Landing"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,152 @@
+<script src="{{ 'quiz_2.js' | asset_url }}" defer="defer"></script>
+{{ 'section-quiz-2.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign formatted_heading_1 = section.settings.step1 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
+
+  assign formatted_heading_2 = section.settings.step2 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
+
+  assign formatted_heading_3 = section.settings.step3 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
+%}
+
+<formula-quiz-2 data-state="1">
+  <section class="quiz_2" aria-hidden="true">
+    <div class="quiz_2__inner">
+      <div class="quiz_2__header">
+        <div class="quiz_2__logo">
+          {% if section.settings.quiz_svg_logo != blank %}
+            <div class="quiz_2__logo-svg">
+              {{ section.settings.quiz_svg_logo }}
+            </div>
+          {% endif %}
+        </div>
+
+        <button class="quiz_2__close">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="15.1944" y1="1.05253" x2="1.05224" y2="15.1947" stroke="#0D2244"/>
+            <path d="M15.2134 15.2131L1.07125 1.071" stroke="#0D2244"/>
+          </svg>
+        </button>
+      </div>
+      <div class="quiz_2__content page-width">
+        <div class="quiz_2__content-headline">
+          <h2 class="quiz_2__headline active" data-step="1">{{ formatted_heading_1 }}</h2>
+
+          <h2 class="quiz_2__headline" data-step="2">{{ formatted_heading_2 }}</h2>
+
+          <h2 class="quiz_2__headline" data-step="3">{{ formatted_heading_3 }}</h2>
+        </div>
+        <div class="quiz_2__content-card">
+          <div class="quiz_2__form">
+            {% form 'customer' %}
+              <div class="form__step-wrapper_2 active" data-step="1">
+                {% render 'quiz-step-one-2' %}
+              </div>
+
+              <div class="form__step-wrapper_2" data-step="2">
+                {% render 'quiz-step-two-2' %}
+              </div>
+
+              <div class="form__step-wrapper_2" data-step="3">
+                {% render 'quiz-step-three-2' %}
+              </div>
+            {% endform %}
+
+            <div class="quiz_2__content-buttons">
+              <button class="text-link" data-form-back>Back</button>
+              <button class="button" data-form-next disabled>Continue</button>
+              <button class="button hidden" data-form-submit>
+                <span class="button-text">See Your Results</span>
+                <div class="loading-overlay__spinner">
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    role="presentation"
+                    class="spinner"
+                    viewBox="0 0 66 66"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle class="path" fill="none" stroke-width="6" style="stroke: #FFFFFF!important;" cx="33" cy="33" r="30"></circle>
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="quiz_2__footer">
+        <div class="quiz_2__footer-links">
+          {% if section.settings.footer != blank %}
+            <ul class="footer__menu list-unstyled">
+              {% for link in section.settings.footer.links %}
+                <li>
+                  <a
+                    href="{{ link.url }}"
+                    class="footer__menu-link"
+                  >
+                    {{ link.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+
+        <div class="quiz_2__footer-copyright">
+          <p class="footer__copy">
+            &copy; {{ shop.name | link_to: routes.root_url }}
+            {{ 'now' | date: '%Y' }}. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</formula-quiz-2>
+
+{% schema %}
+{
+  "name": "Quiz 2",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "quiz_svg_logo",
+      "label": "SVG Logo"
+    },
+    {
+      "type": "link_list",
+      "id": "footer",
+      "label": "Footer links"
+    },
+    {
+      "type": "textarea",
+      "id": "step1",
+      "label": "Step 1 Heading",
+      "info": "Wrap stylized text in {}"
+    },
+    {
+      "type": "textarea",
+      "id": "step2",
+      "label": "Step 2 Heading",
+      "info": "Wrap stylized text in {}"
+    },
+    {
+      "type": "textarea",
+      "id": "step3",
+      "label": "Step 3 Heading",
+      "info": "Wrap stylized text in {}"
+    },
+    {
+      "type": "textarea",
+      "id": "step4",
+      "label": "Step 4 Heading",
+      "info": "Wrap stylized text in {}"
+    },
+    {
+      "type": "textarea",
+      "id": "step5",
+      "label": "Step 5 Heading",
+      "info": "Wrap stylized text in {}"
+    }
+  ]
+}
+{% endschema %}

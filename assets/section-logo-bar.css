@@ -1,0 +1,49 @@
+.logo-bar__inner {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow-x: hidden;
+  position: relative;
+  gap: 50px;
+}
+
+.logo-bar__list {
+  animation: marquee 35s linear infinite;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 70px 0;
+}
+
+.logo-bar__list-item > * {
+  width: auto;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.logo-bar__list-item svg,
+.logo-bar__list-item svg path,
+.logo-bar__list-item svg g {
+  fill: #CBCBCF;
+  opacity: 1;
+  fill-opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  section.logo-bar {
+    margin-bottom: 0;
+  }
+  
+  .logo-bar .page-width {
+    padding: 0;
+  }
+  
+  .logo-bar__list {
+    padding: 35px 0;
+  }
+}
