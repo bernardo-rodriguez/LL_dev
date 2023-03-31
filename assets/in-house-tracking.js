@@ -179,7 +179,7 @@ function landingPageAction(current_page, query_params) {
         redirectToLandingIfFirstTime('redirect_ut')
         break;
       default:
-        setCookie('redirect_sweatcoin', 'true')
+        // setCookie('redirect_sweatcoin', 'true')
         setFirstTimeGtags('NA')
         break;
     } 
