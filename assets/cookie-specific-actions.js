@@ -59,6 +59,7 @@ function cookie_actions() {
     
     if (quiz_version == null) {
       var d = Math.random();
+      console.log(d)
       if (d <= .5) {
           setCookie('quiz_version', 'long')
           gtag('set', 'user_properties', {
