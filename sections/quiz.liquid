@@ -188,15 +188,21 @@
 </form>
 <script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
 <script type="text/javascript">
-  KlaviyoSubscribe.attachToForms('#email_signup', {
-    hide_form_on_success: true,
-    extra_properties: {
-      $source: '$embed',
-      $method_type: 'Klaviyo Form',
-      $method_id: 'embed',
-      $consent_version: 'Embed default text',
-    },
-  });
+  try {
+    KlaviyoSubscribe.attachToForms('#email_signup', {
+      hide_form_on_success: true,
+      extra_properties: {
+        $source: '$embed',
+        $method_type: 'Klaviyo Form',
+        $method_id: 'embed',
+        $consent_version: 'Embed default text',
+      },
+    });
+  }
+  catch(err) {
+    console.log("klaviyo errors")
+    console.log(err)
+  }
 </script>
 
 {% schema %}
