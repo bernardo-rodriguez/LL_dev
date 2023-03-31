@@ -19,10 +19,14 @@ class Tooltip extends HTMLElement {
   
   }
   animateTooltip() {
-    const lineLength = this.tooltipLine.getTotalLength()
-    this.tooltipLine.style.strokeDasharray = lineLength + " " + lineLength
-    this.tooltipLine.style.strokeDashoffset = lineLength
-    this.tooltipLine.getBoundingClientRect();
+    const mediaQuery = window.matchMedia('(min-width: 769px)')
+    // Check if the media query is true
+    if (mediaQuery.matches) {
+      const lineLength = this.tooltipLine.getTotalLength()
+      this.tooltipLine.style.strokeDasharray = lineLength + " " + lineLength
+      this.tooltipLine.style.strokeDashoffset = lineLength
+      this.tooltipLine.getBoundingClientRect();
+    }
 
     gsap.from(this.tooltip, {
       y: 20,
@@ -39,15 +43,17 @@ class Tooltip extends HTMLElement {
       },
     });
 
-    gsap.to(this.tooltipLine, {
-      strokeDashoffset: 0,
-      ease: "none",
-      duration: 1,
-      scrollTrigger: {
-        trigger: this.tooltip,
-        start: 'top 70%',
-      },
-    })
+    if (mediaQuery.matches) {
+      gsap.to(this.tooltipLine, {
+        strokeDashoffset: 0,
+        ease: "none",
+        duration: 1,
+        scrollTrigger: {
+          trigger: this.tooltip,
+          start: 'top 70%',
+        },
+      })
+    }
   }
   initializeTippy(){
     const tooltipDesktop = this.tooltip?.dataset.verticalStart > 50 ? 'bottom' : 'top'
