@@ -55,6 +55,7 @@ function cookie_actions() {
         break
     }
 
+    console.log('ok there')
     quiz_version = getCookie('quiz_version')
     console.log(quiz_version)
     if (quiz_version == null) {
