@@ -132,10 +132,6 @@ function setFirstTimeGtags(affiliate) {
     setCookie('in_house_tracked', 'true')
     setInHouseTracked()
     setGoogleSourceDev(affiliate)
-    setTimeout(function(){
-      setGoogleLanding('landing-page')
-      window.location.href = 'https://www.mylaughland.com/pages/landing-page'
-    }, 200);
   }
 }
 
