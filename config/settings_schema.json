@@ -163,6 +163,21 @@
     ]
   },
   {
+    "name": "Tracking campaigns",
+    "settings": [
+      {
+        "type": "number",
+        "id": "tracking_v1",
+        "label": "V1"
+      },
+      {
+        "type": "number",
+        "id": "tracking_v2",
+        "label": "V2"
+      }
+    ]
+  },
+  {
     "name": "Landing Page",
     "settings": [
       {
