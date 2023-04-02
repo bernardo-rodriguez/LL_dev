@@ -138,9 +138,9 @@ function setFirstTimeGtags(affiliate) {
 
 function landingPageAction(current_page, query_params) {
   console.log("tracking first")
-  console.log($('#tracking_v1'))
+  console.log($('#tracking_v1').innerHTML)
   console.log("tracking second")
-  console.log($('#tracking_v2'))
+  console.log($('#tracking_v2').innerHTML)
   if (current_page == '/') {
     switch(query_params.utm_affiliate_specific) {
       case 'sweatcoin':
