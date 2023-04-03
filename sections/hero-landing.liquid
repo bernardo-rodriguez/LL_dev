@@ -73,6 +73,7 @@
       switch(subscriptionCookie[0]) {
         case 'redirect_ut':
           $('#landing-hero-discounted').css('display', 'block')
+          document.getElementsByClassName('Hero_Subtitle').querySelector('span').style.fontSize = '22px'
           subPrice = '9.95'
           break;
         case 'redirect_ut_direct':
