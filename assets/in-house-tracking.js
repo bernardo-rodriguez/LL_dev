@@ -140,10 +140,10 @@ function landingPageAction(current_page, query_params) {
   // This gets callled on every page visited (script type defer)
   // curent_page: page without query parameters (',', 'pages/landing-page')
   // query_params: dictionary of all query parameters (null if not found)
-  console.log("tracking first")
-  console.log($('#tracking_v1').html())
-  console.log("tracking second")
-  console.log($('#tracking_v2').html())
+  // console.log("tracking first")
+  // console.log($('#tracking_v1').html())
+  // console.log("tracking second")
+  // console.log($('#tracking_v2').html())
   if (current_page == '/') {
     switch(query_params.utm_affiliate_specific) {
       case 'sweatcoin':
