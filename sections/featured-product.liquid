@@ -477,18 +477,26 @@
   console.log(sub_specs)
   
   setTimeout(function(){
-    $('.price-item--sale').first().html("$" + sub_specs[0])
+    document.getElementsByClassName('.price-item--sale')[0].innerHTML = "$" + sub_specs[0]
+    document.getElementsByClassName('.button--full')[0].querySelector('span')[0].innerHTML = 'Start Now — $'+sub_specs[0]+''
+    document.getElementsByClassName('.discount-code')[0].innerHTML = sub_specs[1]
+    document.getElementsByClassName('.discount-text')[0].innerHTML = sub_specs[2]
+    {% comment %} $('.price-item--sale').first().html("$" + sub_specs[0])
     $('.button--full').first().find('span').first().html('Start Now — $'+sub_specs[0]+'')
     $('.discount-code').first().html(sub_specs[1])
-    $('.discount-text').first().html(sub_specs[2])
+    $('.discount-text').first().html(sub_specs[2]) {% endcomment %}
   }, 100);
   
-  $(window).load(function(){
-    $('.price-item--sale').first().html("$" + sub_specs[0])
+  window.onload = (event) => {
+    document.getElementsByClassName('.price-item--sale')[0].innerHTML = "$" + sub_specs[0]
+    document.getElementsByClassName('.button--full')[0].querySelector('span')[0].innerHTML = 'Start Now — $'+sub_specs[0]+''
+    document.getElementsByClassName('.discount-code')[0].innerHTML = sub_specs[1]
+    document.getElementsByClassName('.discount-text')[0].innerHTML = sub_specs[2]
+    {% comment %} $('.price-item--sale').first().html("$" + sub_specs[0])
     $('.button--full').first().find('span').first().html('Start Now — $'+sub_specs[0]+'')
     $('.discount-code').first().html(sub_specs[1])
-    $('.discount-text').first().html(sub_specs[2])
-  })
+    $('.discount-text').first().html(sub_specs[2]) {% endcomment %}
+  };
   
 </script>
 
