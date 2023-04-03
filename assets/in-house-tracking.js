@@ -1,4 +1,4 @@
-affiliate_cookie_options = ['redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans']
+affiliate_cookie_options = ['redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'shareasaleShopifySSCID']
 
 // if user arrives at mylaughland.com?utm_affiliate_specific=cactus_media
 // set cookie to cactus media, and google referral tag to cactus media
@@ -54,7 +54,16 @@ function redirectToLandingIfFirstTime(cookie) {
     setGoogleLanding('homepage')
     // window.location.href = 'https://www.mylaughland.com'
   } else {
-    //clearAndSetCookiesAffiliates(cookie)
+    if (cookie == 'redirect_ut') {
+      tracking_1 = parseInt(document.getElementById('tracking_v1').innerHTML) / 100
+      if (d <= tracking_1) {
+        setCookie('flow_ga_tracking_v1', 'true')
+      } else {
+        clearAllAffiliateCookies()
+        setCookie('redirect_ut', 'true')
+        setCookie('flow__ga_tracking_v2', 'true')
+      }
+    }
     setGoogleLanding('landing-page')
     setTimeout(function(){
       window.location.href = 'https://www.mylaughland.com/pages/landing-page'
@@ -113,12 +122,6 @@ function setGoogleLanding(effective_landing_page) {
 }
 
 
-function clearAndSetCookiesAffiliates(cookie) {
-  clearAllAffiliateCookies()
-  setCookie(cookie, 'true')
-}
-
-
 function setCookieAffiliate(cookie, affiliate) {
   setGoogleSource(affiliate)
   setCookie(cookie, 'true')
@@ -126,8 +129,8 @@ function setCookieAffiliate(cookie, affiliate) {
 
 
 function setFirstTimeGtags(affiliate) {
-  setInHouseTracked2()
-  setGoogleSourceDev2(affiliate)
+  setInHouseTracked2() // set in_house_tracked_2
+  setGoogleSourceDev2(affiliate) // set affiliate_source_dev_2
   if (getCookie("in_house_tracked") != 'true') {
     setCookie('in_house_tracked', 'true')
     setInHouseTracked()
@@ -137,6 +140,9 @@ function setFirstTimeGtags(affiliate) {
 
 
 function landingPageAction(current_page, query_params) {
+  // This gets callled on every page visited (script type defer)
+  // curent_page: page without query parameters (',', 'pages/landing-page')
+  // query_params: dictionary of all query parameters (null if not found)
   if (current_page == '/') {
     switch(query_params.utm_affiliate_specific) {
       case 'sweatcoin':
@@ -179,7 +185,7 @@ function landingPageAction(current_page, query_params) {
         setFirstTimeGtags('NA')
         break;
     } 
-  } else if (current_page == 'clear-affiliate-cookies') {
+  } else if (current_page == '/pages/clear-affiliate-cookies') {
       clearAllAffiliateCookies()
       removeCookie('in_house_tracked')
   } else if (current_page == '/pages/landing-page') {

@@ -435,9 +435,9 @@
   
       switch(subscriptionCookie[0]) {
         case 'redirect_ut':
-          subPrice = '9'
+          subPrice = '9.95'
           discount_name = 'UTM_GEN_AUTOMATIC'
-          discount_desc = '88% Off First Month'
+          discount_desc = '90% Off First Month'
           break;
         case 'redirect_ut_direct':
           subPrice = '9'
@@ -477,18 +477,18 @@
   console.log(sub_specs)
   
   setTimeout(function(){
-    $('.price-item--sale').first().html("$" + sub_specs[0])
-    $('.button--full').first().find('span').first().html('Start Now — $'+sub_specs[0]+'')
-    $('.discount-code').first().html(sub_specs[1])
-    $('.discount-text').first().html(sub_specs[2])
+    document.getElementsByClassName('price-item--sale')[0].innerHTML = "$" + sub_specs[0]
+    document.getElementsByClassName('button--full')[0].querySelector('span').innerHTML = 'Start Now — $'+sub_specs[0]+''
+    document.getElementsByClassName('discount-code')[0].innerHTML = sub_specs[1]
+    document.getElementsByClassName('discount-text')[0].innerHTML = sub_specs[2]
   }, 100);
   
-  $(window).load(function(){
-    $('.price-item--sale').first().html("$" + sub_specs[0])
-    $('.button--full').first().find('span').first().html('Start Now — $'+sub_specs[0]+'')
-    $('.discount-code').first().html(sub_specs[1])
-    $('.discount-text').first().html(sub_specs[2])
-  })
+  window.onload = (event) => {
+    document.getElementsByClassName('price-item--sale')[0].innerHTML = "$" + sub_specs[0]
+    document.getElementsByClassName('button--full')[0].querySelector('span').innerHTML = 'Start Now — $'+sub_specs[0]+''
+    document.getElementsByClassName('discount-code')[0].innerHTML = sub_specs[1]
+    document.getElementsByClassName('discount-text')[0].innerHTML = sub_specs[2]
+  };
   
 </script>
 
