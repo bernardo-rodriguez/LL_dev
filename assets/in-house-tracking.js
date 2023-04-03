@@ -57,9 +57,11 @@ function redirectToLandingIfFirstTime(cookie) {
     if (cookie == 'redirect_ut') {
       tracking_1 = parseInt(document.getElementById('tracking_v1').innerHTML) / 100
       if (d <= tracking_1) {
+        console.log('flow 1')
         setCookie('flow_ga_tracking_v1', 'true')
       } else {
         clearAllAffiliateCookies()
+        console.log('flow 2')
         setCookie('redirect_ut', 'true')
         setCookie('flow__ga_tracking_v2', 'true')
       }
