@@ -57,11 +57,11 @@ function redirectToLandingIfFirstTime(cookie) {
     if (cookie == 'redirect_ut') {
       tracking_1 = parseInt(document.getElementById('tracking_v1').innerHTML) / 100
       if (d <= tracking_1) {
-        setCookie('flow_v1', 'true')
+        setCookie('flow_ga_tracking_v1', 'true')
       } else {
         clearAllAffiliateCookies()
         setCookie('redirect_ut', 'true')
-        setCookie('flow_v2', 'true')
+        setCookie('flow__ga_tracking_v2', 'true')
       }
     }
     setGoogleLanding('landing-page')
