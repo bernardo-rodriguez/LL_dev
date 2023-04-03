@@ -126,8 +126,8 @@ function setCookieAffiliate(cookie, affiliate) {
 
 
 function setFirstTimeGtags(affiliate) {
-  setInHouseTracked2()
-  setGoogleSourceDev2(affiliate)
+  setInHouseTracked2() // set in_house_tracked_2
+  setGoogleSourceDev2(affiliate) // set affiliate_source_dev_2
   if (getCookie("in_house_tracked") != 'true') {
     setCookie('in_house_tracked', 'true')
     setInHouseTracked()
@@ -137,6 +137,9 @@ function setFirstTimeGtags(affiliate) {
 
 
 function landingPageAction(current_page, query_params) {
+  // This gets callled on every page visited (script type defer)
+  // curent_page: page without query parameters (',', 'pages/landing-page')
+  // query_params: dictionary of all query parameters (null if not found)
   console.log("tracking first")
   console.log($('#tracking_v1').html())
   console.log("tracking second")
@@ -183,7 +186,7 @@ function landingPageAction(current_page, query_params) {
         setFirstTimeGtags('NA')
         break;
     } 
-  } else if (current_page == 'clear-affiliate-cookies') {
+  } else if (current_page == '/pages/clear-affiliate-cookies') {
       clearAllAffiliateCookies()
       removeCookie('in_house_tracked')
   } else if (current_page == '/pages/landing-page') {
