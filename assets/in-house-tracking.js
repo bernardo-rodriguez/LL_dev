@@ -55,10 +55,13 @@ function redirectToLandingIfFirstTime(cookie) {
     // window.location.href = 'https://www.mylaughland.com'
   } else {
     if (cookie == 'redirect_ut') {
-      console.log('suppy first time')
-      console.log(cookie)
-      console.log(document.getElementById('tracking_v1').innerHTML)
-      console.log(document.getElementById('tracking_v2').innerHTML)
+      tracking_1 = parseInt(document.getElementById('tracking_v1').innerHTML) / 100
+      console.log(tracking_1)
+      if (d <= tracking_1) {
+        console.log('yes sir')
+      } else {
+        console.log('no sir')
+      }
     }
     setGoogleLanding('landing-page')
     setTimeout(function(){
