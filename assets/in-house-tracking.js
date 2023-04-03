@@ -1,4 +1,4 @@
-affiliate_cookie_options = ['redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans']
+affiliate_cookie_options = ['redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'shareasaleShopifySSCID']
 
 // if user arrives at mylaughland.com?utm_affiliate_specific=cactus_media
 // set cookie to cactus media, and google referral tag to cactus media
@@ -54,7 +54,12 @@ function redirectToLandingIfFirstTime(cookie) {
     setGoogleLanding('homepage')
     // window.location.href = 'https://www.mylaughland.com'
   } else {
-    //clearAndSetCookiesAffiliates(cookie)
+    if (cookie == 'redirect_ut') {
+      console.log('suppy first time')
+      console.log(cookie)
+      console.log(document.getElementById('tracking_v1').innerHTML)
+      console.log(document.getElementById('tracking_v2').innerHTML)
+    }
     setGoogleLanding('landing-page')
     setTimeout(function(){
       window.location.href = 'https://www.mylaughland.com/pages/landing-page'
@@ -113,12 +118,6 @@ function setGoogleLanding(effective_landing_page) {
 }
 
 
-function clearAndSetCookiesAffiliates(cookie) {
-  clearAllAffiliateCookies()
-  setCookie(cookie, 'true')
-}
-
-
 function setCookieAffiliate(cookie, affiliate) {
   setGoogleSource(affiliate)
   setCookie(cookie, 'true')
@@ -140,10 +139,6 @@ function landingPageAction(current_page, query_params) {
   // This gets callled on every page visited (script type defer)
   // curent_page: page without query parameters (',', 'pages/landing-page')
   // query_params: dictionary of all query parameters (null if not found)
-  console.log("tracking first")
-  console.log(document.getElementById('tracking_v1').innerHTML)
-  console.log("tracking second")
-  console.log(document.getElementById('tracking_v2').innerHTML)
   if (current_page == '/') {
     switch(query_params.utm_affiliate_specific) {
       case 'sweatcoin':
