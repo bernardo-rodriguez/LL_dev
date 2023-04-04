@@ -239,8 +239,13 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   setToOneMonth() {
     const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'shareasaleShopifySSCID', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans']
     let subscriptionCookie = cookies.filter( cookieName => this.getCookie(cookieName) != null )
-
-    if (["redirect_ut", "redirect_sweatcoin"].includes(subscriptionCookie[0])) {
+    if (["redirect_ut"].includes(subscriptionCookie[0])) {
+      const elements = document.querySelectorAll('.rc-selling-plans__dropdown');
+      Array.from(elements).forEach((element, index) => {
+        element.value = 3450700001
+      }); 
+    }
+    if (["redirect_sweatcoin"].includes(subscriptionCookie[0])) {
       const elements = document.querySelectorAll('.rc-selling-plans__dropdown');
       Array.from(elements).forEach((element, index) => {
         element.value = 3449880801
