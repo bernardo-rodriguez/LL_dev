@@ -55,6 +55,9 @@ function cookie_actions() {
         path = window.location.pathname
         if (path == '/products/at-home-whitening-kit') {
           window.location = '/products/at-home-whitening-kit-2'
+        } else if (path == '/pages/landing-page') {
+          document.getElementByClassName('price-item--regular')[0].innerHTML = '$100'
+          document.getElementByClassName('price-item--regular')[1].innerHTML = '$100'
         }
         break
       case 'redirect_inspire': // redirect inspire annoucnement text 
