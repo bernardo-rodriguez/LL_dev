@@ -5,7 +5,12 @@
 {{ 'recharge-widget-styles.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<script>
+var xhttp = new XMLHttpRequest();
 
+xhttp.open("POST", "/cart/clear.js", true);
+xhttp.send();
+</script>
 <section>
   <div class="product">
     <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
