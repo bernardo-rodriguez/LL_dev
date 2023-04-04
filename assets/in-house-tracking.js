@@ -1,4 +1,4 @@
-affiliate_cookie_options = ['redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'shareasaleShopifySSCID']
+affiliate_cookie_options = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'shareasaleShopifySSCID']
 
 // if user arrives at mylaughland.com?utm_affiliate_specific=cactus_media
 // set cookie to cactus media, and google referral tag to cactus media
@@ -181,6 +181,11 @@ function landingPageAction(current_page, query_params) {
         setCookieAffiliate('redirect_ut', 'Cactus Media')
         setFirstTimeGtags('Cactus Media')
         redirectToLandingIfFirstTime('redirect_ut')
+        break;
+      case 'redirect_inspire':
+        setCookieAffiliate('redirect_inspire', 'Inspire More')
+        setFirstTimeGtags('Inspire More')
+        redirectToLandingIfFirstTime('redirect_inspire')
         break;
       default:
         // setCookie('redirect_sweatcoin', 'true')

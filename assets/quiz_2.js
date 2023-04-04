@@ -157,7 +157,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       console.log(document.cookie)
 
       if (ut == 'true' && ut_direct != 'true') {
-        window.location = '/products/at-home-whitening-kit'
+        window.location = '/products/at-home-whitening-kit-2'
       } else {
         window.location = '/products/at-home-whitening-kit'
       }

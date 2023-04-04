@@ -237,7 +237,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   setToOneMonth() {
-    const cookies = ['redirect_ut', 'redirect_ut_direct', 'shareasaleShopifySSCID', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans']
+    const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'shareasaleShopifySSCID', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans']
     let subscriptionCookie = cookies.filter( cookieName => this.getCookie(cookieName) != null )
 
     if (["redirect_ut", "redirect_sweatcoin"].includes(subscriptionCookie[0])) {
@@ -249,7 +249,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
   
   getSubPrice() {
-    const cookies = ['redirect_ut', 'redirect_ut_direct', 'shareasaleShopifySSCID', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans']
+    const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'shareasaleShopifySSCID', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans']
 
     let subscriptionCookie = cookies.filter( cookieName => this.getCookie(cookieName) != null )
     let subPrice = ''
@@ -280,6 +280,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         break
       case 'redirect_studentbeans':
         subPrice = '$9'
+        subText = 'Subscribe & Save'
+        break
+      case 'redirect_inspire':
+        subPrice = '$13.5'
         subText = 'Subscribe & Save'
         break
       default:
