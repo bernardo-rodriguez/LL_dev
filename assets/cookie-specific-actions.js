@@ -47,17 +47,17 @@ function cookie_actions() {
     let subscriptionCookie = cookies.filter( cookieName => getCookie(cookieName) != null )
 
     switch(subscriptionCookie[0]) {
-      case 'redirect_sweatcoin':
+      case 'redirect_sweatcoin': //sweatcoin annoucnement text 
         showAnnouncementBar('👋 Sweatcoin Users! Discount auto applied at checkout')
         break
-      case 'redirect_ut':
+      case 'redirect_ut': //cactus annoucnement text 
         showAnnouncementBar('Discount & Shipping Automatically Applied at Checkout!')
         path = window.location.pathname
         if (path == '/products/at-home-whitening-kit') {
           window.location = '/products/at-home-whitening-kit-2'
         }
         break
-      case 'redirect_inspire':
+      case 'redirect_inspire': // redirect inspire annoucnement text 
         showAnnouncementBar('InspireMore readers, Discount is Automatically Applied at Checkout!')
         break
       default:
