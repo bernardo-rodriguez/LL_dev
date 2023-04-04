@@ -51,8 +51,14 @@ function cookie_actions() {
         showAnnouncementBar('👋 Sweatcoin Users! Discount auto applied at checkout')
         break
       case 'redirect_ut':
-        showAnnouncementBar('Free Shipping + Discount auto applied at checkout')
+        showAnnouncementBar('Discount & Shipping Automatically Applied at Checkout!')
         break
+      case 'redirect_inspire':
+        showAnnouncementBar('InspireMore readers, Discount is Automatically Applied at Checkout!')
+        break
+      default:
+        showAnnouncementBar('Start Whitening Today for just $19!')
+        break;
     }
 
     quiz_version = getCookie('quiz_version')
