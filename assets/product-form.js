@@ -43,7 +43,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     const name = `${first_name}${ last_name != "" ? ' ' + last_name : ''}`
 
-    if ( name != "" && !storedProductName?.toLowerCase().includes("to go pen") && window.location.path != '/pages/landing-page') {
+    if ( name != "" && !storedProductName?.toLowerCase().includes("to go pen") && window.location.pathname != '/pages/landing-page') {
       this.container.querySelector('#product__title_id').innerHTML = `<span class="stylized">${name}'s</span><br> ${storedProductName.replace(/[^\p{L}\p{N}\p{P}\p{Z}^$\n]/gu, '')}`
     }
 
