@@ -268,7 +268,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         break;
       case 'redirect_ut_direct':
         subPrice = '$9'
-        subText = 'Subscribe & Save'
+        subText = 'Starter Special'
         break
       case 'redirect_paceline':
         subPrice = '$29'
