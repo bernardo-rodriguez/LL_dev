@@ -257,7 +257,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     switch(subscriptionCookie[0]) {
       case 'redirect_ut':
-        subPrice = '$9'
+        subPrice = '$9.95'
         subText = 'Subscribe & Save'
         this.setToOneMonth()
         break;

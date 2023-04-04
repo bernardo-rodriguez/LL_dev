@@ -22,23 +22,6 @@
         "show_rating": false
       }
     },
-    "1680399176ee7b0c7f": {
-      "type": "apps",
-      "blocks": {
-        "bd1ddfd2-fd13-4fda-9b22-666aecfef630": {
-          "type": "shopify:\/\/apps\/recharge-subscriptions\/blocks\/subscription-widget\/371eed76-0b44-4869-9813-730372ea378e",
-          "settings": {
-            "product": "{{product}}"
-          }
-        }
-      },
-      "block_order": [
-        "bd1ddfd2-fd13-4fda-9b22-666aecfef630"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
     "6916709c-578f-4b73-afd1-d8e53aa1db15": {
       "type": "carousel",
       "blocks": {
@@ -232,7 +215,6 @@
   "order": [
     "main",
     "product-recommendations",
-    "1680399176ee7b0c7f",
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
     "30a71a58-b5ad-472f-9d70-97379fc62b74",
     "d7a83216-e232-4258-9705-5edf54558f0b",
