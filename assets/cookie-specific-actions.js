@@ -52,6 +52,10 @@ function cookie_actions() {
         break
       case 'redirect_ut':
         showAnnouncementBar('Discount & Shipping Automatically Applied at Checkout!')
+        path = window.location.pathname
+        if (path == 'products/at-home-whitening-kit') {
+          window.location = 'products/at-home-whitening-kit-2'
+        }
         break
       case 'redirect_inspire':
         showAnnouncementBar('InspireMore readers, Discount is Automatically Applied at Checkout!')
