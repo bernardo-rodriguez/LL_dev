@@ -129,6 +129,13 @@
 
 .product-form__buttons {
   margin-top: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-quantity_selector {
+  width: 70px;
+	margin-right: 10px;
 }
 
 .product-form .satisfaction-guarantee {

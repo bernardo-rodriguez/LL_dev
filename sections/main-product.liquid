@@ -255,7 +255,7 @@ xhttp.send();
               </div>
 
               <div class="product-form__buttons">
-                <select id="dropdown">
+                <select id="dropdown" class='dropdown-quantity_selector'>
                   <option value="1">Option 1</option>
                   <option value="2">Option 2</option>
                   <option value="3">Option 3</option>
@@ -264,7 +264,7 @@ xhttp.send();
                 <button
                   type="submit"
                   name="add"
-                  class="product-form__submit button button--full {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
+                  class="product-form__submit button button--flex {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
                   {% if product.selected_or_first_available_variant.available == false %}
                     disabled
                   {% endif %}
