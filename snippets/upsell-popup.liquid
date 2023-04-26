@@ -3,12 +3,12 @@
     <div id = 'upsell_background' class = 'upsell-background-screen'>
       <div class = 'upsell-wrapper'>
         <div class = 'upsell-box'>
-          <h1 class = 'headers_upsell show-normal-inline'>Complete The Set</h1>
+          <h2 class = 'headers_upsell show-normal-inline'>Complete The Set</h2>
           <h2 class = 'headers_upsell show-mobile-inline'>Complete The Set</h2>
           <div class = 'content-flex'>
            <img class = 'pen_image' src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/penchunky.png?v=1646680406";>
           </div>
-          <h2 class = 'headers_upsell' style = 'color: white'>To-Go Whitening Pen</h2>
+          <h3 class = 'headers_upsell' style = 'color: white; margin-bottom: 0px'>To-Go Whitening Pen</h3>
           <div style = 'text-align:center;'>
             <div style = 'text-align: left; width: fit-content; display: inline-block'>
               <ul>
@@ -157,9 +157,10 @@
               max-width: 250px;
               margin: auto;
               background-color: white !important;
+              margin-bottom: 5px;
         }
           .headers_upsell {
-             font-family: Futura;
+             {% comment %} font-family: Futura; {% endcomment %}
               font-style: normal;
               font-weight: 400;
               padding: 10px;
@@ -185,7 +186,6 @@
             backdrop-filter: blur(6px);
             z-index: 100;
             display: none;
-            margin-top: 20px;
         }
         .upsell-wrapper {
             position: absolute;
@@ -193,6 +193,7 @@
             top: 50%;
             -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
+            margin-top: 20px;
         }
         .pen_image {
             border-radius: 10px;
