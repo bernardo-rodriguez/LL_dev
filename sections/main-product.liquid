@@ -259,8 +259,10 @@ xhttp.send();
                 </div>
 
                 <button
-                  type="submit"
-                  name="add"
+                  {% comment %} type="submit"
+                  name="add" {% endcomment %}
+                  type='button'
+                  id='main-clickable-button'
                   class="product-form__submit button button--flex {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
                   {% if product.selected_or_first_available_variant.available == false %}
                     disabled
@@ -348,6 +350,12 @@ xhttp.send();
 </section>
 
 {% javascript %}
+  document.getElementById('main-clickable-button').addEventListener("click", upsellLogic);
+
+  function upsellLogic() {
+    openPopup()
+  }
+
   // Main product slider
   const productSlider = new Swiper('.product__media-list', {
     slidesPerView: 1,
