@@ -11,6 +11,7 @@ var xhttp = new XMLHttpRequest();
 xhttp.open("POST", "/cart/clear.js", true);
 xhttp.send();
 </script>
+{% render 'upsell-popup' %}
 <section>
   <div class="product">
     <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">

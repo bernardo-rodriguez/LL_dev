@@ -1,0 +1,243 @@
+{% if product.handle == "at-home-whitening-kit" or product.handle == "at-home-whitening-kit-2" %}
+
+    <div id = 'upsell_background' class = 'upsell-background-screen'>
+      <div class = 'upsell-wrapper'>
+        <div class = 'upsell-box'>
+          <h1 class = 'headers_upsell show-normal-inline'>Complete The Set</h1>
+          <h2 class = 'headers_upsell show-mobile-inline'>Complete The Set</h2>
+          <div class = 'content-flex'>
+           <img class = 'pen_image' src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/penchunky.png?v=1646680406";>
+          </div>
+          <h2 class = 'headers_upsell' style = 'color: white'>To-Go Whitening Pen</h2>
+          <div style = 'text-align:center;'>
+            <div style = 'text-align: left; width: fit-content; display: inline-block'>
+              <ul>
+                <li class = 'spacing show-normal'>Same clinically proven formulas, now easily portable</li>
+                <li class = 'spacing show-mobile'>Same clinically proven formulas, portable</li>
+                <li class = 'spacing show-normal'>Fits neatly into purses, toiletry bags, and backpacks</li>
+                <li class = 'spacing show-mobile'>Fits neatly into purses and your pocket</li>
+                <li class = 'spacing'>For weddings, date nights, interviews and everything in between</li>
+              </ul>
+            </div>
+          </div>
+          <button
+           class="product-form__submit shopify-payment-button__button shopify-payment-button__button--unbranded upsell_buttons button"
+           style = 'color: #285ab1;'
+           onclick = 'add_pen()'       >
+            <span class = 'spacing'>
+                Add to cart | $9
+            </span>
+          </button>
+          <button
+           class="product-form__submit shopify-payment-button__button shopify-payment-button__button--unbranded upsell_buttons button"
+            style = 'color: red;'
+            onclick = 'checkout()'      >
+            <span class = 'spacing'>
+                No, thanks!
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <div id = 'upsell_background' class = 'upsell-background-screen'>
+      <div class = 'upsell-wrapper'>
+        <div class = 'upsell-box'>
+          <h1 class = 'headers_upsell show-normal-inline'>Complete The Set</h1>
+          <h2 class = 'headers_upsell show-mobile-inline'>Complete The Set</h2>
+          <div class = 'content-flex'>
+           <img class = 'pen_image' src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/image_4.png?v=1647385882";>
+          </div>
+          <h2 class = 'headers_upsell' style = 'color: white'>Whitening Kit</h2>
+          <div style = 'text-align:center;'>
+            <div style = 'text-align: left; width: fit-content; display: inline-block'>
+              <ul>
+                <li class = 'spacing show-normal'>Everything you need for a bright smile that never dulls.</li>
+                <li class = 'spacing show-mobile'>Everything you need for a bright smile that never dulls.</li>
+                <li class = 'spacing show-normal'>Whitening kit includes a LED light and 3 personalized whitening gels.</li>
+                <li class = 'spacing show-mobile'>Whitening kit includes a LED light and 3 personalized whitening gels.</li>
+                <li class = 'spacing'>Dentist made, sensitivity-free teeth whitening powered by your phone.</li>
+              </ul>
+            </div>
+          </div>
+          <button
+           class="product-form__submit shopify-payment-button__button shopify-payment-button__button--unbranded upsell_buttons button"
+           style = 'color: #285ab1;'
+           onclick = 'add_pen()'       >
+            <span class = 'spacing'>
+                Add to cart | $19
+            </span>
+          </button>
+          <button
+           class="product-form__submit shopify-payment-button__button shopify-payment-button__button--unbranded upsell_buttons button"
+            style = 'color: red;'
+            onclick = 'checkout()'      >
+            <span class = 'spacing'>
+                No, thanks!
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    {%endif%}
+    <script>
+      function checkout() {
+        $('#direct-to-checkout-btn').click()
+        $('body').css("filter","none");
+      }
+      function add_pen() {
+        const strength_cookie = getCookie('strength')
+        kit_formula_dict = {
+          'medium': 42250643833057,
+          'strong': 42250643865825,
+          'weak': 42250643898593
+        }
+        
+        pen_formula_dict = {
+          'medium': 42210600812769,
+          'strong': 42210600845537,
+          'weak': 42210600878305
+        }
+      {% if product.handle == "at-home-whitening-kit" or product.handle == "at-home-whitening-kit-2" %}
+        if (strength_cookie in pen_formula_dict) {
+          formula_id = pen_formula_dict[strength_cookie]
+        } else {
+          formula_id = pen_formula_dict['medium']
+        }
+        pen = 
+          {
+           "id": formula_id,
+           "quantity":  1,
+           "selling_plan": 3450175713
+    
+          }
+        {% else %}
+        if (strength_cookie in kit_formula_dict) {
+          formula_id = kit_formula_dict[strength_cookie]
+        } else {
+          formula_id = kit_formula_dict['medium']
+        }
+        pen = 
+          {
+           id: formula_id,
+           "quantity":  1,
+           "properties": {
+                "shipping_interval_frequency": '1',
+                "shipping_interval_unit_type": 'month',
+                "charge_interval_frequency": '1',
+                "charge_interval_unit_type": 'month'
+           }
+          }
+        {% endif %}
+        
+        $.post('/cart/add.js', pen)
+        .then(response => {
+          $('#direct-to-checkout-btn').click()
+          $('body').css("filter","none");
+        })
+    
+      }
+      
+    
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      }
+    </script>
+    <style>
+          .upsell_buttons {
+              font-weight: 600; 
+              border: none; 
+              box-shadow: none !important;
+              max-width: 250px;
+              margin: auto;
+              background-color: white !important;
+        }
+          .headers_upsell {
+             font-family: Futura;
+              font-style: normal;
+              font-weight: 400;
+              padding: 10px;
+              letter-spacing: -.045em;
+        }
+          .spacing {
+              letter-spacing: .01em;
+        }
+        .upsell-box {
+             width: 600px;
+              height: 90vh;
+              background-color: #ffbdbe;
+              border-radius: 10px;
+              padding: 20px;
+              text-align: center;
+              display: flex;
+              flex-flow: column;
+        }
+        .upsell-background-screen {
+            width: 100vw; 
+            height: 100vh; 
+            position: fixed; 
+    /*         background-color: white;  */
+            z-index: 100;
+            display: none;
+        }
+        .upsell-wrapper {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .pen_image {
+            border-radius: 10px;
+              border: 2px solid white;
+              display: inline-block;
+              height: 100%;
+        }
+          .content-flex {
+             flex: 1 1 auto; 
+              overflow: hidden;
+        }
+      
+          .show-normal {
+             display: list-item 
+        }
+          .show-mobile {
+             display: none 
+        }
+          .show-normal-inline {
+             display: inline-block 
+        }
+          .show-mobile-inline {
+             display: none 
+        }
+          @media screen and (max-width: 750px) {
+              .upsell-box {
+              width: 92vw;
+              height: 80vh;
+              padding: 15px;
+            }
+              .upsell-wrapper {
+              position: absolute;
+              left: 50%;
+              top: 20px;
+              -webkit-transform: translateX(-50%);
+              transform: translateX(-50%);
+            }
+              .show-normal {
+                display: none 
+            }
+            .show-mobile {
+                display: list-item  
+            }
+              .show-normal-inline {
+                display: none
+            }
+            .show-mobile-inline {
+                display: inline-block 
+            }
+        }
+    </style>
+    
