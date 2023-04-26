@@ -924,8 +924,10 @@ input[type='checkbox'] {
   border: 1px solid black;
   position: relative;
   height: 45px;
-  width: 120px;
+  width: 70px;
   display: flex;
+  margin-right: 5px;
+  border-radius: 15px;
 }
 
 .quantity__input {
@@ -942,7 +944,7 @@ input[type='checkbox'] {
 }
 
 .quantity__button {
-  width: 45px;
+  width: 25px;
   flex-shrink: 0;
   font-size: 1.8rem;
   border: 0;
