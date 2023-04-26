@@ -134,8 +134,15 @@
 }
 
 .dropdown-quantity_selector {
-  width: 70px;
-	margin-right: 10px;
+  border-radius: 20px;
+  background-color: #faf5f1;
+  width: 55px;
+  margin-right: 10px;
+  padding: 12.5px 10px 13.5px;
+  color: #46bdf0;
+  font-weight: bold;
+  font-size: 20px;
+  border: 1px solid var(--navy);
 }
 
 .product-form .satisfaction-guarantee {
