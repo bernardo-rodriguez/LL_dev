@@ -129,6 +129,19 @@
 
 .product-form__buttons {
   margin-top: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-quantity_selector {
+  border-radius: 20px;
+  background-color: #faf5f1;
+  width: 55px;
+  margin-right: 10px;
+  padding: 12.5px 10px 13.5px;
+  font-weight: bold;
+  font-size: 20px;
+  border: 1px solid var(--navy);
 }
 
 .product-form .satisfaction-guarantee {
