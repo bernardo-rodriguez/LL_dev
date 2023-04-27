@@ -2424,7 +2424,8 @@ section.with-spacing {
 .recharge-te div,
 .recharge-te ul,
 .recharge-te ol,
-.recharge-te li {
+.recharge-te li,
+.recharge-te strong {
   font-family: jakarta !important;
   font-weight: 500 !important;
   color: #0d2244 !important;
@@ -2491,7 +2492,8 @@ section.with-spacing {
 .rct_sidebar div,
 .rct_sidebar ul,
 .rct_sidebar ol,
-.rct_sidebar li {
+.rct_sidebar li,
+.rct_sidebar strong {
   font-family: jakarta !important;
   font-weight: 500 !important;
   color: #0d2244 !important;
