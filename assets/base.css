@@ -2465,9 +2465,23 @@ section.with-spacing {
 
 .recharge-te .rct_button,
 .recharge-te .rct_button--secondary {
+  border-radius: 40px !important;
+  transition: all .5s ease !important;
+  font-family: jakarta !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  line-height: 1 !important;
   box-shadow: none !important;
   background: transparent !important;
   color: var(--navy) !important;
   border: 1px solid var(--navy) !important;
 }
+
+.recharge-te .rct_button:hover,
+.recharge-te .rct_button--secondary:hover {
+  background: var(--blue-tint-20) !important;
+  box-shadow: none !important;
+  color: var(--navy) !important;  
+}
+
 
