@@ -2427,6 +2427,7 @@ section.with-spacing {
 .recharge-te li {
   font-family: jakarta !important;
   font-weight: 500 !important;
+  color: #0d2244 !important;
 }
 
 .recharge-te h1,
@@ -2442,6 +2443,7 @@ section.with-spacing {
 .recharge-te .h5 {
   font-family: manrope, sans-serif !important;
   font-weight: 500 !important;
+  color: #0d2244 !important;
 }
 
 .recharge-te {
@@ -2460,3 +2462,12 @@ section.with-spacing {
 .recharge-te .wrapper  .rct_card--order {
   margin-top: 20px !important;
 }
+
+.recharge-te .rct_button,
+.recharge-te .rct_button--secondary {
+  box-shadow: none !important;
+  background: transparent !important;
+  color: var(--navy) !important;
+  border: 1px solid var(--navy) !important;
+}
+
