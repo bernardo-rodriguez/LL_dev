@@ -35,6 +35,10 @@
   flex-shrink: 0;
 }
 
+.customer__navigation-manage {
+  margin-bottom: 20px;
+}
+
 .customer__navigation-link {
   margin-bottom: 18px;
   display: block;
