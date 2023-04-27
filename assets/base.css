@@ -2448,6 +2448,10 @@ section.with-spacing {
   background-color: #faf5f1 !important;
 }
 
+.rct_navigation {
+  border-left: 0 !important;
+  border-right: 0 !important;
+}
 .recharge-te .wrapper {
   padding: 72px 0 100px;
   margin-bottom: 50px;
