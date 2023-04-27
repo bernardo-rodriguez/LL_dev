@@ -137,7 +137,7 @@
     {% if template == 'product' %}
       {% section 'sticky-product-bar' %}
     {% else %}
-      {% unless template == 'cart' or template.name == 'account'%}
+      {% unless template == 'cart' or template.name == 'account' or page.canonical_url contains 'tools' %}
       {% section 'quiz' %}
       {% section 'quiz-2' %}
       {% section 'sticky-footer' %}
