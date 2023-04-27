@@ -2444,6 +2444,10 @@ section.with-spacing {
   font-weight: 500 !important;
 }
 
+.recharge-te {
+  background-color: #faf5f1 !important;
+}
+
 .recharge-te .wrapper {
   padding: 72px 0 100px;
   margin-bottom: 50px;
