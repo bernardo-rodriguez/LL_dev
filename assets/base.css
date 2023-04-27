@@ -2485,4 +2485,32 @@ section.with-spacing {
   color: var(--navy) !important;  
 }
 
+.rct_sidebar p,
+.rct_sidebar a,
+.rct_sidebar span,
+.rct_sidebar div,
+.rct_sidebar ul,
+.rct_sidebar ol,
+.rct_sidebar li {
+  font-family: jakarta !important;
+  font-weight: 500 !important;
+  color: #0d2244 !important;
+}
+
+.rct_sidebar h1,
+.rct_sidebar h2,
+.rct_sidebar h3,
+.rct_sidebar h4,
+.rct_sidebar h5,
+.rct_sidebar h6,
+.rct_sidebar .h1,
+.rct_sidebar .h2,
+.rct_sidebar .h3,
+.rct_sidebar .h4,
+.rct_sidebar .h5 {
+  font-family: manrope, sans-serif !important;
+  font-weight: 500 !important;
+  color: #0d2244 !important;
+}
+
 
