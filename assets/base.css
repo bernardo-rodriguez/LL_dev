@@ -2443,3 +2443,8 @@ section.with-spacing {
   font-family: manrope, sans-serif !important;
   font-weight: 500 !important;
 }
+
+.recharge-te .wrapper {
+  padding: 72px 0 100px;
+  margin-bottom: 50px;
+}
