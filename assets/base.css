@@ -2416,3 +2416,30 @@ section.with-spacing {
 .stars__text {
   margin-bottom: 0;
 }
+
+/*================ Recharge Account Portal ================*/
+.recharge-te p,
+.recharge-te a,
+.recharge-te span,
+.recharge-te div,
+.recharge-te ul,
+.recharge-te ol,
+.recharge-te li {
+  font-family: jakarta !important;
+  font-weight: 500 !important;
+}
+
+.recharge-te h1,
+.recharge-te h2,
+.recharge-te h3,
+.recharge-te h4,
+.recharge-te h5,
+.recharge-te h6,
+.recharge-te .h1,
+.recharge-te .h2,
+.recharge-te .h3,
+.recharge-te .h4,
+.recharge-te .h5 {
+  font-family: manrope, sans-serif !important;
+  font-weight: 500 !important;
+}
