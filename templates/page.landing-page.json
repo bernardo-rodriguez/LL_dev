@@ -310,14 +310,32 @@
           "type": "slide",
           "settings": {
             "svg": "",
-            "png": "shopify:\/\/shop_images\/buzzfeed-logo_blue_0a0973f6-c62c-4750-bc63-096e9ab38351.png",
-            "text": "“More convenient, affordable, and, perhaps most important of all, not at all irritating.”"
+            "png": "shopify:\/\/shop_images\/325-3258311_good-morning-america-logo.png",
+            "text": "“No two smiles are the same, so why should your whitening formula be?\""
+          }
+        },
+        "b20252da-6f97-40ae-92c3-af2f2dfb57cb": {
+          "type": "slide",
+          "settings": {
+            "svg": "",
+            "png": "shopify:\/\/shop_images\/og-image-logo-social.png",
+            "text": "“The most affordable and innovative teeth-whitening solution”"
+          }
+        },
+        "e0668eb5-84e1-4cb5-81e4-1c8cc17910e5": {
+          "type": "slide",
+          "settings": {
+            "svg": "",
+            "png": "shopify:\/\/shop_images\/forbes-logo-black.png",
+            "text": "“Best Teeth Whitening Kit With Fast Results”"
           }
         }
       },
       "block_order": [
         "1b3fc029-1055-4710-8825-398d2d320b7c",
-        "83b29aad-1ec3-43d4-9d28-f3f7680cfd9d"
+        "83b29aad-1ec3-43d4-9d28-f3f7680cfd9d",
+        "b20252da-6f97-40ae-92c3-af2f2dfb57cb",
+        "e0668eb5-84e1-4cb5-81e4-1c8cc17910e5"
       ],
       "settings": {
       }
