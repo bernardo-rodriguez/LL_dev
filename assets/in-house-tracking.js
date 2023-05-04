@@ -66,10 +66,21 @@ function redirectToLandingIfFirstTime(cookie) {
         setCookie('flow__ga_tracking_v2', 'true')
       }
     }
-    setGoogleLanding('landing-page')
-    setTimeout(function(){
-      window.location.href = 'https://www.mylaughland.com/pages/landing-page'
-    }, 200);
+
+    if (getCookie("in_house_already_redirected") != 'true') {
+      setCookie('in_house_already_redirected', 'true')
+
+      setGoogleLanding('landing-page')
+      setTimeout(function(){
+        window.location.href = 'https://www.mylaughland.com/pages/landing-page'
+      }, 200);
+
+    }
+    
+    // setGoogleLanding('landing-page')
+    // setTimeout(function(){
+    //   window.location.href = 'https://www.mylaughland.com/pages/landing-page'
+    // }, 200);
   }
   // }
 }
