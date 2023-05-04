@@ -83,6 +83,8 @@
           subPrice = '29'
           break
         case 'redirect_sweatcoin':
+          $('#landing-hero-discounted').css('display', 'block')
+          document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
           subPrice = '9.95'
           break
         case 'redirect_miles':
