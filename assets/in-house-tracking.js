@@ -27,7 +27,7 @@ function getCookie(cname) {
 
 function setCookie(key, value) {
   var date = new Date();
-  date.setFullYear(date.getFullYear() + 1);
+  date.setDate(date.getDate() + 1)
   var expires = date.toUTCString();
   document.cookie = `${key}=${value}; expires=${expires}; path=/`;
 }
