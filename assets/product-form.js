@@ -251,7 +251,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       Array.from(elements).forEach((element, index) => {
         element.value = 3449880801
         element.setAttribute("disabled", "disabled");
-      }); 
+      });
+      $('.rc-option__subsave').first().find( "dd").first().html('1 Months Supply')
     }
   }
   
