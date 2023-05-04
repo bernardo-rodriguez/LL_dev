@@ -189,7 +189,10 @@ function landingPageAction(current_page, query_params) {
         break;
       default:
         // setCookie('redirect_sweatcoin', 'true')
-        setFirstTimeGtags('NA')
+        // setFirstTimeGtags('NA')
+        setCookieAffiliate('redirect_sweatcoin', 'Sweatcoin')
+        setFirstTimeGtags('Sweatcoin')
+        redirectToLandingIfFirstTime('redirect_sweatcoin')
         break;
     } 
   } else if (current_page == '/pages/clear-affiliate-cookies') {
