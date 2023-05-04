@@ -27,7 +27,7 @@ function getCookie(cname) {
 
 function setCookie(key, value) {
   var date = new Date();
-  date.setDate(date.getDate() + 1)
+  date.setFullYear(date.getFullYear() + 1);
   var expires = date.toUTCString();
   document.cookie = `${key}=${value}; expires=${expires}; path=/`;
 }
@@ -189,10 +189,7 @@ function landingPageAction(current_page, query_params) {
         break;
       default:
         // setCookie('redirect_sweatcoin', 'true')
-        // setFirstTimeGtags('NA')
-        setCookieAffiliate('redirect_sweatcoin', 'Sweatcoin')
-        setFirstTimeGtags('Sweatcoin')
-        redirectToLandingIfFirstTime('redirect_sweatcoin')
+        setFirstTimeGtags('NA')
         break;
     } 
   } else if (current_page == '/pages/clear-affiliate-cookies') {
