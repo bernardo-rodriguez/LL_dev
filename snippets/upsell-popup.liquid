@@ -25,7 +25,7 @@
             <div class = 'button-wrapper-upsell'>
               <button
                 class="product-form__submit shopify-payment-button__button shopify-payment-button__button--unbranded upsell_buttons button"
-                style = 'background-color: #46BDF0;'
+                style = 'background-color: #46BDF0 !important;'
                 onclick = 'add_pen()'       >
                  <span class = 'spacing'>
                      Add to Order
@@ -33,7 +33,7 @@
                </button>
                <button
                 class="product-form__submit shopify-payment-button__button shopify-payment-button__button--unbranded upsell_buttons button"
-                 style = 'color: #46BDF0; border: 1px solid #46BDF0'
+                 style = 'color: #46BDF0; border: 1px solid #46BDF0; background-color: white !important;'
                  onclick = 'checkout()'      >
                  <span class = 'spacing'>
                      Skip
@@ -169,7 +169,6 @@
               box-shadow: none !important;
               max-width: 250px;
               margin: auto;
-              background-color: white !important;
               margin-bottom: 5px;
               display: block;
         }
@@ -191,6 +190,7 @@
               text-align: center;
               display: flex;
               flex-flow: column;
+              border: 1px solid #46BDF0;
         }
         .upsell-background-screen {
             width: 100vw; 
