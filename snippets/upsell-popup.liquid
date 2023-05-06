@@ -92,7 +92,7 @@
     {%endif%}
     <script>
       function checkout() {
-        $('#direct-to-checkout-btn').click()
+        $('#real-submit-button').click()
         $('body').css("filter","none");
       }
       function openPopup() {
@@ -145,7 +145,7 @@
         
         $.post('/cart/add.js', pen)
         .then(response => {
-          $('#direct-to-checkout-btn').click()
+          $('#real-submit-button').click()
           $('body').css("filter","none");
         })
     
