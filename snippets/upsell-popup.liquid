@@ -18,11 +18,11 @@
               <div class = 'right-column-popup'>
                 <h5 class = 'headers_upsell show-normal-inline'>To-Go Whitening Pen</h5>
               </div>
-              <div>
-                <p>Like a Tide pen for your teeth. Perfect for quick touch-ups on the road, right before a date, interview or meeting.</p>
-              </div>
             </div>
             <div>
+              <p>Like a Tide pen for your teeth. Perfect for quick touch-ups on the road, right before a date, interview or meeting.</p>
+            </div>
+            <div class = 'button-wrapper-upsell'>
               <button
                 class="product-form__submit shopify-payment-button__button shopify-payment-button__button--unbranded upsell_buttons button"
                 style = 'color: #285ab1;'
@@ -159,6 +159,10 @@
       }
     </script>
     <style>
+          .button-wrapper-upsell {
+            background-color: #ECF8FE;
+            border-top: 1px solid #46BDF0;
+          }
           .upsell_buttons {
               font-weight: 600; 
               border: none; 
@@ -167,6 +171,7 @@
               margin: auto;
               background-color: white !important;
               margin-bottom: 5px;
+              display: block;
         }
           .headers_upsell {
              {% comment %} font-family: Futura; {% endcomment %}
@@ -175,7 +180,7 @@
               padding: 10px;
               letter-spacing: -.045em;
         }
-          .spacing {
+        .spacing {
               letter-spacing: .01em;
         }
         .upsell-box {
@@ -183,7 +188,6 @@
               height: 90vh;
               background-color: white;
               border-radius: 10px;
-              padding: 20px;
               text-align: center;
               display: flex;
               flex-flow: column;
