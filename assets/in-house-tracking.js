@@ -27,7 +27,7 @@ function getCookie(cname) {
 
 function setCookie(key, value) {
   var date = new Date();
-  date.setFullYear(date.getFullYear() + 1);
+  date.setDate(date.getDate() + 1)
   var expires = date.toUTCString();
   document.cookie = `${key}=${value}; expires=${expires}; path=/`;
 }
@@ -66,10 +66,21 @@ function redirectToLandingIfFirstTime(cookie) {
         setCookie('flow__ga_tracking_v2', 'true')
       }
     }
-    setGoogleLanding('landing-page')
-    setTimeout(function(){
-      window.location.href = 'https://www.mylaughland.com/pages/landing-page'
-    }, 200);
+
+    if (getCookie("in_house_already_redirected") != 'true') {
+      setCookie('in_house_already_redirected', 'true')
+
+      setGoogleLanding('landing-page')
+      setTimeout(function(){
+        window.location.href = 'https://www.mylaughland.com/pages/landing-page'
+      }, 200);
+
+    }
+    
+    // setGoogleLanding('landing-page')
+    // setTimeout(function(){
+    //   window.location.href = 'https://www.mylaughland.com/pages/landing-page'
+    // }, 200);
   }
   // }
 }
@@ -189,7 +200,10 @@ function landingPageAction(current_page, query_params) {
         break;
       default:
         // setCookie('redirect_sweatcoin', 'true')
-        setFirstTimeGtags('NA')
+        // setFirstTimeGtags('NA')
+        setCookieAffiliate('redirect_sweatcoin', 'Sweatcoin')
+        setFirstTimeGtags('Sweatcoin')
+        redirectToLandingIfFirstTime('redirect_sweatcoin')
         break;
     } 
   } else if (current_page == '/pages/clear-affiliate-cookies') {

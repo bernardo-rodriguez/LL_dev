@@ -243,13 +243,16 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       const elements = document.querySelectorAll('.rc-selling-plans__dropdown');
       Array.from(elements).forEach((element, index) => {
         element.value = 3450700001
+        // element.setAttribute("disabled", "disabled");
       }); 
     }
     if (["redirect_sweatcoin"].includes(subscriptionCookie[0])) {
       const elements = document.querySelectorAll('.rc-selling-plans__dropdown');
       Array.from(elements).forEach((element, index) => {
         element.value = 3449880801
-      }); 
+        // element.setAttribute("disabled", "disabled");
+      });
+      $('.rc-option__subsave').first().find( "dd").first().html('1 Months Supply')
     }
   }
   
