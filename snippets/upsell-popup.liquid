@@ -209,12 +209,14 @@
            }
           }
         {% endif %}
-        
+        console.log('hi')
         $.post('/cart/add.js', JSON.stringify(pen))
         .then(response => {
           $('#real-submit-button').click()
           $('body').css("filter","none");
-        })
+        }).fail(function(response) {
+          alert('Error: ' + response.responseText);
+        });
     
       }
       
