@@ -200,7 +200,7 @@
         }
         pen = 
           {
-           id: formula_id,
+           'id': formula_id,
            "quantity":  1,
            "properties": {
                 "shipping_interval_frequency": '1',
@@ -213,6 +213,7 @@
         
         $.post('/cart/add.js', pen)
         .then(response => {
+          return
           $('#real-submit-button').click()
           $('body').css("filter","none");
         })
