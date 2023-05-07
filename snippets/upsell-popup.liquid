@@ -212,7 +212,6 @@
         
         $.post('/cart/add.js', JSON.stringify(pen))
         .then(response => {
-          return
           $('#real-submit-button').click()
           $('body').css("filter","none");
         })
