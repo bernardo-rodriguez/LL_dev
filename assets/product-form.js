@@ -98,20 +98,9 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       console.log('recharge ready')
       this.modifySubscriptionWidget('.rc-widget-injection-parent .rc-widget');
 
-      this.updateStickyBar(this.querySelector(".rc_widget__option__input:checked").value, this.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".updated-price").innerHTML || this.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".rc-option__price").innerHTML)
-
       //remove loading circle when ready
       this.container.querySelector(".rc-widget-injection-parent .loading-overlay__spinner").classList.add("hidden")
       this.container.querySelector(".rc-widget-injection-parent product-form.visually-hidden").classList.remove("visually-hidden")
-      this.stickyBar.querySelector("[data-sticky-atc]").removeAttribute('disabled')
-
-      // observe input selection to update sticky bar
-      this.rechargeOptions = this.querySelector(".rc-template");
-      console.log(this.rechargeOptions)
-      const observer = new MutationObserver(this.observeForm.bind(this))
-      observer.observe(this.rechargeOptions, {attributes: true, childList: true, subtree: true})
-
-      this.setToOneMonth()
     })
   }
 
@@ -138,8 +127,20 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       this.querySelector("select[name='selling_plan']").addEventListener("change", function(e){
         this.updateStickySellingPlans(e)
       }.bind(this))
+
+      this.updateStickyBar(this.querySelector(".rc_widget__option__input:checked").value, this.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".updated-price").innerHTML || this.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".rc-option__price").innerHTML)
+
+      this.stickyBar.querySelector("[data-sticky-atc]").removeAttribute('disabled')
+      // observe input selection to update sticky bar
+      this.rechargeOptions = this.querySelector(".rc-template");
+      console.log(this.rechargeOptions)
+      const observer = new MutationObserver(this.observeForm.bind(this))
+      observer.observe(this.rechargeOptions, {attributes: true, childList: true, subtree: true})
+
+      this.setToOneMonth()
+
   }
-  
+
   updateStickyBar(selection, price) {
     if( selection == 'onetime' ){
       this.stickyBar.querySelector('[data-sticky-onetime]').classList.add('selected')
