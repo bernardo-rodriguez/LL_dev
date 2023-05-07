@@ -118,11 +118,11 @@
   }
 }
 
-.subscription-wrapper {
+.rc-widget-injection-parent {
   margin-top: 50px;
 }
 
-.subscription-wrapper .loading-overlay__spinner {
+.rc-widget-injection-parent .loading-overlay__spinner {
   margin: auto;
   display: block;
 }
