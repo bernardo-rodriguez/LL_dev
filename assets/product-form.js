@@ -107,15 +107,16 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   sellingPlanSticky() {
-    const subOffer = this.getSubPrice()
-    const subOfferPrice = subOffer[0]
-    const subOfferText = subOffer[1]
-    const stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
-    stickyBar.querySelector(".sticky__price").innerHTML = subOfferPrice
-  
+    this.waitForRecharge("select[name='selling_plan']").then(() => {
+      const subOffer = this.getSubPrice()
+      const subOfferPrice = subOffer[0]
+      const subOfferText = subOffer[1]
+      const stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
+      stickyBar.querySelector(".sticky__price").innerHTML = subOfferPrice
+    
       var selector = this.querySelectorAll("[name='selling_plan']")
       console.log(selector)
-  
+
       if(this.querySelector("select[name='selling_plan']")){
         let value = Array.from(this.querySelector("select[name='selling_plan']").options).filter(option =>{
           return (option.dataset.planOption == "Every 2 Months")
@@ -128,7 +129,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         dropdownCopy.setAttribute('name', dropdownCopy.getAttribute("name") + "_sticky")
         stickyBar.querySelector("[data-sticky-subsave").appendChild(dropdownCopy)
       }
-  
+
       this.querySelector("select[name='selling_plan']").addEventListener("change", function(e){
         this.updateStickySellingPlans(e)
       }.bind(this))
@@ -143,7 +144,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       observer.observe(this.rechargeOptions, {attributes: true, childList: true, subtree: true})
 
       this.setToOneMonth()
-
+    })
   }
 
   updateStickyBar(selection, price) {
