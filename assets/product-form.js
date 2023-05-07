@@ -222,7 +222,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     if(document.querySelector("select[name='selling_plan']")){
       let value = Array.from(document.querySelector("select[name='selling_plan']").options).filter(option =>{
-        return (option.dataset.planOption == "Every 2 Months")
+        return (option.dataset.planOption == "Every 1 Month")
       })[0].value;
       if(value) document.querySelector("select[name='selling_plan']").value = value;
       const dropdownCopy = document.querySelector("select[name='selling_plan']").cloneNode(true);
