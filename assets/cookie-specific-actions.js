@@ -20,7 +20,7 @@ function getCookie(cname) {
 
 function setCookie(key, value) {
   var date = new Date();
-  date.setFullYear(date.getFullYear() + 1);
+  date.setDate(date.getDate() + 1)
   var expires = date.toUTCString();
   document.cookie = `${key}=${value}; expires=${expires}; path=/`;
 }
@@ -65,9 +65,40 @@ function cookie_actions() {
         break;
     }
 
+
+    upsell_test = getCookie('upsell_test')
+    if (upsell_test == null) {
+      var d = Math.random();
+      console.log('upsell_test:')
+      console.log(d)
+      if (d <= .5) {
+          setCookie('upsell_test', 'true')
+          gtag('set', 'user_properties', {
+            upsell_test: "true"
+          });
+      } else {
+          setCookie('upsell_test', 'false')
+          gtag('set', 'user_properties', {
+            upsell_test: "false"
+          });
+      }
+    } else {
+      if (upsell_test == 'true') {
+          gtag('set', 'user_properties', {
+            upsell_test: "true"
+          });
+      } else if (upsell_test == 'false') {
+          gtag('set', 'user_properties', {
+            upsell_test: "false"
+          });
+      }
+    }
+
+
     quiz_version = getCookie('quiz_version')
     if (quiz_version == null) {
       var d = Math.random();
+      console.log('quiz_version:')
       console.log(d)
       if (d <= 1) {
           setCookie('quiz_version', 'long')
