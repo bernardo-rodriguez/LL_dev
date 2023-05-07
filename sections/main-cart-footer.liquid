@@ -147,7 +147,7 @@
       } else {
         url_params = url_params.concat(['discount=SWEATCOIN_AUTOMATIC']);
       }
-      url_params = url_params.concat(['discount=ADD_PEN']);
+      {% comment %} url_params = url_params.concat(['discount=ADD_PEN']); {% endcomment %}
 
       if(productDiscountCode != "" && productDiscountCode != undefined){
         url_params = [`discount=${productDiscountCode}`];
