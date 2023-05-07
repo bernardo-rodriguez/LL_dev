@@ -40,6 +40,7 @@ function removeCookie(key) {
 
 function clearAllAffiliateCookies(){
   affiliate_cookie_options.forEach((affiliate, index) => removeCookie(affiliate));
+  removeCookie('upsell_test')
 }
 
 

@@ -94,19 +94,19 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   createSubscriptionWidget() {
-    this.waitForRecharge('.subscription-wrapper [data-widget]').then(() => {
+    this.waitForRecharge('.rc-widget-injection-parent [data-widget]').then(() => {
       console.log('recharge ready')
-      this.modifySubscriptionWidget('.subscription-wrapper .rc-widget');
+      this.modifySubscriptionWidget('.rc-widget-injection-parent .rc-widget');
 
-      this.updateStickyBar(this.querySelector(".rc_widget__option__input:checked").value, this.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".updated-price").innerHTML || this.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".rc-option__price").innerHTML)
+      this.updateStickyBar(document.querySelector(".rc_widget__option__input:checked").value, document.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".updated-price").innerHTML || document.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".rc-option__price").innerHTML)
 
       //remove loading circle when ready
-      this.container.querySelector(".subscription-wrapper .loading-overlay__spinner").classList.add("hidden")
-      this.container.querySelector(".subscription-wrapper product-form.visually-hidden").classList.remove("visually-hidden")
+      this.container.querySelector(".rc-widget-injection-parent .loading-overlay__spinner").classList.add("hidden")
+      this.container.querySelector(".rc-widget-injection-parent product-form.visually-hidden").classList.remove("visually-hidden")
       this.stickyBar.querySelector("[data-sticky-atc]").removeAttribute('disabled')
 
       // observe input selection to update sticky bar
-      this.rechargeOptions = this.querySelector(".rc-template");
+      this.rechargeOptions = document.querySelector(".rc-template");
       console.log(this.rechargeOptions)
       const observer = new MutationObserver(this.observeForm.bind(this))
       observer.observe(this.rechargeOptions, {attributes: true, childList: true, subtree: true})
@@ -217,12 +217,15 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     const stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
     stickyBar.querySelector(".sticky__price").innerHTML = subOfferPrice
 
-    if(this.querySelector("[name='selling_plan'")){
-      let value = Array.from(this.querySelector("[name='selling_plan'").options).filter(option =>{
-        return (option.dataset.planOption == "Every 2 Months")
+    var selector = document.querySelector("select[name='selling_plan']")
+    console.log(selector)
+
+    if(document.querySelector("select[name='selling_plan']")){
+      let value = Array.from(document.querySelector("select[name='selling_plan']").options).filter(option =>{
+        return (option.dataset.planOption == "Every 1 Month")
       })[0].value;
-      if(value) this.querySelector("[name='selling_plan'").value = value;
-      const dropdownCopy = this.querySelector("[name='selling_plan'").cloneNode(true);
+      if(value) document.querySelector("select[name='selling_plan']").value = value;
+      const dropdownCopy = document.querySelector("select[name='selling_plan']").cloneNode(true);
       if(value) dropdownCopy.value = value;
       dropdownCopy.setAttribute("data-control-id", dropdownCopy.id)
       dropdownCopy.id = dropdownCopy.id + "_sticky"
@@ -230,7 +233,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       stickyBar.querySelector("[data-sticky-subsave").appendChild(dropdownCopy)
     }
 
-    this.querySelector("[name='selling_plan'").addEventListener("change", function(e){
+    document.querySelector("select[name='selling_plan']").addEventListener("change", function(e){
       this.updateStickySellingPlans(e)
     }.bind(this))
 
@@ -252,7 +255,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         element.value = 3449880801
         // element.setAttribute("disabled", "disabled");
       });
-      $('.rc-option__subsave').first().find( "dd").first().html('1 Months Supply')
+      // $('.rc-option__subsave').first().find( "dd").first().html('1 Months Supply')
     }
   }
   
@@ -417,19 +420,18 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
   bindEvents() {
     this.open.addEventListener("click", this.openStickyBar.bind(this))
     this.close.addEventListener("click", this.closeStickyBar.bind(this))
-
     this.onetime.addEventListener('click', function(e){
-      document.querySelector(`product-form[data-product-id="${ this.productId}"] [data-label-onetime]`).click()
+      document.querySelector(`[data-label-onetime]`).click()
     }.bind(this))
 
     this.subsave.addEventListener('click', function(e){
-      document.querySelector(`product-form[data-product-id="${ this.productId}"] [data-label-subsave]`).click()
+      document.querySelector(`[data-label-subsave]`).click()
     }.bind(this))
 
     this.atc.addEventListener('click', function(e){
       e.preventDefault();
       this.atc.setAttribute("disabled", "true")
-      document.querySelector(`product-form[data-product-id="${ this.productId}"] button[type="submit"]`).click()
+      document.querySelector(`button[type="submit"]`).click()
     }.bind(this))
   }
 
@@ -444,7 +446,7 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
   }
 
   updateSellingPlans(e) {
-    const controller = document.querySelector(`product-form[data-product-id="${ this.productId}"] select#${e.target.dataset.controlId} `)
+    const controller = document.querySelector(`select#${e.target.dataset.controlId} `)
     controller.value = e.target.value
   }
 

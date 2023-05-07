@@ -4,6 +4,7 @@
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
 {{ 'recharge-widget-styles.css' | asset_url | stylesheet_tag }}
 
+<div style = 'display:none' id = 'main-product-handle-id'>{{product.handle}}</div>
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 <script>
 var xhttp = new XMLHttpRequest();
@@ -11,6 +12,7 @@ var xhttp = new XMLHttpRequest();
 xhttp.open("POST", "/cart/clear.js", true);
 xhttp.send();
 </script>
+{% render 'upsell-popup' %}
 <section>
   <div class="product">
     <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
@@ -82,7 +84,7 @@ xhttp.send();
           {% endfor %}
         </dl>
 
-        <div class="subscription-wrapper">
+        <div class="rc-widget-injection-parent">
           <div class="loading-overlay__spinner">
             <svg
               aria-hidden="true"
@@ -256,10 +258,14 @@ xhttp.send();
                     </button>
                   </quantity-input>
                 </div>
-
+                <button type='submit' id = 'real-submit-button' style = 'display: none'>
+                  checkout
+                </button>
                 <button
-                  type="submit"
-                  name="add"
+                  {% comment %} type="submit"
+                  name="add" {% endcomment %}
+                  type='button'
+                  id='main-clickable-button'
                   class="product-form__submit button button--flex {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
                   {% if product.selected_or_first_available_variant.available == false %}
                     disabled
@@ -347,6 +353,40 @@ xhttp.send();
 </section>
 
 {% javascript %}
+  document.getElementById('main-clickable-button').addEventListener("click", upsellLogic);
+
+  function getCookie(cname) {
+    // const value = `; ${document.cookie}`;
+    // const parts = value.split(`; ${name}=`);
+    // if (parts.length === 2) return parts.pop().split(';').shift();
+    
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return null;
+  }
+
+  function upsellLogic() {
+    if ($('#main-product-handle-id').html().includes('at-home-')) {
+      if (getCookie('upsell_test') == 'true') {
+        openPopup()
+      } else {
+        $('#real-submit-button').click()
+      }
+    } else {
+      $('#real-submit-button').click()
+    }
+  }
+
   // Main product slider
   const productSlider = new Swiper('.product__media-list', {
     slidesPerView: 1,
