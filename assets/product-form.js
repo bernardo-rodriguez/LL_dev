@@ -101,6 +101,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       //remove loading circle when ready
       this.container.querySelector(".rc-widget-injection-parent .loading-overlay__spinner").classList.add("hidden")
       this.container.querySelector(".rc-widget-injection-parent product-form.visually-hidden").classList.remove("visually-hidden")
+
+      this.sellingPlanSticky()
     })
   }
 
