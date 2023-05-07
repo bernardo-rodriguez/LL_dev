@@ -217,7 +217,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     const stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
     stickyBar.querySelector(".sticky__price").innerHTML = subOfferPrice
 
-    var selector = this.querySelector("select[name='selling_plan']")
+    var selector = document.querySelector("select[name='selling_plan']")
     console.log(selector)
 
     if(document.querySelector("select[name='selling_plan']")){
