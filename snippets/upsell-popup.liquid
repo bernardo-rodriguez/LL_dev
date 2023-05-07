@@ -181,9 +181,9 @@
         }
 
         pen_selling_plan_dict = {
-          "1month": 3450175713,
-          "2month": 3450208481,
-          "3month": 3450241249
+          3449880801: 3450175713,
+          3449913569: 3450208481,
+          3449946337: 3450241249
         }
       {% if product.handle == "at-home-whitening-kit" or product.handle == "at-home-whitening-kit-2" %}
         if (strength_cookie in pen_formula_dict) {
@@ -191,11 +191,12 @@
         } else {
           formula_id = pen_formula_dict['medium']
         }
+        selling_plan = document.querySelector("select[name='selling_plan']").value
         var pen = 
           {
            "id": formula_id,
            "quantity":  1,
-           "selling_plan": 3450175713
+           "selling_plan": pen_selling_plan_dict[selling_plan]
           }
         {% else %}
         if (strength_cookie in kit_formula_dict) {
@@ -214,9 +215,6 @@
            }
           }
         {% endif %}
-        selling_plan = document.querySelector("select[name='selling_plan']").value
-        console.log(selling_plan)
-        return
         jQuery.ajax({
           type: 'POST',
           url: '/cart/add.js',
