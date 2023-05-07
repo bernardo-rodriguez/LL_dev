@@ -139,7 +139,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       // observe input selection to update sticky bar
       this.rechargeOptions = document.querySelector(".rc-template");
       console.log(this.rechargeOptions)
-      const observer = new MutationObserver(document.observeForm.bind(this))
+      const observer = new MutationObserver(this.observeForm.bind(this))
       observer.observe(this.rechargeOptions, {attributes: true, childList: true, subtree: true})
 
       this.setToOneMonth()
