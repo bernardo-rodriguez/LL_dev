@@ -95,7 +95,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
   createSubscriptionWidget() {
     this.waitForRecharge('.rc-widget-injection-parent [data-widget]').then(() => {
-      $('head').append(`<link rel="stylesheet" type="text/css" href="{{ 'recharge-widget-styles.css' | asset_url | stylesheet_tag }}">`);
       console.log('recharge ready')
       this.modifySubscriptionWidget('.rc-widget-injection-parent .rc-widget');
 
