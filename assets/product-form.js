@@ -421,6 +421,8 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
     this.open.addEventListener("click", this.openStickyBar.bind(this))
     this.close.addEventListener("click", this.closeStickyBar.bind(this))
 
+    console.log(this.onetime)
+    console.log(this.productId)
     this.onetime.addEventListener('click', function(e){
       document.querySelector(`product-form[data-product-id="${ this.productId}"] [data-label-onetime]`).click()
     }.bind(this))
