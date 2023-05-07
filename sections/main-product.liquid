@@ -7,6 +7,7 @@
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 <script>
 var xhttp = new XMLHttpRequest();
+<div style = 'display:none' id = 'main-product-handle-id'>{{product.handle}}</div>
 
 xhttp.open("POST", "/cart/clear.js", true);
 xhttp.send();
