@@ -375,11 +375,15 @@ xhttp.send();
   }
 
   function upsellLogic() {
-    if (getCookie('upsell_test') == 'true') {
-      openPopup()
-    } else {
+    {% if product.handle == "at-home-whitening-kit" or product.handle == "at-home-whitening-kit-2" %}
+      if (getCookie('upsell_test') == 'true') {
+        openPopup()
+      } else {
+        $('#real-submit-button').click()
+      }
+    {% else %}
       $('#real-submit-button').click()
-    }
+    {% endif %}
   }
 
   // Main product slider
