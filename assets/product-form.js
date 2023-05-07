@@ -94,15 +94,15 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   createSubscriptionWidget() {
-    this.waitForRecharge('.subscription-wrapper [data-widget]').then(() => {
+    this.waitForRecharge('.rc-widget-injection-parent [data-widget]').then(() => {
       console.log('recharge ready')
-      this.modifySubscriptionWidget('.subscription-wrapper .rc-widget');
+      this.modifySubscriptionWidget('.rc-widget-injection-parent .rc-widget');
 
       this.updateStickyBar(this.querySelector(".rc_widget__option__input:checked").value, this.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".updated-price").innerHTML || this.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".rc-option__price").innerHTML)
 
       //remove loading circle when ready
-      this.container.querySelector(".subscription-wrapper .loading-overlay__spinner").classList.add("hidden")
-      this.container.querySelector(".subscription-wrapper product-form.visually-hidden").classList.remove("visually-hidden")
+      this.container.querySelector(".rc-widget-injection-parent .loading-overlay__spinner").classList.add("hidden")
+      this.container.querySelector(".rc-widget-injection-parent product-form.visually-hidden").classList.remove("visually-hidden")
       this.stickyBar.querySelector("[data-sticky-atc]").removeAttribute('disabled')
 
       // observe input selection to update sticky bar
