@@ -98,51 +98,21 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       console.log('recharge ready')
       this.modifySubscriptionWidget('.rc-widget-injection-parent .rc-widget');
 
+      this.updateStickyBar(this.querySelector(".rc_widget__option__input:checked").value, this.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".updated-price").innerHTML || this.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".rc-option__price").innerHTML)
+
       //remove loading circle when ready
       this.container.querySelector(".rc-widget-injection-parent .loading-overlay__spinner").classList.add("hidden")
       this.container.querySelector(".rc-widget-injection-parent product-form.visually-hidden").classList.remove("visually-hidden")
-
-      this.sellingPlanSticky()
-    })
-  }
-
-  sellingPlanSticky() {
-      const subOffer = this.getSubPrice()
-      const subOfferPrice = subOffer[0]
-      const subOfferText = subOffer[1]
-      const stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
-      stickyBar.querySelector(".sticky__price").innerHTML = subOfferPrice
-    
-      var selector = document.querySelectorAll("select[name='selling_plan']")
-      console.log(selector)
-
-      if(document.querySelector("select[name='selling_plan']")){
-        let value = Array.from(document.querySelector("select[name='selling_plan']").options).filter(option =>{
-          return (option.dataset.planOption == "Every 2 Months")
-        })[0].value;
-        if(value) document.querySelector("select[name='selling_plan']").value = value;
-        const dropdownCopy = document.querySelector("select[name='selling_plan']").cloneNode(true);
-        if(value) dropdownCopy.value = value;
-        dropdownCopy.setAttribute("data-control-id", dropdownCopy.id)
-        dropdownCopy.id = dropdownCopy.id + "_sticky"
-        dropdownCopy.setAttribute('name', dropdownCopy.getAttribute("name") + "_sticky")
-        stickyBar.querySelector("[data-sticky-subsave").appendChild(dropdownCopy)
-      }
-
-      document.querySelector("select[name='selling_plan']").addEventListener("change", function(e){
-        this.updateStickySellingPlans(e)
-      }.bind(this))
-
-      this.updateStickyBar(document.querySelector(".rc_widget__option__input:checked").value, document.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".updated-price").innerHTML || document.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".rc-option__price").innerHTML)
-
       this.stickyBar.querySelector("[data-sticky-atc]").removeAttribute('disabled')
+
       // observe input selection to update sticky bar
-      this.rechargeOptions = document.querySelector(".rc-template");
+      this.rechargeOptions = this.querySelector(".rc-template");
       console.log(this.rechargeOptions)
       const observer = new MutationObserver(this.observeForm.bind(this))
       observer.observe(this.rechargeOptions, {attributes: true, childList: true, subtree: true})
 
       this.setToOneMonth()
+    })
   }
 
   updateStickyBar(selection, price) {
@@ -244,28 +214,29 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       sub_and_save_text.html(subOfferText)
     }
     
-  // const stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
-  // stickyBar.querySelector(".sticky__price").innerHTML = subOfferPrice
+    const stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
+    stickyBar.querySelector(".sticky__price").innerHTML = subOfferPrice
 
-  //   var selector = this.querySelectorAll("[name='selling_plan']")
-  //   console.log(selector)
+    var selector = this.querySelector("select[name='selling_plan']")
+    console.log(selector)
 
-  //   if(this.querySelector("select[name='selling_plan']")){
-  //     let value = Array.from(this.querySelector("select[name='selling_plan']").options).filter(option =>{
-  //       return (option.dataset.planOption == "Every 2 Months")
-  //     })[0].value;
-  //     if(value) this.querySelector("select[name='selling_plan']").value = value;
-  //     const dropdownCopy = this.querySelector("select[name='selling_plan']").cloneNode(true);
-  //     if(value) dropdownCopy.value = value;
-  //     dropdownCopy.setAttribute("data-control-id", dropdownCopy.id)
-  //     dropdownCopy.id = dropdownCopy.id + "_sticky"
-  //     dropdownCopy.setAttribute('name', dropdownCopy.getAttribute("name") + "_sticky")
-  //     stickyBar.querySelector("[data-sticky-subsave").appendChild(dropdownCopy)
-  //   }
+    if(document.querySelector("select[name='selling_plan']")){
+      let value = Array.from(document.querySelector("select[name='selling_plan']").options).filter(option =>{
+        return (option.dataset.planOption == "Every 2 Months")
+      })[0].value;
+      if(value) document.querySelector("select[name='selling_plan']").value = value;
+      const dropdownCopy = document.querySelector("select[name='selling_plan']").cloneNode(true);
+      if(value) dropdownCopy.value = value;
+      dropdownCopy.setAttribute("data-control-id", dropdownCopy.id)
+      dropdownCopy.id = dropdownCopy.id + "_sticky"
+      dropdownCopy.setAttribute('name', dropdownCopy.getAttribute("name") + "_sticky")
+      stickyBar.querySelector("[data-sticky-subsave").appendChild(dropdownCopy)
+    }
 
-  //   this.querySelector("select[name='selling_plan']").addEventListener("change", function(e){
-  //     this.updateStickySellingPlans(e)
-  //   }.bind(this))
+    document.querySelector("select[name='selling_plan']").addEventListener("change", function(e){
+      this.updateStickySellingPlans(e)
+    }.bind(this))
+
   }
 
   setToOneMonth() {
