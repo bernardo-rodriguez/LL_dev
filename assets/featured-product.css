@@ -26,7 +26,7 @@
   display: none;
 }
 
-.Featured_Product .subscription-wrapper {
+.Featured_Product .rc-widget-injection-parent {
   margin-top: 40px;
 }
 
@@ -75,7 +75,7 @@
 
 @media screen and (max-width: 768px) {
 
-  .Featured_Product .subscription-wrapper {
+  .Featured_Product .rc-widget-injection-parent {
     margin-top: 30px;
   }
 
