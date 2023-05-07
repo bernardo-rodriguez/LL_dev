@@ -420,21 +420,24 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
   bindEvents() {
     this.open.addEventListener("click", this.openStickyBar.bind(this))
     this.close.addEventListener("click", this.closeStickyBar.bind(this))
-
+    // product-form[data-product-id="7503162605793"] 
     console.log(this.onetime)
     console.log(this.productId)
     this.onetime.addEventListener('click', function(e){
-      document.querySelector(`product-form[data-product-id="${ this.productId}"] [data-label-onetime]`).click()
+      // document.querySelector(`product-form[data-product-id="${ this.productId}"] [data-label-onetime]`).click()
+      document.querySelector(`[data-label-onetime]`).click()
     }.bind(this))
 
     this.subsave.addEventListener('click', function(e){
-      document.querySelector(`product-form[data-product-id="${ this.productId}"] [data-label-subsave]`).click()
+      // document.querySelector(`product-form[data-product-id="${ this.productId}"] [data-label-subsave]`).click()
+      document.querySelector(`[data-label-subsave]`).click()
     }.bind(this))
 
     this.atc.addEventListener('click', function(e){
       e.preventDefault();
       this.atc.setAttribute("disabled", "true")
-      document.querySelector(`product-form[data-product-id="${ this.productId}"] button[type="submit"]`).click()
+      // document.querySelector(`product-form[data-product-id="${ this.productId}"] button[type="submit"]`).click()
+      document.querySelector(`button[type="submit"]`).click()
     }.bind(this))
   }
 
