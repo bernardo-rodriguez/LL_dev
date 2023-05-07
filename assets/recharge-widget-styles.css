@@ -1,118 +1,118 @@
 .rc-widget-injection-parent .rc-widget .rc-option--active {
-  background: transparent;
-  color: var(--navy);
+  background: transparent !important;
+  color: var(--navy) !important;
 }
 
 .rc-widget-injection-parent .rc_widget__option__discount {
-  display: none;
+  display: none!important;
 }
 .rc-widget-injection-parent .rc-option {
-  border: 1px solid var(--navy);
-  margin: 5px 0;
-  background: transparent;
-  color: var(--navy);
-  border-radius: 40px;
-  text-align: center;
-  padding: 11.75px!important;
+  border: 1px solid var(--navy)!important;
+  margin: 5px 0!important;
+  background: transparent!important;
+  color: var(--navy)!important;
+  border-radius: 40px!important;
+  text-align: center!important;
+  padding: 11.75px!important; /*had*/
 }
 
 .rc-widget-injection-parent .rc_widget__option--subsave {
-  border-radius: 24px;
+  border-radius: 24px!important;
 }
 
 .rc-widget-injection-parent .rc-custom-radio-button {
-  position: absolute;
-  aspect-ratio: 1/1;
-  border: 1px solid var(--navy);
-  width: 27.5px;
-  border-radius: 50%;
-  overflow: hidden;
-  order: -1;
-  justify-self: flex-start;
-  left: 0;
-  top: 0;
+  position: absolute!important;
+  aspect-ratio: 1/1!important;
+  border: 1px solid var(--navy)!important;
+  width: 27.5px!important;
+  border-radius: 50%!important;
+  overflow: hidden!important;
+  order: -1!important;
+  justify-self: flex-start!important;
+  left: 0!important;
+  top: 0!important;
 }
 
 .rc-widget-injection-parent .rc-custom-radio-button:after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  content: "";
-  border: 1px solid transparent;
+  position: absolute!important;
+  top: 0!important;
+  left: 0!important;
+  width: 100%!important;
+  height: 100%!important;
+  background: transparent!important;
+  content: ""!important;
+  border: 1px solid transparent!important;
 }
 
 .rc-widget-injection-parent .rc_widget__option__selector input:checked ~ label > .rc-custom-radio-button:after {
-  background: var(--blue);
-  border-color: var(--blue);
+  background: var(--blue)!important;
+  border-color: var(--blue)!important;
 }
 
 .rc-widget-injection-parent .rc-radio__input {
-  display: none!important;
+  display: none!important; /* had */
 }
 
 .rc-widget-injection-parent .rc-radio__label {
-  display: flex!important;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-weight: 500;
-  position: relative;
-  line-height: normal;
-  min-height: 27.5px;
-  margin-left: 0;
-  cursor: pointer;
+  display: flex!important; /*had*/
+  flex-direction: row!important;
+  justify-content: center!important;
+  align-items: center!important;
+  font-weight: 500!important;
+  position: relative!important;
+  line-height: normal!important;
+  min-height: 27.5px!important;
+  margin-left: 0!important;
+  cursor: pointer!important;
 }
 
 .rc-widget-injection-parent .rc_widget__option__label > span:not(.rc-option__price):not(.updated-price) {
-  font-weight: 500;
+  font-weight: 500!important;
 }
 
 .rc-widget-injection-parent .rc_widget__option__label > span.updated-price {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.1rem!important;
+  font-weight: 600!important;
 }
 
 .rc-widget-injection-parent [data-label-subsave] {
-  margin-bottom: 11.75px;
+  margin-bottom: 11.75px!important;
 }
 
 .rc-widget-injection-parent .rc-selling-plans {
-  background: var(--blue-tint-20);
-  padding: 0 12px 14px;
-  border-radius: 0 0 17px 17px;
-  display: flex !important;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  background: var(--blue-tint-20)!important;
+  padding: 0 12px 14px!important;
+  border-radius: 0 0 17px 17px!important;
+  display: flex !important; /*had*/
+  flex-direction: row!important;
+  justify-content: space-between!important;
+  align-items: center!important;
 }
 
 .rc-widget-injection-parent .rc-selling-plans__label {
-  display: block !important;
-  position: relative !important;
+  display: block !important;/*had*/
+  position: relative !important;/*had*/
 }
 @media screen and (max-width: 768px) {
   .rc-widget-injection-parent .rc-selling-plans__label {
-    font-size: 12px;
+    font-size: 12px!important;
   }
 }
 
 .rc-widget-injection-parent .rc-selling-plans__dropdown {
-  border: none;
-  background: var(--blue-tint-40);
-  font-family: jakarta;
-  font-size: 12px;
-  line-height: 14px;
-  border-radius: 40px;
-  padding: 4px 26px 4px 12px;
-  appearance: none;
-  position: relative;
-  background-image: url("data:image/svg+xml,%3Csvg width='11' height='7' viewBox='0 0 11 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5.5 6L10 1' stroke='%230D2244' stroke-linecap='round'/%3E%3C/svg%3E%0A");
-  background-position-x: 90%;
-  background-position-y: center;
-  background-repeat: no-repeat;
+  border: none!important;
+  background: var(--blue-tint-40)!important;
+  font-family: jakarta!important;
+  font-size: 12px!important;
+  line-height: 14px!important;
+  border-radius: 40px!important;
+  padding: 4px 26px 4px 12px!important;
+  appearance: none!important;
+  position: relative!important;
+  background-image: url("data:image/svg+xml,%3Csvg width='11' height='7' viewBox='0 0 11 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5.5 6L10 1' stroke='%230D2244' stroke-linecap='round'/%3E%3C/svg%3E%0A")!important;
+  background-position-x: 90%!important;
+  background-position-y: center!important;
+  background-repeat: no-repeat!important;
 }
 
 .rc-widget-injection-parent .rc-option dl{
