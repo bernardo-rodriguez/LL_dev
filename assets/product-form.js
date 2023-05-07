@@ -107,6 +107,9 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   sellingPlanSticky() {
+    const subOffer = this.getSubPrice()
+    const subOfferPrice = subOffer[0]
+    const subOfferText = subOffer[1]
     const stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
     stickyBar.querySelector(".sticky__price").innerHTML = subOfferPrice
   
