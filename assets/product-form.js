@@ -108,6 +108,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
   sellingPlanSticky() {
     this.waitForRecharge("select[name='selling_plan']").then(() => {
+      console.log(this)
       const subOffer = this.getSubPrice()
       const subOfferPrice = subOffer[0]
       const subOfferText = subOffer[1]
