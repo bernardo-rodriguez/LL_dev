@@ -107,7 +107,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   sellingPlanSticky() {
-      console.log(this)
       const subOffer = this.getSubPrice()
       const subOfferPrice = subOffer[0]
       const subOfferText = subOffer[1]
@@ -117,12 +116,12 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       var selector = document.querySelectorAll("select[name='selling_plan']")
       console.log(selector)
 
-      if(this.querySelector("select[name='selling_plan']")){
-        let value = Array.from(this.querySelector("select[name='selling_plan']").options).filter(option =>{
+      if(document.querySelector("select[name='selling_plan']")){
+        let value = Array.from(document.querySelector("select[name='selling_plan']").options).filter(option =>{
           return (option.dataset.planOption == "Every 2 Months")
         })[0].value;
-        if(value) this.querySelector("select[name='selling_plan']").value = value;
-        const dropdownCopy = this.querySelector("select[name='selling_plan']").cloneNode(true);
+        if(value) document.querySelector("select[name='selling_plan']").value = value;
+        const dropdownCopy = document.querySelector("select[name='selling_plan']").cloneNode(true);
         if(value) dropdownCopy.value = value;
         dropdownCopy.setAttribute("data-control-id", dropdownCopy.id)
         dropdownCopy.id = dropdownCopy.id + "_sticky"
@@ -130,17 +129,17 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         stickyBar.querySelector("[data-sticky-subsave").appendChild(dropdownCopy)
       }
 
-      this.querySelector("select[name='selling_plan']").addEventListener("change", function(e){
+      document.querySelector("select[name='selling_plan']").addEventListener("change", function(e){
         this.updateStickySellingPlans(e)
       }.bind(this))
 
-      this.updateStickyBar(this.querySelector(".rc_widget__option__input:checked").value, this.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".updated-price").innerHTML || this.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".rc-option__price").innerHTML)
+      this.updateStickyBar(document.querySelector(".rc_widget__option__input:checked").value, document.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".updated-price").innerHTML || document.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".rc-option__price").innerHTML)
 
       this.stickyBar.querySelector("[data-sticky-atc]").removeAttribute('disabled')
       // observe input selection to update sticky bar
-      this.rechargeOptions = this.querySelector(".rc-template");
+      this.rechargeOptions = document.querySelector(".rc-template");
       console.log(this.rechargeOptions)
-      const observer = new MutationObserver(this.observeForm.bind(this))
+      const observer = new MutationObserver(document.observeForm.bind(this))
       observer.observe(this.rechargeOptions, {attributes: true, childList: true, subtree: true})
 
       this.setToOneMonth()
