@@ -9,23 +9,6 @@
         "how_to_use": "{{ product.metafields.custom.how_to_use | metafield_tag }}"
       }
     },
-    "168347383036c0cb77": {
-      "type": "apps",
-      "blocks": {
-        "e98aad16-2626-461e-b69c-4ad861cd1fe0": {
-          "type": "shopify:\/\/apps\/recharge-subscriptions\/blocks\/subscription-widget\/371eed76-0b44-4869-9813-730372ea378e",
-          "settings": {
-            "product": "{{product}}"
-          }
-        }
-      },
-      "block_order": [
-        "e98aad16-2626-461e-b69c-4ad861cd1fe0"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
     "product-recommendations": {
       "type": "product-recommendations",
       "disabled": true,
@@ -231,7 +214,6 @@
   },
   "order": [
     "main",
-    "168347383036c0cb77",
     "product-recommendations",
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
     "30a71a58-b5ad-472f-9d70-97379fc62b74",
