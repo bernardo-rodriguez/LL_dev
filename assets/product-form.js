@@ -107,7 +107,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   sellingPlanSticky() {
-    this.waitForRecharge("select[name='selling_plan']").then(() => {
       console.log(this)
       const subOffer = this.getSubPrice()
       const subOfferPrice = subOffer[0]
@@ -145,7 +144,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       observer.observe(this.rechargeOptions, {attributes: true, childList: true, subtree: true})
 
       this.setToOneMonth()
-    })
   }
 
   updateStickyBar(selection, price) {
