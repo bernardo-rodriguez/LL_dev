@@ -217,28 +217,27 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     const stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
     stickyBar.querySelector(".sticky__price").innerHTML = subOfferPrice
 
-    this.waitForRecharge('.rc-selling-plans').then(() => {
-    var selector = this.querySelectorAll("[name='selling_plan']")
-    console.log(selector)
+    setTimeout(function(){
+      var selector = this.querySelectorAll("[name='selling_plan']")
+      console.log(selector)
 
-    if(this.querySelector("select[name='selling_plan']")){
-      let value = Array.from(this.querySelector("select[name='selling_plan']").options).filter(option =>{
-        return (option.dataset.planOption == "Every 2 Months")
-      })[0].value;
-      if(value) this.querySelector("select[name='selling_plan']").value = value;
-      const dropdownCopy = this.querySelector("select[name='selling_plan']").cloneNode(true);
-      if(value) dropdownCopy.value = value;
-      dropdownCopy.setAttribute("data-control-id", dropdownCopy.id)
-      dropdownCopy.id = dropdownCopy.id + "_sticky"
-      dropdownCopy.setAttribute('name', dropdownCopy.getAttribute("name") + "_sticky")
-      stickyBar.querySelector("[data-sticky-subsave").appendChild(dropdownCopy)
-    }
+      if(this.querySelector("select[name='selling_plan']")){
+        let value = Array.from(this.querySelector("select[name='selling_plan']").options).filter(option =>{
+          return (option.dataset.planOption == "Every 2 Months")
+        })[0].value;
+        if(value) this.querySelector("select[name='selling_plan']").value = value;
+        const dropdownCopy = this.querySelector("select[name='selling_plan']").cloneNode(true);
+        if(value) dropdownCopy.value = value;
+        dropdownCopy.setAttribute("data-control-id", dropdownCopy.id)
+        dropdownCopy.id = dropdownCopy.id + "_sticky"
+        dropdownCopy.setAttribute('name', dropdownCopy.getAttribute("name") + "_sticky")
+        stickyBar.querySelector("[data-sticky-subsave").appendChild(dropdownCopy)
+      }
 
-    this.querySelector("select[name='selling_plan']").addEventListener("change", function(e){
-      this.updateStickySellingPlans(e)
-    }.bind(this))
-    
-    })
+      this.querySelector("select[name='selling_plan']").addEventListener("change", function(e){
+        this.updateStickySellingPlans(e)
+      }.bind(this))
+    }, 1000)
   }
 
   setToOneMonth() {
