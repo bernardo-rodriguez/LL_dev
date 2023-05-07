@@ -452,7 +452,8 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
   }
 
   updateSellingPlans(e) {
-    const controller = document.querySelector(`product-form[data-product-id="${ this.productId}"] select#${e.target.dataset.controlId} `)
+    // const controller = document.querySelector(`product-form[data-product-id="${ this.productId}"] select#${e.target.dataset.controlId} `)
+    const controller = document.querySelector(`select#${e.target.dataset.controlId} `)
     controller.value = e.target.value
   }
 
