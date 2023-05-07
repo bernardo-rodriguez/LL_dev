@@ -210,7 +210,7 @@
           }
         {% endif %}
         
-        $.post('/cart/add.js', pen)
+        $.post('/cart/add.js', JSON.stringify(pen))
         .then(response => {
           return
           $('#real-submit-button').click()
