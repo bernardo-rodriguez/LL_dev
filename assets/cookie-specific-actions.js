@@ -94,6 +94,24 @@ function cookie_actions() {
       }
     }
 
+    upsell_test_2 = getCookie('upsell_test_2')
+    if (upsell_test_2 == null) {
+      var d = Math.random();
+      console.log('upsell_test_2:')
+      console.log(d)
+      if (d <= .5) {
+          setCookie('upsell_test_2', 'true')
+          gtag('set', 'user_properties', {
+            upsell_test_2: "true"
+          });
+      } else {
+          setCookie('upsell_test_2', 'false')
+          gtag('set', 'user_properties', {
+            upsell_test_2: "false"
+          });
+      }
+    }
+
 
     quiz_version = getCookie('quiz_version')
     if (quiz_version == null) {
