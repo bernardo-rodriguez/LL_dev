@@ -6,10 +6,10 @@
     
     <div
       id="replo-fullpage-element"
-      data-runtime-version="d1feae74-f4f5-11ed-9227-5e9901abbce1"
+      data-runtime-version="89b76e20-f4f6-11ed-bc63-7e842b2d5270"
       style="display: block !important"
     >
-      <div data-alchemy-element-mount-node="true"><script data-em-disable="true" async="" src="https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/62efa1fe-6637-4769-9f92-41e21811e491.min.js?v=d1feae74-f4f5-11ed-9227-5e9901abbce1" id="https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/62efa1fe-6637-4769-9f92-41e21811e491.min.js?v=d1feae74-f4f5-11ed-9227-5e9901abbce1"></script><style data-radium-styles="true">@media (max-width: 640px){ .rmq-14e17ab4{margin-left: 0px !important;
+      <div data-alchemy-element-mount-node="true"><script data-em-disable="true" async="" src="https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/62efa1fe-6637-4769-9f92-41e21811e491.min.js?v=89b76e20-f4f6-11ed-bc63-7e842b2d5270" id="https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/62efa1fe-6637-4769-9f92-41e21811e491.min.js?v=89b76e20-f4f6-11ed-bc63-7e842b2d5270"></script><style data-radium-styles="true">@media (max-width: 640px){ .rmq-14e17ab4{margin-left: 0px !important;
 padding-top: 20px !important;
 margin-right: 0px !important;
 padding-left: 5px !important;
@@ -1523,7 +1523,7 @@ const resultsCarouselImageSwiper = new Swiper('.results-carousel__image-swiper',
   <div class="results-carousel__container">
     <div class="results-carousel__info">
       <div class="results-carousel__images">
-        <div class="results-carousel__image-swiper swiper">
+        <div class="results-carousel__image-swiper-mobile swiper">
           <div class="swiper-wrapper">
             <div class="results-carousel__image-wrapper swiper-slide">
               <div class="results-carousel__image-inner">
@@ -1531,7 +1531,7 @@ const resultsCarouselImageSwiper = new Swiper('.results-carousel__image-swiper',
                   <img src="//cdn.shopify.com/s/files/1/0066/4728/3782/files/IMAGE_1_BEFORE.png?v=1678985062" alt="" srcset="//cdn.shopify.com/s/files/1/0066/4728/3782/files/IMAGE_1_BEFORE.png?v=1678985062&amp;width=352 352w, //cdn.shopify.com/s/files/1/0066/4728/3782/files/IMAGE_1_BEFORE.png?v=1678985062&amp;width=500 500w" width="500" height="500" class="results-carousel__before-photo results-carousel__image">
                   <img src="//cdn.shopify.com/s/files/1/0066/4728/3782/files/IMAGE_1_AFTER.png?v=1678985067" alt="" srcset="//cdn.shopify.com/s/files/1/0066/4728/3782/files/IMAGE_1_AFTER.png?v=1678985067&amp;width=352 352w, //cdn.shopify.com/s/files/1/0066/4728/3782/files/IMAGE_1_AFTER.png?v=1678985067&amp;width=500 500w" width="500" height="500" class="results-carousel__after-photo results-carousel__image">
                 </div>
-                <input type="range" min="1" max="100" value="50" class="results-carousel__slider" name="slider">
+                <input type="range" min="1" max="100" value="50" class="results-carousel__slider-mobile" name="slider">
                 <div class="results-carousel__slider-line" aria-hidden="true"></div>
               </div>
               <div class="results-carousel__slider-labels body body-sm">
@@ -1597,7 +1597,7 @@ const resultsCarouselImageSwiper = new Swiper('.results-carousel__image-swiper',
   width: var(--position);
 }
 
-.results-carousel__slider {
+.results-carousel__slider-mobile {
   position: absolute;
   inset: 0;
   cursor: pointer;
@@ -1606,7 +1606,7 @@ const resultsCarouselImageSwiper = new Swiper('.results-carousel__image-swiper',
   height: 100%;
 }
 
-.results-carousel__slider:focus-visible ~ .results-carousel__slider-button {
+.results-carousel__slider-mobile:focus-visible ~ .results-carousel__slider-button {
   outline: 1px solid blue;
   outline-offset: 3px;
 }
@@ -1662,7 +1662,7 @@ const resultsCarouselImageSwiper = new Swiper('.results-carousel__image-swiper',
   margin-bottom: 30px;
 }
 
-.results-carousel__swiper-button {
+.results-carousel__swiper-button-mobile {
   padding: 6px 13px;
   border-radius: 40px;
   font-weight: 600;
@@ -1670,12 +1670,12 @@ const resultsCarouselImageSwiper = new Swiper('.results-carousel__image-swiper',
   border: 1px solid var(--blue);
 }
 
-.results-carousel__swiper-button:not(.active) {
+.results-carousel__swiper-button-mobile:not(.active) {
   background: transparent;
   color: var(--blue);
 }
 
-.results-carousel__swiper-button:not(.active):hover {
+.results-carousel__swiper-button-mobile:not(.active):hover {
   background: var(--blue);
   color: white;
 }
@@ -1743,28 +1743,28 @@ const resultsCarouselImageSwiper = new Swiper('.results-carousel__image-swiper',
 </style>
 
 <script>
-const resultsCarouselImageSwiper = new Swiper('.results-carousel__image-swiper', {
+const resultsCarouselImageSwiper-mobile = new Swiper('.results-carousel__image-swiper-mobile', {
     slidesPerView: 1,
     allowTouchMove: false,
   });
 
-  const resultsCarouselControls = document.querySelectorAll('.results-carousel__swiper-button');
+  const resultsCarouselControls-mobile = document.querySelectorAll('.results-carousel__swiper-button-mobile');
 
-  if (resultsCarouselControls) {
-    resultsCarouselControls.forEach((button) => {
+  if (resultsCarouselControls-mobile) {
+    resultsCarouselControls-mobile.forEach((button) => {
       button.addEventListener('click', function (e) {
         e.preventDefault();
         if (!e.target.classList.contains('active')) {
-          document.querySelector('.results-carousel__swiper-button.active').classList.remove('active');
-          resultsCarouselImageSwiper.slideTo(e.target.dataset.swiperSlide);
+          document.querySelector('.results-carousel__swiper-button-mobile.active').classList.remove('active');
+          resultsCarouselImageSwiper-mobile.slideTo(e.target.dataset.swiperSlide);
           e.target.classList.add('active');
         }
       });
     });
   }
 
-  const resultsSlider = document.querySelectorAll('.results-carousel__slider');
-  resultsSlider.forEach((view) => {
+  const resultsSlider-mobile = document.querySelectorAll('.results-carousel__slider-mobile');
+  resultsSlider-mobile.forEach((view) => {
     view.addEventListener('input', function (e) {
       const sliderPosition = e.target.value;
       const slideWrapper = e.target.closest('.results-carousel__image-inner');
