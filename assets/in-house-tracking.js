@@ -1,4 +1,6 @@
 affiliate_cookie_options = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'shareasaleShopifySSCID']
+affiliate_cookie_options_2 = ['redirect__inspire', 'redirect__ut', 'redirect__ut__direct', 'redirect__paceline', 'redirect__sweatcoin', 'redirect__miles', 'redirect__studentbeans', 'shareasaleShopifySSCID']
+
 
 // if user arrives at mylaughland.com?utm_affiliate_specific=cactus_media
 // set cookie to cactus media, and google referral tag to cactus media
@@ -43,6 +45,10 @@ function clearAllAffiliateCookies(){
   removeCookie('upsell_test')
 }
 
+function clearAllAffiliateCookies_(){
+  affiliate_cookie_options_2.forEach((affiliate, index) => removeCookie(affiliate));
+}
+
 
 function redirectToLandingIfFirstTime(cookie) {
   // If I haven't redirected, redirect to random page and set landing page cookie.
@@ -55,18 +61,15 @@ function redirectToLandingIfFirstTime(cookie) {
     setGoogleLanding('homepage')
     // window.location.href = 'https://www.mylaughland.com'
   } else {
-    if (cookie == 'redirect_ut') {
       tracking_1 = parseInt(document.getElementById('tracking_v1').innerHTML) / 100
       if (d <= tracking_1) {
         console.log('flow 1')
         setCookie('flow_ga_tracking_v1', 'true')
       } else {
-        clearAllAffiliateCookies()
+        clearAllAffiliateCookies_()
         console.log('flow 2')
-        setCookie('redirect_ut', 'true')
         setCookie('flow__ga_tracking_v2', 'true')
       }
-    }
 
     if (getCookie("in_house_already_redirected") != 'true') {
       setCookie('in_house_already_redirected', 'true')
