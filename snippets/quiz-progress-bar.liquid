@@ -1,10 +1,10 @@
 <quiz-progress-bar class="quiz-progress-bar ng-tns-c57-1 ng-tns-c59-0 ng-star-inserted" _nghost-lnv-c57="">
   <div class="quiz-progress-bar-wrapper ng-tns-c57-1 ng-star-inserted">
-    <div class="quiz-progress-bar-progress ng-tns-c57-1">
-      <div class="progress-bar-filled-container ng-tns-c57-1">
-        <div class="progress-bar-filled ng-tns-c57-1" style="width: 42%;"></div>
+    <div class="quiz-progress-bar-progress">
+      <div class="progress-bar-filled-container">
+        <div class="progress-bar-filled" style="width: 42%;"></div>
       </div>
-      <div class="progress-bar-container ng-tns-c57-1">
+      <div class="progress-bar-container">
         <div class="zero-point bar-point-filled ng-tns-c57-1"></div>
         <div class="bar-point ng-tns-c57-1 ng-star-inserted bar-point-filled">1</div>
         <div class="bar-point ng-tns-c57-1 ng-star-inserted">2</div>
@@ -17,3 +17,39 @@
   </div>
   <!--  -->
 </quiz-progress-bar>
+
+<style>
+.quiz-progress-bar-progress {
+    height: 30px;
+    position: fixed;
+    z-index: 111;
+    margin: 0 auto;
+    padding-top: 13px;
+    max-width: 640px;
+    width: 100%;
+}
+.progress-bar-filled-container {
+    margin: 0 23px;
+    width: calc(100% - 46px);
+    position: relative;
+}
+.progress-bar-filled {
+    content: "";
+    flex: 1;
+    width: 2%;
+    position: absolute;
+    top: 7px;
+    height: 5px;
+    background: var(--theme);
+    z-index: 1;
+    transition: width .1s;
+}
+.progress-bar-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin: 0 20px;
+    position: relative;
+    justify-content: space-between;
+}
+</style>
