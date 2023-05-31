@@ -265,6 +265,7 @@
 .quiz_2__landing {
   max-width: 500px;
   text-align:center;
+  display: inline-block;
 }
 
 @media screen and (max-width: 768px){
