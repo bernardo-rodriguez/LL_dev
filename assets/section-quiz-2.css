@@ -236,7 +236,8 @@ formula-quiz-2[data-state='0'] [data-form-back] {
 }
 
 formula-quiz-2[data-state='0'] .quiz__content-card {
-  display: hidden;
+  display: none;
+  opacity: 0;
 }
 
 .quiz_2::-webkit-scrollbar {
