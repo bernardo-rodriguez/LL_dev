@@ -175,10 +175,6 @@
   color: white;
 }
 
-.quiz_2__input-group input[type='radio']:focus + label {
-  border: 2px dashed #444;
-}
-
 .quiz_2_input::placeholder {
   opacity: .5; 
 }
