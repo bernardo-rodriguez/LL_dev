@@ -1,6 +1,14 @@
 .secondary_button {
   background: transparent;
   color: black;
+  border: 1px solid var(--blue-tint-20);
+}
+
+.secondary_button:hover {
+  background: transparent;
+  color: black;
+  border: 1px solid var(--blue-tint-20);
+  box-shadow: none;
 }
 
 .quiz_2 {
