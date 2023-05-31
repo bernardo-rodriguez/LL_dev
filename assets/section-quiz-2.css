@@ -81,6 +81,8 @@
   padding-top: 10vh;
   padding-bottom: 10vh;
   overflow-y: visible;
+  min-width: 700px;
+
 }
 
 @media screen and (max-width: 768px) {
@@ -144,7 +146,7 @@
 
 .quiz_2_input {
   background: transparent;
-  border: 1px solid #bfe5d4
+  border: 1px solid #bfe5d4 !important;
 }
 
 .quiz_2__input-group {
@@ -190,7 +192,6 @@
   align-items: center;
   /* margin-top: 10vh; */
   width: 100%;
-  min-width: 700px;
 }
 
 @media screen and (max-width: 768px){
