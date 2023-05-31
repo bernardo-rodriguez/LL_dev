@@ -235,6 +235,10 @@
   display: none;
 }
 
+.form__step-wrapper_2 {
+  text-align:left;
+}
+
 .quiz_2__content-buttons {
   display: flex;
   flex-direction: row;
