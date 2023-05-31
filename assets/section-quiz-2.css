@@ -166,6 +166,15 @@
   border-radius: 4px;
 }
 
+.quiz_2__input-group:checked + label {
+  background-color:#bfb;
+  border-color: #4c4;
+}
+
+.quiz_2__input-group:focus + label {
+  border: 2px dashed #444;
+}
+
 .quiz_2_input::placeholder {
   opacity: .5; 
 }
