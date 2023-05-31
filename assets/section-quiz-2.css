@@ -4,11 +4,11 @@
   border: 1px solid var(--blue-tint-20);
 }
 
-.secondary_button:hover {
-  background: transparent;
-  color: black;
-  border: 1px solid var(--blue-tint-20);
-  box-shadow: none;
+.secondary_button:hover, .secondary_button:active {
+  background: transparent !important;
+  color: black !important;
+  border: 1px solid var(--blue-tint-20) !important;
+  box-shadow: none !important;
 }
 
 .quiz_2 {
