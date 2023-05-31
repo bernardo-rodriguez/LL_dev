@@ -61,13 +61,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    console.log('hi')
-    console.log(oldValue)
-    console.log(newValue)
     if (newValue !== oldValue && oldValue != null ) {
-      this.querySelector(`.quiz_2__headline[data-step="${ oldValue }"`).classList.remove('active')
-      this.querySelector(`.quiz_2__headline[data-step="${ newValue }"`).classList.add('active')
-
       this.querySelector(`.form__step-wrapper_2[data-step="${ oldValue }"`).classList.remove('active')
       this.querySelector(`.form__step-wrapper_2[data-step="${ newValue }"`).classList.add('active')
 
