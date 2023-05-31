@@ -157,13 +157,15 @@
 }
 
 .quiz_2__input-group label {
+  color: white;
   display: inline-block;
-  background-color: #ddd;
+  background-color: white;
   padding: 10px 20px;
   font-family: sans-serif, Arial;
   font-size: 16px;
-  border: 2px solid #444;
+  border: 1px solid var(--blue-tint-20);
   border-radius: 4px;
+  box-shadow: -2px 3px 6px 0 rgba(70,70,70,.15)
 }
 
 .quiz_2__input-group input[type='radio']:checked + label {
