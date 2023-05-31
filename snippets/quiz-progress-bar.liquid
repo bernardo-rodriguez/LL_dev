@@ -1,4 +1,4 @@
-<quiz-progress-bar class="quiz-progress-bar ng-tns-c57-1 ng-tns-c59-0 ng-star-inserted" _nghost-lnv-c57="">
+<quiz-progress-bar class="quiz-progress-bar ng-star-inserted">
   <div class="quiz-progress-bar-wrapper ng-tns-c57-1 ng-star-inserted">
     <div class="quiz-progress-bar-progress">
       <div class="progress-bar-filled-container">
@@ -19,6 +19,9 @@
 </quiz-progress-bar>
 
 <style>
+.quiz-progress-bar {
+    padding-top: 10px;
+}
 .quiz-progress-bar-progress {
     height: 30px;
     position: fixed;
@@ -40,7 +43,7 @@
     position: absolute;
     top: 7px;
     height: 5px;
-    background: var(--theme);
+    background: #009953;
     z-index: 1;
     transition: width .1s;
 }
