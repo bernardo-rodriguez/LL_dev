@@ -119,7 +119,6 @@
 }
 
 .quiz_2__form {
-  background: white;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -143,6 +142,7 @@
 }
 
 .quiz_2__input-group {
+  background: transparent;
   margin-top: 14px;
   margin-bottom: 40px;
   width: 100%;
