@@ -205,6 +205,8 @@ function landingPageAction(current_page, query_params) {
       default:
         // setCookie('redirect_sweatcoin', 'true')
         setFirstTimeGtags('NA')
+        setCookie('in_house_already_redirected', 'true')
+        redirectToLandingIfFirstTime('none')
         // setCookieAffiliate('redirect_sweatcoin', 'Sweatcoin')
         // setFirstTimeGtags('Sweatcoin')
         // redirectToLandingIfFirstTime('redirect_sweatcoin')
