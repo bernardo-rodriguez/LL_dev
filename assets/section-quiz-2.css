@@ -262,6 +262,10 @@
   display: inline-block;
 }
 
+.quiz_2__landing {
+  max-width: 700px;
+}
+
 @media screen and (max-width: 768px){
   .quiz_2__content-buttons {
     margin-top: 40px;
