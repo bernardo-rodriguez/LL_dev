@@ -1,3 +1,8 @@
+.secondary_button {
+  background: transparent;
+  color: black;
+}
+
 .quiz_2 {
   position: fixed;
   top: 0;
