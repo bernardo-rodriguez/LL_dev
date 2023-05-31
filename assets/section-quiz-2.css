@@ -231,8 +231,12 @@
 
 /* State */
 
-formula-quiz-2[data-state='1'] [data-form-back] {
+formula-quiz-2[data-state='0'] [data-form-back] {
   opacity: 0;
+}
+
+formula-quiz-2[data-state='0'] .quiz__content-card {
+  display: hidden;
 }
 
 .quiz_2::-webkit-scrollbar {
