@@ -22,6 +22,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     this.back = this.querySelector("[data-form-back]")
     this.next = this.querySelector("[data-form-next]")
     this.submit = this.querySelector("[data-form-submit]")
+    this.begin = this.querySelector("[data-form-begin]")
 
     this.form = this.querySelector(".quiz_2__form")
 
@@ -53,6 +54,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     this.back.addEventListener('click', this.changeFormStep.bind(this, -1))
     this.next.addEventListener('click', this.changeFormStep.bind(this, 1))
     this.close.addEventListener('click', this.closeQuiz.bind(this))
+    this.begin.addEventListener('click', this.changeFormStep.bind(this, 1))
     this.submit.addEventListener('click', function(e){
       this.submitForm(e)
     }.bind(this))
