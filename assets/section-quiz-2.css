@@ -248,8 +248,9 @@
 .additional_info_box {
   background: var(--blue-tint-20);
   border-radius: 20px;
-  padding: 20px;
+  padding: 15px;
   border: 1px solid var(--blue);
+  margin-top: 10px;
 }
 
 @media screen and (max-width: 768px){
