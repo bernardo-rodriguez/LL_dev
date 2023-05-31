@@ -190,6 +190,10 @@
   color: white;
 }
 
+.quiz_2__input-group input[type='radio']:checked + label img {
+  filter: invert(1)
+}
+
 .quiz_2_input::placeholder {
   opacity: .5; 
 }
