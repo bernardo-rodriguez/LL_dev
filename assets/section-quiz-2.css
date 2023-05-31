@@ -105,6 +105,7 @@
 .quiz_2__content-card {
   max-width: 433px;
   height: 100%;
+  margin: auto;
   /* overflow: hidden; */
 }
 
@@ -143,6 +144,7 @@
 
 .quiz_2_input {
   background: transparent;
+  border: 1px solid #bfe5d4
 }
 
 .quiz_2__input-group {
@@ -186,9 +188,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
-  margin-top: 10vh;
+  /* margin-top: 10vh; */
   width: 100%;
+  min-width: 700px;
 }
 
 @media screen and (max-width: 768px){
