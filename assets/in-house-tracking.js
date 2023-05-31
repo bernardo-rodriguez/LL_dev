@@ -70,7 +70,7 @@ function redirectToLandingIfFirstTime(cookie) {
         console.log('flow 2')
         setCookie('flow__ga_tracking_v2', 'true')
       }
-
+      
     if (getCookie("in_house_already_redirected") != 'true') {
       setCookie('in_house_already_redirected', 'true')
 
@@ -205,6 +205,8 @@ function landingPageAction(current_page, query_params) {
       default:
         // setCookie('redirect_sweatcoin', 'true')
         setFirstTimeGtags('NA')
+        setCookie('in_house_already_redirected', 'true')
+        redirectToLandingIfFirstTime('none')
         // setCookieAffiliate('redirect_sweatcoin', 'Sweatcoin')
         // setFirstTimeGtags('Sweatcoin')
         // redirectToLandingIfFirstTime('redirect_sweatcoin')
