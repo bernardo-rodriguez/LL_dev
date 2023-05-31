@@ -96,7 +96,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     let newState = currentState
     if ( x === 1  && currentState < 5 ){
       newState = ++currentState
-    } else if ( x === -1 && currentState > 1) {
+    } else if ( x === -1 && currentState > 0) {
       newState = --currentState
     }
 
