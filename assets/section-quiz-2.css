@@ -166,12 +166,12 @@
   border-radius: 4px;
 }
 
-.quiz_2__input-group:checked + label {
+.quiz_2__input-group input[type='radio']:checked + label {
   background-color:#bfb;
   border-color: #4c4;
 }
 
-.quiz_2__input-group:focus + label {
+.quiz_2__input-group input[type='radio']:focus + label {
   border: 2px dashed #444;
 }
 
