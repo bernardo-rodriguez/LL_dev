@@ -95,7 +95,6 @@
   padding-bottom: 10vh;
   overflow-y: visible;
   min-width: 700px;
-
 }
 
 @media screen and (max-width: 768px) {
@@ -251,6 +250,12 @@
   padding: 15px;
   border: 1px solid var(--blue);
   margin-top: 10px;
+}
+
+.icon,
+.text {
+  vertical-align: middle;
+  display: inline-block;
 }
 
 @media screen and (max-width: 768px){
