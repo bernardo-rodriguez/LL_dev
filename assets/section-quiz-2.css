@@ -249,6 +249,7 @@
   background: var(--blue-tint-20);
   border-radius: 20px;
   padding: 20px;
+  border: 1px solid var(--blue);
 }
 
 @media screen and (max-width: 768px){
