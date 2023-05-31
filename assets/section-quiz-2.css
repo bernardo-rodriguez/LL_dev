@@ -240,6 +240,11 @@ formula-quiz-2[data-state='0'] .quiz_2__content-card {
   opacity: 0;
 }
 
+formula-quiz-2[data-state='0'] .progress-bar-wrapper {
+  display: none;
+  opacity: 0;
+}
+
 .quiz_2::-webkit-scrollbar {
   width: 5px;
 }
