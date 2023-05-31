@@ -70,7 +70,7 @@ function redirectToLandingIfFirstTime(cookie) {
         console.log('flow 2')
         setCookie('flow__ga_tracking_v2', 'true')
       }
-
+      
     if (getCookie("in_house_already_redirected") != 'true') {
       setCookie('in_house_already_redirected', 'true')
 
