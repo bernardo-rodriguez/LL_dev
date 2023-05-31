@@ -9,7 +9,7 @@
   assign formatted_heading_3 = section.settings.step3 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
 %}
 
-<formula-quiz-2 data-state="1">
+<formula-quiz-2 data-state="0">
   <section class="quiz_2" aria-hidden="true">
     <div class="quiz_2__inner">
       <div class="quiz_2__header">
@@ -31,6 +31,7 @@
       <div class="quiz_2__content page-width">
         <div class = 'quiz_2__landing form__step-wrapper_2' data-step='0' >
           <p>hello this is the thingy thing</p>
+          {% render 'quiz-landing-2' %}
         </div>
         <div class="quiz_2__content-headline">
           <h2 class="quiz_2__headline" data-step="1">{{ formatted_heading_1 }}</h2>
