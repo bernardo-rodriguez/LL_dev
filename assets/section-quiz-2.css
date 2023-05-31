@@ -240,6 +240,17 @@
   width: 100%;
 }
 
+.question_headers {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.additional_info_box {
+  background: var(--blue-tint-20);
+  border-radius: 20px;
+  padding: 20px;
+}
+
 @media screen and (max-width: 768px){
   .quiz_2__content-buttons {
     margin-top: 40px;
