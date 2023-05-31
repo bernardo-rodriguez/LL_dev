@@ -2,9 +2,9 @@
 {{ 'section-quiz-2.css' | asset_url | stylesheet_tag }}
 
 {% liquid
-  assign formatted_heading_0 = section.settings.step1 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
+  assign formatted_heading_0 = section.settings.step1 | replace: '{', "<span class='bolded'>" | replace: '}', '</span>'
 
-  assign formatted_heading_1 = section.settings.step2 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
+  assign formatted_heading_1 = section.settings.step2 | replace: '{', "<span class='bolded'>" | replace: '}', '</span>'
 %}
 
 <formula-quiz-2 data-state="0">

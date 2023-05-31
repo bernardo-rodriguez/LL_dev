@@ -417,6 +417,10 @@ li {
   white-space: nowrap;
 }
 
+.bolded {
+  font-weight: 600
+}
+
 .glow {
   font-family: canela;
   font-weight: 300;
