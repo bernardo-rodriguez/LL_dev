@@ -146,7 +146,12 @@
 
 .quiz_2_input {
   background: transparent;
+  padding: 10px !important;
   border: 1px solid #bfe5d4 !important;
+}
+
+.quiz_2_input::placeholder {
+  opacity: .5; 
 }
 
 .quiz_2__input-group {
