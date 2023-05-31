@@ -24,10 +24,10 @@
           </svg>
         </button>
       </div>
-      <div class = 'progress-bar-wrapper' style = 'height: 10px;'>
-        {% render 'quiz-progress-bar' %}
-      </div>
       <div class="quiz_2__content page-width">
+        <div class = 'progress-bar-wrapper' style = 'height: 50px;'>
+          {% render 'quiz-progress-bar' %}
+        </div>
         <div class = 'quiz_2__landing form__step-wrapper_2 active' data-step='0' >
           <h2 class="quiz_2__headline active" data-step="0">{{ formatted_heading_0 }}</h2>
           {% render 'quiz-landing-2' %}
