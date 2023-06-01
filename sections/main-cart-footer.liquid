@@ -144,6 +144,8 @@
         url_params = url_params.concat(['discount=MILES_AUTOMATIC']);
       } else if (redirect_miles == 'true') {
         url_params = url_params.concat(['discount=SMILE25']);
+      } else if (redirect_miles == 'true') {
+        url_params = url_params.concat(['discount=SMILE25']);
       } else {
         // url_params = url_params.concat(['discount=SWEATCOIN_AUTOMATIC']);
       }
@@ -165,7 +167,7 @@
       window.location.href = '/checkout?' + url_params.join('&');
     } catch (err) {
       console.log(err);
-      window.location.href = '/checkout?discount=SUB-N-SAVE';
+      window.location.href = '/checkout';
       // window.location.href = '/checkout?discount=SWEATCOIN_AUTOMATIC';
     }
   } else {
