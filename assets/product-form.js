@@ -267,6 +267,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let subText = ''
 
     switch(subscriptionCookie[0]) {
+       case 'redirect_skimm':
+        subPrice = '$13.5'
+        subText = 'Subscribe & Save'
+        break
       case 'redirect_ut':
         subPrice = '$9.95'
         subText = 'Starter Special'
@@ -294,10 +298,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         subText = 'Subscribe & Save'
         break
       case 'redirect_inspire':
-        subPrice = '$13.5'
-        subText = 'Subscribe & Save'
-        break
-      case 'redirect_skimm':
         subPrice = '$13.5'
         subText = 'Subscribe & Save'
         break
