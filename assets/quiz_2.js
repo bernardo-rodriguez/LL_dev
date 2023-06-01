@@ -75,7 +75,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         this.next.classList.toggle('hidden')
         this.submit.classList.add('hidden')
       }
-      this.progress = newValue/5
+      this.progress = (newValue/5) * 100
       console.log(this.progress)
       $('#progress_bar_filled_percent').css('width',  this.progress.toString() + '%')
     }
