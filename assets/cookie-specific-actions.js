@@ -60,6 +60,9 @@ function cookie_actions() {
       case 'redirect_inspire': // redirect inspire annoucnement text 
         showAnnouncementBar('InspireMore readers, Discount is Automatically Applied at Checkout!')
         break
+      case 'redirect_skimm':
+        showAnnouncementBar('Skimm readers, Discount is Automatically Applied at Checkout!')
+        break
       default:
         showAnnouncementBar('Start Whitening Today for just $19!')
         break;
