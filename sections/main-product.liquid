@@ -125,6 +125,11 @@ xhttp.send();
             %}
               <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
 
+              <p style = 'display:none'class="cart-attribute__field">
+                <label for="your-name">Delivery Instructions</label>
+                <input id="your-name" type="text" name="properties[Your name]" type="text" value="testitout" form="cart" >
+              </p>
+              
               {% unless product.has_only_default_variant %}
                 {% assign picker_type = 'button' %}
                 {% if picker_type == 'button' %}
