@@ -24,6 +24,8 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     this.submit = this.querySelector("[data-form-submit]")
     this.begin = this.querySelector("[data-form-begin]")
 
+    this.progress = 0
+
     this.form = this.querySelector(".quiz_2__form")
 
     this.addEventListener('keyup', (evt) => evt.code === 'Escape' && this.closeQuiz.bind(this))
@@ -73,10 +75,9 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         this.next.classList.toggle('hidden')
         this.submit.classList.add('hidden')
       }
-      progress = newValue/5
-      progress_str = progress.toString()
-      console.log(progress_str)
-      $('#progress_bar_filled_percent').css('width',  progress_str + '%')
+      this.progress = newValue/5
+      console.log(this.progress)
+      $('#progress_bar_filled_percent').css('width',  this.progress.toString() + '%')
     }
   }
 
