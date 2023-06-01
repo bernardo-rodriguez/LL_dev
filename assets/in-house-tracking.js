@@ -221,6 +221,9 @@ function landingPageAction(current_page, query_params) {
       setGoogleLanding('landing-page')
   } else {
       setFirstTimeGtags(current_page)
+      if (query_params.utm_affiliate_specific == 'skimm') {
+        console.log('hello')
+      }
   }
 }
 
