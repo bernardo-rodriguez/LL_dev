@@ -120,9 +120,19 @@
   }
 
   async function setCartAttributes(attributes = {}) {
-      const_result = jQuery.post('/cart/update.js', {updates: {gwp_id: 0}});
       
-      
+     fetch('/cart/update.js', {
+          method: "POST",
+          headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Content-Type': 'application/json;'
+          },
+          body: JSON.stringify({
+              attributes: {
+                  foo: { bar: "123" }
+              }
+          })
+      })
   }
   
   async function setAttributes() {
