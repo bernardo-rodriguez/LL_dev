@@ -77,11 +77,19 @@
                 >
                   {{ 'sections.cart.checkout' | t }}
                 </button>
+                
 
-                <p style = 'display:none'class="cart-attribute__field">
-                  <label for="your-name">Delivery Instructions</label>
-                  <input id="your-name" type="text" name="properties[Your name]" type="text" value="testitout" form="cart" >
-                  
+                  <p class="cart-attribute__field">
+                      <label for="long-custom-text">Long Custom Text</label>
+                      <textarea 
+                        required 
+                        form="cart" 
+                        class="required"
+                        id="long-custom-text" 
+                        name="attributes[Long Custom Text]"
+                      >
+                        {{ cart.attributes["Long Custom Text"] }}
+                      </textarea>
                 </p>
               </div>
 
