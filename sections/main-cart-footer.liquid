@@ -119,8 +119,8 @@
     if (parts.length === 2) return parts.pop().split(';').shift();
   }
 
-  async function setCartAttributes(attributes = {}) {
-      const result = await fetch("/cart/update.json", {
+  function setCartAttributes(attributes = {}) {
+      const result = fetch("/cart/update.json", {
           method: "POST",
           headers: {
               "Content-Type": "application/json",
@@ -134,17 +134,17 @@
       return result.json();
   }
   
-  async function setCartAttributes() {
+  function setCartAttributes() {
       console.log('here we go')
       upsell_test = getCookie('upsell_test')
       if (upsell_test == 'true') {
-        let cart = await setCartAttributes({ upsell_state: "upsell_active" }); 
+        let cart = setCartAttributes({ upsell_state: "upsell_active" }); 
         console.log(cart.attributes) // { foo: "bar" }
       } else if (upsell_test = 'false') {
-        let cart = await setCartAttributes({ upsell_state: "upsell_inactive" }); 
+        let cart = setCartAttributes({ upsell_state: "upsell_inactive" }); 
         console.log(cart.attributes) // { foo: "bar" }
       } else {
-        let cart = await setCartAttributes({ upsell_state: "upsell_not_set" }); 
+        let cart = setCartAttributes({ upsell_state: "upsell_not_set" }); 
         console.log(cart.attributes) // { foo: "bar" }
       }
   }
