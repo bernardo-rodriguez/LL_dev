@@ -65,11 +65,11 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       this.querySelector(`.form__step-wrapper_2[data-step="${ oldValue }"`).classList.remove('active')
       this.querySelector(`.form__step-wrapper_2[data-step="${ newValue }"`).classList.add('active')
 
-      if( newValue == 3 ){
+      if( newValue == 5 ){
         this.next.classList.toggle('hidden')
         this.submit.classList.remove('hidden')
       }
-      if ( newValue == 2 && oldValue == 3 ){
+      if ( newValue == 4 && oldValue == 5 ){
         this.next.classList.toggle('hidden')
         this.submit.classList.add('hidden')
       }
