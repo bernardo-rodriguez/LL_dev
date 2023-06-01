@@ -169,6 +169,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     const subOffer = this.getSubPrice()
     const subOfferPrice = subOffer[0]
     const subOfferText = subOffer[1]
+    const kitOfferText = subOffer[2]
 
     const widgetOptions = widget.querySelectorAll(".rc_widget__option");
     console.log(widgetOptions)
@@ -309,7 +310,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         break
     }
 
-    return [subPrice, subText]
+    return [subPrice, subText, oneTimePrice]
   }
 
   onSubmitHandler(evt) {
