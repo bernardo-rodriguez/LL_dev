@@ -80,17 +80,17 @@
                 
 
                   <p style = 'display:none' class="cart-attribute__field">
-                      <label for="quiz-identifier">quiz identifier</label>
+                      <label for="upsell-identifier">upsell identifier</label>
                       <textarea 
                         form="cart" 
                         class="required"
-                        id="quiz-identifier" 
-                        name="attributes[Quiz Identifier]"
+                        id="upsell-identifier" 
+                        name="attributes[Upsell Identifier]"
                         value='test_this'
                       >
-                        {{ cart.attributes["Quiz Identifier"] }}
+                        {{ cart.attributes["Upsell Identifier"] }}
                       </textarea>
-                </p>
+                  </p>
               </div>
 
               {% if additional_checkout_buttons %}
@@ -136,6 +136,16 @@
   if (direct_checkout == 'true') {
     document.cookie = 'directcheckout=expires=Thu, 01 Jan 1970 00:00:01 GMT';
     try {
+      
+      upsell_test = getCookie('upsell_test')
+      if (upsell_test == 'true') {
+        $('#upsell-identifier').val('upsell active')
+      } else if (upsell_test = 'false') {
+        $('#upsell-identifier').val('upsell inactive')
+      } else {
+        $('#upsell-identifier').val('upsell not set')
+      }
+      
       paceline_automatic = getCookie('redirect_paceline');
       sweatcoin_automatic = getCookie('redirect_sweatcoin');
       redirect_ut_direct = getCookie('redirect_ut_direct');
