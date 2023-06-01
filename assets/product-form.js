@@ -216,9 +216,11 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     }
 
     const one_time_text = $(".rc-option__onetime .rc_widget__option__selector label .rc-option__text")
+    const one_time_price = $(".rc-option__onetime .rc_widget__option__selector label .rc-option__price")
     if (one_time_text.length == 1) {
       if (kitOfferText.length > 1) {
         one_time_text.html(kitOfferText)
+        one_time_price.html(kitOfferPrice)
       }
     }
     
