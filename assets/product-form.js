@@ -260,7 +260,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
   
   getSubPrice() {
-    const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'shareasaleShopifySSCID', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans']
+    const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'shareasaleShopifySSCID', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm']
 
     let subscriptionCookie = cookies.filter( cookieName => this.getCookie(cookieName) != null )
     let subPrice = ''
