@@ -225,7 +225,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         newSubPrice.setAttribute('class', 'updated-price')
         newSubPrice.innerHTML = kitOfferPrice
 
-        one_time_label = document.querySelector("[data-label-onetime]")
+        var one_time_label = document.querySelector("[data-label-onetime]")
         one_time_label.querySelector("[data-price-onetime]").classList.add('visually-hidden')
         one_time_label.querySelector(".rc_widget__option__selector label").appendChild(newSubPrice)
       }
