@@ -138,8 +138,10 @@
     try {
       
       upsell_test = getCookie('upsell_test')
+      console.log(upsell_test)
       if (upsell_test == 'true') {
         $('#upsell-identifier').val('upsell active')
+        console.log($('#upsell-identifier'))
       } else if (upsell_test = 'false') {
         $('#upsell-identifier').val('upsell inactive')
       } else {
