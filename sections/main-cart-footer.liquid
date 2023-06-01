@@ -128,18 +128,6 @@
     parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
   }
- 
-  upsell_test = getCookie('upsell_test')
-  if (upsell_test == 'true') {
-    console.log($('#upsell-identifier'))
-    $('#upsell-identifier').html('upsell active')
-    $('#upsell-identifier').val('upsell active')
-    document.getElementById('upsell-identifier').value = 'upsell active'
-  } else if (upsell_test = 'false') {
-    $('#upsell-identifier').val('upsell inactive')
-  } else {
-    $('#upsell-identifier').val('upsell not set')
-  }
   
   const direct_checkout = getCookie('directcheckout');
   if (direct_checkout == 'true') {
