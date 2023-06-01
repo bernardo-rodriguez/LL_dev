@@ -129,19 +129,17 @@
     parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
   }
-  document.addEventListener('DOMContentLoaded', function() {
-    upsell_test = getCookie('upsell_test')
-    console.log('hi')
-    console.log(upsell_test)
-    if (upsell_test == 'true') {
-      $('#upsell-identifier').val('upsell active')
-      console.log($('#upsell-identifier'))
-    } else if (upsell_test = 'false') {
-      $('#upsell-identifier').val('upsell inactive')
-    } else {
-      $('#upsell-identifier').val('upsell not set')
-    }
-  })
+  upsell_test = getCookie('upsell_test')
+  console.log('hi')
+  console.log(upsell_test)
+  if (upsell_test == 'true') {
+    console.log($('#upsell-identifier'))
+    $('#upsell-identifier').val('upsell active')
+  } else if (upsell_test = 'false') {
+    $('#upsell-identifier').val('upsell inactive')
+  } else {
+    $('#upsell-identifier').val('upsell not set')
+  }
   
   const direct_checkout = getCookie('directcheckout');
   if (direct_checkout == 'true') {
