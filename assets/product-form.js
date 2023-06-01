@@ -286,12 +286,12 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let oneTimePrice = ''
 
     switch(subscriptionCookie[0]) {
-       case 'redirect_skimm':
-        subPrice = '$19'
-        subText = 'Subscribe & Save'
-        oneTimeText = 'Skimm One-Time'
-        oneTimePrice = '$57'
-        break
+       // case 'redirect_skimm':
+       //  subPrice = '$19'
+       //  subText = 'Subscribe & Save'
+       //  oneTimeText = 'Skimm One-Time'
+       //  oneTimePrice = '$57'
+       //  break
       case 'redirect_ut':
         subPrice = '$9.95'
         subText = 'Starter Special'
