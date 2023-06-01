@@ -222,7 +222,9 @@ function landingPageAction(current_page, query_params) {
   } else {
       setFirstTimeGtags(current_page)
       if (query_params.utm_affiliate_specific == 'skimm') {
-        console.log('hello')
+        setCookieAffiliate('skimm', 'Skimm')
+        setFirstTimeGtags('Skimm')
+        setCookie('in_house_already_redirected', 'true')
       }
   }
 }
