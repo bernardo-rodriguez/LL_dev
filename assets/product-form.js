@@ -224,9 +224,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         const newSubPrice = document.createElement("span")
         newSubPrice.setAttribute('class', 'updated-price')
         newSubPrice.innerHTML = kitOfferPrice
-  
-        option.querySelector("[data-price-onetime]").classList.add('visually-hidden')
-        option.querySelector(".rc_widget__option__selector label").appendChild(newSubPrice)
+
+        one_time_label = document.querySelector("[data-label-onetime]")
+        one_time_label.querySelector("[data-price-onetime]").classList.add('visually-hidden')
+        one_time_label.querySelector(".rc_widget__option__selector label").appendChild(newSubPrice)
       }
     }
     
