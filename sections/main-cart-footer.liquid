@@ -77,6 +77,12 @@
                 >
                   {{ 'sections.cart.checkout' | t }}
                 </button>
+
+                <p style = 'display:none'class="cart-attribute__field">
+                  <label for="your-name">Delivery Instructions</label>
+                  <input id="your-name" type="text" name="properties[Your name]" type="text" value="testitout" form="cart" >
+                  
+                </p>
               </div>
 
               {% if additional_checkout_buttons %}
