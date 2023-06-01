@@ -26,7 +26,6 @@
   </div>
 
   <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
-    <input type="hidden" name="properties[_aight]" value="sa" />
     <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
       <div class="js-contents">
         {% if cart != empty %}
@@ -272,8 +271,6 @@
 
     <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
     <p class="visually-hidden" id="shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
-    <input type="hidden" name="properties[__private_attribute]" value="test" />
-    <input type="hidden" name="properties[_ello_then]" value="sure" />
   </form>
 </cart-items>
 
