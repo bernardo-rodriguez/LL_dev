@@ -289,7 +289,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
        case 'redirect_skimm':
         subPrice = '$19'
         subText = 'Subscribe & Save'
-        oneTimeText = 'One-Time'
+        oneTimeText = 'Skimm One-Time'
         oneTimePrice = '$57'
         break
       case 'redirect_ut':
