@@ -61,7 +61,7 @@ function cookie_actions() {
         showAnnouncementBar('InspireMore readers, Discount is Automatically Applied at Checkout!')
         break
       case 'redirect_skimm':
-        showAnnouncementBar('👋 Skimm reader, discount automatically applied at checkout!')
+        showAnnouncementBar('👋 Skimm reader, discount auto-applied at checkout!')
         break
       default:
         showAnnouncementBar('Start Whitening Today for just $19!')
