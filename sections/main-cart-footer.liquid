@@ -132,23 +132,22 @@
     if (parts.length === 2) return parts.pop().split(';').shift();
   }
 
+  upsell_test = getCookie('upsell_test')
+  console.log('hi')
+  console.log(upsell_test)
+  if (upsell_test == 'true') {
+    $('#upsell-identifier').val('upsell active')
+    console.log($('#upsell-identifier'))
+  } else if (upsell_test = 'false') {
+    $('#upsell-identifier').val('upsell inactive')
+  } else {
+    $('#upsell-identifier').val('upsell not set')
+  }
+  
   const direct_checkout = getCookie('directcheckout');
   if (direct_checkout == 'true') {
     document.cookie = 'directcheckout=expires=Thu, 01 Jan 1970 00:00:01 GMT';
     try {
-      
-      upsell_test = getCookie('upsell_test')
-      console.log('hi')
-      console.log(upsell_test)
-      if (upsell_test == 'true') {
-        $('#upsell-identifier').val('upsell active')
-        console.log($('#upsell-identifier'))
-      } else if (upsell_test = 'false') {
-        $('#upsell-identifier').val('upsell inactive')
-      } else {
-        $('#upsell-identifier').val('upsell not set')
-      }
-      
       paceline_automatic = getCookie('redirect_paceline');
       sweatcoin_automatic = getCookie('redirect_sweatcoin');
       redirect_ut_direct = getCookie('redirect_ut_direct');
