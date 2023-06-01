@@ -134,7 +134,7 @@
       return result.json();
   }
   
-  function setCartAttributes() {
+  function setAttributes() {
       console.log('here we go')
       upsell_test = getCookie('upsell_test')
       if (upsell_test == 'true') {
@@ -148,7 +148,7 @@
         console.log(cart.attributes) // { foo: "bar" }
       }
   }
-  setCartAttributes()
+  setAttributes()
   
   const direct_checkout = getCookie('directcheckout');
   if (direct_checkout == 'true') {
