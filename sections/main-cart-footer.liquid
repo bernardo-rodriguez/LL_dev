@@ -120,12 +120,13 @@
   }
 
   async function setCartAttributes(attributes = {}) {
-      const_result = jQuery.post('/cart/updated.js', {
+      const_result = jQuery.post('/cart/update.js', {
         properties: {
           'upsell_state': 'upsell_active'
         }, function( data ) {
           console.log(data)
-        });
+        }
+      });
       
   }
   
