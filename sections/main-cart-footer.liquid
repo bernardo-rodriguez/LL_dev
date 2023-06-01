@@ -140,13 +140,13 @@
       upsell_test = getCookie('upsell_test')
       if (upsell_test == 'true') {
         let cart = await setCartAttributes({ upsell_state: "upsell_active" }); 
-        console.log(cart.attributes) // { foo: "bar" }
+        // console.log(cart.attributes) // { foo: "bar" }
       } else if (upsell_test = 'false') {
         let cart = setCartAttributes({ upsell_state: "upsell_inactive" }); 
-        console.log(cart.attributes) // { foo: "bar" }
+        // console.log(cart.attributes) // { foo: "bar" }
       } else {
         let cart = setCartAttributes({ upsell_state: "upsell_not_set" }); 
-        console.log(cart.attributes) // { foo: "bar" }
+        // console.log(cart.attributes) // { foo: "bar" }
       }
   }
   setAttributes()
