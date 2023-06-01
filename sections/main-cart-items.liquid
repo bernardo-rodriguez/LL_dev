@@ -268,7 +268,10 @@
         {% endif %}
       </div>
     </div>
-
+    <p style = 'display:none'class="cart-attribute__field">
+      <label for="delivery-instructions">Delivery Instructions</label>
+      <input required class="required" id="delivery-instructions" type="text" name="attributes[Delivery Instructions]" value="{{ cart.attributes["Delivery Instructions"] }}">
+    </p>
     <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
     <p class="visually-hidden" id="shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
   </form>
