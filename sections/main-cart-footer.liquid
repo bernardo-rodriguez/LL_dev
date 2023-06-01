@@ -119,8 +119,8 @@
     if (parts.length === 2) return parts.pop().split(';').shift();
   }
 
-  function setCartAttributes(attributes = {}) {
-      const result = fetch("/cart/update.json", {
+  async function setCartAttributes(attributes = {}) {
+      const result = await fetch("/cart/update.json", {
           method: "POST",
           headers: {
               "Content-Type": "application/json",
@@ -134,7 +134,7 @@
       return result.json();
   }
   
-  function setCartAttributes() {
+  async function setCartAttributes() {
       console.log('here we go')
       upsell_test = getCookie('upsell_test')
       if (upsell_test == 'true') {
