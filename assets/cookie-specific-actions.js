@@ -42,7 +42,7 @@ function showAnnouncementBar(bar_text) {
 
 
 function cookie_actions() {
-    const cookies = ['redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans']
+    const cookies = ['redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm']
 
     let subscriptionCookie = cookies.filter( cookieName => getCookie(cookieName) != null )
 
