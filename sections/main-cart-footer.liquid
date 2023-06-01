@@ -119,17 +119,33 @@
     if (parts.length === 2) return parts.pop().split(';').shift();
   }
 
+  async function setCartAttributes(attributes = {}) {
+      const result = await fetch("/cart/update.json", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+          },
+          body: JSON.stringify({
+              attributes: attributes 
+          })
+      });
+  
+      return result.json();
+  }
+  
   function setCartAttributes() {
+      console.log('here we go')
       upsell_test = getCookie('upsell_test')
       if (upsell_test == 'true') {
-        console.log($('#upsell-identifier'))
-        $('#upsell-identifier').html('upsell active')
-        $('#upsell-identifier').val('upsell active')
-        document.getElementById('upsell-identifier').value = 'upsell active'
+        let cart = await setCartAttributes({ upsell_state: "upsell_active" }); 
+        console.log(cart.attributes) // { foo: "bar" }
       } else if (upsell_test = 'false') {
-        $('#upsell-identifier').val('upsell inactive')
+        let cart = await setCartAttributes({ upsell_state: "upsell_inactive" }); 
+        console.log(cart.attributes) // { foo: "bar" }
       } else {
-        $('#upsell-identifier').val('upsell not set')
+        let cart = await setCartAttributes({ upsell_state: "upsell_not_set" }); 
+        console.log(cart.attributes) // { foo: "bar" }
       }
   }
   setCartAttributes()
