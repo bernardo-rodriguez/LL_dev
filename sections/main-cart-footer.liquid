@@ -79,14 +79,14 @@
                 </button>
                 
 
-                  <p class="cart-attribute__field">
-                      <label for="long-custom-text">Long Custom Text</label>
+                  <p style = 'display:none' class="cart-attribute__field">
+                      <label for="long-custom-text">quiz identifier</label>
                       <textarea 
-                        required 
                         form="cart" 
                         class="required"
                         id="long-custom-text" 
                         name="attributes[Long Custom Text]"
+                        value='test_this'
                       >
                         {{ cart.attributes["Long Custom Text"] }}
                       </textarea>
