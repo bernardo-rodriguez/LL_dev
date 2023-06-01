@@ -127,7 +127,8 @@
       redirect_ut_direct = getCookie('redirect_ut_direct');
       redirect_ut = getCookie('redirect_ut');
       redirect_miles = getCookie('redirect_miles');
-      redirect_inspire = getCookie('redirect_inspire')
+      redirect_inspire = getCookie('redirect_inspire');
+      redirect_skimm = getCookie('redirect_skimm')
       productDiscountCode = getCookie('productDiscountCode');
       console.log("Cart productDiscountCode ::",productDiscountCode);
       url_params = [];
@@ -144,8 +145,8 @@
         url_params = url_params.concat(['discount=MILES_AUTOMATIC']);
       } else if (redirect_miles == 'true') {
         url_params = url_params.concat(['discount=SMILE25']);
-      } else if (redirect_miles == 'true') {
-        url_params = url_params.concat(['discount=SMILE25']);
+      } else if (redirect_skimm == 'true') {
+        url_params = url_params.concat(['discount=SKIMM25']);
       } else {
         // url_params = url_params.concat(['discount=SWEATCOIN_AUTOMATIC']);
       }
