@@ -120,18 +120,14 @@
   }
 
   async function setCartAttributes(attributes = {}) {
-      const result = await fetch("/cart/update.json", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json",
-              "Accept": "application/json"
-          },
-          body: JSON.stringify({
-              attributes: attributes 
-          })
+      const_result = jQuery.post('/cart/updated.js', {
+        properties: {
+          'upsell_state': 'upsell_active'
+        }, function( data ) {
+          console.log(data)
+        });
       });
-  
-      return result;
+      
   }
   
   async function setAttributes() {
