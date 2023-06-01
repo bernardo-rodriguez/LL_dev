@@ -322,7 +322,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         break
     }
 
-    return [subPrice, subText, oneTimePrice, oneTimePrice]
+    return [subPrice, subText, oneTimeText, oneTimePrice]
   }
 
   onSubmitHandler(evt) {
