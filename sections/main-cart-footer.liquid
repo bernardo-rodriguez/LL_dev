@@ -128,6 +128,21 @@
     parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
   }
+
+  function setCartAttributes() {
+      upsell_test = getCookie('upsell_test')
+      if (upsell_test == 'true') {
+        console.log($('#upsell-identifier'))
+        $('#upsell-identifier').html('upsell active')
+        $('#upsell-identifier').val('upsell active')
+        document.getElementById('upsell-identifier').value = 'upsell active'
+      } else if (upsell_test = 'false') {
+        $('#upsell-identifier').val('upsell inactive')
+      } else {
+        $('#upsell-identifier').val('upsell not set')
+      }
+  }
+  setCartAttributes()
   
   const direct_checkout = getCookie('directcheckout');
   if (direct_checkout == 'true') {
@@ -165,13 +180,6 @@
         url_params = [`discount=${productDiscountCode}`];
         document.cookie = 'productDiscountCode=;expires=Thu, 01 Jan 1970 00:00:01 GMT';
       }
-
-      // if(getCookie('landing_page_product_discount')){
-      //   url_params = url_params.concat([`discount=${getCookie('landing_page_product_discount')}`]);
-      //   document.cookie = 'landing_page_product_discount=;expires=Thu, 01 Jan 1970 00:00:01 GMT';
-      // }
-
-      
       console.log(url_params);
 
       window.location.href = '/checkout?' + url_params.join('&');
