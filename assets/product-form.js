@@ -265,11 +265,13 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let subscriptionCookie = cookies.filter( cookieName => this.getCookie(cookieName) != null )
     let subPrice = ''
     let subText = ''
+    let oneTimePrice = ''
 
     switch(subscriptionCookie[0]) {
        case 'redirect_skimm':
-        subPrice = '$13.5'
+        subPrice = '$19'
         subText = 'Subscribe & Save'
+        oneTimePrice = 'One-Time - $50'
         break
       case 'redirect_ut':
         subPrice = '$9.95'
