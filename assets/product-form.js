@@ -214,6 +214,13 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     if (sub_and_save_text.length == 1) {
       sub_and_save_text.html(subOfferText)
     }
+
+    const one_time_text = $(".rc-option__onetime .rc_widget__option__selector label .rc-option__text")
+    if (one_time_text.length == 1) {
+      if (kitOfferText.length > 1) {
+        one_time_text.html(kitOfferText)
+      }
+    }
     
     const stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
     stickyBar.querySelector(".sticky__price").innerHTML = subOfferPrice
