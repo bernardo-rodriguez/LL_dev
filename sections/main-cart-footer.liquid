@@ -120,7 +120,7 @@
   }
 
   async function setCartAttributes(attributes = {}) {
-      
+     console.log(attributes)
      let cart = await fetch('/cart/update.js', {
           method: "POST",
           headers: {
@@ -138,7 +138,6 @@
   }
   
   async function setAttributes() {
-      console.log('here we go')
       upsell_test = getCookie('upsell_test')
       if (upsell_test == 'true') {
         let cart = await setCartAttributes({ upsell_state: "upsell_active" }); 
