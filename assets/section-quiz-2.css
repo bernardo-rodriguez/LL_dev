@@ -275,6 +275,7 @@
 .text {
   margin-left: 5px;
   list-style-type: none;
+  margin-top: -38px;
 }
 
 .quiz_2__landing {
@@ -289,6 +290,9 @@
   }
   .question_headers {
     text-align:center;
+  }
+  .text {
+    font-size: 15px;
   }
 }
 
