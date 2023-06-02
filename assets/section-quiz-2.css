@@ -266,6 +266,10 @@
   display: inline-block;
 }
 
+.text {
+  margin-left: 5px;
+}
+
 .quiz_2__landing {
   max-width: 500px;
   text-align:center;
