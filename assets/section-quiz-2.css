@@ -39,6 +39,9 @@ body {
   .quiz_2 {
     overflow: scroll;
   }
+  .question_subheader {
+    text-align:center;
+  }
 }
 
 .quiz_2__inner {
