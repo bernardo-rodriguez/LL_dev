@@ -301,6 +301,9 @@
   .quiz_2__input-group label {
     padding: 11px 20px;
   }
+  .quiz_2__input-group-bare label {
+    padding: 18.5px 20px !important;
+  }
 }
 
 .quiz_2__footer {
