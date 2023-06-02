@@ -317,6 +317,7 @@ body {
 
 .quiz_2__input-group-bare label {
   padding: 21.25px 20px !important;
+  text-align: center;
 }
 
 @media screen and (max-width: 768px){
@@ -335,6 +336,7 @@ body {
   }
   .quiz_2__input-group-bare label {
     padding: 18.5px 20px !important;
+    text-align: center;
   }
 }
 
