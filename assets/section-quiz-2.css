@@ -324,6 +324,10 @@ body {
   display:flex;
 }
 
+.columnar {
+  margin-bottom: 10px;
+}
+
 @media screen and (max-width: 768px){
   .quiz_2__content-buttons {
     margin-top: 40px;
