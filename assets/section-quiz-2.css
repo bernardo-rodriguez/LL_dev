@@ -31,10 +31,6 @@
   overflow-y: scroll;
 }
 
-body {
-  background: white;
-}
-
 @media screen and (max-width: 768px) {
   .quiz_2 {
     overflow: scroll;
