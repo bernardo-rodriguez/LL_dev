@@ -1,46 +1,16 @@
-<label class="h5" for="first_name_2">What's your name?</label>
-<div class="quiz_2__input-group quiz_2__input-group-columns">
-  <input class = 'quiz_2_input' type="text" id="first_name_2" name="first_name_2" placeholder="Your name" required>
-</div>
+<p class="question_headers">Do you have any white stains like this?</p>
+<img width = '30' height = '30' loading = 'lazy' src="{{ 'white-stains_small.png' | asset_url }}">
+<div class="quiz_2__input-group quiz_2__input-group-bare box_label">
+  <fieldset class="fieldset-row">
+    <input class="for_email_klaviyo" type="radio" id="none_2" name="white_stains_2" value="none_2">
+    <label for="none_2">Nope</label>
 
-{% comment %} <p class="h5">What are your goals?</p>
-<p class="body-sm">Select all that apply.</p>
-<div class="quiz_2__input-group">
-  <fieldset class="fieldset-columns">
-    <label for="whitening_2">
-      <input class="for_email_klaviyo" type="checkbox" id="whitening_2" name="goals_2" value="whitening_2">
-      <div class="custom-radio-button"></div>
-      Teeth Whitening
-    </label>
+    <input class="for_email_klaviyo" type="radio" id="some_2" name="white_stains_2" value="some_2">
+    <label for="some_2">A little bit</label>
 
-    <label for="oral_hygiene_2">
-      <input class="for_email_klaviyo" type="checkbox" id="oral_hygiene_2" name="goals_2" value="oral_hygiene_2">
-      <div class="custom-radio-button"></div>
-      Oral Hygiene
-    </label>
+    <input class="for_email_klaviyo" type="radio" id="yes_2" name="white_stains_2" value="yes_2">
+    <label for="yes_2">Yes indeed</label>
 
-    <label for="enamel_health_2">
-      <input class="for_email_klaviyo" type="checkbox" id="enamel_health_2" name="goals_2" value="enamel_health_2">
-      <div class="custom-radio-button"></div>
-      Enamel Health
-    </label>
 
-    <label for="sensitivity_reduction_2">
-      <input class="for_email_klaviyo" type="checkbox" id="sensitivity_reduction_2" name="goals_2" value="sensitivity_reduction_2">
-      <div class="custom-radio-button"></div>
-      Sensitivity Reduction
-    </label>
-
-    <label for="better_breath_2">
-      <input class="for_email_klaviyo" type="checkbox" id="better_breath_2" name="goals_2" value="better_breath_2">
-      <div class="custom-radio-button"></div>
-      Better Breath
-    </label>
-
-    <label for="cavity_prevention_2">
-      <input class="for_email_klaviyo" type="checkbox" id="cavity_prevention_2" name="goals_2" value="cavity_prevention_2">
-      <div class="custom-radio-button"></div>
-      Cavity Prevention
-    </label>
-  </fieldset> {% endcomment %}
+  </fieldset>
 </div>
