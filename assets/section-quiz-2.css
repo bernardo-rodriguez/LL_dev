@@ -320,6 +320,10 @@ body {
   text-align: center;
 }
 
+.flex-container {
+  display:flex;
+}
+
 @media screen and (max-width: 768px){
   .quiz_2__content-buttons {
     margin-top: 40px;
