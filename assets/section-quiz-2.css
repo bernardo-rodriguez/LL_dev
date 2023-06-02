@@ -27,8 +27,12 @@
 .quiz_2[aria-hidden='false'] {
   z-index: 9999;
   opacity: 1;
-  background: #FAF5F1;
+  background: white;
   overflow-y: scroll;
+}
+
+body {
+  background: white;
 }
 
 @media screen and (max-width: 768px) {
