@@ -294,6 +294,8 @@ body {
 .text {
   margin-left: 5px;
   list-style-type: none;
+  font-family: manrope, sans-serif;
+  font-weight: 600;
 }
 
 .informative-text {
