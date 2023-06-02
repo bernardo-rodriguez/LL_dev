@@ -104,7 +104,7 @@
   max-width: 466px;
 }
 
-@media screen and (max-width: 508) {
+@media screen and (max-width: 490px) {
   .quiz_2__content-buttons {
     padding-right: 40px;
   }
