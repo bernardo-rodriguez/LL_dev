@@ -378,6 +378,7 @@ xhttp.send();
   }
   
   async function setAttributes() {
+      console.log('hello')
       upsell_test = getCookie('upsell_test')
       if (upsell_test == 'true') {
         let cart = await setCartAttributes({ upsell: "upsell_active" }); 
