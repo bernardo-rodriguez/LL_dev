@@ -101,7 +101,7 @@
 @media screen and (max-width: 768px) {
   .quiz_2__content {
     display: block;
-    padding-top: 10px;
+    padding-top: 0;
     padding-bottom: 50px;
     min-height: 100vh;
   }
