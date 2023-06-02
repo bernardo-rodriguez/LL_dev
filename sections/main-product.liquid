@@ -356,7 +356,6 @@ xhttp.send();
   document.getElementById('main-clickable-button').addEventListener("click", upsellLogic);
 
    async function setCartAttributes(attr = {}) {
-   console.log(attributes)
    let cart = await fetch('/cart/update.js', {
         method: "POST",
         headers: {
