@@ -295,7 +295,12 @@ body {
   margin-left: 5px;
   list-style-type: none;
   font-family: manrope, sans-serif;
-  font-weight: 600;
+  font-weight: 300;
+}
+
+.for_email_klaviyo {
+  font-family: manrope, sans-serif;
+  font-weight: 300;
 }
 
 .informative-text {
