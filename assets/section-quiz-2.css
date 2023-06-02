@@ -211,6 +211,12 @@ body {
   box-shadow: -2px 3px 6px 0 rgba(70,70,70,.15)
 }
 
+.quiz_2__input-group input[type='checkbox']:checked + label {
+  background-color:var(--blue);
+  border-color: var(--blue);
+  color: white;
+}
+
 .quiz_2__input-group input[type='radio']:checked + label {
   background-color:var(--blue);
   border-color: var(--blue);
