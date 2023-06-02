@@ -1,17 +1,28 @@
 <p class="question_headers">Don’t worry. We also dread trips to the dentist too. Unless it’s to our internal dentist advisors (we’re forced to say this)</p>
-<div style = 'text-align: center; margin-top: 30px;'>
-  <img style = 'display: inline-block' width = '236' height = '148' loading = 'lazy' src="{{ 'coffee-stains_small.png' | asset_url }}">
-</div>
+<p class = 'question_subheader'>Select all that apply.</p>
 <div class="quiz_2__input-group quiz_2__input-group-bare box_label">
   <fieldset class="fieldset-row">
-    <input class="for_email_klaviyo" type="radio" id="c_none_2" name="coffee_stains_2" value="c_none_2">
-    <label for="c_none_2">Nope</label>
+    <div class = 'flex-container-label'>
+      <div style = 'flex:1; margin-right: 10px'>
+        <input class="for_email_klaviyo procedures_check" type="checkbox" id="cavities_2" name="procedures_2" value="cavities_2">
+        <label class = 'columnar' for="cavities_2">Cavities</label>
 
-    <input class="for_email_klaviyo" type="radio" id="c_some_2" name="coffee_stains_2" value="c_some_2">
-    <label for="c_some_2">A little bit</label>
+        <input class="for_email_klaviyo procedures_check" type="checkbox" id="veneers_2" name="procedures_2" value="veneers_2">
+        <label class = 'columnar' for="veneers_2">Veneers</label>
 
-    <input class="for_email_klaviyo" type="radio" id="c_yes_2" name="coffee_stains_2" value="c_yes_2">
-    <label for="c_yes_2">Yes indeed</label>
+        <input class="for_email_klaviyo procedures_check" type="checkbox" id="fillings_2" name="procedures_2" value="fillings_2">
+        <label class = 'columnar' for="fillings_2">Tooth fillings</label>
+      </div>
+      <div style = 'flex:1; margin-left: 10px'>
+        <input class="for_email_klaviyo procedures_check" type="checkbox" id="braces_2" name="procedures_2" value="braces_2">
+        <label class = 'columnar' for="braces_2">Braces</label>
 
+        <input class="for_email_klaviyo procedures_check" type="checkbox" id="crowns_2" name="procedures_2" value="crowns_2">
+        <label class = 'columnar' for="crowns_2">Crowns and Molds</label>
+
+        <input class="for_email_klaviyo procedures_check" type="checkbox" id="implants_2" name="procedures_2" value="implants_2">
+        <label class = 'columnar' for="implants_2">Implants</label>
+      </div>
+    </div>
   </fieldset>
 </div>
