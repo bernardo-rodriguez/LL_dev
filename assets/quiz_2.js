@@ -67,15 +67,15 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       this.querySelector(`.form__step-wrapper_2[data-step="${ oldValue }"`).classList.remove('active')
       this.querySelector(`.form__step-wrapper_2[data-step="${ newValue }"`).classList.add('active')
 
-      if( newValue == 7 ){
+      if( newValue == 9 ){
         this.next.classList.toggle('hidden')
         this.submit.classList.remove('hidden')
       }
-      if ( newValue == 6 && oldValue == 7 ){
+      if ( newValue == 8 && oldValue == 9 ){
         this.next.classList.toggle('hidden')
         this.submit.classList.add('hidden')
       }
-      this.progress = (newValue/7) * 100
+      this.progress = (newValue/9) * 100
       console.log(this.progress)
       $('#progress_bar_filled_percent').css('width',  this.progress.toString() + '%')
     }
@@ -96,7 +96,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
   changeFormStep(x) {
     let currentState = this.dataset.state
     let newState = currentState
-    if ( x === 1  && currentState < 7 ){
+    if ( x === 1  && currentState < 9 ){
       newState = ++currentState
     } else if ( x === -1 && currentState > 0) {
       newState = --currentState
