@@ -274,6 +274,7 @@
 
 .text {
   margin-left: 5px;
+  list-style-type: none;
 }
 
 .quiz_2__landing {
