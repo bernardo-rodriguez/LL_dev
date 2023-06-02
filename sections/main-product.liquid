@@ -379,11 +379,11 @@ xhttp.send();
   async function setAttributes() {
       upsell_test = getCookie('upsell_test')
       if (upsell_test == 'true') {
-        let cart = await setCartAttributes({ upsell: "upsell_active" }); 
+        let cart = await setCartAttributes("upsell_active"); 
       } else if (upsell_test = 'false') {
-        let cart = setCartAttributes({ upsell: "upsell_inactive" }); 
+        let cart = setCartAttributes("upsell_inactive"); 
       } else {
-        let cart = setCartAttributes({ upsell: "upsell_not_set" }); 
+        let cart = setCartAttributes("upsell_not_set"); 
       }
   }
   setTimeout(() => { 
