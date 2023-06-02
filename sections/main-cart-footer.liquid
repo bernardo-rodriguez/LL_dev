@@ -119,39 +119,39 @@
     if (parts.length === 2) return parts.pop().split(';').shift();
   }
 
-  async function setCartAttributes(attr = {}) {
-     console.log(attributes)
-     let cart = await fetch('/cart/update.js', {
-          method: "POST",
-          headers: {
-              'X-Requested-With': 'XMLHttpRequest',
-              'Content-Type': 'application/json;'
-          },
-          body: JSON.stringify({
-              attributes: {
-                attr
-              }
-          })
-      }).then(response => {
-        console.log(response)
-      })
-      .catch(error => {
-        console.log(error)
-      });
-      return cart
-  }
+  // async function setCartAttributes(attr = {}) {
+  //    console.log(attributes)
+  //    let cart = await fetch('/cart/update.js', {
+  //         method: "POST",
+  //         headers: {
+  //             'X-Requested-With': 'XMLHttpRequest',
+  //             'Content-Type': 'application/json;'
+  //         },
+  //         body: JSON.stringify({
+  //             attributes: {
+  //               attr
+  //             }
+  //         })
+  //     }).then(response => {
+  //       console.log(response)
+  //     })
+  //     .catch(error => {
+  //       console.log(error)
+  //     });
+  //     return cart
+  // }
   
-  async function setAttributes() {
-      upsell_test = getCookie('upsell_test')
-      if (upsell_test == 'true') {
-        let cart = await setCartAttributes({ upsell: "upsell_active" }); 
-      } else if (upsell_test = 'false') {
-        let cart = setCartAttributes({ upsell: "upsell_inactive" }); 
-      } else {
-        let cart = setCartAttributes({ upsell: "upsell_not_set" }); 
-      }
-  }
-  setAttributes()
+  // async function setAttributes() {
+  //     upsell_test = getCookie('upsell_test')
+  //     if (upsell_test == 'true') {
+  //       let cart = await setCartAttributes({ upsell: "upsell_active" }); 
+  //     } else if (upsell_test = 'false') {
+  //       let cart = setCartAttributes({ upsell: "upsell_inactive" }); 
+  //     } else {
+  //       let cart = setCartAttributes({ upsell: "upsell_not_set" }); 
+  //     }
+  // }
+  // setAttributes()
   
   const direct_checkout = getCookie('directcheckout');
   if (direct_checkout == 'true') {
