@@ -106,14 +106,14 @@ body {
 }
 
 .quiz_2__content-buttons {
-  position: fixed;
-  bottom: 20px;
   max-width: 466px;
 }
 
 @media screen and (max-width: 490px) {
   .quiz_2__content-buttons {
     padding-right: 40px;
+    position: fixed;
+    bottom: 20px;
   }
 }
 
