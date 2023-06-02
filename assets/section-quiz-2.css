@@ -275,6 +275,9 @@
 .text {
   margin-left: 5px;
   list-style-type: none;
+}
+
+.informative-text {
   margin-top: -38px;
 }
 
@@ -291,7 +294,7 @@
   .question_headers {
     text-align:center;
   }
-  .text {
+  .informative-text {
     font-size: 15px;
   }
 }
