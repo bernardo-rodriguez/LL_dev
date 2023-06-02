@@ -298,6 +298,9 @@
   .informative-text {
     font-size: 15px;
   }
+  .quiz_2__input-group label {
+    padding: 11px 20px;
+  }
 }
 
 .quiz_2__footer {
