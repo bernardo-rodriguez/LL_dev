@@ -102,7 +102,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
 
   changeFormStep(x) {
     let currentState = this.dataset.state
-    let newState = currentState
+    let newState = Number(currentState)
     console.log(typeof newState)
     if (currentState in this.feedback_dictionary && this.feedback_dictionary[currentState]['conditions'] == 'any') {
       newState = currentState + 0.5
@@ -115,9 +115,9 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     } else if ( x === -1 && currentState > 0) {
       newState = currentState - 1
     }
-    this.setAttribute('data-state', newState )
+    this.setAttribute('data-state', newState.toString() )
 
-    this.setInputs(newState)
+    this.setInputs(newState.toString())
     if(this.validateFormStep(this.inputs) == true) {
       this.next.removeAttribute('disabled')
     } else {
