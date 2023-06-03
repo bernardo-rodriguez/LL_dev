@@ -223,6 +223,10 @@
   filter: invert(1)
 }
 
+.quiz_2__input-group input[type='checkbox']:checked + label img {
+  filter: invert(1)
+}
+
 .quiz_2_input::placeholder {
   opacity: .5; 
 }
