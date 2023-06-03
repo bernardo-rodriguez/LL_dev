@@ -96,7 +96,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
   changeFormStep(x) {
     let currentState = this.dataset.state
     let newState = currentState
-    if ( x === 1  && currentState < 9 ){
+    if ( x === 1  && currentState < 10 ){
       newState = ++currentState
     } else if ( x === -1 && currentState > 0) {
       newState = --currentState
