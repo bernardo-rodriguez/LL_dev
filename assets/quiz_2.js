@@ -68,6 +68,9 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
+    console.log('changed')
+    console.log(oldValue)
+    console.log(newValue)
     if (newValue !== oldValue && oldValue != null ) {
       this.querySelector(`.form__step-wrapper_2[data-step="${ oldValue }"`).classList.remove('active')
       this.querySelector(`.form__step-wrapper_2[data-step="${ newValue }"`).classList.add('active')
@@ -81,7 +84,6 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         this.submit.classList.add('hidden')
       }
       this.progress = (newValue/10) * 100
-      console.log(this.progress)
       $('#progress_bar_filled_percent').css('width',  this.progress.toString() + '%')
     }
   }
@@ -101,7 +103,6 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
   changeFormStep(x) {
     let currentState = this.dataset.state
     let newState = currentState
-    console.log(currentState)
     if (currentState in this.feedback_dictionary && this.feedback_dictionary[currentState]['conditions'] == 'any') {
       newState = currentState + 0.5
     } else if ( x === 1  && currentState < 10 ){
@@ -113,7 +114,6 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     } else if ( x === -1 && currentState > 0) {
       newState = --currentState
     }
-    console.log(newState)
     this.setAttribute('data-state', newState )
 
     this.setInputs(newState)
