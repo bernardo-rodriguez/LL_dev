@@ -19,6 +19,13 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     this.feedback_dictionary = {
       6: {
         "conditions": "any"
+      },
+      10: {
+        "conditions": {
+          "routine_2": {
+            "strips_2": "While Whitening Toothpaste removes surface stains, it doesn’t penetrate the teeth and change the color inside. The dentin inside the enamel is the yellow part of the teeth that gives it the yellow hue. That’s where we come in."
+          }
+        }
       }
     }
 
@@ -100,15 +107,9 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     }, 900)
   }
 
-  changeFormStep(x) {
-    let currentState = Number(this.dataset.state)
-    let newState = currentState
-    console.log(typeof newState)
-    if (currentState in this.feedback_dictionary && this.feedback_dictionary[currentState]['conditions'] == 'any' && x == 1) {
-      newState = currentState + 0.5
-    } else if (currentState - 1 in this.feedback_dictionary && this.feedback_dictionary[currentState - 1]['conditions'] == 'any' && x == -1) {
-      newState = currentState - 0.5
-    } else if ( x === 1  && currentState < 10 ){
+  normalAdd(x, currentState) {
+    let newState = 0
+    if ( x === 1  && currentState < 10 ){
       if (currentState % 1 == 0) {
         newState = currentState + 1
       } else {
@@ -121,6 +122,29 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         newState = currentState - 0.5
       }
     }
+  }
+
+  changeFormStep(x) {
+    let currentState = Number(this.dataset.state)
+    let newState = currentState
+    if (x == 1) {
+      if (currentState in this.feedback_dictionary) {
+        if (this.feedback_dictionary[currentState]['conditions'] == 'any') {
+          newState = currentState + 0.5
+        }
+      } else {
+        this.normalAdd(x, currentState)
+      }
+    } else {
+      if (currentState - 1 in this.feedback_dictionary) {
+        if (this.feedback_dictionary[currentState - 1]['conditions'] == 'any') {
+          newState = currentState - 0.5
+        } else {
+          this.normalAdd(x, currentState)
+        }
+      }
+    }
+
     this.setAttribute('data-state', newState.toString() )
 
     this.setInputs(newState.toString())
