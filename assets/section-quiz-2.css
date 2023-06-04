@@ -294,7 +294,8 @@
 
 .insight_subheaders {
   font-size: 20px;
-  margin-top: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
 }
 
 .additional_info_box {
