@@ -113,7 +113,11 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         newState = currentState + 0.5
       }
     } else if ( x === -1 && currentState > 0) {
-      newState = currentState - 1
+      if (currentState % 1 == 0) {
+        newState = currentState - 1
+      } else {
+        newState = currentState - 0.5
+      }
     }
     this.setAttribute('data-state', newState.toString() )
 
