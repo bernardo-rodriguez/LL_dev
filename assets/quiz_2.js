@@ -106,7 +106,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     console.log(typeof newState)
     if (currentState in this.feedback_dictionary && this.feedback_dictionary[currentState]['conditions'] == 'any' && x == 1) {
       newState = currentState + 0.5
-    } else if (currentState in this.feedback_dictionary && this.feedback_dictionary[currentState - 1]['conditions'] == 'any' && x == -1) {
+    } else if (currentState - 1 in this.feedback_dictionary && this.feedback_dictionary[currentState - 1]['conditions'] == 'any' && x == -1) {
       newState = currentState - 0.5
     } else if ( x === 1  && currentState < 10 ){
       if (currentState % 1 == 0) {
