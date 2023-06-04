@@ -22,16 +22,13 @@
   /* transform: translateY(100%); */
   background: var(--blue);
   transition: opacity .5s ease 1.3s, background .5s ease 1.3s;
+  overflow: scroll;
 }
 
 .quiz_2[aria-hidden='false'] {
   z-index: 9999;
   opacity: 1;
   background: white;
-}
-
-.quiz_2 {
-  overflow: scroll;
 }
 
 @media screen and (max-width: 768px) {
