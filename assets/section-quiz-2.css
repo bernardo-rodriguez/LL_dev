@@ -286,6 +286,17 @@
   font-weight: 600;
 }
 
+.insight_headers {
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.insight_subheaders {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
 .additional_info_box {
   background: var(--blue-tint-20);
   border-radius: 5px;
@@ -333,6 +344,10 @@
 
 .columnar {
   margin-bottom: 20px;
+}
+
+.insight_image {
+  margin: 10px
 }
 
 @media screen and (max-width: 768px){
