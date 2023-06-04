@@ -104,8 +104,10 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     let currentState = Number(this.dataset.state)
     let newState = currentState
     console.log(typeof newState)
-    if (currentState in this.feedback_dictionary && this.feedback_dictionary[currentState]['conditions'] == 'any') {
+    if (currentState in this.feedback_dictionary && this.feedback_dictionary[currentState]['conditions'] == 'any' && x == 1) {
       newState = currentState + 0.5
+    } else if (currentState in this.feedback_dictionary && this.feedback_dictionary[currentState - 1]['conditions'] == 'any' && x == -1) {
+      newState = currentState - 0.5
     } else if ( x === 1  && currentState < 10 ){
       if (currentState % 1 == 0) {
         newState = currentState + 1
