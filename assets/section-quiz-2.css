@@ -369,6 +369,16 @@
     padding: 18.5px 20px !important;
     text-align: center;
   }
+  .insight_image {
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+  .insight_headers {
+    font-size: 25px;
+  }
+  .insight_subheaders {
+    font-size: 18px;
+  }
 }
 
 .quiz_2__footer {
