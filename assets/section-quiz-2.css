@@ -22,7 +22,7 @@
   /* transform: translateY(100%); */
   background: var(--blue);
   transition: opacity .5s ease 1.3s, background .5s ease 1.3s;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .quiz_2[aria-hidden='false'] {
