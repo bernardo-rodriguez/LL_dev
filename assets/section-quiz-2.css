@@ -94,7 +94,7 @@
 .quiz_2__content {
   grid-template-areas: "headline card";
   column-gap: 66px;
-  padding-bottom: 50px;
+  padding-bottom: 0;
   padding-top:0;
   /* min-height: 100vh; */
   overflow-y: visible;
