@@ -82,15 +82,15 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       this.querySelector(`.form__step-wrapper_2[data-step="${ oldValue }"`).classList.remove('active')
       this.querySelector(`.form__step-wrapper_2[data-step="${ newValue }"`).classList.add('active')
 
-      if( newValue == 10 ){
+      if( newValue == 12 ){
         this.next.classList.toggle('hidden')
         this.submit.classList.remove('hidden')
       }
-      if ( newValue == 9 && oldValue == 10 ){
+      if ( newValue == 9 && oldValue == 12 ){
         this.next.classList.toggle('hidden')
         this.submit.classList.add('hidden')
       }
-      this.progress = (newValue/10) * 100
+      this.progress = (newValue/12) * 100
       $('#progress_bar_filled_percent').css('width',  this.progress.toString() + '%')
     }
   }
@@ -109,7 +109,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
 
   normalAdd(x, currentState) {
     let newState = 0
-    if ( x === 1  && currentState < 10 ){
+    if ( x === 1  && currentState < 12 ){
       if (currentState % 1 == 0) {
         newState = currentState + 1
       } else {
