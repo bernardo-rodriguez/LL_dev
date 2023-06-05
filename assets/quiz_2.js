@@ -133,10 +133,6 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         let feedbackState = this.feedback_dictionary[currentState]
         let input_name = Object.keys(feedbackState['conditions'])[0]
         let input_value = $(`input[name=${input_name}]:checked`).val()
-        console.log('new')
-        console.log(feedbackState)
-        console.log(input_name)
-        console.log(input_value)
         if (Object.keys(feedbackState['conditions'][input_name]).length == 0) {
           newState = currentState + 0.5
         } else if (input_value in feedbackState['conditions'][input_name]) {
@@ -154,11 +150,9 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         let input_name = Object.keys(feedbackState['conditions'])[0]
         let input_value = $(`input[name=${input_name}]:checked`).val()
         if (feedbackState['conditions'][input_name].length == 0) {
-          newState = currentState + 0.5
-          console.log('no length')
+          newState = currentState - 0.5
         } else if (input_value in feedbackState['conditions'][input_name]) {
-          newState = currentState + 0.5
-          print(feedbackState['conditions'][input_name][input_value])
+          newState = currentState - 0.5
         } else {
           newState = this.normalAdd(x, currentState)
         }
