@@ -136,7 +136,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         let feedbackState = this.feedback_dictionary[currentState]
         let input_name = Object.keys(feedbackState['conditions'])[0]
         let input_value = $(`input[name=${input_name}]`)
-        if (len(feedbackState['conditions'][input_name]) == 0) {
+        if (feedbackState['conditions'][input_name].length == 0) {
           newState = currentState + 0.5
         } else if (input_value in feedbackState['conditions'][input_name]) {
           newState = currentState + 0.5
