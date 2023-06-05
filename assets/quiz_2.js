@@ -161,7 +161,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
   }
 
   stepSpecificText(id, text) {
-    $(`$${id}`).html(text)
+    $(`#${id}`).html(text)
   }
 
   changeFormStep(x) {
