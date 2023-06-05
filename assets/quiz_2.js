@@ -196,11 +196,12 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         }
       }
     }
+    var that = this
     setTimeout(
       function() {
         $('.quiz_2__content-buttons').show()
-        this.changeFormStep(1)
-      }, 2000);
+        that.changeFormStep(1)
+      }, 4000);
   }
 
   setInputs(step) {
