@@ -17,8 +17,11 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     // Array.from(this.inputs).forEach((i) => {if (!this.inputNames.includes(i.name)) this.inputNames.push(i.name)})
     // console.log(this.inputNames)
     this.feedback_dictionary = {
+      // if blank conditions, always apply the same
       6: {
-        "conditions": "any"
+        "conditions": {
+          "shade_2": {}
+        }
       },
       10: {
         "conditions": {
@@ -130,8 +133,16 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     let newState = currentState
     if (x == 1) {
       if (currentState in this.feedback_dictionary) {
-        if (this.feedback_dictionary[currentState]['conditions'] == 'any') {
+        let feedbackState = this.feedback_dictionary[currentState]
+        let input_name = Object.keys(feedbackState['conditions'])[0]
+        let input_value = $(`input[name=${input_name}]`)
+        if (len(feedbackState['conditions'][input_name]) == 0) {
           newState = currentState + 0.5
+        } else if (input_value in feedbackState['conditions'][input_name]) {
+          newState = currentState + 0.5
+          print(feedbackState['conditions'][input_name][input_value])
+        } else {
+          newState = this.normalAdd(x, currentState)
         }
       } else {
         newState = this.normalAdd(x, currentState)
