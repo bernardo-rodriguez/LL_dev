@@ -50,7 +50,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     this.addEventListener('keyup', (evt) => evt.code === 'Escape' && this.closeQuiz.bind(this))
 
     this.allInputs.forEach((input) => {
-      input.addEventListener('change', function(e){
+      input.addEventListener('input', function(e){
         if(this.validateFormStep(this.inputs) == true) {
           this.next.removeAttribute('disabled')
         } else {
