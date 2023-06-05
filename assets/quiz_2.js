@@ -81,10 +81,16 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     }.bind(this))
   }
 
+  fillProgressBar(newValue, total) {
+    let progress = newValue / total
+    console.log(progress)
+  }
+
   attributeChangedCallback(name, oldValue, newValue) {
     if (newValue !== oldValue && oldValue != null ) {
       this.querySelector(`.form__step-wrapper_2[data-step="${ oldValue }"`).classList.remove('active')
       this.querySelector(`.form__step-wrapper_2[data-step="${ newValue }"`).classList.add('active')
+      this.fillProgressBar(newValue, 12)
 
       if( newValue == 12 ){
         this.next.classList.toggle('hidden')
