@@ -26,7 +26,10 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       10: {
         "conditions": {
           "routine_2": {
-            "strips_2": "While Whitening Toothpaste removes surface stains, it doesn’t penetrate the teeth and change the color inside. The dentin inside the enamel is the yellow part of the teeth that gives it the yellow hue. That’s where we come in."
+            "strips_2": {
+              "text": "While Whitening Toothpaste removes surface stains, it doesn’t penetrate the teeth and change the color inside. The dentin inside the enamel is the yellow part of the teeth that gives it the yellow hue. That’s where we come in.",
+              "id": "ten_response_text"
+            }
           }
         }
       }
@@ -157,6 +160,10 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     return newState
   }
 
+  stepSpecificText(id, text) {
+    $(`$${id}`).html(text)
+  }
+
   changeFormStep(x) {
     let currentState = Number(this.dataset.state)
     console.log(currentState)
@@ -173,7 +180,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
           newState = currentState + 0.5
         } else if (input_value in feedbackState['conditions'][input_name]) {
           newState = currentState + 0.5
-          console.log(feedbackState['conditions'][input_name][input_value])
+          this.stepSpecificText(feedbackState['conditions'][input_name][input_value]['id'], feedbackState['conditions'][input_name][input_value]['text'])
         } else {
           newState = this.normalAdd(x, currentState)
         }
