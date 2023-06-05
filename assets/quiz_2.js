@@ -84,6 +84,25 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
   fillProgressBar(newValue, total) {
     let progress = newValue / total
     console.log(progress)
+    bar_point_1 = this.querySelector(`#bar_point_1`)
+    bar_point_2 = this.querySelector(`#bar_point_2`)
+    bar_point_3 = this.querySelector(`#bar_point_3`)
+    bar_point_4 = this.querySelector(`#bar_point_4`)
+  
+    bar_point_1.classList.remove('bar-point-filled')
+    bar_point_2.classList.remove('bar-point-filled')
+    bar_point_3.classList.remove('bar-point-filled')
+    bar_point_4.classList.remove('bar-point-filled')
+
+    if (progress >= .25) {
+      bar_point_1.classList.add('bar-point-filled')
+    } if (progress >=.5) {
+      bar_point_2.classList.add('bar-point-filled')
+    } if (progress >=.75) {
+      bar_point_3.classList.add('bar-point-filled')
+    } if (progress >= 1) {
+      bar_point_4.classList.add('bar-point-filled')
+    }
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
