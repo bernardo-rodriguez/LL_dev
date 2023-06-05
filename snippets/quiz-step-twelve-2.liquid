@@ -1,7 +1,20 @@
 <p class="question_headers">What's your email?</p>
 <div class="quiz_2__input-group box_label">
   <div class="quiz_2__input-group quiz_2__input-group-columns">
-    <input class = 'quiz_2_input' type="text" id="email_2" name="email_2" placeholder="Your email" required>
+    {% comment %} <input class = 'quiz_2_input' type="text" id="email_2" name="email_2" placeholder="Your email" required> {% endcomment %}
+    <div class="quiz__input-group">
+      <input
+        class="for_email_klaviyo"
+        type="email"
+        name="contact[email]"
+        style="color: #3a5ca5"
+        id="ourformbutforklaviyo"
+        placeholder="Email"
+        required
+      >
+      <input class="for_email_klaviyo" type="hidden" name="contact[tags]" value="newsletter">
+      <p class="form-error-message body-xs hidden">This field is required</p>
+    </div>
   </div>
 </div>
 

@@ -201,7 +201,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       function() {
         $('.quiz_2__content-buttons').show()
         that.changeFormStep(1)
-      }, 4000);
+      }, 3000);
   }
 
   setInputs(step) {
@@ -244,7 +244,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
 
     document.cookie =  "strength=" + formula_translate[sensitivity] + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
     document.cookie = "firstname=" + document.querySelector('#first_name_2').value + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
-    document.cookie = "lastname=" + document.querySelector('#last_name_2').value + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
+    // document.cookie = "lastname=" + document.querySelector('#last_name_2').value + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
 
     let ut = getCookie('redirect_ut')
     let ut_direct = getCookie('redirect_ut_direct')
