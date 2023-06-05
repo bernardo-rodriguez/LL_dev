@@ -78,9 +78,6 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    console.log('changed')
-    console.log(oldValue)
-    console.log(newValue)
     if (newValue !== oldValue && oldValue != null ) {
       this.querySelector(`.form__step-wrapper_2[data-step="${ oldValue }"`).classList.remove('active')
       this.querySelector(`.form__step-wrapper_2[data-step="${ newValue }"`).classList.add('active')
@@ -136,6 +133,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         let feedbackState = this.feedback_dictionary[currentState]
         let input_name = Object.keys(feedbackState['conditions'])[0]
         let input_value = $(`input[name=${input_name}]`).val()
+        console.log('new')
         console.log(feedbackState)
         console.log(input_name)
         console.log(input_value)
@@ -143,7 +141,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
           newState = currentState + 0.5
         } else if (input_value in feedbackState['conditions'][input_name]) {
           newState = currentState + 0.5
-          print(feedbackState['conditions'][input_name][input_value])
+          console.log(feedbackState['conditions'][input_name][input_value])
         } else {
           newState = this.normalAdd(x, currentState)
         }
