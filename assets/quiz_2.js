@@ -179,6 +179,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
   }
 
   move() {
+    $('.quiz_2__content-buttons').hide()
     let i = 0
     if (i == 0) {
       i = 1;
@@ -195,6 +196,11 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         }
       }
     }
+    setTimeout(
+      function() {
+        $('.quiz_2__content-buttons').show()
+        this.changeFormStep(1)
+      }, 2000);
   }
 
   setInputs(step) {
