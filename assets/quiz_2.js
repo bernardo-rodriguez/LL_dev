@@ -140,9 +140,9 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       if (currentState - 1 in this.feedback_dictionary) {
         if (this.feedback_dictionary[currentState - 1]['conditions'] == 'any') {
           newState = currentState - 0.5
-        } else {
-          newState = this.normalAdd(x, currentState)
-        }
+        } 
+      } else {
+        newState = this.normalAdd(x, currentState)
       }
     }
 
