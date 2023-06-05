@@ -134,6 +134,10 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
 
   changeFormStep(x) {
     let currentState = Number(this.dataset.state)
+    console.log(currentState)
+    if (currentState == 12) {
+      currentState -= 1
+    }
     let newState = currentState
     if (x == 1) {
       if (currentState in this.feedback_dictionary) {
