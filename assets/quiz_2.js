@@ -137,7 +137,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         console.log(feedbackState)
         console.log(input_name)
         console.log(input_value)
-        if (feedbackState['conditions'][input_name].length == 0) {
+        if (Object.keys(feedbackState['conditions'][input_name]).length == 0) {
           newState = currentState + 0.5
         } else if (input_value in feedbackState['conditions'][input_name]) {
           newState = currentState + 0.5
