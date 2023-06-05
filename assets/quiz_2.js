@@ -26,7 +26,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       10: {
         "conditions": {
           "routine_2": {
-            "strips_2": "While Whitening Toothpaste removes surface stains, it doesn’t penetrate the teeth and change the color inside. The dentin inside the enamel is the yellow part of the teeth that gives it the yellow hue. That’s where we come in."
+            "led_2": "While Whitening Toothpaste removes surface stains, it doesn’t penetrate the teeth and change the color inside. The dentin inside the enamel is the yellow part of the teeth that gives it the yellow hue. That’s where we come in."
           }
         }
       }
@@ -152,9 +152,10 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       if (currentState - 1 in this.feedback_dictionary) {
         let feedbackState = this.feedback_dictionary[currentState - 1]
         let input_name = Object.keys(feedbackState['conditions'])[0]
-        let input_value = $(`input[name=${input_name}]`)
+        let input_value = $(`input[name=${input_name}]`).val()
         if (feedbackState['conditions'][input_name].length == 0) {
           newState = currentState + 0.5
+          console.log('no length')
         } else if (input_value in feedbackState['conditions'][input_name]) {
           newState = currentState + 0.5
           print(feedbackState['conditions'][input_name][input_value])
