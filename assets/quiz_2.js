@@ -23,13 +23,17 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
           "shade_2": {}
         }
       },
-      10: {
+      2: {
         "conditions": {
           "routine_2": {
             "strips_2": "While Whitening Toothpaste removes surface stains, it doesn’t penetrate the teeth and change the color inside. The dentin inside the enamel is the yellow part of the teeth that gives it the yellow hue. That’s where we come in."
           }
         }
       }
+    }
+
+    this.state_action = {
+      '3': 'this.move()'
     }
 
     this.setInputs(this.currentStep)
@@ -89,6 +93,9 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       if ( newValue == 9 && oldValue == 12 ){
         this.next.classList.toggle('hidden')
         this.submit.classList.add('hidden')
+      }
+      if (newValue in this.state_action) {
+        eval(this.state_action[newValue])
       }
       this.progress = (newValue/12) * 100
       $('#progress_bar_filled_percent').css('width',  this.progress.toString() + '%')
@@ -159,13 +166,6 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       } else {
         newState = this.normalAdd(x, currentState)
       }
-      // if (currentState - 1 in this.feedback_dictionary) {
-      //   if (this.feedback_dictionary[currentState - 1]['conditions'] == 'any') {
-      //     newState = currentState - 0.5
-      //   } 
-      // } else {
-      //   newState = this.normalAdd(x, currentState)
-      // }
     }
 
     this.setAttribute('data-state', newState.toString() )
@@ -175,6 +175,25 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       this.next.removeAttribute('disabled')
     } else {
       this.next.setAttribute('disabled', 'true')
+    }
+  }
+
+  move() {
+    let i = 0
+    if (i == 0) {
+      i = 1;
+      var elem = document.getElementById("myBar");
+      var width = 1;
+      var id = setInterval(frame, 10);
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          i = 0;
+        } else {
+          width++;
+          elem.style.width = width + "%";
+        }
+      }
     }
   }
 
