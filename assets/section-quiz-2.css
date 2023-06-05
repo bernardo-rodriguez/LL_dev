@@ -347,6 +347,7 @@
 
 .flex-container-label {
   display:flex;
+  flex-wrap: wrap;
 }
 
 .columnar {
