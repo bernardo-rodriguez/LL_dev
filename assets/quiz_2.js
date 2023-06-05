@@ -90,7 +90,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         this.next.classList.toggle('hidden')
         this.submit.classList.remove('hidden')
       }
-      if ( newValue == 9 && oldValue == 12 ){
+      if ( (newValue == 10 || newValue == 10.5) && oldValue == 12 ){
         this.next.classList.toggle('hidden')
         this.submit.classList.add('hidden')
       }
