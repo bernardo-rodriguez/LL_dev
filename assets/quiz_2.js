@@ -135,7 +135,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       if (currentState in this.feedback_dictionary) {
         let feedbackState = this.feedback_dictionary[currentState]
         let input_name = Object.keys(feedbackState['conditions'])[0]
-        let input_value = $(`input[name=${input_name}]`)
+        let input_value = $(`input[name=${input_name}]`).val()
         console.log(feedbackState)
         console.log(input_name)
         console.log(input_value)
