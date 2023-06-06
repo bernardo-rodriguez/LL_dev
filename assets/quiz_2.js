@@ -42,7 +42,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     }
 
     this.state_action = {
-      '11': 'this.move()'
+      '2': 'this.move()'
     }
 
     this.setInputs(this.currentStep)
@@ -228,6 +228,8 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
   }
 
   move() {
+    let serialized = $('#contact_form').serialize()
+    populateProfile(serialized)
     $('.quiz_2__content-buttons').hide()
     let i = 0
     if (i == 0) {
