@@ -92,7 +92,6 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
 
   fillProgressBar(newValue, total) {
     let progress = newValue / total
-    console.log(progress)
     let bar_point_1 = this.querySelector(`#bar_point_1`)
     let bar_point_2 = this.querySelector(`#bar_point_2`)
     let bar_point_3 = this.querySelector(`#bar_point_3`)
@@ -167,19 +166,15 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
   }
 
   stepSpecificText(to_change) {
-    console.log(to_change)
     to_change.forEach((i) => {
       let id = i['id']
       let text = i['text']
-      console.log(id)
-      console.log(text)
       $(`#${id}`).html(text)
     })
   }
 
   changeFormStep(x) {
     let currentState = Number(this.dataset.state)
-    console.log(currentState)
     if (currentState == 12) {
       currentState -= 1
     }
@@ -228,6 +223,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
   }
 
   move() {
+    console.log("no?")
     let serialized = $('#contact_form').serialize()
     populateProfile(serialized)
     $('.quiz_2__content-buttons').hide()
