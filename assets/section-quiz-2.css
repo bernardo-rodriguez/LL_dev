@@ -364,6 +364,12 @@
   border-radius: 10px;
 }
 
+.laughland-drop {
+  position: absolute;
+  left: 10px;
+  bottom: 80px;
+}
+
 @media screen and (max-width: 768px){
   .quiz_2__content-buttons {
     margin-top: 40px;
