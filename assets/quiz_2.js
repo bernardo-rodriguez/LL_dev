@@ -168,8 +168,8 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
 
   stepSpecificText(to_change) {
     to_change.forEach((i) => {
-      id = i[0]
-      text = i[1]
+      let id = i[0]
+      let text = i[1]
       $(`#${id}`).html(text)
     })
   }
