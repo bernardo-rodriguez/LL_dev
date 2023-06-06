@@ -26,10 +26,16 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       10: {
         "conditions": {
           "routine_2": {
-            "strips_2": {
-              "text": "While Whitening Toothpaste removes surface stains, it doesn’t penetrate the teeth and change the color inside. The dentin inside the enamel is the yellow part of the teeth that gives it the yellow hue. That’s where we come in.",
-              "id": "ten_response_text"
-            }
+            "strips_2": [
+              {
+                "text": "While Whitening Toothpaste removes surface stains, it doesn’t penetrate the teeth and change the color inside.",
+                "id": "ten_response_text_1"
+              },
+              {
+                "text": "The dentin inside the enamel is the yellow part of the teeth that gives it the yellow hue. That’s where we come in.",
+                "id": "ten_response_text_2"
+              }
+          ]
           }
         }
       }
