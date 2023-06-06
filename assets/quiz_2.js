@@ -166,8 +166,12 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     return newState
   }
 
-  stepSpecificText(id, text) {
-    $(`#${id}`).html(text)
+  stepSpecificText(to_change) {
+    for (i in to_change) {
+      id = i[0]
+      text = i[1]
+      $(`#${id}`).html(text)
+    }
   }
 
   changeFormStep(x) {
@@ -186,7 +190,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
           newState = currentState + 0.5
         } else if (input_value in feedbackState['conditions'][input_name]) {
           newState = currentState + 0.5
-          this.stepSpecificText(feedbackState['conditions'][input_name][input_value]['id'], feedbackState['conditions'][input_name][input_value]['text'])
+          this.stepSpecificText(feedbackState['conditions'][input_name][input_value])
         } else {
           newState = this.normalAdd(x, currentState)
         }
