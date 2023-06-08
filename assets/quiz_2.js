@@ -42,7 +42,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     }
 
     this.state_action = {
-      '2': 'this.move()'
+      '10': 'this.move()'
     }
 
     this.setInputs(this.currentStep)
