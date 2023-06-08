@@ -407,7 +407,7 @@
     font-size: 18px;
   }
   .laughland-drop-container {
-    width: 100vw;
+    width: auto;
     height: 50vh;
     top: auto;
   }
