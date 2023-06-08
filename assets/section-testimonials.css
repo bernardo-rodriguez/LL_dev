@@ -176,7 +176,9 @@
 }
 
 @media screen and (max-width: 768px) {
-
+  section.with-spacing {
+    margin-bottom: 50px;
+  }
   .testimonials {
     margin-bottom: 0;
   }
