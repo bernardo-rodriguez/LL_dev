@@ -66,73 +66,58 @@
         "section_padding": true
       }
     },
-    "a4c5d03d-76b9-4c42-a509-36657ba4b556": {
-      "type": "section-reviews",
+    "240de530-a532-4dbd-b2a8-79f7e7c9b9fa": {
+      "type": "carousel",
       "blocks": {
-        "89a41fcd-2300-427b-82fa-c9fb649485da": {
-          "type": "review",
+        "1b3fc029-1055-4710-8825-398d2d320b7c": {
+          "type": "slide",
           "settings": {
-            "title": "I Had to say something",
-            "text": "\"I had to come here to say something. Normally I have excruciating pain with crest white strips and this other brand I got from the dentist. Both of which didn’t whiten my teeth very much. So, I had low hopes for laughland. I got the formula made for highest sensitivity, and I left it on for I think 12 minutes. Just after the first day my teeth look 2 shades whiter. I’m actually really shocked.\"",
-            "author": "Loren S."
+            "svg": "",
+            "png": "shopify:\/\/shop_images\/buzzfeed-logo_blue_0a0973f6-c62c-4750-bc63-096e9ab38351.png",
+            "text": "“More convenient, affordable, and, perhaps most important of all, not at all irritating.”"
           }
         },
-        "14cebb8f-f4fa-4a74-8811-da9796c988c8": {
-          "type": "review",
+        "b76e685b-5328-4cc5-b09e-2668cad8af9f": {
+          "type": "slide",
           "settings": {
-            "title": "I didn't like smiling",
-            "text": "\"My teeth had gotten so yellow that I didn't like smiling - especially when I wore lipstick, it made the teeth look more icky. 6 treatments later, it's gotten SO much whiter and I'm wearing lipstick again :)\"",
-            "author": "Jenna B."
+            "svg": "",
+            "png": "shopify:\/\/shop_images\/2560px-Womenshealthlogo_blue_2bc1baf4-cd78-4578-a6d0-94c86b9800a3.png",
+            "text": "“My personal favorite, I love how easy Laughland is to use”"
           }
         },
-        "0d0c4cab-c7c5-4776-8a8f-ff7cad80d03f": {
-          "type": "review",
+        "e0668eb5-84e1-4cb5-81e4-1c8cc17910e5": {
+          "type": "slide",
           "settings": {
-            "title": "I'm Obsessed!",
-            "text": "\"I thought hey worth a shot not really expecting anything great. Wow was I wrong! This has absolutely worked wonders on my teeth! Refill kit has been ordered! I’m obsessed!\"",
-            "author": "Mindy R."
+            "svg": "",
+            "png": "shopify:\/\/shop_images\/forbes-logo-black.png",
+            "text": "“Best Teeth Whitening Kit With Fast Results”"
           }
         },
-        "f2f45f4e-db0e-473f-9a80-38aabf0a1791": {
-          "type": "review",
+        "83b29aad-1ec3-43d4-9d28-f3f7680cfd9d": {
+          "type": "slide",
           "settings": {
-            "title": "I. Hate. Whitening. Kits",
-            "text": "\"I. Hate. Whitening. Kits. Except this one. It's easy to use, doesn't create a huge mess, is comfortable (even for small-mouthed folks like me!), and doesn't make your teeth feel slimy and taste weird. Plus, it's SO EFFECTIVE. Worth every penny.\"",
-            "author": "Anna C."
+            "svg": "",
+            "png": "shopify:\/\/shop_images\/good-morning-america-seeklogo.com.svg",
+            "text": "“No two smiles are the same, so why should your whitening formula be?\""
           }
         },
-        "c727961b-a7cf-4471-87fb-fa8302009ec1": {
-          "type": "review",
+        "b20252da-6f97-40ae-92c3-af2f2dfb57cb": {
+          "type": "slide",
           "settings": {
-            "title": "My teeth are sparkling",
-            "text": "\"This is my best purchase ever. This item OVER-Delivers. My teeth are sparkling and I had ZERO pain. Great Job Laughland.\"",
-            "author": "Addison J."
-          }
-        },
-        "2c52ec03-04aa-4e36-bb46-206b519f147f": {
-          "type": "review",
-          "settings": {
-            "title": "LOVE THIS!",
-            "text": "\"LOVE THIS! My coworkers have been throwing compliments left and right about how my teeth have been shining. THANK YOU!\"",
-            "author": "Audrey C."
+            "svg": "",
+            "png": "shopify:\/\/shop_images\/1280px-Business_Insider_Logo_svg.png",
+            "text": "“The most affordable and innovative teeth-whitening solution”"
           }
         }
       },
       "block_order": [
-        "89a41fcd-2300-427b-82fa-c9fb649485da",
-        "14cebb8f-f4fa-4a74-8811-da9796c988c8",
-        "0d0c4cab-c7c5-4776-8a8f-ff7cad80d03f",
-        "f2f45f4e-db0e-473f-9a80-38aabf0a1791",
-        "c727961b-a7cf-4471-87fb-fa8302009ec1",
-        "2c52ec03-04aa-4e36-bb46-206b519f147f"
+        "1b3fc029-1055-4710-8825-398d2d320b7c",
+        "b76e685b-5328-4cc5-b09e-2668cad8af9f",
+        "e0668eb5-84e1-4cb5-81e4-1c8cc17910e5",
+        "83b29aad-1ec3-43d4-9d28-f3f7680cfd9d",
+        "b20252da-6f97-40ae-92c3-af2f2dfb57cb"
       ],
       "settings": {
-        "section_heading": "What People {love} about Laughland",
-        "section_sub_heading": "",
-        "review_count": "4.6\/5 from 3,500",
-        "button_label": "Start Now",
-        "button_url": "#get-started",
-        "button_action": "quiz"
       }
     },
     "0bba9f22-7698-459e-80ea-c2869211daea": {
@@ -295,58 +280,73 @@
         "badges": "shopify:\/\/shop_images\/Winner_Badge.png"
       }
     },
-    "240de530-a532-4dbd-b2a8-79f7e7c9b9fa": {
-      "type": "carousel",
+    "a4c5d03d-76b9-4c42-a509-36657ba4b556": {
+      "type": "section-reviews",
       "blocks": {
-        "1b3fc029-1055-4710-8825-398d2d320b7c": {
-          "type": "slide",
+        "89a41fcd-2300-427b-82fa-c9fb649485da": {
+          "type": "review",
           "settings": {
-            "svg": "",
-            "png": "shopify:\/\/shop_images\/buzzfeed-logo_blue_0a0973f6-c62c-4750-bc63-096e9ab38351.png",
-            "text": "“More convenient, affordable, and, perhaps most important of all, not at all irritating.”"
+            "title": "I Had to say something",
+            "text": "\"I had to come here to say something. Normally I have excruciating pain with crest white strips and this other brand I got from the dentist. Both of which didn’t whiten my teeth very much. So, I had low hopes for laughland. I got the formula made for highest sensitivity, and I left it on for I think 12 minutes. Just after the first day my teeth look 2 shades whiter. I’m actually really shocked.\"",
+            "author": "Loren S."
           }
         },
-        "b76e685b-5328-4cc5-b09e-2668cad8af9f": {
-          "type": "slide",
+        "14cebb8f-f4fa-4a74-8811-da9796c988c8": {
+          "type": "review",
           "settings": {
-            "svg": "",
-            "png": "shopify:\/\/shop_images\/2560px-Womenshealthlogo_blue_2bc1baf4-cd78-4578-a6d0-94c86b9800a3.png",
-            "text": "“My personal favorite, I love how easy Laughland is to use”"
+            "title": "I didn't like smiling",
+            "text": "\"My teeth had gotten so yellow that I didn't like smiling - especially when I wore lipstick, it made the teeth look more icky. 6 treatments later, it's gotten SO much whiter and I'm wearing lipstick again :)\"",
+            "author": "Jenna B."
           }
         },
-        "e0668eb5-84e1-4cb5-81e4-1c8cc17910e5": {
-          "type": "slide",
+        "0d0c4cab-c7c5-4776-8a8f-ff7cad80d03f": {
+          "type": "review",
           "settings": {
-            "svg": "",
-            "png": "shopify:\/\/shop_images\/forbes-logo-black.png",
-            "text": "“Best Teeth Whitening Kit With Fast Results”"
+            "title": "I'm Obsessed!",
+            "text": "\"I thought hey worth a shot not really expecting anything great. Wow was I wrong! This has absolutely worked wonders on my teeth! Refill kit has been ordered! I’m obsessed!\"",
+            "author": "Mindy R."
           }
         },
-        "83b29aad-1ec3-43d4-9d28-f3f7680cfd9d": {
-          "type": "slide",
+        "f2f45f4e-db0e-473f-9a80-38aabf0a1791": {
+          "type": "review",
           "settings": {
-            "svg": "",
-            "png": "shopify:\/\/shop_images\/good-morning-america-seeklogo.com.svg",
-            "text": "“No two smiles are the same, so why should your whitening formula be?\""
+            "title": "I. Hate. Whitening. Kits",
+            "text": "\"I. Hate. Whitening. Kits. Except this one. It's easy to use, doesn't create a huge mess, is comfortable (even for small-mouthed folks like me!), and doesn't make your teeth feel slimy and taste weird. Plus, it's SO EFFECTIVE. Worth every penny.\"",
+            "author": "Anna C."
           }
         },
-        "b20252da-6f97-40ae-92c3-af2f2dfb57cb": {
-          "type": "slide",
+        "c727961b-a7cf-4471-87fb-fa8302009ec1": {
+          "type": "review",
           "settings": {
-            "svg": "",
-            "png": "shopify:\/\/shop_images\/1280px-Business_Insider_Logo_svg.png",
-            "text": "“The most affordable and innovative teeth-whitening solution”"
+            "title": "My teeth are sparkling",
+            "text": "\"This is my best purchase ever. This item OVER-Delivers. My teeth are sparkling and I had ZERO pain. Great Job Laughland.\"",
+            "author": "Addison J."
+          }
+        },
+        "2c52ec03-04aa-4e36-bb46-206b519f147f": {
+          "type": "review",
+          "settings": {
+            "title": "LOVE THIS!",
+            "text": "\"LOVE THIS! My coworkers have been throwing compliments left and right about how my teeth have been shining. THANK YOU!\"",
+            "author": "Audrey C."
           }
         }
       },
       "block_order": [
-        "1b3fc029-1055-4710-8825-398d2d320b7c",
-        "b76e685b-5328-4cc5-b09e-2668cad8af9f",
-        "e0668eb5-84e1-4cb5-81e4-1c8cc17910e5",
-        "83b29aad-1ec3-43d4-9d28-f3f7680cfd9d",
-        "b20252da-6f97-40ae-92c3-af2f2dfb57cb"
+        "89a41fcd-2300-427b-82fa-c9fb649485da",
+        "14cebb8f-f4fa-4a74-8811-da9796c988c8",
+        "0d0c4cab-c7c5-4776-8a8f-ff7cad80d03f",
+        "f2f45f4e-db0e-473f-9a80-38aabf0a1791",
+        "c727961b-a7cf-4471-87fb-fa8302009ec1",
+        "2c52ec03-04aa-4e36-bb46-206b519f147f"
       ],
       "settings": {
+        "section_heading": "What People {love} about Laughland",
+        "section_sub_heading": "",
+        "review_count": "4.6\/5 from 3,500",
+        "button_label": "Start Now",
+        "button_url": "#get-started",
+        "button_action": "quiz"
       }
     },
     "49f3d9ac-7509-4919-89f3-3c6825a727c8": {
@@ -461,11 +461,11 @@
     "3a2908b4-cb46-4bba-ab1d-db530f856c49",
     "36e4f7aa-dd9e-4e47-a123-81be1338efe2",
     "8f55a32e-9355-4413-8e5d-a7d66bb39102",
-    "a4c5d03d-76b9-4c42-a509-36657ba4b556",
+    "240de530-a532-4dbd-b2a8-79f7e7c9b9fa",
     "0bba9f22-7698-459e-80ea-c2869211daea",
     "adc7667a-6bb9-4319-878c-b709f2259336",
     "d3414607-66d0-46b2-a396-e6a4263c1ca4",
-    "240de530-a532-4dbd-b2a8-79f7e7c9b9fa",
+    "a4c5d03d-76b9-4c42-a509-36657ba4b556",
     "49f3d9ac-7509-4919-89f3-3c6825a727c8",
     "b60d8150-a8c1-4d20-a017-a4952d382660"
   ]
