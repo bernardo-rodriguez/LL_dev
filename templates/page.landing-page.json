@@ -117,6 +117,9 @@
         "83b29aad-1ec3-43d4-9d28-f3f7680cfd9d",
         "b20252da-6f97-40ae-92c3-af2f2dfb57cb"
       ],
+      "custom_css": [
+        ".Reviews_Section .Reviews_Inr_Section {background-color: #faf5f1;}"
+      ],
       "settings": {
       }
     },
@@ -339,6 +342,9 @@
         "f2f45f4e-db0e-473f-9a80-38aabf0a1791",
         "c727961b-a7cf-4471-87fb-fa8302009ec1",
         "2c52ec03-04aa-4e36-bb46-206b519f147f"
+      ],
+      "custom_css": [
+        ".Reviews_Section .Reviews_Inr_Section {background-color:#FAF5F1}"
       ],
       "settings": {
         "section_heading": "What People {love} about Laughland",
