@@ -407,7 +407,9 @@
     font-size: 18px;
   }
   .laughland-drop-container {
-  
+    width: 100vw;
+    height: 50vh;
+    top: auto;
   }
 }
 
