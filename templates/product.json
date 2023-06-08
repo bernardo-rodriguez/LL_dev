@@ -168,6 +168,9 @@
         "83b0fb1b-8e72-454e-ac9e-75ebdb17eaf8",
         "ea2bda35-88d0-42e1-b5a6-aee3275092ff"
       ],
+      "custom_css": [
+        ".testimonials__inner {background-color: #FAF5F1;}"
+      ],
       "settings": {
         "heading": "Results that {Shine}",
         "text": "Our dentist approved, clinically backed ingredients work to whiten teeth by 7+ shades in your initial 6 day treatment. But whitening is like skincare - a continuous, ongoing process. See how others use Laughland in their routine.",
