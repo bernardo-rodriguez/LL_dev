@@ -202,6 +202,10 @@ function landingPageAction(current_page, query_params) {
         setFirstTimeGtags('Inspire More')
         redirectToLandingIfFirstTime('redirect_inspire')
         break;
+      case 'redirect_pinterest':
+        setCookieAffiliate('redirect_pinterest', 'Pinterest')
+        setFirstTimeGtags('Pinterest')
+        redirectToLandingIfFirstTime('redirect_pinterest')
       default:
         // setCookie('redirect_sweatcoin', 'true')
         setFirstTimeGtags('NA')
