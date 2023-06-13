@@ -234,7 +234,7 @@ function landingPageAction(current_page, query_params) {
       } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
         clearAllAffiliateCookies()
         setCookieAffiliate('redirect_pinterest', 'Pinterest')
-        setFirstTimeGtags('Skimm')
+        setFirstTimeGtags('Pinterest')
         setCookie('in_house_already_redirected', 'true')
       }
   }
