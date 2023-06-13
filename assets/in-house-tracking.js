@@ -206,6 +206,7 @@ function landingPageAction(current_page, query_params) {
         setCookieAffiliate('redirect_pinterest', 'Pinterest')
         setFirstTimeGtags('Pinterest')
         redirectToLandingIfFirstTime('redirect_pinterest')
+        break;
       default:
         // setCookie('redirect_sweatcoin', 'true')
         setFirstTimeGtags('NA')
@@ -231,7 +232,10 @@ function landingPageAction(current_page, query_params) {
         setFirstTimeGtags('Skimm')
         setCookie('in_house_already_redirected', 'true')
       } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
-        
+        clearAllAffiliateCookies()
+        setCookieAffiliate('redirect_pinterest', 'Pinterest')
+        setFirstTimeGtags('Skimm')
+        setCookie('in_house_already_redirected', 'true')
       }
   }
 }
