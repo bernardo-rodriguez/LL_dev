@@ -227,12 +227,10 @@ function landingPageAction(current_page, query_params) {
       if (query_params.utm_affiliate_specific == 'skimm') {
         clearAllAffiliateCookies()
         setCookieAffiliate('redirect_skimm', 'Skimm')
-        setFirstTimeGtags('Skimm')
         setCookie('in_house_already_redirected', 'true')
       } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
         clearAllAffiliateCookies()
         setCookieAffiliate('redirect_pinterest', 'Pinterest')
-        setFirstTimeGtags('Pinterest')
         setCookie('in_house_already_redirected', 'true')
       }
   } else {
