@@ -413,8 +413,7 @@ xhttp.send();
   function upsellLogic() {
     if ($('#main-product-handle-id').html().includes('at-home-')) {
       if (getCookie('upsell_test') == 'true') {
-        $('#real-submit-button').click()
-        // openPopup()
+        openPopup()
       } else {
         $('#real-submit-button').click()
       }
