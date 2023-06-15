@@ -218,10 +218,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     const one_time_text = $(".rc-option__onetime .rc_widget__option__selector label .rc-option__text")
     if (one_time_text.length == 1) {
-      console.log('hi im here bro')
       if (kitOfferText.length > 1) {
         one_time_text.html(kitOfferText)
-        
+      }
+      if (kitOfferPrice.length > 1) {
         const newSubPrice = document.createElement("span")
         newSubPrice.setAttribute('class', 'updated-price')
         newSubPrice.innerHTML = kitOfferPrice
