@@ -3,6 +3,7 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
 {{ 'recharge-widget-styles.css' | asset_url | stylesheet_tag }}
+{{ 'product-page-landing.css' | asset_url | stylesheet_tag }}
 
 <div style = 'display:none' id = 'main-product-handle-id'>{{product.handle}}</div>
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
@@ -15,6 +16,23 @@ xhttp.send();
 {% render 'upsell-popup' %}
 <section>
   <div class="product">
+    <div class = 'product-landing-header'>
+      <p>Powered by SmileAI</p>
+      <p>{Name}'s Perfect Match</p>
+      <p>Formula 8-17: Extra Strength for your non-sensitive teeth</p>
+      <p>Tailored inside out for your unique smile and dental profile</p>
+      <div class = 'formula-point-wrapper'>
+        <div class = 'formula-point'>
+          <p>11% Active Whitening Serum</p>
+        </div>
+        <div class = 'formula-point'>
+          <p>Desensitizer</p>
+        </div>
+        <div class = 'formula-point'>
+          <p>Gum & Enamel Health Protection</p>
+        </div>
+      </div>
+    </div>
     <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
       {{ 'accessibility.skip_to_product_info' | t }}
     </a>

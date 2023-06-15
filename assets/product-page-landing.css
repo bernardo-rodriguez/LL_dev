@@ -1,0 +1,7 @@
+.product-landing-header .formula-point-wrapper{
+    display: flex
+}
+
+.product-landing-header .formula-point {
+    flex: 1
+}
