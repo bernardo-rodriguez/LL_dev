@@ -51,3 +51,11 @@
     padding: 10px;
     border-radius: 10px;
 }
+
+.eclipse-wrapper {
+    display: flex;
+}
+
+.eclipse-item {
+    flex: 1;
+}
