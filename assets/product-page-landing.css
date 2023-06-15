@@ -4,6 +4,11 @@
     text-align: center;
 }
 
+.product-header-wrapper {
+    max-width: 900px;
+    display: inline-block;
+}
+
 .product-landing-header .formula-point-wrapper {
     margin-top: 10px;
     display: flex
