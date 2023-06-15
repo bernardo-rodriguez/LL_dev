@@ -37,3 +37,17 @@
 .checked-landing {
   color: #46BDF0;
 }
+
+.product-landing-ingredient-wrapper {
+    display: flex;
+}
+
+.product-landing-ingredient {
+    flex: 1;
+}
+
+.product-landing-ingredient-block {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
