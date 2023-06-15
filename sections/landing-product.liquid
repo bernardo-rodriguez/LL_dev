@@ -1,4 +1,5 @@
 {% comment %}theme-check-disable TemplateLength{% endcomment %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
@@ -78,29 +79,12 @@ xhttp.send();
         </div>
 
         <div>
-          <div class="stars">
-            <div class="stars__svg">
-              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="25" viewbox="0 0 26 25" fill="none">
-                <circle cx="11.5" cy="13.5" r="11" fill="white" stroke="#0D2244"></circle>
-                <g clip-path="url(#clip0_6_176)">
-                <path d="M24.6712 0C24.6712 0 17.4227 4.72968 11.3998 16.3691V16.3724L10.8333 15.6122C9.06901 13.3203 4.66836 9.65063 4.66836 9.65063L4 10.521C4 10.521 9.41322 15.9623 11.5279 22C11.5279 22 16.4333 7.96331 25.1852 0.781257L24.6712 0V0Z" fill="#46BDF0"></path>
-                </g>
-                <defs>
-                <clippath id="clip0_6_176">
-                <rect width="21.1852" height="22" fill="white" transform="translate(4)"></rect>
-                </clippath>
-                </defs>
-                </svg>
-            </div>
-          
-            <div class="stars__average-rating h4 stylized">
-              {{ section.settings.rating }}
-            </div>
-          
-            <div class="stars__text h5">
-              {{ section.settings.text}}
-            </div>
-          </div>
+          <span class="fa fa-star checked-landing"></span>
+          <span class="fa fa-star checked-landing"></span>
+          <span class="fa fa-star checked-landing"></span>
+          <span class="fa fa-star checked-landing"></span>
+          <span class="fa fa-star checked-landing"></span>
+          <span>4.7 Stars from 1,623 Reviews</span>
         </div>
 
         <dl class="product-info">
