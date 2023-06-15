@@ -78,14 +78,8 @@ xhttp.send();
           {% render 'price', product: product, use_variant: true, show_badges: true, price_class: '' %}
         </div>
 
-        <div>
-          <span class="fa fa-star checked-landing"></span>
-          <span class="fa fa-star checked-landing"></span>
-          <span class="fa fa-star checked-landing"></span>
-          <span class="fa fa-star checked-landing"></span>
-          <span class="fa fa-star checked-landing"></span>
-          <span>4.7 Stars from 1,623 Reviews</span>
-        </div>
+        {% render 'small-stars '%}
+        {% render 'ingredient-boxes'%}
 
         <div>
           <div class = 'product-landing-ingredient-wrapper'>
