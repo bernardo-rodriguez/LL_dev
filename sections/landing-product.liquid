@@ -92,7 +92,7 @@ xhttp.send();
             {% endform %}
           {% endcomment %}
 
-          <product-form class="product-form" data-product-id="{{ product.id }}">
+          <product-form class="product-form visually-hidden" data-product-id="{{ product.id }}">
             <div class="product-form__error-message-wrapper" role="alert" hidden>
               <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-error" viewBox="0 0 13 13">
                 <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
@@ -116,7 +116,7 @@ xhttp.send();
                 {% assign picker_type = 'button' %}
                 {% if picker_type == 'button' %}
                   <variant-radios
-                    class="no-js-hidden"
+                    class="no-js-hidden visually-hidden"
                     data-section="{{ section.id }}"
                     data-url="{{ product.url }}"
                   >
@@ -222,7 +222,7 @@ xhttp.send();
                   </label> {% endcomment %}
                   <quantity-input class="quantity">
                     <button class="quantity__button no-js-hidden" name="minus" type="button">
-                      <span>
+                      <span class="visually-hidden">
                         {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
                       </span>
                       {% render 'icon', icon: 'minus' %}
@@ -238,7 +238,7 @@ xhttp.send();
                       form="{{ product_form_id }}"
                     >
                     <button class="quantity__button no-js-hidden" name="plus" type="button">
-                      <span>
+                      <span class="visually-hidden">
                         {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
                       </span>
                       {% render 'icon', icon: 'plus' %}
@@ -288,7 +288,7 @@ xhttp.send();
             <p class="body-xs satisfaction-guarantee">{{ section.settings.satisfaction_svg }}{{ section.settings.satisfaction }}</p>
             {% endif %}
 
-            <div class="subscription-details__wrapper">
+            <div class="visually-hidden subscription-details__wrapper">
               <div class="subscription-details">
                 <dl class="m-body-xs">
                   <dt>Whitening Gels</dt>
