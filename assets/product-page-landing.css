@@ -1,7 +1,28 @@
-.product-landing-header .formula-point-wrapper{
+.product-landing-header {
+    background-color: #C0EDFF;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.product-landing-header .formula-point-wrapper {
+    
     display: flex
 }
 
 .product-landing-header .formula-point {
     flex: 1
+}
+
+.powered {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.perfect-match {
+    font-weight: 400;
+    font-size: 55px;
+}
+
+.landing-subheading {
+    font-size: 16px;
 }
