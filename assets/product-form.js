@@ -367,6 +367,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     console.log('sup there mufacka')
     console.log(body)
+    return
+
     fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
       .then((response) => response.json())
       .then((parsedState) => {
