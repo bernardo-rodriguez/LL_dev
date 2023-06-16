@@ -68,7 +68,12 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         break;
     }
 
-    this.querySelector(`input[value="${inputValue}"]`).click()
+    try {
+      this.querySelector(`input[value="${inputValue}"]`).click()
+    } catch(err) {
+      console.log('failed to select variant')
+    }
+    
     if(document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`)){
       document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`).classList.remove("hidden")
       if(document.querySelector(`[data-sticky-formula]`)) document.querySelector(`[data-sticky-formula]`).innerHTML = document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`).innerHTML.split(":")[0]
