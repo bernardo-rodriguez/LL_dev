@@ -3,7 +3,7 @@
 {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
-{{ 'recharge-widget-styles.css' | asset_url | stylesheet_tag }}
+{{ 'landing-options-styles.css' | asset_url | stylesheet_tag }}
 {{ 'product-page-landing.css' | asset_url | stylesheet_tag }}
 
 <div style="display:none" id="main-product-handle-id">{{ product.handle }}</div>
@@ -100,87 +100,87 @@
 
         {% render 'eclipse-section' %}
 
-        <div class = 'rc-widget-injection-parent'>
-          <div class="rc-container-wrapper rc_container_wrapper" data-widget-container-wrapper="" data-v-app="">
-            <div class="rc-container rc_container" data-widget-container="">
-              <div class="rc-widget rc_widget" data-widget="">
-                <div class="rc-template" data-template="">
-                  <div class="rc-template__legacy-radio" data-template-legacy-radio="">
+        <div class = 'landing-widget-injection-parent'>
+          <div class="landing-container-wrapper landing_container_wrapper" data-widget-container-wrapper="" data-v-app="">
+            <div class="landing-container landing_container" data-widget-container="">
+              <div class="landing-widget landing_widget" data-widget="">
+                <div class="landing-template" data-template="">
+                  <div class="landing-template__legacy-radio" data-template-legacy-radio="">
                     <div
-                      class="rc-radio rc-option__onetime rc-option rc_widget__option rc_widget__option--onetime rc-legacy-radio"
+                      class="landing-radio landing-option__onetime landing-option landing_widget__option landing_widget__option--onetime landing-legacy-radio"
                       data-option-onetime="">
-                      <div class="rc_widget__option__selector" data-selector-onetime="">
+                      <div class="landing_widget__option__selector" data-selector-onetime="">
                         <input
                           id="1_month_supply"
                           type="radio"
                           name="supply_type"
-                          class="rc-radio__input rc_widget__option__input rc_widget__option__input--onetime"
+                          class="landing-radio__input landing_widget__option__input landing_widget__option__input--onetime"
                           data-radio-onetime=""
                           value="onetime">
                           <label
                           for="1_month_supply"
-                          class="rc-radio__label rc_widget__option__label"
+                          class="landing-radio__label landing_widget__option__label"
                           data-label-onetime="">
-                            <span class="rc-option__text" data-label-text-onetime="">1 Month Supply</span><span>—</span>
+                            <span class="landing-option__text" data-label-text-onetime="">1 Month Supply</span><span>—</span>
                             <span
-                              class="rc-option__price rc_widget__price rc_widget__price--onetime visually-hidden"
+                              class="landing-option__price landing_widget__price landing_widget__price--onetime visually-hidden"
                               aria-label="original price"
                               data-price-onetime="">$50</span>
-                            <div class="rc-custom-radio-button"></div>
+                            <div class="landing-custom-radio-button"></div>
                             <span class="updated-price">$49</span>
                           </label>
                       </div>
                     </div>
                     <div
-                      class="rc-radio rc-option__subsave rc-option rc_widget__option rc_widget__option--subsave rc-legacy-radio rc_widget__option--active rc-option--active"
+                      class="landing-radio landing-option__subsave landing-option landing_widget__option landing_widget__option--subsave landing-legacy-radio landing_widget__option--active landing-option--active"
                       data-option-subsave="">
-                      <div class="rc_widget__option__selector" data-selector-subsave="">
+                      <div class="landing_widget__option__selector" data-selector-subsave="">
                         <input
                           id="2_month_supply"
                           type="radio"
                           name="supply_type"
-                          class="rc-radio__input rc_widget__option__input rc_widget__option__input--subsave"
+                          class="landing-radio__input landing_widget__option__input landing_widget__option__input--subsave"
                           data-radio-subsave=""
                           value="subsave" >
                         <label
                           for="2_month_supply"
-                          class="rc-radio__label rc_widget__option__label"
+                          class="landing-radio__label landing_widget__option__label"
                           data-label-subsave="">
-                          <span class="rc-option__text" data-label-text-subsave="">2 Month Supply</span>
+                          <span class="landing-option__text" data-label-text-subsave="">2 Month Supply</span>
                           <span>—</span>
-                          <span class="rc-option__discount rc_widget__option__discount" data-label-discount="">62%</span>
+                          <span class="landing-option__discount landing_widget__option__discount" data-label-discount="">62%</span>
                           <span
-                            class="rc-option__price rc_widget__price rc_widget__price--subsave visually-hidden"
+                            class="landing-option__price landing_widget__price landing_widget__price--subsave visually-hidden"
                             aria-label="recurring price"
                             data-price-subsave="">$79</span>
-                          <div class="rc-custom-radio-button"></div>
+                          <div class="landing-custom-radio-button"></div>
                           <span class="updated-price">$79</span>
                         </label>
                       </div>
                     </div>
                     <div
-                      class="rc-radio rc-option__subsave rc-option rc_widget__option rc_widget__option--subsave rc-legacy-radio rc_widget__option--active rc-option--active"
+                      class="landing-radio landing-option__subsave landing-option landing_widget__option landing_widget__option--subsave landing-legacy-radio landing_widget__option--active landing-option--active"
                       data-option-subsave="">
-                      <div class="rc_widget__option__selector" data-selector-subsave="">
+                      <div class="landing_widget__option__selector" data-selector-subsave="">
                         <input
                           id="3_month_supply"
                           type="radio"
                           name="supply_type"
-                          class="rc-radio__input rc_widget__option__input rc_widget__option__input--subsave"
+                          class="landing-radio__input landing_widget__option__input landing_widget__option__input--subsave"
                           data-radio-subsave=""
                           value="subsave" >
                         <label
                           for="3_month_supply"
-                          class="rc-radio__label rc_widget__option__label"
+                          class="landing-radio__label landing_widget__option__label"
                           data-label-subsave="">
-                          <span class="rc-option__text" data-label-text-subsave="">3 Month Supply</span>
+                          <span class="landing-option__text" data-label-text-subsave="">3 Month Supply</span>
                           <span>—</span>
-                          <span class="rc-option__discount rc_widget__option__discount" data-label-discount="">62%</span>
+                          <span class="landing-option__discount landing_widget__option__discount" data-label-discount="">62%</span>
                           <span
-                            class="rc-option__price rc_widget__price rc_widget__price--subsave visually-hidden"
+                            class="landing-option__price landing_widget__price landing_widget__price--subsave visually-hidden"
                             aria-label="recurring price"
                             data-price-subsave="">$109</span>
-                          <div class="rc-custom-radio-button"></div>
+                          <div class="landing-custom-radio-button"></div>
                           <span class="updated-price">$109</span>
                         </label>
                       </div>
