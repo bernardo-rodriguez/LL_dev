@@ -207,6 +207,10 @@ function landingPageAction(current_page, query_params) {
         setFirstTimeGtags('Pinterest')
         redirectToLandingIfFirstTime('redirect_pinterest')
         break;
+      case 'redirect_skimm':
+        setCookieAffiliate('redirect_skimm', 'Skimm')
+        setFirstTimeGtags('Skimm')
+        redirectToLandingIfFirstTime('redirect_skimm')
       default:
         // setCookie('redirect_sweatcoin', 'true')
         setFirstTimeGtags('NA')
