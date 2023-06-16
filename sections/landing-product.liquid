@@ -4,6 +4,7 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
 {{ 'recharge-widget-styles.css' | asset_url | stylesheet_tag }}
+{{ 'landing-options-styles-widget-styles.css' | asset_url | stylesheet_tag }}
 {{ 'product-page-landing.css' | asset_url | stylesheet_tag }}
 
 <div style="display:none" id="main-product-handle-id">{{ product.handle }}</div>
@@ -119,7 +120,7 @@
                           value="onetime">
                           <label
                           for="1_month_supply"
-                          class="rc-radio__label rc_widget__option__label"
+                          class="landing-radio__label rc_widget__option__label"
                           data-label-onetime="">
                             <span class="rc-option__text" data-label-text-onetime="">1 Month Supply</span><span>—</span>
                             <span
@@ -144,7 +145,7 @@
                           value="subsave" >
                         <label
                           for="2_month_supply"
-                          class="rc-radio__label rc_widget__option__label"
+                          class="landing-radio__label rc_widget__option__label"
                           data-label-subsave="">
                           <span class="rc-option__text" data-label-text-subsave="">2 Month Supply</span>
                           <span>—</span>
@@ -171,7 +172,7 @@
                           value="subsave" >
                         <label
                           for="3_month_supply"
-                          class="rc-radio__label rc_widget__option__label"
+                          class="landing-radio__label rc_widget__option__label"
                           data-label-subsave="">
                           <span class="rc-option__text" data-label-text-subsave="">3 Month Supply</span>
                           <span>—</span>
