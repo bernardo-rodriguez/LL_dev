@@ -170,3 +170,7 @@
 .rc-option__text {
   padding-left: 40px;
 }
+
+.landing-radio-flex {
+  flex: 1;
+}
