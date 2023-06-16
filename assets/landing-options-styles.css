@@ -181,5 +181,6 @@
 }
 
 .landing-radio-flex-left {
-  text-align:left
+  text-align:left;
+  padding-left: 20px;
 }
