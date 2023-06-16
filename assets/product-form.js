@@ -400,7 +400,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       console.log(supply_type)
       console.log(strength)
       json_body['id'] = id_dict[supply_type][strength]
-      body = JSON.serialize(json_body)
+      body = JSON.stringify(json_body)
       console.log(body)
     }
 
