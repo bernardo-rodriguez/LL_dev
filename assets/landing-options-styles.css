@@ -1,0 +1,186 @@
+.rc-widget .rc-option--active {
+  background: transparent !important;
+  color: var(--navy) !important;
+}
+
+.rc_widget__option__discount {
+  display: none!important;
+}
+.rc-option {
+  border: 1px solid var(--navy)!important;
+  margin: 5px 0!important;
+  background: transparent!important;
+  color: var(--navy)!important;
+  border-radius: 40px!important;
+  text-align: center!important;
+  padding: 11.75px!important; /*had*/
+}
+
+.rc_widget__option--subsave {
+  border-radius: 24px!important;
+}
+
+.rc-custom-radio-button {
+  position: absolute!important;
+  aspect-ratio: 1/1!important;
+  border: 1px solid var(--navy)!important;
+  width: 27.5px!important;
+  border-radius: 50%!important;
+  overflow: hidden!important;
+  order: -1!important;
+  justify-self: flex-start!important;
+  left: 0!important;
+  top: 0!important;
+}
+
+.rc-custom-radio-button:after {
+  position: absolute!important;
+  top: 0!important;
+  left: 0!important;
+  width: 100%!important;
+  height: 100%!important;
+  background: transparent!important;
+  content: ""!important;
+  border: 1px solid transparent!important;
+}
+
+.rc_widget__option__selector input:checked ~ label > .rc-custom-radio-button:after {
+  background: var(--blue)!important;
+  border-color: var(--blue)!important;
+}
+
+.rc-radio__input {
+  display: none!important; /* had */
+}
+
+.rc-radio__label {
+  display: flex!important; /*had*/
+  flex-direction: row!important;
+  justify-content: center!important;
+  align-items: center!important;
+  font-weight: 500!important;
+  position: relative!important;
+  line-height: normal!important;
+  min-height: 27.5px!important;
+  margin-left: 0!important;
+  cursor: pointer!important;
+}
+
+.rc_widget__option__label > span:not(.rc-option__price):not(.updated-price) {
+  font-weight: 500!important;
+}
+
+.rc_widget__option__label > span.updated-price {
+  font-size: 1.1rem!important;
+  font-weight: 600!important;
+}
+
+[data-label-subsave] {
+  margin-bottom: 11.75px!important;
+}
+
+.rc-selling-plans {
+  background: var(--blue-tint-20)!important;
+  padding: 0 12px 14px!important;
+  border-radius: 0 0 17px 17px!important;
+  display: flex !important; /*had*/
+  flex-direction: row!important;
+  justify-content: space-between!important;
+  align-items: center!important;
+}
+
+.rc-selling-plans__label {
+  display: block !important;/*had*/
+  position: relative !important;/*had*/
+}
+@media screen and (max-width: 768px) {
+  .rc-selling-plans__label {
+    font-size: 12px!important;
+  }
+}
+
+.rc-selling-plans__dropdown {
+  border: none!important;
+  background: var(--blue-tint-40)!important;
+  font-family: jakarta!important;
+  font-size: 12px!important;
+  line-height: 14px!important;
+  border-radius: 40px!important;
+  padding: 4px 26px 4px 12px!important;
+  appearance: none!important;
+  position: relative!important;
+  background-image: url("data:image/svg+xml,%3Csvg width='11' height='7' viewBox='0 0 11 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5.5 6L10 1' stroke='%230D2244' stroke-linecap='round'/%3E%3C/svg%3E%0A")!important;
+  background-position-x: 90%!important;
+  background-position-y: center!important;
+  background-repeat: no-repeat!important;
+}
+
+.rc-option dl{
+  background: var(--blue-tint-20)!important;
+  border-radius: 17px!important;
+  padding: 14px 12px!important;
+  display: flex!important;
+  flex-direction: row!important;
+  justify-content: space-between!important;
+  align-items: center!important;
+  margin: 0!important;
+}
+
+.rc-option dl:first-of-type {
+  border-radius: 17px 17px 0 0!important;
+}
+
+.rc-option dl:last-of-type {
+  display: none!important;
+  border-radius: 0 0 17px 17px!important;
+}
+
+.rc_popup {
+  display: none !important;/*had*/
+}
+
+
+
+.product-sticky-bar .rc-radio__label {
+  display: flex!important;/*had*/
+  flex-direction: row!important;
+  justify-content: center!important;
+  align-items: center!important;
+  font-weight: 600!important;
+  position: relative!important;
+  line-height: normal!important;
+  min-height: 27.5px!important;
+  margin-left: 0!important;
+  cursor: pointer!important;
+  padding-left: 36px!important;
+}
+
+.landing-radio__label {
+  display: flex!important; /*had*/
+  flex-direction: row!important;
+  align-items: center!important;
+  font-weight: 500!important;
+  position: relative!important;
+  line-height: normal!important;
+  min-height: 27.5px!important;
+  margin-left: 0!important;
+  cursor: pointer!important;
+}
+
+/* .rc-option__text {
+  padding-left: 20px;
+} */
+
+.landing-radio-flex {
+  flex: 1;
+}
+
+.updated-price {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.landing-radio-flex-left {
+  text-align:left;
+  padding-left: 40px;
+}

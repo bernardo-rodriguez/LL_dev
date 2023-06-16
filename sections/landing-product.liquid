@@ -1,0 +1,708 @@
+{% comment %}theme-check-disable TemplateLength{% endcomment %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-rte.css' | asset_url | stylesheet_tag }}
+{{ 'recharge-widget-styles.css' | asset_url | stylesheet_tag }}
+
+{{ 'landing-options-styles.css' | asset_url | stylesheet_tag }}
+{{ 'product-page-landing.css' | asset_url | stylesheet_tag }}
+
+<div style="display:none" id="main-product-handle-id">{{ product.handle }}</div>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<script>
+  var xhttp = new XMLHttpRequest();
+
+  xhttp.open('POST', '/cart/clear.js', true);
+  xhttp.send();
+</script>
+{% render 'upsell-popup' %}
+<section>
+  <div class="product-landing-header">
+    <div class="product-header-wrapper">
+      <p class="powered">Powered by SmileAI</p>
+      <p id = 'perfect-match-text' class="perfect-match"></p>
+      <p id = 'formula-header-text' class="landing-subheading" style="padding: 10px"></p>
+      <p class="landing-subheading" style="padding: 10px">
+        Tailored inside out for your unique smile and dental profile
+      </p>
+      <div class="formula-point-wrapper landing-subheading">
+        <div class="formula-point">
+          <img style = 'vertical-align: middle' width="20" height="20" loading="lazy" src="{{ 'checkmarkblue.png' | asset_url }}">
+          <p>11% Active Whitening Serum</p>
+        </div>
+        <div class="formula-point-middle">
+          <img style = 'vertical-align: middle' width="20" height="20" loading="lazy" src="{{ 'checkmarkblue.png' | asset_url }}">
+          <p>Desensitizer</p>
+        </div>
+        <div class="formula-point">
+          <img style = 'vertical-align: middle' width="20" height="20" loading="lazy" src="{{ 'checkmarkblue.png' | asset_url }}">
+          <p>Gum & Enamel Health Protection</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product">
+    <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
+      {{ 'accessibility.skip_to_product_info' | t }}
+    </a>
+
+    <div class="product__media-wrapper">
+      <ul class="product__media-list list-unstyled swiper" role="list">
+        <div class="swiper-wrapper">
+          {% for media in product.media %}
+            <li class="product__media-item swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}">
+              {% render 'product-media', media: media, position: forloop.index %}
+            </li>
+          {% endfor %}
+        </div>
+        <div class="product__media-pagination swiper-pagination hide-desktop"></div>
+      </ul>
+
+      <div class="product__media-thumbnails hide-mobile">
+        {% for media in product.media %}
+          <button
+            class="product__media-thumbnail-item"
+            data-media-id="{{ section.id }}-{{ media.id }}"
+            data-loop-position="{{ forloop.index0 }}"
+          >
+            {{ media | image_url: width: 200 | image_tag }}
+          </button>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="product__info-wrapper">
+      <div id="ProductInfo-{{ section.id }}" class="product__info-container">
+        {% assign product_form_id = 'product-form-' | append: section.id %}
+
+        <h3 class="product__title m-h4" id="product__title_id">
+          {{ product.metafields.custom.title | default: product.title }}
+        </h3>
+        {% render 'judgeme_widgets',
+          widget_type: 'judgeme_preview_badge',
+          jm_style: '',
+          concierge_install: true,
+          product: product
+        %}
+
+        <div class="no-js-hidden visibility-hidden visually-hidden" id="price-{{ section.id }}" role="status">
+          {% render 'price', product: product, use_variant: true, show_badges: true, price_class: '' %}
+        </div>
+
+        {% render 'small-stars' %}
+        {% render 'ingredient-boxes' %}
+
+        <p style = 'padding: 10px 0' id = 'selling_point_landing'></p>
+        <p style = 'padding: 10px 0'>
+          Give yourself a dentist-made whitening treatment at home. This serum was developed by our team of dentists and
+          combines Nano-LED Light technology, clinically tested ingredients to give you a glowing smile in a matter of
+          weeks.
+        </p>
+
+        {% render 'eclipse-section' %}
+
+          <div class="rc-container-wrapper rc_container_wrapper" data-widget-container-wrapper="" data-v-app="">
+            <div class="rc-container rc_container" data-widget-container="">
+              <div class="rc-widget rc_widget" data-widget="">
+                <div class="rc-template" data-template="">
+                  <div class="rc-template__legacy-radio" data-template-legacy-radio="">
+                    <div
+                      class="rc-radio rc-option__onetime rc-option rc_widget__option rc_widget__option--onetime rc-legacy-radio"
+                      data-option-onetime="">
+                      <div class="rc_widget__option__selector" data-selector-onetime="">
+                        <input
+                          id="1_month_supply"
+                          type="radio"
+                          name="supply_type"
+                          class="rc-radio__input rc_widget__option__input rc_widget__option__input--onetime"
+                          data-radio-onetime=""
+                          value="1_month">
+                          <label
+                          for="1_month_supply"
+                          class="landing-radio__label rc_widget__option__label"
+                          data-label-onetime="">
+                            <span class="landing-radio-flex rc-option__text landing-radio-flex-left" data-label-text-onetime="">1 Month Supply</span>
+                            <span
+                              class="rc-option__price rc_widget__price rc_widget__price--onetime visually-hidden"
+                              aria-label="original price"
+                              data-price-onetime="">$50</span>
+                            <div class="rc-custom-radio-button"></div>
+                            <span class="landing-radio-flex updated-price">$49</span>
+                          </label>
+                      </div>
+                    </div>
+                    <div
+                      class="rc-radio rc-option__subsave rc-option rc_widget__option rc_widget__option--subsave rc-legacy-radio rc_widget__option--active rc-option--active"
+                      data-option-subsave="">
+                      <div class="rc_widget__option__selector" data-selector-subsave="">
+                        <input
+                          id="2_month_supply"
+                          type="radio"
+                          name="supply_type"
+                          class="rc-radio__input rc_widget__option__input rc_widget__option__input--subsave"
+                          data-radio-subsave=""
+                          value="2_month" >
+                        <label
+                          for="2_month_supply"
+                          class="landing-radio__label rc_widget__option__label"
+                          data-label-subsave="">
+                          <div class ='landing-radio-flex landing-radio-flex-left'>
+                            <span class="rc-option__text" data-label-text-subsave="">2 Month Supply</span>
+                            <ul style = 'padding: 10px;'>
+                              <li>2 Treatment Cycles: 6 Whitening Serums</li>
+                              <li>Includes Nano-LED Accelerator Light</li>
+                            </ul>
+                          </div>
+                          <span
+                            class="rc-option__price rc_widget__price rc_widget__price--subsave visually-hidden"
+                            aria-label="recurring price"
+                            data-price-subsave="">$79
+                            <span style='color:red;text-decoration:line-through'><span style='color:black'>$98</span></span> 
+                          </span>
+                          <div class="rc-custom-radio-button"></div>
+                          <span class="landing-radio-flex updated-price">
+                            <span style='color:red;text-decoration:line-through'><span style='color:black'>$98</span></span> 
+                            $79</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div
+                      class="rc-radio rc-option__subsave rc-option rc_widget__option rc_widget__option--subsave rc-legacy-radio rc_widget__option--active rc-option--active"
+                      data-option-subsave="">
+                      <div class="rc_widget__option__selector" data-selector-subsave="">
+                        <input
+                          id="3_month_supply"
+                          type="radio"
+                          name="supply_type"
+                          class="rc-radio__input rc_widget__option__input rc_widget__option__input--subsave"
+                          data-radio-subsave=""
+                          value="3_month" >
+                        <label
+                          for="3_month_supply"
+                          class="landing-radio__label rc_widget__option__label"
+                          data-label-subsave="">
+                          <span class="landing-radio-flex rc-option__text landing-radio-flex-left" data-label-text-subsave="">3 Month Supply</span>
+                          <span class="rc-option__discount rc_widget__option__discount" data-label-discount="">62%</span>
+                          <span
+                            class="rc-option__price rc_widget__price rc_widget__price--subsave visually-hidden"
+                            aria-label="recurring price"
+                            data-price-subsave="">$109
+                            <span style='color:red;text-decoration:line-through'><span style='color:black'>$159</span></span> 
+                          </span>
+                          <div class="rc-custom-radio-button"></div>
+                          <span class="landing-radio-flex updated-price">
+                            <span style='color:red;text-decoration:line-through'><span style='color:black'>$159</span></span> 
+                            $109</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <div>
+          <product-form class="product-form" data-product-id="{{ product.id }}">
+            <div class="product-form__error-message-wrapper" role="alert" hidden>
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-error" viewBox="0 0 13 13">
+                <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
+                <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
+                <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
+                <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
+              </svg>
+              <span class="product-form__error-message"></span>
+            </div>
+
+            {% form 'product',
+              product,
+              id: product_form_id,
+              class: 'form',
+              novalidate: 'novalidate',
+              data-type: 'add-to-cart-form'
+            %}
+              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+              {% unless product.has_only_default_variant %}
+                {% assign picker_type = 'button' %}
+                {% if picker_type == 'button' %}
+                  <variant-radios
+                    class="no-js-hidden visually-hidden"
+                    data-section="{{ section.id }}"
+                    data-url="{{ product.url }}"
+                  >
+                    {% for option in product.options_with_values %}
+                      <fieldset class="js product-form__input">
+                        <legend class="form__label">{{ option.name }}</legend>
+                        {% for value in option.values %}
+                          <input
+                            type="radio"
+                            id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                            name="{{ option.name }}"
+                            value="{{ value | escape }}"
+                            form="{{ product_form_id }}"
+                            {% if option.selected_value == value %}
+                              checked
+                            {% endif %}
+                          >
+                          <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                            {{ value }}
+                          </label>
+                        {% endfor %}
+                      </fieldset>
+                    {% endfor %}
+                    <script type="application/json">
+                      {{ product.variants | json }}
+                    </script>
+                  </variant-radios>
+                {% else %}
+                  <variant-selects class="no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}">
+                    {% for option in product.options_with_values %}
+                      <div class="product-form__input product-form__input--dropdown">
+                        <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
+                          {{ option.name }}
+                        </label>
+                        <div class="select">
+                          <select
+                            id="Option-{{ section.id }}-{{ forloop.index0 }}"
+                            class="select__select"
+                            name="options[{{ option.name | escape }}]"
+                            form="{{ product_form_id }}"
+                          >
+                            {% for value in option.values %}
+                              <option
+                                value="{{ value | escape }}"
+                                {% if option.selected_value == value %}
+                                  selected="selected"
+                                {% endif %}
+                              >
+                                {{ value }}
+                              </option>
+                            {% endfor %}
+                          </select>
+                          {% render 'icon', icon: 'caret' %}
+                        </div>
+                      </div>
+                    {% endfor %}
+
+                    <script type="application/json">
+                      {{ product.variants | json }}
+                    </script>
+                  </variant-selects>
+                {% endif %}
+              {% endunless %}
+
+              <noscript class="product-form__noscript-wrapper-{{ section.id }}">
+                <div class="product-form__input{% if product.has_only_default_variant %} hidden{% endif %}">
+                  <label class="form__label" for="Variants-{{ section.id }}">
+                    {{- 'products.product.product_variants' | t -}}
+                  </label>
+                  <div class="select">
+                    <select
+                      name="id"
+                      id="Variants-{{ section.id }}"
+                      class="select__select"
+                      form="{{ product_form_id }}"
+                    >
+                      {% for variant in product.variants %}
+                        <option
+                          {% if variant == product.selected_or_first_available_variant %}
+                            selected="selected"
+                          {% endif %}
+                          {% if variant.available == false %}
+                            disabled
+                          {% endif %}
+                          value="{{ variant.id }}"
+                        >
+                          {{ variant.title }}
+                          {% if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
+                          - {{ variant.price | money | strip_html }}
+                        </option>
+                      {% endfor %}
+                    </select>
+                    {% render 'icon', icon: 'caret' %}
+                  </div>
+                </div>
+              </noscript>
+
+              <div class="product-form__buttons">
+                <div class="product-form__input product-form__quantity ">
+                  {% comment %}
+                    <label class="form__label" for="Quantity-{{ section.id }}">
+                      {{ 'products.product.quantity.label' | t }}
+                    </label>
+                  {% endcomment %}
+                  <quantity-input class="quantity">
+                    <button class="quantity__button no-js-hidden" name="minus" type="button">
+                      <span class="visually-hidden">
+                        {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                      </span>
+                      {% render 'icon', icon: 'minus' %}
+                    </button>
+                    <input
+                      class="quantity__input"
+                      type="number"
+                      name="quantity"
+                      id="Quantity-{{ section.id }}"
+                      min="1"
+                      max="3"
+                      value="1"
+                      form="{{ product_form_id }}"
+                    >
+                    <button class="quantity__button no-js-hidden" name="plus" type="button">
+                      <span class="visually-hidden">
+                        {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                      </span>
+                      {% render 'icon', icon: 'plus' %}
+                    </button>
+                  </quantity-input>
+                </div>
+                <button type="submit" id="real-submit-button" style="display: none">checkout</button>
+                <button
+                  {% comment %}
+                    type="submit"
+                    name="add"
+                  {% endcomment %}
+                  type="button"
+                  id="main-clickable-button"
+                  class="product-form__submit button button--flex {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
+                  {% if product.selected_or_first_available_variant.available == false %}
+                    disabled
+                  {% endif %}
+                >
+                  <span>
+                    {% if product.selected_or_first_available_variant.available %}
+                      {{ section.settings.atc }}
+                    {% else %}
+                      {{ 'products.product.sold_out' | t }}
+                    {% endif %}
+                  </span>
+                  <div class="loading-overlay__spinner hidden">
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      role="presentation"
+                      class="spinner"
+                      viewBox="0 0 66 66"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                    </svg>
+                  </div>
+                </button>
+                {% if block.settings.show_dynamic_checkout %}
+                  {{ form | payment_button }}
+                {% endif %}
+              </div>
+            {% endform %}
+
+            {% if section.settings.satisfaction != blank %}
+              <p class="body-xs satisfaction-guarantee">
+                {{ section.settings.satisfaction_svg -}}
+                {{- section.settings.satisfaction }}
+              </p>
+            {% endif %}
+
+            <div class="visually-hidden subscription-details__wrapper">
+              <div class="subscription-details">
+                <dl class="m-body-xs">
+                  <dt>Whitening Gels</dt>
+                  <dd>1-2 Months Supply</dd>
+                </dl>
+                <dl class="m-body-xs">
+                  <dt>Recurring Cost</dt>
+                  <dd>$19.00</dd>
+                </dl>
+              </div>
+            </div>
+          </product-form>
+        </div>
+
+        {% comment %}
+          {% if product.description != blank %}
+            <div class="product__description rte">
+              {{ product.description }}
+            </div>
+          {% endif %}
+        {% endcomment %}
+
+        {% if product.metafields.custom.details != blank %}
+          <div class="product__details">
+            <div class="product__details-inner">
+              {% for detail in product.metafields.custom.details.value %}
+                {% assign formatted_emoji = detail | replace: '{', "<span class='emoji'>" | replace: '}', '</span>' %}
+                <div class="product__detail-item p">{{ formatted_emoji }}</div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if section.settings.how_to_use != blank %}
+          <div class="product__how-to-use product__accordion">
+            <button class="product__accordion-button p">
+              How To Use <span class="accordion-toggle">{% render 'icon', icon: 'accordion' %}</span>
+            </button>
+            <div class="product__accordion--inner">
+              <p>
+                {{ section.settings.how_to_use }}
+              </p>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% javascript %}
+  document.getElementById('main-clickable-button').addEventListener('click', upsellLogic);
+
+  async function setCartAttributes(upsell) {
+    let cart = await fetch('/cart/update.js', {
+      method: 'POST',
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        'Content-Type': 'application/json;',
+      },
+      body: JSON.stringify({
+        attributes: {
+          upsell_test: upsell,
+        },
+      }),
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    return cart;
+  }
+
+  async function setAttributes() {
+    upsell_test = getCookie('upsell_test');
+    if (upsell_test == 'true') {
+      let cart = await setCartAttributes('upsell_active');
+    } else if ((upsell_test = 'false')) {
+      let cart = setCartAttributes('upsell_inactive');
+    } else {
+      let cart = setCartAttributes('upsell_not_set');
+    }
+  }
+  setTimeout(() => {
+    setAttributes();
+  }, 2000);
+
+  function getCookie(cname) {
+    // const value = `; ${document.cookie}`;
+    // const parts = value.split(`; ${name}=`);
+    // if (parts.length === 2) return parts.pop().split(';').shift();
+
+    let name = cname + '=';
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return null;
+  }
+
+  function upsellLogic() {
+    if ($('#main-product-handle-id').html().includes('at-home-')) {
+      if (getCookie('upsell_test') == 'true') {
+        $('#real-submit-button').click();
+        // openPopup()
+      } else {
+        $('#real-submit-button').click();
+      }
+    } else {
+      $('#real-submit-button').click();
+    }
+  }
+
+  // Main product slider
+  const productSlider = new Swiper('.product__media-list', {
+    slidesPerView: 1,
+    autoplay: {
+      delay: 4000,
+    },
+    loop: false,
+    pagination: {
+      el: '.product__media-pagination',
+    },
+  });
+
+  const productSliderThumbnails = document.querySelectorAll('.product__media-thumbnail-item');
+
+  productSliderThumbnails.forEach((thumbnail) => {
+    thumbnail.addEventListener('click', function (e) {
+      e.preventDefault();
+      console.log(e.target.dataset.loopPosition);
+      productSlider.slideTo(e.target.dataset.loopPosition);
+    });
+  });
+
+  const accordionItems = document.querySelectorAll('.product__accordion-button');
+  accordionItems.forEach((accordion) => {
+    accordion.addEventListener('click', (event) => {
+      const parent = accordion.parentElement;
+      const content = accordion.nextElementSibling;
+
+      if (parent.classList.contains('active')) {
+        parent.classList.remove('active');
+        slideUp(content, 400);
+      } else {
+        parent.classList.add('active');
+        slideDown(content, 400);
+      }
+    });
+  });
+{% endjavascript %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function isIE() {
+      const ua = window.navigator.userAgent;
+      const msie = ua.indexOf('MSIE ');
+      const trident = ua.indexOf('Trident/');
+
+      return msie > 0 || trident > 0;
+    }
+
+    if (!isIE()) return;
+    const hiddenInput = document.querySelector('#{{ product_form_id }} input[name="id"]');
+    const noScriptInputWrapper = document.createElement('div');
+    const variantSwitcher =
+      document.querySelector('variant-radios[data-section="{{ section.id }}"]') ||
+      document.querySelector('variant-selects[data-section="{{ section.id }}"]');
+    noScriptInputWrapper.innerHTML = document.querySelector(
+      '.product-form__noscript-wrapper-{{ section.id }}'
+    ).textContent;
+    variantSwitcher.outerHTML = noScriptInputWrapper.outerHTML;
+
+    document.querySelector('#Variants-{{ section.id }}').addEventListener('change', function (event) {
+      hiddenInput.value = event.currentTarget.value;
+    });
+  });
+</script>
+
+{% liquid
+  if product.selected_or_first_available_variant.featured_media
+    assign seo_media = product.selected_or_first_available_variant.featured_media
+  else
+    assign seo_media = product.featured_media
+  endif
+%}
+
+{% liquid
+  assign variant_ingredient_array = ''
+  capture variant_ingredients
+    echo '['
+    for variant in product.variants
+      echo '{'
+      echo '"id": "'
+      echo variant.title
+      echo '", "ingredients": ["'
+      for ingredient in variant.metafields.custom.ingredients.value
+        echo ingredient | downcase
+        unless forloop.last
+          echo '", "'
+        endunless
+      endfor
+      echo '"]'
+      echo ', "title": "'
+      echo variant.metafields.custom.landing_page_title.value
+      echo '", "formula_header_text": "'
+      echo variant.metafields.custom.formula_header_text.value
+      echo '", "selling_point_landing": "'
+      echo variant.metafields.custom.selling_point_landing.value
+      echo '"}'
+      unless forloop.last
+        echo ','
+      endunless
+    endfor
+    echo ']'
+  endcapture
+%}
+
+<script>
+  window.variantIngredients = {{variant_ingredients }}
+</script>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "name": {{ product.title | json }},
+    "url": {{ shop.url | append: product.url | json }},
+    {% if seo_media %}
+      {% assign media_size = seo_media.preview_image.width | append: 'x' %}
+      "image": [
+        {{ seo_media | img_url: media_size | prepend: "https:" | json }}
+      ],
+    {% endif %}
+    "description": {{ product.description | strip_html | json }},
+    {% if product.selected_or_first_available_variant.sku != blank %}
+      "sku": {{ product.selected_or_first_available_variant.sku | json }},
+    {% endif %}
+    "brand": {
+      "@type": "Thing",
+      "name": {{ product.vendor | json }}
+    },
+    "offers": [
+      {% for variant in product.variants %}
+        {
+          "@type" : "Offer",
+          {% if variant.sku != blank %}
+            "sku": {{ variant.sku | json }},
+          {% endif %}
+          "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+          "price" : {{ variant.price | divided_by: 100.00 | json }},
+          "priceCurrency" : {{ cart.currency.iso_code | json }},
+          "url" : {{ shop.url | append: variant.url | json }}
+        }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Product",
+  "tag": "section",
+  "class": "product-section",
+  "blocks": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "atc",
+      "label": "Add To Cart button",
+      "default": "Buy Now"
+    },
+    {
+      "type": "text",
+      "id": "satisfaction",
+      "label": "Satisfaction text",
+      "default": "30 Day Satisfaction Guarantee"
+    },
+    {
+      "type": "textarea",
+      "id": "satisfaction_svg",
+      "label": "Satisfaction Icon"
+    },
+    {
+      "type": "richtext",
+      "id": "how_to_use",
+      "label": "How to use",
+      "info": "Connect product How To Use metafield"
+    }
+  ]
+}
+{% endschema %}

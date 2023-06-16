@@ -43,10 +43,13 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     const name = `${first_name}${ last_name != "" ? ' ' + last_name : ''}`
 
-    if ( name != "" && !storedProductName?.toLowerCase().includes("to go pen") && window.location.pathname != '/pages/landing-page') {
-      this.container.querySelector('#product__title_id').innerHTML = `<span class="stylized">${name}'s</span><br> ${storedProductName.replace(/[^\p{L}\p{N}\p{P}\p{Z}^$\n]/gu, '')}`
+    if (window.location.href.includes('at-home-whitening-kit')) { 
+      if ( name != "" && !storedProductName?.toLowerCase().includes("to go pen") && window.location.pathname != '/pages/landing-page') {
+        this.container.querySelector('#product__title_id').innerHTML = `<span class="stylized">${name}'s</span><br> ${storedProductName.replace(/[^\p{L}\p{N}\p{P}\p{Z}^$\n]/gu, '')}`
+      }
+    } else if (window.location.href.includes('landing-page-product-main')) {
+      $('#perfect-match-text').html(`${name}'s Perfect Match`)
     }
-
   }
 
   setVariant() {
@@ -68,29 +71,39 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         break;
     }
 
-    this.querySelector(`input[value="${inputValue}"]`).click()
-    if(document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`)){
-      document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`).classList.remove("hidden")
-      if(document.querySelector(`[data-sticky-formula]`)) document.querySelector(`[data-sticky-formula]`).innerHTML = document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`).innerHTML.split(":")[0]
-    }
+    if (window.location.href.includes('at-home-whitening-kit')) {
+      this.querySelector(`input[value="${inputValue}"]`).click()
 
-    if(window.variantIngredients){
+      if(document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`)){
+        document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`).classList.remove("hidden")
+        if(document.querySelector(`[data-sticky-formula]`)) document.querySelector(`[data-sticky-formula]`).innerHTML = document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`).innerHTML.split(":")[0]
+      }
+  
+      if(window.variantIngredients){
+        let variantIngredientList = window.variantIngredients.find((v) => v.id == inputValue)
+  
+        let ingredientCards = document.querySelectorAll("[data-ingredient]")
+        ingredientCards.forEach((ingredient, i) => {
+          if( variantIngredientList.ingredients.includes(ingredient.dataset.ingredient)) {
+            ingredient.classList.remove("hidden")
+          } else {
+            ingredient.classList.add("hidden")
+          }
+          if( i == ingredientCards.length - 1) {
+            ingredient.closest('.swiper').classList.add('update')
+          }
+        })
+      }
+    } 
+    else if (window.location.href.includes('landing-page-product-main')) {
       let variantIngredientList = window.variantIngredients.find((v) => v.id == inputValue)
+      console.log(variantIngredientList)
 
-      let ingredientCards = document.querySelectorAll("[data-ingredient]")
-      ingredientCards.forEach((ingredient, i) => {
-        if( variantIngredientList.ingredients.includes(ingredient.dataset.ingredient)) {
-          ingredient.classList.remove("hidden")
-        } else {
-          ingredient.classList.add("hidden")
-        }
-        if( i == ingredientCards.length - 1) {
-          ingredient.closest('.swiper').classList.add('update')
-        }
-      })
+      let stylized_title = variantIngredientList.title.replace('{', "<span class='stylized'>").replace("}", "</span>")
+      $('#product__title_id').html(stylized_title)
+      $('#formula-header-text').html(variantIngredientList.formula_header_text)
+      $('#selling_point_landing').html(variantIngredientList.selling_point_landing)
     }
-
-    
   }
 
   createSubscriptionWidget() {
@@ -347,7 +360,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     submitButton.setAttribute('disabled', true);
     submitButton.classList.add('loading');
 
-    const body = JSON.stringify({
+    let body =  JSON.stringify({
       ...JSON.parse(serializeForm(this.form)),
       sections: this.getSectionsToRender().map((section) => section.section),
       sections_url: window.location.pathname
@@ -359,6 +372,36 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       date.setTime(date.getTime()+(3600*24*1000));
       var expires = "; expires="+date.toUTCString();
       if(submitButton.dataset.dsicountCode != "") document.cookie = `productDiscountCode=${submitButton.dataset.dsicountCode} ${expires};path=/; `;
+    }
+
+    if (window.location.href.includes('at-home-whitening-kit')) { 
+      console.log('passing through')
+    } else if (window.location.href.includes('landing-page-product-main')) {
+      let json_body = JSON.parse(body)
+      let id_dict = {
+        "1_month": {
+          "sensitive": 43934768070881,
+          "medium": 43934768005345,
+          "strong": 43934768038113
+        },
+        "2_month": {
+          "sensitive": 43934775673057,
+          "medium": 43934775607521,
+          "strong": 43934775640289
+        },
+        "3_month": {
+          "sensitive": 43934773805281,
+          "medium": 43934773772513,
+          "strong": 43934773838049
+        }
+      }
+      let supply_type = $('input[name="supply_type"]:checked').val()
+      let strength = getCookie('strength')
+      console.log(supply_type)
+      console.log(strength)
+      json_body['id'] = id_dict[supply_type][strength]
+      body = JSON.stringify(json_body)
+      console.log(body)
     }
 
     

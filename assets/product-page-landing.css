@@ -1,0 +1,110 @@
+.product-landing-header {
+    background-color: #C0EDFF;
+    padding: 80px 0 20px;
+    text-align: center;
+}
+
+.product-header-wrapper {
+    max-width: 900px;
+    display: inline-block;
+}
+
+.product-landing-header .formula-point-wrapper {
+    margin-top: 10px;
+    display: flex
+}
+
+.product-landing-header .formula-point {
+    display: flex;
+    align-items: center;
+}
+
+.product-landing-header .formula-point-middle {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.powered {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.perfect-match {
+    font-weight: 400;
+    font-size: 55px;
+    line-height: 80px;
+    line-height: auto;
+}
+
+.landing-subheading {
+    font-size: 16px;
+}
+
+.checked-landing {
+  color: #46BDF0;
+}
+
+/* ---------------------INGREDIENTS BOX -------------------------------*/
+
+
+.product-landing-ingredient-wrapper {
+    display: flex;
+    padding: 20px 0;
+}
+
+.product-landing-ingredient {
+    flex: 1;
+}
+
+.product-landing-ingredient-block {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    height: 100px;
+    text-align:center
+}
+
+.ingredient-box-ingredient {
+    font-size: 13px;
+    float: right;
+    margin-top: 6px;
+}
+
+.ingredient-box-percent {
+    font-size: 24px;
+}
+
+.ingredient-box-function {
+    font-size: 20px;
+    text-align: center;
+    font-style: italic;
+}
+
+.ingredient-top-wrapper {
+    text-align: left;
+    padding-bottom: 15px
+}
+
+/* ---------------------ECLIPSE -------------------------------*/
+
+.eclipse-wrapper {
+    display: flex;
+}
+
+.eclipse-item {
+    flex: 1;
+}
+
+.eclipse-icon {
+    height: 70px;
+    text-align: center;
+}
+
+.eclipse-image {
+    display: inline-block
+}
+
+.eclipse-text {
+    margin-top: -50px
+}

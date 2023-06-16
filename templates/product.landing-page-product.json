@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "main-product",
+      "type": "landing-product",
       "settings": {
         "atc": "Buy Now",
         "satisfaction": "30 Day Satisfaction Guarantee",
