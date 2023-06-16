@@ -601,6 +601,11 @@
   endif
 %}
 
+{% comment %} {% assign formatted_title = variant.metafields.custom.title.value
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%} {% endcomment %}
+
 {% liquid
   assign variant_ingredient_array = ''
   capture variant_ingredients
@@ -616,7 +621,9 @@
           echo '", "'
         endunless
       endfor
-      echo '"]'
+      echo '"]',
+      echo '", "title": "'
+      echo variant.metafields.custom.title.value
       echo '}'
       unless forloop.last
         echo ','
@@ -625,6 +632,7 @@
     echo ']'
   endcapture
 %}
+
 
 <script>
   window.variantIngredients = {{variant_ingredients }}
