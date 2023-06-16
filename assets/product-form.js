@@ -68,7 +68,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         break;
     }
 
-    try {
+    if (window.location.href.includes('at-home-whitening-kit')) {
       this.querySelector(`input[value="${inputValue}"]`).click()
 
       if(document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`)){
@@ -92,8 +92,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         })
       }
     } 
-    catch(err) {
-      console.log('failed to select variant')
+    else if (window.location.href.includes('landing-page-product-main')) {
+      console.log('this is landing page bud')
+      console.log(inputValue)
+      console.log(window.variantIngredients)
     }
   }
 
