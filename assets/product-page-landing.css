@@ -64,12 +64,14 @@
 
 .eclipse-icon {
     height: 70px;
+    text-align: center;
 }
 
 .eclipse-image {
-    position:absolute
+    display: inline-block
 }
 
 .eclipse-text {
-    position:aboslute
+    display: inline-block;
+    margin-top: -50px
 }
