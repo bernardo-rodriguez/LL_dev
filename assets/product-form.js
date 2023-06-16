@@ -377,11 +377,31 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     if (window.location.href.includes('at-home-whitening-kit')) { 
       console.log('passing through')
     } else if (window.location.href.includes('landing-page-product-main')) {
+      json_body = JSON.parse(body)
+      let id_dict = {
+        "1_month": {
+          "sensitive": 43934768070881,
+          "medium": 43934768005345,
+          "strong": 43934768038113
+        },
+        "2_month": {
+          "sensitive": 43934775673057,
+          "medium": 43934775607521,
+          "strong": 43934775640289
+        },
+        "3_month": {
+          "sensitive": 43934773805281,
+          "medium": 43934773772513,
+          "strong": 43934773838049
+        }
+      }
       let supply_type = $('input[name="supply_type"]:checked').val()
       let strength = getCookie('strength')
       console.log(supply_type)
       console.log(strength)
-      
+      json_body['id'] = id_dict[supply_type][strength]
+      body = JSON.serialize(json_body)
+      console.log(body)
     }
 
     return
