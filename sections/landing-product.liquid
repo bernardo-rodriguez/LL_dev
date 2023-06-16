@@ -617,9 +617,9 @@
         endunless
       endfor
       echo '"]'
-      echo ', "title": '
+      echo ', "title": "'
       echo variant.metafields.custom.landing_page_title.value | downcase
-      echo '}'
+      echo '"}'
       unless forloop.last
         echo ','
       endunless
