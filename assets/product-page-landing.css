@@ -45,6 +45,9 @@
   color: #46BDF0;
 }
 
+/* ---------------------INGREDIENTS BOX -------------------------------*/
+
+
 .product-landing-ingredient-wrapper {
     display: flex;
 }
@@ -58,6 +61,22 @@
     padding: 10px;
     border-radius: 10px;
     height: 90px;
+}
+
+.ingredient-box-ingredient {
+    font-size: 13px;
+    float: right;
+    margin-top: 6px;
+}
+
+.ingredient-box-percent {
+    font-size: 24px;
+}
+
+.ingredient-box-function {
+    font-size: 23px;
+    text-align: center;
+    font-style: italic;
 }
 
 /* ---------------------ECLIPSE -------------------------------*/
