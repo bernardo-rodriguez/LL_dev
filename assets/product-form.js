@@ -93,11 +93,11 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       }
     } 
     else if (window.location.href.includes('landing-page-product-main')) {
-      console.log('this is landing page bud')
-      console.log(inputValue)
-      console.log(window.variantIngredients)
       let variantIngredientList = window.variantIngredients.find((v) => v.id == inputValue)
       console.log(variantIngredientList)
+
+      let stylized_title = variantIngredientList.title.replace('{', "<span class='stylized'>").replace("}", "</span>")
+      $('#product__title_id').html(stylized_title)
     }
   }
 
