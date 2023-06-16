@@ -60,7 +60,7 @@
     background-color: white;
     padding: 10px;
     border-radius: 10px;
-    height: 90px;
+    height: 100px;
     text-align:center
 }
 
@@ -78,6 +78,11 @@
     font-size: 20px;
     text-align: center;
     font-style: italic;
+}
+
+.ingredient-top-wrapper {
+    text-align: center;
+    padding-bottom: 15px
 }
 
 /* ---------------------ECLIPSE -------------------------------*/
