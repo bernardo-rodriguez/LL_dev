@@ -50,6 +50,7 @@
 
 .product-landing-ingredient-wrapper {
     display: flex;
+    padding: 20px 0;
 }
 
 .product-landing-ingredient {
@@ -81,7 +82,7 @@
 }
 
 .ingredient-top-wrapper {
-    text-align: center;
+    text-align: left;
     padding-bottom: 15px
 }
 
