@@ -421,6 +421,7 @@ function atcGetSectionsToRender() {
 }
 
 function addToCart(body, openCart = true) {
+  console.log('is this the correct add to cart function?')
   fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
   .then((response) => response.json())
   .then((parsedState) => {

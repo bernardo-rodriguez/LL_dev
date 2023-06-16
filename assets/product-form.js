@@ -339,6 +339,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
   onSubmitHandler(evt) {
     evt.preventDefault();
+    console.log('ok i guess here i am')
+    return
     
     document.cookie = "directcheckout=true;path=/";
 
