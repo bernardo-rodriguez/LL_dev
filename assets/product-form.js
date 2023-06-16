@@ -377,7 +377,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     if (window.location.href.includes('at-home-whitening-kit')) { 
       console.log('passing through')
     } else if (window.location.href.includes('landing-page-product-main')) {
-      json_body = JSON.parse(body)
+      let json_body = JSON.parse(body)
       let id_dict = {
         "1_month": {
           "sensitive": 43934768070881,
