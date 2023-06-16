@@ -84,6 +84,11 @@
       "settings": {
       }
     },
+    "7a9caaa6-d652-4601-b1a9-b46b131687da": {
+      "type": "replo-replo-product-test",
+      "settings": {
+      }
+    },
     "30a71a58-b5ad-472f-9d70-97379fc62b74": {
       "type": "benefit-cards",
       "blocks": {
@@ -272,6 +277,7 @@
     "main",
     "product-recommendations",
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
+    "7a9caaa6-d652-4601-b1a9-b46b131687da",
     "30a71a58-b5ad-472f-9d70-97379fc62b74",
     "1c8af4c9-5992-4bfb-9d4a-a8e06e025318",
     "d7a83216-e232-4258-9705-5edf54558f0b",
