@@ -374,8 +374,16 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       if(submitButton.dataset.dsicountCode != "") document.cookie = `productDiscountCode=${submitButton.dataset.dsicountCode} ${expires};path=/; `;
     }
 
-    console.log('sup there mufacka')
-    console.log(body)
+    if (window.location.href.includes('at-home-whitening-kit')) { 
+      console.log('passing through')
+    } else if (window.location.href.includes('landing-page-product-main')) {
+      let supply_type = $('input[name="supply_type"]:checked').val()
+      let strength = getCookie('strength')
+      console.log(supply_type)
+      console.log(strength)
+      
+    }
+
     return
 
     fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
