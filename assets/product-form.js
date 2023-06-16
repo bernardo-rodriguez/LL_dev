@@ -96,6 +96,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       console.log('this is landing page bud')
       console.log(inputValue)
       console.log(window.variantIngredients)
+      let variantIngredientList = window.variantIngredients.find((v) => v.id == inputValue)
+      console.log(variantIngredientList)
     }
   }
 
