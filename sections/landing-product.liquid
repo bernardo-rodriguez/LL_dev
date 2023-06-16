@@ -93,11 +93,8 @@
         {% render 'small-stars' %}
         {% render 'ingredient-boxes' %}
 
-        <p>
-          Our strongest starter formula, F8-17 has 70% more hydrogen-peroxide than Crest Classic Whitening Strips for
-          the fastest results in at-home teeth whitening.
-        </p>
-        <p>
+        <p style = 'padding: 10px 0' id = 'selling_point_landing'></p>
+        <p style = 'padding: 10px 0'>
           Give yourself a dentist-made whitening treatment at home. This serum was developed by our team of dentists and
           combines Nano-LED Light technology, clinically tested ingredients to give you a glowing smile in a matter of
           weeks.
@@ -624,6 +621,8 @@
       echo variant.metafields.custom.landing_page_title.value
       echo '", "formula_header_text": "'
       echo variant.metafields.custom.formula_header_text.value
+      echo '", "selling_point_landing": "'
+      echo variant.metafields.custom.selling_point_landing.value
       echo '"}'
       unless forloop.last
         echo ','
