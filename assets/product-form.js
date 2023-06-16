@@ -404,6 +404,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       console.log(body)
     }
 
+    
     fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
       .then((response) => response.json())
       .then((parsedState) => {
