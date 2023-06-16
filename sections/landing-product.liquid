@@ -617,7 +617,8 @@
         endunless
       endfor
       echo '"]'
-
+      echo ', "title": '
+      echo variant.metafields.custom.title.value
       echo '}'
       unless forloop.last
         echo ','
