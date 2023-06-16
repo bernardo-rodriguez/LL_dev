@@ -18,12 +18,12 @@
     flex: 1;
     display: flex;
     align-items: center;
-    padding: 0 10px;
 }
 
 .product-landing-header .formula-point-middle {
     display: flex;
     align-items: center;
+    padding: 0 10px;
 }
 
 .powered {
