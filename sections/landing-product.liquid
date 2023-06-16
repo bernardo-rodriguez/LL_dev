@@ -6,30 +6,32 @@
 {{ 'recharge-widget-styles.css' | asset_url | stylesheet_tag }}
 {{ 'product-page-landing.css' | asset_url | stylesheet_tag }}
 
-<div style = 'display:none' id = 'main-product-handle-id'>{{product.handle}}</div>
+<div style="display:none" id="main-product-handle-id">{{ product.handle }}</div>
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 <script>
-var xhttp = new XMLHttpRequest();
+  var xhttp = new XMLHttpRequest();
 
-xhttp.open("POST", "/cart/clear.js", true);
-xhttp.send();
+  xhttp.open('POST', '/cart/clear.js', true);
+  xhttp.send();
 </script>
 {% render 'upsell-popup' %}
 <section>
-  <div class = 'product-landing-header'>
-    <div class = 'product-header-wrapper'>
-      <p class = 'powered'>Powered by SmileAI</p>
-      <p class = 'perfect-match'>{Name}'s Perfect Match</p>
-      <p class = 'landing-subheading' style = 'padding: 10px'>Formula 8-17: Extra Strength for your non-sensitive teeth</p>
-      <p class = 'landing-subheading' style = 'padding: 10px'>Tailored inside out for your unique smile and dental profile</p>
-      <div class = 'formula-point-wrapper landing-subheading'>
-        <div class = 'formula-point'>
+  <div class="product-landing-header">
+    <div class="product-header-wrapper">
+      <p class="powered">Powered by SmileAI</p>
+      <p class="perfect-match">{Name}'s Perfect Match</p>
+      <p class="landing-subheading" style="padding: 10px">Formula 8-17: Extra Strength for your non-sensitive teeth</p>
+      <p class="landing-subheading" style="padding: 10px">
+        Tailored inside out for your unique smile and dental profile
+      </p>
+      <div class="formula-point-wrapper landing-subheading">
+        <div class="formula-point">
           <p>11% Active Whitening Serum</p>
         </div>
-        <div class = 'formula-point'>
+        <div class="formula-point">
           <p>Desensitizer</p>
         </div>
-        <div class = 'formula-point'>
+        <div class="formula-point">
           <p>Gum & Enamel Health Protection</p>
         </div>
       </div>
@@ -72,33 +74,134 @@ xhttp.send();
         <h3 class="product__title m-h4" id="product__title_id">
           {{ product.metafields.custom.title | default: product.title }}
         </h3>
-        {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: true, product: product %}
+        {% render 'judgeme_widgets',
+          widget_type: 'judgeme_preview_badge',
+          jm_style: '',
+          concierge_install: true,
+          product: product
+        %}
 
         <div class="no-js-hidden visibility-hidden visually-hidden" id="price-{{ section.id }}" role="status">
           {% render 'price', product: product, use_variant: true, show_badges: true, price_class: '' %}
         </div>
 
-        {% render 'small-stars'%}
-        {% render 'ingredient-boxes'%}
+        {% render 'small-stars' %}
+        {% render 'ingredient-boxes' %}
 
-        <p>Our strongest starter formula, F8-17 has 70% more hydrogen-peroxide than Crest Classic Whitening Strips for the fastest results in at-home teeth whitening.</p>
-        <p>Give yourself a dentist-made whitening treatment at home. This serum was developed by our team of dentists and combines Nano-LED Light technology, clinically tested ingredients to give you a glowing smile in a matter of weeks.</p>
+        <p>
+          Our strongest starter formula, F8-17 has 70% more hydrogen-peroxide than Crest Classic Whitening Strips for
+          the fastest results in at-home teeth whitening.
+        </p>
+        <p>
+          Give yourself a dentist-made whitening treatment at home. This serum was developed by our team of dentists and
+          combines Nano-LED Light technology, clinically tested ingredients to give you a glowing smile in a matter of
+          weeks.
+        </p>
 
-        <div>
-          <div class = 'eclipse-wrapper'>
-            <div class = 'eclipse-item'>
-              <div class = 'eclipse-icon'>
-                <img class = 'eclipse-image' width = '60' height = '60' loading = 'lazy' src="{{ 'border-eclipse.png' | asset_url }}">
-                <p class = 'eclipse-text'>92%</p>
+        {% render 'eclipse-section' %}
+
+        <div class="rc-container-wrapper rc_container_wrapper" data-widget-container-wrapper="" data-v-app="">
+          <div class="rc-container rc_container" data-widget-container="">
+            <div class="rc-widget rc_widget" data-widget="">
+              <div class="rc-template" data-template="">
+                <div class="rc-template__legacy-radio" data-template-legacy-radio="">
+                  <div
+                    class="rc-radio rc-option__onetime rc-option rc_widget__option rc_widget__option--onetime rc-legacy-radio"
+                    data-option-onetime=""
+                  >
+                    <div class="rc_widget__option__selector" data-selector-onetime="">
+                      <input
+                        id="product_7503162605793_group_1606035_onetime"
+                        type="radio"
+                        name="selling_plan_1606035"
+                        class="rc-radio__input rc_widget__option__input rc_widget__option__input--onetime"
+                        data-radio-onetime=""
+                        value="onetime"
+
+                      ><label
+                        for="product_7503162605793_group_1606035_onetime"
+                        class="rc-radio__label rc_widget__option__label"
+                        data-label-onetime=""
+                        ><span class="rc-option__text" data-label-text-onetime="">One-Time</span><span>—</span
+                        ><span
+                          class="rc-option__price rc_widget__price rc_widget__price--onetime visually-hidden"
+                          aria-label="original price"
+                          data-price-onetime=""
+                          >$50</span
+                        >
+                        <div class="rc-custom-radio-button"></div>
+                        <span class="updated-price">$49</span></label
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="rc-radio rc-option__subsave rc-option rc_widget__option rc_widget__option--subsave rc-legacy-radio rc_widget__option--active rc-option--active"
+                    data-option-subsave=""
+                  >
+                    <div class="rc_widget__option__selector" data-selector-subsave="">
+                      <input
+                        id="product_7503162605793_group_1606035_subsave"
+                        type="radio"
+                        name="selling_plan_1606035"
+                        class="rc-radio__input rc_widget__option__input rc_widget__option__input--subsave"
+                        data-radio-subsave=""
+                        value="subsave"
+
+                      ><label
+                        for="product_7503162605793_group_1606035_subsave"
+                        class="rc-radio__label rc_widget__option__label"
+                        data-label-subsave=""
+                        ><span class="rc-option__text" data-label-text-subsave="">Subscribe &amp; Save</span
+                        ><span>—</span
+                        ><span class="rc-option__discount rc_widget__option__discount" data-label-discount="">62%</span
+                        ><span
+                          class="rc-option__price rc_widget__price rc_widget__price--subsave visually-hidden"
+                          aria-label="recurring price"
+                          data-price-subsave=""
+                          >$19</span
+                        >
+                        <div class="rc-custom-radio-button"></div>
+                        <span class="updated-price">$19</span></label
+                      >
+                    </div>
+                    <dl class="m-body-xs">
+                      <dt>Whitening Gels</dt>
+                      <dd>1-2 Months Supply</dd>
+                    </dl>
+                    <div
+                      class="rc-selling-plans rc_widget__option__plans"
+                      data-plans-container=""
+                      data-v-3a84e3a8=""
+                      style="display: block;"
+                    >
+                      <label
+                        class="rc-selling-plans__label"
+                        for="selling_plan_7503162605793"
+                        data-plans-label=""
+                        data-v-3a84e3a8=""
+                        >Delivery Frequency</label
+                      ><select
+                        id="selling_plan_7503162605793"
+                        class="rc_widget__option__plans__dropdown rc-selling-plans__dropdown"
+                        name="selling_plan"
+                        data-plans-dropdown=""
+                        data-v-3a84e3a8=""
+                      >
+                        <option data-plan-option="Every 1 Month" value="3449880801" data-v-3a84e3a8="">
+                          Every 1 Month
+                        </option>
+                        <option data-plan-option="Every 2 Months" value="3449913569" data-v-3a84e3a8="">
+                          Every 2 Months
+                        </option>
+                      </select>
+                    </div>
+                    <dl class="m-body-xs">
+                      <dt>Recurring Cost</dt>
+                      <dd>$19.00</dd>
+                    </dl>
+                  </div>
+                </div>
               </div>
-              <p>92% of users who had similar responses to your SmileAI profile saw over 5 shades brighter in their first week of treatment.</p>
-            </div>
-            <div class = 'eclipse-item'>
-              <div class = 'eclipse-icon'>
-                <img class = 'eclipse-image' width = '60' height = '60' loading = 'lazy' src="{{ 'border-eclipse.png' | asset_url }}">
-                <p class = 'eclipse-text'>92%</p>
-              </div>
-              <p>92% of users who had similar responses to your SmileAI profile saw over 5 shades brighter in their first week of treatment.</p>
             </div>
           </div>
         </div>
@@ -157,7 +260,7 @@ xhttp.send();
               data-type: 'add-to-cart-form'
             %}
               <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-              
+
               {% unless product.has_only_default_variant %}
                 {% assign picker_type = 'button' %}
                 {% if picker_type == 'button' %}
@@ -260,12 +363,13 @@ xhttp.send();
                 </div>
               </noscript>
 
-
               <div class="product-form__buttons">
                 <div class="product-form__input product-form__quantity ">
-                  {% comment %} <label class="form__label" for="Quantity-{{ section.id }}">
-                    {{ 'products.product.quantity.label' | t }}
-                  </label> {% endcomment %}
+                  {% comment %}
+                    <label class="form__label" for="Quantity-{{ section.id }}">
+                      {{ 'products.product.quantity.label' | t }}
+                    </label>
+                  {% endcomment %}
                   <quantity-input class="quantity">
                     <button class="quantity__button no-js-hidden" name="minus" type="button">
                       <span class="visually-hidden">
@@ -291,14 +395,14 @@ xhttp.send();
                     </button>
                   </quantity-input>
                 </div>
-                <button type='submit' id = 'real-submit-button' style = 'display: none'>
-                  checkout
-                </button>
+                <button type="submit" id="real-submit-button" style="display: none">checkout</button>
                 <button
-                  {% comment %} type="submit"
-                  name="add" {% endcomment %}
-                  type='button'
-                  id='main-clickable-button'
+                  {% comment %}
+                    type="submit"
+                    name="add"
+                  {% endcomment %}
+                  type="button"
+                  id="main-clickable-button"
                   class="product-form__submit button button--flex {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
                   {% if product.selected_or_first_available_variant.available == false %}
                     disabled
@@ -331,7 +435,10 @@ xhttp.send();
             {% endform %}
 
             {% if section.settings.satisfaction != blank %}
-            <p class="body-xs satisfaction-guarantee">{{ section.settings.satisfaction_svg }}{{ section.settings.satisfaction }}</p>
+              <p class="body-xs satisfaction-guarantee">
+                {{ section.settings.satisfaction_svg -}}
+                {{- section.settings.satisfaction }}
+              </p>
             {% endif %}
 
             <div class="visually-hidden subscription-details__wrapper">
@@ -386,52 +493,53 @@ xhttp.send();
 </section>
 
 {% javascript %}
-  document.getElementById('main-clickable-button').addEventListener("click", upsellLogic);
+  document.getElementById('main-clickable-button').addEventListener('click', upsellLogic);
 
-   async function setCartAttributes(upsell) {
-   let cart = await fetch('/cart/update.js', {
-        method: "POST",
-        headers: {
-            'X-Requested-With': 'XMLHttpRequest',
-            'Content-Type': 'application/json;'
+  async function setCartAttributes(upsell) {
+    let cart = await fetch('/cart/update.js', {
+      method: 'POST',
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        'Content-Type': 'application/json;',
+      },
+      body: JSON.stringify({
+        attributes: {
+          upsell_test: upsell,
         },
-        body: JSON.stringify({
-            'attributes': {
-              'upsell_test': upsell
-            }
-        })
-    }).then(response => {
-      console.log(response)
+      }),
     })
-    .catch(error => {
-      console.log(error)
-    });
-    return cart
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    return cart;
   }
-  
+
   async function setAttributes() {
-      upsell_test = getCookie('upsell_test')
-      if (upsell_test == 'true') {
-        let cart = await setCartAttributes("upsell_active"); 
-      } else if (upsell_test = 'false') {
-        let cart = setCartAttributes("upsell_inactive"); 
-      } else {
-        let cart = setCartAttributes("upsell_not_set"); 
-      }
+    upsell_test = getCookie('upsell_test');
+    if (upsell_test == 'true') {
+      let cart = await setCartAttributes('upsell_active');
+    } else if ((upsell_test = 'false')) {
+      let cart = setCartAttributes('upsell_inactive');
+    } else {
+      let cart = setCartAttributes('upsell_not_set');
+    }
   }
-  setTimeout(() => { 
-      setAttributes()
-    }, 2000);
-  
+  setTimeout(() => {
+    setAttributes();
+  }, 2000);
+
   function getCookie(cname) {
     // const value = `; ${document.cookie}`;
     // const parts = value.split(`; ${name}=`);
     // if (parts.length === 2) return parts.pop().split(';').shift();
-    
-    let name = cname + "=";
+
+    let name = cname + '=';
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
+    for (let i = 0; i < ca.length; i++) {
       let c = ca[i];
       while (c.charAt(0) == ' ') {
         c = c.substring(1);
@@ -446,13 +554,13 @@ xhttp.send();
   function upsellLogic() {
     if ($('#main-product-handle-id').html().includes('at-home-')) {
       if (getCookie('upsell_test') == 'true') {
-        $('#real-submit-button').click()
+        $('#real-submit-button').click();
         // openPopup()
       } else {
-        $('#real-submit-button').click()
+        $('#real-submit-button').click();
       }
     } else {
-      $('#real-submit-button').click()
+      $('#real-submit-button').click();
     }
   }
 
@@ -531,27 +639,27 @@ xhttp.send();
 %}
 
 {% liquid
-  assign variant_ingredient_array = ""
+  assign variant_ingredient_array = ''
   capture variant_ingredients
-    echo "["
+    echo '['
     for variant in product.variants
-      echo "{"
+      echo '{'
       echo '"id": "'
       echo variant.title
       echo '", "ingredients": ["'
       for ingredient in variant.metafields.custom.ingredients.value
         echo ingredient | downcase
         unless forloop.last
-        echo '", "'
+          echo '", "'
         endunless
       endfor
       echo '"]'
-      echo "}"
+      echo '}'
       unless forloop.last
-        echo ","
+        echo ','
       endunless
     endfor
-    echo "]"
+    echo ']'
   endcapture
 %}
 
