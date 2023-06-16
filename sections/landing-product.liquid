@@ -621,9 +621,9 @@
           echo '", "'
         endunless
       endfor
-      echo '"]',
+      echo '"]'
       echo '", "title": "'
-      echo variant.metafields.custom.title.value
+      echo variant.metafields.custom.title.value | metafield_tag
       echo '}'
       unless forloop.last
         echo ','
