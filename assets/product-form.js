@@ -338,8 +338,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
   onSubmitHandler(evt) {
     evt.preventDefault();
-    console.log('ok i guess here i am')
-    return
     
     document.cookie = "directcheckout=true;path=/";
 
@@ -367,7 +365,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       if(submitButton.dataset.dsicountCode != "") document.cookie = `productDiscountCode=${submitButton.dataset.dsicountCode} ${expires};path=/; `;
     }
 
-    
+    console.log('sup there mufacka')
+    console.log(body)
     fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
       .then((response) => response.json())
       .then((parsedState) => {
