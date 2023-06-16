@@ -52,10 +52,24 @@
     border-radius: 10px;
 }
 
+/* ---------------------ECLIPSE -------------------------------*/
+
 .eclipse-wrapper {
     display: flex;
 }
 
 .eclipse-item {
     flex: 1;
+}
+
+.eclipse-icon {
+    height: 70px;
+}
+
+.eclipse-image {
+    position:absolute
+}
+
+.eclipse-text {
+    position:aboslute
 }
