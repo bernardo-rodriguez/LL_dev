@@ -38,10 +38,12 @@
 }
 
 .perfect-match {
-    font-weight: 400;
+    font-family: Canela Deck Trial;
     font-size: 55px;
-    line-height: 80px;
-    line-height: auto;
+    font-weight: 400;
+    line-height: 58px;
+    letter-spacing: -0.02em;
+    text-align: center;
 }
 
 .landing-subheading {
