@@ -20,6 +20,9 @@
 .product-landing-header .formula-point {
     display: flex;
     align-items: center;
+    flex-grow: 1;
+    flex-basis: 0;
+    justify-content: center;
 }
 
 .product-landing-header .formula-point-middle {
@@ -44,6 +47,7 @@
     line-height: 58px;
     letter-spacing: -0.02em;
     text-align: center;
+    padding-top: 20px;
 }
 
 .landing-subheading-1 {
