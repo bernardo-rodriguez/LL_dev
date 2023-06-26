@@ -46,8 +46,22 @@
     text-align: center;
 }
 
-.landing-subheading {
+.landing-subheading-1 {
+    font-family: Plus Jakarta Sans;
     font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    text-align: center;
+}
+
+.landing-subheading-2 {
+    font-family: Manrope;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    text-align: center;
 }
 
 .checked-landing {
