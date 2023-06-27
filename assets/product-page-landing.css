@@ -138,6 +138,7 @@
 .eclipse-wrapper {
     display: flex;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .eclipse-item {
