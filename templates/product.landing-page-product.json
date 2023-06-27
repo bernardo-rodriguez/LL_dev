@@ -145,6 +145,7 @@
         },
         "83b0fb1b-8e72-454e-ac9e-75ebdb17eaf8": {
           "type": "testimonial",
+          "disabled": true,
           "settings": {
             "heading": "Brisa",
             "before_photo": "shopify:\/\/shop_images\/BrisaBefore.jpg",
@@ -157,6 +158,7 @@
         },
         "ea2bda35-88d0-42e1-b5a6-aee3275092ff": {
           "type": "testimonial",
+          "disabled": true,
           "settings": {
             "heading": "Neha",
             "before_photo": "shopify:\/\/shop_images\/Neha_Before.jpg",
