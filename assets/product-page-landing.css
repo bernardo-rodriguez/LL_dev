@@ -94,18 +94,17 @@
     background-color: white;
     padding: 10px;
     border-radius: 10px;
-    height: 100px;
     text-align:center
 }
 
 .ingredient-box-ingredient {
     font-size: 13px;
-    float: right;
     margin-top: 6px;
 }
 
 .ingredient-box-percent {
     font-size: 24px;
+    font-weight: 500;
 }
 
 .ingredient-box-function {
@@ -116,9 +115,20 @@
 }
 
 .ingredient-top-wrapper {
-    text-align: left;
-    padding-bottom: 15px
+    display: flex;
+    padding-bottom: 15px;
+    text-align: right;
+    align-items: center;
 }
+
+@media screen and (max-width: 860px) {
+    .ingredient-top-wrapper {
+        flex-direction: column;
+    }
+    .ingredient-box-ingredient {
+        text-align:center;
+    }
+  }
 
 /* ---------------------ECLIPSE -------------------------------*/
 
