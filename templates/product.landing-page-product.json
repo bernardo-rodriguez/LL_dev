@@ -89,45 +89,6 @@
       "settings": {
       }
     },
-    "30a71a58-b5ad-472f-9d70-97379fc62b74": {
-      "type": "benefit-cards",
-      "blocks": {
-        "44df7525-2bdb-4448-84a3-58ee0f326b42": {
-          "type": "card",
-          "settings": {
-            "heading": "Hydrogen Peroxide",
-            "title": "To Whiten",
-            "text": "A powerful whitening agent, Hydrogen Peroxide absorbs into your outer teeth and oxidizes with your teeth’s outermost layer, turning any stains & discoloration white."
-          }
-        },
-        "8b04b829-5bbf-46de-8a5d-157270bfd271": {
-          "type": "card",
-          "settings": {
-            "heading": "Sodium Bicarbonate",
-            "title": "To Whiten",
-            "text": "A sensitivity-free whitening agent, Sodium Bicarbonate absorbs into your outer teeth and oxidizes with your teeth’s outermost layer, turning stains & discoloration white."
-          }
-        },
-        "0b6a308a-6d38-4b82-8f83-097ae148e804": {
-          "type": "card",
-          "settings": {
-            "heading": "Glycerin",
-            "title": "To Moisturize",
-            "text": "A natural moisturizer, Glycerin rehydrates your teeth that loses moisture during the whitening process, protecting the enamel from decay and pH imbalance from dryness."
-          }
-        }
-      },
-      "block_order": [
-        "44df7525-2bdb-4448-84a3-58ee0f326b42",
-        "8b04b829-5bbf-46de-8a5d-157270bfd271",
-        "0b6a308a-6d38-4b82-8f83-097ae148e804"
-      ],
-      "settings": {
-        "heading": "Ingredients That Work {For You}",
-        "text": "Clinically tested ingredients backed by science.",
-        "margin_bottom": true
-      }
-    },
     "1c8af4c9-5992-4bfb-9d4a-a8e06e025318": {
       "type": "testimonials",
       "blocks": {
@@ -280,7 +241,6 @@
     "product-recommendations",
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
     "7a9caaa6-d652-4601-b1a9-b46b131687da",
-    "30a71a58-b5ad-472f-9d70-97379fc62b74",
     "1c8af4c9-5992-4bfb-9d4a-a8e06e025318",
     "d7a83216-e232-4258-9705-5edf54558f0b",
     "a4ec3822-cf26-400b-a01b-564ae2a93dfc",
