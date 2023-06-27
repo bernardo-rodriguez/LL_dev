@@ -212,6 +212,13 @@
 }
 
 @media screen and (max-width: 768px) {
+    .offer-button {
+        min-width: 110px;
+    }
+    .offer-button-text {
+        line-height:16px;
+        font-size: 10px; 
+    }
     .offer-name-0 {
         font-size: 12px;
     }
