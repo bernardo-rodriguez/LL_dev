@@ -153,5 +153,11 @@
 }
 
 .eclipse-text {
-    margin-top: -50px
+    margin-top: -60px;
+    font-weight: 600;
+    font-size: 27px;
+}
+
+.eclipse-percent {
+    font-size: 22px
 }
