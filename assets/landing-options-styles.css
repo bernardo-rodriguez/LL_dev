@@ -44,7 +44,7 @@
   border: 1px solid transparent!important;
 }
 
-.rc_widget__option__selector input:checked ~ label > .rc-custom-radio-button:after {
+.rc-custom-radio-button:after {
   background: var(--blue)!important;
   border-color: var(--blue)!important;
 }
