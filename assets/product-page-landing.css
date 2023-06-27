@@ -178,3 +178,26 @@
 .carousel {
     margin: 0 !important;
 }
+
+/* --------------------- RECHARGE SELECTOR -------------------------------*/
+
+.offer-button-wrapper {
+    flex: 1; 
+    text-align: right; 
+    max-width: 200px; 
+    margin: auto;
+}
+
+.offer-button {
+    display:inline-block; 
+    background-color: #FF9F2F; 
+    width: 100%; 
+    border-radius:20px
+}
+
+.offer-button-text {
+    text-align: center; 
+    font-family: Plus Jakarta Sans; 
+    font-size: 12px; 
+    color: white
+}

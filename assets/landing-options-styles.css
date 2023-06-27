@@ -74,6 +74,13 @@
   font-weight: 600!important;
 }
 
+@media screen and (max-width: 768px) {
+  .rc_widget__option__label > span.updated-price {
+    font-size: 18px;
+    font-weight: 600!important;
+  }
+}
+
 [data-label-subsave] {
   margin-bottom: 0 !important;
 }
