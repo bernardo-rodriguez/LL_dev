@@ -171,9 +171,8 @@
   padding-left: 20px;
 } */
 
-.landing-radio-flex {
-  flex: 1;
-}
+/* .landing-radio-flex {
+} */
 
 .updated-price {
   text-align: right;
@@ -183,4 +182,5 @@
 .landing-radio-flex-left {
   text-align:left;
   padding-left: 40px;
+  flex: 1;
 }
