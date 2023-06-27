@@ -99,7 +99,7 @@
 
 .ingredient-box-ingredient {
     font-size: 13px;
-    margin-top: 6px;
+    flex:1
 }
 
 .ingredient-box-percent {
