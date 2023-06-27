@@ -216,7 +216,7 @@
         min-width: 130px;
     }
     .offer-button-text {
-        line-height:16px;
+        /* line-height:16px; */
         font-size: 10px; 
     }
     .offer-name-0 {
