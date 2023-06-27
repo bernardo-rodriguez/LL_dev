@@ -210,3 +210,16 @@
 .offer-name-2 {
     max-width: 170px;
 }
+
+@media screen and (max-width: 768px) {
+    .offer-name-1 {
+        max-width: 95px; 
+        padding-left:0;
+        font-size: 12px;
+    }
+    
+    .offer-name-2 {
+        max-width: 145px;
+        font-size: 12px;
+    }
+  }
