@@ -137,6 +137,7 @@
 
 .eclipse-wrapper {
     display: flex;
+    margin-bottom: 20px;
 }
 
 .eclipse-item {
@@ -174,5 +175,5 @@
 
 
 .carousel {
-    margin: 100px 0 0 0 !important;
+    margin: 0 !important;
 }
