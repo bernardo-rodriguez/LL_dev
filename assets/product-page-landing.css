@@ -213,7 +213,7 @@
 
 @media screen and (max-width: 768px) {
     .offer-button {
-        min-width: 110px;
+        min-width: 130px;
     }
     .offer-button-text {
         line-height:16px;
