@@ -1,6 +1,9 @@
 .rc-template__legacy-radio .rc-radio {
   white-space: normal;
 }
+.canela {
+    font-family: 'canela deck trial'
+}
 .product-landing-header {
     background-color: #C0EDFF;
     padding: 80px 0 20px;

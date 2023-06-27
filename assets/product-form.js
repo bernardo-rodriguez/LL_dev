@@ -99,7 +99,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       let variantIngredientList = window.variantIngredients.find((v) => v.id == inputValue)
       console.log(variantIngredientList)
 
-      let stylized_title = variantIngredientList.title.replace('{', "<span class='stylized'>").replace("}", "</span>")
+      let stylized_title = variantIngredientList.title.replace('{', "<span class='stylized canela'>").replace("}", "</span>")
       $('#product__title_id').html(stylized_title)
       $('#formula-header-text').html(variantIngredientList.formula_header_text)
       $('#selling_point_landing').html(variantIngredientList.selling_point_landing)
