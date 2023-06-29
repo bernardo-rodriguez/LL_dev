@@ -215,12 +215,17 @@
     .eclipse-wrapper {
         flex-direction: column;
         max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
     }
     .eclipse-item {
         flex-direction: row;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
     .eclipse-text-explainer {
-        max-width: auto;
+        max-width: none;
+        text-align: left;
     }
 }
 
