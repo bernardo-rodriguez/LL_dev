@@ -214,9 +214,13 @@
 @media screen and (max-width: 768px) {
     .eclipse-wrapper {
         flex-direction: column;
+        max-width: 500px;
     }
     .eclipse-item {
         flex-direction: row;
+    }
+    .eclipse-text-explainer {
+        max-width: auto;
     }
 }
 
