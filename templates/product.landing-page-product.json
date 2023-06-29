@@ -94,6 +94,11 @@
       "settings": {
       }
     },
+    "4dd37ee0-3df4-43f9-809d-c2e25c15003c": {
+      "type": "replo-product-how-to-use",
+      "settings": {
+      }
+    },
     "a4ec3822-cf26-400b-a01b-564ae2a93dfc": {
       "type": "testing-results",
       "blocks": {
@@ -163,6 +168,7 @@
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
     "7a9caaa6-d652-4601-b1a9-b46b131687da",
     "ab6e4dad-c28c-419e-b533-f476d08e759b",
+    "4dd37ee0-3df4-43f9-809d-c2e25c15003c",
     "a4ec3822-cf26-400b-a01b-564ae2a93dfc",
     "9a2e356e-af66-4e8f-99d8-12bc66bd56dd",
     "1674168377f629ea2c"
