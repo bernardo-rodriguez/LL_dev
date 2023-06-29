@@ -228,6 +228,7 @@
     .eclipse-text-explainer {
         max-width: none;
         text-align: left;
+        margin-left: 10px;
     }
 }
 
@@ -264,6 +265,9 @@
 }
 
 @media screen and (max-width: 768px) {
+    .offer-button {
+        display: none;
+    }
     .offer-button {
         min-width: 130px;
     }
