@@ -168,6 +168,8 @@
 .eclipse-item {
     flex: 1;
     text-align:center;
+    display: flex;
+    flex-direction: column;
 }
 
 .eclipse-icon {
@@ -205,6 +207,13 @@
 
 .carousel {
     margin: 0 !important;
+}
+
+@media screen and (max-width: 768px) {
+    .eclipse-wrapper {
+        display: flex;
+        flex-direction:row;
+    }
 }
 
 /* --------------------- RECHARGE SELECTOR -------------------------------*/
