@@ -171,13 +171,14 @@
 }
 
 .eclipse-text {
-    margin-top: -55px;
+    margin-top: -62px;
     font-weight: 500;
-    font-size: 29px;
+    font-size: 35px;
 }
 
 .eclipse-percent {
-    font-size: 20px
+    font-size: 20px;
+    vertical-align:middle;
 }
 
 .eclipse-text-explainer {
