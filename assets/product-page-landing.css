@@ -270,6 +270,9 @@
 #updated-price-small {
     display: none;
 }
+.mobile-offer-wrapper { 
+    display: none;
+}
 
 @media screen and (max-width: 768px) {
     .mobile-offer-wrapper {
@@ -278,7 +281,7 @@
         z-index: -10; 
         border-top-right-radius: 24px;
         border-top-left-radius: 24px;
-        display:block
+        display:block;
     }
     .mobile-offer-text {
         padding-bottom: 25px; 
