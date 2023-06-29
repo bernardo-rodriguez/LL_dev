@@ -277,6 +277,8 @@
     }
     #updated-price-small {
         display: block;
+        flex: 1;
+        text-align: right;
     }
     .offer-button-wrapper {
         display: none;
