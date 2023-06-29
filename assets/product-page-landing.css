@@ -264,8 +264,21 @@
     max-width: 170px;
 }
 
+#updated-price-big {
+    display:  block;
+}
+#updated-price-small {
+    display: none;
+}
+
 @media screen and (max-width: 768px) {
-    .offer-button {
+    #updated-price-big {
+        display: none;
+    }
+    #updated-price-small {
+        display: block;
+    }
+    .offer-button-wrapper {
         display: none;
     }
     .offer-button {
