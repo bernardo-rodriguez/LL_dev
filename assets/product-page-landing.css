@@ -215,7 +215,7 @@
         flex-direction:row;
     }
     .eclipse-item {
-        flex-direction: row;
+        flex-direction: column;
     }
 }
 
