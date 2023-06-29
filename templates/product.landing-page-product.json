@@ -89,62 +89,9 @@
       "settings": {
       }
     },
-    "1c8af4c9-5992-4bfb-9d4a-a8e06e025318": {
-      "type": "testimonials",
-      "blocks": {
-        "819655a8-d7e2-42bb-82c8-32a439b3c6f8": {
-          "type": "testimonial",
-          "settings": {
-            "heading": "Lesley",
-            "before_photo": "shopify:\/\/shop_images\/Lesleybefore2.jpg",
-            "after_photo": "shopify:\/\/shop_images\/LesleyAfter.jpg",
-            "customer_info": "User Since February 2021",
-            "profile": "{😣} Medium Sensitivity\n{🍷} Wine Drinker\n{🦷} Years of Stains",
-            "formula": "Formula 8-16, Hydrogen Peroxide 8%",
-            "review": "“I had to come here to say something. Normally I have excruciating pain with crest white strips and this other brand I got from the dentist. Both of which didn’t whiten my teeth very much. So, I had low hopes for Laughland. I got the formula made for highest sensitivity, and I left it on for I think 12 minutes. Just after the first day my teeth look 2 shades whiter. I’m actually really shocked. Usually the sensitivity hits me several hours after whitening my teeth, and it’s now the next morning and I guess I’m all clear. Thanks Laughland!”"
-          }
-        },
-        "83b0fb1b-8e72-454e-ac9e-75ebdb17eaf8": {
-          "type": "testimonial",
-          "disabled": true,
-          "settings": {
-            "heading": "Brisa",
-            "before_photo": "shopify:\/\/shop_images\/BrisaBefore.jpg",
-            "after_photo": "shopify:\/\/shop_images\/BrisaAfter.jpg",
-            "customer_info": "User Since March 2021",
-            "profile": "{😣} High Sensitivity\n{☕} Coffee Addict\n{🦷} Light-Brown Stains",
-            "formula": "Formula 19-2, Sodium Bicarbonate 23%",
-            "review": "I look at my teeth in shock almost daily now. I can’t believe how well this product works, and it’s lasting without daily use. I will forever have this in my closet."
-          }
-        },
-        "ea2bda35-88d0-42e1-b5a6-aee3275092ff": {
-          "type": "testimonial",
-          "disabled": true,
-          "settings": {
-            "heading": "Neha",
-            "before_photo": "shopify:\/\/shop_images\/Neha_Before.jpg",
-            "after_photo": "shopify:\/\/shop_images\/NehaAfter.jpg",
-            "customer_info": "User Since January 2023",
-            "profile": "{😄} Zero Sensitivity\n{☕} Light Coffee Drinker\n{🦷} Deep Stains",
-            "formula": "Formula 8-17, Hydrogen Peroxide 11%",
-            "review": "Hands down the best whitening system I have ever used! I was skeptical at first because I have veneers but this was able to whiten the rest of my teeth to almost as white as those! It was so fast and easy. I already ordered a refill pack!"
-          }
-        }
-      },
-      "block_order": [
-        "819655a8-d7e2-42bb-82c8-32a439b3c6f8",
-        "83b0fb1b-8e72-454e-ac9e-75ebdb17eaf8",
-        "ea2bda35-88d0-42e1-b5a6-aee3275092ff"
-      ],
-      "custom_css": [
-        ".testimonials__inner {background-color: #faf5f1;}"
-      ],
+    "ab6e4dad-c28c-419e-b533-f476d08e759b": {
+      "type": "replo-product-before-after",
       "settings": {
-        "heading": "Results that {Shine}",
-        "text": "",
-        "profile_label": "Customer Profile",
-        "formula_label": "Personalized Whitening Formula",
-        "review_label": "Review"
       }
     },
     "d7a83216-e232-4258-9705-5edf54558f0b": {
@@ -241,7 +188,7 @@
     "product-recommendations",
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
     "7a9caaa6-d652-4601-b1a9-b46b131687da",
-    "1c8af4c9-5992-4bfb-9d4a-a8e06e025318",
+    "ab6e4dad-c28c-419e-b533-f476d08e759b",
     "d7a83216-e232-4258-9705-5edf54558f0b",
     "a4ec3822-cf26-400b-a01b-564ae2a93dfc",
     "9a2e356e-af66-4e8f-99d8-12bc66bd56dd",
