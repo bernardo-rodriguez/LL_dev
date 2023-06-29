@@ -211,11 +211,10 @@
 
 @media screen and (max-width: 768px) {
     .eclipse-wrapper {
-        display: flex;
-        flex-direction:row;
+        flex-direction: column;
     }
     .eclipse-item {
-        flex-direction: column;
+        flex-direction: row;
     }
 }
 
