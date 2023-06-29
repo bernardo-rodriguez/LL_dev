@@ -272,6 +272,21 @@
 }
 
 @media screen and (max-width: 768px) {
+    .mobile-offer-wrapper {
+        margin-bottom: -30px; 
+        background-color: #FF9F2F; 
+        z-index: -10; 
+        border-top-right-radius: 24px;
+        border-top-left-radius: 24px;
+        display:block
+    }
+    .mobile-offer-text {
+        padding-bottom: 25px; 
+        color: white; 
+        text-align: center; 
+        font-size: 11px; 
+        z-index: -1
+    }
     #updated-price-big {
         display: none;
     }
