@@ -188,7 +188,9 @@
     line-height: 21px;
     letter-spacing: -0.01em;
     text-align: center;
-    display: inline-block
+    display: inline-block;
+    max-width: 215px;
+    margin-top: 30px;
 }
 
 
