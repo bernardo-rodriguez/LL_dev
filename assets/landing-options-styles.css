@@ -185,6 +185,12 @@
   padding-right: 20px;
 }
 
+@media screen and (max-width: 768px) {
+  .updated-price {
+    padding-right: 0;
+  }
+}
+
 .landing-radio-flex-left {
   text-align:left;
   padding-left: 40px;
