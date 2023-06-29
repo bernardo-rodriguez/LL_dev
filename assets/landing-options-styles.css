@@ -69,13 +69,13 @@
   font-weight: 500!important;
 }
 
-.rc_widget__option__label > span.updated-price {
+.rc_widget__option__label span.updated-price {
   font-size: 28px;
   font-weight: 600!important;
 }
 
 @media screen and (max-width: 768px) {
-  .rc_widget__option__label > span.updated-price {
+  .rc_widget__option__label span.updated-price {
     font-size: 18px;
     font-weight: 600!important;
   }
