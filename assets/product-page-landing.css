@@ -146,6 +146,15 @@
     .product__title {
         font-size: 40px;
     }
+    .product-landing-ingredient-block {
+        padding: 5px;
+    }
+    .ingredient-box-function {
+        font-size: 15px;
+    }
+    .ingredient-box-ingredient {
+        font-size: 9px;
+    }
   }
 
 /* ---------------------ECLIPSE -------------------------------*/
