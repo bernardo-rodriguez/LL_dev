@@ -94,32 +94,6 @@
       "settings": {
       }
     },
-    "d7a83216-e232-4258-9705-5edf54558f0b": {
-      "type": "image-text",
-      "blocks": {
-        "08f82279-8d20-4992-a74f-f3500388ef05": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/MP4_dd1165d5-4283-4226-9e3b-f81ba196527b.png",
-            "text": "",
-            "sm_text": ""
-          }
-        }
-      },
-      "block_order": [
-        "08f82279-8d20-4992-a74f-f3500388ef05"
-      ],
-      "settings": {
-        "layout": true,
-        "margin_bottom": true,
-        "heading": "A Brighter Smile\n{Starts Today}",
-        "text": "While our personalized formulas have proven to whiten teeth by 7+ shades in under a week, whitening is like skincare - a continuous, ongoing process. Daily habits + natural aging will bring back those unwanted stains back.The only way to a consistent bright smile is ritual. <strong>We’ll be with you every shade of the way!<\/strong>",
-        "btn": "",
-        "btn_text": "",
-        "link": "",
-        "link_text": ""
-      }
-    },
     "a4ec3822-cf26-400b-a01b-564ae2a93dfc": {
       "type": "testing-results",
       "blocks": {
@@ -189,7 +163,6 @@
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
     "7a9caaa6-d652-4601-b1a9-b46b131687da",
     "ab6e4dad-c28c-419e-b533-f476d08e759b",
-    "d7a83216-e232-4258-9705-5edf54558f0b",
     "a4ec3822-cf26-400b-a01b-564ae2a93dfc",
     "9a2e356e-af66-4e8f-99d8-12bc66bd56dd",
     "1674168377f629ea2c"
