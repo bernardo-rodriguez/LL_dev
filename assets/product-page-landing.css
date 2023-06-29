@@ -279,9 +279,10 @@
         margin-bottom: -30px; 
         background-color: #FF9F2F; 
         z-index: -10; 
-        border-top-right-radius: 24px;
-        border-top-left-radius: 24px;
+        border-top-right-radius: 18px;
+        border-top-left-radius: 18px;
         display:block;
+        margin-top: 10px;
     }
     .mobile-offer-text {
         padding-bottom: 25px; 
@@ -306,20 +307,20 @@
     }
     .offer-button-text {
         /* line-height:16px; */
-        font-size: 10px; 
+        font-size: 13px; 
     }
     .offer-name-0 {
-        font-size: 12px;
+        font-size: 16px;
     }
     .offer-name-1 {
         max-width: 95px; 
         padding-left:0;
-        font-size: 12px;
+        font-size: 16px;
     }
     
     .offer-name-2 {
         max-width: 145px;
-        font-size: 12px;
+        font-size: 16px;
     }
     .mid-offer-list {
         font-size: 12px;
