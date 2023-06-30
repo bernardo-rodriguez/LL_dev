@@ -99,44 +99,6 @@
       "settings": {
       }
     },
-    "a4ec3822-cf26-400b-a01b-564ae2a93dfc": {
-      "type": "testing-results",
-      "blocks": {
-        "01a7a700-2a02-45e1-9bcf-ae1fd13faeb0": {
-          "type": "card",
-          "settings": {
-            "title": "100%",
-            "heading": "100% of clinical participants reported whiter teeth after only 6 treatments."
-          }
-        },
-        "fa6ec1b7-630e-491d-b3c8-1ca189421f07": {
-          "type": "card",
-          "settings": {
-            "title": "74%",
-            "heading": "Clinical participants reported, on average, a 74% increase in teeth brightness."
-          }
-        },
-        "f2199093-20a4-42b3-b99d-52d12d69cff1": {
-          "type": "card",
-          "settings": {
-            "title": "0%",
-            "heading": "0% of clinical participants reported an increase in sensitivity after whitening."
-          }
-        }
-      },
-      "block_order": [
-        "01a7a700-2a02-45e1-9bcf-ae1fd13faeb0",
-        "fa6ec1b7-630e-491d-b3c8-1ca189421f07",
-        "f2199093-20a4-42b3-b99d-52d12d69cff1"
-      ],
-      "settings": {
-        "heading": "Believe {The Hype}",
-        "title": "Consumer Testing Results",
-        "image": "shopify:\/\/shop_images\/Laughland_79400_1.jpg",
-        "link": "shopify:\/\/pages\/science-of-teeth-whitening",
-        "link_text": "Learn More"
-      }
-    },
     "9a2e356e-af66-4e8f-99d8-12bc66bd56dd": {
       "type": "stars",
       "settings": {
@@ -169,7 +131,6 @@
     "7a9caaa6-d652-4601-b1a9-b46b131687da",
     "ab6e4dad-c28c-419e-b533-f476d08e759b",
     "4dd37ee0-3df4-43f9-809d-c2e25c15003c",
-    "a4ec3822-cf26-400b-a01b-564ae2a93dfc",
     "9a2e356e-af66-4e8f-99d8-12bc66bd56dd",
     "1674168377f629ea2c"
   ]
