@@ -13,6 +13,7 @@
 .product-header-wrapper {
     max-width: 900px;
     display: inline-block;
+    position: relative;
 }
 
 .product-landing-header .formula-point-wrapper {
