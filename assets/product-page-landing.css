@@ -85,6 +85,10 @@
 
 .pen-small {
     display:none;
+    bottom: 0;
+    position: absolute;
+    margin-bottom: -23px;
+    right: 0;
 }
 
 .top_z {
