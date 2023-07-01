@@ -24,7 +24,7 @@
     display: flex;
     align-items: center;
     flex-grow: 1;
-    flex-basis: 0;
+    /* flex-basis: 0; */
     justify-content: center;
 }
 
@@ -33,7 +33,7 @@
     align-items: center;
     padding: 0 10px;
     flex-grow: 1;
-    flex-basis: 0;
+    /* flex-basis: 0; */
     justify-content: center;
 }
 
@@ -66,9 +66,9 @@
 }
 
 .landing-subheading-2 {
-    font-family: Manrope;
+    font-family: Plus Jakarta Sans;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 24px;
     letter-spacing: -0.01em;
     text-align: center;
@@ -78,6 +78,18 @@
   color: #46BDF0;
 }
 
+@media screen and (max-width: 768px) {
+    .perfect-match {
+        font-size: 30px;
+    }
+    .landing-subheading-1 {
+        font-size: 12px;
+        color: #FF9F2F;
+    }
+    .landing-subheading-2 {
+        font-size: 12px;
+    }
+}
 
 /* --------------------- PRODUCT DESCRIPTOR RIGHT  -------------------------------*/
 
@@ -274,6 +286,15 @@
     display: none;
 }
 
+.formula-point-text {
+    font-family: Plus Jakarta Sans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    text-align: left;
+}
+
 @media screen and (max-width: 768px) {
     .mobile-offer-wrapper {
         margin-bottom: -30px; 
@@ -327,6 +348,6 @@
     }
     .formula-point-text {
         font-weight: 600;
-        font-size: 12px;
+        font-size: 9px;
     }
   }
