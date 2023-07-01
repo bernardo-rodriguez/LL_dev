@@ -78,6 +78,14 @@
   color: #46BDF0;
 }
 
+.pen-big {
+    display:block;
+}
+
+.pen-small {
+    display:none;
+}
+
 @media screen and (max-width: 768px) {
     .perfect-match {
         font-size: 30px;
@@ -88,6 +96,13 @@
     }
     .landing-subheading-2 {
         font-size: 14px;
+    }
+    .pen-big {
+        display:none;
+    }
+    
+    .pen-small {
+        display:block;
     }
 }
 
