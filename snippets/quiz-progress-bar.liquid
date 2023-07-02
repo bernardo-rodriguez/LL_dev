@@ -1,0 +1,92 @@
+<quiz-progress-bar class="quiz-progress-bar ng-star-inserted">
+  <div class="quiz-progress-bar-wrapper">
+    <div class="quiz-progress-bar-progress">
+      <div class="progress-bar-filled-container">
+        <div id = 'progress_bar_filled_percent' class="progress-bar-filled" style="width: 0%;"></div>
+      </div>
+      <div class="progress-bar-container">
+        <div class="zero-point bar-point-filled"></div>
+        <div id = 'bar_point_1' class="bar-point">1</div>
+        <div id = 'bar_point_2' class="bar-point">2</div>
+        <div id = 'bar_point_3' class="bar-point">3</div>
+        <!--  -->
+        <div id = 'bar_point_4' class="zero-point"></div>
+      </div>
+    </div>
+    <div class="background"></div>
+  </div>
+  <!--  -->
+</quiz-progress-bar>
+
+<style>
+.bar-point-filled {
+  background-color: var(--blue) !important;
+}
+.quiz-progress-bar {
+    padding-top: 0;
+}
+.quiz-progress-bar-progress {
+    {% comment %} position: fixed; {% endcomment %}
+    z-index: 111;
+    margin: 0 auto;
+    padding-top: 13px;
+    max-width: 640px;
+    width: 100%;
+}
+.progress-bar-filled-container {
+    margin: 0 23px;
+    width: calc(100% - 46px);
+    position: relative;
+}
+.progress-bar-filled {
+    content: "";
+    flex: 1;
+    width: 2%;
+    position: absolute;
+    top: 7px;
+    height: 5px;
+    background: var(--blue);
+    z-index: 1;
+    transition: width .1s;
+}
+.progress-bar-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin: 0 20px;
+    position: relative;
+    justify-content: space-between;
+}
+.zero-point {
+    height: 13px;
+    width: 13px;
+    background: var(--blue-tint-20);
+    border-radius: 50%;
+    z-index: 2;
+}
+.bar-point {
+    height: 18px;
+    width: 18px;
+    background: #fff;
+    border: 1px solid var(--blue-tint-20);
+    border-radius: 50%;
+    z-index: 2;
+    color: #000;
+    font-family: Maison Neue Bold,sans-serif;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .1s;
+    font-weight: 700;
+}
+.progress-bar-container:after {
+    content: "";
+    flex: 1;
+    width: 100%;
+    position: absolute;
+    top: 7px;
+    height: 5px;
+    background: var(--blue-tint-20)
+}
+</style>

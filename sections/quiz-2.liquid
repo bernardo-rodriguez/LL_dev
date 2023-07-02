@@ -2,14 +2,14 @@
 {{ 'section-quiz-2.css' | asset_url | stylesheet_tag }}
 
 {% liquid
-  assign formatted_heading_1 = section.settings.step1 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
+  assign formatted_heading_0 = section.settings.step1 | replace: '{', "<span class='bolded'>" | replace: '}', '</span>'
 
-  assign formatted_heading_2 = section.settings.step2 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
+  assign formatted_heading_1 = section.settings.step2 | replace: '{', "<span class='bolded'>" | replace: '}', '</span>'
 
-  assign formatted_heading_3 = section.settings.step3 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
+  assign formatted_heading_2 = section.settings.step3 | replace: '{', "<span class='bolded'>" | replace: '}', '</span>'
 %}
 
-<formula-quiz-2 data-state="1">
+<formula-quiz-2 data-state="0">
   <section class="quiz_2" aria-hidden="true">
     <div class="quiz_2__inner">
       <div class="quiz_2__header">
@@ -29,17 +29,24 @@
         </button>
       </div>
       <div class="quiz_2__content page-width">
-        <div class="quiz_2__content-headline">
-          <h2 class="quiz_2__headline active" data-step="1">{{ formatted_heading_1 }}</h2>
-
-          <h2 class="quiz_2__headline" data-step="2">{{ formatted_heading_2 }}</h2>
-
-          <h2 class="quiz_2__headline" data-step="3">{{ formatted_heading_3 }}</h2>
+        <div class = 'progress-bar-wrapper' style = 'height: 50px;'>
+          {% render 'quiz-progress-bar' %}
+        </div>
+        <div class = 'quiz_2__landing form__step-wrapper_2 active' data-step='0' >
+          <h4 style = 'text-transform: none; display: inline-block;' class="quiz_2__headline active" data-step="0">{{ formatted_heading_0 }}</h4>
+          <div style = 'max-width: 400px; display: inline-block;'>
+            <p style = 'text-transform: none;' class="quiz_2__headline active" data-step="0">{{ formatted_heading_1 }}</p>
+            <p style = 'text-transform: none; margin-top: 10px;' class="quiz_2__headline active" data-step="0">{{ formatted_heading_2 }}</p>
+          </div>
+          <div class = 'laughland-drop-container'>
+            <img class = 'laughland-drop' loading = 'lazy' src="{{ 'laughland-drop.png' | asset_url }}">
+          </div>
+          {% render 'quiz-landing-2' %}
         </div>
         <div class="quiz_2__content-card">
           <div class="quiz_2__form">
             {% form 'customer' %}
-              <div class="form__step-wrapper_2 active" data-step="1">
+              <div class="form__step-wrapper_2" data-step="1">
                 {% render 'quiz-step-one-2' %}
               </div>
 
@@ -50,10 +57,54 @@
               <div class="form__step-wrapper_2" data-step="3">
                 {% render 'quiz-step-three-2' %}
               </div>
+
+              <div class="form__step-wrapper_2" data-step="4">
+                {% render 'quiz-step-four-2' %}
+              </div>
+
+              <div class="form__step-wrapper_2" data-step="5">
+                {% render 'quiz-step-five-2' %}
+              </div>
+
+              <div class="form__step-wrapper_2" data-step="6">
+                {% render 'quiz-step-six-2' %}
+              </div>
+
+              <div class="form__step-wrapper_2 text_center" data-step="6.5">
+                {% render 'quiz-step-six-response-2' %}
+              </div>
+
+              <div class="form__step-wrapper_2" data-step="7">
+                {% render 'quiz-step-seven-2' %}
+              </div>
+
+              <div class="form__step-wrapper_2" data-step="8">
+                {% render 'quiz-step-eight-2' %}
+              </div>
+
+              <div class="form__step-wrapper_2" data-step="9">
+                {% render 'quiz-step-nine-2' %}
+              </div>
+
+              <div class="form__step-wrapper_2" data-step="10">
+                {% render 'quiz-step-ten-2' %}
+              </div>
+
+              <div class="form__step-wrapper_2 text_center" data-step="10.5">
+                {% render 'quiz-step-ten-response-2' %}
+              </div>
+
+              <div class="form__step-wrapper_2" data-step="11">
+                {% render 'quiz-step-eleven-2' %}
+              </div>
+
+              <div class="form__step-wrapper_2" data-step="12">
+                {% render 'quiz-step-twelve-2' %}
+              </div>
             {% endform %}
 
             <div class="quiz_2__content-buttons">
-              <button class="text-link" data-form-back>Back</button>
+              <button class="button secondary_button" data-form-back>Back</button>
               <button class="button" data-form-next disabled>Continue</button>
               <button class="button hidden" data-form-submit>
                 <span class="button-text">See Your Results</span>
@@ -74,7 +125,7 @@
           </div>
         </div>
       </div>
-      <div class="quiz_2__footer">
+      {% comment %} <div class="quiz_2__footer">
         <div class="quiz_2__footer-links">
           {% if section.settings.footer != blank %}
             <ul class="footer__menu list-unstyled">
@@ -90,14 +141,14 @@
               {% endfor %}
             </ul>
           {% endif %}
-        </div>
+        </div> {% endcomment %}
 
-        <div class="quiz_2__footer-copyright">
+        {% comment %} <div class="quiz_2__footer-copyright">
           <p class="footer__copy">
             &copy; {{ shop.name | link_to: routes.root_url }}
             {{ 'now' | date: '%Y' }}. All rights reserved.
           </p>
-        </div>
+        </div> {% endcomment %}
       </div>
     </div>
   </section>

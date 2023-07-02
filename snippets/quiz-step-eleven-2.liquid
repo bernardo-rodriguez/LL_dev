@@ -1,0 +1,61 @@
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<p class="question_headers">90% saw visible improvement in their teeth in less than two weeks</p>
+<div class = 'credibility'>
+  <img class = 'customer_image' width = '70' height = '70' loading = 'lazy' src="{{ 'holly.png' | asset_url }}"> 
+  <p class = 'credibility-quote'>Wow, I wasn't expecting to see results like this in just 10 days!</p>
+  <div class = 'stars-container'>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+  </div>
+  <p style = 'color: #6f6f6fa1'>HOLLY C.</p>
+</div>
+<p class = 'insight_headers'>Calculating your match</p>
+
+<div id="myProgress">
+    <div id="myBar"></div>
+</div>
+
+<script>
+  function populateProfile(serialized) {
+    console.log('hi there')
+    console.log(serialized)
+  }
+
+</script>
+
+<style>
+  #myProgress {
+    width: 100%;
+    background-color: #ddd;
+    margin-top: 20px;
+  }
+  
+  #myBar {
+    width: 1%;
+    height: 30px;
+    background-color: var(--blue);
+  }
+  .credibility {
+    padding: 20px;
+    margin: 30px 0;
+    box-shadow: 0px 0px 6px 3px #46464626;
+    border-radius: 10px;
+    text-align:center;
+  }
+  .credibility-quote {
+    font-family: manrope, sans-serif;
+    font-size: 20px;
+    padding: 20px;
+  }
+  .customer_image {
+    border-radius: 100px;
+  }
+  .stars-container {
+    color: var(--blue);
+  }
+  </style>

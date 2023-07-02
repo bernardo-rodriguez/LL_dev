@@ -1,39 +1,39 @@
-<p class="h5">How sensitive are your teeth?</p>
-<div class="quiz_2__input-group">
-  <fieldset class="fieldset-row">
-    <label for="mild_2">
-      <input class="for_email_klaviyo" type="radio" id="mild_2" name="sensitivity_2" value="mild_2">
-      <div class="custom-radio-button"></div>
-      Mild
-    </label>
-
-    <label for="medium_2">
-      <input class="for_email_klaviyo" type="radio" id="medium_2" name="sensitivity_2" value="medium_2">
-      <div class="custom-radio-button"></div>
-      Medium
-    </label>
-
-    <label for="very_2">
-      <input class="for_email_klaviyo" type="radio" id="very_2" name="sensitivity_2" value="very_2">
-      <div class="custom-radio-button"></div>
-      Very
-    </label>
-  </fieldset>
+<p class="question_headers">What is the source of your teeth discoloration?</p>
+<div class ='additional_info_box' style = 'overflow: auto'>
+  <span class = 'icon'>
+    <p style = 'display: inline-block'><img width = '20' height = '20' loading = 'lazy' src="{{ 'icons8-information-48.svg' | asset_url }}"></p>
+  </span>
+  <ul class = 'text' style = 'margin-top: 0; padding: 10px 20px 0px 34px'>
+    <li class = 'informative-text'><span style = 'font-weight: 600; font-size: 15px'>Extrinsic discoloration</span> is when foods, beverages, or smoking habits stain your teeth.</li>
+    <li class = 'informative-text' style = 'margin-top: 5px;'><span style = 'font-weight: 600; font-size: 15px;'>Intrinsic discoloration</span> causes include medication, illness, infection, tooth trauma, or aging.</li>
+  </ul>
 </div>
 
-<p class="h5">Have you had any dental operations or cavities in the last year?</p>
-<div class="quiz_2__input-group">
-  <fieldset>
-    <label for="yes_cavity_2">
-      <input type="radio" id="yes_cavity_2" name="cavities_2" value="yes_2">
-      <div class="custom-radio-button"></div>
-      Yes
+<div class="quiz_2__input-group box_label">
+  <fieldset class="fieldset-row">
+    <input class="for_email_klaviyo" type="radio" id="intrinsic_2" name="source_2" value="intrinsic_2">
+    <label for="intrinsic_2">
+      <span class = 'icon'>
+        <img width = '30' height = '30' loading = 'lazy' src="{{ 'icons8-body.svg' | asset_url }}"> 
+      </span>
+      <span class = 'text'>Intrinsic</span>
     </label>
 
-    <label for="no_cavity_2">
-      <input type="radio" id="no_cavity_2" name="cavities_2" value="no_2">
-      <div class="custom-radio-button"></div>
-      No
+    <input class="for_email_klaviyo" type="radio" id="extrinsic_2" name="source_2" value="extrinsic_2">
+    <label for="extrinsic_2">
+      <span class = 'icon'>
+        <img width = '30' height = '30' loading = 'lazy' src="{{ 'icons8-coffee-2.svg' | asset_url }}">
+      </span>
+      <span class = 'text'>Extrinsic</span>
     </label>
+
+    <input class="for_email_klaviyo" type="radio" id="both_2" name="source_2" value="both_2">
+    <label for="both_2">
+      <span class = 'icon'>
+        <img width = '30' height = '30' loading = 'lazy' src="{{ 'icons8-two.svg' | asset_url }}">
+      </span>
+      <span class = 'text'>A little of both</span>
+    </label>
+
   </fieldset>
 </div>
