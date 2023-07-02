@@ -84,12 +84,12 @@
     console.log(quiz_version)
     // disableScroll()
     // document.querySelector('.quiz').setAttribute('aria-hidden', false);
-    // if (quiz_version == 'long') {
-    //     document.querySelector('.quiz').setAttribute('aria-hidden', false);
-    // } else {
-    $("body").css("background-color","white");
-    document.querySelector('.quiz_2').setAttribute('aria-hidden', false);
-    // }
+    if (quiz_version == 'interactive_v1') {
+      $("body").css("background-color","white");
+      document.querySelector('.quiz_2').setAttribute('aria-hidden', false);
+    } else {
+      document.querySelector('.quiz').setAttribute('aria-hidden', false);
+    }
   });
 {% endjavascript %}
 

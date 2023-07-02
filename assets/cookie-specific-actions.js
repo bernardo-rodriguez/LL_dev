@@ -113,33 +113,33 @@ function cookie_actions() {
     }
 
 
-    quiz_version = getCookie('quiz_version')
-    if (quiz_version == null) {
-      var d = Math.random();
-      console.log('quiz_version:')
-      console.log(d)
-      if (d <= 1) {
-          setCookie('quiz_version', 'long')
-          gtag('set', 'user_properties', {
-            quiz_version: "long"
-          });
-      } else {
-          setCookie('quiz_version', 'short')
-          gtag('set', 'user_properties', {
-            quiz_version: "short"
-          });
-      }
-    } else {
-      if (quiz_version == 'long') {
-          gtag('set', 'user_properties', {
-            quiz_version: "long"
-          });
-      } else if (quiz_version == 'short') {
-          gtag('set', 'user_properties', {
-            quiz_version: "short"
-          });
-      }
-    }
+    // quiz_version = getCookie('quiz_version')
+    // if (quiz_version == null) {
+    //   var d = Math.random();
+    //   console.log('quiz_version:')
+    //   console.log(d)
+    //   if (d <= 1) {
+    //       setCookie('quiz_version', 'long')
+    //       gtag('set', 'user_properties', {
+    //         quiz_version: "long"
+    //       });
+    //   } else {
+    //       setCookie('quiz_version', 'short')
+    //       gtag('set', 'user_properties', {
+    //         quiz_version: "short"
+    //       });
+    //   }
+    // } else {
+    //   if (quiz_version == 'long') {
+    //       gtag('set', 'user_properties', {
+    //         quiz_version: "long"
+    //       });
+    //   } else if (quiz_version == 'short') {
+    //       gtag('set', 'user_properties', {
+    //         quiz_version: "short"
+    //       });
+    //   }
+    // }
 }
 
 

@@ -160,6 +160,17 @@ function landingPageAction(current_page, query_params) {
   // This gets callled on every page visited (script type defer)
   // curent_page: page without query parameters (',', 'pages/landing-page')
   // query_params: dictionary of all query parameters (null if not found)
+  if (query_params.quiz_version == 'base_v1') {
+    setCookie('quiz_version', 'base_v1')
+    gtag('set', 'user_properties', {
+      quiz_version: "base_v1"
+    });
+  } else if (query_params.quiz_version == 'interactive_v1') {
+    setCookie('quiz_version', 'interactive_v1')
+    gtag('set', 'user_properties', {
+      quiz_version: "interactive_v1"
+    });
+  }
   if (current_page == '/') {
     switch(query_params.utm_affiliate_specific) {
       case 'sweatcoin':
