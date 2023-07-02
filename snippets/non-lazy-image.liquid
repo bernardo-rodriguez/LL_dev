@@ -2,7 +2,7 @@
 {% assign image_url = image | img_url: 'master' %}
 
 <div class="aspect-ratio{% if fill %} img-fill{% endif %} {{ classes }}" style="max-width: 100%; width: 100%; --aspect-ratio: {{ image.aspect_ratio }}">
-  <img data-src="{{ image_url }}" 
+  <img src="{{ image_url }}" 
     data-widths="[{{- supported_sizes -}}]" 
     data-sizes="auto" alt="{{ image.alt | escape }}" data-media-id="{{ image.id }}">
 </div>
