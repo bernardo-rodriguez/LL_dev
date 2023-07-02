@@ -56,7 +56,7 @@
 
 <div class="product__media" data-type="{{ media.media_type }}">
   {% if media.media_type == 'image' %}
-    {% render 'lazy-image', image: media.preview_image, fade: true, classes: 'img-fill' %}
+    {% render 'non-lazy-image', image: media.preview_image, fade: true, classes: 'img-fill' %}
   {% elsif media.media_type == 'video' %}
     <video autoplay loop muted playsinline class="img-fill">
       <source src="{{ media.sources[1].url }}" type="video/mp4">
