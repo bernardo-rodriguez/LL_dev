@@ -42,6 +42,7 @@
 
     {% render 'meta-tags' %}
 
+    <script src="{{ 'quiz_2.js' | asset_url }}"></script>
     <script src="{{ 'slick.min.js' | asset_url }}" defer></script>
     <script src="{{ 'gsap.min.js' | asset_url }}" defer></script>
     <script src="{{ 'scroll-trigger.min.js' | asset_url }}" defer></script>
@@ -49,6 +50,7 @@
     <script src="{{ 'micromodal.min.js' | asset_url }}" defer></script>
     <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    
     {% comment %} <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script> {% endcomment %}
 
     {{ content_for_header }}
