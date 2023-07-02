@@ -54,7 +54,7 @@
     {{ content_for_header }}
     {% render 'css-variables' %}
 
-    {{ 'base.css' | asset_url | stylesheet_tag | stylesheet_tag: preload: true}}
+    {{ 'base.css' | asset_url | stylesheet_tag: preload: true}}
     {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
     {{ 'slick.min.css' | asset_url | stylesheet_tag }}
     {{ 'custom.css' | asset_url | stylesheet_tag }}
