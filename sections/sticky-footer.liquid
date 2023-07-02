@@ -85,9 +85,11 @@
     // disableScroll()
     // document.querySelector('.quiz').setAttribute('aria-hidden', false);
     if (quiz_version == 'interactive_v1') {
+      $('#shopify-section-quiz-2').css('display', 'block')
       $("body").css("background-color","white");
       document.querySelector('.quiz_2').setAttribute('aria-hidden', false);
     } else {
+      $('#shopify-section-quiz').css('display', 'block')
       document.querySelector('.quiz').setAttribute('aria-hidden', false);
     }
   });
