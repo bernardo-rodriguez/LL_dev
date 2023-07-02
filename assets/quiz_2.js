@@ -119,7 +119,8 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       this.querySelector(`.form__step-wrapper_2[data-step="${ newValue }"`).classList.add('active')
       this.fillProgressBar(newValue, 12)
 
-      if( newValue == 12 ){
+      // if( newValue == 12 ){
+      if( newValue == 1 ){
         this.next.classList.toggle('hidden')
         this.submit.classList.remove('hidden')
       }
