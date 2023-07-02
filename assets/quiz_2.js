@@ -300,9 +300,9 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       console.log(document.cookie)
 
       if (ut == 'true' && ut_direct != 'true') {
-        window.location = '/products/at-home-whitening-kit-2'
+        window.location = '/products/landing-page-product-main'
       } else {
-        window.location = '/products/at-home-whitening-kit'
+        window.location = '/products/landing-page-product-main'
       }
     }, 1000);
 
