@@ -1,0 +1,68 @@
+{% comment %}
+  Renders product media.
+
+  Accepts:
+  - media: {Object} Product Media object
+  - position: {String} Position of the media. Used for accessible label.
+  - loop: {Boolean} Enable video looping (optional)
+  - modal_id: {String} The product modal that will be shown by clicking the thumbnail
+  - xr_button: {Boolean} Renders the "View in your space" button (shopify-xr-button) if the media is a 3D Model
+
+  Usage:
+  {% render 'product-thumbnail',
+    media: media,
+    position: forloop.index,
+    loop: section.settings.enable_video_looping,
+    modal_id: section.id
+  %}
+{% endcomment %}
+
+<noscript>
+  {% if media.media_type == 'video' or media.media_type == 'external_video' %}
+    <span class="product__media-icon motion-reduce">{% render 'icon', icon: 'play' %}</span>
+    <div
+      class="product__media media"
+      style="padding-top: {{ 1 | divided_by: media.preview_image.aspect_ratio | times: 100 }}%;"
+    >
+      <img
+        src="{{ media | img_url: '1500x' }}"
+        width="576"
+        height="{{ 576 | divided_by: media.preview_image.aspect_ratio | ceil }}"
+        alt="{{ media.preview_image.alt | escape }}"
+      >
+    </div>
+    <a
+      href="{% if media.media_type == 'video' %}{{ media.sources[1].url }}{% else %}{{ media | external_video_url }}{% endif %}"
+      class="product__media-toggle"
+    >
+      <span class="visually-hidden">
+        {{- 'products.product.video_exit_message' | t: title: product.title | escape -}}
+      </span>
+    </a>
+  {% else %}
+    <div
+      class="product__media media"
+      style="padding-top: {{ 1 | divided_by: media.preview_image.aspect_ratio | times: 100 }}%;"
+    >
+      <img
+        src="{{ media | img_url: '1500x' }}"
+        width="576"
+        height="{{ 576 | divided_by: media.preview_image.aspect_ratio | ceil }}"
+        alt="{{ media.preview_image.alt | escape }}"
+      >
+    </div>
+  {% endif %}
+</noscript>
+
+<div class="product__media" data-type="{{ media.media_type }}">
+  {% if media.media_type == 'image' %}
+    {% render 'lazy-image', image: media.preview_image, fade: true, classes: 'img-fill' %}
+  {% elsif media.media_type == 'video' %}
+    <video autoplay loop muted playsinline class="img-fill">
+      <source src="{{ media.sources[1].url }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  {% elsif media.media_type == 'external_video' %}
+    {{ media | external_video_tag: class: 'img-fill' }}
+  {% endif %}
+</div>

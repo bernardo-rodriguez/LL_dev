@@ -54,7 +54,7 @@
         <div class="swiper-wrapper">
           {% for media in product.media %}
             <li class="product__media-item swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}">
-              {% render 'product-media', media: media, position: forloop.index %}
+              {% render 'product-media-2', media: media, position: forloop.index %}
             </li>
           {% endfor %}
         </div>
