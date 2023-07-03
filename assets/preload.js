@@ -83,12 +83,6 @@ function preLoadStuff() {
         "https://www.mylaughland.com/cdn/shop/t/128/assets/landing-options-styles.css?v=35443416108917538771688076554",
         "https://www.mylaughland.com/cdn/shop/t/128/assets/product-page-landing.css?v=155960853221155221981688255886"
     )
-
-    var preloadLink = document.createElement("link");
-    preloadLink.href = "https://www.mylaughland.com/products/landing-page-product-main";
-    preloadLink.rel = "preload";
-    preloadLink.as = "document";
-    document.head.appendChild(preloadLink);
 }
 
 // window.onload = function() {
