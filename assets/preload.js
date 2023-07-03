@@ -56,13 +56,23 @@ function preLoadStuff() {
         "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/how-to-use-2.png?v=1688078601&width=820",
         "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/how-to-use-3.png?v=1688078620&width=820",
         "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/how-to-use-4.png?v=1688078635&width=820",
+        "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/right-arrow.png?v=1687558083&width=2048",
+        "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/right-arrow.png?v=1687558083&width=1800",
+        "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/right-arrow.png?v=1687558083&width=1024",
+        "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/right-arrow.png?v=1687558083&width=820",
+        "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/Line_20.png?v=1688021392&width=1800",
+        "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/image_4.png?v=1647385882",
+        "https://www.mylaughland.com/cdn/shop/files/Laughland-drip-big.png?v=1686797546&width=200",
+        "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/Group_297.png?v=1688102497&width=102",
+        "https://www.mylaughland.com/cdn/shop/t/128/assets/checkmarkblue.png?v=48407837164877214861686899368"
     )
 
     preloadJS(
-        "https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/e567da00-b5b8-4708-b012-dbe33f4e5b63.min.js?v=9537667e-1701-11ee-b6b2-b21abdbd5202",
+        // "https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/e567da00-b5b8-4708-b012-dbe33f4e5b63.min.js?v=9537667e-1701-11ee-b6b2-b21abdbd5202",
         "https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/82491444-6cf5-4a48-b28e-8eb46f84b4c1.min.js?v=d34c8f46-16c2-11ee-8154-7a4af79e392a",
         "https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/4dff59fc-1de9-43d7-a664-feec286888f0.min.js?v=949d86f0-16cd-11ee-b466-b21abdbd5202",
-        "https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/4dff59fc-1de9-43d7-a664-feec286888f0.min.js?v=a92fbd56-1950-11ee-ba6f-8e26de4de2d2"
+        "https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/4dff59fc-1de9-43d7-a664-feec286888f0.min.js?v=a92fbd56-1950-11ee-ba6f-8e26de4de2d2",
+        "https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/224b18f7-acde-4496-b12f-c701a3909a92.min.js?v=c63519e6-1707-11ee-a195-b21abdbd5202"
     )
 
     preloadCSS(
