@@ -8,14 +8,14 @@
   assign formatted_heading_2 = section.settings.step3 | replace: '{', "<span class='bolded'>" | replace: '}', '</span>'
 %}
 
-<link rel="preload" href="{{ 'product-form.js' | asset_url }}" as="script">
+{% comment %} <link rel="preload" href="{{ 'product-form.js' | asset_url }}" as="script">
 <link rel="prefetch" href="{{ 'section-main-product.css' | asset_url }}">
 <link rel="prefetch" href="{{ 'component-price.css' | asset_url }}">
 <link rel="prefetch" href="{{ 'component-rte.css' | asset_url }}">
 <link rel="prefetch" href="{{ 'recharge-widget-styles.css' | asset_url }}">
 <link rel="prefetch" href="{{ 'landing-options-styles.css' | asset_url }}">
 <link rel="prefetch" href="{{ 'product-page-landing.css' | asset_url }}">
-<link rel="prefetch" href="{{ 'landing-options-styles.css' | asset_url }}">
+<link rel="prefetch" href="{{ 'landing-options-styles.css' | asset_url }}"> {% endcomment %}
 
 <formula-quiz-2 data-state="0">
   <section class="quiz_2" aria-hidden="true">
