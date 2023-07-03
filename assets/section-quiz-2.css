@@ -104,14 +104,6 @@
 
 
 @media screen and (max-width: 768px) {
-  .quiz_2__content-buttons {
-    position: absolute;
-    bottom: 20px;
-    max-width: 355px;
-  }
-}
-
-@media screen and (max-width: 768px) {
   .quiz_2__content {
     display: block;
   }
@@ -536,4 +528,12 @@ formula-quiz-2[data-state]:not([data-state='0']) .buttons-begin {
   line-height: 21px;
   letter-spacing: -0.015em;
   text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .quiz_2__content-buttons {
+    position: absolute;
+    bottom: 20px;
+    max-width: 355px;
+  }
 }
