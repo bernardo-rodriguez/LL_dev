@@ -480,3 +480,19 @@ formula-quiz-2[data-state='0'] .progress-bar-wrapper {
 .quiz_2::-webkit-scrollbar-thumb {
   background-color: var(--navy);
 }
+
+.mobile_hidden {
+  display: block;
+}
+.mobile_shown {
+  display: none;
+}
+
+@media screen and (max-width: 768px){
+  .mobile_hidden {
+    display: none;
+  }
+  .mobile_shown {
+    display: block;
+  }
+}
