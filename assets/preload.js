@@ -85,8 +85,8 @@ function preLoadStuff() {
     )
 }
 
-window.onload = function() {
-    preLoadStuff()
-}
-// document.addEventListener("DOMContentLoaded", preLoadStuff);
+// window.onload = function() {
+//     preLoadStuff()
+// }
+document.addEventListener("DOMContentLoaded", preLoadStuff);
 // $(window).load(preLoadStuff);
