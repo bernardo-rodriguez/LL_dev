@@ -56,7 +56,31 @@ function setName() {
 
     console.log(name)
     console.log($('#perfect-match-text'))
-    $('#perfect-match-text').html(`${name}'s Perfect Match`)
+    waitForElm('#perfect-match-text').then((elm) => {
+        console.log('Element is ready');
+        elm.innerHTML = `${name}'s Perfect Match`
+        // $('#perfect-match-text').html(`${name}'s Perfect Match`)
+    });
+}
+
+function waitForElm(selector) {
+    return new Promise(resolve => {
+        if (document.querySelector(selector)) {
+            return resolve(document.querySelector(selector));
+        }
+
+        const observer = new MutationObserver(mutations => {
+            if (document.querySelector(selector)) {
+                resolve(document.querySelector(selector));
+                observer.disconnect();
+            }
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    });
 }
 
 console.log('and now it gets called')
