@@ -60,4 +60,7 @@ function setName() {
     } else if (window.location.href.includes('landing-page-product-main')) {
       $('#perfect-match-text').html(`${name}'s Perfect Match`)
     }
-  }
+}
+
+setName()
+setVariant()
