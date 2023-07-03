@@ -11,13 +11,11 @@
   {% if section.settings.video != blank %}
     {% comment %} {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false }} {% endcomment %}
     <video
-      playsinline="playsinline"
       autoplay="autoplay"
       loop="loop"
-      muted="muted"
       preload="metadata"
       aria-label="Laughland hero"
-      controls="false"
+      controls="false" muted playsinline
     >
       <source src="{{'Laughland_Homepage_Lilac.mp4' | asset_url}}" type="video/mp4">
     </video>
