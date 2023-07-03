@@ -498,7 +498,7 @@
   </div>
 </section>
 
-<script>
+{% javascript %}
   window.variantIngredients = {{variant_ingredients }}
   function setVariant() {
     let strength = getCookie('strength')
@@ -518,7 +518,7 @@
         inputValue = '✨ Everyday (ID: 8-16)'
         break;
     }
-
+    console.log(window.variantIngredientList)
     let variantIngredientList = window.variantIngredients.find((v) => v.id == inputValue)
     console.log(variantIngredientList)
 
@@ -566,9 +566,7 @@
 
   setName()
   setVariant()
-</script>
 
-{% javascript %}
   document.getElementById('main-clickable-button').addEventListener('click', upsellLogic);
 
   async function setCartAttributes(upsell) {
