@@ -87,6 +87,7 @@ function preLoadStuff() {
     var preloadLink = document.createElement("link");
     preloadLink.href = "https://www.mylaughland.com/products/landing-page-product-main";
     preloadLink.rel = "preload";
+    preloadLink.as = "document";
     document.head.appendChild(preloadLink);
 }
 
