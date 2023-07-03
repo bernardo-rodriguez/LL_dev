@@ -9,16 +9,7 @@
   class="hero homepage-hero {% if section.settings.add_overlay %}add-overlay{% endif %}"
 >
   {% if section.settings.video != blank %}
-    {% comment %} {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false }} {% endcomment %}
-    <video
-      autoplay="autoplay"
-      loop="loop"
-      preload="metadata"
-      aria-label="Laughland hero"
-      controls="false" muted playsinline
-    >
-      <source src="{{'Laughland_Homepage_Lilac.mp4' | asset_url}}" type="video/mp4">
-    </video>
+    {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
   {% elsif section.settings.image != blank %}
     <div class="hero__images{% if section.settings.secondary_image != blank %} hero__images--split{% endif %}">
       {% if section.settings.mobile_image != blank %}
