@@ -46,7 +46,7 @@ function getCookie(cname) {
     return null;
   }
 
-function setName() {
+function setNameAndVariant() {
     console.log('setname')
     const first_name = getCookie('firstname') || ""
     const last_name = getCookie('lastname') || ""
@@ -59,7 +59,7 @@ function setName() {
     waitForElm('#perfect-match-text').then((elm) => {
         console.log('Element is ready');
         elm.innerHTML = `${name}'s Perfect Match`
-        // $('#perfect-match-text').html(`${name}'s Perfect Match`)
+        setVariant()
     });
 }
 
@@ -83,7 +83,4 @@ function waitForElm(selector) {
     });
 }
 
-console.log('and now it gets called')
-
-setName()
-setVariant()
+setNameAndVariant()
