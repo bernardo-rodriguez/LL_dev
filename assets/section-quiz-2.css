@@ -101,11 +101,6 @@
   flex: 1;
 }
 
-.quiz_2__content-buttons {
-  max-width: 466px;
-  justify-content: center;
-}
-
 
 @media screen and (max-width: 490px) {
   .quiz_2__content-buttons {
@@ -281,10 +276,10 @@
 .quiz_2__content-buttons {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   /* margin-top: 10vh; */
   width: 100%;
+  justify-content: center;
 }
 
 .question_headers {
