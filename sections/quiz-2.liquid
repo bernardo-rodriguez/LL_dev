@@ -40,9 +40,9 @@
           <div class = 'laughland-drop-container'>
             <img class = 'laughland-drop' loading = 'lazy' src="{{ 'laughland-drop.png' | asset_url }}">
           </div>
-          <div class="quiz_2__content-buttons">
+          {% comment %} <div class="quiz_2__content-buttons">
             <button class="button" data-form-begin>Let's Get Started</button>
-          </div>
+          </div> {% endcomment %}
         </div>
         <div class="quiz_2__content-card">
           <div class="quiz_2__form">
@@ -131,6 +131,9 @@
             {{ 'now' | date: '%Y' }}. All rights reserved.
           </p>
         </div> {% endcomment %}
+      </div>
+      <div class="quiz_2__content-buttons">
+        <button class="button" data-form-begin>Let's Get Started</button>
       </div>
       <div class = 'quiz_2__content_buttons_wrapper' style = 'width: 100%'>
         <div class="quiz_2__content-buttons">
