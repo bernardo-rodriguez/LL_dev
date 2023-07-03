@@ -6,18 +6,29 @@ function preload() {
     }
 }
 
+function preloadJS() {
+    for (var i = 0; i < arguments.length; i++) {
+        var preloadLink = document.createElement("link");
+        preloadLink.href = preload.arguments[i];
+        preloadLink.rel = "preload";
+        preloadLink.as = "script";
+        document.head.appendChild(preloadLink);
+    }
+}
+
 //-- usage --//
 function preLoadStuff() {
-    console.log('hello')
     preload(
         "https://www.mylaughland.com/cdn/shop/t/128/assets/blue-pen-big.png?v=75789883786534928331687761031",
         "https://www.mylaughland.com/cdn/shop/t/128/assets/blue-pen-small.png?v=10233571042852380481688254825",
         "https://www.mylaughland.com/cdn/shop/files/Laughland-drip-big.png?v=1686797546",
         "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/before-after-smaller.png?v=1688076991&width=2048",
-        "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/before-after-smaller.png?v=1688076991&width=1800", 
+        "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/before-after-smaller.png?v=1688076991&width=1800",
+        "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/before-after-smaller.png?v=1688076991&width=1024", 
         "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/before-after-smaller.png?v=1688076991&width=820",
         "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/Laughland_79400_1.jpg?v=1674083131&width=2048",
         "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/Laughland_79400_1.jpg?v=1674083131&width=1800",
+        "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/Laughland_79400_1.jpg?v=1674083131&width=1024",
         "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/Laughland_79400_1.jpg?v=1674083131&width=820",
         "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/how-to-use-1.png?v=1688078584&width=2048",
         "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/how-to-use-2.png?v=1688078601&width=2048",
@@ -27,10 +38,21 @@ function preLoadStuff() {
         "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/how-to-use-2.png?v=1688078601&width=1800",
         "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/how-to-use-3.png?v=1688078620&width=1800",
         "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/how-to-use-4.png?v=1688078635&width=1800",
+        "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/how-to-use-1.png?v=1688078584&width=1024",
+        "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/how-to-use-2.png?v=1688078601&width=1024",
+        "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/how-to-use-3.png?v=1688078620&width=1024",
+        "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/how-to-use-4.png?v=1688078635&width=1024",
         "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/how-to-use-1.png?v=1688078584&width=820",
         "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/how-to-use-2.png?v=1688078601&width=820",
         "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/how-to-use-3.png?v=1688078620&width=820",
         "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/how-to-use-4.png?v=1688078635&width=820",
+    )
+
+    preloadJS(
+        "https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/e567da00-b5b8-4708-b012-dbe33f4e5b63.min.js?v=9537667e-1701-11ee-b6b2-b21abdbd5202",
+        "https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/82491444-6cf5-4a48-b28e-8eb46f84b4c1.min.js?v=d34c8f46-16c2-11ee-8154-7a4af79e392a",
+        "https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/4dff59fc-1de9-43d7-a664-feec286888f0.min.js?v=949d86f0-16cd-11ee-b466-b21abdbd5202",
+        "https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/224b18f7-acde-4496-b12f-c701a3909a92.min.js?v=c63519e6-1707-11ee-a195-b21abdbd5202"
     )
 }
 
