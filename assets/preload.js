@@ -1,8 +1,13 @@
 var images = [];
 function preload() {
     for (var i = 0; i < arguments.length; i++) {
-        images[i] = new Image();
-        images[i].src = preload.arguments[i];
+        // images[i] = new Image();
+        // images[i].src = preload.arguments[i];
+        var preloadLink = document.createElement("link");
+        preloadLink.href = preload.arguments[i];
+        preloadLink.rel = "prefetch";
+        preloadLink.as = "image";
+        document.head.appendChild(preloadLink);
     }
 }
 
@@ -10,7 +15,7 @@ function preloadJS() {
     for (var i = 0; i < arguments.length; i++) {
         var preloadLink = document.createElement("link");
         preloadLink.href = preloadJS.arguments[i];
-        preloadLink.rel = "preload";
+        preloadLink.rel = "prefetch";
         preloadLink.as = "script";
         document.head.appendChild(preloadLink);
     }
@@ -20,7 +25,7 @@ function preloadCSS() {
     for (var i = 0; i < arguments.length; i++) {
         var preloadLink = document.createElement("link");
         preloadLink.href = preloadCSS.arguments[i];
-        preloadLink.rel = "preload";
+        preloadLink.rel = "prefetch";
         preloadLink.as = "style";
         document.head.appendChild(preloadLink);
     }
