@@ -479,7 +479,7 @@ formula-quiz-2[data-state='0'] .progress-bar-wrapper {
 formula-quiz-2[data-state]:not([data-state='0']) .buttons-begin { 
   display: none;
   opacity: 0;
-  
+
 }
 
 .quiz_2::-webkit-scrollbar {
@@ -508,4 +508,31 @@ formula-quiz-2[data-state]:not([data-state='0']) .buttons-begin {
   .mobile_shown {
     display: block;
   }
+}
+
+.powered-quiz {
+  font-family: Plus Jakarta Sans;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.quiz_heading_2 {
+  font-family: Plus Jakarta Sans;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: -0.015em;
+  text-align: center;
+}
+
+.quiz_heading_3 {
+  font-family: Plus Jakarta Sans;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: -0.015em;
+  text-align: center;
 }
