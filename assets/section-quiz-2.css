@@ -106,6 +106,7 @@
   .quiz_2__content-buttons {
     position: fixed;
     bottom: 20px;
+    padding-right: 40px;
   }
 }
 
