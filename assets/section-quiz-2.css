@@ -105,6 +105,10 @@
   max-width: 466px;
 }
 
+.quiz-2-button {
+  
+}
+
 @media screen and (max-width: 490px) {
   .quiz_2__content-buttons {
     padding-right: 40px;
@@ -374,7 +378,7 @@
 }
 
 .laughland-drop-container {
-  position: absolute;
+  /* position: absolute; */
   width: 50vw;
   /* height: 100vh; */
   top: 0;
