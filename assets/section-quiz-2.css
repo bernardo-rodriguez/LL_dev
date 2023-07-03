@@ -378,6 +378,11 @@
   left: 0;
 }
 
+.quiz_back_arrow {
+  position:absolute;
+  left: 0
+}
+
 @media screen and (max-width: 768px){
   .quiz_2__content-buttons {
     margin-top: 40px;
