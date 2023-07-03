@@ -371,13 +371,12 @@
 .laughland-drop {
   max-width: 100%;
   max-height: 100%;
-  margin-top: 200px;
 }
 
 .laughland-drop-container {
   position: absolute;
   width: 50vw;
-  height: 100vh;
+  /* height: 100vh; */
   top: 0;
   left: 0;
 }
@@ -412,8 +411,8 @@
   }
   .laughland-drop-container {
     width: auto;
-    height: 50vh;
-    top: auto;
+    /* height: 50vh; */
+    /* top: auto; */
   }
 }
 
