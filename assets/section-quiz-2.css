@@ -465,7 +465,7 @@ formula-quiz-2[data-state='0'] .quiz_2__content-card {
   opacity: 0;
 }
 
-formula-quiz-2[data-state='0'] .quiz_2__content-buttons_wrapper {
+formula-quiz-2[data-state='0'] .quiz_2__content_buttons_wrapper {
   display: none;
   opacity: 0;
 }
