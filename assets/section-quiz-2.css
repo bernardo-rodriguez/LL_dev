@@ -476,9 +476,10 @@ formula-quiz-2[data-state='0'] .progress-bar-wrapper {
   opacity: 0;
 }
 
-formula-quiz-2[data-state]:not([data-state='1']) .buttons-begin {
+formula-quiz-2[data-state]:not([data-state='0']) .buttons-begin { 
   display: none;
   opacity: 0;
+  
 }
 
 .quiz_2::-webkit-scrollbar {
