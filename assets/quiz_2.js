@@ -46,13 +46,11 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     }
 
     this.setInputs(this.currentStep)
-
     this.back = this.querySelector("[data-form-back]")
+    this.back_2 = this.querySelector("[data-form-back-2]")
     this.next = this.querySelector("[data-form-next]")
     this.submit = this.querySelector("[data-form-submit]")
     this.begin = this.querySelector("[data-form-begin]")
-
-    console.log(this.back)
 
     this.progress = 0
 
@@ -84,13 +82,13 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       } )
     })
     this.back.addEventListener('click', this.changeFormStep.bind(this, -1))
+    this.back_2.addEventListener('click', this.changeFormStep.bind(this, -1))
     this.next.addEventListener('click', this.changeFormStep.bind(this, 1))
     this.close.addEventListener('click', this.closeQuiz.bind(this))
     this.begin.addEventListener('click', this.changeFormStep.bind(this, 1))
     this.submit.addEventListener('click', function(e){
       this.submitForm(e)
     }.bind(this))
-    console.log(this.back)
   }
 
   fillProgressBar(newValue, total) {
