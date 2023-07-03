@@ -498,6 +498,31 @@
   </div>
 </section>
 
+{% liquid
+  assign variant_ingredient_array = ""
+  capture variant_ingredients
+    echo "["
+    for variant in product.variants
+      echo "{"
+      echo '"id": "'
+      echo variant.title
+      echo '", "ingredients": ["'
+      for ingredient in variant.metafields.custom.ingredients.value
+        echo ingredient | downcase
+        unless forloop.last
+        echo '", "'
+        endunless
+      endfor
+      echo '"]'
+      echo "}"
+      unless forloop.last
+        echo ","
+      endunless
+    endfor
+    echo "]"
+  endcapture
+%}
+
 {% javascript %}
   window.variantIngredients = {variant_ingredients }
   function setVariant() {
@@ -710,37 +735,6 @@
   else
     assign seo_media = product.featured_media
   endif
-%}
-
-{% liquid
-  assign variant_ingredient_array = ''
-  capture variant_ingredients
-    echo '['
-    for variant in product.variants
-      echo '{'
-      echo '"id": "'
-      echo variant.title
-      echo '", "ingredients": ["'
-      for ingredient in variant.metafields.custom.ingredients.value
-        echo ingredient | downcase
-        unless forloop.last
-          echo '", "'
-        endunless
-      endfor
-      echo '"]'
-      echo ', "title": "'
-      echo variant.metafields.custom.landing_page_title.value
-      echo '", "formula_header_text": "'
-      echo variant.metafields.custom.formula_header_text.value
-      echo '", "selling_point_landing": "'
-      echo variant.metafields.custom.selling_point_landing.value
-      echo '"}'
-      unless forloop.last
-        echo ','
-      endunless
-    endfor
-    echo ']'
-  endcapture
 %}
 
 <script type="application/ld+json">
