@@ -8,6 +8,7 @@ function preload() {
 
 //-- usage --//
 function preLoadStuff() {
+    console.log('hello')
     preload(
         "https://www.mylaughland.com/cdn/shop/t/128/assets/blue-pen-big.png?v=75789883786534928331687761031",
         "https://www.mylaughland.com/cdn/shop/t/128/assets/blue-pen-small.png?v=10233571042852380481688254825",
@@ -33,4 +34,5 @@ function preLoadStuff() {
     )
 }
 
-$(window).load(preLoadStuff);
+document.addEventListener("DOMContentLoaded", preLoadStuff);
+// $(window).load(preLoadStuff);
