@@ -194,16 +194,16 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       if (currentState in this.feedback_dictionary) {
         let feedbackState = this.feedback_dictionary[currentState]
         let input_name = Object.keys(feedbackState['conditions'])[0]
-
+        let input_value = []
         let selected_elements = $(`input[name=${input_name}]:checked`)
+
         if (selected_elements.length > 1) {
-          let input_value = []
           selected_elements.each(function( index ) {
             console.log(selected_elements[index].value)
             input_value.push(selected_elements[index].value)
           })
         } else {
-          let input_value = $(`input[name=${input_name}]:checked`).val()
+          input_value = [$(`input[name=${input_name}]:checked`).val()]
         }
         console.log(input_value)
 
