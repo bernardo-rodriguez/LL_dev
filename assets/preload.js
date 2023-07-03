@@ -16,6 +16,16 @@ function preloadJS() {
     }
 }
 
+function preloadCSS() {
+    for (var i = 0; i < arguments.length; i++) {
+        var preloadLink = document.createElement("link");
+        preloadLink.href = preloadCSS.arguments[i];
+        preloadLink.rel = "preload";
+        preloadLink.as = "style";
+        document.head.appendChild(preloadLink);
+    }
+}
+
 //-- usage --//
 function preLoadStuff() {
     preload(
@@ -53,6 +63,15 @@ function preLoadStuff() {
         "https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/82491444-6cf5-4a48-b28e-8eb46f84b4c1.min.js?v=d34c8f46-16c2-11ee-8154-7a4af79e392a",
         "https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/4dff59fc-1de9-43d7-a664-feec286888f0.min.js?v=949d86f0-16cd-11ee-b466-b21abdbd5202",
         "https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/4dff59fc-1de9-43d7-a664-feec286888f0.min.js?v=a92fbd56-1950-11ee-ba6f-8e26de4de2d2"
+    )
+
+    preloadCSS(
+        "https://www.mylaughland.com/cdn/shop/t/128/assets/section-main-product.css?v=77679036591768168711683496849",
+        "https://www.mylaughland.com/cdn/shop/t/128/assets/component-price.css?v=152699361744074217061680288520",
+        "https://www.mylaughland.com/cdn/shop/t/128/assets/component-rte.css?v=71669948001115577601680288520",
+        "https://www.mylaughland.com/cdn/shop/t/128/assets/recharge-widget-styles.css?v=8787213908653306691687843892",
+        "https://www.mylaughland.com/cdn/shop/t/128/assets/landing-options-styles.css?v=35443416108917538771688076554",
+        "https://www.mylaughland.com/cdn/shop/t/128/assets/product-page-landing.css?v=155960853221155221981688255886"
     )
 }
 
