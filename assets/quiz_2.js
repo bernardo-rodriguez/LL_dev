@@ -52,6 +52,8 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     this.submit = this.querySelector("[data-form-submit]")
     this.begin = this.querySelector("[data-form-begin]")
 
+    console.log(this.back)
+
     this.progress = 0
 
     this.form = this.querySelector(".quiz_2__form")
@@ -88,6 +90,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     this.submit.addEventListener('click', function(e){
       this.submitForm(e)
     }.bind(this))
+    console.log(this.back)
   }
 
   fillProgressBar(newValue, total) {
