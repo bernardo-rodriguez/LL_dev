@@ -534,6 +534,6 @@ formula-quiz-2[data-state]:not([data-state='0']) .buttons-begin {
   .quiz_2__content-buttons {
     position: absolute;
     bottom: 20px;
-    max-width: 355px;
+    max-width: 350px;
   }
 }
