@@ -200,7 +200,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
           let input_value = []
           selected_elements.each(function( index ) {
             console.log(selected_elements[index])
-            input_value.append(selected_elements[index].value)
+            input_value.push(selected_elements[index].value)
           })
         } else {
           let input_value = $(`input[name=${input_name}]:checked`).val()
