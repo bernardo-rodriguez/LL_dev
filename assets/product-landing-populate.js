@@ -55,6 +55,7 @@ function setName() {
     const name = `${first_name}${ last_name != "" ? ' ' + last_name : ''}`
 
     console.log(name)
+    console.log($('#perfect-match-text'))
     $('#perfect-match-text').html(`${name}'s Perfect Match`)
 }
 
