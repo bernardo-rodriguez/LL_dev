@@ -280,6 +280,10 @@
   /* margin-top: 10vh; */
   width: 100%;
   justify-content: center;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .question_headers {
