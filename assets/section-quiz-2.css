@@ -99,6 +99,7 @@
   min-width: 700px;
   text-align:center;
   flex: 1;
+  position: relative;
 }
 
 
@@ -129,7 +130,6 @@
   max-width: 466px;
   height: 100%;
   margin: auto;
-  position: relative;
   /* overflow: hidden; */
 }
 
