@@ -62,5 +62,6 @@ function setName() {
     }
 }
 
+console.log('and now it gets called')
 setName()
 setVariant()
