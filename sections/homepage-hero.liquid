@@ -9,7 +9,7 @@
   class="hero homepage-hero {% if section.settings.add_overlay %}add-overlay{% endif %}"
 >
   {% if section.settings.video != blank %}
-    {% comment %} {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false }} {% endcomment %}
+    {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
   {% elsif section.settings.image != blank %}
     <div class="hero__images{% if section.settings.secondary_image != blank %} hero__images--split{% endif %}">
       {% if section.settings.mobile_image != blank %}
