@@ -18,6 +18,16 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     // console.log(this.inputNames)
     this.feedback_dictionary = {
       // if blank conditions, always apply the same
+      3: {
+        "conditions": {
+          "gum_2": {
+            "plaque_2": {
+              "text": "Our Formulas Come With “XXX” Which Removes Harmful Bacteria From The Mouth And Protects Your Gums.",
+              "id": "three_response_text_1"
+            }
+          }
+        }
+      },
       6: {
         "conditions": {
           "shade_2": {}
@@ -185,6 +195,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         let feedbackState = this.feedback_dictionary[currentState]
         let input_name = Object.keys(feedbackState['conditions'])[0]
         let input_value = $(`input[name=${input_name}]:checked`).val()
+        console.log(input_value)
         if (Object.keys(feedbackState['conditions'][input_name]).length == 0) {
           newState = currentState + 0.5
         } else if (input_value in feedbackState['conditions'][input_name]) {
