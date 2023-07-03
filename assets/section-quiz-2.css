@@ -104,9 +104,8 @@
 
 @media screen and (max-width: 768px) {
   .quiz_2__content-buttons {
-    position: fixed;
+    position: absolute;
     bottom: 20px;
-    padding-right: 40px;
   }
 }
 
@@ -130,6 +129,7 @@
   max-width: 466px;
   height: 100%;
   margin: auto;
+  position: relative;
   /* overflow: hidden; */
 }
 
