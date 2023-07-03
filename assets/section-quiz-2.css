@@ -511,7 +511,7 @@ formula-quiz-2[data-state]:not([data-state='0']) .buttons-begin {
 }
 
 .powered-quiz {
-  font-family: Plus Jakarta Sans;
+  font-family: jakarta;
   font-size: 14px;
   font-weight: 700;
   line-height: 21px;
@@ -520,7 +520,7 @@ formula-quiz-2[data-state]:not([data-state='0']) .buttons-begin {
 }
 
 .quiz_heading_2 {
-  font-family: Plus Jakarta Sans;
+  font-family: jakarta;
   font-size: 18px;
   font-weight: 700;
   line-height: 27px;
@@ -529,7 +529,7 @@ formula-quiz-2[data-state]:not([data-state='0']) .buttons-begin {
 }
 
 .quiz_heading_3 {
-  font-family: Plus Jakarta Sans;
+  font-family: jakarta;
   font-size: 14px;
   font-weight: 500;
   line-height: 21px;
