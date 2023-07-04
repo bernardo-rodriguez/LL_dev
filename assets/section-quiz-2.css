@@ -260,6 +260,8 @@
 
 .form__step-wrapper_2 {
   text-align:left;
+  max-height: 80vh;
+  overflow: scroll;
 }
 
 .text_center {
