@@ -315,7 +315,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
           i = 0;
         } else {
           if ([36, 81, 91].includes(width)){
-            await this.sleep(300)
+            await this.sleep(3)
           }
           width++;
           elem.style.width = width + "%";
