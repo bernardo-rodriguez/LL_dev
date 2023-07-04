@@ -343,9 +343,9 @@
 .quiz_2__landing {
   max-width: 500px;
   text-align:center;
-  display: inline-block;
+  display: flex;
   margin-top: 30px;
-  position: relative;
+  flex-flow:column;
 }
 
 .quiz_2__input-group-bare label {
@@ -378,11 +378,12 @@
 }
 
 .laughland-drop-container {
-  position: absolute;
+  /* position: absolute; */
+  flex: 1 1 auto
   /* width: 50vw; */
   /* height: 100vh; */
-  top: 0;
-  left: 0;
+  /* top: 0;
+  left: 0; */
 }
 
 .quiz_back_arrow {
