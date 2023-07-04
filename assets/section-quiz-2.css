@@ -270,6 +270,12 @@
   display: none;  /* Safari and Chrome */
 }
 
+.quiz_titles_wrapper {
+  max-width: 400px; 
+  display: inline-block; 
+  flex: 0 1 auto;
+}
+
 @media screen and (max-width: 768px) {
   .form__step-wrapper_2 {
     text-align:left;
@@ -277,6 +283,9 @@
     overflow: scroll;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
+  }
+  .quiz_titles_wrapper {
+    padding-bottom: 40px;
   }
 }
 
