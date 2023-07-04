@@ -323,6 +323,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       function() {
         $('.quiz_2__content-buttons').show()
         that.changeFormStep(1)
+        elem.style.width = "1%";
       }, 4000);
   }
 
