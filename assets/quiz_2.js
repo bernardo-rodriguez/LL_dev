@@ -294,10 +294,6 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     }
   }
 
-  async sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-
   async move() {
     // return
     let serialized = $('#contact_form').serialize()
@@ -315,7 +311,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
           i = 0;
         } else {
           if ([36, 81, 91].includes(width)){
-            await this.sleep(3)
+            await new Promise(resolve => setTimeout(resolve, 30));
           }
           width++;
           elem.style.width = width + "%";
