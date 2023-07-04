@@ -378,7 +378,7 @@
 }
 
 .laughland-drop-container {
-  /* position: absolute; */
+  position: absolute;
   /* width: 50vw; */
   /* height: 100vh; */
   top: 0;
