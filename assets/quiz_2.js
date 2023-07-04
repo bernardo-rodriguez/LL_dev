@@ -294,8 +294,12 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     }
   }
 
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   move() {
-    return;
+    // return
     let serialized = $('#contact_form').serialize()
     populateProfile(serialized)
     $('.quiz_2__content-buttons').hide()
@@ -310,6 +314,9 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
           clearInterval(id);
           i = 0;
         } else {
+          if ([36, 81, 91].includes(width)){
+            this.sleep(300)
+          }
           width++;
           elem.style.width = width + "%";
         }
