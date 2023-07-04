@@ -230,12 +230,13 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         else {
           input_value.forEach(function (value, index) {
             if (value in feedbackState['conditions'][input_name]) {
+              console.log('hi')
               // populate available states and reset highest priority
-              available_states[feedbackState['conditions'][input_name][value]['priority']] = 
-              feedbackState['conditions'][input_name][value]['texts']
+              available_states[feedbackState['conditions'][input_name][value]['priority']] = feedbackState['conditions'][input_name][value]['texts']
               highest_priority = Math.min(highest_priority, feedbackState['conditions'][input_name][value]['priority'])
             }
           })
+          console.log(available_states)
           if (available_states.length > 0) {
             console.log(available_states)
             // newState = currentState + 0.5
