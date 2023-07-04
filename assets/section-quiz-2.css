@@ -390,6 +390,8 @@
 
 .insight_image {
   margin: 10px;
+  height: 120px;
+  width: 120px;
 }
 
 .teeth_compare {
@@ -417,6 +419,10 @@
 }
 
 @media screen and (max-width: 768px){
+  .insight_image {
+    height: 60px;
+    width: 60px;
+  }
   .laughland-drop-container {
     display: block;
     position: relative;
@@ -445,7 +451,7 @@
     font-size: 25px;
   }
   .insight_subheaders {
-    font-size: 18px;
+    font-size: 16px;
   }
   /*.laughland-drop-container {
     width: auto;
