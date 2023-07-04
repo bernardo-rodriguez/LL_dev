@@ -59,7 +59,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       10: {
         "conditions": {
           "routine_2": {
-            "strips_2": {
+            "toothpaste_2": {
               "priority": 1,
               "texts": [
                 {
@@ -295,7 +295,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
   }
 
   move() {
-    console.log("no?")
+    return;
     let serialized = $('#contact_form').serialize()
     populateProfile(serialized)
     $('.quiz_2__content-buttons').hide()
