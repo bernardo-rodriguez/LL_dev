@@ -260,7 +260,7 @@
 
 .form__step-wrapper_2 {
   text-align:left;
-  max-height: 80vh;
+  height: 80vh;
   overflow: scroll;
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   scrollbar-width: none;  /* Firefox */
