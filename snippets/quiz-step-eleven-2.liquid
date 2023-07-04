@@ -39,6 +39,12 @@
     width: 1%;
     height: 15px;
     background-color: var(--blue);
+      /* This timing applies on the way OUT */
+    transition-timing-function: ease-in;
+
+    /* Quick on the way out */
+    transition: 0.2s;
+    transition-timing-function: ease-out;
   }
   .credibility {
     padding: 20px;
