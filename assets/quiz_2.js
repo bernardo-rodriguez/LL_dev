@@ -248,10 +248,19 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
 
         if (feedbackState['conditions'][input_name].length == 0) {
           newState = currentState - 0.5
-        } else if (input_value in feedbackState['conditions'][input_name]) {
-          newState = currentState - 0.5
         } else {
-          newState = this.normalAdd(x, currentState)
+          input_value.forEach(function (value, index) {
+            if (value in feedbackState['conditions'][input_name]) {
+              available_states[feedbackState['conditions'][input_name][value]['priority']] = feedbackState['conditions'][input_name][value]['texts']
+              highest_priority = Math.min(highest_priority, feedbackState['conditions'][input_name][value]['priority'])
+            }
+          })
+          if (Object.keys(available_states).length > 0) {
+            newState = currentState - 0.5
+            this.stepSpecificText(available_states[highest_priority])
+          } else {
+            newState = this.normalAdd(x, currentState)
+          }
         }
       } else {
         newState = this.normalAdd(x, currentState)
