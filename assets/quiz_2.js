@@ -209,7 +209,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       if (currentState in this.feedback_dictionary) {
         let feedbackState = this.feedback_dictionary[currentState]
         let input_name = Object.keys(feedbackState['conditions'])[0]
-        let input_value = getInputValue(input_name)
+        let input_value = this.getInputValue(input_name)
         console.log(input_value)
 
         if (Object.keys(feedbackState['conditions'][input_name]).length == 0) {
@@ -227,7 +227,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       if (currentState - 1 in this.feedback_dictionary) {
         let feedbackState = this.feedback_dictionary[currentState - 1]
         let input_name = Object.keys(feedbackState['conditions'])[0]
-        let input_value = getInputValue(input_name)
+        let input_value = this.getInputValue(input_name)
 
         if (feedbackState['conditions'][input_name].length == 0) {
           newState = currentState - 0.5
