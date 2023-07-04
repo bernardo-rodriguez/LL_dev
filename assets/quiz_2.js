@@ -22,8 +22,13 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         "conditions": {
           "gum_2": {
             "plaque_2": {
-              "text": "Our Formulas Come With “XXX” Which Removes Harmful Bacteria From The Mouth And Protects Your Gums.",
-              "id": "three_response_text_1"
+              "texts": [
+                {
+                  "text":" Our Formulas Come With “XXX” Which Removes Harmful Bacteria From The Mouth And Protects Your Gums.",
+                  "id": "three_response_text_1"
+                }
+              ],
+              'priority': 1
             }
           }
         }
@@ -36,16 +41,19 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       10: {
         "conditions": {
           "routine_2": {
-            "strips_2": [
-              {
-                "text": "While Whitening Toothpaste removes surface stains, it doesn’t penetrate the teeth and change the color inside.",
-                "id": "ten_response_text_1"
-              },
-              {
-                "text": "The dentin inside the enamel is the yellow part of the teeth that gives it the yellow hue. That’s where we come in.",
-                "id": "ten_response_text_2"
-              }
-          ]
+            "strips_2": {
+              "priority": 1,
+              "texts": [
+                {
+                  "text": "While Whitening Toothpaste removes surface stains, it doesn’t penetrate the teeth and change the color inside.",
+                  "id": "ten_response_text_1",
+                },
+                {
+                  "text": "The dentin inside the enamel is the yellow part of the teeth that gives it the yellow hue. That’s where we come in.",
+                  "id": "ten_response_text_2"
+                }
+              ]
+            }
           }
         }
       }
@@ -204,7 +212,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       currentState -= 1
     }
     let newState = currentState
-    let available_states = []
+    let available_states = {}
     let highest_priority = 10 // initiate highest priority text (for checkboxes)
     if (x == 1) {
       if (currentState in this.feedback_dictionary) {
@@ -220,9 +228,12 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         //   this.stepSpecificText(feedbackState['conditions'][input_name][input_value])
         // } 
         else {
+          console.log(input_value)
+          console.log(feedbackState['conditions'][input_name])
           input_value.forEach(function (value, index) {
             if (value in feedbackState['conditions'][input_name]) {
-              available_states.push(feedbackState['conditions'][input_name][input_value])
+              available_states[feedbackState['conditions'][input_name][value][priority]] = 
+              feedbackState['conditions'][input_name][value]
             }
           })
           if (available_states.length > 0) {
