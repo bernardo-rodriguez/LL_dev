@@ -327,7 +327,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       function() {
         $('.quiz_2__content-buttons').show()
         that.changeFormStep(1)
-      }, 3000);
+      }, 5000);
   }
 
   setInputs(step) {
