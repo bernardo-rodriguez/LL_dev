@@ -310,7 +310,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
           clearInterval(id);
           i = 0;
         } else {
-          if ([36, 81, 91].includes(width)){
+          if ([20, 36, 63, 81].includes(width)){
             await new Promise(resolve => setTimeout(resolve, 300));
           }
           width++;
