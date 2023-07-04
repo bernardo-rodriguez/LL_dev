@@ -185,7 +185,6 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
   }
 
   getInputValue(input_name) {
-    let input_name = Object.keys(feedbackState['conditions'])[0]
     let input_value = []
     let selected_elements = $(`input[name=${input_name}]:checked`)
 
