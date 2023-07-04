@@ -173,6 +173,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
   }
 
   closeQuiz() {
+    document.body.style.overflow = "auto";
     this.querySelector('.quiz_2').style.transitionDelay = '.2s'
     this.querySelector('.quiz_2').setAttribute('aria-hidden', 'true')
     document.querySelector('.page-transition__content').style.transform = 'translate(-50%, 50%)'
