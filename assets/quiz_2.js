@@ -184,6 +184,22 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     })
   }
 
+  getInputValue(input_name) {
+    let input_name = Object.keys(feedbackState['conditions'])[0]
+    let input_value = []
+    let selected_elements = $(`input[name=${input_name}]:checked`)
+
+    if (selected_elements.length > 1) {
+      selected_elements.each(function( index ) {
+        console.log(selected_elements[index].value)
+        input_value.push(selected_elements[index].value)
+      })
+    } else {
+      input_value = [$(`input[name=${input_name}]:checked`).val()]
+    }
+    return input_value
+  }
+
   changeFormStep(x) {
     let currentState = Number(this.dataset.state)
     if (currentState == 12) {
@@ -194,17 +210,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       if (currentState in this.feedback_dictionary) {
         let feedbackState = this.feedback_dictionary[currentState]
         let input_name = Object.keys(feedbackState['conditions'])[0]
-        let input_value = []
-        let selected_elements = $(`input[name=${input_name}]:checked`)
-
-        if (selected_elements.length > 1) {
-          selected_elements.each(function( index ) {
-            console.log(selected_elements[index].value)
-            input_value.push(selected_elements[index].value)
-          })
-        } else {
-          input_value = [$(`input[name=${input_name}]:checked`).val()]
-        }
+        let input_value = getInputValue(input_name)
         console.log(input_value)
 
         if (Object.keys(feedbackState['conditions'][input_name]).length == 0) {
@@ -222,7 +228,8 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       if (currentState - 1 in this.feedback_dictionary) {
         let feedbackState = this.feedback_dictionary[currentState - 1]
         let input_name = Object.keys(feedbackState['conditions'])[0]
-        let input_value = $(`input[name=${input_name}]:checked`).val()
+        let input_value = getInputValue(input_name)
+
         if (feedbackState['conditions'][input_name].length == 0) {
           newState = currentState - 0.5
         } else if (input_value in feedbackState['conditions'][input_name]) {
