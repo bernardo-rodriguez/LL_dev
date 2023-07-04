@@ -260,7 +260,8 @@
 
 .form__step-wrapper_2 {
   text-align:left;
-  height: 70vh;
+  min-height: 40vh;
+  height: auto;
   overflow: scroll;
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   scrollbar-width: none;  /* Firefox */
@@ -269,6 +270,17 @@
 .form__step-wrapper_2::-webkit-scrollbar { 
   display: none;  /* Safari and Chrome */
 }
+
+@media screen and (max-width: 768px) {
+  .form__step-wrapper_2 {
+    text-align:left;
+    height: 70vh;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
 
 .text_center {
   text-align:center;
