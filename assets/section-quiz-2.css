@@ -348,6 +348,7 @@
   flex-flow:column;
   margin-left: auto;
   margin-right: auto;
+  align-items: center;
 }
 
 .quiz_2__input-group-bare label {
@@ -385,7 +386,8 @@
 
 .laughland-drop-container {
   position: relative;
-  flex: 1 1 auto
+  flex: 1 1 auto;
+  width: 100%;
   /* width: 50vw; */
   /* height: 100vh; */
   /* top: 0;
@@ -422,11 +424,11 @@
   .insight_subheaders {
     font-size: 18px;
   }
-  .laughland-drop-container {
+  /*.laughland-drop-container {
     width: auto;
     /* height: 50vh; */
-    /* top: auto; */
-  }
+    /* top: auto; 
+  }*/
 }
 
 .quiz_2__footer {
