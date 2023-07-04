@@ -29,6 +29,24 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
                 }
               ],
               'priority': 1
+            },
+            "bleeding_2": {
+              "texts": [
+                {
+                  "text":" Our Formulas Come With “XXX” Which Removes Harmful Bacteria From The Mouth And Protects Your Gums.",
+                  "id": "three_response_text_1"
+                }
+              ],
+              'priority': 2
+            },
+            "inflammation_2": {
+              "texts": [
+                {
+                  "text":" Our Formulas Come With “XXX” Which Removes Harmful Bacteria From The Mouth And Protects Your Gums.",
+                  "id": "three_response_text_1"
+                }
+              ],
+              'priority': 3
             }
           }
         }
@@ -185,7 +203,6 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
   }
 
   stepSpecificText(to_change) {
-    console.log(to_change)
     to_change.forEach((i) => {
       let id = i['id']
       let text = i['text']
