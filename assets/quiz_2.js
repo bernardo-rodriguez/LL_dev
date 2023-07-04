@@ -311,7 +311,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
           i = 0;
         } else {
           if ([20, 36, 63, 81].includes(width)){
-            await new Promise(resolve => setTimeout(resolve, 300));
+            await new Promise(resolve => setTimeout(resolve, Math.floor(Math.random() * 300)));
           }
           width++;
           elem.style.width = width + "%";
@@ -319,7 +319,6 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       }
     }
     var that = this
-    return
     setTimeout(
       function() {
         $('.quiz_2__content-buttons').show()
