@@ -346,6 +346,8 @@
   display: flex;
   margin-top: 30px;
   flex-flow:column;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .quiz_2__input-group-bare label {
