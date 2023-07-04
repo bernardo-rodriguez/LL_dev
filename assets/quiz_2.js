@@ -294,11 +294,11 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     }
   }
 
-  sleep(ms) {
+  async sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  move() {
+  async move() {
     // return
     let serialized = $('#contact_form').serialize()
     populateProfile(serialized)
@@ -309,13 +309,13 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       var elem = document.getElementById("myBar");
       var width = 1;
       var id = setInterval(frame, 20);
-      function frame() {
+      async function frame() {
         if (width >= 100) {
           clearInterval(id);
           i = 0;
         } else {
           if ([36, 81, 91].includes(width)){
-            this.sleep(300)
+            await this.sleep(300)
           }
           width++;
           elem.style.width = width + "%";
