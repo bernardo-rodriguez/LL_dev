@@ -190,7 +190,6 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
 
     if (selected_elements.length > 1) {
       selected_elements.each(function( index ) {
-        console.log(selected_elements[index].value)
         input_value.push(selected_elements[index].value)
       })
     } else {
@@ -205,20 +204,35 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       currentState -= 1
     }
     let newState = currentState
+    let available_states = {}
+    let highest_priority = 10 // initiate highest priority text (for checkboxes)
     if (x == 1) {
       if (currentState in this.feedback_dictionary) {
         let feedbackState = this.feedback_dictionary[currentState]
         let input_name = Object.keys(feedbackState['conditions'])[0]
         let input_value = this.getInputValue(input_name)
-        console.log(input_value)
 
         if (Object.keys(feedbackState['conditions'][input_name]).length == 0) {
           newState = currentState + 0.5
-        } else if (input_value in feedbackState['conditions'][input_name]) {
-          newState = currentState + 0.5
-          this.stepSpecificText(feedbackState['conditions'][input_name][input_value])
-        } else {
-          newState = this.normalAdd(x, currentState)
+        } 
+        // else if (input_value in feedbackState['conditions'][input_name]) {
+        //   newState = currentState + 0.5
+        //   this.stepSpecificText(feedbackState['conditions'][input_name][input_value])
+        // } 
+        else {
+          for (value of input_value) {
+            if (value in feedbackState['conditions'][input_name]) {
+              available_states.push(feedbackState['conditions'][input_name][input_value])
+            }
+          }
+          if (available_states.length > 0) {
+            console.log(available_states)
+            // newState = currentState + 0.5
+            // this.stepSpecificText(feedbackState['conditions'][input_name][input_value])
+          } else {
+            newState = this.normalAdd(x, currentState)
+          }
+          // newState = this.normalAdd(x, currentState)
         }
       } else {
         newState = this.normalAdd(x, currentState)
