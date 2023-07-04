@@ -394,6 +394,10 @@
   width: 120px;
 }
 
+.insight_image_2 {
+  margin: 10px;
+}
+
 .teeth_compare {
   display: inline-block;
   box-shadow: -2px 3px 6px #46464626;
@@ -422,6 +426,12 @@
   .insight_image {
     height: 60px;
     width: 60px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  .insight_image_2 {
+    margin-top: 30px;
+    margin-bottom: 20px;
   }
   .laughland-drop-container {
     display: block;
@@ -442,10 +452,6 @@
   .quiz_2__input-group-bare label {
     padding: 18.5px 20px !important;
     text-align: center;
-  }
-  .insight_image {
-    margin-top: 50px;
-    margin-bottom: 20px;
   }
   .insight_headers {
     font-size: 25px;
