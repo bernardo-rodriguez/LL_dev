@@ -319,6 +319,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       }
     }
     var that = this
+    return
     setTimeout(
       function() {
         $('.quiz_2__content-buttons').show()
