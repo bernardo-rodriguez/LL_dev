@@ -232,7 +232,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
           console.log(feedbackState['conditions'][input_name])
           input_value.forEach(function (value, index) {
             if (value in feedbackState['conditions'][input_name]) {
-              available_states[feedbackState['conditions'][input_name][value][priority]] = 
+              available_states[feedbackState['conditions'][input_name][value]['priority']] = 
               feedbackState['conditions'][input_name][value]
             }
           })
