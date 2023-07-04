@@ -204,7 +204,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       currentState -= 1
     }
     let newState = currentState
-    let available_states = {}
+    let available_states = []
     let highest_priority = 10 // initiate highest priority text (for checkboxes)
     if (x == 1) {
       if (currentState in this.feedback_dictionary) {
@@ -220,11 +220,11 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         //   this.stepSpecificText(feedbackState['conditions'][input_name][input_value])
         // } 
         else {
-          for (value of input_value) {
+          input_value.forEach(function (value, index) {
             if (value in feedbackState['conditions'][input_name]) {
               available_states.push(feedbackState['conditions'][input_name][input_value])
             }
-          }
+          })
           if (available_states.length > 0) {
             console.log(available_states)
             // newState = currentState + 0.5
