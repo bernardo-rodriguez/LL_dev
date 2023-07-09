@@ -48,7 +48,7 @@ function cookie_actions() {
 
     switch(subscriptionCookie[0]) {
       case 'redirect_sweatcoin': //sweatcoin annoucnement text 
-        showAnnouncementBar('👋 Sweatcoin Users, Free Whitening Pen with Purchase Today!')
+        showAnnouncementBar('Sweatcoin Users, Free Whitening Pen with Purchase Today!')
         break
       case 'redirect_ut': //cactus annoucnement text 
         showAnnouncementBar('Discount & Shipping Automatically Applied at Checkout!')
