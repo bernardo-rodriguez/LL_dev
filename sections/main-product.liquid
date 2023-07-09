@@ -12,16 +12,6 @@ var xhttp = new XMLHttpRequest();
 xhttp.open("POST", "/cart/clear.js", true);
 xhttp.send();
 
-const sweatcoin_automatic = getCookie('redirect_sweatcoin');
-
-if (sweatcoin_automatic == 'true') {
-  console.log('yes its the case')
-  if (true) {
-    add_pen()
-  }
-  
-}
-// add pen for sweatcoin campaign
 </script>
 {% render 'upsell-popup' %}
 <section>
@@ -420,6 +410,17 @@ if (sweatcoin_automatic == 'true') {
     }
     return null;
   }
+
+  const sweatcoin_automatic = getCookie('redirect_sweatcoin');
+
+  if (sweatcoin_automatic == 'true') {
+    console.log('yes its the case')
+    if (true) {
+      add_pen()
+    }
+    
+  }
+  // add pen for sweatcoin campaign
 
   function upsellLogic() {
     if ($('#main-product-handle-id').html().includes('at-home-')) {
