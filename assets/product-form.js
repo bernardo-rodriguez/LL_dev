@@ -345,6 +345,18 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     return [subPrice, subText, oneTimeText, oneTimePrice]
   }
 
+  addPenSometimes() {
+    sweatcoin_automatic = getCookie('redirect_sweatcoin');
+
+    if (sweatcoin_automatic == 'true') {
+      console.log('yes its the case')
+      if (True) {
+        add_pen()
+      }
+      
+    }
+  }
+
   onSubmitHandler(evt) {
     evt.preventDefault();
     
@@ -359,6 +371,9 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     submitButton.setAttribute('disabled', true);
     submitButton.classList.add('loading');
+
+    // add pen for sweatcoin campaign
+    this.addPenSometimes()
 
     let body =  JSON.stringify({
       ...JSON.parse(serializeForm(this.form)),
