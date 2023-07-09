@@ -11,7 +11,6 @@ var xhttp = new XMLHttpRequest();
 
 xhttp.open("POST", "/cart/clear.js", true);
 xhttp.send();
-
 </script>
 {% render 'upsell-popup' %}
 <section>
@@ -410,17 +409,6 @@ xhttp.send();
     }
     return null;
   }
-
-  // const sweatcoin_automatic = getCookie('redirect_sweatcoin');
-
-  // if (sweatcoin_automatic == 'true') {
-  //   console.log('yes its the case')
-  //   if (true) {
-  //     add_pen()
-  //   }
-    
-  // }
-  // add pen for sweatcoin campaign
 
   function upsellLogic() {
     if ($('#main-product-handle-id').html().includes('at-home-')) {
