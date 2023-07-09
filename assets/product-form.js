@@ -346,7 +346,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   addPenSometimes() {
-    sweatcoin_automatic = getCookie('redirect_sweatcoin');
+    const sweatcoin_automatic = getCookie('redirect_sweatcoin');
 
     if (sweatcoin_automatic == 'true') {
       console.log('yes its the case')
