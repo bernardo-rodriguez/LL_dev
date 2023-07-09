@@ -225,7 +225,6 @@
     document.querySelector('#checkout').addEventListener('click', function(event) {
       {% comment %} document.querySelector('#cart').submit(); {% endcomment %}
       try {
-        console.log('in trying');
         paceline_automatic = getCookie('redirect_paceline');
         sweatcoin_automatic = getCookie('redirect_sweatcoin');
         redirect_ut_direct = getCookie('redirect_ut_direct');
