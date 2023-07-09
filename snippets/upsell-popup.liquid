@@ -227,13 +227,13 @@
           data: pen,
           dataType: 'json',
           success: function() { 
-            console.log('homie')
+            {% comment %} console.log('homie')
             $('#real-submit-button').click()
-            $('body').css("filter","none");
+            $('body').css("filter","none"); {% endcomment %}
           },
           error: function (exception) {
             console.log(exception)
-            $('#real-submit-button').click()
+            {% comment %} $('#real-submit-button').click() {% endcomment %}
           }
         });
       }
