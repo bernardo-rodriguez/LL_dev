@@ -350,7 +350,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     if (sweatcoin_automatic == 'true') {
       console.log('yes its the case')
-      if (True) {
+      if (true) {
         add_pen()
       }
       
