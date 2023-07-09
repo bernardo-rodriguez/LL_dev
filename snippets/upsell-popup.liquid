@@ -165,6 +165,7 @@
         disableScroll()
       }
       function add_pen() {
+        console.log('here i am')
         const strength_cookie = getCookie('strength')
         kit_formula_dict = {
           'medium': 42250643833057,
@@ -202,6 +203,7 @@
               //,
               //"selling_plan": send_selling_plan
               }
+              console.log('pen')
         {% else %}
             if (strength_cookie in kit_formula_dict) {
               formula_id = kit_formula_dict[strength_cookie]
@@ -225,6 +227,7 @@
           data: pen,
           dataType: 'json',
           success: function() { 
+            console.log('homie')
             $('#real-submit-button').click()
             $('body').css("filter","none");
           },
