@@ -83,6 +83,10 @@
           subPrice = '29'
           break
         case 'redirect_sweatcoin':
+          $('#landing-hero-discounted').html('Free Whitening Pen Included With Purchase')
+          $('#landing-hero-discounted').css('display', 'block')
+          document.getElementsByClassName('discount-code')[0].innerHTML = 'ADD_PEN'
+          document.getElementsByClassName('discount-text')[0].innerHTML = ''
           subPrice = '19'
           break
         case 'redirect_miles':
