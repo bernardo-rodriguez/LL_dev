@@ -12,8 +12,16 @@ var xhttp = new XMLHttpRequest();
 xhttp.open("POST", "/cart/clear.js", true);
 xhttp.send();
 
+const sweatcoin_automatic = getCookie('redirect_sweatcoin');
+
+if (sweatcoin_automatic == 'true') {
+  console.log('yes its the case')
+  if (true) {
+    add_pen()
+  }
+  
+}
 // add pen for sweatcoin campaign
-this.addPenSometimes()
 </script>
 {% render 'upsell-popup' %}
 <section>
