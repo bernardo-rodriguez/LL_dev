@@ -37,7 +37,7 @@
     }
     .quiz_2__inner {
         {% comment %} margin-top: 80px !important; {% endcomment %}
-        min-height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+        min-height: calc(100vh - 80px); /* Fallback for browsers that do not support Custom Properties */
         min-height: calc(var(--vh, 1vh) * 100);
     }
   .announcement-bar {
