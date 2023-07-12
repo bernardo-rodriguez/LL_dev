@@ -1,2 +1,10 @@
 {% section 'quiz-2' %}
 <script src="{{ 'quiz_2.js' | asset_url }}" defer></script>
+
+
+<script>
+document.body.style.overflow = "hidden";
+$('#shopify-section-quiz-2').css('display', 'block')
+$("body").css("background-color","white");
+document.querySelector('.quiz_2').setAttribute('aria-hidden', false);
+</script>
