@@ -37,8 +37,8 @@
     }
     .quiz_2__inner {
         {% comment %} margin-top: 80px !important; {% endcomment %}
-        min-height: calc(100vh - 80px);
-        min-height: calc(-webkit-fill-available - 80px);
+        min-height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+        min-height: calc(var(--vh, 1vh) * 100);
     }
   .announcement-bar {
     display: none !important;
@@ -47,3 +47,10 @@
     background-color: white !important;
     }
 </style>
+
+<script>
+// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+let vh = window.innerHeight * 0.01;
+// Then we set the value in the --vh custom property to the root of the document
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+</script>
