@@ -3,10 +3,37 @@
 
 
 <script>
-$('.sticky-footer__button').first().css('display', 'none !important')
-setTimeout(function(){ $('.sticky-footer__button').first().css('display', 'none !important')}, 2000);
 document.body.style.overflow = "hidden";
 $('#shopify-section-quiz-2').css('display', 'block')
 $("body").css("background-color","white");
 document.querySelector('.quiz_2').setAttribute('aria-hidden', false);
 </script>
+
+
+<style>
+    .sticky-footer__button {
+        background: none;
+        color: none;
+        text-align: auto;
+        padding: auto;
+        border-radius: auto;
+        display: auto;
+        width: none;
+        transform: none;
+        transition: none;
+        display: none
+      }
+      
+      .sticky-footer__button > * {
+        pointer-events: none;
+      }
+      
+      .sticky-footer__button:hover {
+        transform: none;
+      }
+      
+      .sticky-footer__button.hide {
+        transform: none;
+      
+      }
+</style>
