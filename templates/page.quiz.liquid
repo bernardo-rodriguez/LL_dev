@@ -16,7 +16,7 @@
 <script>
   document.body.style.overflow = 'hidden';
   $('#shopify-section-quiz-2').css('display', 'block');
-  $('body').css('background-color', 'white');
+  $('body').css('background-color', 'white !important');
   document.querySelector('.quiz_2').setAttribute('aria-hidden', false);
 </script>
 
@@ -47,12 +47,14 @@
   .quiz_2__header {
     display: none !important;
     }
+    @media screen and (max-width: 768px) {
     .quiz_2__inner {
         margin-top: 60px;
         {% comment %} margin-top: 80px !important; {% endcomment %}
         min-height: calc(100vh - 60px); /* Fallback for browsers that do not support Custom Properties */
         min-height: calc(var(--vh, 1vh) * 100 - 60px);
     }
+  }
   .announcement-bar {
     display: none !important;
     }
