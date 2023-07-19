@@ -16,6 +16,10 @@
     position: relative;
 }
 
+.header__logo {
+    display: none; /* TO REMOVE LAUGHLAND LOGO */
+}
+
 .product-landing-header .formula-point-wrapper {
     margin-top: 10px;
     display: flex
@@ -45,6 +49,7 @@
     line-height: 21px;
     letter-spacing: -0.01em;
     text-align: center;
+    margin-top: -60px; /* TO REMOVE LAUGHLAND LOGO */
 }
 
 .perfect-match {
