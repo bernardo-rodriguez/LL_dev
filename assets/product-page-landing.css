@@ -11,7 +11,13 @@
 }
 
 .shopify-section-sticky-footer {
-    display: none;
+    display: none !important;
+    opacity: 0 !important;
+}
+
+.sticky-footer__button {
+    display: none !important;
+    opacity: 0 !important;
 }
 
 .product-header-wrapper {
