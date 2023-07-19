@@ -2539,3 +2539,13 @@ section.with-spacing {
     display: none;
   }
 } */
+
+.gma_icon {
+  height: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .gma_icon{
+    height: 30px;
+  }
+}
