@@ -10,6 +10,10 @@
     text-align: center;
 }
 
+.shopify-section-sticky-footer {
+    display: none;
+}
+
 .product-header-wrapper {
     max-width: 900px;
     display: inline-block;
