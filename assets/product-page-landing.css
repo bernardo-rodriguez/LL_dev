@@ -103,6 +103,9 @@
 }
 
 @media screen and (max-width: 768px) {
+    .landing-stars {
+        font-size: 14px;
+    }
     .perfect-match {
         font-size: 30px;
     }
@@ -182,6 +185,7 @@
 @media screen and (max-width: 860px) {
     .ingredient-top-wrapper {
         flex-direction: column;
+        padding-bottom: 10px;
     }
     .ingredient-box-ingredient {
         text-align:center;
