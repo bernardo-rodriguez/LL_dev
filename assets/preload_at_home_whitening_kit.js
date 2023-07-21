@@ -28,8 +28,9 @@ function preload_at_home_CSS() {
 
 //-- usage --//
 function preload_at_home_whitening_kit() {
+    console.log('preloading')
     preload_at_home(
-        "https://www.mylaughland.com/cdn/shop/t/128/assets/blue-pen-big.png?v=75789883786534928331687761031",
+        "https://www.mylaughland.com/cdn/shop/t/128/assets/blue-pen-big.png?v=75789883786534928331687761031"
         // "https://www.mylaughland.com/cdn/shop/t/128/assets/blue-pen-small.png?v=10233571042852380481688254825",
         // "https://www.mylaughland.com/cdn/shop/files/Laughland-drip-big.png?v=1686797546",
         // "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/before-after-smaller.png?v=1688076991&width=2048",
