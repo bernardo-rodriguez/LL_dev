@@ -2,14 +2,14 @@ var images = [];
 function preload_at_home() {
     for (var i = 0; i < arguments.length; i++) {
         images[i] = new Image();
-        images[i].src = preload.arguments[i];
+        images[i].src = preload_at_home.arguments[i];
     }
 }
 
 function preload_at_home_JS() {
     for (var i = 0; i < arguments.length; i++) {
         var preloadLink = document.createElement("link");
-        preloadLink.href = preloadJS.arguments[i];
+        preloadLink.href = preload_at_home_JS.arguments[i];
         preloadLink.rel = "preload";
         preloadLink.as = "script";
         document.head.appendChild(preloadLink);
@@ -19,7 +19,7 @@ function preload_at_home_JS() {
 function preload_at_home_CSS() {
     for (var i = 0; i < arguments.length; i++) {
         var preloadLink = document.createElement("link");
-        preloadLink.href = preloadCSS.arguments[i];
+        preloadLink.href = preload_at_home_CSS.arguments[i];
         preloadLink.rel = "preload";
         preloadLink.as = "style";
         document.head.appendChild(preloadLink);
