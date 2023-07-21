@@ -87,5 +87,5 @@ function preload_at_home_whitening_kit() {
 // window.onload = function() {
 //     preLoadStuff()
 // }
-document.addEventListener("DOMContentLoaded", preLoadStuff);
+// document.addEventListener("DOMContentLoaded", preLoadStuff);
 // $(window).load(preLoadStuff);
