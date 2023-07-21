@@ -35,8 +35,12 @@ function preload_at_home_whitening_kit() {
         "https://www.mylaughland.com/cdn/shop/products/4.jpg?v=1671102404",
         "https://www.mylaughland.com/cdn/shop/files/Laughland_79400_1.jpg?v=1674083131&width=1340",
         "https://www.mylaughland.com/cdn/shop/files/MP4_dd1165d5-4283-4226-9e3b-f81ba196527b.png?v=1673037047&width=1320",
-        "https://www.mylaughland.com/cdn/shop/files/IMG_0705.jpg?v=1687280436&width=2316", /* MAKE THIS MUCH SMALLER */
-        "https://www.mylaughland.com/cdn/shop/files/LesleyAfter.jpg?v=1679423356&width=1080", /* MAKE THIS MUCH SMALLER */
+        "https://www.mylaughland.com/cdn/shop/files/IMG_0705.jpg?v=1687280436&width=1500", 
+        "https://www.mylaughland.com/cdn/shop/files/LesleyAfter.jpg?v=1679423356&width=1500", 
+        "https://www.mylaughland.com/cdn/shop/files/Brisa5.jpg?v=1687280436&width=1500",
+        "https://www.mylaughland.com/cdn/shop/files/BrisaAfter.jpg?v=1679423225&width=1500",
+        "https://www.mylaughland.com/cdn/shop/files/IMG_0007.jpg?v=1687280533&width=1500",
+        "https://www.mylaughland.com/cdn/shop/files/NehaAfter.jpg?v=1679423399&width=1500"
     )
 
     preload_at_home_JS(
