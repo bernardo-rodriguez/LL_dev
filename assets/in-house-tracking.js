@@ -61,6 +61,8 @@ function redirectToLandingIfFirstTime2(cookie, p) {
     setGoogleLanding('homepage')
     // window.location.href = 'https://www.mylaughland.com'
   } else {
+      console.log('rand' + d)
+      console.log('set' + p)
       if (d <= p) {
         console.log('flow 1')
         setCookie('flow_ga_tracking_v1', 'true')
