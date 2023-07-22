@@ -117,7 +117,7 @@ function redirectToLandingIfFirstTime(cookie) {
 
       setGoogleLanding('landing-page')
       setTimeout(function(){
-        // window.location.href = 'https://www.mylaughland.com/pages/landing-page'
+        window.location.href = 'https://www.mylaughland.com/pages/landing-page'
       }, 200);
 
     }
