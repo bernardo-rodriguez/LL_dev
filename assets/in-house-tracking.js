@@ -50,6 +50,45 @@ function clearAllAffiliateCookies_(){
 }
 
 
+function redirectToLandingIfFirstTime2(cookie, p) {
+  // If I haven't redirected, redirect to random page and set landing page cookie.
+  // Mark redirect in cookies so we don't redirect again if a user somehow goes back with the same utm params.
+  // if (getCookie("in_house_already_redirected") != 'true') {
+  //   setCookie('in_house_already_redirected', 'true')
+              
+  var d = Math.random();
+  if (d <= 0) {
+    setGoogleLanding('homepage')
+    // window.location.href = 'https://www.mylaughland.com'
+  } else {
+      if (d <= p) {
+        console.log('flow 1')
+        setCookie('flow_ga_tracking_v1', 'true')
+      } else {
+        clearAllAffiliateCookies_()
+        console.log('flow 2')
+        setCookie('flow__ga_tracking_v2', 'true')
+      }
+      
+    if (getCookie("in_house_already_redirected") != 'true') {
+      setCookie('in_house_already_redirected', 'true')
+
+      setGoogleLanding('landing-page')
+      setTimeout(function(){
+        window.location.href = 'https://www.mylaughland.com/pages/landing-page'
+      }, 200);
+
+    }
+    
+    // setGoogleLanding('landing-page')
+    // setTimeout(function(){
+    //   window.location.href = 'https://www.mylaughland.com/pages/landing-page'
+    // }, 200);
+  }
+  // }
+}
+
+
 function redirectToLandingIfFirstTime(cookie) {
   // If I haven't redirected, redirect to random page and set landing page cookie.
   // Mark redirect in cookies so we don't redirect again if a user somehow goes back with the same utm params.
@@ -221,7 +260,7 @@ function landingPageAction(current_page, query_params) {
       case 'skimm':
         setCookieAffiliate('redirect_skimm', 'Skimm')
         setFirstTimeGtags('Skimm')
-        redirectToLandingIfFirstTime('redirect_skimm')
+        redirectToLandingIfFirstTime2('redirect_skimm', .5)
       default:
         // setCookie('redirect_sweatcoin', 'true')
         setFirstTimeGtags('NA')
