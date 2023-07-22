@@ -51,11 +51,6 @@ function clearAllAffiliateCookies_(){
 
 
 function redirectToLandingIfFirstTime2(cookie, p) {
-  // If I haven't redirected, redirect to random page and set landing page cookie.
-  // Mark redirect in cookies so we don't redirect again if a user somehow goes back with the same utm params.
-  // if (getCookie("in_house_already_redirected") != 'true') {
-  //   setCookie('in_house_already_redirected', 'true')
-              
   var d = Math.random();
   if (d <= 0) {
     setGoogleLanding('homepage')
