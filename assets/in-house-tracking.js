@@ -247,7 +247,7 @@ function landingPageAction(current_page, query_params) {
       case 'redirect_pinterest':
         setCookieAffiliate('redirect_pinterest', 'Pinterest')
         setFirstTimeGtags('Pinterest')
-        redirectToLandingIfFirstTime('redirect_pinterest')
+        redirectToLandingIfFirstTime2('redirect_pinterest', .5)
         break;
       case 'skimm':
         setCookieAffiliate('redirect_skimm', 'Skimm')
