@@ -263,6 +263,7 @@ function landingPageAction(current_page, query_params) {
         setCookieAffiliate('redirect_skimm', 'Skimm')
         setFirstTimeGtags('Skimm')
         redirectToLandingIfFirstTime2('redirect_skimm', .5)
+        break;
       default:
         // setCookie('redirect_sweatcoin', 'true')
         setFirstTimeGtags('NA')
