@@ -81,11 +81,6 @@ function redirectToLandingIfFirstTime2(cookie, p) {
       }, 200);
 
     }
-    
-    // setGoogleLanding('landing-page')
-    // setTimeout(function(){
-    //   window.location.href = 'https://www.mylaughland.com/pages/landing-page'
-    // }, 200);
   }
   // }
 }
@@ -121,11 +116,6 @@ function redirectToLandingIfFirstTime(cookie) {
       }, 200);
 
     }
-    
-    // setGoogleLanding('landing-page')
-    // setTimeout(function(){
-    //   window.location.href = 'https://www.mylaughland.com/pages/landing-page'
-    // }, 200);
   }
   // }
 }
