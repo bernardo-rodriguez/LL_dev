@@ -59,7 +59,6 @@ function redirectToLandingIfFirstTime2(cookie, p) {
   var d = Math.random();
   if (d <= 0) {
     setGoogleLanding('homepage')
-    // window.location.href = 'https://www.mylaughland.com'
   } else {
       console.log('rand' + d)
       console.log('set' + p)
@@ -74,15 +73,8 @@ function redirectToLandingIfFirstTime2(cookie, p) {
       
     if (getCookie("in_house_already_redirected") != 'true') {
       setCookie('in_house_already_redirected', 'true')
-
-      setGoogleLanding('landing-page')
-      setTimeout(function(){
-        window.location.href = 'https://www.mylaughland.com/pages/landing-page'
-      }, 200);
-
     }
   }
-  // }
 }
 
 
