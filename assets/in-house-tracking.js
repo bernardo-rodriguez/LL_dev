@@ -1,5 +1,5 @@
 affiliate_cookie_options = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_pinterest']
-affiliate_cookie_options_2 = ['redirect__inspire', 'redirect__ut', 'redirect__ut__direct', 'redirect__paceline', 'redirect__sweatcoin', 'redirect__miles', 'redirect__studentbeans', 'redirect__skimm', 'redirect__pinterest']
+affiliate_cookie_options_2 = ['redirect__inspire', 'redirect__ut', 'redirect__ut__direct', 'redirect__paceline', 'redirect__sweatcoin', 'redirect__miles', 'redirect__studentbeans', 'redirect__skimm', 'redirect__pinterest', 'shareasaleShopifySSCID']
 
 
 // if user arrives at mylaughland.com?utm_affiliate_specific=cactus_media
@@ -46,7 +46,9 @@ function clearAllAffiliateCookies(){
 }
 
 function clearAllAffiliateCookies_(){
-  affiliate_cookie_options_2.forEach((affiliate, index) => removeCookie(affiliate));
+  if (getCookie("in_house_tracked") != 'true') {
+    affiliate_cookie_options_2.forEach((affiliate, index) => removeCookie(affiliate));
+  }
 }
 
 
