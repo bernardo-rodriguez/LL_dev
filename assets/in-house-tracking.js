@@ -45,10 +45,12 @@ function clearAllAffiliateCookies(){
   removeCookie('upsell_test')
 }
 
-function clearAllAffiliateCookies_(){
+function clearAllAffiliateCookies_(p){
   var d = Math.random();
   if (getCookie("in_house_tracked") != 'true') {
-    affiliate_cookie_options_2.forEach((affiliate, index) => removeCookie(affiliate));
+    if (d <= p) {
+      affiliate_cookie_options_2.forEach((affiliate, index) => removeCookie(affiliate));
+    }
   }
 }
 
@@ -262,23 +264,23 @@ function landingPageAction(current_page, query_params) {
       setFirstTimeGtags('landing-page')
       setGoogleLanding('landing-page')
       if (query_params.utm_affiliate_specific == 'skimm') {
-        clearAllAffiliateCookies_()
+        clearAllAffiliateCookies_(.8)
         setCookieAffiliate('redirect_skimm', 'Skimm')
         setCookie('in_house_already_redirected', 'true')
       } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
-        clearAllAffiliateCookies_()
+        clearAllAffiliateCookies_(.8)
         setCookieAffiliate('redirect_pinterest', 'Pinterest')
         setCookie('in_house_already_redirected', 'true')
       }
   } else {
       setFirstTimeGtags(current_page)
       if (query_params.utm_affiliate_specific == 'skimm') {
-        clearAllAffiliateCookies_()
+        clearAllAffiliateCookies_(.8)
         setCookieAffiliate('redirect_skimm', 'Skimm')
         setFirstTimeGtags('Skimm')
         setCookie('in_house_already_redirected', 'true')
       } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
-        clearAllAffiliateCookies_()
+        clearAllAffiliateCookies_(.8)
         setCookieAffiliate('redirect_pinterest', 'Pinterest')
         setFirstTimeGtags('Pinterest')
         setCookie('in_house_already_redirected', 'true')
