@@ -66,7 +66,7 @@ function redirectToLandingIfFirstTime2(cookie, p) {
         console.log('flow 1')
         setCookie('flow_ga_tracking_v1', 'true')
       } else {
-        clearAllAffiliateCookies_()
+        clearAllAffiliateCookies_(1)
         console.log('flow 2')
         setCookie('flow__ga_tracking_v2', 'true')
       }
