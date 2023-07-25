@@ -283,11 +283,13 @@ function landingPageAction(current_page, query_params) {
         setCookieAffiliate('redirect_skimm', 'Skimm')
         setFirstTimeGtags('Skimm')
         setCookie('in_house_already_redirected', 'true')
+        setCookie('cookie_tracked', 'true')
       } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
         clearAllAffiliateCookies_(.5)
         setCookieAffiliate('redirect_pinterest', 'Pinterest')
         setFirstTimeGtags('Pinterest')
         setCookie('in_house_already_redirected', 'true')
+        setCookie('cookie_tracked', 'true')
       }
   }
 }
