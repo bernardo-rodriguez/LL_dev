@@ -51,8 +51,6 @@ function clearAllAffiliateCookies_(p){
     if (d <= p) {
       affiliate_cookie_options_2.forEach((affiliate, index) => removeCookie(affiliate));
     }
-  } else {
-    setCookie('cookie_tracked', 'true')
   }
 }
 
@@ -271,10 +269,12 @@ function landingPageAction(current_page, query_params) {
         clearAllAffiliateCookies_(.5)
         setCookieAffiliate('redirect_skimm', 'Skimm')
         setCookie('in_house_already_redirected', 'true')
+        setCookie('cookie_tracked', 'true')
       } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
         clearAllAffiliateCookies_(.5)
         setCookieAffiliate('redirect_pinterest', 'Pinterest')
         setCookie('in_house_already_redirected', 'true')
+        setCookie('cookie_tracked', 'true')
       }
   } else {
       setFirstTimeGtags(current_page)
