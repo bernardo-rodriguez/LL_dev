@@ -166,8 +166,8 @@ function setCookieAffiliate(cookie, affiliate) {
 function setFirstTimeGtags(affiliate) {
   setInHouseTracked2() // set in_house_tracked_2
   setGoogleSourceDev2(affiliate) // set affiliate_source_dev_2
+  setCookie('in_house_tracked', 'true')
   if (getCookie("in_house_tracked") != 'true') {
-    setCookie('in_house_tracked', 'true')
     setInHouseTracked()
     setGoogleSourceDev(affiliate)
   }
