@@ -72,7 +72,8 @@ function redirectToLandingIfFirstTime2(cookie, p) {
         console.log('flow 2')
         setCookie('flow__ga_tracking_v2', 'true')
       }
-      
+
+    setCookie('cookie_tracked', 'true')
     if (getCookie("in_house_already_redirected") != 'true') {
       setCookie('in_house_already_redirected', 'true')
     }
@@ -100,7 +101,8 @@ function redirectToLandingIfFirstTime(cookie) {
         console.log('flow 2')
         setCookie('flow__ga_tracking_v2', 'true')
       }
-      
+
+    setCookie('cookie_tracked', 'true')
     if (getCookie("in_house_already_redirected") != 'true') {
       setCookie('in_house_already_redirected', 'true')
 
