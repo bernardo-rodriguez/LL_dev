@@ -51,6 +51,8 @@ function clearAllAffiliateCookies_(p){
     if (d <= p) {
       affiliate_cookie_options_2.forEach((affiliate, index) => removeCookie(affiliate));
     }
+  } else {
+    setCookie('cookie_tracked', 'true')
   }
 }
 
