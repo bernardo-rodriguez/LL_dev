@@ -46,6 +46,7 @@ function clearAllAffiliateCookies(){
 }
 
 function clearAllAffiliateCookies_(){
+  var d = Math.random();
   if (getCookie("in_house_tracked") != 'true') {
     affiliate_cookie_options_2.forEach((affiliate, index) => removeCookie(affiliate));
   }
