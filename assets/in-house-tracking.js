@@ -264,23 +264,23 @@ function landingPageAction(current_page, query_params) {
       setFirstTimeGtags('landing-page')
       setGoogleLanding('landing-page')
       if (query_params.utm_affiliate_specific == 'skimm') {
-        clearAllAffiliateCookies_(.8)
+        clearAllAffiliateCookies_(.5)
         setCookieAffiliate('redirect_skimm', 'Skimm')
         setCookie('in_house_already_redirected', 'true')
       } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
-        clearAllAffiliateCookies_(.8)
+        clearAllAffiliateCookies_(.5)
         setCookieAffiliate('redirect_pinterest', 'Pinterest')
         setCookie('in_house_already_redirected', 'true')
       }
   } else {
       setFirstTimeGtags(current_page)
       if (query_params.utm_affiliate_specific == 'skimm') {
-        clearAllAffiliateCookies_(.8)
+        clearAllAffiliateCookies_(.5)
         setCookieAffiliate('redirect_skimm', 'Skimm')
         setFirstTimeGtags('Skimm')
         setCookie('in_house_already_redirected', 'true')
       } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
-        clearAllAffiliateCookies_(.8)
+        clearAllAffiliateCookies_(.5)
         setCookieAffiliate('redirect_pinterest', 'Pinterest')
         setFirstTimeGtags('Pinterest')
         setCookie('in_house_already_redirected', 'true')
