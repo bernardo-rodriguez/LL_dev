@@ -1,6 +1,7 @@
 {{ 'section-sticky-footer.css' | asset_url | stylesheet_tag }}
 
-<script src="{{ 'preload_at_home_whitening_kit.js' | asset_url }}" defer></script>
+{% comment %} TEST PRELOAD {% endcomment %}
+{% comment %} <script src="{{ 'preload_at_home_whitening_kit.js' | asset_url }}" defer></script>
 <link rel="preload" href="https://www.mylaughland.com/cdn/shop/t/128/assets/Manrope-Regular.ttf?v=124279310659466313711680288517" as="font" type="font/ttf" crossorigin="anonymous">
 <link rel="preload" href="https://www.mylaughland.com/cdn/shop/t/128/assets/Manrope-Medium.ttf?v=138847691247259788911680288520" as="font" type="font/ttf" crossorigin="anonymous">
 <link rel="preload" href="https://www.mylaughland.com/cdn/shop/t/128/assets/PlusJakartaSans-Medium.ttf?v=109123112484148001791680288520" as="font" type="font/ttf" crossorigin="anonymous">
@@ -10,7 +11,7 @@
 <link rel="preload" href="https://www.mylaughland.com/cdn/shop/t/128/assets/CanelaDeck-LightItalic-Trial.otf?v=146973515870022439701687840497" as="font" type="font/otf" crossorigin="anonymous">
 <link rel="preload" href="https://www.mylaughland.com/cdn/shop/t/128/assets/CanelaDeck-Regular-Trial.otf?v=127372209001331910751687840499" as="font" type="font/otf" crossorigin="anonymous">
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" type="font/woff2" crossorigin="anonymous"> 
-<link rel="prefetch" href="https://www.mylaughland.com/products/at-home-whitening-kit" as="document">
+<link rel="prefetch" href="https://www.mylaughland.com/products/at-home-whitening-kit" as="document"> {% endcomment %}
 
 
 <div class="sticky-footer">
@@ -103,7 +104,7 @@
       document.querySelector('.quiz_2').setAttribute('aria-hidden', false);
     } else {
       console.log('preload')
-      preload_at_home_whitening_kit()
+      // preload_at_home_whitening_kit() TEST_PRELOAD
       $('#shopify-section-quiz').css('display', 'block')
       document.querySelector('.quiz').setAttribute('aria-hidden', false);
     }
