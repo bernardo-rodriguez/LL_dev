@@ -40,11 +40,19 @@ function preload_at_home_whitening_kit() {
         "https://www.mylaughland.com/cdn/shop/files/Brisa5.jpg?v=1687280436&width=1500",
         "https://www.mylaughland.com/cdn/shop/files/BrisaAfter.jpg?v=1679423225&width=1500",
         "https://www.mylaughland.com/cdn/shop/files/IMG_0007.jpg?v=1687280533&width=1500",
-        "https://www.mylaughland.com/cdn/shop/files/NehaAfter.jpg?v=1679423399&width=1500"
+        "https://www.mylaughland.com/cdn/shop/files/NehaAfter.jpg?v=1679423399&width=1500",
+        "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/Laughland_PenProduct_72501_3.png?v=1683324105",
+        "https://www.mylaughland.com/cdn/shop/products/12.jpg?v=1671102404",
+        "https://www.mylaughland.com/cdn/shop/products/277853769_989453628631128_6103431719502674547_n_1.png?v=1649362122&width=200",
+        "https://www.mylaughland.com/cdn/shop/products/1-1.25ProductPicture.jpg?v=1689977080&width=200",
+        "https://www.mylaughland.com/cdn/shop/products/12.jpg?v=1671102404&width=200",
+        "https://www.mylaughland.com/cdn/shop/products/4.jpg?v=1671102404&width=200",
+        "https://www.mylaughland.com/cdn/shop/products/ScreenShot2021-12-22at12.35.45AM.png?v=1640147794&width=200"
+
     )
 
     preload_at_home_JS(
-        // are these switching?
+        "https://www.mylaughland.com/cdn/shop/t/128/assets/product-form.js?v=116414170861993488341688944264"
         // "https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/224b18f7-acde-4496-b12f-c701a3909a92.min.js?v=c63519e6-1707-11ee-a195-b21abdbd5202",
         // "https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/4dff59fc-1de9-43d7-a664-feec286888f0.min.js?v=d58a1b78-1a98-11ee-bb35-f69a0a326a7f",
         // "https://replocdn.com/w/57e49375-3a33-42e8-88b7-484104081682/82491444-6cf5-4a48-b28e-8eb46f84b4c1.min.js?v=d34c8f46-16c2-11ee-8154-7a4af79e392a",
