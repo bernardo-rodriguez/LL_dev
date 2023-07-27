@@ -32,7 +32,7 @@ function preload_at_home_whitening_kit() {
     preload_at_home(
         "https://www.mylaughland.com/cdn/shop/products/1-1.25ProductPicture.jpg?v=1689977080",
         "https://www.mylaughland.com/cdn/shop/products/277853769_989453628631128_6103431719502674547_n_1.png?v=1649362122",
-        "https://www.mylaughland.com/cdn/shop/products/4.jpg?v=1671102404",
+        "https://www.mylaughland.com/cdn/shop/files/4-min.jpg?v=1690430950",
         "https://www.mylaughland.com/cdn/shop/files/Laughland_79400_1.jpg?v=1674083131&width=832",
         "https://www.mylaughland.com/cdn/shop/files/MP4_dd1165d5-4283-4226-9e3b-f81ba196527b.png?v=1673037047&width=832",
         "https://www.mylaughland.com/cdn/shop/files/IMG_0705.jpg?v=1687280436&width=832", 
