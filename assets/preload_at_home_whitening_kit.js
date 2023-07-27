@@ -59,6 +59,7 @@ function preload_at_home_whitening_kit() {
         "https://cdn.judge.me/widget/common.js",
         "https://cdn.judge.me/widget/main.js",
         "https://cdn.judge.me/widget/media.js",
+        "https://static.rechargecdn.com/assets/js/widget.min.js?shop=glowup-smile.myshopify.com"
         // "https://static.rechargecdn.com/assets/js/widget.min.js?shop=glowup-smile.myshopify.com"
     )
 
