@@ -46,7 +46,7 @@ function preload_at_home_whitening_kit() {
         "https://www.mylaughland.com/cdn/shop/products/277853769_989453628631128_6103431719502674547_n_1.png?v=1649362122&width=200",
         "https://www.mylaughland.com/cdn/shop/products/1-1.25ProductPicture.jpg?v=1689977080&width=200",
         "https://www.mylaughland.com/cdn/shop/products/12.jpg?v=1671102404&width=200",
-        "https://www.mylaughland.com/cdn/shop/products/4.jpg?v=1671102404&width=200",
+        "https://www.mylaughland.com/cdn/shop/files/4-min.jpg?v=1690430950&width=200",
         "https://www.mylaughland.com/cdn/shop/products/ScreenShot2021-12-22at12.35.45AM.png?v=1640147794&width=200",
         "https://www.mylaughland.com/cdn/shop/files/Byrdie_Logo-500x118.png?v=1677638689&width=300",
         "https://www.mylaughland.com/cdn/shop/files/instyle-logo_fd11ccc7-b9e1-4d8f-9f87-7438947a8269.png?v=1677637075&width=300"
