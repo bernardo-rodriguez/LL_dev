@@ -28,12 +28,11 @@
       </div>
 
       <div class="test-results__image">
-        {{ section.settings.image | image_url: width: master | image_tag }}
+        {{ section.settings.image | image_url: width: '832px'| image_tag: widths: '832' }}
       </div>
     </div>
   </div>
 </section>
-{% comment %} {{ section.settings.image | image_url: width: '1200px'| image_tag: widths: '1200' }} {% endcomment %}
 
 {% schema %}
 {
