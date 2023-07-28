@@ -393,7 +393,7 @@ xhttp.send();
       } else if (upsell_test = 'false') {
         let cart = await setCartAttributes("upsell_inactive"); 
       } else {
-        let cart = setCartAttributes("upsell_not_set"); 
+        let cart = await setCartAttributes("upsell_not_set"); 
       }
 
       if (paceline_automatic == 'true') {
