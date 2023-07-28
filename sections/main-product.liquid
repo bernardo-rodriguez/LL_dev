@@ -397,19 +397,19 @@ xhttp.send();
       }
 
       if (paceline_automatic == 'true') {
-        setCartAttributes("paceline"); 
+        await setCartAttributes("paceline"); 
       } else if (sweatcoin_automatic == 'true') {
-        setCartAttributes("sweatcoin"); 
+        await setCartAttributes("sweatcoin"); 
       } else if (redirect_ut == 'true') {
-        setCartAttributes("cactus_media"); 
+        await setCartAttributes("cactus_media"); 
       } else if (redirect_miles == 'true') {
-        setCartAttributes("miles"); 
+        await setCartAttributes("miles"); 
       } else if (redirect_skimm == 'true') {
-        setCartAttributes("skimm"); 
+        await setCartAttributes("skimm"); 
       }  else if (redirect_pinterest == 'true') {
-        setCartAttributes("pinterest"); 
+        await setCartAttributes("pinterest"); 
       } else {
-        setCartAttributes("not_applicable"); 
+        await setCartAttributes("not_applicable"); 
       }
       
   }
