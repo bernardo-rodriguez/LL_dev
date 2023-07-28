@@ -391,11 +391,26 @@ xhttp.send();
       if (upsell_test == 'true') {
         let cart = await setCartAttributes("upsell_active"); 
       } else if (upsell_test = 'false') {
-        let cart = setCartAttributes("upsell_inactive"); 
+        let cart = await setCartAttributes("upsell_inactive"); 
       } else {
         let cart = setCartAttributes("upsell_not_set"); 
       }
 
+      if (paceline_automatic == 'true') {
+        setCartAttributes("paceline"); 
+      } else if (sweatcoin_automatic == 'true') {
+        setCartAttributes("sweatcoin"); 
+      } else if (redirect_ut == 'true') {
+        setCartAttributes("cactus_media"); 
+      } else if (redirect_miles == 'true') {
+        setCartAttributes("miles"); 
+      } else if (redirect_skimm == 'true') {
+        setCartAttributes("skimm"); 
+      }  else if (redirect_pinterest == 'true') {
+        setCartAttributes("pinterest"); 
+      } else {
+        setCartAttributes("not_applicable"); 
+      }
       
   }
   setTimeout(() => { 
