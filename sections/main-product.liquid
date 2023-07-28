@@ -377,7 +377,17 @@ xhttp.send();
   }
   
   async function setAttributes() {
+      paceline_automatic = getCookie('redirect_paceline');
+      sweatcoin_automatic = getCookie('redirect_sweatcoin');
+      redirect_ut_direct = getCookie('redirect_ut_direct');
+      redirect_ut = getCookie('redirect_ut');
+      redirect_miles = getCookie('redirect_miles');
+      redirect_inspire = getCookie('redirect_inspire');
+      redirect_skimm = getCookie('redirect_skimm')
+      redirect_pinterest = getCookie('redirect_pinterest')
+    
       upsell_test = getCookie('upsell_test')
+    
       if (upsell_test == 'true') {
         let cart = await setCartAttributes("upsell_active"); 
       } else if (upsell_test = 'false') {
@@ -385,6 +395,8 @@ xhttp.send();
       } else {
         let cart = setCartAttributes("upsell_not_set"); 
       }
+
+      
   }
   setTimeout(() => { 
       setAttributes()
