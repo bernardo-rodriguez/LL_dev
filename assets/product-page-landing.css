@@ -343,6 +343,7 @@
 .mid-offer-list {
     font-size: 14px;
     font-weight: 400;
+    padding-top: 0 !important;
 }
 
 @media screen and (max-width: 768px) {
