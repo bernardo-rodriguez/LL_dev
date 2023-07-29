@@ -187,6 +187,12 @@
 }
 
 @media screen and (max-width: 768px) {
+  .landing-radio__label {
+    display: flex!important; 
+    flex-direction: row!important;
+    align-items: center!important;
+  }
+
   .updated-price {
     padding-right: 0;
   }
