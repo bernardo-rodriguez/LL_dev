@@ -340,6 +340,11 @@
     text-align: left;
 }
 
+.mid-offer-list {
+    font-size: 14px;
+    font-weight: 400;
+}
+
 @media screen and (max-width: 768px) {
     .mobile-offer-wrapper {
         margin-bottom: -30px; 
@@ -388,6 +393,7 @@
     }
     .mid-offer-list {
         font-size: 12px;
+        font-weight: 400;
     }
     .formula-point-text {
         font-weight: 600;
