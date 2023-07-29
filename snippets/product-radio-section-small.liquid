@@ -21,7 +21,7 @@
                       <div class="rc-custom-radio-button"></div>
                       <span class="landing-radio-flex updated-price">$49</span>
                   </div>
-                  <ul class='mid-offer-list' style='padding: 10px; margin: 0; font-weight: 400; text-align:left'>
+                  <ul id = 'mobile-one-description' class='mid-offer-list' style='padding: 10px; margin: 0; font-weight: 400; text-align:left'>
                     <li>1 Treatment Cycles: 3 Whitening Serums</li>
                     <li>Includes Nano-LED Accelerator Light</li>
                   </ul>
@@ -109,7 +109,7 @@
                         $109</span>
                     </div>
                   </div>
-                  <ul class='mid-offer-list' style='padding: 10px; margin: 0; font-weight: 400; text-align:left'>
+                  <ul id = 'mobile-three-description' class='mid-offer-list' style='padding: 10px; margin: 0; font-weight: 400; text-align:left'>
                     <li>3 Treatment Cycles: 9 Whitening Serums</li>
                     <li>Includes Nano-LED Accelerator Light</li>
                     <li>Free To-Go Whitening Pen ($15 Value)</li>
@@ -123,3 +123,13 @@
     </div>
   </div>
 </div>
+
+
+<script>
+  $("input[type=radio][name=supply_type]").change(function() {
+    var value = $(this).val();
+    if (value == '3_month_supply') {
+      $('#mobile-two-description').css('display', 'block')
+    }
+  });
+</script>

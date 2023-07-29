@@ -213,3 +213,11 @@
   text-align:left;
   flex: 1;
 }
+
+#mobile-one-description {
+  display: none
+}
+
+#mobile-three-description {
+  display: none
+}
