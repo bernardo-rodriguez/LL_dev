@@ -7,7 +7,7 @@
             class="rc-radio rc-option__onetime rc-option rc_widget__option rc_widget__option--onetime rc-legacy-radio"
             data-option-onetime="">
             <div class="rc_widget__option__selector" data-selector-onetime="">
-              <input id="1_month_supply" type="radio" name="supply_type"
+              <input id="1_month_supply" type="radio" name="supply_type_big"
                 class="rc-radio__input rc_widget__option__input rc_widget__option__input--onetime" data-radio-onetime=""
                 value="1_month">
               <label for="1_month_supply" class="landing-radio__label rc_widget__option__label" data-label-onetime="">
@@ -27,7 +27,7 @@
             class="rc-radio rc-option__subsave rc-option rc_widget__option rc_widget__option--subsave rc-legacy-radio rc_widget__option--active rc-option--active"
             data-option-subsave="">
             <div class="rc_widget__option__selector" data-selector-subsave="">
-              <input id="2_month_supply" type="radio" name="supply_type"
+              <input id="2_month_supply" type="radio" name="supply_type_big"
                 class="rc-radio__input rc_widget__option__input rc_widget__option__input--subsave" data-radio-subsave=""
                 value="2_month">
               <label for="2_month_supply" class="landing-radio__label rc_widget__option__label" data-label-subsave="">
@@ -70,7 +70,7 @@
             class="rc-radio rc-option__subsave rc-option rc_widget__option rc_widget__option--subsave rc-legacy-radio rc_widget__option--active rc-option--active"
             data-option-subsave="">
             <div class="rc_widget__option__selector" data-selector-subsave="">
-              <input id="3_month_supply" type="radio" name="supply_type"
+              <input id="3_month_supply" type="radio" name="supply_type_big"
                 class="rc-radio__input rc_widget__option__input rc_widget__option__input--subsave" data-radio-subsave=""
                 value="3_month">
               <label for="3_month_supply" class="landing-radio__label rc_widget__option__label" data-label-subsave="">
@@ -105,3 +105,10 @@
     </div>
   </div>
 </div>
+
+<script>
+  $("input[type=radio][name=supply_type_big]").change(function() {
+    var value = $(this).val();
+    $(":input[type=radio][name=supply_type_big][value=" + value + "]").prop("checked", true);
+  });
+</script>
