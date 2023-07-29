@@ -107,7 +107,7 @@
 </div>
 
 <script>
-  $("input[type=radio][name=supply_type_big]").change(function() {
+  $("input[name=supply_type_big]").change(function() {
     var value = $(this).val();
     console.log('value is ' + value)
     $(":input[type=radio][name=supply_type_big][value=" + value + "]").prop("checked", true);
