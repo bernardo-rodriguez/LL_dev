@@ -301,14 +301,14 @@
     display:inline-block; 
     background-color: #FF9F2F; 
     width: 100%; 
-    max-width: 200px;
+    max-width: 160px;
     border-radius:20px
 }
 
 .offer-button-text {
     text-align: center; 
     font-family: Plus Jakarta Sans; 
-    font-size: 12px; 
+    font-size: 11px; 
     color: white
 }
 
