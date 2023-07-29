@@ -128,12 +128,10 @@
 <script>
   $("input[type=radio][name=supply_type]").change(function() {
     var value = $(this).val();
-    console.log('the value is: ' + value)
     if (value == '3_month') {
-      console.log('its happening')
       $('#mobile-three-description').css('display', 'block')
-    } else {
-      $('#mobile-three-description').css('display', 'none')
+    } else if (value == '1_month') {
+      $('#mobile-one-description').css('display', 'none')
     }
   });
 </script>
