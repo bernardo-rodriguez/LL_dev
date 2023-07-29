@@ -208,3 +208,8 @@
   padding-left: 40px;
   flex: 1;
 }
+
+.landing-radio-flex-left-onetime {
+  text-align:left;
+  flex: 1;
+}
