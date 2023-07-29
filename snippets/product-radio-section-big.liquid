@@ -107,9 +107,14 @@
 </div>
 
 <script>
-  $("input[name=supply_type_big]").change(function() {
+  console.log('alllrighty')
+  $("input[type=radio][name=supply_type_big]").change(function() {
     var value = $(this).val();
     console.log('value is ' + value)
     $(":input[type=radio][name=supply_type_big][value=" + value + "]").prop("checked", true);
   });
+
+  {% comment %} document.get.addEventListener('change', function() {
+
+  }); {% endcomment %}
 </script>
