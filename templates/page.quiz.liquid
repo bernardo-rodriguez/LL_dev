@@ -18,6 +18,11 @@
   $('#shopify-section-quiz-2').css('display', 'block');
   $('body').css('background-color', 'white !important');
   document.querySelector('.quiz_2').setAttribute('aria-hidden', false);
+
+  // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+  let vh = window.innerHeight * 0.01;
+  // Then we set the value in the --vh custom property to the root of the document
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
 </script>
 
 <style>
@@ -79,10 +84,3 @@
     }
       
 </style>
-
-<script>
-// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
-let vh = window.innerHeight * 0.01;
-// Then we set the value in the --vh custom property to the root of the document
-document.documentElement.style.setProperty('--vh', `${vh}px`);
-</script>
