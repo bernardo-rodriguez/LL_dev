@@ -14,18 +14,6 @@
 <link rel="prefetch" href="https://www.mylaughland.com/products/landing-page-product-main" as="document">
 
 <script>
-  // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
-  let vh = window.innerHeight * 0.01;
-  // Then we set the value in the --vh custom property to the root of the document
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-
-  // We listen to the resize event
-  window.addEventListener('resize', () => {
-    // We execute the same script as before
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-  });
-
   document.body.style.overflow = 'hidden';
   $('#shopify-section-quiz-2').css('display', 'block');
   $('body').css('background-color', 'white !important');
@@ -33,10 +21,9 @@
 </script>
 
 <style>
-  .header__icon {
+  {% comment %} .header__icon {
     display: none !important;
-  }
-
+  } {% endcomment %}
   .sticky-footer__button {
     background: none !important;
     color: white !important;
@@ -92,3 +79,10 @@
     }
       
 </style>
+
+<script>
+// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+let vh = window.innerHeight * 0.01;
+// Then we set the value in the --vh custom property to the root of the document
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+</script>
