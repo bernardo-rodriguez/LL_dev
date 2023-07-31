@@ -26,6 +26,10 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
                 {
                   "text":"Our Formulas Come With Glycerol, Which Helps To Retain Moisture In Your Mouth, Preventing Excessive Drying Of The Gums And Oral Tissues During The Whitening Process. It’s Lubricating Properties Also Offers A Protective Effect On The Gums By Reducing Friction And Irritation.",
                   "id": "three_response_text_1"
+                },
+                {
+                  "text":"It’s Lubricating Properties Also Offers A Protective Effect On The Gums By Reducing Friction And Irritation.",
+                  "id": "three_response_text_2"
                 }
               ],
               'priority': 1
@@ -35,6 +39,10 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
                 {
                   "text":"Our Formulas Come With Glycerol, Which Helps To Retain Moisture In Your Mouth, Preventing Excessive Drying Of The Gums And Oral Tissues During The Whitening Process. It’s Lubricating Properties Also Offers A Protective Effect On The Gums By Reducing Friction And Irritation.",
                   "id": "three_response_text_1"
+                },
+                {
+                  "text":"It’s Lubricating Properties Also Offers A Protective Effect On The Gums By Reducing Friction And Irritation.",
+                  "id": "three_response_text_2"
                 }
               ],
               'priority': 2
@@ -44,6 +52,10 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
                 {
                   "text":"Our Formulas Come With Glycerol, Which Helps To Retain Moisture In Your Mouth, Preventing Excessive Drying Of The Gums And Oral Tissues During The Whitening Process. It’s Lubricating Properties Also Offers A Protective Effect On The Gums By Reducing Friction And Irritation.",
                   "id": "three_response_text_1"
+                },
+                {
+                  "text":"It’s Lubricating Properties Also Offers A Protective Effect On The Gums By Reducing Friction And Irritation.",
+                  "id": "three_response_text_2"
                 }
               ],
               'priority': 3
