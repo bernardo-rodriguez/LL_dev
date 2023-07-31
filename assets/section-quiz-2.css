@@ -38,6 +38,12 @@
   .question_subheaders {
     text-align:center;
   }
+  .calculating_match {
+    text-align: center;
+  }
+  .last_insight {
+    font-size: 20px;
+  }
 }
 
 .quiz_2__inner {
