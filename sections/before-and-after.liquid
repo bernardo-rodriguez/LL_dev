@@ -35,9 +35,16 @@
     </div>
     <div class='customer-inner'>
         <div>
-            <div>
-                <p>She started then</p>
-            </div>
+            <div class="carousel-instance-customer swiper">
+                <div class="swiper-wrapper">
+                  {% for block in section.blocks %}
+                    <div class="swiper-slide">
+                      <div class="carousel__slide-content">
+                        <h3 class="carousel__slide-text m-h5">{{ block.settings.text }}</h3>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
         </div>
     </div>
   </div>
@@ -46,6 +53,22 @@
 
 {% javascript %}
   const carousel = new Swiper('.carousel-instance', {
+    slidesPerView: 1,
+    autoplay: {
+      speed: 7000,
+    },
+    loop: true,
+    navigation: {
+      nextEl: '.carousel-next',
+      prevEl: '.carousel-prev',
+    },
+    pagination: {
+      el: '.carousel-pagination',
+      type: 'bullets',
+    },
+  });
+
+  const carousel = new Swiper('.carousel-instance-customer', {
     slidesPerView: 1,
     autoplay: {
       speed: 7000,
