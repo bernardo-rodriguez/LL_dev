@@ -102,7 +102,7 @@
 
 .product_carousel_verified {
   display: inline-block;
-  font-size: 14px;
+  font-size: 12px;
   margin-left: 20px;
   color: #313131;
 }
@@ -138,6 +138,6 @@
     display: block;
   }
   .product_carousel_verified {
-    font-size: 12px;
+    font-size: 10px;
   }
 }
