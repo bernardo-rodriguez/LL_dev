@@ -39,15 +39,25 @@
                 {% for block in section.blocks %}
                 <div class="swiper-slide">
                     <div class="carousel__slide-content">
-                    <h3 class="carousel__slide-text m-h5">{{ block.settings.text }}</h3>
+                        <p class="">{{ block.settings.name }}</p>
+                        <p class="">{{ block.settings.background }}</p>
+                        <hr>
+                        <div>
+                          <div>
+                            <span class = 'landing-stars'>FB-17 REVIEW</span>
+                            <span class="fa fa-star checked-landing landing-stars"></span>
+                            <span class="fa fa-star checked-landing landing-stars"></span>
+                            <span class="fa fa-star checked-landing landing-stars"></span>
+                            <span class="fa fa-star checked-landing landing-stars"></span>
+                            <span class="fa fa-star checked-landing landing-stars"></span>
+                          </div>
+                        </div>
+                        <p class="">{{ block.settings.quote }}</p>
                     </div>
                 </div>
                 {% endfor %}
             </div>
-            {% comment %} <div class="swiper-pagination carousel-pagination-customer-text"></div> {% endcomment %}
         </div> 
-        {% comment %} <div class="swiper-button-prev carousel-prev-customer-text hide-mobile"></div>
-        <div class="swiper-button-next carousel-next-customer-text hide-mobile"></div> {% endcomment %}
     </div>
   </div>
 </section>
@@ -72,9 +82,6 @@
 
   const carousel_customer_text = new Swiper('.carousel-instance-customer-text', {
     slidesPerView: 1,
-    // autoplay: {
-    //   speed: 7000,
-    // },
     loop: true,
     navigation: {
       nextEl: '.carousel-next-customer-image',
