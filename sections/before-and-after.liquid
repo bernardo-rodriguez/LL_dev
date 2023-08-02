@@ -88,9 +88,9 @@
     },
   });
 
-  carousel_customer_image.on('transitionEnd', function() {
-    carousel_customer_text.slideTo(carousel_customer_image.realIndex)
+  carousel_customer_image.on('activeIndexChange', function() {
     console.log('*** carousel_customer_text.realIndex', carousel_customer_image.realIndex);
+    carousel_customer_text.slideTo(carousel_customer_image.realIndex)
   });
 {% endjavascript %}
 
