@@ -96,6 +96,14 @@
   font-size: 12px;
 }
 
+.product_carousel_name {
+  display: inline-block;
+}
+
+.product_carousel_verified {
+  display: inline-block;
+}
+
 @media screen and (max-width: 991px) {
 
   .carousel__slide-text {
