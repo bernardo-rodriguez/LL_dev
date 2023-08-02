@@ -102,6 +102,9 @@
 
 .product_carousel_verified {
   display: inline-block;
+  font-size: 14px;
+  margin-left: 20px;
+  color: #313131;
 }
 
 @media screen and (max-width: 991px) {
@@ -134,5 +137,7 @@
   .carousel-before-after .swiper-pagination-bullets {
     display: block;
   }
-  
+  .product_carousel_verified {
+    font-size: 12px;
+  }
 }
