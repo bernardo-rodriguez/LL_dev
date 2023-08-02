@@ -5,10 +5,15 @@
   display:flex;
 }
 
-.carousel__inner {
+.before-after-outer .carousel__inner {
   display: grid;
   grid-template-columns: 50px minmax(0, 1fr) 50px;
   position: relative;
+  max-width: 50%;
+}
+
+.customer-inner {
+  flex: 1
 }
 
 .carousel-instance {
