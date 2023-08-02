@@ -94,6 +94,42 @@
       "settings": {
       }
     },
+    "d751fc70-2bdd-4a1e-8cae-6ded3cbbfc7e": {
+      "type": "before-and-after",
+      "blocks": {
+        "f289e3bd-be43-43ea-9d44-00b3807e8aff": {
+          "type": "slide",
+          "settings": {
+            "svg": "",
+            "png": "shopify:\/\/shop_images\/Group_316.jpg",
+            "text": ""
+          }
+        },
+        "9dcad280-6489-46e0-933a-f8f507063d16": {
+          "type": "slide",
+          "settings": {
+            "svg": "",
+            "png": "shopify:\/\/shop_images\/Group_318.jpg",
+            "text": ""
+          }
+        },
+        "1d288028-d8e5-40b0-b32f-f1feb2546f3e": {
+          "type": "slide",
+          "settings": {
+            "svg": "",
+            "png": "shopify:\/\/shop_images\/Group_317.jpg",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "f289e3bd-be43-43ea-9d44-00b3807e8aff",
+        "9dcad280-6489-46e0-933a-f8f507063d16",
+        "1d288028-d8e5-40b0-b32f-f1feb2546f3e"
+      ],
+      "settings": {
+      }
+    },
     "de728955-157e-4022-817b-6ac2f0f2e288": {
       "type": "replo-product-why-laughland",
       "settings": {
@@ -135,6 +171,7 @@
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
     "7a9caaa6-d652-4601-b1a9-b46b131687da",
     "ab6e4dad-c28c-419e-b533-f476d08e759b",
+    "d751fc70-2bdd-4a1e-8cae-6ded3cbbfc7e",
     "de728955-157e-4022-817b-6ac2f0f2e288",
     "4dd37ee0-3df4-43f9-809d-c2e25c15003c",
     "9a2e356e-af66-4e8f-99d8-12bc66bd56dd",
