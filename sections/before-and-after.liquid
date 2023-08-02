@@ -45,9 +45,10 @@
                     </div>
                   {% endfor %}
                 </div>
-                <div class="swiper-button-prev carousel-prev hide-mobile"></div>
-                <div class="swiper-button-next carousel-next hide-mobile"></div>
+                <div class="swiper-pagination carousel-pagination-customer-text"></div>
             </div> 
+            <div class="swiper-button-prev carousel-prev-customer-text hide-mobile"></div>
+            <div class="swiper-button-next carousel-next-customer-text hide-mobile"></div>
         </div>
     </div>
   </div>
@@ -78,11 +79,11 @@
     },
     loop: true,
     navigation: {
-      nextEl: '.carousel-next',
-      prevEl: '.carousel-prev',
+      nextEl: '.carousel-next-customer-text',
+      prevEl: '.carousel-prev-customer-text',
     },
     pagination: {
-      el: '.carousel-pagination',
+      el: '.carousel-pagination-customer-text',
       type: 'bullets',
     },
   });
