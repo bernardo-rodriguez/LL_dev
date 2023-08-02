@@ -1,6 +1,6 @@
 {{ 'section-carousel-before-and-after.css' | asset_url | stylesheet_tag }}
 
-<section class="carousel">
+<section class="carousel-before-after">
   <div class="page-width before-after-outer">
 
     <div class="carousel__inner">
@@ -60,15 +60,7 @@
     autoplay: {
       speed: 7000,
     },
-    loop: true,
-    navigation: {
-      nextEl: '.carousel-next-carousel-pagination',
-      prevEl: '.carousel-prev-carousel-pagination',
-    },
-    pagination: {
-      el: '.carousel-pagination-carousel-pagination',
-      type: 'bullets',
-    },
+    loop: true
   });
 
 //   const carousel_customer_text = new Swiper('.carousel-instance-customer-text', {
