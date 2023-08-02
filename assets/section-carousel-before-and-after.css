@@ -66,6 +66,10 @@
   opacity:1;
 }
 
+.carousel-before-after .swiper-pagination-bullets {
+  display: none;
+}
+
 @media screen and (max-width: 991px) {
 
   .carousel__slide-text {
@@ -93,6 +97,8 @@
   .before-after-outer {
     flex-direction: column;
   }
-  
+  .carousel-before-after .swiper-pagination-bullets {
+    display: block;
+  }
   
 }
