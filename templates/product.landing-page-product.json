@@ -91,6 +91,7 @@
     },
     "ab6e4dad-c28c-419e-b533-f476d08e759b": {
       "type": "replo-product-before-after",
+      "disabled": true,
       "settings": {
       }
     },
@@ -103,7 +104,9 @@
             "png": "shopify:\/\/shop_images\/Group_316.jpg",
             "name": "Brisa, 25",
             "background": "Started December 2022 (3 Treatment Cycles)",
-            "quote": "I was pretty skeptical that this whitening system would work, especially when the $500 kit my dentist sold me didn’t seem to make any difference. I wondered how such an inexpensive whitening kit could do what all the reviewers were saying it could do. But since it was a small financial investment, I was willing to try it.\n\nI took a “before” photo, and then did the six daily treatments for 30 minutes each day. I didn’t really notice a difference. HOWEVER, after the sixth day I took an “after” photo, and that’s when I saw that it really worked! I highly recommend that other customers take the before and after photos. It isn’t easy to see a change day by day because it is gradual, but with before, and after photos, it becomes obvious that the kit really works!"
+            "quote": "I was pretty skeptical that this whitening system would work, especially when the $500 kit my dentist sold me didn’t seem to make any difference. I wondered how such an inexpensive whitening kit could do what all the reviewers were saying it could do. But since it was a small financial investment, I was willing to try it.",
+            "quote_2": "I took a “before” photo, and then did the six daily treatments for 30 minutes each day. I didn’t really notice a difference. HOWEVER, after the sixth day I took an “after” photo, and that’s when I saw that it really worked! I highly recommend that other customers take the before and after photos. It isn’t easy to see a change day by day because it is gradual, but with before, and after photos, it becomes obvious that the kit really works!",
+            "verified": "VERIFIED BUYER (F8-17)"
           }
         },
         "9dcad280-6489-46e0-933a-f8f507063d16": {
@@ -112,7 +115,9 @@
             "png": "shopify:\/\/shop_images\/Group_318.jpg",
             "name": "Lesley, 25",
             "background": "Started December 2022   (3 Treatment Cycles)",
-            "quote": "“I had to come here to say something. Normally I have excruciating pain with crest white strips and this other brand I got from the dentist. Both of which didn’t whiten my teeth very much. So, I had low hopes for Laughland. I got the formula made for highest sensitivity, and I left it on for I think 12 minutes. Just after the first day my teeth look 2 shades whiter. I’m actually really shocked. Usually the sensitivity hits me several hours after whitening my teeth, and it’s now the next morning and I guess I’m all clear. Thanks Laughland!”"
+            "quote": "“I had to come here to say something. Normally I have excruciating pain with crest white strips and this other brand I got from the dentist. Both of which didn’t whiten my teeth very much. So, I had low hopes for Laughland. I got the formula made for highest sensitivity, and I left it on for I think 12 minutes. Just after the first day my teeth look 2 shades whiter. I’m actually really shocked. Usually the sensitivity hits me several hours after whitening my teeth, and it’s now the next morning and I guess I’m all clear. Thanks Laughland!”",
+            "quote_2": "",
+            "verified": "VERIFIED BUYER (F8-17)"
           }
         },
         "1d288028-d8e5-40b0-b32f-f1feb2546f3e": {
@@ -121,7 +126,9 @@
             "png": "shopify:\/\/shop_images\/Group_317.jpg",
             "name": "Neha, 25",
             "background": "Started December 2022   (3 Treatment Cycles)",
-            "quote": "This is GREAT for Sensitive Teeth!\n \nI’ve done 6 treatments and have noticeable brighter teeth. These were not painful at all! I would recommend you try it. You won’t regret it."
+            "quote": "This is GREAT for Sensitive Teeth!",
+            "quote_2": "I’ve done 6 treatments and have noticeable brighter teeth. These were not painful at all! I would recommend you try it. You won’t regret it.",
+            "verified": "VERIFIED BUYER (F8-17)"
           }
         }
       },
