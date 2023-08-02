@@ -22,8 +22,8 @@
   text-align: center;
 }
 
-.carousel__slide-content svg,
-.carousel__slide-content img {
+.carousel .carousel__slide-content svg,
+.carousel .carousel__slide-content img {
   height: 25px;
   width: auto;
 }
