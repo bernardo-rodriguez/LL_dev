@@ -44,10 +44,10 @@
                 </div>
                 {% endfor %}
             </div>
-            <div class="swiper-pagination carousel-pagination-customer-text"></div>
+            {% comment %} <div class="swiper-pagination carousel-pagination-customer-text"></div> {% endcomment %}
         </div> 
-        <div class="swiper-button-prev carousel-prev-customer-text hide-mobile"></div>
-        <div class="swiper-button-next carousel-next-customer-text hide-mobile"></div>
+        {% comment %} <div class="swiper-button-prev carousel-prev-customer-text hide-mobile"></div>
+        <div class="swiper-button-next carousel-next-customer-text hide-mobile"></div> {% endcomment %}
     </div>
   </div>
 </section>
@@ -72,9 +72,9 @@
 
   const carousel_customer_text = new Swiper('.carousel-instance-customer-text', {
     slidesPerView: 1,
-    autoplay: {
-      speed: 7000,
-    },
+    // autoplay: {
+    //   speed: 7000,
+    // },
     loop: true,
     navigation: {
       nextEl: '.carousel-next-customer-image',
