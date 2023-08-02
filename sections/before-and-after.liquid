@@ -9,9 +9,6 @@
           {% for block in section.blocks %}
             <div class="swiper-slide">
               <div class="carousel__slide-content carousel__slide-content-before-after">
-                {% if block.settings.svg != blank %}
-                  {{ block.settings.svg }}
-                {% elsif block.settings.png != blank %}
                   <img
                     srcset="{{ block.settings.png | image_url: width: '832px' }} 1x, {{ block.settings.png | image_url: width: '832px', scale: 2 }} 2x"
                     src="{{ block.settings.png | image_url: width: '832px'}}"
@@ -20,9 +17,7 @@
                     width="{{ block.settings.png.width }}"
                     height="{{ block.settings.png.height }}"
                     alt="{{ block.settings.png.alt }}"
-                    {% if block.settings.opacity != blank%}style="opacity: 0.{{ block.settings.opacity }}"{% endif %}
                   >
-                {% endif %}
               </div>
             </div>
           {% endfor %}
@@ -91,6 +86,11 @@
       el: '.carousel-pagination-customer-image',
       type: 'bullets',
     },
+  });
+
+  carousel_customer_image.on('transitionEnd', function() {
+    carousel_customer_text.slideTo(carousel_customer_image.realIndex)
+    console.log('*** carousel_customer_text.realIndex', carousel_customer_image.realIndex);
   });
 {% endjavascript %}
 
