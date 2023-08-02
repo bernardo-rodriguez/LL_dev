@@ -89,9 +89,9 @@
   });
 
   carousel_customer_image.on('activeIndexChange', function() {
-    transfer_dict = {2:0, 1: 2, 0: 1}
+    // transfer_dict = {2:0, 1: 2, 0: 1}
     console.log('*** carousel_customer_text.realIndex', carousel_customer_image.realIndex);
-    carousel_customer_text.slideTo(transfer_dict[carousel_customer_image.realIndex])
+    carousel_customer_text.slideTo(carousel_customer_image.realIndex)
   });
 {% endjavascript %}
 
