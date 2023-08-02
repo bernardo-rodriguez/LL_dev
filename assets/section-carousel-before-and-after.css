@@ -1,6 +1,10 @@
 .carousel-before-after {
   margin: 100px 0;
 }
+.before-after-outer {
+  display:flex;
+}
+
 .carousel__inner {
   display: grid;
   grid-template-columns: 50px minmax(0, 1fr) 50px;
@@ -22,11 +26,11 @@
   text-align: center;
 }
 
-.carousel__slide-content svg,
+/* .carousel__slide-content svg,
 .carousel__slide-content img {
   height: 25px;
   width: auto;
-}
+} */
 
 .carousel__slide-content svg,
 .carousel__slide-content svg path,
