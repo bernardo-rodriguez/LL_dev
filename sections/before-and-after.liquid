@@ -4,7 +4,7 @@
   <div class="page-width before-after-outer">
 
     <div class="carousel__inner">
-      <div class="carousel-instance swiper">
+      <div class="carousel-instance-customer-image swiper">
         <div class="swiper-wrapper">
           {% for block in section.blocks %}
             <div class="swiper-slide">
@@ -28,10 +28,10 @@
           {% endfor %}
         </div>
 
-        <div class="swiper-pagination carousel-pagination"></div>
+        <div class="swiper-pagination carousel-pagination-carousel-pagination"></div>
       </div>
-      <div class="swiper-button-prev carousel-prev hide-mobile"></div>
-      <div class="swiper-button-next carousel-next hide-mobile"></div>
+      <div class="swiper-button-prev carousel-prev-carousel-pagination hide-mobile"></div>
+      <div class="swiper-button-next carousel-next-carousel-pagination hide-mobile"></div>
     </div>
     <div class='customer-inner'>
         <div>
@@ -62,11 +62,11 @@
     },
     loop: true,
     navigation: {
-      nextEl: '.carousel-next',
-      prevEl: '.carousel-prev',
+      nextEl: '.carousel-next-carousel-pagination',
+      prevEl: '.carousel-prev-carousel-pagination',
     },
     pagination: {
-      el: '.carousel-pagination',
+      el: '.carousel-pagination-carousel-pagination',
       type: 'bullets',
     },
   });
