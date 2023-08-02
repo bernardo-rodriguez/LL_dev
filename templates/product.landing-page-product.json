@@ -91,6 +91,7 @@
     },
     "ab6e4dad-c28c-419e-b533-f476d08e759b": {
       "type": "replo-product-before-after",
+      "disabled": true,
       "settings": {
       }
     },
