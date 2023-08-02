@@ -34,7 +34,10 @@
                 {% for block in section.blocks %}
                 <div class="swiper-slide">
                     <div class="carousel__slide-content carousel__slide-content-before-after">
-                        <p class="">{{ block.settings.name }}</p>
+                        <div>
+                          <p class="">{{ block.settings.name }}</p>
+                          <p class="">{{ block.settings.verified }}</p>
+                        </div>
                         <p class="">{{ block.settings.background }}</p>
                         <hr>
                         <div>
@@ -48,6 +51,7 @@
                           </div>
                         </div>
                         <p class="">{{ block.settings.quote }}</p>
+                        <p class="">{{ block.settings.quote_2 }}</p>
                     </div>
                 </div>
                 {% endfor %}
@@ -123,6 +127,16 @@
           "type": "textarea",
           "id": "quote",
           "label": "Quote"
+        },
+        {
+          "type": "textarea",
+          "id": "quote_2",
+          "label": "Quote 2"
+        },
+        {
+          "type": "textarea",
+          "id": "verified",
+          "label": "Verified"
         }
       ]
     }
