@@ -28,14 +28,14 @@
           {% endfor %}
         </div>
 
-        <div class="swiper-pagination carousel-pagination-carousel-pagination"></div>
+        <div class="swiper-pagination carousel-pagination-customer-image"></div>
       </div>
-      <div class="swiper-button-prev carousel-prev-carousel-pagination hide-mobile"></div>
-      <div class="swiper-button-next carousel-next-carousel-pagination hide-mobile"></div>
+      <div class="swiper-button-prev carousel-prev-customer-image hide-mobile"></div>
+      <div class="swiper-button-next carousel-next-customer-image hide-mobile"></div>
     </div>
     <div class='customer-inner'>
         <div>
-            {% comment %} <div class="carousel-instance-customer-text swiper">
+            <div class="carousel-instance-customer-text swiper">
                 <div class="swiper-wrapper">
                   {% for block in section.blocks %}
                     <div class="swiper-slide">
@@ -47,7 +47,7 @@
                 </div>
                 <div class="swiper-button-prev carousel-prev hide-mobile"></div>
                 <div class="swiper-button-next carousel-next hide-mobile"></div>
-            </div> {% endcomment %}
+            </div> 
         </div>
     </div>
   </div>
@@ -60,24 +60,32 @@
     autoplay: {
       speed: 7000,
     },
-    loop: true
+    loop: true,
+    navigation: {
+      nextEl: '.carousel-next-customer-image',
+      prevEl: '.carousel-prev-customer-image',
+    },
+    pagination: {
+      el: '.carousel-pagination-customer-image',
+      type: 'bullets',
+    },
   });
 
-//   const carousel_customer_text = new Swiper('.carousel-instance-customer-text', {
-//     slidesPerView: 1,
-//     autoplay: {
-//       speed: 7000,
-//     },
-//     loop: true,
-//     navigation: {
-//       nextEl: '.carousel-next',
-//       prevEl: '.carousel-prev',
-//     },
-//     pagination: {
-//       el: '.carousel-pagination',
-//       type: 'bullets',
-//     },
-//   });
+  const carousel_customer_text = new Swiper('.carousel-instance-customer-text', {
+    slidesPerView: 1,
+    autoplay: {
+      speed: 7000,
+    },
+    loop: true,
+    navigation: {
+      nextEl: '.carousel-next',
+      prevEl: '.carousel-prev',
+    },
+    pagination: {
+      el: '.carousel-pagination',
+      type: 'bullets',
+    },
+  });
 {% endjavascript %}
 
 {% schema %}

@@ -22,6 +22,11 @@
   width: 100%;
 }
 
+.carousel-instance-customer-text {
+  grid-column: 2/3;
+  width: 100%;
+}
+
 .carousel__slide-text {
   padding: 40px 0 64px;
   max-width: 660px;
@@ -51,6 +56,14 @@
 }
 
 .carousel-instance-customer-image .swiper-button-next {
+  grid-column: 3/4;
+}
+
+.carousel-instance-customer-text .swiper-button-prev {
+  grid-column: 1/2;
+}
+
+.carousel-instance-customer-text .swiper-button-next {
   grid-column: 3/4;
 }
 
