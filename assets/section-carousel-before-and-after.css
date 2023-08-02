@@ -17,7 +17,7 @@
   flex: 1
 }
 
-.carousel-instance {
+.carousel-instance-customer-image {
   grid-column: 2/3;
   width: 100%;
 }
@@ -46,11 +46,11 @@
   fill-opacity: 1;
 }
 
-.carousel-instance .swiper-button-prev {
+.carousel-instance-customer-image .swiper-button-prev {
   grid-column: 1/2;
 }
 
-.carousel-instance .swiper-button-next {
+.carousel-instance-customer-image .swiper-button-next {
   grid-column: 3/4;
 }
 
