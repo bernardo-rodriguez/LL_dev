@@ -39,10 +39,10 @@
                           <p class="">{{ block.settings.verified }}</p>
                         </div>
                         <p class="">{{ block.settings.background }}</p>
-                        <hr>
+                        <hr style = 'margin: 15px 0;'>
                         <div>
                           <div>
-                            <span class = 'landing-stars'>FB-17 REVIEW</span>
+                            <span class = 'product-stars'>FB-17 REVIEW</span>
                             <span class="fa fa-star checked-landing landing-stars"></span>
                             <span class="fa fa-star checked-landing landing-stars"></span>
                             <span class="fa fa-star checked-landing landing-stars"></span>
@@ -50,8 +50,8 @@
                             <span class="fa fa-star checked-landing landing-stars"></span>
                           </div>
                         </div>
-                        <p class="">{{ block.settings.quote }}</p>
-                        <p class="">{{ block.settings.quote_2 }}</p>
+                        <p class="carousel_quote">{{ block.settings.quote }}</p>
+                        <p class="carousel_quote">{{ block.settings.quote_2 }}</p>
                     </div>
                 </div>
                 {% endfor %}
@@ -68,7 +68,6 @@
     autoplay: {
       speed: 7000,
     },
-    // loop: true,
     navigation: {
       nextEl: '.carousel-next-customer-image',
       prevEl: '.carousel-prev-customer-image',
@@ -81,19 +80,9 @@
 
   const carousel_customer_text = new Swiper('.carousel-instance-customer-text', {
     slidesPerView: 1
-    // loop: true,
-    // navigation: {
-    //   nextEl: '.carousel-next-customer-image',
-    //   prevEl: '.carousel-prev-customer-image',
-    // },
-    // pagination: {
-    //   el: '.carousel-pagination-customer-image',
-    //   type: 'bullets',
-    // },
   });
 
   carousel_customer_image.on('activeIndexChange', function() {
-    // transfer_dict = {2:0, 1: 2, 0: 1}
     console.log('*** carousel_customer_text.realIndex', carousel_customer_image.realIndex);
     carousel_customer_text.slideTo(carousel_customer_image.realIndex)
   });
