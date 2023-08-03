@@ -50,6 +50,8 @@
       echo variant.metafields.custom.ingredients_box_2_purpose.value
       echo '", "ingredients_box_3_purpose": "'
       echo variant.metafields.custom.ingredients_box_3_purpose.value
+      echo '", "formula_header_1": "'
+      echo variant.metafields.custom.formula_header_1.value
       echo '"}'
       unless forloop.last
         echo ','
@@ -87,7 +89,7 @@
         <div class="formula-point-wrapper landing-subheading top_z">
           <div class="formula-point">
             <img style = 'vertical-align: middle' width="20" height="20" loading="lazy" src="{{ 'checkmarkblue.png' | asset_url }}">
-            <p class = 'landing-page-main formula-point-text'>11% Active Whitening Serum</p>
+            <p id = 'formula_header_1' class = 'landing-page-main formula-point-text'>11% Active Whitening Serum</p>
           </div>
           <div class="formula-point-middle">
             <img style = 'vertical-align: middle' width="20" height="20" loading="lazy" src="{{ 'checkmarkblue.png' | asset_url }}">

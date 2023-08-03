@@ -33,7 +33,7 @@ function setVariant() {
     $('#ingredients-box-1-purpose').html(variantIngredientList.ingredients_box_1_purpose)
     $('#ingredients-box-2-purpose').html(variantIngredientList.ingredients_box_2_purpose)
     $('#ingredients-box-3-purpose').html(variantIngredientList.ingredients_box_3_purpose)
-    
+    $('#formula_header_1').html(variantIngredientList.formula_header_1)
 }
 
 function getCookie(cname) {
