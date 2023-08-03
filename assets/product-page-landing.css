@@ -81,11 +81,13 @@
 
 .landing-subheading-1 {
     font-weight: 600;
+    line-height: 24px;
     text-align: center;
 }
 
 .landing-subheading-2 {
     font-weight: 400;
+    line-height: 24px;
     text-align: center;
 }
 
