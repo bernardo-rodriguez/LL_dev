@@ -24,9 +24,16 @@ function setVariant() {
     $('#product__title_id').html(stylized_title)
     $('#formula-header-text').html(variantIngredientList.formula_header_text)
     $('#selling_point_landing').html(variantIngredientList.selling_point_landing)
-    $('#ingredients-box-1-percent').html(variantIngredientList.ingredients_box_1_percent)
-    $('#ingredients-box-2-percent').html(variantIngredientList.ingredients_box_2_percent)
-    $('#ingredients-box-3-percent').html(variantIngredientList.ingredients_box_3_percent)
+    $('#ingredients-box-1-percent').html(variantIngredientList.ingredients_box_1_percent + '%')
+    $('#ingredients-box-2-percent').html(variantIngredientList.ingredients_box_2_percent + '%')
+    $('#ingredients-box-3-percent').html(variantIngredientList.ingredients_box_3_percent + '%')
+    $('#ingredients-box-1-name').html(variantIngredientList.ingredients_box_1_name)
+    $('#ingredients-box-2-name').html(variantIngredientList.ingredients_box_2_name)
+    $('#ingredients-box-3-name').html(variantIngredientList.ingredients_box_3_name)
+    $('#ingredients-box-1-purpose').html(variantIngredientList.ingredients_box_1_purpose)
+    $('#ingredients-box-2-purpose').html(variantIngredientList.ingredients_box_2_purpose)
+    $('#ingredients-box-3-purpose').html(variantIngredientList.ingredients_box_3_purpose)
+    
 }
 
 function getCookie(cname) {
