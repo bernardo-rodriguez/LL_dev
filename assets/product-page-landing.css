@@ -328,11 +328,7 @@
 }
 
 .formula-point-text {
-    font-family: Plus Jakarta Sans;
-    font-size: 16px;
     font-weight: 500;
-    line-height: 24px;
-    letter-spacing: -0.01em;
     text-align: left;
 }
 
@@ -393,8 +389,7 @@
         font-weight: 400;
     }
     .formula-point-text {
-        font-weight: 600;
-        font-size: 9px;
+        font-size: 14px;
     }
   }
 
