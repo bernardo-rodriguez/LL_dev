@@ -295,6 +295,9 @@
   .quiz_titles_wrapper {
     padding-bottom: 0;
   }
+  .less_margin_mobile {
+    margin-bottom: 0 !important;
+  }
 }
 
 
@@ -463,6 +466,7 @@
     font-size: 25px;
   }
   .insight_subheaders {
+    padding-top: 0;
     font-size: 16px;
   }
   /*.laughland-drop-container {
