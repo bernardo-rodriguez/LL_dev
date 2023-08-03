@@ -85,6 +85,11 @@
     console.log('*** carousel_customer_text.realIndex', carousel_customer_image.realIndex);
     carousel_customer_text.slideTo(carousel_customer_image.realIndex)
   });
+
+  carousel_customer_text.on('activeIndexChange', function() {
+    console.log('*** carousel_customer_text.realIndex', carousel_customer_text.realIndex);
+    carousel_customer_image.slideTo(carousel_customer_text.realIndex)
+  });
 {% endjavascript %}
 
 {% schema %}
