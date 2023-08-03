@@ -114,6 +114,10 @@
     z-index: 5;
 }
 
+.formula-point-wrapper {
+    padding-top: 10px;
+}
+
 @media screen and (max-width: 768px) {
     .landing-stars {
         font-size: 14px;
@@ -134,6 +138,9 @@
     
     .pen-small {
         display:block;
+    }
+    .formula-point-wrapper {
+        padding-top: 0;
     }
 }
 
