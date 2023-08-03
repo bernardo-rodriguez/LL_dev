@@ -24,9 +24,9 @@ function setVariant() {
     $('#product__title_id').html(stylized_title)
     $('#formula-header-text').html(variantIngredientList.formula_header_text)
     $('#selling_point_landing').html(variantIngredientList.selling_point_landing)
-    $('#ingredients-box-1-percent').html(variantIngredientList.ingredients-box-1-percent)
-    $('#ingredients-box-2-percent').html(variantIngredientList.ingredients-box-2-percent)
-    $('#ingredients-box-3-percent').html(variantIngredientList.ingredients-box-3-percent)
+    $('#ingredients-box-1-percent').html(variantIngredientList.ingredients_box_1_percent)
+    $('#ingredients-box-2-percent').html(variantIngredientList.ingredients_box_2_percent)
+    $('#ingredients-box-3-percent').html(variantIngredientList.ingredients_box_3_percent)
 }
 
 function getCookie(cname) {
