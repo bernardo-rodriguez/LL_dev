@@ -134,9 +134,9 @@
   .before-after-outer {
     flex-direction: column;
   }
-  .carousel-before-after .swiper-pagination-bullets {
+  /* .carousel-before-after .swiper-pagination-bullets {
     display: block;
-  }
+  } */
   .product_carousel_verified {
     font-size: 10px;
   }
