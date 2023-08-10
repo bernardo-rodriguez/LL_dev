@@ -207,13 +207,13 @@
       return [subPrice, discount_name, discount_desc]
   }
 
-  subPrice = getSubPrice()
-  console.log('hello')
+  subPrice = getSubPrice()[0]
+  console.log('new price:')
   console.log(subPrice)
   
-  // setTimeout(function(){
-  //   $('.glow').first().html('<span class="money">$</span>' + subPrice)
-  // }, 100);
+  setTimeout(function(){
+    $('.glow').first().html('<span class="money">$</span>' + subPrice)
+  }, 100);
 
   setTimeout(function(){
     $('.glow').first().html('<span class="money">$</span>' + subPrice)
