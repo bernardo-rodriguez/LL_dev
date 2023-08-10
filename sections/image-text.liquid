@@ -134,6 +134,91 @@
       },
     });
   }
+
+  function getCookie(cname) {
+    // const value = `; ${document.cookie}`;
+    // const parts = value.split(`; ${name}=`);
+    // if (parts.length === 2) return parts.pop().split(';').shift();
+
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return null;
+  }
+
+  function getSubPrice() {
+      const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans']
+  
+      let subscriptionCookie = cookies.filter( cookieName => getCookie(cookieName) != null )
+      let subPrice = ''
+  
+      switch(subscriptionCookie[0]) {
+        case 'redirect_ut':
+          subPrice = '9.95'
+          discount_name = 'UTM_GEN_AUTOMATIC'
+          discount_desc = '90% OFF'
+          document.getElementsByClassName('price-item--regular')[0].innerHTML = '$100'
+          document.getElementsByClassName('price-item--regular')[1].innerHTML = '$100'
+          break;
+        case 'redirect_ut_direct':
+          subPrice = '9'
+          discount_name = ''
+          discount_desc = ''
+          break
+        case 'redirect_paceline':
+          subPrice = '29'
+          discount_name = ''
+          discount_desc = ''
+          break
+        case 'redirect_sweatcoin':
+          subPrice = '29'
+          discount_name = 'ADD_PEN'
+          discount_desc = 'free pen included with purchase'
+          break
+        case 'redirect_miles':
+          subPrice = '9'
+          discount_name = 'MILES_AUTOMATIC'
+          discount_desc = '88% OFF'
+          break
+        case 'redirect_studentbeans':
+          subPrice = '9'
+          discount_name = ''
+          discount_desc = ''
+          break
+        case 'redirect_inspire':
+          subPrice = '$13.5'
+          discount_name = 'Subscribe & Save'
+          discount_desc = '80% OFF'
+          break
+        default:
+          subPrice = '29'
+          discount_name = 'SUB-N-SAVE'
+          discount_desc = '50% OFF'
+          break
+      }
+  
+      return [subPrice, discount_name, discount_desc]
+  }
+
+  subPrice = getSubPrice()
+  console.log(subPrice)
+  
+  setTimeout(function(){
+    $('.glow').first().find('.stylized').first().html(subPrice)
+  }, 100);
+
+  setTimeout(function(){
+    $('.glow').first().find('.stylized').first().html(subPrice)
+  }, 1000);
 {% endjavascript %}
 
 {% schema %}
