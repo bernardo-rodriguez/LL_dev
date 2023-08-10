@@ -64,7 +64,7 @@ function cookie_actions() {
         showAnnouncementBar('👋 Skimm reader, discount auto-applied at checkout!')
         break
       default:
-        showAnnouncementBar('Start Whitening Today for just $19!')
+        showAnnouncementBar('Start Whitening Today for just $29!')
         break;
     }
 

@@ -301,7 +301,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     switch(subscriptionCookie[0]) {
        // case 'redirect_skimm':
-       //  subPrice = '$19'
+       //  subPrice = '$29'
        //  subText = 'Subscribe & Save'
        //  oneTimeText = 'Skimm One-Time'
        //  oneTimePrice = '$57'
@@ -321,7 +321,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         break
       case 'redirect_sweatcoin':
         add_pen()
-        subPrice = '$19'
+        subPrice = '$29'
         subText = 'Sweatcoin Special (free pen)'
         this.setToOneMonth()
         break
@@ -338,7 +338,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         subText = 'Subscribe & Save'
         break
       default:
-        subPrice = '$19'
+        subPrice = '$29'
         subText = 'Subscribe & Save'
         break
     }

@@ -14,7 +14,7 @@
         "mobile_image": "shopify:\/\/shop_images\/Mobile_Hero_Image.jpg",
         "review": "4.6\/5",
         "title": "Take the first step <br>{to a better smile}",
-        "sub_title": "Get a customized whitening solution for just {<sup>$<\/sup>19} today.",
+        "sub_title": "Get a customized whitening solution for just {<sup>$<\/sup>29} today.",
         "hero_badges": "shopify:\/\/shop_images\/Women_sHealthBeautyAward_2022_Transparent_1.png",
         "button_label": "Start Now",
         "button_link": "#get-started",
@@ -52,7 +52,7 @@
           "settings": {
             "title": "💸",
             "heading": "Value",
-            "text": "A better smile should not be a luxury. Our Whitening Plan starts at just $19 and comes with a Whitening Light, 3 whitening gels and phone adaptors."
+            "text": "A better smile should not be a luxury. Our Whitening Plan starts at just $29 and comes with a Whitening Light, 3 whitening gels and phone adaptors."
           }
         }
       },
@@ -257,7 +257,7 @@
             "diy_data_icon": "true",
             "dentist_data": "$250~1.5k",
             "dentist_data_icon": "true",
-            "us_data": "$19",
+            "us_data": "$29",
             "us_data_icon": "true"
           }
         }
