@@ -1,19 +1,40 @@
 function setVariant() {
     let strength = getCookie('strength')
+    let percent_randomized = getCookie('percent_randomized')
     console.log(strength)
     let inputValue
+    let minPercentShades
+    let maxPercentShades
+    let minPercentRatings
+    let maxPercentRatings
     switch (strength){
     case 'sensitive':
         inputValue = '🍃 Gentle (ID: 19-2)'
+        minPercentShades = 82
+        maxPercentShades = 92
+        minPercentRatings = 82
+        maxPercentRatings = 92
         break;
     case 'medium':
         inputValue = '✨ Everyday (ID: 8-16)'
+        minPercentShades = 82
+        maxPercentShades = 92
+        minPercentRatings = 82
+        maxPercentRatings = 92
         break;
     case 'strong':
         inputValue = '🔥 Super Strength (ID: 8-17)'
+        minPercentShades = 82
+        maxPercentShades = 92
+        minPercentRatings = 82
+        maxPercentRatings = 92
         break;
     default: 
         inputValue = '✨ Everyday (ID: 8-16)'
+        minPercentShades = 82
+        maxPercentShades = 92
+        minPercentRatings = 82
+        maxPercentRatings = 92
         break;
     }
 
@@ -34,6 +55,27 @@ function setVariant() {
     $('#ingredients-box-2-purpose').html(variantIngredientList.ingredients_box_2_purpose)
     $('#ingredients-box-3-purpose').html(variantIngredientList.ingredients_box_3_purpose)
     $('#formula_header_1').html(variantIngredientList.formula_header_1)
+
+    if (percent_randomized != 'true') {
+        let percentShades = randomIntFromInterval(minPercentShades, maxPercentShades)
+        let percentRatings = randomIntFromInterval(minPercentRatings, maxPercentRatings)
+        
+        console.log('shades percent is: ' + percentShades)
+        console.log('ratings percent is: ' + percentRatings)
+        $('.shades_percent').each(function(i, obj) {
+            obj.html(percentShades)
+        });
+        $('.ratings_percent').each(function(i, obj) {
+            obj.html(percentRatings)
+        });
+
+        setCookie('percent_randomized', 'true')
+        
+    }
+}
+
+function randomIntFromInterval(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
 function getCookie(cname) {
@@ -55,6 +97,13 @@ function getCookie(cname) {
     }
     return null;
   }
+
+function setCookie(key, value) {
+    var date = new Date();
+    date.setDate(date.getDate() + 1)
+    var expires = date.toUTCString();
+    document.cookie = `${key}=${value}; expires=${expires}; path=/`;
+}
 
 function setNameAndVariant() {
     console.log('setname')
