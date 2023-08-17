@@ -300,6 +300,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     this.setAttribute('data-state', newState.toString() )
 
     this.setInputs(newState.toString())
+    console.log(this.inputs)
     if(this.validateFormStep(this.inputs) == true) {
       this.next.removeAttribute('disabled')
     } else {
