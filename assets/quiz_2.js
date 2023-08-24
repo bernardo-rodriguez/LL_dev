@@ -350,6 +350,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
   validateFormStep(inputs) {
     let validationCheck = true
     for( const value of this.inputNames.values()){
+      // TODO
       const i = this.querySelector(`[name='${value}']`)
       if( i.getAttribute('type') == 'checkbox' || i.getAttribute('type') == 'radio' ) {
 
