@@ -253,7 +253,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         let input_value = this.getInputValue(input_name)
 
         if (Object.keys(feedbackState['conditions'][input_name]).length == 0) {
-          newState = currentState + 0.5
+          newState = currentState - 0.5
         } else {
           input_value.forEach(function (value, index) {
             if (value in feedbackState['conditions'][input_name]) {
@@ -262,7 +262,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
             }
           })
           if (Object.keys(available_states).length > 0) {
-            newState = currentState + 0.5
+            newState = currentState - 0.5
             this.stepSpecificText(available_states[highest_priority])
           } else {
             newState = this.normalAdd(x, currentState)
@@ -278,7 +278,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         let input_value = this.getInputValue(input_name)
 
         if (feedbackState['conditions'][input_name].length == 0) {
-          newState = currentState - 0.5
+          newState = currentState + 0.5
         } else {
           input_value.forEach(function (value, index) {
             if (value in feedbackState['conditions'][input_name]) {
@@ -287,7 +287,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
             }
           })
           if (Object.keys(available_states).length > 0) {
-            newState = currentState - 0.5
+            newState = currentState + 0.5
             this.stepSpecificText(available_states[highest_priority])
           } else {
             newState = this.normalAdd(x, currentState)
