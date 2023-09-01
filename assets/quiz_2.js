@@ -18,7 +18,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     // console.log(this.inputNames)
     this.feedback_dictionary = {
       // if blank conditions, always apply the same
-      3: {
+      2: {
         "conditions": {
           "gum_2": {
             "plaque_2": {
@@ -63,12 +63,12 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
           }
         }
       },
-      6: {
+      5: {
         "conditions": {
           "shade_2": {}
         }
       },
-      10: {
+      9: {
         "conditions": {
           "routine_2": {
             "toothpaste_2": {
