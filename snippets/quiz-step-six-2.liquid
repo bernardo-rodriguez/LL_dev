@@ -37,7 +37,9 @@
   // Update the current slider value (each time you drag the slider handle)
   slider.oninput = function() {
     console.log(this.value)
-    document.getElementById('svgpath1').setAttribute('style', 'fill: hsl(43,40%,' + (this.value / 2 + 50) + '%)');
+    document.getElementById('svgpath1').setAttribute('style', 'fill: hsl(43,40%,' + (this.value / 2 + 50) + '%); mix-blend-mode:multiply;');
+
+    {% comment %} document.getElementById('svgpath1').setAttribute('style', 'fill: hsl(43,40%,' + (this.value / 2 + 50) + '%)'); {% endcomment %}
   }
   slider2.oninput = function() {
     console.log(this.value)
