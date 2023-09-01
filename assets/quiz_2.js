@@ -253,31 +253,6 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
         let input_value = this.getInputValue(input_name)
 
         if (Object.keys(feedbackState['conditions'][input_name]).length == 0) {
-          newState = currentState - 0.5
-        } else {
-          input_value.forEach(function (value, index) {
-            if (value in feedbackState['conditions'][input_name]) {
-              available_states[feedbackState['conditions'][input_name][value]['priority']] = feedbackState['conditions'][input_name][value]['texts']
-              highest_priority = Math.min(highest_priority, feedbackState['conditions'][input_name][value]['priority'])
-            }
-          })
-          if (Object.keys(available_states).length > 0) {
-            newState = currentState - 0.5
-            this.stepSpecificText(available_states[highest_priority])
-          } else {
-            newState = this.normalAdd(x, currentState)
-          }
-        }
-      } else {
-        newState = this.normalAdd(x, currentState)
-      }
-    } else {
-      if (currentState - 1 in this.feedback_dictionary) {
-        let feedbackState = this.feedback_dictionary[currentState - 1]
-        let input_name = Object.keys(feedbackState['conditions'])[0]
-        let input_value = this.getInputValue(input_name)
-
-        if (feedbackState['conditions'][input_name].length == 0) {
           newState = currentState + 0.5
         } else {
           input_value.forEach(function (value, index) {
@@ -296,12 +271,37 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       } else {
         newState = this.normalAdd(x, currentState)
       }
+    } else {
+      if (currentState - 1 in this.feedback_dictionary) {
+        let feedbackState = this.feedback_dictionary[currentState - 1]
+        let input_name = Object.keys(feedbackState['conditions'])[0]
+        let input_value = this.getInputValue(input_name)
+
+        if (feedbackState['conditions'][input_name].length == 0) {
+          newState = currentState - 0.5
+        } else {
+          input_value.forEach(function (value, index) {
+            if (value in feedbackState['conditions'][input_name]) {
+              available_states[feedbackState['conditions'][input_name][value]['priority']] = feedbackState['conditions'][input_name][value]['texts']
+              highest_priority = Math.min(highest_priority, feedbackState['conditions'][input_name][value]['priority'])
+            }
+          })
+          if (Object.keys(available_states).length > 0) {
+            newState = currentState - 0.5
+            this.stepSpecificText(available_states[highest_priority])
+          } else {
+            newState = this.normalAdd(x, currentState)
+          }
+        }
+      } else {
+        newState = this.normalAdd(x, currentState)
+      }
     }
 
     this.setAttribute('data-state', newState.toString() )
 
     this.setInputs(newState.toString())
-    console.log('current step is ' + currentState)
+    console.log('current step is ' + newState)
     if(currentState == 5 || this.validateFormStep(this.inputs) == true) {
       this.next.removeAttribute('disabled')
     } else {
