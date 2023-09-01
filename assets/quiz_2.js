@@ -18,7 +18,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     // console.log(this.inputNames)
     this.feedback_dictionary = {
       // if blank conditions, always apply the same
-      2: {
+      3: {
         "conditions": {
           "gum_2": {
             "plaque_2": {
@@ -63,12 +63,12 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
           }
         }
       },
-      5: {
+      6: {
         "conditions": {
           "shade_2": {}
         }
       },
-      9: {
+      10: {
         "conditions": {
           "routine_2": {
             "toothpaste_2": {
@@ -245,6 +245,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     let newState = currentState
     let available_states = {}
     let highest_priority = 10 // initiate highest priority text (for checkboxes)
+    console.log('current step was ' + currentState)
     if (x == 1) {
       if (currentState in this.feedback_dictionary) {
         let feedbackState = this.feedback_dictionary[currentState]
@@ -300,7 +301,6 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     this.setAttribute('data-state', newState.toString() )
 
     this.setInputs(newState.toString())
-    console.log(this.inputs)
     console.log('current step is ' + currentState)
     if(currentState == 5 || this.validateFormStep(this.inputs) == true) {
       this.next.removeAttribute('disabled')
