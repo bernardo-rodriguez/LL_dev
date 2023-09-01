@@ -91,6 +91,7 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
   }
 
   changeFormStep(x) {
+    console.log('current step is ' + x)
     let currentState = this.dataset.state
     let newState = currentState
     if ( x === 1  && currentState < 5 ){

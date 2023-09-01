@@ -44,7 +44,7 @@
   }
   slider2.oninput = function() {
     console.log(this.value)
-    document.getElementById('svgpath2').setAttribute('style', 'fill: hsl(43,40%,' + (this.value / 2 + 50) + '%)');
+    document.getElementById('svgpath2').setAttribute('style', 'fill: hsl(43,40%,' + (this.value / 2 + 50) + '%); mix-blend-mode:multiply;');
   }
 </script>
 
