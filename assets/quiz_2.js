@@ -245,7 +245,6 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     let newState = currentState
     let available_states = {}
     let highest_priority = 10 // initiate highest priority text (for checkboxes)
-    console.log('current step was ' + currentState)
     if (x == 1) {
       if (currentState in this.feedback_dictionary) {
         let feedbackState = this.feedback_dictionary[currentState]
@@ -302,7 +301,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
 
     this.setInputs(newState.toString())
     console.log('current step is ' + newState)
-    if(currentState == 5 || this.validateFormStep(this.inputs) == true) {
+    if(newState == 6 || this.validateFormStep(this.inputs) == true) {
       this.next.removeAttribute('disabled')
     } else {
       this.next.setAttribute('disabled', 'true')
