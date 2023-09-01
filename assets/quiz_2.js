@@ -302,7 +302,7 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     this.setInputs(newState.toString())
     console.log(this.inputs)
     console.log('current step is ' + currentState)
-    if(this.validateFormStep(this.inputs) == true) {
+    if(currentState == 5 || this.validateFormStep(this.inputs) == true) {
       this.next.removeAttribute('disabled')
     } else {
       this.next.setAttribute('disabled', 'true')
