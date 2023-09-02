@@ -108,10 +108,14 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
 
     this.allInputs.forEach((input) => {
       input.addEventListener('input', function(e){
-        if(this.validateFormStep(this.inputs) == true) {
-          this.next.removeAttribute('disabled')
-        } else {
-          this.next.setAttribute('disabled', 'true')
+        try {
+          if(this.validateFormStep(this.inputs) == true) {
+            this.next.removeAttribute('disabled')
+          } else {
+            this.next.setAttribute('disabled', 'true')
+          }
+        } catch(error) {
+          console.log('input change cant be validated')
         }
       }.bind(this))
     })
