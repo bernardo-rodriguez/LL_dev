@@ -441,10 +441,10 @@
 
 @media screen and (max-width: 768px){
   .insight_image {
-    height: 60px;
-    width: 60px;
+    height: 100px;
+    width: 100px;
     margin-top: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
   }
   .insight_image_2 {
     margin-top: 30px;
