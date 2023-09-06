@@ -99,7 +99,7 @@ function setTeethShading(starting_shade, ending_shade) {
         document.getElementById('desktop_journey_tooth_1').setAttribute('style', 'fill: hsl(43,40%,' + (starting_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
 
         document.getElementById('desktop_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (ending_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
-      }, 1000);
+      }, 7000);
 }
 
 function randomIntFromInterval(min, max) { // min and max included 
