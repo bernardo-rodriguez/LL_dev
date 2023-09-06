@@ -124,7 +124,7 @@
     }
 
     .landing-stars {
-        font-size: 16px;
+        font-size: 14px;
     }
     .perfect-match {
         font-size: 30px;
@@ -252,7 +252,6 @@
 
 .eclipse-text-explainer {
     font-weight: 500;
-    line-height: 21px;
     text-align: center;
     display: inline-block;
     max-width: 215px;
@@ -391,7 +390,8 @@
         font-weight: 400;
     } */
     .formula-point-text {
-        font-size: 14px;
+        font-size: 12px;
+        line-height: 18px;
     }
   }
 
