@@ -1,6 +1,6 @@
 function setVariant() {
     let strength = getCookie('strength')
-    let percent_randomized = getCookie('percent_randomized')
+    let p_random = getCookie('p_random')
 
     let starting_shade = getCookie('starting_shade')
     let ending_shade = getCookie('ending_shade')
@@ -65,8 +65,8 @@ function setVariant() {
 
     setTeethShading(starting_shade, ending_shade)
 
-    console.log('percent_randomized: ' + percent_randomized)
-    if (percent_randomized != 'true') {
+    console.log('p_random: ' + p_random)
+    if (p_random != 'true') {
         let percentShades = randomIntFromInterval(minPercentShades, maxPercentShades)
         let percentRatings = randomIntFromInterval(minPercentRatings, maxPercentRatings)
         
@@ -79,27 +79,43 @@ function setVariant() {
             $(obj).text(percentRatings)
         });
 
-        setCookie('percent_randomized', 'true')
-        
+        setCookie('shades_percent', percentShades)
+        setCookie('ratings_percent', percentRatings)
+        setCookie('p_random', 'true')
+    } else {
+        percentShades = getCookie('shades_percent')
+        percentRatings = getCookie('ratings_percent')
+        $('.shades_percent').each(function(i, obj) {
+            $(obj).text(percentShades)
+        });
+        $('.ratings_percent').each(function(i, obj) {
+            $(obj).text(percentRatings)
+        });
+
     }
 }
 
 function setTeethShading(starting_shade, ending_shade) {
+    let difference = ending_shade - starting_shade
+    let first_jump = min(100, difference * .5 + starting_shade)
+    let second_jump = min(100, difference + starting_shade)
+    let third_jump = min(100, difference * 1.5 + starting_shade)
     setTimeout(() => {
         document.getElementById('mobile_journey_tooth_1').setAttribute('style', 'fill: hsl(43,40%,' + (starting_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
-
-        document.getElementById('mobile_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (ending_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
-
+        document.getElementById('mobile_journey_tooth_2').setAttribute('style', 'fill: hsl(43,40%,' + (first_jump/ 2 + 50) + '%); mix-blend-mode:multiply;');
+        document.getElementById('mobile_journey_tooth_3').setAttribute('style', 'fill: hsl(43,40%,' + (second_jump/ 2 + 50) + '%); mix-blend-mode:multiply;');
+        document.getElementById('mobile_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (third_jump/ 2 + 50) + '%); mix-blend-mode:multiply;');
 
         document.getElementById('ipad_journey_tooth_1').setAttribute('style', 'fill: hsl(43,40%,' + (starting_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
-
-        document.getElementById('ipad_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (ending_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
-
+        document.getElementById('ipad_journey_tooth_2').setAttribute('style', 'fill: hsl(43,40%,' + (first_jump/ 2 + 50) + '%); mix-blend-mode:multiply;');
+        document.getElementById('ipad_journey_tooth_3').setAttribute('style', 'fill: hsl(43,40%,' + (second_jump/ 2 + 50) + '%); mix-blend-mode:multiply;');
+        document.getElementById('ipad_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (third_jump/ 2 + 50) + '%); mix-blend-mode:multiply;');
 
         document.getElementById('desktop_journey_tooth_1').setAttribute('style', 'fill: hsl(43,40%,' + (starting_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
-
-        document.getElementById('desktop_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (ending_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
-      }, 7000);
+        document.getElementById('desktop_journey_tooth_2').setAttribute('style', 'fill: hsl(43,40%,' + (first_jump/ 2 + 50) + '%); mix-blend-mode:multiply;');
+        document.getElementById('desktop_journey_tooth_3').setAttribute('style', 'fill: hsl(43,40%,' + (second_jump/ 2 + 50) + '%); mix-blend-mode:multiply;');
+        document.getElementById('desktop_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (third_jump/ 2 + 50) + '%); mix-blend-mode:multiply;');
+      }, 3000);
 }
 
 function randomIntFromInterval(min, max) { // min and max included 
