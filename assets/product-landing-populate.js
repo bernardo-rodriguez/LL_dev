@@ -100,6 +100,11 @@ function setTeethShading(starting_shade, ending_shade) {
     let first_jump = Math.min(100, difference * .5 + starting_shade)
     let second_jump = Math.min(100, difference + starting_shade)
     let third_jump = Math.min(100, difference * 1.5 + starting_shade)
+    console.log('here are the shades:')
+    console.log(starting_shade)
+    console.log(first_jump)
+    console.log(second_jump)
+    console.log(third_jump)
     setTimeout(() => {
         document.getElementById('mobile_journey_tooth_1').setAttribute('style', 'fill: hsl(43,40%,' + (starting_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
         document.getElementById('mobile_journey_tooth_2').setAttribute('style', 'fill: hsl(43,40%,' + (first_jump/ 2 + 50) + '%); mix-blend-mode:multiply;');
