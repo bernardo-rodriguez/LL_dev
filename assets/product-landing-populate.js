@@ -63,9 +63,10 @@ function setVariant() {
     $('#ingredients-box-3-purpose').html(variantIngredientList.ingredients_box_3_purpose)
     $('#formula_header_1').html(variantIngredientList.formula_header_1)
 
+    setTeethShading(starting_shade, ending_shade)
+
     console.log('percent_randomized: ' + percent_randomized)
     if (percent_randomized != 'true') {
-        console.log('lets set these random percentages')
         let percentShades = randomIntFromInterval(minPercentShades, maxPercentShades)
         let percentRatings = randomIntFromInterval(minPercentRatings, maxPercentRatings)
         
@@ -81,6 +82,22 @@ function setVariant() {
         setCookie('percent_randomized', 'true')
         
     }
+}
+
+function setTeethShading(starting_shade, ending_shade) {
+    document.getElementById('mobile_journey_tooth_1').setAttribute('style', 'fill: hsl(43,40%,' + (starting_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
+
+    document.getElementById('mobile_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (ending_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
+
+
+    document.getElementById('ipad_journey_tooth_1').setAttribute('style', 'fill: hsl(43,40%,' + (starting_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
+
+    document.getElementById('ipad_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (ending_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
+
+
+    document.getElementById('desktop_journey_tooth_1').setAttribute('style', 'fill: hsl(43,40%,' + (starting_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
+
+    document.getElementById('desktop_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (ending_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
 }
 
 function randomIntFromInterval(min, max) { // min and max included 
