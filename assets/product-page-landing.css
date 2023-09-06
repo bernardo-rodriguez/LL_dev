@@ -351,6 +351,7 @@
         margin-top: 10px;
     }
     .mobile-offer-text {
+        font-size: 14px;
         padding-bottom: 25px; 
         color: white; 
         text-align: center; 
@@ -373,22 +374,22 @@
         font-size: 13px; 
     }
     .offer-name-0 {
-        font-size: 16px;
+        font-size: 14px;
     }
     .offer-name-1 {
         max-width: 125px; 
         padding-left:0;
-        font-size: 16px;
+        font-size: 14px;
     }
     
     .offer-name-2 {
         max-width: 175px;
-        font-size: 16px;
+        font-size: 14px;
     }
-    /* .mid-offer-list {
+    .mid-offer-list {
         font-size: 12px;
         font-weight: 400;
-    } */
+    }
     .formula-point-text {
         font-size: 12px;
         line-height: 18px;
