@@ -72,10 +72,10 @@ function setVariant() {
         console.log('shades percent is: ' + percentShades)
         console.log('ratings percent is: ' + percentRatings)
         $('.shades_percent').each(function(i, obj) {
-            obj.text(percentShades)
+            $(obj).text(percentShades)
         });
         $('.ratings_percent').each(function(i, obj) {
-            obj.text(percentRatings)
+            $(obj).text(percentRatings)
         });
 
         setCookie('percent_randomized', 'true')
