@@ -1,7 +1,14 @@
 function setVariant() {
     let strength = getCookie('strength')
     let percent_randomized = getCookie('percent_randomized')
-    console.log(strength)
+
+    let starting_shade = getCookie('starting_shade')
+    let ending_shade = getCookie('ending_shade')
+
+    console.log('starting shade: ' + starting_shade)
+    console.log('ending shade: ' + ending_shade)
+    console.log('strength: ' + strength)
+    
     let inputValue
     let minPercentShades
     let maxPercentShades
@@ -57,6 +64,7 @@ function setVariant() {
     $('#formula_header_1').html(variantIngredientList.formula_header_1)
 
     if (percent_randomized != 'true') {
+        console.log('lets set these random percentages')
         let percentShades = randomIntFromInterval(minPercentShades, maxPercentShades)
         let percentRatings = randomIntFromInterval(minPercentRatings, maxPercentRatings)
         
@@ -143,3 +151,9 @@ function waitForElm(selector) {
 }
 
 setNameAndVariant()
+
+
+
+// mobile_journey_tooth_1 -> 4
+// ipad_journey_tooth_2
+// desktop_journey_tooth_1

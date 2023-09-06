@@ -376,6 +376,9 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
   submitForm(e) {
     e.preventDefault();
     this.submit.classList.add("loading")
+    let starting_shade = document.getElementById("myRange").value
+    let ending_shade = document.getElementById("myRange2").value
+
     let sensitivity = document.querySelector('input[name="sensitivity_2"]:checked')?.value || 'medium'
 
     let formula_translate = {
@@ -383,6 +386,9 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
       'medium_2': 'medium',
       'very_2': 'sensitive'
     }
+
+    document.cookie =  "starting_shade=" + starting_shade + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
+    document.cookie =  "ending_shade=" + ending_shade + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
 
     document.cookie =  "strength=" + formula_translate[sensitivity] + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
     document.cookie = "firstname=" + document.querySelector('#first_name_2').value + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
