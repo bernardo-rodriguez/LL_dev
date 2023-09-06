@@ -85,19 +85,21 @@ function setVariant() {
 }
 
 function setTeethShading(starting_shade, ending_shade) {
-    document.getElementById('mobile_journey_tooth_1').setAttribute('style', 'fill: hsl(43,40%,' + (starting_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
+    setTimeout(() => {
+        document.getElementById('mobile_journey_tooth_1').setAttribute('style', 'fill: hsl(43,40%,' + (starting_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
 
-    document.getElementById('mobile_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (ending_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
-
-
-    document.getElementById('ipad_journey_tooth_1').setAttribute('style', 'fill: hsl(43,40%,' + (starting_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
-
-    document.getElementById('ipad_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (ending_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
+        document.getElementById('mobile_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (ending_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
 
 
-    document.getElementById('desktop_journey_tooth_1').setAttribute('style', 'fill: hsl(43,40%,' + (starting_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
+        document.getElementById('ipad_journey_tooth_1').setAttribute('style', 'fill: hsl(43,40%,' + (starting_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
 
-    document.getElementById('desktop_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (ending_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
+        document.getElementById('ipad_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (ending_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
+
+
+        document.getElementById('desktop_journey_tooth_1').setAttribute('style', 'fill: hsl(43,40%,' + (starting_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
+
+        document.getElementById('desktop_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (ending_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
+      }, 1000);
 }
 
 function randomIntFromInterval(min, max) { // min and max included 
