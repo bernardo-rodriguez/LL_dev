@@ -8,7 +8,7 @@ function setVariant() {
     console.log('starting shade: ' + starting_shade)
     console.log('ending shade: ' + ending_shade)
     console.log('strength: ' + strength)
-    
+
     let inputValue
     let minPercentShades
     let maxPercentShades
@@ -63,6 +63,7 @@ function setVariant() {
     $('#ingredients-box-3-purpose').html(variantIngredientList.ingredients_box_3_purpose)
     $('#formula_header_1').html(variantIngredientList.formula_header_1)
 
+    console.log('percent_randomized: ' + percent_randomized)
     if (percent_randomized != 'true') {
         console.log('lets set these random percentages')
         let percentShades = randomIntFromInterval(minPercentShades, maxPercentShades)
