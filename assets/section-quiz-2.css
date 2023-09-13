@@ -406,7 +406,8 @@
 }
 
 .insight_image {
-  margin: 10px;
+  margin-top: -20px;
+  margin-bottom: -10px;
   height: 180px;
   width: 180px;
 }
@@ -443,8 +444,6 @@
   .insight_image {
     height: 150px;
     width: 150px;
-    margin-top: 30px;
-    margin-bottom: 0px;
   }
   .insight_image_2 {
     margin-top: 30px;
