@@ -107,20 +107,20 @@ function setTeethShading(starting_shade, ending_shade) {
     console.log(second_jump)
     console.log(third_jump)
     setTimeout(() => {
-        document.getElementById('mobile_journey_tooth_1').setAttribute('style', 'fill: hsl(43,40%,' + (starting_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
-        document.getElementById('mobile_journey_tooth_2').setAttribute('style', 'fill: hsl(43,40%,' + (first_jump/ 2 + 50) + '%); mix-blend-mode:multiply;');
-        document.getElementById('mobile_journey_tooth_3').setAttribute('style', 'fill: hsl(43,40%,' + (second_jump/ 2 + 50) + '%); mix-blend-mode:multiply;');
-        document.getElementById('mobile_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (third_jump/ 2 + 50) + '%); mix-blend-mode:multiply;');
+        document.getElementById('mobile_journey_tooth_1').setAttribute('style', 'fill: hsl(43,40%,' + (starting_shade/ 3 + 70) + '%); mix-blend-mode:multiply;');
+        document.getElementById('mobile_journey_tooth_2').setAttribute('style', 'fill: hsl(43,40%,' + (first_jump/ 3 + 70) + '%); mix-blend-mode:multiply;');
+        document.getElementById('mobile_journey_tooth_3').setAttribute('style', 'fill: hsl(43,40%,' + (second_jump/ 3 + 70) + '%); mix-blend-mode:multiply;');
+        document.getElementById('mobile_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (third_jump/ 3 + 70) + '%); mix-blend-mode:multiply;');
 
-        document.getElementById('ipad_journey_tooth_1').setAttribute('style', 'fill: hsl(43,40%,' + (starting_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
-        document.getElementById('ipad_journey_tooth_2').setAttribute('style', 'fill: hsl(43,40%,' + (first_jump/ 2 + 50) + '%); mix-blend-mode:multiply;');
-        document.getElementById('ipad_journey_tooth_3').setAttribute('style', 'fill: hsl(43,40%,' + (second_jump/ 2 + 50) + '%); mix-blend-mode:multiply;');
-        document.getElementById('ipad_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (third_jump/ 2 + 50) + '%); mix-blend-mode:multiply;');
+        document.getElementById('ipad_journey_tooth_1').setAttribute('style', 'fill: hsl(43,40%,' + (starting_shade/ 3 + 70) + '%); mix-blend-mode:multiply;');
+        document.getElementById('ipad_journey_tooth_2').setAttribute('style', 'fill: hsl(43,40%,' + (first_jump/ 3 + 70) + '%); mix-blend-mode:multiply;');
+        document.getElementById('ipad_journey_tooth_3').setAttribute('style', 'fill: hsl(43,40%,' + (second_jump/ 3 + 70) + '%); mix-blend-mode:multiply;');
+        document.getElementById('ipad_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (third_jump/ 3 + 70) + '%); mix-blend-mode:multiply;');
 
-        document.getElementById('desktop_journey_tooth_1').setAttribute('style', 'fill: hsl(43,40%,' + (starting_shade/ 2 + 50) + '%); mix-blend-mode:multiply;');
-        document.getElementById('desktop_journey_tooth_2').setAttribute('style', 'fill: hsl(43,40%,' + (first_jump/ 2 + 50) + '%); mix-blend-mode:multiply;');
-        document.getElementById('desktop_journey_tooth_3').setAttribute('style', 'fill: hsl(43,40%,' + (second_jump/ 2 + 50) + '%); mix-blend-mode:multiply;');
-        document.getElementById('desktop_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (third_jump/ 2 + 50) + '%); mix-blend-mode:multiply;');
+        document.getElementById('desktop_journey_tooth_1').setAttribute('style', 'fill: hsl(43,40%,' + (starting_shade/ 3 + 70) + '%); mix-blend-mode:multiply;');
+        document.getElementById('desktop_journey_tooth_2').setAttribute('style', 'fill: hsl(43,40%,' + (first_jump/ 3 + 70) + '%); mix-blend-mode:multiply;');
+        document.getElementById('desktop_journey_tooth_3').setAttribute('style', 'fill: hsl(43,40%,' + (second_jump/ 3 + 70) + '%); mix-blend-mode:multiply;');
+        document.getElementById('desktop_journey_tooth_4').setAttribute('style', 'fill: hsl(43,40%,' + (third_jump/ 3 + 70) + '%); mix-blend-mode:multiply;');
       }, 3000);
 }
 
