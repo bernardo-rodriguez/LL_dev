@@ -353,7 +353,8 @@
         margin-top: 10px;
     }
     .mobile-offer-text {
-        font-size: 14px;
+        font-size: 12px;
+        font-weight: 500;
         padding-bottom: 25px; 
         color: white; 
         text-align: center; 
