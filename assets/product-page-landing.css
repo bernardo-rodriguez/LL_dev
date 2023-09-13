@@ -206,9 +206,11 @@
     }
     .product-landing-ingredient-block {
         padding: 5px;
+        padding-left: 0;
+        padding-right: 0;
     }
     .ingredient-box-function {
-        font-size: 14px;
+        font-size: 13px;
     }
     .ingredient-box-ingredient {
         font-size: 11px;
