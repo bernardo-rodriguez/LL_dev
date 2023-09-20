@@ -3,6 +3,10 @@
   color: var(--navy) !important;
 }
 
+.rc-widget .rc-option--active-custom {
+  color: var(--navy) !important;
+}
+
 .rc_widget__option__discount {
   display: none!important;
 }
