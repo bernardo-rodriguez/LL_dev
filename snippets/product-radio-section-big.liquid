@@ -1,4 +1,65 @@
+<style>
+.custom_rc_wrapper {
+  display: flex;
+}
+</style>
+
 <div id = 'updated-price-big' class="rc-container-wrapper rc_container_wrapper" data-widget-container-wrapper="" data-v-app="">
+  <div class="rc-container rc_container" data-widget-container="">
+    <div class="rc-widget rc_widget" data-widget="">
+      <div class="rc-template" data-template="">
+        <div class="rc-template__legacy-radio custom_rc_wrapper" data-template-legacy-radio="">
+          <div style='background-color: #FAF5F1 !important; z-index: 5'
+            class="rc-radio rc-option__onetime rc-option rc_widget__option rc_widget__option--onetime rc-legacy-radio"
+            data-option-onetime="">
+            <div class="rc_widget__option__selector" data-selector-onetime="">
+              <input id="1_month_supply_big" type="radio" name="supply_type_big"
+                class="rc-radio__input rc_widget__option__input rc_widget__option__input--onetime" data-radio-onetime=""
+                value="1_month">
+              <label for="1_month_supply_big" class="landing-radio__label rc_widget__option__label" data-label-onetime="">
+               
+              </label>
+            </div>
+          </div>
+          <div style='background-color: #FAF5F1 !important; z-index: 5'
+            class="rc-radio rc-option__subsave rc-option rc_widget__option rc_widget__option--subsave rc-legacy-radio rc_widget__option--active rc-option--active"
+            data-option-subsave="">
+            <div class="rc_widget__option__selector" data-selector-subsave="">
+              <input id="2_month_supply_big" type="radio" name="supply_type_big"
+                class="rc-radio__input rc_widget__option__input rc_widget__option__input--subsave" data-radio-subsave=""
+                value="2_month" checked >
+              <label for="2_month_supply_big" class="landing-radio__label non_flex rc_widget__option__label" data-label-subsave="">
+                
+              </label>
+            </div>
+          </div>
+          <div style='background-color: #FAF5F1 !important; z-index: 5'
+            class="rc-radio rc-option__subsave rc-option rc_widget__option rc_widget__option--subsave rc-legacy-radio rc_widget__option--active rc-option--active"
+            data-option-subsave="">
+            <div class="rc_widget__option__selector" data-selector-subsave="">
+              <input id="3_month_supply_big" type="radio" name="supply_type_big"
+                class="rc-radio__input rc_widget__option__input rc_widget__option__input--subsave" data-radio-subsave=""
+                value="3_month">
+              <label for="3_month_supply_big" class="landing-radio__label non_flex rc_widget__option__label" data-label-subsave="">
+              
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $("input[type=radio][name=supply_type_big]").change(function() {
+    var value = $(this).val();
+    console.log('big value is ' + value)
+    $("input[type=radio][name=supply_type][value=" + value + "]").prop("checked", true);
+  });
+</script>
+
+{% comment %} <div id = 'updated-price-big' class="rc-container-wrapper rc_container_wrapper" data-widget-container-wrapper="" data-v-app="">
   <div class="rc-container rc_container" data-widget-container="">
     <div class="rc-widget rc_widget" data-widget="">
       <div class="rc-template" data-template="">
@@ -131,4 +192,4 @@
     console.log('big value is ' + value)
     $("input[type=radio][name=supply_type][value=" + value + "]").prop("checked", true);
   });
-</script>
+</script> {% endcomment %}
