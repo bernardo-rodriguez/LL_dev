@@ -1,6 +1,7 @@
 <style>
 .custom_rc_wrapper {
   display: flex;
+  gap: 10px;
 }
 .custom_rc_product_image {
   max-width: 170px;
@@ -13,6 +14,7 @@
   overflow: hidden;
   flex: 1;
 }
+
 </style>
 
 <div id = 'updated-price-big' class="rc-container-wrapper rc_container_wrapper" data-widget-container-wrapper="" data-v-app="">
@@ -27,7 +29,8 @@
                 class="rc-radio__input rc_widget__option__input rc_widget__option__input--onetime" data-radio-onetime=""
                 value="1_month">
               <label for="1_month_supply_big" class="landing-radio__label rc_widget__option__label" data-label-onetime="">
-                <img class = 'custom_rc_product_image' src="{{ '2_month_supply.png' | asset_url }}"> 
+                <img class = 'custom_rc_product_image' src="{{ '2_month_supply.png' | asset_url }}">
+                <span>1 Month</span>
               </label>
             </div>
           </div>
@@ -38,7 +41,8 @@
                 class="rc-radio__input rc_widget__option__input rc_widget__option__input--subsave" data-radio-subsave=""
                 value="2_month" checked >
               <label for="2_month_supply_big" class="landing-radio__label non_flex rc_widget__option__label" data-label-subsave="">
-                <img class = 'custom_rc_product_image' src="{{ '2_month_supply.png' | asset_url }}"> 
+                <img class = 'custom_rc_product_image' src="{{ '2_month_supply.png' | asset_url }}">
+                <span>2 Month</span>
               </label>
             </div>
           </div>
@@ -49,7 +53,8 @@
                 class="rc-radio__input rc_widget__option__input rc_widget__option__input--subsave" data-radio-subsave=""
                 value="3_month">
               <label for="3_month_supply_big" class="landing-radio__label non_flex rc_widget__option__label" data-label-subsave="">
-                <img class = 'custom_rc_product_image' src="{{ '2_month_supply.png' | asset_url }}"> 
+                <img class = 'custom_rc_product_image' src="{{ '2_month_supply.png' | asset_url }}">
+                <span>3 Month</span>
               </label>
             </div>
           </div>
