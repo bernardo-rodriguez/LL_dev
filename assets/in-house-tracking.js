@@ -105,9 +105,9 @@ function redirectToLandingIfFirstTime(cookie) {
       setCookie('in_house_already_redirected', 'true')
 
       setGoogleLanding('landing-page')
-      setTimeout(function(){
-         window.location.href = 'https://www.mylaughland.com/pages/landing-page'
-      }, 200);
+      // setTimeout(function(){
+      //    window.location.href = 'https://www.mylaughland.com/pages/landing-page'
+      // }, 200);
 
     }
   }
