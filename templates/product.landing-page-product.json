@@ -4,7 +4,7 @@
       "type": "landing-product",
       "settings": {
         "atc": "Buy Now",
-        "satisfaction": "1,253 people started Whitening with Laughland in the Last 7 DaysTypography",
+        "satisfaction": "1,253 people started whitening with Laughland in the last 7 days",
         "satisfaction_svg": "<svg width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<g clip-path=\"url(#clip0_189_939)\">\n<path d=\"M23.4177 0C23.4177 0 15.2061 5.15966 8.38295 17.8572V17.8608L7.7412 17.0315C5.74251 14.5312 0.757158 10.528 0.757158 10.528L0 11.4775C0 11.4775 6.13246 17.4134 8.52809 24C8.52809 24 14.0852 8.68725 24 0.85228L23.4177 0V0Z\" fill=\"#46BDF0\"><\/path>\n<\/g>\n<defs>\n<clippath id=\"clip0_189_939\">\n<rect width=\"24\" height=\"24\" fill=\"white\"><\/rect>\n<\/clippath>\n<\/defs>\n<\/svg>",
         "how_to_use": "{{ product.metafields.custom.how_to_use | metafield_tag }}"
       }
