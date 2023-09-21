@@ -37,6 +37,14 @@
 .time_text {
   display:block;
   text-align:center;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.save_banner_text {
+  font-family: jakarta;
+  font-weight: 600;
+  font-size: 12px;
 }
 
 .option_top_banner {
@@ -72,7 +80,7 @@
       <label for="2_month_supply_big">
         <div class = 'inner_radio_wrapper'>
           <div class = 'option_top_banner' style = 'background-color: #FF9F2F;'>
-            <span>Save 20%</span>
+            <span class = 'save_banner_text'>Save 20%</span>
           </div>
           <img class = 'custom_rc_product_image' src="{{ '2_month_supply.png' | asset_url }}">
           <span class = 'time_text'>2 Month</span>
@@ -84,7 +92,7 @@
       <label for="3_month_supply_big">
         <div class = 'inner_radio_wrapper'>
           <div class = 'option_top_banner' style = 'background-color: #6E27BD;'>
-            <span>Save 30% + Free Pen</span>
+            <span class = 'save_banner_text'>Save 30% + Free Pen</span>
           </div>
           <img class = 'custom_rc_product_image' src="{{ '2_month_supply.png' | asset_url }}">
           <span class = 'time_text'>3 Month</span>
