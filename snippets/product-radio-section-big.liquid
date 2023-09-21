@@ -1,5 +1,6 @@
 <style>
 .custom_rc_wrapper {
+  align-items: flex-start;
   display: flex;
   gap: 10px;
 }
@@ -13,6 +14,7 @@
   z-index: 5;
   overflow: hidden;
   flex: 1;
+  align-self: flex-end;
 }
 
 .hide_radio_button {
@@ -59,6 +61,9 @@
       </label>
     </div>
     <div class="custom_rc_flex_object">
+      <div>
+        <span>Save 30% + Free Pen</span>
+      </div>
       <input class = 'hide_radio_button' id="3_month_supply_big" type="radio" name="supply_type_big" value="3_month">
       <label for="3_month_supply_big">
         <div class = 'inner_radio_wrapper'>
