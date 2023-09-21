@@ -23,7 +23,7 @@
   pointer-events: none;
 }
 
-.custom_rc_flex_object input:checked ~ label {
+.custom_rc_flex_object input:checked ~ label .inner_radio_wrapper {
   border: 1px solid var(--navy)!important;
 }
 
@@ -67,10 +67,10 @@
     <div class="custom_rc_flex_object c_rc_f_o_radio2">
       <input class = 'hide_radio_button' id="2_month_supply_big" type="radio" name="supply_type_big" value="2_month" checked >
       <label for="2_month_supply_big">
-        <div class = 'option_top_banner' style = 'background-color: #FF9F2F;'>
-          <span>Save 20%</span>
-        </div>
         <div class = 'inner_radio_wrapper'>
+          <div class = 'option_top_banner' style = 'background-color: #FF9F2F;'>
+            <span>Save 20%</span>
+          </div>
           <img class = 'custom_rc_product_image' src="{{ '2_month_supply.png' | asset_url }}">
           <span class = 'time_text'>2 Month</span>
         </div>
@@ -79,10 +79,10 @@
     <div class="custom_rc_flex_object c_rc_f_o_radio2">
       <input class = 'hide_radio_button' id="3_month_supply_big" type="radio" name="supply_type_big" value="3_month">
       <label for="3_month_supply_big">
-        <div class = 'option_top_banner' style = 'background-color: #6E27BD;'>
-          <span>Save 30% + Free Pen</span>
-        </div>
         <div class = 'inner_radio_wrapper'>
+          <div class = 'option_top_banner' style = 'background-color: #6E27BD;'>
+            <span>Save 30% + Free Pen</span>
+          </div>
           <img class = 'custom_rc_product_image' src="{{ '2_month_supply.png' | asset_url }}">
           <span class = 'time_text'>3 Month</span>
         </div>
