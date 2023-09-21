@@ -63,6 +63,7 @@
     var value = $(this).val();
     console.log('big value is ' + value)
     $("input[type=radio][name=supply_type][value=" + value + "]").prop("checked", true);
+    $("input[type=radio][name=supply_type_big][value=" + value + "]").prop("checked", true);
   });
 </script>
 
