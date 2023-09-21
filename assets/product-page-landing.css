@@ -291,12 +291,6 @@
 
 /* --------------------- RECHARGE SELECTOR -------------------------------*/
 
-.offer-button-wrapper {
-    flex: 1; 
-    text-align: right; 
-    margin-right: 15x;
-}
-
 .offer-button {
     display:inline-block; 
     background-color: #FF9F2F; 
@@ -368,9 +362,6 @@
     }
     .offer-button-wrapper {
         display: none;
-    }
-    .offer-button {
-        min-width: 130px;
     }
     .offer-button-text {
         /* line-height:16px; */
