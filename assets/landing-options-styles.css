@@ -11,7 +11,7 @@
   display: none!important;
 }
 .rc-option {
-  border: 1px solid var(--navy)!important;
+  /* border: 1px solid var(--navy)!important; */
   margin: 5px 0!important;
   background: transparent!important;
   color: var(--navy)!important;
@@ -52,7 +52,7 @@
   border-color: var(--blue)!important;
 }
 
-/* SOMETHING HERE ABOUT ADDING A BORDER WHEN CHECKED */
+/* SOMETHING HERE ABOUT ADDING A BORDER WHEN CHECKED. Can't select parent, limited browser support https://stackoverflow.com/questions/1014861/is-there-a-css-parent-selector */
 /* .rc_widget__option__selector input:checked ~ label .rc-custom-radio-button:after {
   background: var(--blue)!important;
   border-color: var(--blue)!important;
