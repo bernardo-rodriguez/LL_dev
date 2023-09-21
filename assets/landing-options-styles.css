@@ -52,11 +52,6 @@
   border-color: var(--blue)!important;
 }
 
-/* SOMETHING HERE ABOUT ADDING A BORDER WHEN CHECKED. Can't select parent, limited browser support https://stackoverflow.com/questions/1014861/is-there-a-css-parent-selector */
-/* .rc_widget__option__selector input:checked ~ label .rc-custom-radio-button:after {
-  background: var(--blue)!important;
-  border-color: var(--blue)!important;
-} */
 
 .rc-radio__input {
   display: none!important; /* had */
