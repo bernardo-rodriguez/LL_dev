@@ -15,13 +15,18 @@
   flex: 1;
 }
 
+.hide_radio_button {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+}
 </style>
 
 <div id = 'updated-price-big'>
   <div class="custom_rc_wrapper">
     <div class="custom_rc_flex_object">
       <div>
-        <input id="1_month_supply_big" type="radio" name="supply_type_big" value="1_month">
+        <input class = 'hide_radio_button' id="1_month_supply_big" type="radio" name="supply_type_big" value="1_month">
         <label for="1_month_supply_big">
           <img class = 'custom_rc_product_image' src="{{ '2_month_supply.png' | asset_url }}">
           <span>1 Month</span>
@@ -30,7 +35,7 @@
     </div>
     <div class="custom_rc_flex_object">
       <div>
-        <input id="2_month_supply_big" type="radio" name="supply_type_big" value="2_month" checked >
+        <input class = 'hide_radio_button' id="2_month_supply_big" type="radio" name="supply_type_big" value="2_month" checked >
         <label for="2_month_supply_big">
           <img class = 'custom_rc_product_image' src="{{ '2_month_supply.png' | asset_url }}">
           <span>2 Month</span>
@@ -39,7 +44,7 @@
     </div>
     <div class="custom_rc_flex_object">
       <div>
-        <input id="3_month_supply_big" type="radio" name="supply_type_big" value="3_month">
+        <input class = 'hide_radio_button' id="3_month_supply_big" type="radio" name="supply_type_big" value="3_month">
         <label for="3_month_supply_big">
           <img class = 'custom_rc_product_image' src="{{ '2_month_supply.png' | asset_url }}">
           <span>3 Month</span>
