@@ -73,15 +73,20 @@
 
 .offer_button_wrapper {
   display: inline-block;
-  margin-left: 15px;
+  margin-left: 35px;
   flex: 1;
-  text-align:center;
 }
 
 .offer-button-wrapper {
   flex: 1; 
-  text-align: right; 
   min-width: 200px;
+}
+
+.offer_discount_wrapper {
+  margin-top: 20px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
 }
 </style>
 
@@ -123,8 +128,8 @@
   </div>
   <div>
     <div>
-      <div style = 'margin-top: 20px; display: flex; align-items: center; justify-content: space-between;'>
-        <span style = 'font-size: 40px;'><span style='color:#FF9F2F;text-decoration:line-through;font-size:30px'>
+      <div class = 'offer_discount_wrapper'>
+        <span style = 'font-size: 35px;'><span style='color:#FF9F2F;text-decoration:line-through;font-size:30px'>
           <span style='color:#c3c8cf;'>$98</span></span>&nbsp;$79
         </span>
         <div class='offer_button_wrapper'>
