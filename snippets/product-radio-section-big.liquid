@@ -35,11 +35,27 @@
   display:block;
   text-align:center;
 }
+
+.option_top_banner {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  color: white;
+  text-align: center;
+}
+
+.c_rc_f_o_radio1 {
+  border-radius: 15px;
+}
+
+.c_rc_f_o_radio2 {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
 </style>
 
 <div id = 'updated-price-big'>
   <div class="custom_rc_wrapper">
-    <div class="custom_rc_flex_object">
+    <div class="custom_rc_flex_object c_rc_f_o_radio1">
       <input class = 'hide_radio_button' id="1_month_supply_big" type="radio" name="supply_type_big" value="1_month">
       <label for="1_month_supply_big">
         <div class = 'inner_radio_wrapper'>
@@ -48,8 +64,8 @@
         </div>
       </label>
     </div>
-    <div class="custom_rc_flex_object">
-      <div>
+    <div class="custom_rc_flex_object c_rc_f_o_radio2">
+      <div class = 'option_top_banner' style = 'background-color: #FF9F2F;'>
         <span>Save 20%</span>
       </div>
       <input class = 'hide_radio_button' id="2_month_supply_big" type="radio" name="supply_type_big" value="2_month" checked >
@@ -60,8 +76,8 @@
         </div>
       </label>
     </div>
-    <div class="custom_rc_flex_object">
-      <div>
+    <div class="custom_rc_flex_object c_rc_f_o_radio2">
+      <div class = 'option_top_banner' style = 'background-color: #6E27BD;'>
         <span>Save 30% + Free Pen</span>
       </div>
       <input class = 'hide_radio_button' id="3_month_supply_big" type="radio" name="supply_type_big" value="3_month">
