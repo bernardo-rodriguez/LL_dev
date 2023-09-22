@@ -1,3 +1,7 @@
+.body {
+  background-color: #F2EFF2 !important;
+}
+
 .rc-widget .rc-option--active {
   background: transparent !important;
   color: var(--navy) !important;
