@@ -91,6 +91,7 @@
     },
     "7a9caaa6-d652-4601-b1a9-b46b131687da": {
       "type": "replo-replo-product-test",
+      "disabled": true,
       "settings": {
       }
     },
