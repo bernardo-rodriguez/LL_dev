@@ -352,7 +352,7 @@
     display:flex; 
     margin-top: 15px; 
     justify-content: space-between;
-    border-top: 1px solid var(--navy);
+    /* border-top: 1px solid var(--navy); */
     padding-top: 15px;
 }
 
