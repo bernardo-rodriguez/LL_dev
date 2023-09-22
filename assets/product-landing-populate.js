@@ -98,7 +98,7 @@ function setVariant() {
 function setTeethShading(starting_shade, ending_shade) {
     if (!starting_shade) {
         starting_shade = 32
-        ending_shade = 100
+        ending_shade = 81
     }
     let difference = ending_shade - starting_shade
     console.log('difference is: ' + difference)
