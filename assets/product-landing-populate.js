@@ -107,6 +107,7 @@ function setTeethShading(starting_shade, ending_shade) {
     console.log(second_jump)
     console.log(third_jump)
     setTimeout(() => {
+        
         document.getElementById('journey_boxes_mobile_1').setAttribute('style', 'fill: hsl(43,40%,' + Math.min(starting_shade/ 3 + 70) + '%); mix-blend-mode:multiply;');
         document.getElementById('journey_boxes_mobile_2').setAttribute('style', 'fill: hsl(43,40%,' + Math.min(first_jump/ 3 + 70) + '%); mix-blend-mode:multiply;');
         document.getElementById('journey_boxes_mobile_3').setAttribute('style', 'fill: hsl(43,40%,' + Math.min(second_jump/ 3 + 70) + '%); mix-blend-mode:multiply;');
