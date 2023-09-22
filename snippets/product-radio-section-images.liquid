@@ -106,9 +106,26 @@
       width: 100%; 
       border-radius:20px;
       padding: 2px;
-  }
+    }
+
+    .offer_discount_big_text {
+      font-size: 35px; 
+      margin-left: 15px;
+    }
+
+    .offer_discount_small_text {
+      color:#FF9F2F;
+      text-decoration:line-through;
+      font-size:30px
+    }
 
     @media screen and (max-width: 768px) {
+      .offer_discount_big_text {
+        font-size: 30px; 
+      }
+      .offer_discount_small_text {
+        font-size: 25px
+      }
       .save_banner_text {
         font-size: 10px;
       }
@@ -157,7 +174,7 @@
       <div>
         <div>
           <div class = 'offer_discount_wrapper'>
-            <span style = 'font-size: 35px; margin-left: 15px;'><span style='color:#FF9F2F;text-decoration:line-through;font-size:30px'>
+            <span class = 'offer_discount_big_text'><span class = 'offer_discount_small_text'>
               <span style='color:#c3c8cf;'>$98</span></span>&nbsp;$79
             </span>
             <div class='offer_button_wrapper'>
