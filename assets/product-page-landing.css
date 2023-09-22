@@ -336,6 +336,18 @@
     padding-top: 0 !important;
 }
 
+.satisfaction_guarantee {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.satisfaction_guarantee svg {
+    width: 23px;
+    margin-right: 10px;
+}
+
 @media screen and (max-width: 768px) {
     .mobile-offer-wrapper {
         margin-bottom: -30px; 
