@@ -96,14 +96,9 @@ function setVariant() {
 }
 
 function setTeethShading(starting_shade, ending_shade) {
-    if (starting_shade == NaN) {
-        console.log('its nan')
-    }
-    if (starting_shade == '') {
-        console.log('its empty')
-    }
     if (!starting_shade) {
-        console.log('its not')
+        starting_shade = 32
+        ending_shade = 100
     }
     let difference = ending_shade - starting_shade
     console.log('difference is: ' + difference)
