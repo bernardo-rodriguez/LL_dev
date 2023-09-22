@@ -108,6 +108,14 @@
       padding: 2px;
     }
 
+    .offer_button_2 {
+      display:inline-block; 
+      background-color: #6E27BD; 
+      width: 100%; 
+      border-radius:20px;
+      padding: 2px;
+    }
+
     .offer_discount_big_text {
       font-size: 35px; 
       margin-left: 15px;
@@ -118,7 +126,14 @@
       text-decoration:line-through;
       font-size:30px
     }
+
+    #a1monthoffer {
+      display: none
+    }
     
+    #a3monthoffer {
+      display: none
+    }
 
     @media screen and (max-width: 768px) {
       .offer_discount_big_text {
@@ -139,7 +154,7 @@
     
       <div class="custom_rc_wrapper">
         <div class="custom_rc_flex_object c_rc_f_o_radio1">
-          <input class = 'hide_radio_button' id="1_month_supply_big" type="radio" name="supply_type_big" value="1_month">
+          <input class = 'hide_radio_button' id="1_month_supply_big" type="radio" name="supply_type" value="1_month">
           <label for="1_month_supply_big">
             <div class = 'inner_radio_wrapper'>
               <img class = 'custom_rc_product_image' src="{{ '0-standalone-fixed.png' | asset_url }}">
@@ -148,7 +163,7 @@
           </label>
         </div>
         <div class="custom_rc_flex_object c_rc_f_o_radio2">
-          <input class = 'hide_radio_button' id="2_month_supply_big" type="radio" name="supply_type_big" value="2_month" checked >
+          <input class = 'hide_radio_button' id="2_month_supply_big" type="radio" name="supply_type" value="2_month" checked >
           <label for="2_month_supply_big">
             <div class = 'inner_radio_wrapper'>
               <div class = 'option_top_banner' style = 'background-color: #FF9F2F;'>
@@ -160,7 +175,7 @@
           </label>
         </div>
         <div class="custom_rc_flex_object c_rc_f_o_radio2">
-          <input class = 'hide_radio_button' id="3_month_supply_big" type="radio" name="supply_type_big" value="3_month">
+          <input class = 'hide_radio_button' id="3_month_supply_big" type="radio" name="supply_type" value="3_month">
           <label for="3_month_supply_big">
             <div class = 'inner_radio_wrapper'>
               <div class = 'option_top_banner' style = 'background-color: #6E27BD;'>
@@ -174,19 +189,69 @@
       </div>
       <div>
         <div>
-          <div class = 'offer_discount_wrapper'>
+          <div id = 'a1monthoffer' class = 'offer_discount_wrapper'>
             <span class = 'offer_discount_big_text'><span class = 'offer_discount_small_text'>
-              <span style='color:#c3c8cf;'>$98</span></span>&nbsp;$79
+              <span style='color:#c3c8cf;'>$50</span></span>&nbsp;$49
             </span>
-            <div class='offer_button_wrapper'>
+            {% comment %} <div class='offer_button_wrapper'>
               <div class='offer_button'>
                 <p class='offer_button_text'>Save 20% + Free Shipping</p>
               </div>
-            </div>
+            </div> {% endcomment %}
           </div>
           <ul class='column_offer_list'>
             <li>2 Treatment Cycles: 6 Whitening Serums</li>
             <li>Includes Nano-LED Accelerator Light</li>
           </ul>
         </div>
+        <div id = 'a2monthoffer' class = 'offer_discount_wrapper'>
+          <span class = 'offer_discount_big_text'><span class = 'offer_discount_small_text'>
+            <span style='color:#c3c8cf;'>$98</span></span>&nbsp;$79
+          </span>
+          <div class='offer_button_wrapper'>
+            <div class='offer_button'>
+              <p class='offer_button_text'>Save 20% + Free Shipping</p>
+            </div>
+          </div>
+        </div>
+        <ul class='column_offer_list'>
+          <li>2 Treatment Cycles: 6 Whitening Serums</li>
+          <li>Includes Nano-LED Accelerator Light</li>
+        </ul>
       </div>
+      <div id = 'a3monthoffer' class = 'offer_discount_wrapper'>
+        <span class = 'offer_discount_big_text'><span class = 'offer_discount_small_text'>
+          <span style='color:#c3c8cf;'>$159</span></span>&nbsp;$109
+        </span>
+        <div class='offer_button_wrapper'>
+          <div class='offer_button'>
+            <p class='offer_button_text'>Save 30% + Free Pen</p>
+          </div>
+        </div>
+      </div>
+      <ul class='column_offer_list'>
+        <li>2 Treatment Cycles: 6 Whitening Serums</li>
+        <li>Includes Nano-LED Accelerator Light</li>
+      </ul>
+    </div>
+      </div>
+
+
+      <script>
+        $("input[type=radio][name=supply_type]").change(function() {
+          var value = $(this).val();
+          if (value == '3_month') {
+            $('#a3monthoffer').show()
+            $('#a1monthoffer').hide()
+            $('#a2monthoffer').hide()
+          } else if (value == '1_month') {
+            $('#a3monthoffer').hide()
+            $('#a1monthoffer').show()
+            $('#a2monthoffer').hide()
+          } else {
+            $('#a3monthoffer').hide()
+            $('#a1monthoffer').hide()
+            $('#a2monthoffer').show()
+          }
+        });
+      </script>
