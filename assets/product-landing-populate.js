@@ -96,8 +96,14 @@ function setVariant() {
 }
 
 function setTeethShading(starting_shade, ending_shade) {
-    if (starting_shade == undefined) {
-        console.log('its undefined')
+    if (starting_shade == NaN) {
+        console.log('its nan')
+    }
+    if (starting_shade == '') {
+        console.log('its empty')
+    }
+    if (!starting_shade) {
+        console.log('its not')
     }
     let difference = ending_shade - starting_shade
     console.log('difference is: ' + difference)
@@ -125,7 +131,7 @@ function setTeethShading(starting_shade, ending_shade) {
         document.getElementById('journey_boxes_desktop_2').setAttribute('style', 'fill: hsl(43,40%,' + Math.min(first_jump/ 3 + 70) + '%); mix-blend-mode:multiply;');
         document.getElementById('journey_boxes_desktop_3').setAttribute('style', 'fill: hsl(43,40%,' + Math.min(second_jump/ 3 + 70) + '%); mix-blend-mode:multiply;');
         document.getElementById('journey_boxes_desktop_4').setAttribute('style', 'fill: hsl(43,40%,' + Math.min(third_jump/ 3 + 70) + '%); mix-blend-mode:multiply;');
-      }, 5000);
+      }, 3000);
 }
 
 function randomIntFromInterval(min, max) { // min and max included 
