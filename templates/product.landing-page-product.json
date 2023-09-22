@@ -84,6 +84,11 @@
       "settings": {
       }
     },
+    "f50b4bc2-717a-46a7-98b2-52ae5ab9e364": {
+      "type": "replo-journey-boxes",
+      "settings": {
+      }
+    },
     "7a9caaa6-d652-4601-b1a9-b46b131687da": {
       "type": "replo-replo-product-test",
       "settings": {
@@ -179,6 +184,7 @@
     "main",
     "product-recommendations",
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
+    "f50b4bc2-717a-46a7-98b2-52ae5ab9e364",
     "7a9caaa6-d652-4601-b1a9-b46b131687da",
     "ab6e4dad-c28c-419e-b533-f476d08e759b",
     "d751fc70-2bdd-4a1e-8cae-6ded3cbbfc7e",
