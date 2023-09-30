@@ -40,6 +40,11 @@
     border: 1px solid var(--navy)!important;
   }
 
+  .custom_rc_flex_object input:not(:checked )~ label .inner_radio_wrapper {
+    opacity: .8;
+    filter: grayscale(60%);
+  }
+
   .inner_radio_wrapper {
     border-radius: 15px;
     text-align: center;
