@@ -24,10 +24,12 @@
     background-color: #FFFFFF !important;
     z-index: 5;
     overflow: hidden;
-    flex: 1;
+    {% comment %} flex: 1; {% endcomment %}
     align-self: flex-end;
     max-width: 170px;
     border-radius: 15px;
+    width: 31%;
+    {% comment %} flex: inherit; {% endcomment %}
   }
 
   .hide_radio_button {
@@ -150,7 +152,7 @@
   [data-active='true'] {
     box-shadow: 2px 2px 5px black;
     width: 34%;
-    flex: inherit;
+    {% comment %} flex: inherit; {% endcomment %}
   }
 
   @media screen and (max-width: 768px) {
