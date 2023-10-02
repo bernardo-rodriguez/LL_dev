@@ -269,23 +269,23 @@
       $('#a3monthoffer').show();
       $('#a1monthoffer').hide();
       $('#a2monthoffer').hide();
-      $('#c_rc_f_o_radio1_id').data( "active", 'true' );
-      $('#c_rc_f_o_radio2_id').data( "active", 'false' );
-      $('#c_rc_f_o_radio3_id').data( "active", 'false' );
+      $('#c_rc_f_o_radio1_id').attr("data-active","true");
+      $('#c_rc_f_o_radio2_id').attr("data-active","false");
+      $('#c_rc_f_o_radio3_id').attr("data-active","false");
     } else if (value == '1_month') {
       $('#a3monthoffer').hide();
       $('#a1monthoffer').show();
       $('#a2monthoffer').hide();
-      $('#c_rc_f_o_radio1_id').data( "active", 'false' );
-      $('#c_rc_f_o_radio2_id').data( "active", 'true' );
-      $('#c_rc_f_o_radio3_id').data( "active", 'false' );
+      $('#c_rc_f_o_radio1_id').attr("data-active","false");
+      $('#c_rc_f_o_radio2_id').attr("data-active","true");
+      $('#c_rc_f_o_radio3_id').attr("data-active","false");
     } else {
       $('#a3monthoffer').hide();
       $('#a1monthoffer').hide();
       $('#a2monthoffer').show();
-      $('#c_rc_f_o_radio1_id').data( "active", 'false' );
-      $('#c_rc_f_o_radio2_id').data( "active", 'false' );
-      $('#c_rc_f_o_radio3_id').data( "active", 'true' );
+      $('#c_rc_f_o_radio1_id').attr("data-active","false");
+      $('#c_rc_f_o_radio2_id').attr("data-active","false");
+      $('#c_rc_f_o_radio3_id').attr("data-active","true");
     }
   });
 </script>
