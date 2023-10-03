@@ -3,8 +3,8 @@
 
 <p id = 'name_evaluation' class="question_headers"></p>
 
-<div>
-  <img style = 'display:inline-block; margin-top: -20px; margin-bottom: -10px;' width = '120' height = '120' loading = 'lazy' src="{{ 'ai_tooth.png' | asset_url }}" > 
+<div style = 'text-align: center'>
+  <img class = 'quiz_last_logo'loading = 'lazy' src="{{ 'ai_tooth.png' | asset_url }}" > 
 </div>
 
 <div id="myProgress">
@@ -34,15 +34,22 @@
 </script>
 
 <style>
+  .quiz_last_logo {
+    display:inline-block; 
+    margin-top: -20px; 
+    margin-bottom: -10px;
+    height: 180px;
+    width: 180px;
+  }
   #myProgress {
-    width: 100%;
+    width: 180px;
     background-color: #ddd;
     margin-top: 20px;
   }
   
   #myBar {
     width: 1%;
-    height: 15px;
+    height: 3px;
     background-color: var(--blue);
       /* This timing applies on the way OUT */
     transition-timing-function: ease-in;
