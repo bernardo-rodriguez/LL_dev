@@ -13,7 +13,17 @@
   </div>
 </div>
 
-<div class = 'credibility'>
+<div>
+  <p>Here’s what other customers with a similar quiz profile as you are saying after their whitening treatments</p>
+
+  <div>
+  </div>
+
+  <div>
+  </div>
+</div>
+
+{% comment %} <div class = 'credibility'>
   <img class = 'customer_image' width = '70' height = '70' loading = 'lazy' src="{{ 'holly.png' | asset_url }}"> 
   <p class = 'credibility-quote'>Wow, I wasn't expecting to see results like this in just 10 days!</p>
   <div class = 'stars-container'>
@@ -25,7 +35,7 @@
   </div>
   <p style = 'color: #6f6f6fa1'>HOLLY C.</p>
 </div>
-<p class = 'insight_headers calculating_match'>Calculating your match</p>
+<p class = 'insight_headers calculating_match'>Calculating your match</p> {% endcomment %}
 
 <script>
   function populateProfile(serialized) {
@@ -44,9 +54,11 @@
     width: 180px;
   }
   #myProgress {
-    width: 180px;
+    width: 220px;
     background-color: #ddd;
     margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   #myBar {
