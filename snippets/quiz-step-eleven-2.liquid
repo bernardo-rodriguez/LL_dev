@@ -2,6 +2,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <p id = 'name_evaluation' class="question_headers"></p>
+
+<div>
+  <img style = 'display:inline-block; margin-top: -20px; margin-bottom: -10px;' width = '120' height = '120' loading = 'lazy' src="{{ 'ai_tooth.png' | asset_url }}" > 
+</div>
+
+<div id="myProgress">
+  <div id="myBar"></div>
+</div>
+
 <div class = 'credibility'>
   <img class = 'customer_image' width = '70' height = '70' loading = 'lazy' src="{{ 'holly.png' | asset_url }}"> 
   <p class = 'credibility-quote'>Wow, I wasn't expecting to see results like this in just 10 days!</p>
@@ -15,10 +24,6 @@
   <p style = 'color: #6f6f6fa1'>HOLLY C.</p>
 </div>
 <p class = 'insight_headers calculating_match'>Calculating your match</p>
-
-<div id="myProgress">
-    <div id="myBar"></div>
-</div>
 
 <script>
   function populateProfile(serialized) {
