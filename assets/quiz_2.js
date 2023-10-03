@@ -305,8 +305,8 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
 
     this.setInputs(newState.toString())
     console.log('current step is ' + newState)
-    if (newState == 2) {
-      $('#name_evaluation').text('hello there man')
+    if (newState == 2) { // Should be 11
+      $('#name_evaluation').text($('#first_name_2').text() + ", We're analyzing your answers...")
     }
     if(newState == 6 || this.validateFormStep(this.inputs) == true) {
       this.next.removeAttribute('disabled')
