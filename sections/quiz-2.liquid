@@ -57,7 +57,10 @@
         <div class="quiz_2__content-card">
           <div class="quiz_2__form">
             {% form 'customer' %}
-              <div class="form__step-wrapper_2" data-step="1">
+              {% comment %} <div class="form__step-wrapper_2" data-step="1">
+                {% render 'quiz-step-one-2' %}
+              </div> {% endcomment %}
+              <div class="form__step-wrapper_2" data-step="11">
                 {% render 'quiz-step-one-2' %}
               </div>
 
@@ -109,7 +112,11 @@
                 {% render 'quiz-step-ten-response-2' %}
               </div>
 
-              <div class="form__step-wrapper_2" data-step="11">
+              {% comment %} <div class="form__step-wrapper_2" data-step="11">
+                {% render 'quiz-step-eleven-2' %}
+              </div> {% endcomment %}
+
+              <div class="form__step-wrapper_2" data-step="1">
                 {% render 'quiz-step-eleven-2' %}
               </div>
 
