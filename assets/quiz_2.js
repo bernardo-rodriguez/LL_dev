@@ -246,6 +246,9 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     if (currentState == 12) {
       currentState -= 1
     }
+    if (currentState == 2) {
+      $('#name_evaluation').text('hello there man')
+    }
     let newState = currentState
     let available_states = {}
     let highest_priority = 10 // initiate highest priority text (for checkboxes)
