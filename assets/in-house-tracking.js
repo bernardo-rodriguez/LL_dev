@@ -245,7 +245,7 @@ function landingPageAction(current_page, query_params) {
       case 'skimm':
         setCookieAffiliate('redirect_skimm', 'Skimm')
         setFirstTimeGtags('Skimm')
-        redirectToLandingIfFirstTime2('redirect_skimm', .5)
+        redirectToLandingIfFirstTime2('redirect_skimm', .25)
         break;
       default:
         // setCookie('redirect_sweatcoin', 'true')
@@ -265,7 +265,7 @@ function landingPageAction(current_page, query_params) {
       setFirstTimeGtags('landing-page')
       setGoogleLanding('landing-page')
       if (query_params.utm_affiliate_specific == 'skimm') {
-        clearAllAffiliateCookies_(.5)
+        clearAllAffiliateCookies_(.25)
         setCookieAffiliate('redirect_skimm', 'Skimm')
         setCookie('in_house_already_redirected', 'true')
         setCookie('cookie_tracked', 'true')
@@ -278,7 +278,7 @@ function landingPageAction(current_page, query_params) {
   } else {
       setFirstTimeGtags(current_page)
       if (query_params.utm_affiliate_specific == 'skimm') {
-        clearAllAffiliateCookies_(.5)
+        clearAllAffiliateCookies_(.25)
         setCookieAffiliate('redirect_skimm', 'Skimm')
         setFirstTimeGtags('Skimm')
         setCookie('in_house_already_redirected', 'true')
