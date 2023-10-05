@@ -344,6 +344,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 14px;
+    line-height: 21px;
 }
 
 .satisfaction_guarantee svg {
@@ -360,6 +362,11 @@
 }
 
 @media screen and (max-width: 768px) {
+    .satisfaction_guarantee {
+        font-size: 12px;
+        line-height: 18px;
+    }
+    
     .mobile-offer-wrapper {
         margin-bottom: -30px; 
         background-color: #FF9F2F; 

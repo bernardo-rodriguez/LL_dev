@@ -168,6 +168,8 @@
   text-align: center;
   font-weight: 300;
   font-size: 14px;
+  line-height: 21px;
+  font-family: Jakarta;
   max-width: 90px;
 }
 
@@ -176,6 +178,11 @@
 }
 
 @media screen and (max-width: 768px) {
+  .below_button_guarantee {
+    font-size: 12px;
+    line-height: 18px;
+
+  }
   .product__details {
     margin-top: 40px;
   }
