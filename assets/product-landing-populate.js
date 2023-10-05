@@ -100,6 +100,11 @@ function setTeethShading(starting_shade, ending_shade) {
         starting_shade = 32
         ending_shade = 81
     }
+    if (starting_shade > ending_shade) {
+        let tmp_shade = starting_shade
+        ending_shade = starting_shade
+        starting_shade = tmp_shade
+    }
     let difference = ending_shade - starting_shade
     console.log('difference is: ' + difference)
     let first_jump = Math.min(100, (difference * .5) + starting_shade) 
