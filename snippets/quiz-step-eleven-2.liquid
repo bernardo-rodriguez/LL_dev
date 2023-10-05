@@ -28,10 +28,10 @@
             <span class="fa fa-star"></span>
             <span class="fa fa-star"></span>
           </div>
-          <div>
-            <p class = 'quiz_normal_body_text' style = 'display: inline-block'>Allie S.</p>
+          <div class = 'quote_person_wrapper'>
+            <p class = 'quiz_normal_body_text smaller' style = 'display: inline-block'>Allie S.</p>
             <img class = 'blue_check_logo'loading = 'lazy' src="{{ 'circle_blue.png' | asset_url }}" > 
-            <p class = 'quiz_normal_body_text' style = 'display: inline-block'>VERIFIED BUYER</p>
+            <p class = 'quiz_normal_body_text smallest' style = 'display: inline-block'>VERIFIED BUYER</p>
           </div>
         </div>
       </div>
@@ -80,6 +80,10 @@
   .blue_check_logo {
     height: 20px;
     width: 20px;
+    margin-bottom: -3px;
+  }
+  .quote_person_wrapper {
+    margin-top: 5px;
   }
   .quiz_last_logo {
     display:inline-block; 
@@ -140,5 +144,27 @@
   }
   .stars-container {
     color: var(--blue);
+  }
+
+  .smaller {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .smallest {
+    font-size: 10px;
+    line-height: 15px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .smaller {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  
+    .smallest {
+      font-size: 8px;
+      line-height: 12px;
+    }
   }
   </style>
