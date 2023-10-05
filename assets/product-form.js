@@ -398,7 +398,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
             }
           ]
         }
-        body = JSON.stringify(json_body)
+        body = JSON.stringify(addedPenBody)
+        console.log(body)
       }
     } else if (window.location.href.includes('landing-page-product-main')) {
       let json_body = JSON.parse(body)
