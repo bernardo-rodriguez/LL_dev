@@ -4,7 +4,7 @@
 <p id = 'name_evaluation' class="question_headers"></p>
 
 <div style = 'text-align: center'>
-  <img class = 'quiz_last_logo quiz_normal_body_text'loading = 'lazy' src="{{ 'ai_tooth.png' | asset_url }}" > 
+  <img class = 'quiz_last_logo'loading = 'lazy' src="{{ 'ai_tooth.png' | asset_url }}" > 
 </div>
 
 <div style = 'width: 100%;'>
@@ -14,12 +14,12 @@
 </div>
 
 <div class = 'customer_cred'>
-  <p>Here’s what other customers with a similar quiz profile as you are saying after their whitening treatments</p>
+  <p class = 'quiz_normal_body_text'>Here’s what other customers with a similar quiz profile as you are saying after their whitening treatments</p>
 
   <div class = 'quote_boxes_wrapper'>
     <div class = 'quote_box'>
       <div class = 'quote_wrapper'>
-        <p>This is GREAT for Sensitive Teeth! I’ve done 6 treatments and have noticeable brighter teeth. These were not painful at all! I would recommend you try it. You won’t regret it.</p>
+        <p class = 'quiz_normal_body_text'>This is GREAT for Sensitive Teeth! I’ve done 6 treatments and have noticeable brighter teeth. These were not painful at all! I would recommend you try it. You won’t regret it.</p>
         <div>
           <div style = 'display: inline-block; margin-top: 5px' class = 'stars-container'>
             <span class="fa fa-star checked"></span>
@@ -35,7 +35,7 @@
 
     <div class = 'quote_box'>
       <div class = 'quote_wrapper'>
-        <p>It’s like a magic eraser for your teeth.  Stains Out, Shine In. I’ve tried Strips, Charcoal, Colgate Whitening Pens but nothing works like this. I can smile with teeth again!</p>
+        <p class = 'quiz_normal_body_text'>It’s like a magic eraser for your teeth.  Stains Out, Shine In. I’ve tried Strips, Charcoal, Colgate Whitening Pens but nothing works like this. I can smile with teeth again!</p>
         <div>
           <div style = 'display: inline-block; margin-top: 5px' class = 'stars-container'>
             <span class="fa fa-star checked"></span>
@@ -67,7 +67,6 @@
 
 <script>
   function populateProfile(serialized) {
-    console.log('hi there')
     console.log(serialized)
   }
 
@@ -78,8 +77,8 @@
     display:inline-block; 
     margin-top: -20px; 
     margin-bottom: -10px;
-    height: 90px;
-    width: 90px;
+    height: 120px;
+    width: 120px;
   }
   #myProgress {
     width: 220px;
