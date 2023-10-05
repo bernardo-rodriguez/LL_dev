@@ -5,6 +5,24 @@
   line-height: 24px;
 }
 
+.insight_headers {
+  font-family: jakarta;
+  letter-spacing:  -0.01em;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.insight_subheaders {
+  font-family: jakarta;
+  letter-spacing:  -0.01em;
+  font-size: 18px;
+  line-height: 26px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
 .secondary_button {
   background: transparent;
   color: black;
@@ -350,18 +368,6 @@
   padding: 5px;
 }
 
-.insight_headers {
-  font-size: 30px;
-  font-weight: 600;
-  margin-top: 20px;
-}
-
-.insight_subheaders {
-  font-size: 20px;
-  padding: 20px;
-  margin-bottom: 30px;
-}
-
 .additional_info_box {
   background: var(--blue-tint-20);
   border-radius: 5px;
@@ -482,11 +488,13 @@
     text-align: center;
   }
   .insight_headers {
-    font-size: 25px;
+    font-size: 18px;
+    line-height: 26px;
   }
   .insight_subheaders {
     padding-top: 15px;
     font-size: 16px;
+    line-height: 24px;
   }
   /*.laughland-drop-container {
     width: auto;
