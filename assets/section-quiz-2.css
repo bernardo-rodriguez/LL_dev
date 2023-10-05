@@ -1,3 +1,9 @@
+.quiz_normal_body_text {
+  font-family: jakarta;
+  font-size: 16px;
+  line-height: 24px;
+}
+
 .secondary_button {
   background: transparent;
   color: black;
@@ -43,6 +49,10 @@
   }
   .last_insight {
     font-size: 20px !important;
+  }
+  .quiz_normal_body_text {
+    font-size: 14px;
+    line-height: 21px;
   }
 }
 
