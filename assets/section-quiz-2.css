@@ -1,5 +1,6 @@
 .quiz_normal_body_text {
   font-family: jakarta;
+  letter-spacing:  -0.01em;
   font-size: 16px;
   line-height: 24px;
 }
@@ -377,8 +378,9 @@
 .text {
   margin-left: 5px;
   list-style-type: none;
-  font-family: manrope, sans-serif;
+  font-family: jakarta, sans-serif;
   font-weight: 300;
+  letter-spacing:  -0.01em;
 }
 
 .for_email_klaviyo {
