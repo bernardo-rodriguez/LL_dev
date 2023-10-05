@@ -387,7 +387,19 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     }
 
     if (window.location.href.includes('at-home-whitening-kit')) { 
-      console.log('passing through')
+      if (window.location.href.includes('at-home-whitening-kit-2')) {
+        let json_body = JSON.parse(body)
+        let addedPenBody = {
+          'items': [
+            json_body,
+            {
+              'id': 42210600812769,
+              'quantity': 1
+            }
+          ]
+        }
+        body = JSON.stringify(json_body)
+      }
     } else if (window.location.href.includes('landing-page-product-main')) {
       let json_body = JSON.parse(body)
       let id_dict = {
