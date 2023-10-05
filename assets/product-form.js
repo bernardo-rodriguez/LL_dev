@@ -388,12 +388,18 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     if (window.location.href.includes('at-home-whitening-kit')) { 
       if (window.location.href.includes('at-home-whitening-kit-2')) {
+        let strength = getCookie('strength')
+        pen_id_dict = {
+          "sensitive": 42210600878305,
+          "medium": 42210600812769,
+          "strong": 42210600845537
+        }
         let json_body = JSON.parse(body)
         let addedPenBody = {
           'items': [
             json_body,
             {
-              'id': 42210600812769,
+              'id': pen_id_dict[strength],
               'quantity': 1
             }
           ]
