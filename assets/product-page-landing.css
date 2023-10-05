@@ -126,6 +126,7 @@
 
     .landing-stars {
         font-size: 14px;
+        line-height: 21px;
     }
     .perfect-match {
         font-size: 30px;
@@ -258,7 +259,7 @@
     text-align: center;
     display: inline-block;
     max-width: 215px;
-    margin-top: 30px;
+    margin-top: 40px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -287,6 +288,7 @@
         max-width: none;
         text-align: left;
         margin-left: 10px;
+        margin-top: 30px;
     }
 }
 
