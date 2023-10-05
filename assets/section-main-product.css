@@ -75,9 +75,17 @@
 /*================ Info ================*/
 
 .product__info-wrapper {
-  max-width: calc( 1440px / 2 );
+  /* max-width: calc( 1440px / 2 ); */
+  max-width: 600px;
   margin-right: 50px;
   padding: 100px 0;
+  margin: auto;
+}
+
+@media screen and (max-width: 1450px) {
+  .product__info-wrapper {
+    margin: initial;
+  }
 }
 
 @media screen and (max-width: 768px) {
