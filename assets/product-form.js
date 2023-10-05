@@ -407,11 +407,18 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
           "strong": 43934773838049
         }
       }
+
+      let product_dict = {
+        "1_month": 8042329407713,
+        "2_month": 8043044372705,
+        "3_month": 8043108139233
+      }
       let supply_type = $('input[name="supply_type"]:checked').val()
       let strength = getCookie('strength')
       console.log(supply_type)
       console.log(strength)
       json_body['id'] = id_dict[supply_type][strength]
+      json_body['product-id'] = product_dict[supply_type]
       body = JSON.stringify(json_body)
       console.log(body)
     }
