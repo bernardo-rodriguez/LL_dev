@@ -584,19 +584,19 @@ formula-quiz-2[data-state]:not([data-state='0']) .buttons-begin {
 
 .quiz_heading_2 {
   font-family: jakarta;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
-  line-height: 27px;
-  letter-spacing: -0.015em;
+  line-height: 30px;
+  letter-spacing: -0.01em;
   text-align: center;
 }
 
 .quiz_heading_3 {
   font-family: jakarta;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 21px;
-  letter-spacing: -0.015em;
+  line-height: 24px;
+  letter-spacing: -0.01em;
   text-align: center;
 }
 
@@ -608,5 +608,13 @@ formula-quiz-2[data-state]:not([data-state='0']) .buttons-begin {
   }
   .mobile-min {
     min-width: 180px;
+  }
+  .quiz_heading_2 {
+    font-size: 18px;
+    line-height: 27px;
+  }
+  .quiz_heading_3 {
+    font-size: 14px;
+    line-height: 21px;
   }
 }
