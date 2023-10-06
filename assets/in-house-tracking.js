@@ -2,6 +2,17 @@ affiliate_cookie_options = ['redirect_inspire', 'redirect_ut', 'redirect_ut_dire
 affiliate_cookie_options_2 = ['redirect__inspire', 'redirect__ut', 'redirect__ut__direct', 'redirect__paceline', 'redirect__sweatcoin', 'redirect__miles', 'redirect__studentbeans', 'redirect__skimm', 'redirect__pinterest', 'shareasaleShopifySSCID']
 
 
+function LandingPopulateCactus() {
+  // Populate landing page text for cactus media
+  $('#hero_subtitle_1').css('margin-bottom', '50px !important')
+  $('#hero_title').html('Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit') 
+  
+  document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
+
+  $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>19")
+}
+
+
 // if user arrives at mylaughland.com?utm_affiliate_specific=cactus_media
 // set cookie to cactus media, and google referral tag to cactus media
 // if first time, set redirect to whatever it is.
@@ -267,6 +278,7 @@ function landingPageAction(current_page, query_params) {
       setGoogleLanding('landing-page')
       setCookie('in_house_already_redirected', 'true')
       if (query_params.utm_affiliate_specific == 'cactus_media') {
+        LandingPopulateCactus()
         setCookieAffiliate('redirect_ut', 'Cactus Media')
         redirectToLandingIfFirstTime('redirect_ut', true)
       }
