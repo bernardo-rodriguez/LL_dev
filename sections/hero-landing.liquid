@@ -26,7 +26,9 @@
       {% if formatted_sub_title != blank %}
         <h5 style = 'margin-bottom: 20px;' class="Hero_Subtitle h5">{{- formatted_sub_title -}}</h5>
       {% endif %}
-      <h5 style = 'display: none; color: #46BDF0;' id = 'landing-hero-discounted' class="Hero_Subtitle h5">75% OFF</h5>
+      {% comment %} <h5 style = 'display: none; color: #46BDF0;' id = 'landing-hero-discounted' class="Hero_Subtitle h5">75% OFF</h5> {% endcomment %}
+      <h5 style = 'display: none;' id = 'landing-hero-discounted' class="Hero_Subtitle h5">75% OFF</h5>
+
       {% if section.settings.button_link != blank %}
         <a href="{{ section.settings.button_link }}"  {% if section.settings.button_action == "quiz" %}data-open-quiz{% endif %}  {% if settings.discount_code != blank %}onclick="window.localStorage.setItem('landing_page_product_discount','{{ settings.discount_code }}')" {% endif %} class="button {% if section.settings.button_style == 'secondary' %}button--secondary{% else %}button--primary{% endif %}">
           {{- section.settings.button_label -}}
