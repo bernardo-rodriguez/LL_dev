@@ -22,9 +22,9 @@
       {% if section.settings.review != blank %}
         <h5 class="Hero_Review">{% render 'icon' icon: 'review-5-star' %}<span class='stylized'>{{ section.settings.review }}</span></h5>
       {% endif %}
-      <h2 class="Hero_Title">{{ formatted_title | newline_to_br }}</h2>
+      <h2 id = 'hero_title' class="Hero_Title">{{ formatted_title | newline_to_br }}</h2>
       {% if formatted_sub_title != blank %}
-        <h5 style = 'margin-bottom: 20px;' class="Hero_Subtitle h5">{{- formatted_sub_title -}}</h5>
+        <h5 id = 'hero_subtitle_1' style = 'margin-bottom: 20px;' class="Hero_Subtitle h5">{{- formatted_sub_title -}}</h5>
       {% endif %}
       {% comment %} <h5 style = 'display: none; color: #46BDF0;' id = 'landing-hero-discounted' class="Hero_Subtitle h5">75% OFF</h5> {% endcomment %}
       <h5 style = 'display: none;' id = 'landing-hero-discounted' class="Hero_Subtitle h5">75% OFF</h5>
@@ -75,8 +75,10 @@
       switch(subscriptionCookie[0]) {
         case 'redirect_ut':
           {% comment %} $('#landing-hero-discounted').css('display', 'block') {% endcomment %}
-          $('#landing-hero-discounted').html('Free Whitening Pen Included With Purchase')
-          $('#landing-hero-discounted').css('display', 'block')
+          {% comment %} $('#landing-hero-discounted').html('Free Whitening Pen Included With Purchase')
+          $('#landing-hero-discounted').css('display', 'block') {% endcomment %}
+          $('#hero_subtitle_1').css('margin-bottom', '50px !important')
+          $('#hero_title').text('Get A Free Whitening Kit With Your Pen')
           
           document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
           subPrice = '19'
