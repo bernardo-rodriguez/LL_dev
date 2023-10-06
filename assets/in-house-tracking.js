@@ -80,7 +80,7 @@ function redirectToLandingIfFirstTime2(cookie, p) {
 }
 
 
-function redirectToLandingIfFirstTime(cookie) {
+function redirectToLandingIfFirstTime(cookie, from_landing=false) {
   // If I haven't redirected, redirect to random page and set landing page cookie.
   // Mark redirect in cookies so we don't redirect again if a user somehow goes back with the same utm params.
   // if (getCookie("in_house_already_redirected") != 'true') {
@@ -102,7 +102,7 @@ function redirectToLandingIfFirstTime(cookie) {
       }
 
     setCookie('cookie_tracked', 'true')
-    if (getCookie("in_house_already_redirected") != 'true') {
+    if (getCookie("in_house_already_redirected") != 'true' && from_landing != true) {
       setCookie('in_house_already_redirected', 'true')
 
       setGoogleLanding('landing-page')
@@ -265,30 +265,32 @@ function landingPageAction(current_page, query_params) {
       setLandingPageFlag('true')
       setFirstTimeGtags('landing-page')
       setGoogleLanding('landing-page')
-      if (query_params.utm_affiliate_specific == 'skimm') {
+      setCookie('in_house_already_redirected', 'true')
+      if (query_params.utm_affiliate_specific == 'cactus_media') {
+        setCookieAffiliate('redirect_ut', 'Cactus Media')
+        redirectToLandingIfFirstTime('redirect_ut', true)
+      }
+      else if (query_params.utm_affiliate_specific == 'skimm') {
         clearAllAffiliateCookies_(.25)
         setCookieAffiliate('redirect_skimm', 'Skimm')
-        setCookie('in_house_already_redirected', 'true')
         setCookie('cookie_tracked', 'true')
       } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
         clearAllAffiliateCookies_(.5)
         setCookieAffiliate('redirect_pinterest', 'Pinterest')
-        setCookie('in_house_already_redirected', 'true')
         setCookie('cookie_tracked', 'true')
       }
   } else {
+      setCookie('in_house_already_redirected', 'true')
       setFirstTimeGtags(current_page)
       if (query_params.utm_affiliate_specific == 'skimm') {
         clearAllAffiliateCookies_(.25)
         setCookieAffiliate('redirect_skimm', 'Skimm')
         setFirstTimeGtags('Skimm')
-        setCookie('in_house_already_redirected', 'true')
         setCookie('cookie_tracked', 'true')
       } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
         clearAllAffiliateCookies_(.5)
         setCookieAffiliate('redirect_pinterest', 'Pinterest')
         setFirstTimeGtags('Pinterest')
-        setCookie('in_house_already_redirected', 'true')
         setCookie('cookie_tracked', 'true')
       }
   }
