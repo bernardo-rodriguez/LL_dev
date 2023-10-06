@@ -51,7 +51,7 @@ function cookie_actions() {
         showAnnouncementBar('Sweatcoin Users, Free Whitening Pen with Purchase Today!')
         break
       case 'redirect_ut': //cactus annoucnement text 
-        showAnnouncementBar('Discount & Shipping Automatically Applied at Checkout!')
+        showAnnouncementBar('Discount & Free Pen Automatically Added at Checkout!')
         path = window.location.pathname
         if (path == '/products/at-home-whitening-kit') {
           window.location = '/products/at-home-whitening-kit-2'
