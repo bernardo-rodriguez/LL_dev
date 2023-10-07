@@ -11,7 +11,7 @@
       "type": "hero-landing",
       "settings": {
         "image": "shopify:\/\/shop_images\/Hero_Image.jpg",
-        "mobile_image": "shopify:\/\/shop_images\/Mobile_Hero_Image.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/Group_376_fcbb9752-69c5-45ef-9a8b-0c9782628986.png",
         "review": "4.6\/5",
         "title": "Take the first step <br>{to a better smile}",
         "sub_title": "Get a customized whitening solution for just {<sup>$<\/sup>19} today.",
@@ -344,7 +344,7 @@
         "2c52ec03-04aa-4e36-bb46-206b519f147f"
       ],
       "custom_css": [
-        ".Reviews_Section .Reviews_Inr_Section {background-color:#FAF5F1}"
+        ".Reviews_Section .Reviews_Inr_Section {background-color: #faf5f1;}"
       ],
       "settings": {
         "section_heading": "What People {love} about Laughland",
