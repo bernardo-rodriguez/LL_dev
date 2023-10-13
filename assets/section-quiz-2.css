@@ -609,6 +609,7 @@ formula-quiz-2[data-state]:not([data-state='0']) .buttons-begin {
   line-height: 30px;
   letter-spacing: -0.01em;
   text-align: center;
+  margin-top: 20px;
 }
 
 .quiz_heading_3 {
@@ -632,6 +633,7 @@ formula-quiz-2[data-state]:not([data-state='0']) .buttons-begin {
   .quiz_heading_2 {
     font-size: 18px;
     line-height: 27px;
+    margin-top: 15px;
   }
   .quiz_heading_3 {
     font-size: 14px;
