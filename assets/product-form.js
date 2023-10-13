@@ -421,9 +421,9 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
           "strong": 43934775640289
         },
         "3_month": {
-          "sensitive": 43934773805281,
+          "sensitive": 43934773838049,
           "medium": 43934773772513,
-          "strong": 43934773838049
+          "strong": 43934773805281
         }
       }
 
