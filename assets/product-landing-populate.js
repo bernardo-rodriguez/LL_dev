@@ -101,7 +101,7 @@ function setTeethShading(starting_shade, ending_shade) {
         ending_shade = 81
     }
     if (starting_shade > ending_shade) {
-        let tmp_shade = starting_shade
+        const tmp_shade = starting_shade
         ending_shade = starting_shade
         starting_shade = tmp_shade
     }
