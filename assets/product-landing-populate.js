@@ -105,6 +105,8 @@ function setTeethShading(starting_shade, ending_shade) {
         ending_shade = starting_shade
         starting_shade = tmp_shade
     }
+    console.log('starting shade: ' + starting_shade)
+    console.log('ending shade: ' + ending_shade)
     let difference = ending_shade - starting_shade
     console.log('difference is: ' + difference)
     let first_jump = Math.min(100, (difference * .5) + starting_shade) 
