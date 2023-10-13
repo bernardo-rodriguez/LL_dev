@@ -102,8 +102,9 @@ function setTeethShading(starting_shade, ending_shade) {
     }
     if (starting_shade > ending_shade) {
         console.log('this is the case')
-        const tmp_shade = starting_shade
+        let tmp_shade = starting_shade
         ending_shade = starting_shade
+        console.log('tmp_shade shade: ' + tmp_shade)
         starting_shade = tmp_shade
     }
     console.log('starting shade: ' + starting_shade)
