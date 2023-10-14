@@ -9,6 +9,10 @@
 .rc-template__legacy-radio .rc-radio {
   white-space: normal;
 }
+
+.jdgm-preview-badge {
+    display: none;
+}
 .canela {
     font-family: canela
 }
