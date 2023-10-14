@@ -11,7 +11,7 @@
 }
 
 .jdgm-preview-badge {
-    display: none;
+    display: none !important;
 }
 .canela {
     font-family: canela
