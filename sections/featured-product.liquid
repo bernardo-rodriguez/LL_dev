@@ -435,11 +435,13 @@
   
       switch(subscriptionCookie[0]) {
         case 'redirect_ut':
+          console.log('sup')
           subPrice = '0'
           discount_name = 'UTM_GEN_LIMITED'
           discount_desc = '100% OFF'
           document.getElementsByClassName('price-item--regular')[0].innerHTML = '$76'
           document.getElementsByClassName('price-item--regular')[1].innerHTML = '$76'
+          console.log('sup2')
           break;
         case 'redirect_ut_direct':
           subPrice = '9'
@@ -484,24 +486,30 @@
   console.log(sub_specs)
   
   setTimeout(function(){
+    console.log('sup3')
     document.getElementsByClassName('price-item--sale')[0].innerHTML = "$" + sub_specs[0]
     document.getElementsByClassName('button--full')[0].querySelector('span').innerHTML = 'Start Now — $'+sub_specs[0]+''
     document.getElementsByClassName('discount-code')[0].innerHTML = sub_specs[1]
     document.getElementsByClassName('discount-text')[0].innerHTML = sub_specs[2]
+    console.log('sup4')
   }, 100);
 
   setTimeout(function(){
+    console.log('sup5')
     document.getElementsByClassName('price-item--sale')[0].innerHTML = "$" + sub_specs[0]
     document.getElementsByClassName('button--full')[0].querySelector('span').innerHTML = 'Start Now — $'+sub_specs[0]+''
     document.getElementsByClassName('discount-code')[0].innerHTML = sub_specs[1]
     document.getElementsByClassName('discount-text')[0].innerHTML = sub_specs[2]
+    console.log('sup6')
   }, 1000);
   
   window.onload = (event) => {
+    console.log('sup7')
     document.getElementsByClassName('price-item--sale')[0].innerHTML = "$" + sub_specs[0]
     document.getElementsByClassName('button--full')[0].querySelector('span').innerHTML = 'Start Now — $'+sub_specs[0]+''
     document.getElementsByClassName('discount-code')[0].innerHTML = sub_specs[1]
     document.getElementsByClassName('discount-text')[0].innerHTML = sub_specs[2]
+    console.log('sup7')
   };
   
 </script>
