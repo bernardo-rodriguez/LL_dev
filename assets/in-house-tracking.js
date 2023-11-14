@@ -5,7 +5,7 @@ affiliate_cookie_options_2 = ['redirect__inspire', 'redirect__ut', 'redirect__ut
 function LandingPopulateCactus() {
   // Populate landing page text for cactus media
   $('#hero_subtitle_1').css('margin-bottom', '50px !important')
-  $('#hero_title').html('Get A <span class = "stylized">Free Whitening Kit</span> <br> - Limited Usage') 
+  $('#hero_title').html('Get A <span class = "stylized">Free Whitening Kit</span> <br>') 
   
   document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
 
