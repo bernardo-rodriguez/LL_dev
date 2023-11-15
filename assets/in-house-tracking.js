@@ -9,7 +9,7 @@ function LandingPopulateCactus() {
   
   document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
 
-  $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>0")
+  // $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>0")
   $('.Hero_Subtitle').first().text("sup")
 }
 
