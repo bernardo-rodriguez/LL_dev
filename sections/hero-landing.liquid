@@ -81,7 +81,7 @@
           $('#hero_title').html('Get A <span class = "stylized">Free Whitening Kit</span> <br>') 
           
           document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
-          $('.Hero_Subtitle').first().html("sup")
+          $('.Hero_Subtitle').first().html("Get A Customized Whitening Solution For Just Shipping Today.")
           subPrice = '0'
           break;
         case 'redirect_ut_direct':
@@ -135,8 +135,6 @@
     subPrice = getSubPriceLanding()
     if (subPrice != '') {
       $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>"+subPrice+"")
-    } else {
-      $('.Hero_Subtitle').first().html("sup")
     }
   }, 5000);
   
