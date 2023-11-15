@@ -5,15 +5,16 @@ affiliate_cookie_options_2 = ['redirect__inspire', 'redirect__ut', 'redirect__ut
 function LandingPopulateCactus() {
   // Populate landing page text for cactus media
   $('#hero_subtitle_1').css('margin-bottom', '50px !important')
-  $('#hero_title').html('Get A <span class = "stylized">Free Whitening Kit</span> <br>') 
+  $('#hero_title').html('Start Your <span class = "stylized">Free Whitening</span> <br> Trial Today.') 
   
   document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
 
   $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>0")
+  $('.Hero_Subtitle').first().text("sup")
 }
 
 
-// if user arrives at mylaughland.com?utm_affiliate_specific=cactus_media
+// if user arrives at mylaughland.com?utm_affiliatgit e_specific=cactus_media
 // set cookie to cactus media, and google referral tag to cactus media
 // if first time, set redirect to whatever it is.
 
