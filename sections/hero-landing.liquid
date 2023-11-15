@@ -24,7 +24,7 @@
       {% endif %}
       <h2 id = 'hero_title' class="Hero_Title">{{ formatted_title | newline_to_br }}</h2>
       {% if formatted_sub_title != blank %}
-        <h5 id = 'hero_subtitle_1' style = 'margin-bottom: 20px;' class="Hero_Subtitle h5">{{- formatted_sub_title -}}</h5>
+        <h5 id = 'hero_subtitle_1' style = 'margin-bottom: 20px; max-width: 600px;' class="Hero_Subtitle h5">{{- formatted_sub_title -}}</h5>
       {% endif %}
       {% comment %} <h5 style = 'display: none; color: #46BDF0;' id = 'landing-hero-discounted' class="Hero_Subtitle h5">75% OFF</h5> {% endcomment %}
       <h5 style = 'display: none;' id = 'landing-hero-discounted' class="Hero_Subtitle h5">75% OFF</h5>
