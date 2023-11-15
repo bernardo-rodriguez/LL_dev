@@ -119,20 +119,23 @@
   console.log(subPrice)
   
   setTimeout(function(){
-    if subPrice != '':
+    if (subPrice != '') {
       $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>"+subPrice+"")
+    }
   }, 100);
 
   setTimeout(function(){
     subPrice = getSubPriceLanding()
-    if subPrice != '':
+    if (subPrice != '') {
       $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>"+subPrice+"")
+    }
   }, 1500);
 
   setTimeout(function(){
     subPrice = getSubPriceLanding()
-    if subPrice != '':
+    if (subPrice != '') {
       $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>"+subPrice+"")
+    }
   }, 5000);
   
 </script>
