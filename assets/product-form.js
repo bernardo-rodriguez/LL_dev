@@ -308,7 +308,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
        //  break
       case 'redirect_ut':
         subPrice = '$0'
-        subText = 'Limited Special'
+        subText = 'STARTER TRIAL'
         this.setToOneMonth()
         break;
       case 'redirect_ut_direct':
