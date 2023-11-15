@@ -135,6 +135,8 @@
     subPrice = getSubPriceLanding()
     if (subPrice != '') {
       $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>"+subPrice+"")
+    } else {
+      $('.Hero_Subtitle').first().html("sup")
     }
   }, 5000);
   
