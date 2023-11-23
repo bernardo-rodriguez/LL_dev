@@ -503,18 +503,10 @@
   }, 1000); {% endcomment %}
   
   window.onload = (event) => {
-    console.log('sup1')
     document.getElementsByClassName('price-item--sale')[0].innerHTML = "$" + sub_specs[0]
-    console.log('sup2')
-
     document.getElementsByClassName('button--full button--primary')[0].querySelector('span').innerHTML = 'Start Now — $'+sub_specs[0]+''
-    console.log('sup3')
-
     document.getElementsByClassName('discount-code')[0].innerHTML = sub_specs[1]
-    console.log('sup4')
-
     document.getElementsByClassName('discount-text')[0].innerHTML = sub_specs[2]
-    console.log('sup7')
   };
   
 </script>
