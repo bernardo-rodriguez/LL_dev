@@ -5,7 +5,7 @@ affiliate_cookie_options_2 = ['redirect__inspire', 'redirect__ut', 'redirect__ut
 function LandingPopulateCactus() {
   // Populate landing page text for cactus media
   $('#hero_subtitle_1').css('margin-bottom', '50px !important')
-  $('#hero_title').html('Start Your <span class = "stylized">Free Whitening</span> <br> Trial Today.') 
+  $('#hero_title').html('Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>') 
   
   document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
 
@@ -13,6 +13,16 @@ function LandingPopulateCactus() {
   $('.Hero_Subtitle').first().text("See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.")
 }
 
+function LandingPopulateSweatcoin() {
+  // Populate landing page text for cactus media
+  $('#hero_subtitle_1').css('margin-bottom', '50px !important')
+  $('#hero_title').html('Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>') 
+  
+  document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
+
+  // $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>0")
+  $('.Hero_Subtitle').first().text("See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.")
+}
 
 // if user arrives at mylaughland.com?utm_affiliatgit e_specific=cactus_media
 // set cookie to cactus media, and google referral tag to cactus media
@@ -287,7 +297,12 @@ function landingPageAction(current_page, query_params) {
         clearAllAffiliateCookies_(.25)
         setCookieAffiliate('redirect_skimm', 'Skimm')
         setCookie('cookie_tracked', 'true')
-      } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
+      } else if (query_params.utm_affiliate_specific == 'sweatcoin') {
+        LandingPopulateSweatcoin()
+        setCookieAffiliate('redirect_sweatcoin', 'Sweatcoin')
+        setCookie('cookie_tracked', 'true')
+      }
+      else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
         clearAllAffiliateCookies_(.5)
         setCookieAffiliate('redirect_pinterest', 'Pinterest')
         setCookie('cookie_tracked', 'true')

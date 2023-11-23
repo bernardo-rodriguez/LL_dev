@@ -190,11 +190,14 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
 
       let ut = getCookie('redirect_ut')
       let ut_direct = getCookie('redirect_ut_direct')
+      let sweatcoin = getCookie('redirect_sweatcoin')
 
       setTimeout(function(){
         console.log(document.cookie)
   
         if (ut == 'true' && ut_direct != 'true') {
+          window.location = '/products/at-home-whitening-kit-2'
+        } else if (sweatcoin == 'true') {
           window.location = '/products/at-home-whitening-kit-2'
         } else {
           window.location = '/products/at-home-whitening-kit'
