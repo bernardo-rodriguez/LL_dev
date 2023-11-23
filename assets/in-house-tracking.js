@@ -204,6 +204,9 @@ function setFirstTimeGtags(affiliate) {
 
 
 function landingPageAction(current_page, query_params) {
+  console.log('landing apge action???')
+  console.log(current_page)
+
   // This gets callled on every page visited (script type defer)
   // curent_page: page without query parameters (',', 'pages/landing-page')
   // query_params: dictionary of all query parameters (null if not found)
