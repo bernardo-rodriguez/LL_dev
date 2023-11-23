@@ -73,6 +73,22 @@
       let subPrice = ''
   
       switch(subscriptionCookie[0]) {
+        case 'redirect_sweatcoin':
+          {% comment %} $('#landing-hero-discounted').html('Free Whitening Pen Included With Purchase')
+          $('#landing-hero-discounted').css('display', 'block')
+          setTimeout(function(){
+            document.getElementsByClassName('discount-code')[0].innerHTML = 'ADD_PEN'
+            document.getElementsByClassName('discount-text')[0].innerHTML = 'free pen included with purchase'
+          }, 100);
+          subPrice = '19' {% endcomment %}
+          $('#hero_subtitle_1').css('margin-bottom', '50px !important')
+
+          $('#hero_title').html('Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>') 
+          
+          document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
+          $('.Hero_Subtitle').first().html("See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.")
+          subPrice = '0'
+          break
         case 'redirect_ut':
           {% comment %} $('#landing-hero-discounted').css('display', 'block') {% endcomment %}
           {% comment %} $('#landing-hero-discounted').html('Free Whitening Pen Included With Purchase')
@@ -91,22 +107,6 @@
         case 'redirect_paceline':
           subPrice = '29'
           break
-        case 'redirect_sweatcoin':
-          {% comment %} $('#landing-hero-discounted').html('Free Whitening Pen Included With Purchase')
-          $('#landing-hero-discounted').css('display', 'block')
-          setTimeout(function(){
-            document.getElementsByClassName('discount-code')[0].innerHTML = 'ADD_PEN'
-            document.getElementsByClassName('discount-text')[0].innerHTML = 'free pen included with purchase'
-          }, 100);
-          subPrice = '19' {% endcomment %}
-          $('#hero_subtitle_1').css('margin-bottom', '50px !important')
-
-          $('#hero_title').html('Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>') 
-          
-          document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
-          $('.Hero_Subtitle').first().html("See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.")
-          subPrice = '0'
-          break
         case 'redirect_miles':
           subPrice = '9'
           break
@@ -123,26 +123,41 @@
   
       return subPrice
   }
-  subPrice = getSubPriceLanding()
-  console.log(subPrice)
-  
-  setTimeout(function(){
-    if (subPrice != '') {
-      $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>"+subPrice+"")
-    }
-  }, 100);
+
+  try {
+    subPrice = getSubPriceLanding()
+    console.log(subPrice)
+    
+    setTimeout(function(){
+      if (subPrice != '') {
+        $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>"+subPrice+"")
+      }
+    }, 100);
+  } catch (error) {
+    console.error('not ready yet');
+  }
+
 
   setTimeout(function(){
-    subPrice = getSubPriceLanding()
-    if (subPrice != '') {
-      $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>"+subPrice+"")
+    try {
+      subPrice = getSubPriceLanding()
+      if (subPrice != '') {
+        $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>"+subPrice+"")
+      }
+    catch (error) {
+      console.error('not ready yet');
     }
+
   }, 1500);
 
   setTimeout(function(){
-    subPrice = getSubPriceLanding()
-    if (subPrice != '') {
-      $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>"+subPrice+"")
+    try {
+      subPrice = getSubPriceLanding()
+      if (subPrice != '') {
+        $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>"+subPrice+"")
+      }
+    catch (error) { 
+      console.log('not ready yet')
     }
   }, 5000);
   
