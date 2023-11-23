@@ -286,7 +286,7 @@ function landingPageAction(current_page, query_params) {
   } else if (current_page == '/pages/clear-affiliate-cookies') {
       clearAllAffiliateCookies()
       removeCookie('in_house_tracked')
-  } else if (current_page == '/pages/landing-page') {
+  } else if (current_page == '/pages/landing-page' || current_page == '/pages/landing-page/') {
       console.log('hi im in landing page')
       console.log(query_params.utm_affiliate_specific)
       console.log('above is thing')
