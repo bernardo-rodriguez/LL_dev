@@ -491,22 +491,39 @@
     document.getElementsByClassName('discount-code')[0].innerHTML = sub_specs[1]
     document.getElementsByClassName('discount-text')[0].innerHTML = sub_specs[2]
     console.log('sup4')
-  }, 100);
+  }, 100); {% endcomment %}
 
   setTimeout(function(){
-    console.log('sup5')
-    document.getElementsByClassName('price-item--sale')[0].innerHTML = "$" + sub_specs[0]
-    document.getElementsByClassName('button--full')[0].querySelector('span').innerHTML = 'Start Now — $'+sub_specs[0]+''
-    document.getElementsByClassName('discount-code')[0].innerHTML = sub_specs[1]
-    document.getElementsByClassName('discount-text')[0].innerHTML = sub_specs[2]
-    console.log('sup6')
-  }, 1000); {% endcomment %}
+    try {
+      document.getElementsByClassName('price-item--sale')[0].innerHTML = "$" + sub_specs[0]
+      document.getElementsByClassName('button--full button--primary')[0].querySelector('span').innerHTML = 'Start Now — $'+sub_specs[0]+''
+      document.getElementsByClassName('discount-code')[0].innerHTML = sub_specs[1]
+      document.getElementsByClassName('discount-text')[0].innerHTML = sub_specs[2]
+    } catch (error) {
+      console.log('not ready 1')
+    }
+  }, 1000);
+
+  setTimeout(function(){
+    try {
+      document.getElementsByClassName('price-item--sale')[0].innerHTML = "$" + sub_specs[0]
+      document.getElementsByClassName('button--full button--primary')[0].querySelector('span').innerHTML = 'Start Now — $'+sub_specs[0]+''
+      document.getElementsByClassName('discount-code')[0].innerHTML = sub_specs[1]
+      document.getElementsByClassName('discount-text')[0].innerHTML = sub_specs[2]
+    } catch (error) {
+      console.log('not ready 2')
+    }
+  }, 5000);
   
   window.onload = (event) => {
-    document.getElementsByClassName('price-item--sale')[0].innerHTML = "$" + sub_specs[0]
-    document.getElementsByClassName('button--full button--primary')[0].querySelector('span').innerHTML = 'Start Now — $'+sub_specs[0]+''
-    document.getElementsByClassName('discount-code')[0].innerHTML = sub_specs[1]
-    document.getElementsByClassName('discount-text')[0].innerHTML = sub_specs[2]
+    try {
+      document.getElementsByClassName('price-item--sale')[0].innerHTML = "$" + sub_specs[0]
+      document.getElementsByClassName('button--full button--primary')[0].querySelector('span').innerHTML = 'Start Now — $'+sub_specs[0]+''
+      document.getElementsByClassName('discount-code')[0].innerHTML = sub_specs[1]
+      document.getElementsByClassName('discount-text')[0].innerHTML = sub_specs[2]
+    } catch(error) {
+      console.log('not ready 3')
+    }
   };
   
 </script>
