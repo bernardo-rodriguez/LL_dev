@@ -55,7 +55,8 @@ function cookie_actions() {
         }
         break
       case 'redirect_ut': //cactus annoucnement text 
-        showAnnouncementBar('Limited Time Offer - Just Pay Shipping!')
+        // showAnnouncementBar('Limited Time Offer - Just Pay Shipping!')
+        showAnnouncementBar('Discount & Free Pen Automatically Applied')
         path = window.location.pathname
         // if (path == '/products/at-home-whitening-kit') {
         //   window.location = '/products/at-home-whitening-kit-2'
