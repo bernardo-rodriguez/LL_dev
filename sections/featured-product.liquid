@@ -495,6 +495,7 @@
 
   setTimeout(function(){
     try {
+      sub_specs = getSubPrice()
       document.getElementsByClassName('price-item--sale')[0].innerHTML = "$" + sub_specs[0]
       document.getElementsByClassName('button--full button--primary')[0].querySelector('span').innerHTML = 'Start Now — $'+sub_specs[0]+''
       document.getElementsByClassName('discount-code')[0].innerHTML = sub_specs[1]
@@ -506,6 +507,7 @@
 
   setTimeout(function(){
     try {
+      sub_specs = getSubPrice()
       document.getElementsByClassName('price-item--sale')[0].innerHTML = "$" + sub_specs[0]
       document.getElementsByClassName('button--full button--primary')[0].querySelector('span').innerHTML = 'Start Now — $'+sub_specs[0]+''
       document.getElementsByClassName('discount-code')[0].innerHTML = sub_specs[1]
@@ -517,6 +519,7 @@
   
   window.onload = (event) => {
     try {
+      sub_specs = getSubPrice()
       document.getElementsByClassName('price-item--sale')[0].innerHTML = "$" + sub_specs[0]
       document.getElementsByClassName('button--full button--primary')[0].querySelector('span').innerHTML = 'Start Now — $'+sub_specs[0]+''
       document.getElementsByClassName('discount-code')[0].innerHTML = sub_specs[1]
