@@ -95,12 +95,12 @@
           $('#landing-hero-discounted').css('display', 'block') {% endcomment %}
           $('#hero_subtitle_1').css('margin-bottom', '50px !important')
 
-          {% comment %} $('#hero_title').html('Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>')  {% endcomment %}
-          $('#hero_title').html('Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit') 
+          $('#hero_title').html('Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>') 
+          {% comment %} $('#hero_title').html('Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit')  {% endcomment %}
           
           document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
-          {% comment %} $('.Hero_Subtitle').first().html("See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.") {% endcomment %}
-          subPrice = '19'
+          $('.Hero_Subtitle').first().html("See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.")
+          subPrice = '0'
           break;
         case 'redirect_ut_direct':
           subPrice = '9'
