@@ -57,9 +57,9 @@ function cookie_actions() {
       case 'redirect_ut': //cactus annoucnement text 
         showAnnouncementBar('Limited Time Offer - Just Pay Shipping!')
         path = window.location.pathname
-        if (path == '/products/at-home-whitening-kit') {
-          window.location = '/products/at-home-whitening-kit-2'
-        }
+        // if (path == '/products/at-home-whitening-kit') {
+        //   window.location = '/products/at-home-whitening-kit-2'
+        // }
         break
       case 'redirect_inspire': // redirect inspire annoucnement text 
         showAnnouncementBar('InspireMore readers, Discount is Automatically Applied at Checkout!')
