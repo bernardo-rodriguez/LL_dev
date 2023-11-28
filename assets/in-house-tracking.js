@@ -86,11 +86,11 @@ function setCookieIfFirstTime() {
       var ss = shareasaleShopifyGetCookie('redirect_sweatcoin')
       if (mc == 'true' || mm == 'true') {
         if (d < .7) {
-          setCookie('affiliate_test', 'true')
+          setCookie('test_order', 'true')
         }
       } else if (ss == 'true') {
         if (d < .8) {
-          setCookie('affiliate_test', 'true')
+          setCookie('test_order', 'true')
         }
       }
       setCookie('cookie_hasnt_been_set', 'true')
