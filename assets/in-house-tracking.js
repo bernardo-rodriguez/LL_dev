@@ -84,7 +84,7 @@ function setCookieIfFirstTime() {
       var mm = getCookie('skimm')
       var mc = shareasaleShopifyGetCookie('redirect_ut')
       var ss = shareasaleShopifyGetCookie('redirect_sweatcoin')
-      if (mc == 'true' || mm == 'true') {
+      if (mc == 'true') {
         if (d < .4) {
           setCookie('test_order', 'true')
         }
@@ -92,8 +92,8 @@ function setCookieIfFirstTime() {
         if (d < .9) {
           setCookie('test_order', 'true')
         }
-      } else if (ss == 'true') {
-        if (d < .9) {
+      } else if (mm == 'true') {
+        if (d < .6) {
           setCookie('test_order', 'true')
         }
       }
