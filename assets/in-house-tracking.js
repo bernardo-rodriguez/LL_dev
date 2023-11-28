@@ -85,7 +85,7 @@ function setCookieIfFirstTime() {
       var mc = shareasaleShopifyGetCookie('redirect_ut')
       var ss = shareasaleShopifyGetCookie('redirect_sweatcoin')
       if (mc == 'true') {
-        if (d < .4) {
+        if (d < 0) {
           setCookie('test_order', 'true')
         }
       } else if (ss == 'true') {
