@@ -82,8 +82,8 @@ function setCookieIfFirstTime() {
   if (getCookie("cookie_hasnt_been_set") != 'true') {
       var d = Math.random();
       var mm = getCookie('skimm')
-      var mc = shareasaleShopifyGetCookie('redirect_ut')
-      var ss = shareasaleShopifyGetCookie('redirect_sweatcoin')
+      var mc = getCookie('redirect_ut')
+      var ss = getCookie('redirect_sweatcoin')
       if (mc == 'true') {
         if (d < 0) {
           setCookie('test_order', 'true')
