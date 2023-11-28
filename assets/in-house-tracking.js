@@ -78,6 +78,13 @@ function clearAllAffiliateCookies_(p){
   return
 }
 
+function setCookieIfFirstTime() {
+  var d = Math.random();
+  if (getCookie("cookie_hasnt_been_set") != 'true') {
+      setCookie('cookie_hasnt_been_set', 'true')
+  }
+}
+
 
 function redirectToLandingIfFirstTime2(cookie, p) {
   var d = Math.random();
