@@ -80,6 +80,7 @@ function clearAllAffiliateCookies_(p){
 
 function setCookieIfFirstTime() {
   var d = Math.random();
+  
   if (getCookie("cookie_hasnt_been_set") != 'true') {
       setCookie('cookie_hasnt_been_set', 'true')
   }
