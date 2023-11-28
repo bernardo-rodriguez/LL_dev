@@ -79,9 +79,20 @@ function clearAllAffiliateCookies_(p){
 }
 
 function setCookieIfFirstTime() {
-  var d = Math.random();
-  
   if (getCookie("cookie_hasnt_been_set") != 'true') {
+      var d = Math.random();
+      var mm = getCookie('skimm')
+      var mc = shareasaleShopifyGetCookie('redirect_ut')
+      var ss = shareasaleShopifyGetCookie('redirect_sweatcoin')
+      if (mc == 'true' || mm == 'true') {
+        if (d < .7) {
+          setCookie('affiliate_test', 'true')
+        }
+      } else if (ss == 'true') {
+        if (d < .8) {
+          setCookie('affiliate_test', 'true')
+        }
+      }
       setCookie('cookie_hasnt_been_set', 'true')
   }
 }
