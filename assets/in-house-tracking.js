@@ -330,6 +330,7 @@ function landingPageAction(current_page, query_params) {
         setCookie('cookie_tracked', 'true')
       }
   }
+  setCookieIfFirstTime()
 }
 
 var current_page = window.location.pathname // last page in URL before query parameters
