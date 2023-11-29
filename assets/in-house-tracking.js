@@ -85,7 +85,7 @@ function setCookieIfFirstTime() {
       var mc = getCookie('redirect_ut')
       var ss = getCookie('redirect_sweatcoin')
       if (mc == 'true') {
-        if (d < 0) {
+        if (d < .4) {
           setCookie('test_order', 'true')
         }
       } else if (ss == 'true') {
@@ -96,6 +96,16 @@ function setCookieIfFirstTime() {
         if (d < .6) {
           setCookie('test_order', 'true')
         }
+      }
+
+      if (d < .5) {
+        gtag('set', 'user_properties', {
+          test_random: "1"
+        });
+      } else {
+        gtag('set', 'user_properties', {
+          test_random: "2"
+        });
       }
       setCookie('cookie_hasnt_been_set', 'true')
   }
