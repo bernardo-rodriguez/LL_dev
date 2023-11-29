@@ -97,6 +97,7 @@ function setCookieIfFirstTime() {
           setCookie('test_order', 'true')
         }
       }
+      setCookie('cookie_hasnt_been_set', 'true')
 
       if (d < .5) {
         gtag('set', 'user_properties', {
@@ -107,7 +108,6 @@ function setCookieIfFirstTime() {
           test_random: "2"
         });
       }
-      setCookie('cookie_hasnt_been_set', 'true')
   }
 }
 
