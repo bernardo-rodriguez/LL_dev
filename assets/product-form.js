@@ -323,7 +323,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         subText = 'Subscribe & Save'
         break
       case 'redirect_sweatcoin':
-        subPrice = '$19'
+        subPrice = '$0'
         subText = 'SWEATCOIN SPECIAL'
         this.setToOneMonth()
         break
