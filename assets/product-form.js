@@ -58,28 +58,28 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let inputValue
     switch (strength){
       case 'sensitive':
-        if ('at-home-whitening-kit-2' in window.location.href) {
+        if (window.location.href.includes('at-home-whitening-kit-2')) {
           inputValue = 'Gentle'
         } else {
           inputValue = '🍃 Gentle (ID: 19-2)'
         }
         break;
       case 'medium':
-        if ('at-home-whitening-kit-2' in window.location.href) {
+        if (window.location.href.includes('at-home-whitening-kit-2')) {
           inputValue = 'Balance'
         } else {
           inputValue = '✨ Everyday (ID: 8-16)'
         }
         break;
       case 'strong':
-        if ('at-home-whitening-kit-2' in window.location.href) {
+        if (window.location.href.includes('at-home-whitening-kit-2')) {
           inputValue = 'Supermax'
         } else {
           inputValue = '🔥 Super Strength (ID: 8-17)'
         }
         break;
       default: 
-        if ('at-home-whitening-kit-2' in window.location.href) {
+        if (window.location.href.includes('at-home-whitening-kit-2')) {
           inputValue = 'Balance'
         } else {
           inputValue = '✨ Everyday (ID: 8-16)'
