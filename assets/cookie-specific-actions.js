@@ -51,7 +51,7 @@ function cookie_actions() {
         showAnnouncementBar('Sweatcoin discounts auto applied at checkout!')
         path = window.location.pathname
         if (path == '/products/at-home-whitening-kit') {
-          window.location = '/products/at-home-whitening-kit-2'
+          window.location = '/products/at-home-whitening-kit-affiliate-ft'
         }
         break
       case 'redirect_ut': //cactus annoucnement text 
@@ -59,7 +59,7 @@ function cookie_actions() {
         // showAnnouncementBar('Discount & Free Pen Automatically Applied')
         path = window.location.pathname
         if (path == '/products/at-home-whitening-kit') {
-          window.location = '/products/at-home-whitening-kit-2'
+          window.location = '/products/at-home-whitening-kit-affiliate-ft'
         }
         break
       case 'redirect_inspire': // redirect inspire annoucnement text 

@@ -196,11 +196,11 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
         console.log(document.cookie)
   
         if (ut == 'true' && ut_direct != 'true') {
-          window.location = '/products/at-home-whitening-kit-2'
+          window.location = '/products/at-home-whitening-kit-affiliate-ft'
           // window.location = '/products/at-home-whitening-kit'
           // console.log('not 2')
         } else if (sweatcoin == 'true') {
-          window.location = '/products/at-home-whitening-kit-2'
+          window.location = '/products/at-home-whitening-kit-affiliate-ft'
         } else {
           window.location = '/products/at-home-whitening-kit'
         }
