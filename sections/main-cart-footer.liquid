@@ -235,7 +235,7 @@
         if (paceline_automatic == 'true') {
           url_params = url_params.concat(['discount=PACELINE_AUTOMATIC']);
         } else if (sweatcoin_automatic == 'true') {
-          url_params = url_params.concat(['discount=ADD_PEN,SHIP-FOR-FREE']);
+          {% comment %} url_params = url_params.concat(['discount=ADD_PEN,SHIP-FOR-FREE']); {% endcomment %}
         } else if (redirect_ut_direct == 'true') {
           url_params = url_params.concat(['discount=SUB-N-SAVE']);
         } else if (redirect_ut == 'true') {
