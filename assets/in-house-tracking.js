@@ -322,21 +322,20 @@ function landingPageAction(current_page, query_params) {
       setFirstTimeGtags('landing-page')
       setGoogleLanding('landing-page')
       setCookie('in_house_already_redirected', 'true')
-      if (query_params.utm_affiliate_specific == 'cactus_media') {
-        LandingPopulateCactus()
-        setCookieAffiliate('redirect_ut', 'Cactus Media')
-        redirectToLandingIfFirstTime('redirect_ut', true)
+      if (query_params.utm_affiliate_specific == 'sweatcoin') {
+        LandingPopulateSweatcoin()
+        setCookieAffiliate('redirect_sweatcoin', 'Sweatcoin')
+        setCookie('cookie_tracked', 'true')
       }
       else if (query_params.utm_affiliate_specific == 'skimm') {
         clearAllAffiliateCookies_(.25)
         setCookieAffiliate('redirect_skimm', 'Skimm')
         setCookie('cookie_tracked', 'true')
-      } else if (query_params.utm_affiliate_specific == 'sweatcoin') {
-        LandingPopulateSweatcoin()
-        setCookieAffiliate('redirect_sweatcoin', 'Sweatcoin')
-        setCookie('cookie_tracked', 'true')
-      }
-      else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
+      } else if (query_params.utm_affiliate_specific == 'cactus_media') {
+        LandingPopulateCactus()
+        setCookieAffiliate('redirect_ut', 'Cactus Media')
+        redirectToLandingIfFirstTime('redirect_ut', true)
+      } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
         clearAllAffiliateCookies_(.5)
         setCookieAffiliate('redirect_pinterest', 'Pinterest')
         setCookie('cookie_tracked', 'true')
@@ -344,7 +343,10 @@ function landingPageAction(current_page, query_params) {
   } else {
       setCookie('in_house_already_redirected', 'true')
       setFirstTimeGtags(current_page)
-      if (query_params.utm_affiliate_specific == 'skimm') {
+      if (query_params.utm_affiliate_specific == 'sweatcoin') {
+        setCookieAffiliate('redirect_sweatcoin', 'Sweatcoin')
+        setCookie('cookie_tracked', 'true')
+      } else if (query_params.utm_affiliate_specific == 'skimm') {
         clearAllAffiliateCookies_(.25)
         setCookieAffiliate('redirect_skimm', 'Skimm')
         setFirstTimeGtags('Skimm')
