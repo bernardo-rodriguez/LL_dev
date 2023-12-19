@@ -322,6 +322,11 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
        //  oneTimeText = 'Skimm One-Time'
        //  oneTimePrice = '$57'
        //  break
+       case 'redirect_sweatcoin':
+        subPrice = '$0'
+        subText = 'SWEATCOIN SPECIAL'
+        this.setToOneMonth()
+        break
       case 'redirect_ut':
         // add_pen()
         subPrice = '$0'
@@ -337,11 +342,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       case 'redirect_paceline':
         subPrice = '$29'
         subText = 'Subscribe & Save'
-        break
-      case 'redirect_sweatcoin':
-        subPrice = '$0'
-        subText = 'SWEATCOIN SPECIAL'
-        this.setToOneMonth()
         break
       case 'redirect_miles':
         subPrice = '$9'
