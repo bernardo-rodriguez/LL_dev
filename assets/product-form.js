@@ -14,7 +14,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     this.setVariant();
 
     this.createSubscriptionWidget();
-  }
+   }
 
   getCookie(cname) {
     // const value = `; ${document.cookie}`;
@@ -204,6 +204,12 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     const widgetOptions = widget.querySelectorAll(".rc_widget__option");
     console.log(widgetOptions)
 
+    try {
+      $('.rc-custom-radio-button span.updated-price').first().text("0")
+    } catch {
+      console.log('update_price_failed')
+    }
+
     widgetOptions.forEach((option) => {
 
       // Global widget changes
@@ -245,6 +251,12 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       sub_and_save_text.html(subOfferText)
     }
 
+    try {
+      $('.rc-custom-radio-button span.updated-price').first().text("0")
+    } catch {
+      console.log('update_price_failed')
+    }
+
     const one_time_text = $(".rc-option__onetime .rc_widget__option__selector label .rc-option__text")
     if (one_time_text.length == 1) {
       if (kitOfferText.length > 1) {
@@ -259,6 +271,12 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         one_time_label.querySelector("[data-price-onetime]").classList.add('visually-hidden')
         one_time_label.querySelector(".rc_widget__option__selector label").appendChild(newSubPrice)
       }
+    }
+
+    try {
+      $('.rc-custom-radio-button span.updated-price').first().text("0")
+    } catch {
+      console.log('update_price_failed')
     }
     
     const stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
@@ -283,6 +301,12 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     document.querySelector("select[name='selling_plan']").addEventListener("change", function(e){
       this.updateStickySellingPlans(e)
     }.bind(this))
+
+    try {
+      $('.rc-custom-radio-button span.updated-price').first().text("0")
+    } catch {
+      console.log('update_price_failed')
+    }
 
   }
 
