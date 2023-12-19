@@ -196,7 +196,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   modifySubscriptionWidget(widgetSelector){
     const widget = document.querySelector(widgetSelector)
     const subOffer = this.getSubPrice()
-    const subOfferPrice = subOffer[0]
+    var subOfferPrice = subOffer[0]
     const subOfferText = subOffer[1]
     const kitOfferText = subOffer[2]
     const kitOfferPrice = subOffer[3]
