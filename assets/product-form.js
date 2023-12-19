@@ -140,7 +140,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       const observer = new MutationObserver(this.observeForm.bind(this))
       observer.observe(this.rechargeOptions, {attributes: true, childList: true, subtree: true})
 
-      this.setToOneMonth()
+      // this.setToOneMonth()
     })
   }
 
