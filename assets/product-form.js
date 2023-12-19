@@ -204,8 +204,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     const widgetOptions = widget.querySelectorAll(".rc_widget__option");
     console.log(widgetOptions)
 
+    console.log('hello')
     try {
       $('.rc-custom-radio-button span.updated-price').first().text("0")
+      console.log('tried')
     } catch {
       console.log('update_price_failed')
     }
@@ -304,6 +306,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     try {
       $('.rc-custom-radio-button span.updated-price').first().text("0")
+      console.log('lasttry')
     } catch {
       console.log('update_price_failed')
     }
