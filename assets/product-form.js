@@ -204,7 +204,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     if (window.location.href.includes('whitening-kit-affiliate-ft')) {
       console.log('here')
     }
-    subOfferPrice = '0'
+    subOfferPrice = '$0'
     const widgetOptions = widget.querySelectorAll(".rc_widget__option");
     console.log(widgetOptions)
 
