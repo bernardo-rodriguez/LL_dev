@@ -55,7 +55,7 @@ function cookie_actions() {
         }
         break
       case 'redirect_ut': //cactus annoucnement text 
-        showAnnouncementBar('Free Shipping & Discount auto applied at checkout!')
+        showAnnouncementBar('Discount auto applied at checkout!')
         // showAnnouncementBar('Discount & Free Pen Automatically Applied')
         path = window.location.pathname
         if (path == '/products/at-home-whitening-kit') {
