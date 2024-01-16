@@ -317,7 +317,7 @@ function landingPageAction(current_page, query_params) {
   } else if (current_page == '/pages/clear-affiliate-cookies') {
       clearAllAffiliateCookies()
       removeCookie('in_house_tracked')
-  } else if (current_page == '/pages/landing-page' || current_page == '/pages/landing-page/') {
+  } else if (current_page == '/pages/landing-page' || current_page == '/pages/landing-page/' || current_page.includes('landing-page')) {
       setLandingPageFlag('true')
       setFirstTimeGtags('landing-page')
       setGoogleLanding('landing-page')
