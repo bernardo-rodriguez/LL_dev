@@ -356,6 +356,8 @@ function landingPageAction(current_page, query_params) {
         setCookieAffiliate('redirect_pinterest', 'Pinterest')
         setFirstTimeGtags('Pinterest')
         setCookie('cookie_tracked', 'true')
+      } else if (query_params.utm_affiliate_specific == 'cactus_media') {
+        setCookieAffiliate('redirect_ut', 'Cactus Media')
       }
   }
   setCookieIfFirstTime()
