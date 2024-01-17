@@ -395,6 +395,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
   onSubmitHandler(evt) {
     evt.preventDefault();
+    console.log('form is submitted')
     
     document.cookie = "directcheckout=true;path=/";
 
@@ -423,7 +424,9 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     }
 
     if (window.location.href.includes('at-home-whitening-kit')) { 
-      if (window.location.href.includes('at-home-whitening-kit-2')) {
+      if (window.location.href.includes('at-home-whitening-kit-affiliate-ft')) {
+        console.log('ok then whaterver')
+        console.log(body)
         // commented to remove addition of pen
         // let strength = getCookie('strength')
         // let pen_id_dict = {
