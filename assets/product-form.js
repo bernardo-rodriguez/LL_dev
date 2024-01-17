@@ -427,7 +427,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       if (window.location.href.includes('at-home-whitening-kit-affiliate-ft')) {
         console.log(body)
         if (parseInt(body['quantity']) > 2) {
-          return
+          throw new Error('Cannot purchase more than 2 products with this promotion');
         }
         // commented to remove addition of pen
         // let strength = getCookie('strength')
