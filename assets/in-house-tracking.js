@@ -89,7 +89,7 @@ function setCookieIfFirstTime() {
           setCookie('test_order', 'true')
         }
       } else if (ss == 'true') {
-        if (d < .92) {
+        if (d < .91) {
           setCookie('test_order', 'true')
         }
       } else if (mm == 'true') {
