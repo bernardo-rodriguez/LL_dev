@@ -292,6 +292,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     //HOTFIX
     setTimeout(function () {
       console.log('try now?')
+      console.log(document.querySelector("select[name='selling_plan']"))
       if(document.querySelector("select[name='selling_plan']")){
         let value = Array.from(document.querySelector("select[name='selling_plan']").options).filter(option =>{
           return (option.dataset.planOption == "Every 1 Month")
