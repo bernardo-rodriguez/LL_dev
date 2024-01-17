@@ -201,7 +201,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     const kitOfferText = subOffer[2]
     const kitOfferPrice = subOffer[3]
     //HOTFIX
-    setTimeout(function () {
+    // setTimeout(function () {
 
       if (window.location.href.includes('whitening-kit-affiliate-ft')) {
         console.log('here')
@@ -234,6 +234,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         console.log(option.querySelector(".rc-selling-plans"))
         if( option.querySelector(".rc-selling-plans") ) {
           // grab from page then inject subscription details
+          // HOTFIX!!!
           // const cloneSubDetails = this.container.querySelector(".subscription-details").cloneNode(true)
           const cloneSubDetails = document.querySelector(".subscription-details").cloneNode(true)
           const firstEl = cloneSubDetails.querySelectorAll("dl")[0]
@@ -294,7 +295,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         }.bind(this))
       }
   
-    }, 500);
+    // }, 500);
     //END HOTFIX
 
   }
