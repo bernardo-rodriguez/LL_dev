@@ -310,6 +310,45 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
           this.updateStickySellingPlans(e)
         }.bind(this))
       }
+
+      widgetOptions.forEach((option) => {
+
+        // Global widget changes
+        const customEl = document.createElement("div")
+        customEl.setAttribute('class', 'rc-custom-radio-button')
+        option.querySelector(".rc_widget__option__selector label").appendChild(customEl)
+  
+        const textEl = document.createElement("span")
+        textEl.innerHTML = "&#8212;"
+        option.querySelector(".rc_widget__option__selector label").insertBefore(textEl, option.querySelector(".rc_widget__option__selector label > span:nth-of-type(2)"))
+  
+        // Subscription option only changes
+        // Exit if this is the One Time option
+        if (option.getAttribute("data-option-onetime") != null) {
+          return
+        }
+  
+        option.querySelector(".rc-selling-plans__label")?.classList.remove("visually-hidden");
+  
+        console.log('selling plans')
+        console.log(option.querySelector(".rc-selling-plans"))
+        if( option.querySelector(".rc-selling-plans") ) {
+          // grab from page then inject subscription details
+          const cloneSubDetails = this.container.querySelector(".subscription-details").cloneNode(true)
+          const firstEl = cloneSubDetails.querySelectorAll("dl")[0]
+          const secondEl = cloneSubDetails.querySelectorAll("dl")[1]
+  
+          option.insertBefore(firstEl, option.querySelector(".rc-selling-plans"))
+          option.appendChild(secondEl)
+  
+          const newSubPrice = document.createElement("span")
+          newSubPrice.setAttribute('class', 'updated-price')
+          newSubPrice.innerHTML = subOfferPrice
+    
+          option.querySelector("[data-price-subsave]").classList.add('visually-hidden')
+          option.querySelector(".rc_widget__option__selector label").appendChild(newSubPrice)
+        }
+      })
   
     }, 1000);
     //END HOTFIX
