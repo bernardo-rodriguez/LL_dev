@@ -234,7 +234,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         console.log(option.querySelector(".rc-selling-plans"))
         if( option.querySelector(".rc-selling-plans") ) {
           // grab from page then inject subscription details
-          const cloneSubDetails = this.container.querySelector(".subscription-details").cloneNode(true)
+          // const cloneSubDetails = this.container.querySelector(".subscription-details").cloneNode(true)
+          const cloneSubDetails = document.querySelector(".subscription-details").cloneNode(true)
           const firstEl = cloneSubDetails.querySelectorAll("dl")[0]
           const secondEl = cloneSubDetails.querySelectorAll("dl")[1]
 
