@@ -127,7 +127,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       console.log('recharge ready')
       this.modifySubscriptionWidget('.rc-widget-injection-parent .rc-widget');
 
-      this.updateStickyBar(document.querySelector(".rc_widget__option__input:checked").value, document.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".updated-price").innerHTML || document.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".rc-option__price").innerHTML)
+      // this.updateStickyBar(document.querySelector(".rc_widget__option__input:checked").value, document.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".updated-price").innerHTML || document.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".rc-option__price").innerHTML)
 
       //remove loading circle when ready
       this.container.querySelector(".rc-widget-injection-parent .loading-overlay__spinner").classList.add("hidden")
