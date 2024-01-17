@@ -228,6 +228,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
       option.querySelector(".rc-selling-plans__label")?.classList.remove("visually-hidden");
 
+      console.log('selling plans')
       console.log(option.querySelector(".rc-selling-plans"))
       if( option.querySelector(".rc-selling-plans") ) {
         // grab from page then inject subscription details
