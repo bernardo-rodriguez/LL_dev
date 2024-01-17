@@ -429,6 +429,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         if (parseInt(body['quantity']) > 2) {
           throw new Error('Cannot purchase more than 2 products with this promotion');
         }
+        body['quantity'] = '1'
         // commented to remove addition of pen
         // let strength = getCookie('strength')
         // let pen_id_dict = {
