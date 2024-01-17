@@ -293,7 +293,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         }.bind(this))
       }
   
-    }, 1000);
+    }, 500);
     //END HOTFIX
 
   }
