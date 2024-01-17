@@ -200,100 +200,82 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     const subOfferText = subOffer[1]
     const kitOfferText = subOffer[2]
     const kitOfferPrice = subOffer[3]
-
-    if (window.location.href.includes('whitening-kit-affiliate-ft')) {
-      console.log('here')
-      subOfferPrice = '$0'
-    }
-    
-    const widgetOptions = widget.querySelectorAll(".rc_widget__option");
-    console.log(widgetOptions)
-
-    widgetOptions.forEach((option) => {
-
-      // Global widget changes
-      const customEl = document.createElement("div")
-      customEl.setAttribute('class', 'rc-custom-radio-button')
-      option.querySelector(".rc_widget__option__selector label").appendChild(customEl)
-
-      const textEl = document.createElement("span")
-      textEl.innerHTML = "&#8212;"
-      option.querySelector(".rc_widget__option__selector label").insertBefore(textEl, option.querySelector(".rc_widget__option__selector label > span:nth-of-type(2)"))
-
-      // Subscription option only changes
-      // Exit if this is the One Time option
-      if (option.getAttribute("data-option-onetime") != null) {
-        return
-      }
-
-      option.querySelector(".rc-selling-plans__label")?.classList.remove("visually-hidden");
-
-      console.log('selling plans')
-      console.log(option.querySelector(".rc-selling-plans"))
-      if( option.querySelector(".rc-selling-plans") ) {
-        // grab from page then inject subscription details
-        const cloneSubDetails = this.container.querySelector(".subscription-details").cloneNode(true)
-        const firstEl = cloneSubDetails.querySelectorAll("dl")[0]
-        const secondEl = cloneSubDetails.querySelectorAll("dl")[1]
-
-        option.insertBefore(firstEl, option.querySelector(".rc-selling-plans"))
-        option.appendChild(secondEl)
-
-        const newSubPrice = document.createElement("span")
-        newSubPrice.setAttribute('class', 'updated-price')
-        newSubPrice.innerHTML = subOfferPrice
-  
-        option.querySelector("[data-price-subsave]").classList.add('visually-hidden')
-        option.querySelector(".rc_widget__option__selector label").appendChild(newSubPrice)
-      }
-    })
-    const sub_and_save_text = $(".rc-option__subsave .rc_widget__option__selector label .rc-option__text")
-    if (sub_and_save_text.length == 1) {
-      sub_and_save_text.html(subOfferText)
-    }
-
-    const one_time_text = $(".rc-option__onetime .rc_widget__option__selector label .rc-option__text")
-    if (one_time_text.length == 1) {
-      if (kitOfferText.length > 1) {
-        one_time_text.html(kitOfferText)
-      }
-      if (kitOfferPrice.length > 1) {
-        const newSubPrice = document.createElement("span")
-        newSubPrice.setAttribute('class', 'updated-price')
-        newSubPrice.innerHTML = kitOfferPrice
-
-        var one_time_label = document.querySelector("[data-selector-onetime]")
-        one_time_label.querySelector("[data-price-onetime]").classList.add('visually-hidden')
-        one_time_label.querySelector(".rc_widget__option__selector label").appendChild(newSubPrice)
-      }
-    }
-    
-    const stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
-    stickyBar.querySelector(".sticky__price").innerHTML = subOfferPrice
-
-    var selector = document.querySelector("select[name='selling_plan']")
-    console.log(selector)
-
-    if(document.querySelector("select[name='selling_plan']")){
-      let value = Array.from(document.querySelector("select[name='selling_plan']").options).filter(option =>{
-        return (option.dataset.planOption == "Every 1 Month")
-      })[0].value;
-      if(value) document.querySelector("select[name='selling_plan']").value = value;
-      const dropdownCopy = document.querySelector("select[name='selling_plan']").cloneNode(true);
-      if(value) dropdownCopy.value = value;
-      dropdownCopy.setAttribute("data-control-id", dropdownCopy.id)
-      dropdownCopy.id = dropdownCopy.id + "_sticky"
-      dropdownCopy.setAttribute('name', dropdownCopy.getAttribute("name") + "_sticky")
-      stickyBar.querySelector("[data-sticky-subsave").appendChild(dropdownCopy)
-
-      document.querySelector("select[name='selling_plan']").addEventListener("change", function(e){
-        this.updateStickySellingPlans(e)
-      }.bind(this))
-    }
-
     //HOTFIX
     setTimeout(function () {
-      console.log(document.querySelector("select[name='selling_plan']"))
+
+      if (window.location.href.includes('whitening-kit-affiliate-ft')) {
+        console.log('here')
+        subOfferPrice = '$0'
+      }
+      
+      const widgetOptions = widget.querySelectorAll(".rc_widget__option");
+      console.log(widgetOptions)
+
+      widgetOptions.forEach((option) => {
+
+        // Global widget changes
+        const customEl = document.createElement("div")
+        customEl.setAttribute('class', 'rc-custom-radio-button')
+        option.querySelector(".rc_widget__option__selector label").appendChild(customEl)
+
+        const textEl = document.createElement("span")
+        textEl.innerHTML = "&#8212;"
+        option.querySelector(".rc_widget__option__selector label").insertBefore(textEl, option.querySelector(".rc_widget__option__selector label > span:nth-of-type(2)"))
+
+        // Subscription option only changes
+        // Exit if this is the One Time option
+        if (option.getAttribute("data-option-onetime") != null) {
+          return
+        }
+
+        option.querySelector(".rc-selling-plans__label")?.classList.remove("visually-hidden");
+
+        console.log('selling plans')
+        console.log(option.querySelector(".rc-selling-plans"))
+        if( option.querySelector(".rc-selling-plans") ) {
+          // grab from page then inject subscription details
+          const cloneSubDetails = this.container.querySelector(".subscription-details").cloneNode(true)
+          const firstEl = cloneSubDetails.querySelectorAll("dl")[0]
+          const secondEl = cloneSubDetails.querySelectorAll("dl")[1]
+
+          option.insertBefore(firstEl, option.querySelector(".rc-selling-plans"))
+          option.appendChild(secondEl)
+
+          const newSubPrice = document.createElement("span")
+          newSubPrice.setAttribute('class', 'updated-price')
+          newSubPrice.innerHTML = subOfferPrice
+    
+          option.querySelector("[data-price-subsave]").classList.add('visually-hidden')
+          option.querySelector(".rc_widget__option__selector label").appendChild(newSubPrice)
+        }
+      })
+      const sub_and_save_text = $(".rc-option__subsave .rc_widget__option__selector label .rc-option__text")
+      if (sub_and_save_text.length == 1) {
+        sub_and_save_text.html(subOfferText)
+      }
+
+      const one_time_text = $(".rc-option__onetime .rc_widget__option__selector label .rc-option__text")
+      if (one_time_text.length == 1) {
+        if (kitOfferText.length > 1) {
+          one_time_text.html(kitOfferText)
+        }
+        if (kitOfferPrice.length > 1) {
+          const newSubPrice = document.createElement("span")
+          newSubPrice.setAttribute('class', 'updated-price')
+          newSubPrice.innerHTML = kitOfferPrice
+
+          var one_time_label = document.querySelector("[data-selector-onetime]")
+          one_time_label.querySelector("[data-price-onetime]").classList.add('visually-hidden')
+          one_time_label.querySelector(".rc_widget__option__selector label").appendChild(newSubPrice)
+        }
+      }
+      
+      const stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
+      stickyBar.querySelector(".sticky__price").innerHTML = subOfferPrice
+
+      var selector = document.querySelector("select[name='selling_plan']")
+      console.log(selector)
+
       if(document.querySelector("select[name='selling_plan']")){
         let value = Array.from(document.querySelector("select[name='selling_plan']").options).filter(option =>{
           return (option.dataset.planOption == "Every 1 Month")
@@ -305,50 +287,11 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         dropdownCopy.id = dropdownCopy.id + "_sticky"
         dropdownCopy.setAttribute('name', dropdownCopy.getAttribute("name") + "_sticky")
         stickyBar.querySelector("[data-sticky-subsave").appendChild(dropdownCopy)
-  
+
         document.querySelector("select[name='selling_plan']").addEventListener("change", function(e){
           this.updateStickySellingPlans(e)
         }.bind(this))
       }
-
-      widgetOptions.forEach((option) => {
-
-        // Global widget changes
-        const customEl = document.createElement("div")
-        customEl.setAttribute('class', 'rc-custom-radio-button')
-        option.querySelector(".rc_widget__option__selector label").appendChild(customEl)
-  
-        const textEl = document.createElement("span")
-        textEl.innerHTML = "&#8212;"
-        option.querySelector(".rc_widget__option__selector label").insertBefore(textEl, option.querySelector(".rc_widget__option__selector label > span:nth-of-type(2)"))
-  
-        // Subscription option only changes
-        // Exit if this is the One Time option
-        if (option.getAttribute("data-option-onetime") != null) {
-          return
-        }
-  
-        option.querySelector(".rc-selling-plans__label")?.classList.remove("visually-hidden");
-  
-        console.log('selling plans')
-        console.log(option.querySelector(".rc-selling-plans"))
-        if( option.querySelector(".rc-selling-plans") ) {
-          // grab from page then inject subscription details
-          const cloneSubDetails = this.container.querySelector(".subscription-details").cloneNode(true)
-          const firstEl = cloneSubDetails.querySelectorAll("dl")[0]
-          const secondEl = cloneSubDetails.querySelectorAll("dl")[1]
-  
-          option.insertBefore(firstEl, option.querySelector(".rc-selling-plans"))
-          option.appendChild(secondEl)
-  
-          const newSubPrice = document.createElement("span")
-          newSubPrice.setAttribute('class', 'updated-price')
-          newSubPrice.innerHTML = subOfferPrice
-    
-          option.querySelector("[data-price-subsave]").classList.add('visually-hidden')
-          option.querySelector(".rc_widget__option__selector label").appendChild(newSubPrice)
-        }
-      })
   
     }, 1000);
     //END HOTFIX
