@@ -201,7 +201,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     const kitOfferText = subOffer[2]
     const kitOfferPrice = subOffer[3]
     //HOTFIX
-    // setTimeout(function () {
+    setTimeout(function () {
 
       if (window.location.href.includes('whitening-kit-affiliate-ft')) {
         console.log('here')
@@ -272,12 +272,12 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         }
       }
       
-      try {
-        const stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
-        stickyBar.querySelector(".sticky__price").innerHTML = subOfferPrice
-      } catch (error) {
-        console.log('sticky bar update error')
-      }
+      // try {
+      const stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
+      stickyBar.querySelector(".sticky__price").innerHTML = subOfferPrice
+      // } catch (error) {
+      //   console.log('sticky bar update error')
+      // }
 
       var selector = document.querySelector("select[name='selling_plan']")
       console.log(selector)
@@ -299,8 +299,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         }.bind(this))
       }
   
-    // }, 500);
-    //END HOTFIX
+    }, 500);
+    // END HOTFIX
 
   }
 
