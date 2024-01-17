@@ -425,10 +425,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     if (window.location.href.includes('at-home-whitening-kit')) { 
       if (window.location.href.includes('at-home-whitening-kit-affiliate-ft')) {
-        console.log(body)
-        if (parseInt(body['quantity']) > 2) {
-          throw new Error('Cannot purchase more than 2 products with this promotion');
-        }
+        // console.log(body)
+        // if (parseInt(body['quantity']) > 2) {
+        //   throw new Error('Cannot purchase more than 2 products with this promotion');
+        // }
         body = JSON.parse(body)
         body['quantity'] = '1'
         body = JSON.stringify(body)
