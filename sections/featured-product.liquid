@@ -435,9 +435,12 @@
   
       switch(subscriptionCookie[0]) {
         case 'redirect_ut':
-          subPrice = '0'
+          {% comment %} subPrice = '0'
           discount_name = 'FREE_TRIAL_SPECIAL'
-          discount_desc = '100% OFF'
+          discount_desc = '100% OFF' {% endcomment %}
+          subPrice = '9'
+          discount_name = 'STARTER_SPECIAL'
+          discount_desc = '90% OFF'
           document.getElementsByClassName('price-item--regular')[0].innerHTML = '$76'
           document.getElementsByClassName('price-item--regular')[1].innerHTML = '$76'
           break;
@@ -452,9 +455,12 @@
           discount_desc = ''
           break
         case 'redirect_sweatcoin':
-          subPrice = '0'
+          {% comment %} subPrice = '0'
           discount_name = 'SWEATCOIN_LIMITED'
-          discount_desc = '100% OFF'
+          discount_desc = '100% OFF' {% endcomment %}
+          subPrice = '9'
+          discount_name = 'SWEATCOIN_LIMITED'
+          discount_desc = '90% OFF'
           {% comment %} discount_desc = 'free pen included with purchase' {% endcomment %}
           break
         case 'redirect_miles':
