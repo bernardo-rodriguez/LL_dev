@@ -85,14 +85,6 @@
             "text": "“My personal favorite, I love how easy Laughland is to use”"
           }
         },
-        "e0668eb5-84e1-4cb5-81e4-1c8cc17910e5": {
-          "type": "slide",
-          "settings": {
-            "svg": "",
-            "png": "shopify:\/\/shop_images\/forbes-logo-black.png",
-            "text": "“Best Teeth Whitening Kit With Fast Results”"
-          }
-        },
         "83b29aad-1ec3-43d4-9d28-f3f7680cfd9d": {
           "type": "slide",
           "settings": {
@@ -113,7 +105,6 @@
       "block_order": [
         "1b3fc029-1055-4710-8825-398d2d320b7c",
         "b76e685b-5328-4cc5-b09e-2668cad8af9f",
-        "e0668eb5-84e1-4cb5-81e4-1c8cc17910e5",
         "83b29aad-1ec3-43d4-9d28-f3f7680cfd9d",
         "b20252da-6f97-40ae-92c3-af2f2dfb57cb"
       ],
