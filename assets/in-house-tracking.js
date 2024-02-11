@@ -93,7 +93,7 @@ function setCookieIfFirstTime() {
           setCookie('test_order', 'true')
         }
       } else if (mm == 'true') {
-        if (d < .7) {
+        if (d < .85) {
           setCookie('test_order', 'true')
         }
       }
