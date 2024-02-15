@@ -348,15 +348,19 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         break
       case 'redirect_ut':
         // add_pen()
-        subPrice = '$9'
-        subText = 'STARTER SPECIAL'
+        // subPrice = '$9'
+        // subText = 'STARTER SPECIAL'
+        subPrice = '$0'
+        subText = 'FREE TRIAL SPECIAL'
         // subPrice = '$19'
         // subText = 'STARTER SPECIAL'
         this.setToOneMonth()
         break;
       case 'redirect_ut_direct':
-        subPrice = '$9'
-        subText = 'Starter Special'
+        // subPrice = '$9'
+        // subText = 'Starter Special'
+        subPrice = '$0'
+        subText = 'FREE TRIAL SPECIAL'
         break
       case 'redirect_paceline':
         subPrice = '$29'
