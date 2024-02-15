@@ -434,7 +434,20 @@ xhttp.send();
       }  else if (redirect_pinterest == 'true') {
         await setCartAttributesShareasale("pinterest"); 
       } else {
-        await setCartAttributesShareasale("not_applicable"); 
+          try {
+            shareasale_cookie = getCookie('shareasaleShopifySSCID')
+            console.log('shareasale cookie is:')
+            console.log(shareasale_cookie)
+            if (shareasale_cookie) {
+              console.log('1')
+              await setCartAttributesShareasale(shareasale_cookie); 
+            } else {
+              console.log('2')
+              await setCartAttributesShareasale("none"); 
+            }
+          } catch (error) {
+            console.log('something went wrong when setting shareasale affiliate');
+          }
       }
       
   }
