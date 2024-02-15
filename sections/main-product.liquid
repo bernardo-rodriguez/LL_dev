@@ -458,6 +458,7 @@ xhttp.send();
       } 
 
       try {
+        console.log('try sscid')
         shareasale_cookie = getCookie('shareasaleShopifySSCID')
         console.log('shareasale cookie is:')
         console.log(shareasale_cookie)
@@ -472,7 +473,7 @@ xhttp.send();
         console.log('something went wrong when setting shareasale affiliate');
       }
   }
-  
+
   setTimeout(() => { 
       setAttributes()
     }, 2000);
