@@ -400,6 +400,27 @@ xhttp.send();
     });
     return cart
   }
+
+  async function setCartAttributesShareasaleId(affiliate_id) {
+   let cart = await fetch('/cart/update.js', {
+        method: "POST",
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+            'Content-Type': 'application/json;'
+        },
+        body: JSON.stringify({
+            'attributes': {
+              'shareasale_affiliate_id': affiliate_id
+            }
+        })
+    }).then(response => {
+      console.log(response)
+    })
+    .catch(error => {
+      console.log(error)
+    });
+    return cart
+  }
   
   async function setAttributes() {
       console.log('set attributes')
@@ -434,24 +455,24 @@ xhttp.send();
         await setCartAttributesShareasale("skimm"); 
       }  else if (redirect_pinterest == 'true') {
         await setCartAttributesShareasale("pinterest"); 
-      } else {
-          try {
-            shareasale_cookie = getCookie('shareasaleShopifySSCID')
-            console.log('shareasale cookie is:')
-            console.log(shareasale_cookie)
-            if (shareasale_cookie) {
-              console.log('1')
-              await setCartAttributesShareasale(shareasale_cookie); 
-            } else {
-              console.log('2')
-              await setCartAttributesShareasale("none"); 
-            }
-          } catch (error) {
-            console.log('something went wrong when setting shareasale affiliate');
-          }
+      } 
+
+      try {
+        shareasale_cookie = getCookie('shareasaleShopifySSCID')
+        console.log('shareasale cookie is:')
+        console.log(shareasale_cookie)
+        if (shareasale_cookie) {
+          console.log('1')
+          await setCartAttributesShareasaleId(shareasale_cookie); 
+        } else {
+          console.log('2')
+          await setCartAttributesShareasaleId("none"); 
+        }
+      } catch (error) {
+        console.log('something went wrong when setting shareasale affiliate');
       }
-      
   }
+  
   setTimeout(() => { 
       setAttributes()
     }, 2000);
