@@ -379,6 +379,27 @@ xhttp.send();
     });
     return cart
   }
+
+  async function setCartAttributesShareasale(affiliate) {
+   let cart = await fetch('/cart/update.js', {
+        method: "POST",
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+            'Content-Type': 'application/json;'
+        },
+        body: JSON.stringify({
+            'attributes': {
+              'shareasale_affiliate': affiliate
+            }
+        })
+    }).then(response => {
+      console.log(response)
+    })
+    .catch(error => {
+      console.log(error)
+    });
+    return cart
+  }
   
   async function setAttributes() {
       paceline_automatic = getCookie('redirect_paceline');
@@ -401,19 +422,19 @@ xhttp.send();
       }
 
       if (paceline_automatic == 'true') {
-        await setCartAttributes("paceline"); 
+        await setCartAttributesShareasale("paceline"); 
       } else if (sweatcoin_automatic == 'true') {
-        await setCartAttributes("sweatcoin"); 
+        await setCartAttributesShareasale("sweatcoin"); 
       } else if (redirect_ut == 'true') {
-        await setCartAttributes("cactus_media"); 
+        await setCartAttributesShareasale("cactus_media"); 
       } else if (redirect_miles == 'true') {
-        await setCartAttributes("miles"); 
+        await setCartAttributesShareasale("miles"); 
       } else if (redirect_skimm == 'true') {
-        await setCartAttributes("skimm"); 
+        await setCartAttributesShareasale("skimm"); 
       }  else if (redirect_pinterest == 'true') {
-        await setCartAttributes("pinterest"); 
+        await setCartAttributesShareasale("pinterest"); 
       } else {
-        await setCartAttributes("not_applicable"); 
+        await setCartAttributesShareasale("not_applicable"); 
       }
       
   }

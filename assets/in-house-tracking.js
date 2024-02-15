@@ -68,16 +68,6 @@ function clearAllAffiliateCookies(){
   removeCookie('upsell_test')
 }
 
-function clearAllAffiliateCookies_(p){
-  // var d = Math.random();
-  // if (getCookie("cookie_tracked") != 'true') {
-  //   if (d <= p) {
-  //     affiliate_cookie_options_2.forEach((affiliate, index) => removeCookie(affiliate));
-  //   }
-  // }
-  return
-}
-
 function setCookieIfFirstTime() {
   if (getCookie("cookie_hasnt_been_set") != 'true') {
       var d = Math.random();
@@ -123,7 +113,6 @@ function redirectToLandingIfFirstTime2(cookie, p) {
         console.log('flow 1')
         setCookie('flow_ga_tracking_v1', 'true')
       } else {
-        clearAllAffiliateCookies_(1)
         console.log('flow 2')
         setCookie('flow__ga_tracking_v2', 'true')
       }
@@ -152,7 +141,6 @@ function redirectToLandingIfFirstTime(cookie, from_landing=false) {
         console.log('flow 1')
         setCookie('flow_ga_tracking_v1', 'true')
       } else {
-        clearAllAffiliateCookies_(1)
         console.log('flow 2')
         setCookie('flow__ga_tracking_v2', 'true')
       }
@@ -328,7 +316,6 @@ function landingPageAction(current_page, query_params) {
         setCookie('cookie_tracked', 'true')
       }
       else if (query_params.utm_affiliate_specific == 'skimm') {
-        clearAllAffiliateCookies_(.25)
         setCookieAffiliate('redirect_skimm', 'Skimm')
         setCookie('cookie_tracked', 'true')
       } else if (query_params.utm_affiliate_specific == 'cactus_media') {
@@ -336,7 +323,6 @@ function landingPageAction(current_page, query_params) {
         setCookieAffiliate('redirect_ut', 'Cactus Media')
         redirectToLandingIfFirstTime('redirect_ut', true)
       } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
-        clearAllAffiliateCookies_(.5)
         setCookieAffiliate('redirect_pinterest', 'Pinterest')
         setCookie('cookie_tracked', 'true')
       }
@@ -347,12 +333,10 @@ function landingPageAction(current_page, query_params) {
         setCookieAffiliate('redirect_sweatcoin', 'Sweatcoin')
         setCookie('cookie_tracked', 'true')
       } else if (query_params.utm_affiliate_specific == 'skimm') {
-        clearAllAffiliateCookies_(.25)
         setCookieAffiliate('redirect_skimm', 'Skimm')
         setFirstTimeGtags('Skimm')
         setCookie('cookie_tracked', 'true')
       } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
-        clearAllAffiliateCookies_(.5)
         setCookieAffiliate('redirect_pinterest', 'Pinterest')
         setFirstTimeGtags('Pinterest')
         setCookie('cookie_tracked', 'true')
