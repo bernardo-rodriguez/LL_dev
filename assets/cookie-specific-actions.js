@@ -59,7 +59,7 @@ function cookie_actions() {
         // showAnnouncementBar('Discount & Free Pen Automatically Applied')
         path = window.location.pathname
         if (path == '/products/at-home-whitening-kit') {
-          window.location = '/products/at-home-whitening-kit-affiliate-ft'
+          window.location = '/products/at-home-whitening-kit-affiliate-ut'
         }
         break
       case 'redirect_inspire': // redirect inspire annoucnement text 

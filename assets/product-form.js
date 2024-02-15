@@ -424,7 +424,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     }
 
     if (window.location.href.includes('at-home-whitening-kit')) { 
-      if (window.location.href.includes('at-home-whitening-kit-affiliate-ft')) {
+      if (window.location.href.includes('at-home-whitening-kit-affiliate-ft') || window.location.href.includes('at-home-whitening-kit-affiliate-ut')) {
         // console.log(body)
         // if (parseInt(body['quantity']) > 2) {
         //   throw new Error('Cannot purchase more than 2 products with this promotion');
