@@ -75,7 +75,7 @@ function setCookieIfFirstTime() {
       var mc = getCookie('redirect_ut')
       var ss = getCookie('redirect_sweatcoin')
       if (mc == 'true') {
-        if (d < .4) {
+        if (d <= .4) {
           setCookie('test_order', 'true')
         }
       } else if (ss == 'true') {
