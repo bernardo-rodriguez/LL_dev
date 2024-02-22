@@ -211,6 +211,14 @@ function setGoogleLanding(effective_landing_page) {
 function setCookieAffiliate(cookie, affiliate) {
   setGoogleSource(affiliate)
   setCookie(cookie, 'true')
+
+  // remove all other affiliate cookies except for the one I'm setting
+  for (let i = 0; i in affiliate_cookie_options.length; i++) {
+    cookie_option = affiliate_cookie_options[i]
+    if (cookie_option != cookie) {
+      removeCookie(cookie_option)
+    }
+  }
 }
 
 
