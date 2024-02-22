@@ -71,7 +71,7 @@ function clearAllAffiliateCookies(){
 function setCookieIfFirstTime() {
   if (getCookie("cookie_hasnt_been_set") != 'true') {
       var d = Math.random();
-      var mm = getCookie('skimm')
+      var mm = getCookie('redirect_skimm')
       var mc = getCookie('redirect_ut')
       var ss = getCookie('redirect_sweatcoin')
       if (mc == 'true') {
