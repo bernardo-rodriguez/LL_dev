@@ -306,27 +306,33 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   setToOneMonth() {
-    const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'shareasaleShopifySSCID', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans']
-    let subscriptionCookie = cookies.filter( cookieName => this.getCookie(cookieName) != null )
-    if (["redirect_ut"].includes(subscriptionCookie[0])) {
-      const elements = document.querySelectorAll('.rc-selling-plans__dropdown');
-      Array.from(elements).forEach((element, index) => {
-        element.value = 3450700001
-        // element.setAttribute("disabled", "disabled");
-      }); 
-    }
-    if (["redirect_sweatcoin"].includes(subscriptionCookie[0])) {
-      const elements = document.querySelectorAll('.rc-selling-plans__dropdown');
-      Array.from(elements).forEach((element, index) => {
-        element.value = 3449880801
-        // element.setAttribute("disabled", "disabled");
-      });
-      // $('.rc-option__subsave').first().find( "dd").first().html('1 Months Supply')
+    try {
+      const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'shareasaleShopifySSCID', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans']
+      let subscriptionCookie = cookies.filter( cookieName => this.getCookie(cookieName) != null )
+      if (["redirect_ut"].includes(subscriptionCookie[0])) {
+        const elements = document.querySelectorAll('.rc-selling-plans__dropdown');
+        Array.from(elements).forEach((element, index) => {
+          element.value = 3450700001
+          // element.setAttribute("disabled", "disabled");
+        }); 
+      }
+      if (["redirect_sweatcoin"].includes(subscriptionCookie[0])) {
+        const elements = document.querySelectorAll('.rc-selling-plans__dropdown');
+        Array.from(elements).forEach((element, index) => {
+          element.value = 3449880801
+          // element.setAttribute("disabled", "disabled");
+        });
+        // $('.rc-option__subsave').first().find( "dd").first().html('1 Months Supply')
+      }
+    } catch (error) {
+      console.error(error);
+      // Expected output: ReferenceError: nonExistentFunction is not defined
+      // (Note: the exact output may be browser-dependent)
     }
   }
   
   getSubPrice() {
-    const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'shareasaleShopifySSCID', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm']
+    const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm']
 
     let subscriptionCookie = cookies.filter( cookieName => this.getCookie(cookieName) != null )
     let subPrice = ''
