@@ -214,7 +214,7 @@ function setCookieAffiliate(cookie, affiliate) {
 
   // remove all other affiliate cookies except for the one I'm setting
   console.log('removing old cookies')
-  for (let i = 0; i in affiliate_cookie_options.length; i++) {
+  for (let i = 0; i < affiliate_cookie_options.length; i++) {
     cookie_option = affiliate_cookie_options[i]
     if (cookie_option != cookie) {
       console.log(cookie_option)
