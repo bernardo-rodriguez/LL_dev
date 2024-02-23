@@ -168,12 +168,17 @@
       {
         "type": "number",
         "id": "tracking_v1",
-        "label": "V1"
+        "label": "Cactus"
       },
       {
         "type": "number",
         "id": "tracking_v2",
-        "label": "V2"
+        "label": "Skimm"
+      },
+      {
+        "type": "number",
+        "id": "tracking_v3",
+        "label": "Sweatcoin"
       }
     ]
   },
