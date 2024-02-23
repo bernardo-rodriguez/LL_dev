@@ -69,28 +69,28 @@ function clearAllAffiliateCookies(){
 }
 
 function setCookieIfFirstTime() {
-  tracking_1 = parseInt(document.getElementById('tracking_v1').innerHTML) / 100
-  tracking_2 = parseInt(document.getElementById('tracking_v2').innerHTML) / 100
-  tracking_3 = parseInt(document.getElementById('tracking_v3').innerHTML) / 100
-  console.log('trackings')
-  console.log(tracking_1)
-  console.log(tracking_2)
-  console.log(tracking_3)
   if (getCookie("cookie_hasnt_been_set") != 'true') {
+      tracking_1 = parseInt(document.getElementById('tracking_v1').innerHTML) / 100
+      tracking_2 = parseInt(document.getElementById('tracking_v2').innerHTML) / 100
+      tracking_3 = parseInt(document.getElementById('tracking_v3').innerHTML) / 100
+      console.log('trackings')
+      console.log(tracking_1)
+      console.log(tracking_2)
+      console.log(tracking_3)
       var d = Math.random();
       var mc = getCookie('redirect_ut')
       var mm = getCookie('redirect_skimm')
       var ss = getCookie('redirect_sweatcoin')
       if (mc == 'true') {
-        if (d <= .6) {
+        if (d > tracking_1) {
           setCookie('test_order', 'true')
         }
       } else if (ss == 'true') {
-        if (d < .91) {
+        if (d > tracking_2) {
           setCookie('test_order', 'true')
         }
       } else if (mm == 'true') {
-        if (d < .8) {
+        if (d > tracking_3) {
           setCookie('test_order', 'true')
         }
       }
