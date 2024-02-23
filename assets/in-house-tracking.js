@@ -69,10 +69,17 @@ function clearAllAffiliateCookies(){
 }
 
 function setCookieIfFirstTime() {
+  tracking_1 = parseInt(document.getElementById('tracking_v1').innerHTML) / 100
+  tracking_2 = parseInt(document.getElementById('tracking_v2').innerHTML) / 100
+  tracking_3 = parseInt(document.getElementById('tracking_v3').innerHTML) / 100
+  console.log('trackings')
+  console.log(tracking_1)
+  console.log(tracking_2)
+  console.log(tracking_3)
   if (getCookie("cookie_hasnt_been_set") != 'true') {
       var d = Math.random();
-      var mm = getCookie('redirect_skimm')
       var mc = getCookie('redirect_ut')
+      var mm = getCookie('redirect_skimm')
       var ss = getCookie('redirect_sweatcoin')
       if (mc == 'true') {
         if (d <= .6) {
