@@ -78,7 +78,7 @@ function setCookieIfFirstTime() {
       console.log(tracking_2)
       console.log(tracking_3)
       var d = Math.random();
-      print(d)
+      console.log(d)
       var mc = getCookie('redirect_ut')
       var mm = getCookie('redirect_skimm')
       var ss = getCookie('redirect_sweatcoin')
