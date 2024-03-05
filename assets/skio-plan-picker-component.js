@@ -112,10 +112,10 @@ const skioStyles = css`
   
   .skio-group-content {
     width: auto;
-    margin-left: 30px;
+    margin: 0 5px;
     transition: max-height 0.25s cubic-bezier(0.4,0,0.2,1),
                 opacity 0.25s cubic-bezier(0.4,0,0.2,1);
-    max-height: 38px;
+    max-height: 100px;
     opacity: 1;
   }
   
@@ -135,6 +135,18 @@ const skioStyles = css`
     border: 1px #0fa573 solid; 
     padding: 0px 8px;
     border-radius: 20px;
+  }
+
+  .skio-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .skio-custom-content {
+    background-color: var(--blue-tint-20) !important;
+    border-radius: 30px;
+    padding: 15px;
+    margin-top: 6px;
   }
   
   .skio-frequency {
@@ -550,16 +562,22 @@ export class SkioPlanPickerComponent extends LitElement {
                   </div>
                 </div>
                 <div class="skio-group-content">
-                  <select skio-selling-plans="${ group.id }" class="skio-frequency${ group.selling_plans.length == 1 ? ' skio-frequency--one' : '' }"
-                    @change=${ (e) => this.selectSellingPlan(e.target, group) }>
-                    ${ group ? group.selling_plans.map((selling_plan) => 
-                      html`
-                      <option value="${ selling_plan.id }" ?selected=${group.selected_selling_plan == selling_plan }>
-                        ${ group.name == 'Subscription' ? `Delivery ${ selling_plan.name.toLowerCase() }` : `${ selling_plan.name }` }
-                      </option>
-                      `
-                    ): ''}
-                  </select>
+                  <div class="skio-custom-content">
+                    <div class="skio-container">
+                      <div>Whitening Gels</div>
+                      <div>Refills for $25/mo</div>
+                    </div>
+                    <select skio-selling-plans="${ group.id }" class="skio-frequency${ group.selling_plans.length == 1 ? ' skio-frequency--one' : '' }"
+                      @change=${ (e) => this.selectSellingPlan(e.target, group) }>
+                      ${ group ? group.selling_plans.map((selling_plan) => 
+                        html`
+                        <option value="${ selling_plan.id }" ?selected=${group.selected_selling_plan == selling_plan }>
+                          ${ group.name == 'Subscription' ? `Delivery ${ selling_plan.name.toLowerCase() }` : `${ selling_plan.name }` }
+                        </option>
+                        `
+                      ): ''}
+                    </select>
+                  </div>
                 </div>
               </label>
             </div>
