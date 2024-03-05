@@ -1,0 +1,119 @@
+{% assign shopURL = 'static.rechargecdn.com/assets/js/widget.min.js?shop=' | append: shop.permanent_domain %}
+  <script>
+    (function AppOptimization() {
+
+      var supportsPassive = getPassiveSupport();
+      var blockUrl = {{ shopURL | json }}
+      var page = {{ page | json }};
+      var shopSettings  = [{"url": blockUrl,"block_index": true,"block_product": true,"block_collection": true,"block_page": true,"block_blog": true,"block_article": true,"block_cart": true,"block_search": true,"block_customers": true,"block_gift_card": true}];      
+
+      modifyCreateElement(shopSettings.map(loadTypeFromSettings).map(eventsFromSettings).map(outputLogic));
+
+      function loadTypeFromSettings(settings) {
+        if (settings['settings_' + page]) settings.loadType = 'settings';
+        return settings;
+      }
+
+      function eventsFromSettings(settings) {
+        return settings;
+      }
+
+      function outputLogic(settings) {
+        var data = {
+          url: settings.url,
+          loadType: settings.loadType
+        }
+        return data;
+      }
+
+      function modifyCreateElement(logic) {
+        var createElementBackup = document.createElement;
+        
+        document.createElement = function() {
+          var args = Array.prototype.slice.call(arguments);
+          var node = createElementBackup.bind(document).apply(undefined, args);
+
+          // Skip if this is not a script tag
+          if (first(args).toLowerCase() !== 'script') return node;
+
+          var originalSetAttribute = node.setAttribute.bind(node);
+
+          Object.defineProperties(node, {
+            'src': {
+              get() { 
+                return node.getAttribute('src') || ''
+              },
+              set(src) {
+                var loadRule = getLoadRule(logic, src);
+                if (loadRule) {
+                  // Remove app from logic once matched
+                  logic.forEach(function(item, index){
+                    if (item.url === loadRule.url) logic.splice(index, 1);
+                  });
+
+                  // Change script MIME type if script should not load
+                  originalSetAttribute('type', 'javascript/blocked');
+                  loadRule.originalUrl = src;
+                }
+                originalSetAttribute('src', src);
+                return true;
+              }
+            }
+          });
+          return node;
+        }
+      }
+
+      function getLoadRule(logic, src) {
+        return first(logic.filter(function(item) {
+          return stringIncludes(src, item.url);
+        }));
+      }
+
+      function getPassiveSupport() {
+        var supportsPassive = false;
+        try {
+          var opts = Object.defineProperty({}, 'passive', {
+            get: function() { supportsPassive = true; }
+          });
+          window.addEventListener('testPassive', null, opts);
+          window.removeEventListener('testPassive', null, opts);
+        } catch (e) {}
+        return supportsPassive;
+      }
+
+      function loadScript(src) {
+        var script = document.querySelector('script[type="javascript/blocked"][src="' + src + '"]');
+        if (!script) return;
+
+        var newScript = document.createElement('script');
+        newScript.src = script.src;
+        newScript.async = true;
+        newScript.setAttribute('data-app-optimization', true);
+        document.body.appendChild(newScript);
+      }
+
+      function nodeList(str) {
+        var nodes = []
+        try { nodes = Array.prototype.slice.call(document.querySelectorAll(str));
+        } catch {};
+        return nodes;
+      }
+
+      function stringIncludes(str1, str2) {
+        return String(str1).indexOf(String(str2)) != -1;
+      }
+
+      function first(arr) {
+        return arr[0];
+      }
+
+      function partial(fn) {
+        var slice = Array.prototype.slice;
+        var args = slice.call(arguments, 1);
+        return function() {
+          return fn.apply(this, args.concat(slice.call(arguments, 0)));
+        };
+      }
+    })();
+  </script>

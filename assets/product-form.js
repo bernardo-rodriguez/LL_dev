@@ -8,6 +8,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     this.container = this.closest(".product__info-wrapper")
     this.productId = this.dataset.productId
 
+    this.mostRecentSellingPlan = ''
+
     this.stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
 
     this.setName();
@@ -123,57 +125,80 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   createSubscriptionWidget() {
-    this.waitForRecharge('.rc-widget-injection-parent [data-widget]').then(() => {
-      console.log('recharge ready')
-      this.modifySubscriptionWidget('.rc-widget-injection-parent .rc-widget');
+    this.waitForSkio('skio-plan-picker').then(() => {
+      console.log('skio ready')
+      // this.modifySubscriptionWidget('.rc-widget-injection-parent .rc-widget');
 
       // this.updateStickyBar(document.querySelector(".rc_widget__option__input:checked").value, document.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".updated-price").innerHTML || document.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".rc-option__price").innerHTML)
 
       //remove loading circle when ready
-      this.container.querySelector(".rc-widget-injection-parent .loading-overlay__spinner").classList.add("hidden")
-      this.container.querySelector(".rc-widget-injection-parent product-form.visually-hidden").classList.remove("visually-hidden")
+      this.container.querySelector(".loading-overlay__spinner").classList.add("hidden")
+      this.container.querySelector("product-form.visually-hidden").classList.remove("visually-hidden")
       this.stickyBar.querySelector("[data-sticky-atc]").removeAttribute('disabled')
 
       // observe input selection to update sticky bar
-      this.rechargeOptions = document.querySelector(".rc-template");
-      console.log(this.rechargeOptions)
-      const observer = new MutationObserver(this.observeForm.bind(this))
-      observer.observe(this.rechargeOptions, {attributes: true, childList: true, subtree: true})
+      // this.rechargeOptions = document.querySelector(".rc-template");
+      // console.log(this.rechargeOptions)
+      let selling_plan_input = document.querySelector('input[name="selling_plan"]')
+      this.observeForm(selling_plan_input)
+      // observer.observe(this.rechargeOptions, {attributes: true, childList: true, subtree: true})
 
       // this.setToOneMonth()
     })
   }
 
-  updateStickyBar(selection, price) {
-    if( selection == 'onetime' ){
-      this.stickyBar.querySelector('[data-sticky-onetime]').classList.add('selected')
-      this.stickyBar.querySelector('[data-sticky-subsave]').classList.remove('selected')
-    } else if ( selection == 'subsave' ) {
+  updateStickyBar(event) {
+    let subscriptionSelected = !!event.detail.sellingPlan
+    console.log(subscriptionSelected)
+    let price
+    let skio = document.querySelector('skio-plan-picker').shadowRoot
+
+    console.log(event)
+
+    if (subscriptionSelected) {
       this.stickyBar.querySelector('[data-sticky-subsave]').classList.add('selected')
       this.stickyBar.querySelector('[data-sticky-onetime]').classList.remove('selected')
+
+      price = skio.querySelector(`[skio-subscription-price]`)?.innerText
+    }
+    else {
+      this.stickyBar.querySelector('[data-sticky-onetime]').classList.add('selected')
+      this.stickyBar.querySelector('[data-sticky-subsave]').classList.remove('selected')
+
+      price = skio.querySelector(`[skio-onetime-price]`)?.innerText
     }
 
     this.stickyBar.querySelector(".sticky__price").innerHTML = price
   }
-
+  
   updateStickySellingPlans(e) {
     const controller = this.stickyBar.querySelector(`select#${e.target.id}_sticky `)
     controller.value = e.target.value
   }
 
-  observeForm(mutationList, observer) {
-    mutationList.forEach((mutation) => {
-      if( mutation.type == 'attributes' && mutation.attributeName == 'class' && mutation.target.classList.contains('rc-option--active')) {
+  observeForm(selling_plan_input) {
+    // mutationList.forEach((mutation) => {
+    //   if( mutation.type == 'attributes' && mutation.attributeName == 'class' && mutation.target.classList.contains('rc-option--active')) {
         
-        let productSelection = mutation.target.querySelector("input").value
-        let selectionPrice = mutation.target.querySelector(".updated-price")?.innerHTML || mutation.target.querySelector(".rc-option__price").innerHTML
+    //     let productSelection = mutation.target.querySelector("input").value
+    //     let selectionPrice = mutation.target.querySelector(".updated-price")?.innerHTML || mutation.target.querySelector(".rc-option__price").innerHTML
 
-        this.updateStickyBar(productSelection, selectionPrice)
-      }
+    //     this.updateStickyBar(productSelection, selectionPrice)
+    //   }
+    // })
+
+    console.log(selling_plan_input)
+
+    let skio = document.querySelector('skio-plan-picker')
+
+    skio.addEventListener('skio::update-selling-plan', (e) => {
+      this.updateStickyBar(e)
+      this.mostRecentSellingPlan = e.detail.sellingPlan ? e.detail.sellingPlan.id : this.mostRecentSellingPlan
+      console.log(this.mostRecentSellingPlan)
     })
   }
 
-  waitForRecharge(selector) {
+  waitForSkio(selector) {
     return new Promise(resolve => {
       if (document.querySelector(selector)) {
           return resolve(document.querySelector(selector));
@@ -295,9 +320,9 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         // HOTFIX
         // stickyBar.querySelector("[data-sticky-subsave").appendChild(dropdownCopy)
 
-        document.querySelector("select[name='selling_plan']").addEventListener("change", function(e){
-          this.updateStickySellingPlans(e)
-        }.bind(this))
+        // document.querySelector("select[name='selling_plan']").addEventListener("change", function(e){
+        //   this.updateStickySellingPlans(e)
+        // }.bind(this))
       }
   
     }, 500);
@@ -570,7 +595,8 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
     this.close = this.container.querySelector("[data-sticky-close]")
 
     this.waitForEl("sticky-product-bar [data-plans-dropdown").then(() => {
-      this.sellingPlans = this.querySelector("[data-plans-dropdown]")
+      this.sellingPlans = this.querySelector("input[name='selling_plan']]")
+      console.log(this.sellingPlans)
       this.sellingPlans.addEventListener("change", function(e){
         this.updateSellingPlans(e)
       }.bind(this))
@@ -580,14 +606,19 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
   }
 
   bindEvents() {
+
+    let skio = document.querySelector('skio-plan-picker')
+
     this.open.addEventListener("click", this.openStickyBar.bind(this))
     this.close.addEventListener("click", this.closeStickyBar.bind(this))
     this.onetime.addEventListener('click', function(e){
-      document.querySelector(`[data-label-onetime]`).click()
+      skio.selectedSellingPlanGroup = null
+      skio.selectedSellingPlan = null
     }.bind(this))
 
     this.subsave.addEventListener('click', function(e){
-      document.querySelector(`[data-label-subsave]`).click()
+      skio.selectedSellingPlanGroup = skio.availableSellingPlanGroups[0]
+      skio.selectedSellingPlan = skio.availableSellingPlanGroups[0].selling_plans.find(plan => plan.id == this.mainForm.mostRecentSellingPlan)
     }.bind(this))
 
     this.atc.addEventListener('click', function(e){
