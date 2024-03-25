@@ -214,6 +214,7 @@ function setGoogleLanding(effective_landing_page) {
 
 
 function setCookieAffiliate(cookie, affiliate) {
+  console.log("swetcookieaffiliate")
   setGoogleSource(affiliate)
   setCookie(cookie, 'true')
 
