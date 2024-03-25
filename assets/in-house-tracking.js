@@ -256,6 +256,8 @@ function landingPageAction(current_page, query_params) {
       quiz_version: "interactive_v1"
     });
   }
+  console.log("tracker:")
+  console.log(current_page)
   if (current_page == '/') {
     switch(query_params.utm_affiliate_specific) {
       case 'sweatcoin':
