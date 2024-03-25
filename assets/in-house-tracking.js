@@ -322,6 +322,7 @@ function landingPageAction(current_page, query_params) {
       clearAllAffiliateCookies()
       removeCookie('in_house_tracked')
   } else if (current_page == '/pages/landing-page' || current_page == '/pages/landing-page/' || current_page.includes('landing-page')) {
+      console.log("tracker_landing_page")
       setLandingPageFlag('true')
       setFirstTimeGtags('landing-page')
       setGoogleLanding('landing-page')
