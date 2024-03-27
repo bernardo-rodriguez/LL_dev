@@ -160,9 +160,11 @@ const skioStyles = css`
     -webkit-appearance: none !important;
     appearance: none !important;
     position: relative !important;
-    background-image: url(data:image/svg+xml,%3Csvg width='11' height='7' viewBox='0 0 11 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5.5 6L10 1' stroke='%230D2244' stroke-linecap='round'/%3E%3C/svg%3E%0A) !important;
-    background-position-x: 90% !important;
-    background-position-y: center !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-image: url(data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7' /%3E%3C/svg%3E) !important;
+    background-position: right 10px top 50% !important;
+    background-size: 15px !important;
     background-repeat: no-repeat !important;
   }
   .skio-frequency.skio-frequency--one {
