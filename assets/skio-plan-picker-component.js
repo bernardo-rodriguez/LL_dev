@@ -144,7 +144,7 @@ const skioStyles = css`
 
   .skio-custom-content {
     background-color: var(--blue-tint-20) !important;
-    border-radius: 30px;
+    border-radius: 20px;
     padding: 15px;
     margin-top: 6px;
   }
@@ -561,10 +561,10 @@ export class SkioPlanPickerComponent extends LitElement {
                   <div class="skio-custom-content">
                     <div class="skio-container">
                       <div>Whitening Gels</div>
-                      <div>Refills for $25/mo</div>
+                      <div>1-2 Months Supply</div>
                     </div>
                     <div class="skio-container" style = "margin-top: 10px">
-                      <div>Frequency</div>
+                      <div>Delivery Frequency</div>
                       <select skio-selling-plans="${ group.id }" class="skio-frequency${ group.selling_plans.length == 1 ? ' skio-frequency--one' : '' }"
                         @change=${ (e) => this.selectSellingPlan(e.target, group) }>
                         ${ group ? group.selling_plans.map((selling_plan) => 
