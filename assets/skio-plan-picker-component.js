@@ -567,16 +567,19 @@ export class SkioPlanPickerComponent extends LitElement {
                       <div>Whitening Gels</div>
                       <div>Refills for $25/mo</div>
                     </div>
-                    <select skio-selling-plans="${ group.id }" class="skio-frequency${ group.selling_plans.length == 1 ? ' skio-frequency--one' : '' }"
-                      @change=${ (e) => this.selectSellingPlan(e.target, group) }>
-                      ${ group ? group.selling_plans.map((selling_plan) => 
-                        html`
-                        <option value="${ selling_plan.id }" ?selected=${group.selected_selling_plan == selling_plan }>
-                          ${ group.name == 'Subscription' ? `Delivery ${ selling_plan.name.toLowerCase() }` : `${ selling_plan.name }` }
-                        </option>
-                        `
-                      ): ''}
-                    </select>
+                    <div class="skio-container" style = "margin-top: 10px">
+                      <div>Frequency</div>
+                      <select style = "width: auto" skio-selling-plans="${ group.id }" class="skio-frequency${ group.selling_plans.length == 1 ? ' skio-frequency--one' : '' }"
+                        @change=${ (e) => this.selectSellingPlan(e.target, group) }>
+                        ${ group ? group.selling_plans.map((selling_plan) => 
+                          html`
+                          <option value="${ selling_plan.id }" ?selected=${group.selected_selling_plan == selling_plan }>
+                            ${ group.name == 'Subscription' ? `Delivery ${ selling_plan.name.toLowerCase() }` : `${ selling_plan.name }` }
+                          </option>
+                          `
+                        ): ''}
+                      </select>
+                    </div>
                   </div>
                 </div>
               </label>
