@@ -150,26 +150,20 @@ const skioStyles = css`
   }
   
   .skio-frequency {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 8px 30px 8px 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    background-color: #f7f7f7;
-    width: 100%;
-    border: 0;
-    font-size: 14px;
-    font-family: inherit;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7' /%3E%3C/svg%3E");
-    background-position: right 10px top 50%;
-    background-size: 18px;
-    background-repeat: no-repeat;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    border: none !important;
+    background: var(--blue-tint-40) !important;
+    font-family: jakarta !important;
+    font-size: 12px !important;
+    line-height: 14px !important;
+    border-radius: 40px !important;
+    padding: 4px 26px 4px 12px !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    position: relative !important;
+    background-image: url(data:image/svg+xml,%3Csvg width='11' height='7' viewBox='0 0 11 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5.5 6L10 1' stroke='%230D2244' stroke-linecap='round'/%3E%3C/svg%3E%0A) !important;
+    background-position-x: 90% !important;
+    background-position-y: center !important;
+    background-repeat: no-repeat !important;
   }
   .skio-frequency.skio-frequency--one {
     background-image: none;
@@ -569,7 +563,7 @@ export class SkioPlanPickerComponent extends LitElement {
                     </div>
                     <div class="skio-container" style = "margin-top: 10px">
                       <div>Frequency</div>
-                      <select style = "width: auto" skio-selling-plans="${ group.id }" class="skio-frequency${ group.selling_plans.length == 1 ? ' skio-frequency--one' : '' }"
+                      <select skio-selling-plans="${ group.id }" class="skio-frequency${ group.selling_plans.length == 1 ? ' skio-frequency--one' : '' }"
                         @change=${ (e) => this.selectSellingPlan(e.target, group) }>
                         ${ group ? group.selling_plans.map((selling_plan) => 
                           html`
