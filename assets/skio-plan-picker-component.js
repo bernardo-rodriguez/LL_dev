@@ -167,10 +167,10 @@ const skioStyles = css`
     background-size: 15px !important;
     background-repeat: no-repeat !important;
   }
-  .skio-frequency.skio-frequency--one {
-    background-image: none;
-    pointer-events: none;
-  }
+  // .skio-frequency.skio-frequency--one {
+  //   background-image: none;
+  //   pointer-events: none;
+  // }
   
   .skio-frequency span {
     text-transform: lowercase;
