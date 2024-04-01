@@ -8,7 +8,7 @@ function LandingPopulateCactus() {
   // $('#hero_title').html('Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>') 
   // $('#hero_title').html('Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit') 
 
-  document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
+  // document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
 
   // $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>0")
   $('.Hero_Subtitle').first().text("See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.")
@@ -214,6 +214,7 @@ function setGoogleLanding(effective_landing_page) {
 
 
 function setCookieAffiliate(cookie, affiliate) {
+  console.log("swetcookieaffiliate")
   setGoogleSource(affiliate)
   setCookie(cookie, 'true')
 
@@ -255,6 +256,8 @@ function landingPageAction(current_page, query_params) {
       quiz_version: "interactive_v1"
     });
   }
+  console.log("tracker:")
+  console.log(current_page)
   if (current_page == '/') {
     switch(query_params.utm_affiliate_specific) {
       case 'sweatcoin':
@@ -321,6 +324,7 @@ function landingPageAction(current_page, query_params) {
       clearAllAffiliateCookies()
       removeCookie('in_house_tracked')
   } else if (current_page == '/pages/landing-page' || current_page == '/pages/landing-page/' || current_page.includes('landing-page')) {
+      console.log("tracker_landing_page")
       setLandingPageFlag('true')
       setFirstTimeGtags('landing-page')
       setGoogleLanding('landing-page')
