@@ -79,6 +79,7 @@ function setCookieIfFirstTime() {
       var mc = getCookie('redirect_ut')
       var mm = getCookie('redirect_skimm')
       var ss = getCookie('redirect_sweatcoin')
+      console.log(mc)
       if (mc == 'true') {
         if (d > tracking_1) {
           setCookie('test_order', 'true')
