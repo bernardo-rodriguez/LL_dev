@@ -52,7 +52,7 @@ function getCookie(cname) {
 
 function setCookie(key, value) {
   var date = new Date();
-  date.setTime(date.getTime() + 1 * 3600 * 1000);
+  date.setTime(date.getTime() + 2 * 3600 * 1000);
   var expires = date.toUTCString();
   console.log(expires)
   document.cookie = `${key}=${value}; expires=${expires}; path=/`;
