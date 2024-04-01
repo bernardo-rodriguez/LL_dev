@@ -52,8 +52,9 @@ function getCookie(cname) {
 
 function setCookie(key, value) {
   var date = new Date();
-  date.setDate(date.getDate() + 1)
+  date.setTime(date.getTime() + 2 * 3600 * 1000);
   var expires = date.toUTCString();
+  console.log(expires)
   document.cookie = `${key}=${value}; expires=${expires}; path=/`;
 }
 
@@ -69,6 +70,8 @@ function clearAllAffiliateCookies(){
 }
 
 function setCookieIfFirstTime() {
+  console.log('set cookie')
+  console.log(getCookie("cookie_hasnt_been_set"))
   if (getCookie("cookie_hasnt_been_set") != 'true') {
       tracking_1 = parseInt(document.getElementById('tracking_v1').innerHTML) / 100
       tracking_2 = parseInt(document.getElementById('tracking_v2').innerHTML) / 100
@@ -79,6 +82,8 @@ function setCookieIfFirstTime() {
       var mc = getCookie('redirect_ut')
       var mm = getCookie('redirect_skimm')
       var ss = getCookie('redirect_sweatcoin')
+      console.log(mc)
+      console.log(tracking_1)
       if (mc == 'true') {
         if (d > tracking_1) {
           setCookie('test_order', 'true')
