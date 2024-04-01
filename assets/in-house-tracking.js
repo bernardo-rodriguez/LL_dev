@@ -69,6 +69,8 @@ function clearAllAffiliateCookies(){
 }
 
 function setCookieIfFirstTime() {
+  console.log('set cookie')
+  console.log(getCookie("cookie_hasnt_been_set"))
   if (getCookie("cookie_hasnt_been_set") != 'true') {
       tracking_1 = parseInt(document.getElementById('tracking_v1').innerHTML) / 100
       tracking_2 = parseInt(document.getElementById('tracking_v2').innerHTML) / 100
