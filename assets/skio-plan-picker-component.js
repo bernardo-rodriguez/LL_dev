@@ -352,6 +352,13 @@ const skioStyles = css`
     gap: 3px;
   }
 
+  @media (max-width: 420px) {
+    .skio-group-label {
+      font-size: 14px;
+    }
+    /* CSS that should be displayed if width is equal to or less than 800px goes here */
+  }
+
 `;
 
 export class SkioPlanPickerComponent extends LitElement {
