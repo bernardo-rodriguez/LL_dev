@@ -568,7 +568,7 @@ export class SkioPlanPickerComponent extends LitElement {
                   <div class="skio-custom-content">
                     <div class="skio-container">
                       <div>Whitening Gels</div>
-                      <div>1-2 Months Supply</div>
+                      <div>Refills for $25/mo</div>
                     </div>
                     <div class="skio-container" style = "margin-top: 10px">
                       <div>Delivery Frequency</div>
