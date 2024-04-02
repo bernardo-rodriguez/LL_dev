@@ -573,7 +573,7 @@ export class SkioPlanPickerComponent extends LitElement {
                 <div class="skio-group-content">
                   <div class="skio-custom-content">
                     <div class="skio-container">
-                      <div>Whitening Gels</div>
+                      <div>${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' ? '1 Month Supply' : 'Whitening Gels' }</div>
                       <div>Refills for $25/mo</div>
                     </div>
                     <div class="skio-container" style = "margin-top: 10px">
