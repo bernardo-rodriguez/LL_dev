@@ -545,7 +545,7 @@ export class SkioPlanPickerComponent extends LitElement {
           html`
             <div class="skio-group-container skio-group-container--available ${ this.selectedSellingPlanGroup == group ? 'skio-group-container--selected' : '' }" skio-group-container
               @click=${() => this.selectSellingPlanGroup(group) }>
-              <input id="skio-selling-plan-group-${ index }-${ this.key }" class="skio-group-input ${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' ? 'hide-skio-select' : '' }" name="skio-group-${ this.key }"
+              <input id="skio-selling-plan-group-${ index }-${ this.key }" class="skio-group-input" name="skio-group-${ this.key }"
                 type="radio" value="${ group.id }" skio-selling-plan-group="${ group.id }" ?checked=${ this.selectedSellingPlanGroup == group ? true : false } >
               <label skio-label-subscription class="skio-group-label" for="skio-selling-plan-group-${ index }-${ this.key }">
                 <div class="skio-group-topline">
@@ -578,7 +578,8 @@ export class SkioPlanPickerComponent extends LitElement {
                     </div>
                     <div class="skio-container" style = "margin-top: 10px">
                       <div>Delivery Frequency</div>
-                      <select skio-selling-plans="${ group.id }" class="skio-frequency${ group.selling_plans.length == 1 ? ' skio-frequency--one' : '' }"
+                      <select skio-selling-plans="${ group.id }" class="skio-frequency${ group.selling_plans.length == 1 ? ' skio-frequency--one' : '' }
+                      ${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' ? ' hide-skio-select' : '' }"
                         @change=${ (e) => this.selectSellingPlan(e.target, group) }>
                         ${ group ? group.selling_plans.map((selling_plan) => 
                           html`
