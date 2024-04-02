@@ -125,6 +125,12 @@ const skioStyles = css`
     opacity: 0;
     pointer-events: none;
   }
+
+  .hide-skio-select {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
   
   .skio-group-title {
     min-width: max-content;
@@ -539,7 +545,7 @@ export class SkioPlanPickerComponent extends LitElement {
           html`
             <div class="skio-group-container skio-group-container--available ${ this.selectedSellingPlanGroup == group ? 'skio-group-container--selected' : '' }" skio-group-container
               @click=${() => this.selectSellingPlanGroup(group) }>
-              <input id="skio-selling-plan-group-${ index }-${ this.key }" class="skio-group-input" name="skio-group-${ this.key }"
+              <input id="skio-selling-plan-group-${ index }-${ this.key }" class="skio-group-input ${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' ? 'hide-skio-select' : '' }" name="skio-group-${ this.key }"
                 type="radio" value="${ group.id }" skio-selling-plan-group="${ group.id }" ?checked=${ this.selectedSellingPlanGroup == group ? true : false } >
               <label skio-label-subscription class="skio-group-label" for="skio-selling-plan-group-${ index }-${ this.key }">
                 <div class="skio-group-topline">
