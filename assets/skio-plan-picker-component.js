@@ -552,7 +552,7 @@ export class SkioPlanPickerComponent extends LitElement {
                   <div class="skio-center-wrapper">
                     <div class="skio-group-title">
                     <p> ${this.discount(group.selected_selling_plan).amount}</p>
-                    <p> ${this.price(group.selected_selling_plan, false) / 100).toFixed(0)}</p>
+                    <p> ${(this.price(group.selected_selling_plan, false) / 100).toFixed(0) }</p>
                     ${ group.name == 'Subscription' ?  this.discount(group.selected_selling_plan).percent == '0%' ? 'Free Trial Special' : 'Subscribe & Save' : group.name }
                       ${ this.discount(group.selected_selling_plan).percent !== '0%' ? html` 
                         <span style="display: none;" class="skio-save">Save <span skio-discount>${ this.discountFormat == 'percent' ? this.discount(group.selected_selling_plan).percent : this.discount(group.selected_selling_plan).amount }</span></span>
