@@ -643,7 +643,7 @@ export class SkioPlanPickerComponent extends LitElement {
                   </li>
                 </ul>
                 <div class="skio-details--footer">
-                  <a class="skio-manage-link" href="/a/account/login">Manage subscriptions</a> 
+                  <a class="skio-manage-link" href="/tools/recurring/login/">Manage subscriptions</a> 
                   
                   <a style="letter-spacing: 0" class="powered-by-skio" href="https://skio.com/?utm_source=eonsincshop.myshopify.com&utm_medium=details_popover" target="_blank" rel="noopener">
                     Powered by
