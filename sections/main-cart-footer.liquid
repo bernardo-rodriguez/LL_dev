@@ -175,7 +175,7 @@
       } else if (redirect_ut_direct == 'true') {
         // url_params = url_params.concat(['discount=SUB-N-SAVE']);
       } else if (redirect_ut == 'true') {
-        url_params = url_params.concat(['discount=FREE-TRIAL-OFFER']);
+        {% comment %} url_params = url_params.concat(['discount=FREE-TRIAL-OFFER']); {% endcomment %}
       } else if (redirect_miles == 'true') {
         url_params = url_params.concat(['discount=MILES_AUTOMATIC']);
       } else if (redirect_skimm == 'true') {
@@ -238,7 +238,7 @@
         } else if (redirect_ut_direct == 'true') {
           url_params = url_params.concat(['discount=SUB-N-SAVE']);
         } else if (redirect_ut == 'true') {
-          url_params = url_params.concat(['discount=FREE-TRIAL-OFFER']);
+          {% comment %} url_params = url_params.concat(['discount=FREE-TRIAL-OFFER']); {% endcomment %}
         } else if (redirect_miles == 'true') {
           url_params = url_params.concat(['discount=MILES_AUTOMATIC']);
         } else if (redirect_inspire == 'true') {
