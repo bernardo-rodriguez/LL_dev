@@ -218,7 +218,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
       let timeout = setTimeout(() => {
         observer.disconnect();
-        reject('Nothing happened ?');
+        resolve('Nothing happened ?');
       }, 5 * 1000);
   });
   }
