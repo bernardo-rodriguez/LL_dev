@@ -215,6 +215,11 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
           childList: true,
           subtree: true
       });
+
+      let timeout = setTimeout(() => {
+        observer.disconnect();
+        reject('Nothing happened ?');
+      }, 5 * 1000);
   });
   }
 
