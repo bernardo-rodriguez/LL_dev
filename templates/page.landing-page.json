@@ -451,6 +451,46 @@
         "section_sub_heading": "@mylaughland",
         "sub_heading_link": "https:\/\/www.instagram.com\/"
       }
+    },
+    "testimonials_BGjeX7": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_iVETMD": {
+          "type": "testimonial",
+          "settings": {
+            "heading": "Sophia S.",
+            "before_photo": "shopify:\/\/shop_images\/Sophia_-_Before2.png",
+            "after_photo": "shopify:\/\/shop_images\/Sophia_-_After2.png",
+            "customer_info": "User Since January 2024",
+            "profile": "{😣} High Sensitivity\n{☕} Coffee Addict\n{🦷} Light-Brown Stains",
+            "formula": "Formula 8-17, Hydrogen Peroxide 11%",
+            "review": "I’ve tried SO many whitening products that just don’t work, it’s ridiculous. I’m shocked that after a single use of this product I can actually tell a difference in the color of my teeth. They got me with a promo deal set and I’m hooked now. Not to mention the incredible customer service. My led device didn’t work consistently and they sent a new one right away that works great!  Thank you so much!"
+          }
+        },
+        "testimonial_tTq4VA": {
+          "type": "testimonial",
+          "settings": {
+            "heading": "Lesley C.",
+            "before_photo": "shopify:\/\/shop_images\/Lesleybefore2.jpg",
+            "after_photo": "shopify:\/\/shop_images\/LesleyAfter.jpg",
+            "customer_info": "User Since October 2023",
+            "profile": "{😣} Medium Sensitivity\n{🍷} Wine Drinker\n{🦷} Years of Stains",
+            "formula": "Formula 8-16, Hydrogen Peroxide 8%",
+            "review": "“I had to come here to say something. Normally I have excruciating pain with crest white strips and this other brand I got from the dentist. Both of which didn’t whiten my teeth very much. So, I had low hopes for Laughland. I got the formula made for highest sensitivity, and I left it on for I think 12 minutes. Just after the first day my teeth look 2 shades whiter. I’m actually really shocked. Usually the sensitivity hits me several hours after whitening my teeth, and it’s now the next morning and I guess I’m all clear. Thanks Laughland!”"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_iVETMD",
+        "testimonial_tTq4VA"
+      ],
+      "settings": {
+        "heading": "Real {Smiles}, Real {Results}",
+        "text": "4.7\/5 Star Reviews from 80,000+ Smiles Whitened with Laughland.",
+        "profile_label": "Customer Profile",
+        "formula_label": "Personalized Whitening Formula",
+        "review_label": "Review"
+      }
     }
   },
   "order": [
@@ -464,6 +504,7 @@
     "d3414607-66d0-46b2-a396-e6a4263c1ca4",
     "a4c5d03d-76b9-4c42-a509-36657ba4b556",
     "49f3d9ac-7509-4919-89f3-3c6825a727c8",
-    "b60d8150-a8c1-4d20-a017-a4952d382660"
+    "b60d8150-a8c1-4d20-a017-a4952d382660",
+    "testimonials_BGjeX7"
   ]
 }
