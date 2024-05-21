@@ -5,7 +5,7 @@ affiliate_cookie_options_2 = ['redirect__inspire', 'redirect__ut', 'redirect__ut
 function LandingPopulateCactus() {
   // Populate landing page text for cactus media
   $('#hero_subtitle_1').css('margin-bottom', '50px !important')
-  // $('#hero_title').html('Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>') 
+  $('#hero_title').html('Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>') 
   // $('#hero_title').html('Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit') 
 
   // document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
