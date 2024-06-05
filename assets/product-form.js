@@ -415,7 +415,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         subText = 'Subscribe & Save'
         break
       default:
-        subPrice = '$19'
+        subPrice = '$29'
         subText = 'Subscribe & Save'
         break
     }
