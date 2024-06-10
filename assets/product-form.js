@@ -434,10 +434,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         // this.add_pen()
         break
       case 'redirect_ut':
-        // this.add_pen()
-        // subPrice = '$9'
-        subText = 'STARTER SPECIAL'
+        this.add_pen()
         subPrice = '$9'
+        subText = 'STARTER SPECIAL'
+        // subPrice = '$0'
         // subText = 'FREE TRIAL SPECIAL'
         // subPrice = '$19'
         // subText = 'STARTER SPECIAL'
@@ -474,16 +474,16 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     return [subPrice, subText, oneTimeText, oneTimePrice]
   }
 
-  addPenSometimes() {
-    const sweatcoin_automatic = getCookie('redirect_sweatcoin');
+  // addPenSometimes() {
+  //   const sweatcoin_automatic = getCookie('redirect_sweatcoin');
 
-    if (sweatcoin_automatic == 'true') {
-      if (true) {
-        add_pen()
-      }
+  //   if (sweatcoin_automatic == 'true') {
+  //     if (true) {
+  //       add_pen()
+  //     }
       
-    }
-  }
+  //   }
+  // }
 
   onSubmitHandler(evt) {
     evt.preventDefault();
