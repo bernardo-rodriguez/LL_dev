@@ -362,6 +362,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   add_pen() {
+      console.log('adding pen')
       const strength_cookie = getCookie('strength')
       kit_formula_dict = {
         'medium': 42250643833057,
