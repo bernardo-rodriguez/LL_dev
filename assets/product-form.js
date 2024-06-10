@@ -360,6 +360,57 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       // (Note: the exact output may be browser-dependent)
     }
   }
+
+  add_pen() {
+      const strength_cookie = getCookie('strength')
+      kit_formula_dict = {
+        'medium': 42250643833057,
+        'strong': 42250643865825,
+        'weak': 42250643898593
+      }
+      
+      pen_formula_dict = {
+        'medium': 42210600812769,
+        'strong': 42210600845537,
+        'weak': 42210600878305
+      }
+
+      pen_selling_plan_dict = {
+        3449880801: 3450175713,
+        3449913569: 3450208481,
+        3449946337: 3450241249
+      }
+      if (strength_cookie in pen_formula_dict) {
+        formula_id = pen_formula_dict[strength_cookie]
+      } else {
+        formula_id = pen_formula_dict['medium']
+      }
+      selling_plan = document.querySelector("select[name='selling_plan']").value
+      if (selling_plan in pen_selling_plan_dict) {
+        send_selling_plan = pen_selling_plan_dict[selling_plan]
+      } else {
+        send_selling_plan = 3450175713
+      }
+      var pen = 
+        {
+        "id": formula_id,
+        "quantity":  1
+        }
+        console.log('pen')
+
+        jQuery.ajax({
+          type: 'POST',
+          url: '/cart/add.js',
+          data: pen,
+          dataType: 'json',
+          success: function() {
+            console.log('pen added') 
+          },
+          error: function (exception) {
+            console.log(exception)
+          }
+        });
+  }
   
   getSubPrice() {
     const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm']
