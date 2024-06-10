@@ -431,9 +431,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         subPrice = '$0'
         subText = 'SWEATCOIN SPECIAL'
         // this.setToOneMonth()
-        this.add_pen()
-
-        // add_pen()
+        // this.add_pen()
         break
       case 'redirect_ut':
         // this.add_pen()
