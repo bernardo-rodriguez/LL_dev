@@ -384,10 +384,11 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         3449913569: 3450208481,
         3449946337: 3450241249
       }
+      let formula_id;
       if (strength_cookie in pen_formula_dict) {
-        let formula_id = pen_formula_dict[strength_cookie]
+        formula_id = pen_formula_dict[strength_cookie]
       } else {
-        let formula_id = pen_formula_dict['medium']
+        formula_id = pen_formula_dict['medium']
       }
       var pen = 
         {
