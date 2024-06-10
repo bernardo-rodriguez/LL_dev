@@ -367,27 +367,27 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   add_pen() {
       console.log('adding pen')
       const strength_cookie = getCookie('strength')
-      kit_formula_dict = {
+      let kit_formula_dict = {
         'medium': 42250643833057,
         'strong': 42250643865825,
         'weak': 42250643898593
       }
       
-      pen_formula_dict = {
+      let pen_formula_dict = {
         'medium': 42210600812769,
         'strong': 42210600845537,
         'weak': 42210600878305
       }
 
-      pen_selling_plan_dict = {
+      let pen_selling_plan_dict = {
         3449880801: 3450175713,
         3449913569: 3450208481,
         3449946337: 3450241249
       }
       if (strength_cookie in pen_formula_dict) {
-        formula_id = pen_formula_dict[strength_cookie]
+        let formula_id = pen_formula_dict[strength_cookie]
       } else {
-        formula_id = pen_formula_dict['medium']
+        let formula_id = pen_formula_dict['medium']
       }
       var pen = 
         {
