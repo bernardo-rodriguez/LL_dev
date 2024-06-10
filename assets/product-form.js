@@ -16,6 +16,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     this.setVariant();
 
     this.createSubscriptionWidget();
+
+    this.getSubPrice()
    }
 
   getCookie(cname) {
@@ -360,7 +362,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       // (Note: the exact output may be browser-dependent)
     }
   }
-  
+
 
   add_pen() {
       console.log('adding pen')
@@ -413,7 +415,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
           }
         });
   }
-  
+    
   getSubPrice() {
     const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm']
 
@@ -433,7 +435,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
        case 'redirect_sweatcoin':
         subPrice = '$9'
         subText = 'SWEATCOIN SPECIAL'
-        this.setToOneMonth()
+        // this.setToOneMonth()
         add_pen()
         break
       case 'redirect_ut':
@@ -444,7 +446,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         subText = 'FREE TRIAL SPECIAL'
         // subPrice = '$19'
         // subText = 'STARTER SPECIAL'
-        this.setToOneMonth()
+        // this.setToOneMonth()
         break;
       case 'redirect_ut_direct':
         subPrice = '$9'
