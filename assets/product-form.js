@@ -389,12 +389,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       } else {
         formula_id = pen_formula_dict['medium']
       }
-      selling_plan = document.querySelector("select[name='selling_plan']").value
-      if (selling_plan in pen_selling_plan_dict) {
-        send_selling_plan = pen_selling_plan_dict[selling_plan]
-      } else {
-        send_selling_plan = 3450175713
-      }
       var pen = 
         {
         "id": formula_id,
