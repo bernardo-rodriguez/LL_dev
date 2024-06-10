@@ -16,8 +16,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     this.setVariant();
 
     this.createSubscriptionWidget();
-
-    this.getSubPrice()
    }
 
   getCookie(cname) {
@@ -126,28 +124,28 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     // }
   }
 
-  createSubscriptionWidget() {
-    this.waitForSkio('skio-plan-picker').then(() => {
-      console.log('skio ready')
-      // this.modifySubscriptionWidget('.rc-widget-injection-parent .rc-widget');
+  // createSubscriptionWidget() {
+  //   this.waitForSkio('skio-plan-picker').then(() => {
+  //     console.log('skio ready')
+  //     // this.modifySubscriptionWidget('.rc-widget-injection-parent .rc-widget');
 
-      // this.updateStickyBar(document.querySelector(".rc_widget__option__input:checked").value, document.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".updated-price").innerHTML || document.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".rc-option__price").innerHTML)
+  //     // this.updateStickyBar(document.querySelector(".rc_widget__option__input:checked").value, document.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".updated-price").innerHTML || document.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".rc-option__price").innerHTML)
 
-      //remove loading circle when ready
-      this.container.querySelector(".loading-overlay__spinner").classList.add("hidden")
-      this.container.querySelector("product-form.visually-hidden").classList.remove("visually-hidden")
-      this.stickyBar.querySelector("[data-sticky-atc]").removeAttribute('disabled')
+  //     //remove loading circle when ready
+  //     this.container.querySelector(".loading-overlay__spinner").classList.add("hidden")
+  //     this.container.querySelector("product-form.visually-hidden").classList.remove("visually-hidden")
+  //     this.stickyBar.querySelector("[data-sticky-atc]").removeAttribute('disabled')
 
-      // observe input selection to update sticky bar
-      // this.rechargeOptions = document.querySelector(".rc-template");
-      // console.log(this.rechargeOptions)
-      let selling_plan_input = document.querySelector('input[name="selling_plan"]')
-      this.observeForm(selling_plan_input)
-      // observer.observe(this.rechargeOptions, {attributes: true, childList: true, subtree: true})
+  //     // observe input selection to update sticky bar
+  //     // this.rechargeOptions = document.querySelector(".rc-template");
+  //     // console.log(this.rechargeOptions)
+  //     let selling_plan_input = document.querySelector('input[name="selling_plan"]')
+  //     this.observeForm(selling_plan_input)
+  //     // observer.observe(this.rechargeOptions, {attributes: true, childList: true, subtree: true})
 
-      // this.setToOneMonth()
-    })
-  }
+  //     // this.setToOneMonth()
+  //   })
+  // }
 
   updateStickyBar(event) {
     let subscriptionSelected = !!event.detail.sellingPlan
@@ -203,6 +201,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   waitForSkio(selector) {
     return new Promise(resolve => {
       if (document.querySelector(selector)) {
+          this.getSubPrice()
           return resolve(document.querySelector(selector));
       }
 
