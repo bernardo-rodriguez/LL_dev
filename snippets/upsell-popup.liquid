@@ -164,7 +164,7 @@
         $('#upsell_background').show()
         disableScroll()
       }
-      function add_pen() {
+      {% comment %} function add_pen() {
         const strength_cookie = getCookie('strength')
         kit_formula_dict = {
           'medium': 42250643833057,
@@ -235,7 +235,7 @@
             {% comment %} $('#real-submit-button').click() {% endcomment %}
           }
         });
-      }
+      } {% endcomment %}
       
     
       function getCookie(name) {
