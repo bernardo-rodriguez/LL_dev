@@ -360,6 +360,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       // (Note: the exact output may be browser-dependent)
     }
   }
+  
 
   add_pen() {
       console.log('adding pen')
