@@ -549,6 +549,10 @@ blockquote {
   position: relative;
 }
 
+a.jdgm-write-rev-link {
+  background: var(--blue) !important;
+}
+
 .button.large-btn {
   padding: 16.5px 60px 17.5px;
 }
