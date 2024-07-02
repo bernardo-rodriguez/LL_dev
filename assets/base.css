@@ -1904,7 +1904,7 @@ deferred-media {
 }
 
 .jdgm-rev-widg__summary {
-  display: none !important;
+  /* display: none !important; */
 }
 /*============================================================================
   Footer
