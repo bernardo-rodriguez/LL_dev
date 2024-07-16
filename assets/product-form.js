@@ -19,10 +19,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
    }
 
   getCookie(cname) {
-    // const value = `; ${document.cookie}`;
-    // const parts = value.split(`; ${name}=`);
-    // if (parts.length === 2) return parts.pop().split(';').shift();
-
+    // Get cookie by cookie name
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
@@ -39,6 +36,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   setName() {
+    // Set name of customer in product page header.
+    // Retrieves first name from the quiz cookies.
     const first_name = getCookie('firstname') || ""
     const last_name = getCookie('lastname') || ""
     const storedProductName = this.container?.querySelector('#product__title_id')?.innerHTML
@@ -55,8 +54,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   setVariant() {
+    // Select the product variant chosen in the quiz in the product page selection
+    // Set the product variant formula in the sticky checkout
+    // Set the ingredients correpoding to the picked formula, in the product page
     let strength = getCookie('strength')
-    console.log(strength)
     let inputValue
     switch (strength){
       case 'sensitive':
@@ -94,9 +95,12 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
       if(document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`)){
         document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`).classList.remove("hidden")
+
+        // Set sticky checkout formula
         if(document.querySelector(`[data-sticky-formula]`)) document.querySelector(`[data-sticky-formula]`).innerHTML = document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`).innerHTML.split(":")[0]
       }
   
+      // Set ingredients based on metafields
       if(window.variantIngredients){
         let variantIngredientList = window.variantIngredients.find((v) => v.id == inputValue)
   
@@ -113,35 +117,19 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         })
       }
     } 
-    // else if (window.location.href.includes('landing-page-product-main')) {
-    //   let variantIngredientList = window.variantIngredients.find((v) => v.id == inputValue)
-    //   console.log(variantIngredientList)
-
-    //   let stylized_title = variantIngredientList.title.replace('{', "<span class='stylized canela'>").replace("}", "</span>")
-    //   $('#product__title_id').html(stylized_title)
-    //   $('#formula-header-text').html(variantIngredientList.formula_header_text)
-    //   $('#selling_point_landing').html(variantIngredientList.selling_point_landing)
-    // }
   }
 
   createSubscriptionWidget() {
     this.waitForSkio('skio-plan-picker').then(() => {
       console.log('skio ready')
-      // this.modifySubscriptionWidget('.rc-widget-injection-parent .rc-widget');
-
-      // this.updateStickyBar(document.querySelector(".rc_widget__option__input:checked").value, document.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".updated-price").innerHTML || document.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".rc-option__price").innerHTML)
-
+      
       //remove loading circle when ready
       this.container.querySelector(".loading-overlay__spinner").classList.add("hidden")
       this.container.querySelector("product-form.visually-hidden").classList.remove("visually-hidden")
       this.stickyBar.querySelector("[data-sticky-atc]").removeAttribute('disabled')
 
-      // observe input selection to update sticky bar
-      // this.rechargeOptions = document.querySelector(".rc-template");
-      // console.log(this.rechargeOptions)
       let selling_plan_input = document.querySelector('input[name="selling_plan"]')
       this.observeForm(selling_plan_input)
-      // observer.observe(this.rechargeOptions, {attributes: true, childList: true, subtree: true})
 
       // this.setToOneMonth()
     })
@@ -177,15 +165,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   observeForm(selling_plan_input) {
-    // mutationList.forEach((mutation) => {
-    //   if( mutation.type == 'attributes' && mutation.attributeName == 'class' && mutation.target.classList.contains('rc-option--active')) {
-        
-    //     let productSelection = mutation.target.querySelector("input").value
-    //     let selectionPrice = mutation.target.querySelector(".updated-price")?.innerHTML || mutation.target.querySelector(".rc-option__price").innerHTML
-
-    //     this.updateStickyBar(productSelection, selectionPrice)
-    //   }
-    // })
 
     console.log(selling_plan_input)
 
