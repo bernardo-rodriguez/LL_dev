@@ -125,6 +125,96 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     } 
   }
 
+  getSubPrice() {
+    const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm']
+
+    let subscriptionCookie = cookies.filter( cookieName => this.getCookie(cookieName) != null )
+    let subPrice = ''
+    let subText = ''
+    let oneTimeText = ''
+    let oneTimePrice = ''
+
+    switch(subscriptionCookie[0]) {
+       // case 'redirect_skimm':
+       //  subPrice = '$19'
+       //  subText = 'Subscribe & Save'
+       //  oneTimeText = 'Skimm One-Time'
+       //  oneTimePrice = '$57'
+       //  break
+       case 'redirect_sweatcoin':
+        subPrice = '$0'
+        subText = 'SWEATCOIN SPECIAL'
+        // this.setToOneMonth()
+        // this.add_pen()
+        break
+      case 'redirect_ut':
+        this.add_pen()
+        subPrice = '$9'
+        subText = 'STARTER SPECIAL'
+        // subPrice = '$0'
+        // subText = 'FREE TRIAL SPECIAL'
+        // subPrice = '$19'
+        // subText = 'STARTER SPECIAL'
+        // this.setToOneMonth()
+        break;
+      case 'redirect_ut_direct':
+        subPrice = '$9'
+        subText = 'Starter Special'
+        // subPrice = '$0'
+        // subText = 'FREE TRIAL SPECIAL'
+        break
+      case 'redirect_paceline':
+        subPrice = '$29'
+        subText = 'Subscribe & Save'
+        break
+      case 'redirect_miles':
+        subPrice = '$9'
+        subText = 'Subscribe & Save'
+        break
+      case 'redirect_studentbeans':
+        subPrice = '$9'
+        subText = 'Subscribe & Save'
+        break
+      case 'redirect_inspire':
+        subPrice = '$13.5'
+        subText = 'Subscribe & Save'
+        break
+      default:
+        subPrice = '$19'
+        subText = 'Subscribe & Save'
+        break
+    }
+
+    return [subPrice, subText, oneTimeText, oneTimePrice]
+  }
+
+
+  waitForSkio(selector) {
+    return new Promise(resolve => {
+        if (document.querySelector(selector)) {
+            // this.getSubPrice()
+            return resolve(document.querySelector(selector));
+        }
+
+        const observer = new MutationObserver(mutations => {
+            if (document.querySelector(selector)) {
+                resolve(document.querySelector(selector));
+                observer.disconnect();
+            }
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+
+        let timeout = setTimeout(() => {
+          observer.disconnect();
+          resolve('Nothing happened ?');
+        }, 5 * 1000);
+    });
+  }
+
   createSubscriptionWidget() {
     this.waitForSkio('skio-plan-picker').then(() => {
       console.log('skio ready')
@@ -181,32 +271,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       this.mostRecentSellingPlan = e.detail.sellingPlan ? e.detail.sellingPlan.id : this.mostRecentSellingPlan
       console.log(this.mostRecentSellingPlan)
     })
-  }
-
-  waitForSkio(selector) {
-    return new Promise(resolve => {
-      if (document.querySelector(selector)) {
-          this.getSubPrice()
-          return resolve(document.querySelector(selector));
-      }
-
-      const observer = new MutationObserver(mutations => {
-          if (document.querySelector(selector)) {
-              resolve(document.querySelector(selector));
-              observer.disconnect();
-          }
-      });
-
-      observer.observe(document.body, {
-          childList: true,
-          subtree: true
-      });
-
-      let timeout = setTimeout(() => {
-        observer.disconnect();
-        resolve('Nothing happened ?');
-      }, 5 * 1000);
-  });
   }
 
   modifySubscriptionWidget(widgetSelector){
@@ -394,80 +458,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
           }
         });
   }
-    
-  getSubPrice() {
-    const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm']
-
-    let subscriptionCookie = cookies.filter( cookieName => this.getCookie(cookieName) != null )
-    let subPrice = ''
-    let subText = ''
-    let oneTimeText = ''
-    let oneTimePrice = ''
-
-    switch(subscriptionCookie[0]) {
-       // case 'redirect_skimm':
-       //  subPrice = '$19'
-       //  subText = 'Subscribe & Save'
-       //  oneTimeText = 'Skimm One-Time'
-       //  oneTimePrice = '$57'
-       //  break
-       case 'redirect_sweatcoin':
-        subPrice = '$0'
-        subText = 'SWEATCOIN SPECIAL'
-        // this.setToOneMonth()
-        // this.add_pen()
-        break
-      case 'redirect_ut':
-        this.add_pen()
-        subPrice = '$9'
-        subText = 'STARTER SPECIAL'
-        // subPrice = '$0'
-        // subText = 'FREE TRIAL SPECIAL'
-        // subPrice = '$19'
-        // subText = 'STARTER SPECIAL'
-        // this.setToOneMonth()
-        break;
-      case 'redirect_ut_direct':
-        subPrice = '$9'
-        subText = 'Starter Special'
-        // subPrice = '$0'
-        // subText = 'FREE TRIAL SPECIAL'
-        break
-      case 'redirect_paceline':
-        subPrice = '$29'
-        subText = 'Subscribe & Save'
-        break
-      case 'redirect_miles':
-        subPrice = '$9'
-        subText = 'Subscribe & Save'
-        break
-      case 'redirect_studentbeans':
-        subPrice = '$9'
-        subText = 'Subscribe & Save'
-        break
-      case 'redirect_inspire':
-        subPrice = '$13.5'
-        subText = 'Subscribe & Save'
-        break
-      default:
-        subPrice = '$19'
-        subText = 'Subscribe & Save'
-        break
-    }
-
-    return [subPrice, subText, oneTimeText, oneTimePrice]
-  }
-
-  // addPenSometimes() {
-  //   const sweatcoin_automatic = getCookie('redirect_sweatcoin');
-
-  //   if (sweatcoin_automatic == 'true') {
-  //     if (true) {
-  //       add_pen()
-  //     }
-      
-  //   }
-  // }
 
   onSubmitHandler(evt) {
     evt.preventDefault();
