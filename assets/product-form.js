@@ -126,6 +126,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   getSubPrice() {
+    // Return subscription price and text based on redirection cookie
     const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm']
 
     let subscriptionCookie = cookies.filter( cookieName => this.getCookie(cookieName) != null )
@@ -188,11 +189,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     return [subPrice, subText, oneTimeText, oneTimePrice]
   }
 
-
   waitForSkio(selector) {
+    // Wait for skio-plan-picker to be available on the site
     return new Promise(resolve => {
         if (document.querySelector(selector)) {
-            // this.getSubPrice()
             return resolve(document.querySelector(selector));
         }
 
@@ -216,28 +216,32 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   createSubscriptionWidget() {
-    this.waitForSkio('skio-plan-picker').then(() => {
-      console.log('skio ready')
-      
-      //remove loading circle when ready
-      this.container.querySelector(".loading-overlay__spinner").classList.add("hidden")
-      this.container.querySelector("product-form.visually-hidden").classList.remove("visually-hidden")
-      this.stickyBar.querySelector("[data-sticky-atc]").removeAttribute('disabled')
+    // Remove loading bars and show Skio UI once its available
+    // sticky checkout to observe any updates to selling plan and reflect accordingly
+    try {
+      this.waitForSkio('skio-plan-picker').then(() => {      
+        //remove loading circle when ready
+        this.container.querySelector(".loading-overlay__spinner").classList.add("hidden")
+        this.container.querySelector("product-form.visually-hidden").classList.remove("visually-hidden")
+        this.stickyBar.querySelector("[data-sticky-atc]").removeAttribute('disabled')
 
-      let selling_plan_input = document.querySelector('input[name="selling_plan"]')
-      this.observeForm(selling_plan_input)
+        let selling_plan_input = document.querySelector('input[name="selling_plan"]')
+        this.observeForm(selling_plan_input)
 
-      // this.setToOneMonth()
-    })
+        // this.setToOneMonth()
+      })
+    } catch (e) {
+        console.log("Error: failure in createSubcriptionWidget() for product-form.js")
+        console.log(e)
+    }
   }
 
   updateStickyBar(event) {
+    // Update selection option for selling plan in sticky checkout
     let subscriptionSelected = !!event.detail.sellingPlan
     console.log(subscriptionSelected)
     let price
     let skio = document.querySelector('skio-plan-picker').shadowRoot
-
-    console.log(event)
 
     if (subscriptionSelected) {
       this.stickyBar.querySelector('[data-sticky-subsave]').classList.add('selected')
@@ -254,23 +258,28 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     this.stickyBar.querySelector(".sticky__price").innerHTML = price
   }
-  
-  updateStickySellingPlans(e) {
-    const controller = this.stickyBar.querySelector(`select#${e.target.id}_sticky `)
-    controller.value = e.target.value
-  }
 
   observeForm(selling_plan_input) {
+    // Watch selling_plan changes and make updates to sticky bar in case of any changes.
+    try {
+        console.log(selling_plan_input)
+        let skio = document.querySelector('skio-plan-picker')
 
-    console.log(selling_plan_input)
+        skio.addEventListener('skio::update-selling-plan', (e) => {
+          this.updateStickyBar(e)
+          this.mostRecentSellingPlan = e.detail.sellingPlan ? e.detail.sellingPlan.id : this.mostRecentSellingPlan
+          console.log(this.mostRecentSellingPlan)
+        })
+    } catch (e) {
+        console.log("Error: failure in observeForm() for product-form.js")
+        console.log(e)
+    }
+  }
 
-    let skio = document.querySelector('skio-plan-picker')
-
-    skio.addEventListener('skio::update-selling-plan', (e) => {
-      this.updateStickyBar(e)
-      this.mostRecentSellingPlan = e.detail.sellingPlan ? e.detail.sellingPlan.id : this.mostRecentSellingPlan
-      console.log(this.mostRecentSellingPlan)
-    })
+  updateStickySellingPlans(e) {
+    // Does this do anything???
+    const controller = this.stickyBar.querySelector(`select#${e.target.id}_sticky `)
+    controller.value = e.target.value
   }
 
   modifySubscriptionWidget(widgetSelector){
