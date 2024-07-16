@@ -580,17 +580,17 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     
     fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
       .then((response) => response.json())
-      .then((parsedState) => {
+      // .then((parsedState) => {
 
-        this.getSectionsToRender().forEach((section => {
-          const elementToReplace =
-            document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
+      //   this.getSectionsToRender().forEach((section => {
+      //     const elementToReplace =
+      //       document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
 
-          elementToReplace.innerHTML =
-            this.getSectionInnerHTML(parsedState.sections[section.section], section.selector);
+      //     elementToReplace.innerHTML =
+      //       this.getSectionInnerHTML(parsedState.sections[section.section], section.selector);
 
-        }));
-      })
+      //   }));
+      // })
       .catch((e) => {
         console.error(e);
       })
