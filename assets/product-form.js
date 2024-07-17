@@ -320,11 +320,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     
     document.cookie = "directcheckout=true;path=/";
 
-    if(window.localStorage.getItem('landing_page_product_discount')){
-      document.cookie = `landing_page_product_discount=${window.localStorage.getItem('landing_page_product_discount')};path=/`
-      window.localStorage.removeItem('landing_page_product_discount');
-    }
-
     const submitButton = this.querySelector('[type="submit"]');
 
     submitButton.setAttribute('disabled', true);
@@ -336,42 +331,11 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       sections_url: window.location.pathname
     });
 
-    if(submitButton.dataset.dsicountCode){
-      console.log(submitButton.dataset.dsicountCode)
-      var date = new Date();
-      date.setTime(date.getTime()+(3600*24*1000));
-      var expires = "; expires="+date.toUTCString();
-      if(submitButton.dataset.dsicountCode != "") document.cookie = `productDiscountCode=${submitButton.dataset.dsicountCode} ${expires};path=/; `;
-    }
-
     if (window.location.href.includes('at-home-whitening-kit')) { 
       if (window.location.href.includes('at-home-whitening-kit-affiliate-ft') || window.location.href.includes('at-home-whitening-kit-affiliate-ut')) {
-        // console.log(body)
-        // if (parseInt(body['quantity']) > 2) {
-        //   throw new Error('Cannot purchase more than 2 products with this promotion');
-        // }
         body = JSON.parse(body)
         body['quantity'] = '1'
         body = JSON.stringify(body)
-        // commented to remove addition of pen
-        // let strength = getCookie('strength')
-        // let pen_id_dict = {
-        //   "sensitive": 42210600878305,
-        //   "medium": 42210600812769,
-        //   "strong": 42210600845537
-        // }
-        // let json_body = JSON.parse(body)
-        // let addedPenBody = {
-        //   'items': [
-        //     json_body,
-        //     {
-        //       'id': pen_id_dict[strength],
-        //       'quantity': 1
-        //     }
-        //   ]
-        // }
-        // body = JSON.stringify(addedPenBody)
-        // console.log(body)
       }
     } else if (window.location.href.includes('landing-page-product-main')) {
       let json_body = JSON.parse(body)
@@ -411,17 +375,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     
     fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
       .then((response) => response.json())
-      // .then((parsedState) => {
-
-      //   this.getSectionsToRender().forEach((section => {
-      //     const elementToReplace =
-      //       document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
-
-      //     elementToReplace.innerHTML =
-      //       this.getSectionInnerHTML(parsedState.sections[section.section], section.selector);
-
-      //   }));
-      // })
       .catch((e) => {
         console.error(e);
       })
