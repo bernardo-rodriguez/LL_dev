@@ -118,40 +118,6 @@
     parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
   }
-
-  // async function setCartAttributes(attr = {}) {
-  //    console.log(attributes)
-  //    let cart = await fetch('/cart/update.js', {
-  //         method: "POST",
-  //         headers: {
-  //             'X-Requested-With': 'XMLHttpRequest',
-  //             'Content-Type': 'application/json;'
-  //         },
-  //         body: JSON.stringify({
-  //             attributes: {
-  //               attr
-  //             }
-  //         })
-  //     }).then(response => {
-  //       console.log(response)
-  //     })
-  //     .catch(error => {
-  //       console.log(error)
-  //     });
-  //     return cart
-  // }
-  
-  // async function setAttributes() {
-  //     upsell_test = getCookie('upsell_test')
-  //     if (upsell_test == 'true') {
-  //       let cart = await setCartAttributes({ upsell: "upsell_active" }); 
-  //     } else if (upsell_test = 'false') {
-  //       let cart = setCartAttributes({ upsell: "upsell_inactive" }); 
-  //     } else {
-  //       let cart = setCartAttributes({ upsell: "upsell_not_set" }); 
-  //     }
-  // }
-  // setAttributes()
   
   const direct_checkout = getCookie('directcheckout');
   if (direct_checkout == 'true') {
@@ -202,12 +168,10 @@
   } else {
     document.querySelector('.page-transition').classList.toggle('visible');
   }
-</script>
-
-<script>
   
   
-  document.addEventListener('DOMContentLoaded', function() {
+  {% comment %} document.addEventListener('DOMContentLoaded', function() {
+    // add automatic discount from cart page
     function isIE() {
       const ua = window.navigator.userAgent;
       const msie = ua.indexOf('MSIE ');
@@ -222,7 +186,6 @@
     cartSubmitInput.setAttribute('type', 'hidden');
     document.querySelector('#cart').appendChild(cartSubmitInput);
     document.querySelector('#checkout').addEventListener('click', function(event) {
-      {% comment %} document.querySelector('#cart').submit(); {% endcomment %}
       try {
         paceline_automatic = getCookie('redirect_paceline');
         sweatcoin_automatic = getCookie('redirect_sweatcoin');
@@ -267,7 +230,7 @@
   function getCookie(name) {
     value = `; ${document.cookie}`;
     parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
+    if (parts.length === 2) return parts.pop().split(';').shift(); {% endcomment %}
   }
 
   paceline = getCookie('redirect_paceline');
@@ -278,16 +241,6 @@
   } else if (sweatcoin == 'true') {
     $('.announcement-bar__message').first().html('SWEATCOIN SALE! DISCOUNT AUTOMATICALLY APPLIED AT CHECKOUT');
   }
-
-
-
-
-
-
-
-
-
-
 </script>
 
 {% schema %}
