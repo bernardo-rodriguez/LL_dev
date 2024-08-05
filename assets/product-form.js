@@ -382,17 +382,18 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         }
         return true
       .catch((e) => {
+        console.log(e)
         if ($('#package_protection').prop('checked')) {
           return addPackageProtectionPromise()
         }
-        return true
+        resolve(true)
       })
       .finally(() => {
         submitButton.classList.remove('loading');
         submitButton.removeAttribute('disabled');
         // this.cartDrawer.open();
         document.querySelector('.page-transition').classList.toggle('visible');
-        window.location = '/cart'
+        // window.location = '/cart'
       });
   }
 
