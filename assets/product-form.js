@@ -315,6 +315,23 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     }
   }
 
+  addPackageProtectionPromise() {
+    console.log('hi hthere')
+    let formData = {
+      'items': [{
+      id: 39776075612333,
+      quantity: 1
+     }]
+     };
+     return fetch(window.Shopify.routes.root + 'cart/add.js', {
+       method: 'POST',
+       headers: {
+       'Content-Type': 'application/json'
+       },
+       body: JSON.stringify(formData)
+     })
+  }
+
   onSubmitHandler(evt) {
     evt.preventDefault();
     console.log('here i am')
@@ -376,14 +393,13 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     
     fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
-      .then((response) => addPackageProtectionPromise)
+      .then((response) => response.json())
+      .then(data => {
+        addPackageProtectionPromise()
+      }
+      )
       .catch((e) => {
-
-        submitButton.classList.remove('loading');
-        submitButton.removeAttribute('disabled');
-        // this.cartDrawer.open();
-        document.querySelector('.page-transition').classList.toggle('visible');
-        // window.location = '/cart'
+        console.log(e)
       })
       .finally(() => {
         submitButton.classList.remove('loading');
@@ -392,23 +408,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         document.querySelector('.page-transition').classList.toggle('visible');
         // window.location = '/cart'
       });
-  }
-
-  addPackageProtectionPromise() {
-    console.log('hi hthere')
-    let formData = {
-      'items': [{
-      id: 39776075612333,
-      quantity: 1
-     }]
-     };
-     return fetch(window.Shopify.routes.root + 'cart/add.js', {
-       method: 'POST',
-       headers: {
-       'Content-Type': 'application/json'
-       },
-       body: JSON.stringify(formData)
-     })
   }
 
   getSectionsToRender() {
