@@ -378,6 +378,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
       .then((response) => addPackageProtectionPromise(response))
       .catch((e) => {
+        
         submitButton.classList.remove('loading');
         submitButton.removeAttribute('disabled');
         // this.cartDrawer.open();
