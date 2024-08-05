@@ -337,9 +337,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         body = JSON.parse(body)
         body['quantity'] = '1'
         body = JSON.stringify(body)
-        console.log(body)
         return
       }
+      console.log(body)
+
     } else if (window.location.href.includes('landing-page-product-main')) {
       let json_body = JSON.parse(body)
       let id_dict = {
@@ -397,7 +398,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         submitButton.removeAttribute('disabled');
         // this.cartDrawer.open();
         document.querySelector('.page-transition').classList.toggle('visible');
-        window.location = '/cart'
+        // window.location = '/cart'
       });
   }
 
