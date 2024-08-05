@@ -380,12 +380,12 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         if ($('#package_protection').prop('checked')) {
           return addPackageProtectionPromise()
         }
-        return True
+        return true
       .catch((e) => {
         if ($('#package_protection').prop('checked')) {
           return addPackageProtectionPromise()
         }
-        return True
+        return true
       })
       .finally(() => {
         submitButton.classList.remove('loading');
