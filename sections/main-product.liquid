@@ -320,11 +320,21 @@ xhttp.send();
             {% endif %}
 
             {% if product.id != '8252255568097' %}
-              <p>Package Protection</p>
-              <label class="switch">
-                <input type="checkbox">
-                <span class="slider round"></span>
-              </label>
+              <div>
+                <img
+                  src="{{ 'packageprotection.png' | asset_url}}"
+                  loading="lazy"
+                  width="150"
+                  height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"
+                >
+                <div>
+                  <p>Package Protection</p>
+                  <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                <div>
+              </div>
 
             {% endif %}
 
