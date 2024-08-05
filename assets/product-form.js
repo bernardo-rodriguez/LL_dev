@@ -381,7 +381,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       .then(data => {
         let formData = {
           'items': [{
-            id: 44522540335329,
+            id: 42198066987233,
             quantity: 1
           }]
         };
