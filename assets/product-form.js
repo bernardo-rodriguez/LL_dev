@@ -382,14 +382,14 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         submitButton.removeAttribute('disabled');
         // this.cartDrawer.open();
         document.querySelector('.page-transition').classList.toggle('visible');
-        window.location = '/cart'
+        // window.location = '/cart'
       })
       .finally(() => {
         submitButton.classList.remove('loading');
         submitButton.removeAttribute('disabled');
         // this.cartDrawer.open();
         document.querySelector('.page-transition').classList.toggle('visible');
-        window.location = '/cart'
+        // window.location = '/cart'
       });
   }
 
