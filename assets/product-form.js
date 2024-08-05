@@ -394,7 +394,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   addPackageProtectionPromise() {
-    response.json()
+    console.log('hi hthere')
     let formData = {
       'items': [{
       id: 39776075612333,
