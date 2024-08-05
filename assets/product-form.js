@@ -379,19 +379,23 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
       .then((response) => response.json())
       .then(data => {
-        let formData = {
-          'items': [{
-            id: 39775917605037,
-            quantity: 1
-          }]
-        };
-        return fetch(window.Shopify.routes.root + 'cart/add.js', {
-          method: 'POST',
-          headers: {
-          'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
-        })
+        if ($('#package_protection').prop('checked')) {
+          let formData = {
+            'items': [{
+              id: 39775917605037,
+              quantity: 1
+            }]
+          };
+          return fetch(window.Shopify.routes.root + 'cart/add.js', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+          })
+        } else {
+          console.log('continue')
+        }
       }
       )
       .catch((e) => {
