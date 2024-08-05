@@ -337,9 +337,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         body = JSON.parse(body)
         body['quantity'] = '1'
         body = JSON.stringify(body)
-        return
       }
-      console.log(body)
 
     } else if (window.location.href.includes('landing-page-product-main')) {
       let json_body = JSON.parse(body)
@@ -379,27 +377,39 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     
     fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
       .then((response) => response.json())
-      // .then((parsedState) => {
-
-      //   this.getSectionsToRender().forEach((section => {
-      //     const elementToReplace =
-      //       document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
-
-      //     elementToReplace.innerHTML =
-      //       this.getSectionInnerHTML(parsedState.sections[section.section], section.selector);
-
-      //   }));
-      // })
+        if ($('#package_protection').prop('checked')) {
+          return addPackageProtectionPromise()
+        }
+        return True
       .catch((e) => {
-        console.error(e);
+        if ($('#package_protection').prop('checked')) {
+          return addPackageProtectionPromise()
+        }
+        return True
       })
       .finally(() => {
         submitButton.classList.remove('loading');
         submitButton.removeAttribute('disabled');
         // this.cartDrawer.open();
         document.querySelector('.page-transition').classList.toggle('visible');
-        // window.location = '/cart'
+        window.location = '/cart'
       });
+  }
+
+  addPackageProtectionPromise() {
+    let formData = {
+      'items': [{
+      id: 8252255568097,
+      quantity: 1
+     }]
+     };
+     return fetch(window.Shopify.routes.root + 'cart/add.js', {
+       method: 'POST',
+       headers: {
+       'Content-Type': 'application/json'
+       },
+       body: JSON.stringify(formData)
+     })
   }
 
   getSectionsToRender() {
