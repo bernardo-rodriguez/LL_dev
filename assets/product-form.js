@@ -336,6 +336,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         body = JSON.parse(body)
         body['quantity'] = '1'
         body = JSON.stringify(body)
+        console.log(body)
+        return
       }
     } else if (window.location.href.includes('landing-page-product-main')) {
       let json_body = JSON.parse(body)
