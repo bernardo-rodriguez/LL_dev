@@ -397,7 +397,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     response.json()
     let formData = {
       'items': [{
-      id: 8252255568097,
+      id: 39776075612333,
       quantity: 1
      }]
      };
