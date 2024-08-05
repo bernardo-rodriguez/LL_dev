@@ -315,22 +315,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     }
   }
 
-  addPackageProtectionPromise() {
-    console.log('hi hthere')
-    let formData = {
-      'items': [{
-      id: 39776075612333,
-      quantity: 1
-     }]
-     };
-     return fetch(window.Shopify.routes.root + 'cart/add.js', {
-       method: 'POST',
-       headers: {
-       'Content-Type': 'application/json'
-       },
-       body: JSON.stringify(formData)
-     })
-  }
 
   onSubmitHandler(evt) {
     evt.preventDefault();
@@ -395,7 +379,19 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
       .then((response) => response.json())
       .then(data => {
-        addPackageProtectionPromise()
+        let formData = {
+          'items': [{
+            id: 39776075612333,
+            quantity: 1
+          }]
+        };
+        return fetch(window.Shopify.routes.root + 'cart/add.js', {
+          method: 'POST',
+          headers: {
+          'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        })
       }
       )
       .catch((e) => {
