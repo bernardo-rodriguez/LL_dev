@@ -376,17 +376,13 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     
     fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
-      .then((response) => response.json())
-        if ($('#package_protection').prop('checked')) {
-          return addPackageProtectionPromise()
-        }
-        return true
+      .then((response) => addPackageProtectionPromise(response))
       .catch((e) => {
-        console.log(e)
-        if ($('#package_protection').prop('checked')) {
-          return addPackageProtectionPromise()
-        }
-        resolve(true)
+        submitButton.classList.remove('loading');
+        submitButton.removeAttribute('disabled');
+        // this.cartDrawer.open();
+        document.querySelector('.page-transition').classList.toggle('visible');
+        window.location = '/cart'
       })
       .finally(() => {
         submitButton.classList.remove('loading');
@@ -398,6 +394,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   addPackageProtectionPromise() {
+    response.json()
     let formData = {
       'items': [{
       id: 8252255568097,
