@@ -369,7 +369,7 @@
   position: relative;
   display: inline-block;
   width: 30px;
-  height: 14px;
+  height: 17px;
 }
 
 /* Hide default HTML checkbox */
@@ -397,7 +397,7 @@
   content: "";
   height: 11px;
   width: 11px;
-  left: 1px;
+  left: 2px;
   bottom: 3px;
   background-color: white;
   -webkit-transition: .4s;
