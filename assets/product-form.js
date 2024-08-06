@@ -370,8 +370,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       json_body['product-id'] = product_dict[supply_type]
       body = JSON.stringify(json_body)
     }
-
-    this.getSubPrice()
     
     fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
       .then((response) => response.json())
