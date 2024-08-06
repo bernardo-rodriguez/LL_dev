@@ -376,25 +376,56 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
       .then((response) => response.json())
       .then(data => {
-        if ($('#package_protection').prop('checked')) {
-          let formData = {
-            'items': [{
-              id: 39775917605037,
-              quantity: 1
-            }]
-          };
-          return fetch(window.Shopify.routes.root + 'cart/add.js', {
-            method: 'POST',
-            headers: {
-            'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-          })
-        } else {
-          console.log('continue')
+          if ($('#package_protection').prop('checked')) {
+            let formData = {
+              'items': [{
+                id: 39775917605037,
+                quantity: 1
+              }]
+            };
+            return fetch(window.Shopify.routes.root + 'cart/add.js', {
+              method: 'POST',
+              headers: {
+              'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(formData)
+            })
+          } else {
+            console.log('continue')
+          }
+      })
+      .then(data => {
+        const strength_cookie = getCookie('strength')
+        
+        let pen_formula_dict = {
+          'medium': 42210600812769,
+          'strong': 42210600845537,
+          'weak': 42210600878305
         }
-      }
-      )
+
+        let formula_id;
+        if (strength_cookie in pen_formula_dict) {
+          formula_id = pen_formula_dict[strength_cookie]
+        } else {
+          formula_id = pen_formula_dict['medium']
+        }
+
+        let formData = {
+          'items': [{
+            id: formula_id,
+            quantity: 1
+          }]
+        };
+
+        return fetch(window.Shopify.routes.root + 'cart/add.js', {
+          method: 'POST',
+          headers: {
+          'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        })
+        
+      })
       .catch((e) => {
         console.log(e)
       })
