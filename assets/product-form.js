@@ -318,7 +318,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
   onSubmitHandler(evt) {
     evt.preventDefault();
-    console.log('here i am')
     
     document.cookie = "directcheckout=true;path=/";
 
@@ -367,14 +366,12 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       }
       let supply_type = $('input[name="supply_type"]:checked').val()
       let strength = getCookie('strength')
-      console.log(supply_type)
-      console.log(strength)
       json_body['id'] = id_dict[supply_type][strength]
       json_body['product-id'] = product_dict[supply_type]
       body = JSON.stringify(json_body)
-      console.log(body)
     }
 
+    this.getSubPrice()
     
     fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
       .then((response) => response.json())
