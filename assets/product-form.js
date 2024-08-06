@@ -16,6 +16,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     this.setVariant();
 
     this.createSubscriptionWidget();
+
+    this.getSubPrice()
    }
 
   getCookie(cname) {
