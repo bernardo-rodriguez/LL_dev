@@ -396,35 +396,35 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         let cactus = this.getCookie('redirect_ut')
 
         if (cactus == true) {
-          const strength_cookie = getCookie('strength')
+          // const strength_cookie = getCookie('strength')
         
-          let pen_formula_dict = {
-            'medium': 42210600812769,
-            'strong': 42210600845537,
-            'weak': 42210600878305
-          }
+          // let pen_formula_dict = {
+          //   'medium': 42210600812769,
+          //   'strong': 42210600845537,
+          //   'weak': 42210600878305
+          // }
 
-          let formula_id;
-          if (strength_cookie in pen_formula_dict) {
-            formula_id = pen_formula_dict[strength_cookie]
-          } else {
-            formula_id = pen_formula_dict['medium']
-          }
+          // let formula_id;
+          // if (strength_cookie in pen_formula_dict) {
+          //   formula_id = pen_formula_dict[strength_cookie]
+          // } else {
+          //   formula_id = pen_formula_dict['medium']
+          // }
 
-          let formData = {
-            'items': [{
-              id: formula_id,
-              quantity: 1
-            }]
-          };
+          // let formData = {
+          //   'items': [{
+          //     id: formula_id,
+          //     quantity: 1
+          //   }]
+          // };
 
-          return fetch(window.Shopify.routes.root + 'cart/add.js', {
-            method: 'POST',
-            headers: {
-            'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-          })
+          // return fetch(window.Shopify.routes.root + 'cart/add.js', {
+          //   method: 'POST',
+          //   headers: {
+          //   'Content-Type': 'application/json'
+          //   },
+          //   body: JSON.stringify(formData)
+          // })
         }
         
       })
