@@ -398,6 +398,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         let cactus = this.getCookie('redirect_ut')
 
         if (cactus == true) {
+          console.log('cactus')
           // const strength_cookie = getCookie('strength')
         
           // let pen_formula_dict = {
