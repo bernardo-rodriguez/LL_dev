@@ -91,11 +91,11 @@ function setCookieIfFirstTime() {
           setCookie('test_order', 'true')
         }
       } else if (ss == 'true') {
-        if (d > tracking_2) {
+        if (d > tracking_3) {
           setCookie('test_order', 'true')
         }
       } else if (mm == 'true') {
-        if (d > tracking_3) {
+        if (d > tracking_2) {
           setCookie('test_order', 'true')
         }
       }
@@ -377,18 +377,18 @@ function landingPageAction(current_page, query_params) {
 }
 
 function setDefaultStrength(query_params) {
-  setTimeout(function() {
+  // setTimeout(function() {
     switch(query_params.default_strength) {
       case 'sensitive':
         setCookie('strength', 'sensitive')
-        location.reload();
+        // location.reload();
         break;
       case 'strong':
         setCookie('strength', 'strong')
-        location.reload();
+        // location.reload();
         break;
     } 
-}, 2000);
+// }, 2000);
 }
 
 var current_page = window.location.pathname // last page in URL before query parameters
