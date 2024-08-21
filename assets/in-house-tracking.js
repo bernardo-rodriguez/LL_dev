@@ -316,6 +316,7 @@ function landingPageAction(current_page, query_params) {
         setCookieAffiliate('redirect_skimm', 'Skimm')
         setFirstTimeGtags('Skimm')
         redirectToLandingIfFirstTime2('redirect_skimm', .25)
+        setDefaultStrength(query_params)
         break;
       default:
         // setCookie('redirect_sweatcoin', 'true')
@@ -344,6 +345,7 @@ function landingPageAction(current_page, query_params) {
       else if (query_params.utm_affiliate_specific == 'skimm') {
         setCookieAffiliate('redirect_skimm', 'Skimm')
         setCookie('cookie_tracked', 'true')
+        setDefaultStrength(query_params)
       } else if (query_params.utm_affiliate_specific == 'cactus_media') {
         LandingPopulateCactus()
         setCookieAffiliate('redirect_ut', 'Cactus Media')
@@ -362,6 +364,7 @@ function landingPageAction(current_page, query_params) {
         setCookieAffiliate('redirect_skimm', 'Skimm')
         setFirstTimeGtags('Skimm')
         setCookie('cookie_tracked', 'true')
+        setDefaultStrength(query_params)
       } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
         setCookieAffiliate('redirect_pinterest', 'Pinterest')
         setFirstTimeGtags('Pinterest')
@@ -385,19 +388,6 @@ function setDefaultStrength(query_params) {
       setCookie('strength', 'strong')
       break;
   } 
-//   setTimeout(function() {
-//     switch(query_params.default_strength) {
-//       case 'sensitive':
-//         setCookie('strength', 'sensitive')
-//         break;
-//       case 'medium':
-//         setCookie('strength', 'medium')
-//         break;
-//       case 'strong':
-//         setCookie('strength', 'strong')
-//         break;
-//     } 
-// }, 200);
 }
 
 var current_page = window.location.pathname // last page in URL before query parameters
