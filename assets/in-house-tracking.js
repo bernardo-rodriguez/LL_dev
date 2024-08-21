@@ -378,19 +378,19 @@ function landingPageAction(current_page, query_params) {
 }
 
 function setDefaultStrength(query_params) {
-  // setTimeout(function() {
+  setTimeout(function() {
 
     switch(query_params.default_strength) {
       case 'sensitive':
         setCookie('strength', 'sensitive')
-        // location.reload();
+        location.reload();
         break;
       case 'strong':
         setCookie('strength', 'strong')
-        // location.reload();
+        location.reload();
         break;
     } 
-// }, 2000);
+}, 2000);
 
 }
 
