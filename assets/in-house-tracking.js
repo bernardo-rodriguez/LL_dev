@@ -374,17 +374,19 @@ function landingPageAction(current_page, query_params) {
 }
 
 function setDefaultStrength(query_params) {
-  switch(query_params.default_strength) {
-    case 'sensitive':
-      setCookie('strength', 'sensitive')
-      break;
-    case 'medium':
-      setCookie('strength', 'medium')
-      break;
-    case 'strong':
-      setCookie('strength', 'strong')
-      break;
-  } 
+  setTimeout(function() {
+    switch(query_params.default_strength) {
+      case 'sensitive':
+        setCookie('strength', 'sensitive')
+        break;
+      case 'medium':
+        setCookie('strength', 'medium')
+        break;
+      case 'strong':
+        setCookie('strength', 'strong')
+        break;
+    } 
+}, 200);
 }
 
 var current_page = window.location.pathname // last page in URL before query parameters
