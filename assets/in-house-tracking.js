@@ -94,9 +94,10 @@ function setCookieIfFirstTime() {
         if (d > tracking_3) {
           setCookie('test_order', 'true')
         }
-      } else if (mm == 'true') {
+      } 
+      else if (mm == 'true') {
         if (d > tracking_2) {
-          setCookie('test_order', 'true')
+          //setCookie('test_order', 'true')
         }
       }
       setCookie('cookie_hasnt_been_set', 'true')
