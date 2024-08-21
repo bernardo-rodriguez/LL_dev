@@ -388,7 +388,7 @@ function setDefaultStrength(query_params) {
         location.reload();
         break;
     } 
-}, 200);
+}, 2000);
 }
 
 var current_page = window.location.pathname // last page in URL before query parameters
