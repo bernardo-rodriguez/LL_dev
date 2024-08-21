@@ -378,6 +378,7 @@ function landingPageAction(current_page, query_params) {
 
 function setDefaultStrength(query_params) {
   // setTimeout(function() {
+  return
     switch(query_params.default_strength) {
       case 'sensitive':
         setCookie('strength', 'sensitive')
