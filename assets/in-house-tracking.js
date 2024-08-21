@@ -397,4 +397,3 @@ const query_params = new Proxy(new URLSearchParams(window.location.search), {
 });
 
 landingPageAction(current_page, query_params)
-setDefaultStrength(query_params)
