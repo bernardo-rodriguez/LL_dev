@@ -13,7 +13,13 @@ hdGUodmFyKC0taW5pdGlhbC1hbmdsZSkpO1xuICB9XG4gIHRvIHtcbiAgICBvcGFjaXR5OiB2YXIoLS1
         max-width: none !important;
         max-height: none !important;
       }
-     </style><style>@import url(https://fonts.googleapis.com/css2?family=Karma:wght@100;200;300;400;500;600;700;800;900;950&family=Figtree:wght@100;200;300;400;500;600;700;800;900;950)</style><div class="alchemy__element alchemy-reset"><div data-rid="bfb9975c-c456-4335-ab2b-d71fc1c86d4e" data-replo-repeated-index=".0" class="r-1s6y4f5">{%- comment -%}replo-liquid-chunk-begin{%- endcomment -%}<!-- -->{% capture reploVariantIdString %}null{% endcapture %}<!-- -->{% capture reploSellingPlanIdString %}null{% endcapture %}<!-- -->{% capture reploIdKey %}id{% endcapture %}<!-- -->{% capture spKey %}selling_plan{% endcapture %}<!-- -->{%- liquid
+     </style><style>
+  header, #shopify-section-header, #shopify-section-header-classic, .main_nav, .main-nav, .navbar, #mobile-header-sticky-wrapper, .nav, .header-wrapper, [data-site-header], #shopify-section-static-header, #header, .main-header, #site-header, .shopify-section-group-header-group { display: none !important }
+  .main-content { padding-top: 0 !important; margin-top: 0 !important }
+</style><style>
+  footer:not(cart-drawer footer), #shopify-section-footer, #shopify-section-banner-image, .footer-section, #shopify-section-new-footer, #shopify-section-layout-footer, [id^="shopify-section-footer"], #footer, .main-footer, .shopify-section-group-footer-group { display: none !important; }
+  .main-content { padding-bottom: 0 !important; margin-bottom: 0 !important; }
+</style><style>@import url(https://fonts.googleapis.com/css2?family=Karma:wght@100;200;300;400;500;600;700;800;900;950&family=Figtree:wght@100;200;300;400;500;600;700;800;900;950)</style><div class="alchemy__element alchemy-reset"><div data-rid="bfb9975c-c456-4335-ab2b-d71fc1c86d4e" data-replo-repeated-index=".0" class="r-1s6y4f5">{%- comment -%}replo-liquid-chunk-begin{%- endcomment -%}<!-- -->{% capture reploVariantIdString %}null{% endcapture %}<!-- -->{% capture reploSellingPlanIdString %}null{% endcapture %}<!-- -->{% capture reploIdKey %}id{% endcapture %}<!-- -->{% capture spKey %}selling_plan{% endcapture %}<!-- -->{%- liquid
               assign reploVariantId = reploVariantIdString | times: 1
               assign reploSelectedVariant = product.variants | where: reploIdKey, reploVariantId | first
               if reploSelectedVariant == blank
