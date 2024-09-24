@@ -328,7 +328,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     submitButton.setAttribute('disabled', true);
     submitButton.classList.add('loading');
 
-    skio = document.querySelector('skio-plan-picker')
+    let skio = document.querySelector('skio-plan-picker')
     console.log('here are my skio attributes')
     console.log(skio.selectedSellingPlanGroup)
     console.log(skio.selectedSellingPlan)
