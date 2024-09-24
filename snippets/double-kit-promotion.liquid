@@ -1,0 +1,89 @@
+<div class="dpk_container">
+    <div class="dpk_square" id="dpk_square1" onclick="selectSquare('dpk_square1')">
+        <img width = '100' height= '100' src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/image_4.png?v=1647385882" alt="Image 1">
+        <h3>1 Kit</h3>
+    </div>
+    <div class="dpk_square" id="dpk_square2" onclick="selectSquare('dpk_square2')">
+        <img width = '100' height= '100' src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/image_4.png?v=1647385882" alt="Image 2">
+        <h3>2 Kits</h3>
+    </div>
+</div>
+
+<script>
+let selectedSquare = null;
+
+function selectSquare(id) {
+    // Remove the 'selected' class from the previously selected square, if any
+    if (selectedSquare) {
+        document.getElementById(selectedSquare).classList.remove('selected');
+    }
+
+    // Add the 'selected' class to the currently clicked square
+    document.getElementById(id).classList.add('selected');
+
+    // Update the selectedSquare variable
+    selectedSquare = id;
+}
+
+function getSelectedSquare() {
+    return selectedSquare;
+}
+
+// Example usage: Log the selected square to the console when a square is clicked
+document.querySelectorAll('.dpk_square').forEach(square => {
+    square.addEventListener('click', () => {
+        console.log('Selected Square:', getSelectedSquare());
+    });
+});
+</script>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.double_kit_promotion_container {
+    display: flex;
+    gap: 20px;
+}
+
+.dpk_square {
+    width: 150px;
+    height: 200px;
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.dpk_square img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.dpk_square h3 {
+    margin-top: 10px;
+}
+
+.dpk_square.selected {
+    border-color: #4caf50;
+    box-shadow: 0 4px 12px rgba(0, 128, 0, 0.3);
+}
+
+.dpk_square:hover {
+    border-color: #888;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+</style>

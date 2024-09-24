@@ -227,6 +227,10 @@ xhttp.send();
                 </div>
               </noscript>
 
+              {% if product.id == 8187028177121 %}
+                {% render 'double-kit-promotion' %}
+              {% endif %}
+
               {% assign skioSellingPlanGroups = product.selling_plan_groups | where: 'app_id', 'SKIO' %}
               {% if skioSellingPlanGroups.size > 0 %}
                 <skio-plan-picker 
