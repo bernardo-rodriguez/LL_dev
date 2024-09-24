@@ -28,7 +28,7 @@
 
 <script>
 function dpk_chosen(chosen) {
-    console.log(document.querySelector('label[skio-label-subscription]');)
+    console.log(document.querySelector('label[skio-label-subscription]'))
     let innerHTML = {
         'one_kit': `<div class="skio-group-title">
                     <!--?lit$111593023$-->Free Trial Special
@@ -52,7 +52,7 @@ function dpk_chosen(chosen) {
                     </div>`
     }
 
-    $('.skio-center-wrapper')[1].html(innerHTML[chosen])
+    $('.skio-center-wrapper').eq(1).html(innerHTML[chosen])
 }
 </script>
 
