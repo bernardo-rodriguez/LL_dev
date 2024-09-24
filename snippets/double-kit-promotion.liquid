@@ -1,18 +1,26 @@
 <div class = 'dpk_body'>
     <div class="dpk_container">
         <div class="dpk_square_wrapper">
-            <div class="dpk_square" id="dpk_square1" onclick="selectSquare('dpk_square1')">
-                <img width = 'auto' height= '100px' src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/1_kit_big.png?v=1727195166" alt="Image 1">
-                <p class = 'dpk_heading'>1 Kit</p>
-                <p class = 'dpk_sub_heading'>Free Trial</p>
-            </div>
+            <label class="dpk_label">
+                <div class="dpk_square" id="dpk_square1">
+                {% comment %} <div class="dpk_square" id="dpk_square1" onclick="selectSquare('dpk_square1')"> {% endcomment %}
+                    <img width = 'auto' height= '100px' src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/1_kit_big.png?v=1727195166" alt="Image 1">
+                    <p class = 'dpk_heading'>1 Kit</p>
+                    <p class = 'dpk_sub_heading'>Free Trial</p>
+                </div>
+            </label>
         </div>
         <div class="dpk_square_wrapper">
-            <div class="dpk_square" id="dpk_square2" onclick="selectSquare('dpk_square2')">
-                <img width = 'auto' height= '100px' src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/2_kits_big.png?v=1727195738" alt="Image 2">
-                <p class = 'dpk_heading'>2 Kits</p>
-                <p class = 'dpk_sub_heading'>+$8.99</p>
-            </div>
+            <label class="dpk_label">
+                <input type="radio" name="radioname" value="one_value" checked="checked"/>
+                {% comment %} <div class="dpk_square" id="dpk_square2" onclick="selectSquare('dpk_square2')"> {% endcomment %}
+                <div class="dpk_square" id="dpk_square2" >
+                    <input type="radio" name="radioname" value="another" />
+                    <img width = 'auto' height= '100px' src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/2_kits_big.png?v=1727195738" alt="Image 2">
+                    <p class = 'dpk_heading'>2 Kits</p>
+                    <p class = 'dpk_sub_heading'>+$8.99</p>
+                </div>
+            </label>
             <div class = 'dpk_square_banner'>
                 <p class = 'banner_explainer'>Two for just $8.99</p>
             </div>
@@ -20,7 +28,7 @@
     </div>
 </div>
 
-<script>
+{% comment %} <script>
 let selectedSquare = null;
 
 function selectSquare(id) {
@@ -46,7 +54,7 @@ document.querySelectorAll('.dpk_square').forEach(square => {
         console.log('Selected Square:', getSelectedSquare());
     });
 });
-</script>
+</script> {% endcomment %}
 
 <style>
 .dpk_body {
@@ -104,10 +112,14 @@ document.querySelectorAll('.dpk_square').forEach(square => {
     box-shadow: 0 4px 12px rgba(0, 128, 0, 0.3);
 }
 
-.dpk_square:hover {
+.dpk_label input:checked + div {
     border-color: var(--blue);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+{% comment %} .dpk_square:hover {
+    border-color: var(--blue);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+} {% endcomment %}
 
 .dpk_sub_heading {
     font-weight: bold;
