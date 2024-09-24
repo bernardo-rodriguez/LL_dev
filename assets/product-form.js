@@ -335,13 +335,15 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     console.log(product_form)
 
-    let body = JSON.stringify({
+    let formData = {
       'items': [{
         id: product_form.id, // this is variant id
         quantity: 1,
-        selling_plan: skio.selectedSellingPlan.id // or can also do product_form.selling_plan?
+        selling_plan: product_form.selling_plan // or can also do product_form.selling_plan? skio.selectedSellingPlan.id
       }]
-    })
+    }
+
+    body = JSON.stringify(formData)
 
     console.log(body)
 
