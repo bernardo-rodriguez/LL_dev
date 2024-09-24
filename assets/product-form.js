@@ -321,6 +321,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   onSubmitHandler(evt) {
     evt.preventDefault();
     
+    console.log("still handled by me?")
+
     document.cookie = "directcheckout=true;path=/";
 
     const submitButton = this.querySelector('[type="submit"]');
@@ -331,6 +333,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let skio = document.querySelector('skio-plan-picker')
     let product_form = JSON.parse(serializeForm(this.form))
 
+    console.log(product_form)
+
     let body = JSON.stringify({
       'items': [{
         id: product_form.id, // this is variant id
@@ -338,6 +342,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         selling_plan: skio.selectedSellingPlan.id // or can also do product_form.selling_plan?
       }]
     })
+
+    console.log(body)
 
     // let body =  JSON.stringify({
     //   ...JSON.parse(serializeForm(this.form)),
