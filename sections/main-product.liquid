@@ -322,7 +322,7 @@ xhttp.send();
               <p style = 'display: inline-block; vertical-align: middle' class="landing-page-main body-xs satisfaction_guarantee">{{ section.settings.satisfaction }}</p>
             </div>
 
-              {% if product.id == 8252255568097 %}
+              {% if product.id == 8252255568097 or product.id == 8187028177121 %}
                 <div>
                   <img
                     src="{{ 'packageprotection.png' | asset_url}}"
@@ -333,7 +333,7 @@ xhttp.send();
                   <div style = 'display: inline-block'>
                     <p style = 'font-size: 12px; line-height: 20px;'>Package Protection - <b>$0.95</b></p>
                     <label class="switch">
-                      <input id = 'package_protection' type="checkbox">
+                      <input id = 'package_protection' type="checkbox" checked>
                       <span class="slider round"></span>
                     </label>
                   </div>
