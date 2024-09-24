@@ -331,13 +331,13 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let skio = document.querySelector('skio-plan-picker')
     let product_form = JSON.parse(serializeForm(this.form))
 
-    let body = {
+    let body = JSON.stringify({
       'items': [{
         id: product_form.id, // this is variant id
         quantity: 1,
         selling_plan: skio.selectedSellingPlan.id // or can also do product_form.selling_plan?
       }]
-    }
+    })
 
     // let body =  JSON.stringify({
     //   ...JSON.parse(serializeForm(this.form)),
