@@ -3,7 +3,7 @@
         <div class="dpk_square_wrapper">
             <label class="dpk_label">
                 <input type="radio" name="dpk_chooser" value="one_kit" checked="checked"/>
-                <div class="dpk_square" id="dpk_square1">
+                <div class="dpk_square" id="dpk_square1" onclick="dpk_chosen('one_kit');">
                     <img width = 'auto' height= '100px' src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/1_kit_big.png?v=1727195166" alt="Image 1">
                     <p class = 'dpk_heading'>1 Kit</p>
                     <p class = 'dpk_sub_heading'>Free Trial</p>
@@ -13,7 +13,7 @@
         <div class="dpk_square_wrapper">
             <label class="dpk_label">
                 <input type="radio" name="dpk_chooser" value="two_kits" />
-                <div class="dpk_square" id="dpk_square2" >
+                <div class="dpk_square" id="dpk_square2" onclick="dpk_chosen('two_kits');">
                     <img width = 'auto' height= '100px' src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/2_kits_big.png?v=1727195738" alt="Image 2">
                     <p class = 'dpk_heading'>2 Kits</p>
                     <p class = 'dpk_sub_heading'>+$8.99</p>
@@ -27,9 +27,9 @@
 </div>
 
 <script>
-$('input[name="dpk_chooser"]').on('click change', function(e) {
-    console.log(e);
-});
+function dpk_chosen(chosen) {
+    console.log(chosen)
+}
 </script>
 
 <style>
