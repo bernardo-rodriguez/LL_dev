@@ -329,21 +329,21 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     submitButton.classList.add('loading');
 
     let skio = document.querySelector('skio-plan-picker')
-    console.log(skio.selectedSellingPlanGroup)
-    console.log(skio.selectedSellingPlan.id)
-    console.log(JSON.parse(serializeForm(this.form)))
+    let product_form = JSON.parse(serializeForm(this.form))
 
-    // let formData = {
-    //   'items': [{
-    //     id: 
-    //   }]
-    // }
-    return 
-    let body =  JSON.stringify({
-      ...JSON.parse(serializeForm(this.form)),
-      sections: this.getSectionsToRender().map((section) => section.section),
-      sections_url: window.location.pathname
-    });
+    let body = {
+      'items': [{
+        id: product_form.id, // this is variant id
+        quantity: 1,
+        selling_plan: skio.selectedSellingPlan.id // or can also do product_form.selling_plan?
+      }]
+    }
+
+    // let body =  JSON.stringify({
+    //   ...JSON.parse(serializeForm(this.form)),
+    //   sections: this.getSectionsToRender().map((section) => section.section),
+    //   sections_url: window.location.pathname
+    // });
     
 
     if (window.location.href.includes('at-home-whitening-kit')) { 
