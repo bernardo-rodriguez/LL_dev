@@ -334,6 +334,9 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       sections_url: window.location.pathname
     });
 
+    console.log(body)
+    return
+
     if (window.location.href.includes('at-home-whitening-kit')) { 
       if (window.location.href.includes('at-home-whitening-kit-affiliate-ft') || window.location.href.includes('at-home-whitening-kit-affiliate-ut')) {
         body = JSON.parse(body)
