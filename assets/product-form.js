@@ -357,7 +357,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     if (window.location.href.includes('at-home-whitening-kit')) { 
       if (window.location.href.includes('at-home-whitening-kit-affiliate-ft') || window.location.href.includes('at-home-whitening-kit-affiliate-ut')) {
         body = JSON.parse(body)
-        body['quantity'] = '1'
+        body['quantity'] = '2'
         body = JSON.stringify(body)
       }
 
@@ -400,7 +400,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
             let formData = {
               'items': [{
                 id: 39775917605037,
-                quantity: 2
+                quantity: 1
               }]
             };
             return fetch(window.Shopify.routes.root + 'cart/add.js', {
