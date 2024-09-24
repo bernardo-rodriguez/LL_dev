@@ -2,7 +2,7 @@
     <div class="dpk_container">
         <div class="dpk_square_wrapper">
             <label class="dpk_label">
-                <input type="radio" name="radioname" value="one_value" checked="checked"/>
+                <input type="radio" name="dpk_chooser" value="one_kit" checked="checked"/>
                 <div class="dpk_square" id="dpk_square1">
                     <img width = 'auto' height= '100px' src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/1_kit_big.png?v=1727195166" alt="Image 1">
                     <p class = 'dpk_heading'>1 Kit</p>
@@ -12,7 +12,7 @@
         </div>
         <div class="dpk_square_wrapper">
             <label class="dpk_label">
-                <input type="radio" name="radioname" value="another" />
+                <input type="radio" name="dpk_chooser" value="two_kits" />
                 <div class="dpk_square" id="dpk_square2" >
                     <img width = 'auto' height= '100px' src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/2_kits_big.png?v=1727195738" alt="Image 2">
                     <p class = 'dpk_heading'>2 Kits</p>
@@ -26,33 +26,6 @@
     </div>
 </div>
 
-{% comment %} <script>
-let selectedSquare = null;
-
-function selectSquare(id) {
-    // Remove the 'selected' class from the previously selected square, if any
-    if (selectedSquare) {
-        document.getElementById(selectedSquare).classList.remove('selected');
-    }
-
-    // Add the 'selected' class to the currently clicked square
-    document.getElementById(id).classList.add('selected');
-
-    // Update the selectedSquare variable
-    selectedSquare = id;
-}
-
-function getSelectedSquare() {
-    return selectedSquare;
-}
-
-// Example usage: Log the selected square to the console when a square is clicked
-document.querySelectorAll('.dpk_square').forEach(square => {
-    square.addEventListener('click', () => {
-        console.log('Selected Square:', getSelectedSquare());
-    });
-});
-</script> {% endcomment %}
 
 <style>
 .dpk_body {

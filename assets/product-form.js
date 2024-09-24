@@ -335,6 +335,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     console.log(product_form)
 
+    let dpk_choice = document.querySelector('input[name="dpk_chooser"]:checked').value;
+
+    console.log(dpk_choice)
+
     let formData = {
       'items': [{
         id: product_form.id, // this is variant id
