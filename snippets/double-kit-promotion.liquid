@@ -2,12 +2,12 @@
     <div class="dpk_container">
         <div class="dpk_square" id="dpk_square1" onclick="selectSquare('dpk_square1')">
             <img width = 'auto' height= '100px' src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/1_kit_big.png?v=1727195166" alt="Image 1">
-            <h4 style = 'margin-bottom: 5px'>1 Kit</h4>
+            <p class = 'dpk_heading'>1 Kit</p>
             <p class = 'dpk_sub_heading'>Free Trial</p>
         </div>
         <div class="dpk_square" id="dpk_square2" onclick="selectSquare('dpk_square2')">
             <img width = 'auto' height= '100px' src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/2_kits_big.png?v=1727195738" alt="Image 2">
-            <h4 style = 'margin-bottom: 5px'>2 Kits</h4>
+            <p class = 'dpk_heading'>2 Kits</p>
             <p class = 'dpk_sub_heading'>+$8.99</p>
         </div>
     </div>
@@ -91,10 +91,19 @@ document.querySelectorAll('.dpk_square').forEach(square => {
     font-size: 14px;
 }
 
+.dpk_heading {
+    font-weight: bold;
+    font-size: 24px;
+}
+
 @media screen and (max-width: 750px) {
     .dpk_sub_heading {
         font-weight: bold;
         font-size: 12px;
+    }
+    .dpk_heading {
+        font-weight: bold;
+        font-size: 18px;
     }
 }
 </style>
