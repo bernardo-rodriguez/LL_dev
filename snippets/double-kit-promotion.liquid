@@ -13,7 +13,7 @@
                 <p class = 'dpk_heading'>2 Kits</p>
                 <p class = 'dpk_sub_heading'>+$8.99</p>
             </div>
-            <div>
+            <div class = 'dpk_square_banner'>
                 <p>Two for just $8.99</p>
             </div>
         </div>
@@ -64,9 +64,16 @@ document.querySelectorAll('.dpk_square').forEach(square => {
 }
 
 .dpk_square_wrapper {
-
     width: 150px;
     text-align: center;
+}
+
+.dpk_square_banner {
+    background-color: #37A20D;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 5px;
 }
 
 .dpk_square {
