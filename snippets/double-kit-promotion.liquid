@@ -112,6 +112,11 @@ document.querySelectorAll('.dpk_square').forEach(square => {
     box-shadow: 0 4px 12px rgba(0, 128, 0, 0.3);
 }
 
+.dpk_label > input{ /* HIDE RADIO */
+    visibility: hidden; /* Makes input not-clickable */
+    position: absolute; /* Remove input from document flow */
+}
+
 .dpk_label input:checked + div {
     border-color: var(--blue);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
