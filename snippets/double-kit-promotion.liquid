@@ -29,13 +29,29 @@
 <script>
 function dpk_chosen(chosen) {
     let innerHTML = {
-        'one_kit': `<!--?lit$111593023$-->Free Trial Special
+        'one_kit': `<div class="skio-group-title">
+                    <!--?lit$111593023$-->Free Trial Special
                       <!--?lit$111593023$--> 
-                        <span style="display: none;" class="skio-save">Save <span skio-discount=""><!--?lit$111593023$-->100%</span></span>`,
-        'two_kits': `<!--?lit$111593023$-->Subscribe &amp; Save
+                        <span style="display: none;" class="skio-save">Save <span skio-discount=""><!--?lit$111593023$-->88%</span></span>
+                      
+                    </div>
+                    <div class="skio-price skio-subscribe-price">
+                    —<!--?lit$111593023$--><!--?-->
+                      <span skio-subscription-price="">$<!--?lit$111593023$-->0</span>
+                    </div>`,
+        'two_kits': `<div class="skio-group-title">
+                    <!--?lit$111593023$-->Subscribe &amp; Save
                       <!--?lit$111593023$--> 
-                        <span style="display: none;" class="skio-save">Save <span skio-discount=""><!--?lit$111593023$-->88%</span></span>`
+                        <span style="display: none;" class="skio-save">Save <span skio-discount=""><!--?lit$111593023$-->88%</span></span>
+                      
+                    </div>
+                    <div class="skio-price skio-subscribe-price">
+                    —<!--?lit$111593023$--><!--?-->
+                      <span skio-subscription-price="">$<!--?lit$111593023$-->9</span>
+                    </div>`
     }
+
+    $('.skio-label-subscription .skio-center-wrapper')[0].html(innerHTML[chosen])
 }
 </script>
 
