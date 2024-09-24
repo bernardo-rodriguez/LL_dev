@@ -331,7 +331,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let skio = document.querySelector('skio-plan-picker')
     console.log(skio.selectedSellingPlanGroup)
     console.log(skio.selectedSellingPlan.id)
-    console.log(this.form)
+    console.log(JSON.parse(serializeForm(this.form)))
 
     // let formData = {
     //   'items': [{
