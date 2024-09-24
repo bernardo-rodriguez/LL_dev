@@ -328,11 +328,18 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     submitButton.setAttribute('disabled', true);
     submitButton.classList.add('loading');
 
+    skio = document.querySelector('skio-plan-picker')
+    console.log('here are my skio attributes')
+    console.log(skio.selectedSellingPlanGroup)
+    console.log(skio.selectedSellingPlan)
+    console.log('end of those')
+
     let body =  JSON.stringify({
       ...JSON.parse(serializeForm(this.form)),
       sections: this.getSectionsToRender().map((section) => section.section),
       sections_url: window.location.pathname
     });
+    
 
     if (window.location.href.includes('at-home-whitening-kit')) { 
       if (window.location.href.includes('at-home-whitening-kit-affiliate-ft') || window.location.href.includes('at-home-whitening-kit-affiliate-ut')) {
