@@ -400,7 +400,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
             let formData = {
               'items': [{
                 id: 39775917605037,
-                quantity: 1
+                quantity: 2
               }]
             };
             return fetch(window.Shopify.routes.root + 'cart/add.js', {
