@@ -338,7 +338,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let dpk_choice = document.querySelector('input[name="dpk_chooser"]:checked').value;
 
     console.log(dpk_choice)
-    let quantity_setter = (dpk_choice == two_kits) ? 2: 1
+    let quantity_setter = (dpk_choice == 'two_kits') ? 2: 1
 
     let formData = {
       'items': [{
