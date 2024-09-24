@@ -334,6 +334,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     console.log(skio.selectedSellingPlan)
     console.log('end of those')
 
+    return 
     let body =  JSON.stringify({
       ...JSON.parse(serializeForm(this.form)),
       sections: this.getSectionsToRender().map((section) => section.section),
