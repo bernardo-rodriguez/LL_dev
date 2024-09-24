@@ -338,19 +338,17 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let dpk_choice = document.querySelector('input[name="dpk_chooser"]:checked').value;
 
     console.log(dpk_choice)
+    let quantity_setter = (dpk_choice == two_kits) ? 2: 1
 
     let formData = {
       'items': [{
         id: product_form.id, // this is variant id
-        quantity: 1,
+        quantity: quantity_setter,
         selling_plan: product_form.selling_plan // or can also do product_form.selling_plan? skio.selectedSellingPlan.id
       }]
     }
 
     let body = JSON.stringify(formData)
-
-    console.log(body)
-    return
 
     // let body =  JSON.stringify({
     //   ...JSON.parse(serializeForm(this.form)),
