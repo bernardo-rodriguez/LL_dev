@@ -338,7 +338,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let formData = {
       'items': [{
         id: product_form.id, // this is variant id
-        quantity: 1,
+        quantity: 2,
         selling_plan: product_form.selling_plan // or can also do product_form.selling_plan? skio.selectedSellingPlan.id
       }]
     }
