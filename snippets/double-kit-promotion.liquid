@@ -14,7 +14,7 @@
                 <p class = 'dpk_sub_heading'>+$8.99</p>
             </div>
             <div class = 'dpk_square_banner'>
-                <p>Two for just $8.99</p>
+                <p class = 'banner_explainer'>Two for just $8.99</p>
             </div>
         </div>
     </div>
@@ -61,11 +61,13 @@ document.querySelectorAll('.dpk_square').forEach(square => {
     display: flex;
     flex-direction: row;
     gap: 20px;
+    max-width: 100%;
 }
 
 .dpk_square_wrapper {
-    width: 150px;
+    width: 160px;
     text-align: center;
+    max-width: 100%;
 }
 
 .dpk_square_banner {
@@ -74,11 +76,12 @@ document.querySelectorAll('.dpk_square').forEach(square => {
     border-radius: 5px;
     width: 100%;
     margin-top: 5px;
+    padding: 5px;
 }
 
 .dpk_square {
     width: 100%;
-    height: 200px;
+    height: 170px;
     background-color: #ffffff;
     border: 2px solid #ccc;
     border-radius: 10px;
@@ -116,6 +119,10 @@ document.querySelectorAll('.dpk_square').forEach(square => {
     font-size: 24px;
 }
 
+.banner_explainer {
+    font-size: 14px;
+}
+
 @media screen and (max-width: 750px) {
     .dpk_sub_heading {
         font-weight: bold;
@@ -124,6 +131,9 @@ document.querySelectorAll('.dpk_square').forEach(square => {
     .dpk_heading {
         font-weight: bold;
         font-size: 18px;
+    }
+    .banner_explainer {
+        font-size: 12px;
     }
 }
 </style>
