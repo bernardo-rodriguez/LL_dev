@@ -350,6 +350,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let body = JSON.stringify(formData)
 
     console.log(body)
+    return
 
     // let body =  JSON.stringify({
     //   ...JSON.parse(serializeForm(this.form)),
