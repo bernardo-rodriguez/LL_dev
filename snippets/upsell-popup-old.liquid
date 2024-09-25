@@ -1,24 +1,59 @@
+{% comment %} {% if product.handle == "at-home-whitening-kit-affiliate-ft" %}
 
     <div id = 'upsell_background' class = 'upsell-background-screen'>
       <div class = 'upsell-wrapper'>
         <div class = 'upsell-box'>
-          <h4 class = 'headers_upsell_main headers_upsell'>Enhance Your Results.</h4>
-          <p>The Same Whitening Formula, But As <b>A Portable Pen</b></p>
+          <h4 class = 'headers_upsell_main headers_upsell show-normal-inline'>Complete the set. <span style= 'font-style: italic;font-family: "Canela Text Trial", sans-serif;
+            font-weight: 300;'>Cancel stains on the go.</span></h4>
+          <h3 class = 'headers_upsell headers_upsell_main show-mobile-inline' style = 'margin-bottom: 0'>Complete the set.</h3>
+          <h3 class = 'show-mobile-inline' style= 'font-style: italic;font-family: "Canela Text Trial", sans-serif; font-weight: 300;'>Cancel stains on the go.</h3>
           <div class = 'content-flex'>
            <img class = 'pen_image' src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/Laughland_PenProduct_72501_3.png?v=1683324105";>
           </div>
-          <div>
-            <div style = 'width: 500px; display: inline-block; margin-bottom: 15px;'>
-              <p>Like a stain removing Tide-Pen, but for your teeth. Brighter smile in minutes to give you a boost before dates, interviews and photos.</p>
-            </div>
+          <div class = 'show-normal-inline'>
             <div class = 'upsell-subheading-box'>
               <div class = 'left-column-popup'>
-                <h4 class = 'headers_upsell' style = 'margin-bottom: 0px; font-weight: 600'>$9</h4>
-                <h4 class = 'headers_upsell' style = 'margin-bottom: 0px; font-weight: 100; font-size: 40px; padding: 0'>|</h4>
+                <h4 class = 'headers_upsell show-normal-inline' style = 'margin-bottom: 0px; font-weight: 600'>$9</h4>
+                <h4 class = 'headers_upsell show-normal-inline' style = 'margin-bottom: 0px; font-weight: 100; font-size: 40px; padding: 0'>|</h4>
               </div>
               <div class = 'right-column-popup'>
-                <h5 style = 'font-size: 25px; margin-top: 5px; margin-bottom: 0' class = 'headers_upsell'>To-Go Whitening Pen</h5>
+                <h5 style = 'font-size: 25px; margin-top: 5px; margin-bottom: 0' class = 'headers_upsell show-normal-inline'>To-Go Whitening Pen</h5>
               </div>
+            </div>
+            <div style = 'width: 500px; display: inline-block; margin-bottom: 15px;'>
+              <p>Like a Tide pen for your teeth. Perfect for quick touch-ups on the road, right before a date, interview or meeting.</p>
+            </div>
+            <div class = 'button-wrapper-upsell'>
+              <button
+                class="product-form__submit shopify-payment-button__button shopify-payment-button__button--unbranded upsell_buttons button"
+                style = 'background-color: #46BDF0 !important;'
+                onclick = 'add_pen()'       >
+                 <span class = 'spacing'>
+                     Add to Order
+                 </span>
+               </button>
+               <button
+                class="product-form__submit shopify-payment-button__button shopify-payment-button__button--unbranded upsell_buttons button"
+                 style = 'color: #46BDF0; border: 1px solid #46BDF0; background-color: white !important;'
+                 onclick = 'checkout()'      >
+                 <span class = 'spacing'>
+                     Skip
+                 </span>
+               </button>
+            </div>
+          </div>
+          <div class = 'show-mobile-inline'>
+            <div class = 'upsell-subheading-box'>
+              <div class = 'left-column-popup'>
+                <h3 class = 'headers_upsell show-mobile-inline' style = 'margin-bottom: 0px; font-weight: 600'>$9</h3>
+                <h4 class = 'headers_upsell show-mobile-inline' style = 'margin-bottom: 0px; font-weight: 100; font-size: 40px; padding: 0;'>|</h4>
+              </div>
+              <div class = 'right-column-popup'>
+                <h5 style = 'font-size: 25px; margin-top: 5px; margin-bottom: 0' class = 'headers_upsell show-mobile-inline'>To-Go Whitening Pen</h5>
+              </div>
+            </div>
+            <div style = 'width: 340px; display: inline-block; margin-bottom: 15px;' class = 'show_mobile-inline'>
+              <p class = 'like-tide'>Like a Tide pen for your teeth. Perfect for quick touch-ups on the road, right before a date, interview or meeting.</p>
             </div>
             <div class = 'button-wrapper-upsell'>
               <button
@@ -42,7 +77,49 @@
         </div>
       </div>
     </div>
-
+    {% else %}
+    <div id = 'upsell_background' class = 'upsell-background-screen'>
+      <div class = 'upsell-wrapper'>
+        <div class = 'upsell-box'>
+          <h2 class = 'headers_upsell show-normal-inline'>Complete The Set <span style= 'font-style: italic;'>Cancel Stains on the go.</span></h2>
+          <h3 class = 'headers_upsell show-mobile-inline'>Complete The Set</h3>
+          <div class = 'content-flex'>
+           <img class = 'pen_image' src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/image_4.png?v=1647385882";>
+          </div>
+          <h3 class = 'headers_upsell show-normal-inline' style = 'color: white; margin-bottom: 0px'>To-Go Whitening Pen</h3>
+          <h4 class = 'headers_upsell show-mobile-inline' style = 'color: white; margin-bottom: 0px'>To-Go Whitening Pen</h4>
+          <div style = 'text-align:center;'>
+            <div style = 'text-align: left; width: fit-content; display: inline-block'>
+              <ul>
+                <li class = 'spacing show-normal'>Everything you need for a bright smile that never dulls.</li>
+                <li class = 'spacing show-mobile'>Everything you need for a bright smile that never dulls.</li>
+                <li class = 'spacing show-normal'>Whitening kit includes a LED light and 3 personalized whitening gels.</li>
+                <li class = 'spacing show-mobile'>Whitening kit includes a LED light and 3 personalized whitening gels.</li>
+                <li class = 'spacing'>Dentist made, sensitivity-free teeth whitening powered by your phone.</li>
+              </ul>
+            </div>
+          </div>
+          <button
+           class="product-form__submit shopify-payment-button__button shopify-payment-button__button--unbranded upsell_buttons button"
+           style = 'color: #285ab1;'
+           onclick = 'add_pen()'       >
+            <span class = 'spacing'>
+                Add to cart | $19
+            </span>
+          </button>
+          <button
+           class="product-form__submit shopify-payment-button__button shopify-payment-button__button--unbranded upsell_buttons button"
+            style = 'color: red; margin-top: 10px;'
+            onclick = 'checkout()'      >
+            <span class = 'spacing'>
+                No, thanks!
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    {%endif%}
     <script>
       // left: 37, up: 38, right: 39, down: 40,
       // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
@@ -112,9 +189,38 @@
         } else {
           formula_id = pen_formula_dict['medium']
         }
+        {% comment %} selling_plan = document.querySelector("select[name='selling_plan']").value
+        if (selling_plan in pen_selling_plan_dict) {
+          send_selling_plan = pen_selling_plan_dict[selling_plan]
+        } else {
+          send_selling_plan = 3450175713
+        } {% endcomment %}
 
         setCookie('add_pen', formula_id)
         $('#real-submit-button').click()
+        {% comment %} var pen = 
+          {
+          "id": formula_id,
+          "quantity":  1
+          //,
+          //"selling_plan": send_selling_plan
+          }
+          console.log('pen')
+
+        jQuery.ajax({
+          type: 'POST',
+          url: '/cart/add.js',
+          data: pen,
+          dataType: 'json',
+          success: function() { 
+            $('#real-submit-button').click()
+            $('body').css("filter","none");
+          },
+          error: function (exception) {
+            console.log(exception)
+            {% comment %} $('#real-submit-button').click() {% endcomment %}
+          }
+        }); {% endcomment %}
       } 
       
     
@@ -145,7 +251,11 @@
             margin-top: 10px;
           }
           .button-wrapper-upsell {
-            
+            background-color: #ECF8FE;
+            border-top: 1px solid #46BDF0;
+            padding: 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
           }
           .upsell_buttons {
               font-weight: 600; 
@@ -263,4 +373,4 @@
               width: 90%
             }
         }
-    </style>
+    </style> {% endcomment %}
