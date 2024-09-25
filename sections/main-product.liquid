@@ -538,13 +538,8 @@ xhttp.send();
   }
 
   function upsellLogic() {
-    if ($('#main-product-handle-id').html().includes('at-home-')) {
-      if (getCookie('upsell_test') == 'true') {
-        $('#real-submit-button').click()
-        // openPopup()
-      } else {
-        $('#real-submit-button').click()
-      }
+    if ($('#main-product-handle-id').html().includes('at-home-whitening-kit-affiliate-ft')) {
+      openPopup()
     } else {
       $('#real-submit-button').click()
     }
