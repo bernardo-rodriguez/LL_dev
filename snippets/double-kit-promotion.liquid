@@ -30,7 +30,8 @@
 function dpk_chosen(chosen) {
     console.log(document.getElementsByClassName('skio-center-wrapper'))
     console.log(document.getElementById('skio-group-title-sub'))
-    console.log($('#skio-group-title-sub'))
+    console.log($('skio-group-title-sub'))
+    console.log(document.querySelector('skio-plan-picker').shadowRoot.querySelector('#skio-group-title-sub'))
 
     let innerHTML = {
         'one_kit': `<div class="skio-group-title">
