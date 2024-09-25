@@ -227,10 +227,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
         let selling_plan_input = document.querySelector('input[name="selling_plan"]')
         this.observeForm(selling_plan_input)
-
-        if (window.location.href.includes('at-home-whitening-kit-affiliate-ft')) {
-          dpk_chosen('one_kit')
-        }
       })
     } catch (e) {
         console.log("Error: failure in createSubcriptionWidget() for product-form.js")
