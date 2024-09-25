@@ -164,7 +164,7 @@
         $('#upsell_background').show()
         disableScroll()
       }
-      {% comment %} function add_pen() {
+      function add_pen() {
         const strength_cookie = getCookie('strength')
         kit_formula_dict = {
           'medium': 42250643833057,
@@ -183,59 +183,41 @@
           3449913569: 3450208481,
           3449946337: 3450241249
         }
-      {% if product.handle == "at-home-whitening-kit" or product.handle == "at-home-whitening-kit-affiliate-ft" %}
-            if (strength_cookie in pen_formula_dict) {
-              formula_id = pen_formula_dict[strength_cookie]
-            } else {
-              formula_id = pen_formula_dict['medium']
-            }
-            selling_plan = document.querySelector("select[name='selling_plan']").value
-            if (selling_plan in pen_selling_plan_dict) {
-              send_selling_plan = pen_selling_plan_dict[selling_plan]
-            } else {
-              send_selling_plan = 3450175713
-            }
-            var pen = 
-              {
-              "id": formula_id,
-              "quantity":  1
-              //,
-              //"selling_plan": send_selling_plan
-              }
-              console.log('pen')
-        {% else %}
-            if (strength_cookie in kit_formula_dict) {
-              formula_id = kit_formula_dict[strength_cookie]
-            } else {
-              formula_id = kit_formula_dict['medium']
-            }
-            var pen = {
-              'id': formula_id,
-              "quantity":  1,
-              "properties": {
-                    "shipping_interval_frequency": '1',
-                    "shipping_interval_unit_type": 'month',
-                    "charge_interval_frequency": '1',
-                    "charge_interval_unit_type": 'month'
-              }
-              }
-        {% endif %}
+        if (strength_cookie in pen_formula_dict) {
+          formula_id = pen_formula_dict[strength_cookie]
+        } else {
+          formula_id = pen_formula_dict['medium']
+        }
+        selling_plan = document.querySelector("select[name='selling_plan']").value
+        if (selling_plan in pen_selling_plan_dict) {
+          send_selling_plan = pen_selling_plan_dict[selling_plan]
+        } else {
+          send_selling_plan = 3450175713
+        }
+        var pen = 
+          {
+          "id": formula_id,
+          "quantity":  1
+          //,
+          //"selling_plan": send_selling_plan
+          }
+          console.log('pen')
+
         jQuery.ajax({
           type: 'POST',
           url: '/cart/add.js',
           data: pen,
           dataType: 'json',
           success: function() { 
-            {% comment %} console.log('homie')
             $('#real-submit-button').click()
-            $('body').css("filter","none"); {% endcomment %}
+            $('body').css("filter","none");
           },
           error: function (exception) {
             console.log(exception)
             {% comment %} $('#real-submit-button').click() {% endcomment %}
           }
         });
-      } {% endcomment %}
+      } 
       
     
       function getCookie(name) {
