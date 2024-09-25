@@ -229,6 +229,9 @@ xhttp.send();
 
               {% if product.id == 8187028177121 %}
                 {% render 'double-kit-promotion' %}
+                <script>
+                  openPopup()
+                </script>
               {% endif %}
 
               {% assign skioSellingPlanGroups = product.selling_plan_groups | where: 'app_id', 'SKIO' %}
