@@ -2,8 +2,8 @@
     <div id = 'upsell_background' class = 'upsell-background-screen'>
       <div class = 'upsell-wrapper'>
         <div class = 'upsell-box'>
-          <p>X</p>
-          <h3 class = 'headers_upsell_main'>Enhance Your Results.</h4>
+          <p style = 'position: absolute; padding: 20px;' onclick = 'closePopup()'>X</p>
+          <h3 class = 'headers_upsell_main'>Enhance Your Results.</h3>
           <h5>The Same Whitening Formula, But As <b>A Portable Pen</b></h5>
           <div class = 'content-flex'>
            <img class = 'pen_image' src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/PopUp_Image_1.webp?v=1727276126";>
@@ -77,6 +77,13 @@
         window.addEventListener('keydown', preventDefaultForScrollKeys, false);
       }
 
+      function enableScroll() {
+        window.removeEventListener('DOMMouseScroll', preventDefault, false);
+        window.removeEventListener(wheelEvent, preventDefault, wheelOpt); 
+        window.removeEventListener('touchmove', preventDefault, wheelOpt);
+        window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+      }
+
       function checkout() {
         setCookie('add_pen', 'false')
         $('#real-submit-button').click()
@@ -86,6 +93,11 @@
         $('#MainContent > *').css({"position":"auto","z-index":"auto"});
         $('#upsell_background').show()
         disableScroll()
+      }
+
+      function closePopup() {
+        $('#upsell_background').hide()
+        enableScroll()
       }
       function add_pen() {
         const strength_cookie = getCookie('strength')
