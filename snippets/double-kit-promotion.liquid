@@ -28,10 +28,8 @@
 
 <script>
 function dpk_chosen(chosen) {
-    console.log(document.getElementsByClassName('skio-center-wrapper'))
-    console.log(document.getElementById('skio-group-title-sub'))
-    console.log($('skio-group-title-sub'))
-    console.log(document.querySelector('skio-plan-picker').shadowRoot.querySelector('#skio-group-title-sub'))
+    let skio_title = document.querySelector('skio-plan-picker').shadowRoot.querySelector('.skio-center-wrapper')[1]
+    console.log(skio_title)
 
     let innerHTML = {
         'one_kit': `<div class="skio-group-title">
@@ -56,7 +54,9 @@ function dpk_chosen(chosen) {
                     </div>`
     }
 
-    $('.skio-center-wrapper').eq(1).html(innerHTML[chosen])
+    skio_title.innerHTML = innerHTML[chosen]
+
+    {% comment %} $('.skio-center-wrapper').eq(1).html(innerHTML[chosen]) {% endcomment %}
 }
 </script>
 
