@@ -29,7 +29,7 @@
                  </span>
                </button>
               <button
-                class="product-form__submit shopify-payment-button__button shopify-payment-button__button--unbranded upsell_buttons button"
+                class="product-form__submit shopify-payment-button__button shopify-payment-button__button--unbranded upsell_buttons button upsell_buy_now"
                 style = 'background-color: #46BDF0 !important;'
                 onclick = 'add_pen()'       >
                  <span class = 'spacing'>
@@ -177,6 +177,9 @@
               box-shadow: none !important;
               width: 220px;
               margin-bottom: 5px;
+        }
+        .upsell_buy_now:hover {
+          color: white !important;
         }
           .headers_upsell {
              {% comment %} font-family: Futura; {% endcomment %}
