@@ -321,8 +321,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   onSubmitHandler(evt) {
     evt.preventDefault();
     
-    console.log("still handled by me?")
-
     document.cookie = "directcheckout=true;path=/";
 
     const submitButton = this.querySelector('[type="submit"]');
@@ -340,12 +338,23 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     console.log(dpk_choice)
     let quantity_setter = (dpk_choice == 'two_kits') ? 2: 1
 
-    let formData = {
-      'items': [{
+    pen = this.getCookie('add_pen')
+
+    let itemsList = [{
         id: product_form.id, // this is variant id
         quantity: quantity_setter,
         selling_plan: product_form.selling_plan // or can also do product_form.selling_plan? skio.selectedSellingPlan.id
       }]
+    
+    if (pen != 'false') {
+      itemsList.append({
+        id: pen,
+        quantity: 1
+      })
+    }
+
+    let formData = {
+      'items': itemsList
     }
 
     let body = JSON.stringify(formData)
