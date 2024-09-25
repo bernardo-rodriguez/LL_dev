@@ -346,7 +346,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       }]
     
     console.log(pen)
-    if (pen != 'false' || pen != null) {
+    console.log(pen != 'false' && pen != null)
+    if (pen != 'false' && pen != null) {
       itemsList.push({
         id: pen,
         quantity: 1
