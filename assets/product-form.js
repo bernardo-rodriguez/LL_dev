@@ -338,7 +338,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     console.log(dpk_choice)
     let quantity_setter = (dpk_choice == 'two_kits') ? 2: 1
 
-    pen = this.getCookie('add_pen')
+    let pen = this.getCookie('add_pen')
 
     let itemsList = [{
         id: product_form.id, // this is variant id
