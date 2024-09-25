@@ -13,26 +13,25 @@
             </div>
             <div class = 'upsell-subheading-box'>
                 <h4 class = 'headers_upsell' style = 'text-decoration: line-through'>$19</h4>
-                <h5 style = 'font-size: 25px;' class = 'headers_upsell'>$4.95</h5>
+                <h5 style = 'font-size: 25px; color: #37A20D' class = 'headers_upsell'>$4.95</h5>
                 <div class = 'upsell_square_banner headers_upsell'>
                   <p class = 'banner_explainer'>Save 75%</p>
                  </div>
             </div>
             <div class = 'button-wrapper-upsell'>
               <button
+                class="product-form__submit shopify-payment-button__button shopify-payment-button__button--unbranded upsell_buttons button--secondary"
+                 onclick = 'checkout()'      >
+                 <span class = 'spacing'>
+                     No Thanks
+                 </span>
+               </button>
+              <button
                 class="product-form__submit shopify-payment-button__button shopify-payment-button__button--unbranded upsell_buttons button"
                 style = 'background-color: #46BDF0 !important;'
                 onclick = 'add_pen()'       >
                  <span class = 'spacing'>
-                     Add to Order
-                 </span>
-               </button>
-               <button
-                class="product-form__submit shopify-payment-button__button shopify-payment-button__button--unbranded upsell_buttons button"
-                 style = 'color: #46BDF0; border: 1px solid #46BDF0; background-color: white !important;'
-                 onclick = 'checkout()'      >
-                 <span class = 'spacing'>
-                     Skip
+                     Buy Now
                  </span>
                </button>
             </div>
@@ -139,15 +138,8 @@
           h2, h3, h4, h5 {
             text-transform: none;
           }
-          .upsell_square_banner {
-            background-color: #37A20D;
-            color: white;
-            border-radius: 5px;
-            width: 75px;
-            padding: 5px;
-          }
           .headers_upsell_main {
-            margin-top: 10px;
+            margin-top: 20px;
             margin-bottom: 10px;
           }
           .upsell_explainer_text {
@@ -157,28 +149,35 @@
             margin-bottom: 15px; 
             margin-top: 10px;
           }
-          
+
           .button-wrapper-upsell {
             display:flex;
             justify-content: center;
             align-items: center;
-            gap: 30px;
+            gap: 20px;
           }
           .upsell_buttons {
               max-width: 100%;
               font-weight: 600; 
               border: none; 
               box-shadow: none !important;
-              width: 250px;
+              width: 220px;
               margin-bottom: 5px;
         }
           .headers_upsell {
              {% comment %} font-family: Futura; {% endcomment %}
               font-style: normal;
               font-weight: 400;
-              padding: 10px;
-              letter-spacing: -.045em;
+              padding: 8px;
+              {% comment %} letter-spacing: -.045em; {% endcomment %}
               display: inline-block;
+        }
+        .upsell_square_banner {
+          background-color: #37A20D;
+          color: white;
+          border-radius: 5px;
+          width: 75px;
+          padding: 5px;
         }
         .spacing {
               letter-spacing: .01em;
