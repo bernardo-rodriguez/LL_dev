@@ -259,6 +259,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
   observeForm(selling_plan_input) {
     // Watch selling_plan changes and make updates to sticky bar in case of any changes.
+    console.log('hi')
     if (window.location.href.includes('at-home-whitening-kit-affiliate-ft')) {
       let dpk_choice = document.querySelector('input[name="dpk_chooser"]:checked')?.value || null;
       dpk_chosen(dpk_choice)
