@@ -345,6 +345,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         selling_plan: product_form.selling_plan // or can also do product_form.selling_plan? skio.selectedSellingPlan.id
       }]
     
+    console.log(pen)
     if (pen != 'false') {
       itemsList.push({
         id: pen,
