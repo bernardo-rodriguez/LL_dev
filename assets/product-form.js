@@ -264,11 +264,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         let skio = document.querySelector('skio-plan-picker')
 
         skio.addEventListener('skio::update-selling-plan', (e) => {
-          console.log('hi')
-          if (window.location.href.includes('at-home-whitening-kit-affiliate-ft')) {
-            let dpk_choice = document.querySelector('input[name="dpk_chooser"]:checked')?.value || null;
-            dpk_chosen(dpk_choice)
-          }
           this.updateStickyBar(e)
           this.mostRecentSellingPlan = e.detail.sellingPlan ? e.detail.sellingPlan.id : this.mostRecentSellingPlan
           console.log(this.mostRecentSellingPlan)

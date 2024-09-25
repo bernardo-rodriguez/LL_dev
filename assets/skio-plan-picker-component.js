@@ -747,6 +747,11 @@ export class SkioPlanPickerComponent extends LitElement {
     }
 
     if(changed.has('selectedSellingPlan')) {
+      console.log('hi')
+      if (window.location.href.includes('at-home-whitening-kit-affiliate-ft')) {
+        let dpk_choice = document.querySelector('input[name="dpk_chooser"]:checked')?.value || null;
+        dpk_chosen(dpk_choice)
+      }
       console.log('selling plan changed')
       //update price of price elements if applicable
       document.querySelectorAll(`[skio-price][skio-key="${ this.key }"]`).forEach((el) => {
