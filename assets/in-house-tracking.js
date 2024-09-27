@@ -2,7 +2,8 @@ affiliate_cookie_options = ['redirect_inspire', 'redirect_ut', 'redirect_ut_dire
 affiliate_cookie_options_2 = ['redirect__inspire', 'redirect__ut', 'redirect__ut__direct', 'redirect__paceline', 'redirect__sweatcoin', 'redirect__miles', 'redirect__studentbeans', 'redirect__skimm', 'redirect__pinterest', 'shareasaleShopifySSCID']
 
 function vwo_upsell_test() {
-  console.log('upsell called me?')
+  setCookie('show_upsell', 'false')
+  $('.dpk_body').hide()
 }
 
 function LandingPopulateCactus() {
@@ -75,8 +76,6 @@ function clearAllAffiliateCookies(){
 }
 
 function setCookieIfFirstTime() {
-  console.log('set cookie')
-  console.log(getCookie("cookie_hasnt_been_set"))
   if (getCookie("cookie_hasnt_been_set") != 'true') {
       tracking_1 = parseInt(document.getElementById('tracking_v1').innerHTML) / 100
       tracking_2 = parseInt(document.getElementById('tracking_v2').innerHTML) / 100
