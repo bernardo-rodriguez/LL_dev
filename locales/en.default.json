@@ -417,6 +417,10 @@
           "first_order_shipping_price_included": "Shipping Insurance Included",
           "first_order_different_shipping_price": "Shipping Insurance Included"
         }
+      },
+      "subscriptions": {
+        "recurring_totals": "-",
+        "recurring_totals_with_initial_order_shipping_discount": "-"
       }
     }
   }
