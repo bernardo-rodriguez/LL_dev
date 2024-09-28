@@ -10,6 +10,12 @@ function vwo_upsell_test() {
   });
 }
 
+function vwo_upsell_test_control() {
+  gtag('set', 'user_properties', {
+    SWEATCOIN_09_24_UPSELL_STATUS: "active"
+  });
+}
+
 function LandingPopulateCactus() {
   // Populate landing page text for cactus media
   $('#hero_subtitle_1').css('margin-bottom', '50px !important')
