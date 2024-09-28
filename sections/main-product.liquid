@@ -543,6 +543,8 @@ xhttp.send();
         show_upsell = getCookie('show_upsell')
         if (show_upsell != 'false') {
           openPopup()
+        } else {
+          $('#real-submit-button').click()
         }
     } else {
       $('#real-submit-button').click()
