@@ -4,6 +4,10 @@ affiliate_cookie_options_2 = ['redirect__inspire', 'redirect__ut', 'redirect__ut
 function vwo_upsell_test() {
   setCookie('show_upsell', 'false')
   $('.dpk_body').hide()
+
+  gtag('set', 'user_properties', {
+    SWEATCOIN_09_24_UPSELL_STATUS: "inactive"
+  });
 }
 
 function LandingPopulateCactus() {
@@ -103,6 +107,14 @@ function setCookieIfFirstTime() {
         }
       }
       setCookie('cookie_hasnt_been_set', 'true')
+
+      gtag('set', 'user_properties', {
+        SWEATCOIN_09_24_UPSELL_STATUS: "user_properties_tracked"
+      });
+
+      gtag('set', 'user_properties', {
+        CUSTOM_DIMENSION_TRACKED: "user_properties_tracked"
+      });
   }
 }
 
