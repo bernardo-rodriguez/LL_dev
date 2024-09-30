@@ -6,13 +6,13 @@ function vwo_upsell_test() {
   $('.dpk_body').hide()
 
   gtag('set', 'user_properties', {
-    SWEATCOIN_09_24_UPSELL_STATUS: "inactive"
+    SC_09_24_UPSELL_STATUS: "inactive"
   });
 }
 
 function vwo_upsell_test_control() {
   gtag('set', 'user_properties', {
-    SWEATCOIN_09_24_UPSELL_STATUS: "active"
+    SC_09_24_UPSELL_STATUS: "active"
   });
 }
 
@@ -115,7 +115,7 @@ function setCookieIfFirstTime() {
       setCookie('cookie_hasnt_been_set', 'true')
 
       gtag('set', 'user_properties', {
-        SWEATCOIN_09_24_UPSELL_STATUS: "user_properties_tracked"
+        SC_09_24_UPSELL_STATUS: "user_properties_tracked"
       });
 
       gtag('set', 'user_properties', {
