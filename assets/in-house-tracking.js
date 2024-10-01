@@ -144,12 +144,19 @@ function setABCookies(d) {
   let test_split = parseInt(active_test['active_split']) / 100
   console.log("experiment should be aplied to " + test_split + " of users")
   console.log("rand produced is " + d)
+  let google_tag = active_test['google_tag']
+  let gtag_payload = {}
   
   if (test_split >= d) {
     console.log("apply test")
+    setCookie(google_tag, 'true')
+    gtag_payload[google_tag] = active_test['active_name']
   } else {
     console.log("dont apply test")
+    setCookie(google_tag, 'false')
+    gtag_payload[google_tag] = active_test['inactive_name']
   }
+  gtag('set', 'user_properties', gtag_payload);
 }
 
 function setCookieIfFirstTime() {
