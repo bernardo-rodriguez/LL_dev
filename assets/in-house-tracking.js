@@ -33,15 +33,32 @@ A_B_testing_campaigns = {
   }
 }
 
-
-function sweatcoin_09_24_upselling_test() {
-  setCookie('show_upsell', 'false')
-  $('.dpk_body').hide()
-
-  gtag('set', 'user_properties', {
-    SC_09_24_UPSELL_STATUS: "inactive"
-  });
+function gtagLoaded(gtag_payload) {
+  gtag('set', 'user_properties', gtag_payload);
 }
+
+function send_gtag_properties(gtag_payload) {
+  if (typeof gtag === 'function') {
+    gtagLoaded(gtag_payload); // gtag is already loaded
+  } else {
+    window.addEventListener('load', function() {
+      if (typeof gtag === 'function') {
+        gtagLoaded(gtag_payload); // gtag loaded after the page finished loading
+      } else {
+        console.log("gtag.js failed to load");
+      }
+    });
+  }
+}
+
+// function sweatcoin_09_24_upselling_test() {
+//   setCookie('show_upsell', 'false')
+//   $('.dpk_body').hide()
+
+//   gtag('set', 'user_properties', {
+//     SC_09_24_UPSELL_STATUS: "inactive"
+//   });
+// }
 
 
 function LandingPopulateCactus() {
@@ -69,10 +86,6 @@ function LandingPopulateSweatcoin() {
   $('.Hero_Subtitle').first().text("See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.")
 }
 
-// if user arrives at mylaughland.com?utm_affiliatgit e_specific=cactus_media
-// set cookie to cactus media, and google referral tag to cactus media
-// if first time, set redirect to whatever it is.
-
 function getCookie(cname) {
   // const value = `; ${document.cookie}`;
   // const parts = value.split(`; ${name}=`);
@@ -93,7 +106,6 @@ function getCookie(cname) {
   return null;
 }
 
-
 function setCookie(key, value) {
   var date = new Date();
   date.setTime(date.getTime() + 2 * 3600 * 1000);
@@ -102,11 +114,9 @@ function setCookie(key, value) {
   document.cookie = `${key}=${value}; expires=${expires}; path=/`;
 }
 
-
 function removeCookie(key) {
   document.cookie = `${key}=true;expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;`
 }
-
 
 function clearAllAffiliateCookies(){
   affiliate_cookie_options.forEach((affiliate, index) => removeCookie(affiliate));
@@ -139,7 +149,6 @@ function setTestOrders(d) {
   }
 }
 
-
 function setABCookies(d) {
   let active_test = A_B_testing_campaigns['active']
   let test_split = parseInt(active_test['active_split']) / 100
@@ -157,7 +166,8 @@ function setABCookies(d) {
     setCookie(google_tag, 'false')
     gtag_payload[google_tag] = active_test['inactive_name']
   }
-  gtag('set', 'user_properties', gtag_payload);
+
+  send_gtag_properties(gtag_payload)
 }
 
 function setCookieIfFirstTime() {
@@ -169,13 +179,7 @@ function setCookieIfFirstTime() {
     setCookie('cookie_hasnt_been_set', 'true')
   }
 
-  gtag('set', 'user_properties', {
-    SC_09_24_UPSELL_STATUS: "user_properties_tracked"
-  });
-
-  gtag('set', 'user_properties', {
-    CUSTOM_DIMENSION_TRACKED: "user_properties_tracked"
-  });
+  send_gtag_properties({CUSTOM_DIMENSION_TRACKED: "user_properties_tracked"})
 }
 
 
