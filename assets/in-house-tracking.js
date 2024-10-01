@@ -121,8 +121,7 @@ function setTestOrders(d) {
   var mc = getCookie('redirect_ut')
   var mm = getCookie('redirect_skimm')
   var ss = getCookie('redirect_sweatcoin')
-  console.log(mc)
-  console.log(tracking_1)
+
   if (mc == 'true') {
     if (d > tracking_1) {
       setCookie('test_order', 'true')
@@ -144,8 +143,13 @@ function setABCookies(d) {
   let active_test = A_B_testing_campaigns['active']
   let test_split = parseInt(active_test['active_split']) / 100
   console.log("experiment should be aplied to " + test_split + " of users")
-  console.log("rand var produced is " + d)
-
+  console.log("rand produced is " + d)
+  
+  if (active_split >= d) {
+    console.log("apply test")
+  } else {
+    console.log("dont apply test")
+  }
 }
 
 function setCookieIfFirstTime() {

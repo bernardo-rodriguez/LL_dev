@@ -428,6 +428,7 @@
 {% javascript %}
   document.getElementById('main-clickable-button').addEventListener('click', upsellLogic);
 
+  // TODO: remove?
   async function setCartAttributes(upsell) {
     let cart = await fetch('/cart/update.js', {
       method: 'POST',
