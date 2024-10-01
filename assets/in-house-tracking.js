@@ -201,31 +201,31 @@ function landingPageAction(current_page, query_params) {
       setCookie('in_house_already_redirected', 'true')
       if (query_params.utm_affiliate_specific == 'sweatcoin') {
         LandingPopulateSweatcoin()
-        setCookieAffiliate('redirect_sweatcoin', 'Sweatcoin')
+        setCookieAffiliate(supported_affiliates[utm_affiliate])
       }
       else if (query_params.utm_affiliate_specific == 'skimm') {
-        setCookieAffiliate('redirect_skimm', 'Skimm')
+        setCookieAffiliate(supported_affiliates[utm_affiliate])
         setDefaultStrength(query_params)
       } else if (query_params.utm_affiliate_specific == 'cactus_media') {
         LandingPopulateCactus()
-        setCookieAffiliate('redirect_ut', 'Cactus Media')
+        setCookieAffiliate(supported_affiliates[utm_affiliate])
         redirectToLandingIfFirstTime('redirect_ut', true)
       } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
-        setCookieAffiliate('redirect_pinterest', 'Pinterest')
+        setCookieAffiliate(supported_affiliates[utm_affiliate])
       }
   } else if (current_page == '/pages/clear-affiliate-cookies' || current_page == '/pages/clear-affiliate-cookies/' || current_page.includes('clear-affiliate-cookies')) {
     clearAllAffiliateCookies()
   } else {
       setCookie('in_house_already_redirected', 'true')
       if (query_params.utm_affiliate_specific == 'sweatcoin') {
-        setCookieAffiliate('redirect_sweatcoin', 'Sweatcoin')
+        setCookieAffiliate(supported_affiliates[utm_affiliate])
       } else if (query_params.utm_affiliate_specific == 'skimm') {
-        setCookieAffiliate('redirect_skimm', 'Skimm')
+        setCookieAffiliate(supported_affiliates[utm_affiliate])
         setDefaultStrength(query_params)
       } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
-        setCookieAffiliate('redirect_pinterest', 'Pinterest')
+        setCookieAffiliate(supported_affiliates[utm_affiliate])
       } else if (query_params.utm_affiliate_specific == 'cactus_media') {
-        setCookieAffiliate('redirect_ut', 'Cactus Media')
+        setCookieAffiliate(supported_affiliates[utm_affiliate])
       }
   }
   setCookieIfFirstTime()
