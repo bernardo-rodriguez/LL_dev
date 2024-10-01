@@ -125,29 +125,6 @@ function setCookieIfFirstTime() {
 }
 
 
-function redirectToLandingIfFirstTime(cookie, from_landing=false) {
-  // If I haven't redirected, redirect to random page and set landing page cookie.
-  // Mark redirect in cookies so we don't redirect again if a user somehow goes back with the same utm params.
-  // if (getCookie("in_house_already_redirected") != 'true') {
-  //   setCookie('in_house_already_redirected', 'true')
-              
-  var d = Math.random();
-  tracking_1 = parseInt(document.getElementById('tracking_v1').innerHTML) / 100
-  if (d <= tracking_1) {
-    console.log('flow 1')
-    setCookie('flow_ga_tracking_v1', 'true')
-  } else {
-    console.log('flow 2')
-    setCookie('flow__ga_tracking_v2', 'true')
-  }
-
-  if (getCookie("in_house_already_redirected") != 'true' && from_landing != true) {
-    setCookie('in_house_already_redirected', 'true')
-
-  }
-}
-
-
 function setCookieAffiliate(cookie) {
   console.log("swetcookieaffiliate")
   setCookie(cookie, 'true')
@@ -185,49 +162,29 @@ function landingPageAction(current_page, query_params) {
   console.log("tracker:")
   console.log(current_page)
   let utm_affiliate = query_params.utm_affiliate_specific
-  setDefaultStrength(query_params)
   if (current_page == '/') {
     // If i'm at site roots url, set affiliate cookies based on affiliate query params and redirect to landing page coookies
     // https://stackoverflow.com/questions/8100515/how-to-check-if-the-user-is-visiting-the-sites-root-url
     if (utm_affiliate in supported_affiliates) {
         setCookieAffiliate(supported_affiliates[utm_affiliate])
-        redirectToLandingIfFirstTime(supported_affiliates[utm_affiliate])
-    } else {
-        setCookie('in_house_already_redirected', 'true')
-        redirectToLandingIfFirstTime('none')
     }
   } else if (current_page == '/pages/landing-page' || current_page == '/pages/landing-page/' || current_page.includes('landing-page')) {
-      console.log("tracker_landing_page")
-      setCookie('in_house_already_redirected', 'true')
-      if (query_params.utm_affiliate_specific == 'sweatcoin') {
-        LandingPopulateSweatcoin()
-        setCookieAffiliate(supported_affiliates[utm_affiliate])
+      if (utm_affiliate in supported_affiliates) {
+          setCookieAffiliate(supported_affiliates[utm_affiliate])
       }
-      else if (query_params.utm_affiliate_specific == 'skimm') {
-        setCookieAffiliate(supported_affiliates[utm_affiliate])
-        setDefaultStrength(query_params)
-      } else if (query_params.utm_affiliate_specific == 'cactus_media') {
+      if (utm_affiliate == 'sweatcoin') {
+        LandingPopulateSweatcoin()
+      } else if (utm_affiliate == 'cactus_media') {
         LandingPopulateCactus()
-        setCookieAffiliate(supported_affiliates[utm_affiliate])
-        redirectToLandingIfFirstTime('redirect_ut', true)
-      } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
-        setCookieAffiliate(supported_affiliates[utm_affiliate])
       }
   } else if (current_page == '/pages/clear-affiliate-cookies' || current_page == '/pages/clear-affiliate-cookies/' || current_page.includes('clear-affiliate-cookies')) {
     clearAllAffiliateCookies()
   } else {
-      setCookie('in_house_already_redirected', 'true')
-      if (query_params.utm_affiliate_specific == 'sweatcoin') {
-        setCookieAffiliate(supported_affiliates[utm_affiliate])
-      } else if (query_params.utm_affiliate_specific == 'skimm') {
-        setCookieAffiliate(supported_affiliates[utm_affiliate])
-        setDefaultStrength(query_params)
-      } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
-        setCookieAffiliate(supported_affiliates[utm_affiliate])
-      } else if (query_params.utm_affiliate_specific == 'cactus_media') {
-        setCookieAffiliate(supported_affiliates[utm_affiliate])
-      }
+    if (utm_affiliate in supported_affiliates) {
+      setCookieAffiliate(supported_affiliates[utm_affiliate])
+    }
   }
+  setDefaultStrength(query_params)
   setCookieIfFirstTime()
 }
 
