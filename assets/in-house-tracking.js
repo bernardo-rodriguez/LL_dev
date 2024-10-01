@@ -142,7 +142,7 @@ function setTestOrders(d) {
 
 function setABCookies(d) {
   let active_test = A_B_testing_campaigns['active']
-  let test_split = parseInt(active_test) / 100
+  let test_split = parseInt(active_test['active_split']) / 100
   console.log("experiment should be aplied to " + test_split + " of users")
   console.log("rand var produced is " + d)
 
