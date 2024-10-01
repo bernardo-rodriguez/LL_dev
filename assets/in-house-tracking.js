@@ -113,15 +113,16 @@ function setCookieIfFirstTime() {
         }
       }
       setCookie('cookie_hasnt_been_set', 'true')
-
-      gtag('set', 'user_properties', {
-        SC_09_24_UPSELL_STATUS: "user_properties_tracked"
-      });
-
-      gtag('set', 'user_properties', {
-        CUSTOM_DIMENSION_TRACKED: "user_properties_tracked"
-      });
   }
+
+  gtag('set', 'user_properties', {
+    SC_09_24_UPSELL_STATUS: "user_properties_tracked"
+  });
+
+  gtag('set', 'user_properties', {
+    CUSTOM_DIMENSION_TRACKED: "user_properties_tracked"
+  });
+
 }
 
 
