@@ -139,6 +139,7 @@ function setTestOrders(d) {
   }
 }
 
+
 function setABCookies(d) {
   let active_test = A_B_testing_campaigns['active']
   let test_split = parseInt(active_test) / 100
