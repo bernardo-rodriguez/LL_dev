@@ -1,7 +1,40 @@
 affiliate_cookie_options = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_pinterest']
 affiliate_cookie_options_2 = ['redirect__inspire', 'redirect__ut', 'redirect__ut__direct', 'redirect__paceline', 'redirect__sweatcoin', 'redirect__miles', 'redirect__studentbeans', 'redirect__skimm', 'redirect__pinterest', 'shareasaleShopifySSCID']
 
-function vwo_upsell_test() {
+supported_affiliates = {
+  'sweatcoin': 'redirect_sweatcoin',
+  'product-direct': 'redirect_ut_direct',
+  'paceline': 'redirect_paceline',
+  'miles': 'redirect_miles',
+  'utm_partner': 'utm_partner',
+  'utm_gen_direct': 'utm_gen_direct',
+  'cactus_media': 'redirect_ut',
+  'redirect_inspire': 'redirect_inspire',
+  'redirect_pinterest': 'redirect_pinterest',
+  'skimm': 'redirect_skimm',
+}
+
+A_B_testing_campaigns = {
+  active: {
+    google_tag: "SC_09_24_UPSELL_STATUS",
+    active_name: 'active',
+    inactive_name: 'inactive',
+    affiliate_tested: 'sweatcoin',
+    active_split: '50',
+    page_and_functions: [
+      {
+        page: 'at-home-whitening-kit-affiliate-ft',
+        function: 'sweatcoin_09_24_upselling_test'
+      }
+    ]
+  },
+  cactus_media_2024_08: {
+
+  }
+}
+
+
+function sweatcoin_09_24_upselling_test() {
   setCookie('show_upsell', 'false')
   $('.dpk_body').hide()
 
@@ -10,11 +43,6 @@ function vwo_upsell_test() {
   });
 }
 
-function vwo_upsell_test_control() {
-  gtag('set', 'user_properties', {
-    SC_09_24_UPSELL_STATUS: "active"
-  });
-}
 
 function LandingPopulateCactus() {
   // Populate landing page text for cactus media
@@ -85,34 +113,47 @@ function clearAllAffiliateCookies(){
   removeCookie('upsell_test')
 }
 
+function setTestOrders(d) {
+  tracking_1 = parseInt(document.getElementById('tracking_v1').innerHTML) / 100
+  tracking_2 = parseInt(document.getElementById('tracking_v2').innerHTML) / 100
+  tracking_3 = parseInt(document.getElementById('tracking_v3').innerHTML) / 100
+  
+  var mc = getCookie('redirect_ut')
+  var mm = getCookie('redirect_skimm')
+  var ss = getCookie('redirect_sweatcoin')
+  console.log(mc)
+  console.log(tracking_1)
+  if (mc == 'true') {
+    if (d > tracking_1) {
+      setCookie('test_order', 'true')
+    }
+  } else if (ss == 'true') {
+    if (d > tracking_3) {
+      setCookie('test_order', 'true')
+    }
+  } 
+  else if (mm == 'true') {
+    if (d > tracking_2) {
+      //setCookie('test_order', 'true')
+    }
+  }
+}
+
+function setABCookies(d) {
+  let active_test = A_B_testing_campaigns['active']
+  let test_split = parseInt(active_test) / 100
+  print("experiment should be aplied to " + test_split + " of users")
+  print("rand var produced is " + d)
+
+}
+
 function setCookieIfFirstTime() {
   if (getCookie("cookie_hasnt_been_set") != 'true') {
-      tracking_1 = parseInt(document.getElementById('tracking_v1').innerHTML) / 100
-      tracking_2 = parseInt(document.getElementById('tracking_v2').innerHTML) / 100
-      tracking_3 = parseInt(document.getElementById('tracking_v3').innerHTML) / 100
-      
-      var d = Math.random();
-      console.log(d)
-      var mc = getCookie('redirect_ut')
-      var mm = getCookie('redirect_skimm')
-      var ss = getCookie('redirect_sweatcoin')
-      console.log(mc)
-      console.log(tracking_1)
-      if (mc == 'true') {
-        if (d > tracking_1) {
-          setCookie('test_order', 'true')
-        }
-      } else if (ss == 'true') {
-        if (d > tracking_3) {
-          setCookie('test_order', 'true')
-        }
-      } 
-      else if (mm == 'true') {
-        if (d > tracking_2) {
-          //setCookie('test_order', 'true')
-        }
-      }
-      setCookie('cookie_hasnt_been_set', 'true')
+    var d = Math.random();
+
+    setTestOrders(d)
+    setABCookies(d)
+    setCookie('cookie_hasnt_been_set', 'true')
   }
 
   gtag('set', 'user_properties', {
@@ -122,7 +163,6 @@ function setCookieIfFirstTime() {
   gtag('set', 'user_properties', {
     CUSTOM_DIMENSION_TRACKED: "user_properties_tracked"
   });
-
 }
 
 
@@ -140,21 +180,6 @@ function setCookieAffiliate(cookie) {
     }
   }
 }
-
-
-supported_affiliates = {
-  'sweatcoin': 'redirect_sweatcoin',
-  'product-direct': 'redirect_ut_direct',
-  'paceline': 'redirect_paceline',
-  'miles': 'redirect_miles',
-  'utm_partner': 'utm_partner',
-  'utm_gen_direct': 'utm_gen_direct',
-  'cactus_media': 'redirect_ut',
-  'redirect_inspire': 'redirect_inspire',
-  'redirect_pinterest': 'redirect_pinterest',
-  'skimm': 'redirect_skimm',
-}
-
 
 function landingPageAction(current_page, query_params) {
   // This gets callled on every page visited (script type defer)
