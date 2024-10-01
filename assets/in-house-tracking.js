@@ -145,7 +145,7 @@ function setABCookies(d) {
   console.log("experiment should be aplied to " + test_split + " of users")
   console.log("rand produced is " + d)
   
-  if (active_split >= d) {
+  if (test_split >= d) {
     console.log("apply test")
   } else {
     console.log("dont apply test")
