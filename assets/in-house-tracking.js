@@ -125,26 +125,6 @@ function setCookieIfFirstTime() {
 }
 
 
-function redirectToLandingIfFirstTime2(cookie, p) {
-  var d = Math.random();
-
-  console.log('rand' + d)
-  console.log('set' + p)
-  if (d <= p) {
-    console.log('flow 1')
-    setCookie('flow_ga_tracking_v1', 'true')
-  } else {
-    console.log('flow 2')
-    setCookie('flow__ga_tracking_v2', 'true')
-  }
-
-  setCookie('cookie_tracked', 'true')
-  if (getCookie("in_house_already_redirected") != 'true') {
-    setCookie('in_house_already_redirected', 'true')
-  }
-}
-
-
 function redirectToLandingIfFirstTime(cookie, from_landing=false) {
   // If I haven't redirected, redirect to random page and set landing page cookie.
   // Mark redirect in cookies so we don't redirect again if a user somehow goes back with the same utm params.
@@ -161,7 +141,6 @@ function redirectToLandingIfFirstTime(cookie, from_landing=false) {
     setCookie('flow__ga_tracking_v2', 'true')
   }
 
-  setCookie('cookie_tracked', 'true')
   if (getCookie("in_house_already_redirected") != 'true' && from_landing != true) {
     setCookie('in_house_already_redirected', 'true')
 
@@ -169,7 +148,7 @@ function redirectToLandingIfFirstTime(cookie, from_landing=false) {
 }
 
 
-function setCookieAffiliate(cookie, affiliate) {
+function setCookieAffiliate(cookie) {
   console.log("swetcookieaffiliate")
   setCookie(cookie, 'true')
 
@@ -185,73 +164,47 @@ function setCookieAffiliate(cookie, affiliate) {
 }
 
 
+supported_affiliates = {
+  'sweatcoin': 'redirect_sweatcoin',
+  'product-direct': 'redirect_ut_direct',
+  'paceline': 'redirect_paceline',
+  'miles': 'redirect_miles',
+  'utm_partner': 'utm_partner',
+  'utm_gen_direct': 'utm_gen_direct',
+  'cactus_media': 'redirect_ut',
+  'redirect_inspire': 'redirect_inspire',
+  'redirect_pinterest': 'redirect_pinterest',
+  'skimm': 'redirect_skimm',
+}
+
+
 function landingPageAction(current_page, query_params) {
   // This gets callled on every page visited (script type defer)
   // curent_page: page without query parameters (',', 'pages/landing-page')
   // query_params: dictionary of all query parameters (null if not found)
   console.log("tracker:")
   console.log(current_page)
+  let utm_affiliate = query_params.utm_affiliate_specific
+  setDefaultStrength(query_params)
   if (current_page == '/') {
-    switch(query_params.utm_affiliate_specific) {
-      case 'sweatcoin':
-        setCookieAffiliate('redirect_sweatcoin', 'Sweatcoin')
-        redirectToLandingIfFirstTime('redirect_sweatcoin')
-        break;
-      case 'product-direct':
-        setCookieAffiliate('redirect_ut_direct', 'Direct To Product (misc)')
-        redirectToLandingIfFirstTime('redirect_ut_direct')
-        break;
-      case 'paceline':
-        setCookieAffiliate('redirect_paceline', 'Paceline')
-        redirectToLandingIfFirstTime('redirect_paceline')
-        break;
-      case 'miles':
-        setCookieAffiliate('redirect_miles', 'Miles')
-        redirectToLandingIfFirstTime('redirect_miles')
-        break;
-      case 'utm_partner':
-        setCookieAffiliate('utm_partner', 'UTM Partner')
-        redirectToLandingIfFirstTime('utm_partner')
-        break;
-      case 'utm_gen_direct':
-        setCookieAffiliate('utm_gen_direct', 'UTM Gen Direct')
-        redirectToLandingIfFirstTime('utm_gen_direct')
-        break;
-      case 'cactus_media':
-        setCookieAffiliate('redirect_ut', 'Cactus Media')
-        redirectToLandingIfFirstTime('redirect_ut')
-        break;
-      case 'redirect_inspire':
-        setCookieAffiliate('redirect_inspire', 'Inspire More')
-        redirectToLandingIfFirstTime('redirect_inspire')
-        break;
-      case 'redirect_pinterest':
-        setCookieAffiliate('redirect_pinterest', 'Pinterest')
-        redirectToLandingIfFirstTime2('redirect_pinterest', .5)
-        break;
-      case 'skimm':
-        setCookieAffiliate('redirect_skimm', 'Skimm')
-        redirectToLandingIfFirstTime2('redirect_skimm', .25)
-        setDefaultStrength(query_params)
-        break;
-      default:
+    // If i'm at site roots url, set affiliate cookies based on affiliate query params and redirect to landing page coookies
+    // https://stackoverflow.com/questions/8100515/how-to-check-if-the-user-is-visiting-the-sites-root-url
+    if (utm_affiliate in supported_affiliates) {
+        setCookieAffiliate(supported_affiliates[utm_affiliate])
+        redirectToLandingIfFirstTime(supported_affiliates[utm_affiliate])
+    } else {
         setCookie('in_house_already_redirected', 'true')
         redirectToLandingIfFirstTime('none')
-        break;
-    } 
-  } else if (current_page == '/pages/clear-affiliate-cookies') {
-      clearAllAffiliateCookies()
+    }
   } else if (current_page == '/pages/landing-page' || current_page == '/pages/landing-page/' || current_page.includes('landing-page')) {
       console.log("tracker_landing_page")
       setCookie('in_house_already_redirected', 'true')
       if (query_params.utm_affiliate_specific == 'sweatcoin') {
         LandingPopulateSweatcoin()
         setCookieAffiliate('redirect_sweatcoin', 'Sweatcoin')
-        setCookie('cookie_tracked', 'true')
       }
       else if (query_params.utm_affiliate_specific == 'skimm') {
         setCookieAffiliate('redirect_skimm', 'Skimm')
-        setCookie('cookie_tracked', 'true')
         setDefaultStrength(query_params)
       } else if (query_params.utm_affiliate_specific == 'cactus_media') {
         LandingPopulateCactus()
@@ -259,20 +212,18 @@ function landingPageAction(current_page, query_params) {
         redirectToLandingIfFirstTime('redirect_ut', true)
       } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
         setCookieAffiliate('redirect_pinterest', 'Pinterest')
-        setCookie('cookie_tracked', 'true')
       }
+  } else if (current_page == '/pages/clear-affiliate-cookies' || current_page == '/pages/clear-affiliate-cookies/' || current_page.includes('clear-affiliate-cookies')) {
+    clearAllAffiliateCookies()
   } else {
       setCookie('in_house_already_redirected', 'true')
       if (query_params.utm_affiliate_specific == 'sweatcoin') {
         setCookieAffiliate('redirect_sweatcoin', 'Sweatcoin')
-        setCookie('cookie_tracked', 'true')
       } else if (query_params.utm_affiliate_specific == 'skimm') {
         setCookieAffiliate('redirect_skimm', 'Skimm')
-        setCookie('cookie_tracked', 'true')
         setDefaultStrength(query_params)
       } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
         setCookieAffiliate('redirect_pinterest', 'Pinterest')
-        setCookie('cookie_tracked', 'true')
       } else if (query_params.utm_affiliate_specific == 'cactus_media') {
         setCookieAffiliate('redirect_ut', 'Cactus Media')
       }
