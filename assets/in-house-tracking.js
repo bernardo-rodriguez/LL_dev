@@ -20,7 +20,7 @@ A_B_testing_campaigns = {
     active_name: 'active',
     inactive_name: 'inactive',
     affiliate_tested: supported_affiliates['sweatcoin'],
-    active_split: '80',
+    active_split: '90',
     page_and_functions: [
       {
         page: 'at-home-whitening-kit-affiliate-ft',
@@ -73,17 +73,6 @@ function run_active_campaign() {
         window[campaign_func['function']](); 
       }
     });
-    
-
-
-    // for (const campaign_func in campaign_functions) {
-    //   console.log(campaign_func)
-    //   console.log(window.location.href)
-    //   if (window.location.href.indexOf(campaign_func['page']) > -1) {
-    //     console.log(campaign_func['function'])
-    //     window[campaign_func['function']](); 
-    //   }
-    // }
   } catch (e) {
     console.log('error caught')
     console.log(e)
