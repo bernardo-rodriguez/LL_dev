@@ -65,6 +65,8 @@ function run_active_campaign() {
 
     console.log('hello')
     for (const campaign_func in campaign_functions) {
+      console.log(campaign_func)
+      console.log(window.location.href)
       if (window.location.href.indexOf(campaign_func['page']) > -1) {
         console.log(campaign_func['function'])
         window[campaign_func['function']](); 
