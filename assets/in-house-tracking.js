@@ -38,6 +38,7 @@ function gtagLoaded(gtag_payload) {
 }
 
 function send_gtag_properties(gtag_payload) {
+  console.log('setting gtag properties ' + JSON.stringify(gtag_payload))
   if (typeof gtag === 'function') {
     gtagLoaded(gtag_payload); // gtag is already loaded
   } else {
