@@ -20,7 +20,7 @@ A_B_testing_campaigns = {
     active_name: 'active',
     inactive_name: 'inactive',
     affiliate_tested: supported_affiliates['sweatcoin'],
-    active_split: '90',
+    active_split: '100',
     page_and_functions: [
       {
         page: 'at-home-whitening-kit-affiliate-ft',
