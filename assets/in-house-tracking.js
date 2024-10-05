@@ -137,41 +137,62 @@ function setTestOrders(d) {
     if (d > tracking_1) {
       setCookie('test_order', 'true')
     }
+  } else if (mm == 'true') {
+    if (d > tracking_2) {
+      setCookie('test_order', 'true')
+    }
   } else if (ss == 'true') {
     if (d > tracking_3) {
       setCookie('test_order', 'true')
     }
   } 
-  else if (mm == 'true') {
-    if (d > tracking_2) {
-      //setCookie('test_order', 'true')
-    }
-  }
+}
+
+function ifTestApplies() {
+  let active_test = A_B_testing_campaigns['active']
+  let affiliate_tested = active_test['affiliate_tested']
+  const affiliates_tested_list = affiliate_tested.split(","); // Split by comma
+
+  let isCookieSet = affiliates_tested_list.some( cookieName => getCookie(cookieName) != null ) // are any of them set?
+
+  if (affiliate_tested == 'all' || isCookieSet) { // TODO: verify isCookieSet set is working
+    return true
+  } 
+  return false
 }
 
 function setABCookies(d) {
+  // ran on page visit if it hasnt been ran before
   let active_test = A_B_testing_campaigns['active']
   let test_split = parseInt(active_test['active_split']) / 100
   console.log("experiment should be aplied to " + test_split + " of users")
   console.log("rand produced is " + d)
   let google_tag = active_test['google_tag']
   let gtag_payload = {}
-  
-  if (test_split >= d) {
-    console.log("apply test")
-    setCookie(google_tag, 'true')
-    gtag_payload[google_tag] = active_test['active_name']
-  } else {
-    console.log("dont apply test")
-    setCookie(google_tag, 'false')
-    gtag_payload[google_tag] = active_test['inactive_name']
-  }
 
-  send_gtag_properties(gtag_payload)
+  gtag_payload['SET_ONETIME_TRACKED'] = 'user_properties_tracked' // cookie and gtag initial setter ran
+
+  if (ifTestApplies()) {
+    gtag['AB_TEST_APPLIES'] = 'user_properties_tracked' // if affiliate to which ab test applies is currently active
+    if (test_split >= d) {
+      console.log("apply test")
+      setCookie(google_tag, 'true')
+      gtag_payload[google_tag] = active_test['active_name']
+    } else {
+      console.log("dont apply test")
+      setCookie(google_tag, 'false')
+      gtag_payload[google_tag] = active_test['inactive_name']
+    }
+    send_gtag_properties(gtag_payload)
+  } else {
+    console.log("excluded from active test")
+  }
 }
 
 function setCookieIfFirstTime() {
+  // ran on every page visited
   if (getCookie("cookie_hasnt_been_set") != 'true') {
+      // set test order and ab cookies if this hasnt ran before
     var d = Math.random();
 
     setTestOrders(d)
@@ -179,6 +200,8 @@ function setCookieIfFirstTime() {
     setCookie('cookie_hasnt_been_set', 'true')
   }
 
+  // send gtag properties every time
+  let active_test = A_B_testing_campaigns['active']
   send_gtag_properties({CUSTOM_DIMENSION_TRACKED: "user_properties_tracked"})
 }
 
