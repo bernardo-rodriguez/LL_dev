@@ -64,14 +64,26 @@ function run_active_campaign() {
     let campaign_functions = A_B_testing_campaigns['active']['page_and_functions']
 
     console.log(campaign_functions)
-    for (const campaign_func in campaign_functions) {
+
+    campaign_functions.forEach((campaign_func) => {
       console.log(campaign_func)
       console.log(window.location.href)
       if (window.location.href.indexOf(campaign_func['page']) > -1) {
         console.log(campaign_func['function'])
         window[campaign_func['function']](); 
       }
-    }
+    });
+    
+
+
+    // for (const campaign_func in campaign_functions) {
+    //   console.log(campaign_func)
+    //   console.log(window.location.href)
+    //   if (window.location.href.indexOf(campaign_func['page']) > -1) {
+    //     console.log(campaign_func['function'])
+    //     window[campaign_func['function']](); 
+    //   }
+    // }
   } catch (e) {
     console.log('error caught')
     console.log(e)
