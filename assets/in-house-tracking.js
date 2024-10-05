@@ -20,7 +20,7 @@ A_B_testing_campaigns = {
     active_name: 'active',
     inactive_name: 'inactive',
     affiliate_tested: supported_affiliates['sweatcoin'],
-    active_split: '100',
+    active_split: '50',
     page_and_functions: [
       {
         page: 'at-home-whitening-kit-affiliate-ft',
@@ -63,13 +63,8 @@ function run_active_campaign() {
   try {
     let campaign_functions = A_B_testing_campaigns['active']['page_and_functions']
 
-    console.log(campaign_functions)
-
     campaign_functions.forEach((campaign_func) => {
-      console.log(campaign_func)
-      console.log(window.location.href)
       if (window.location.href.indexOf(campaign_func['page']) > -1) {
-        console.log(campaign_func['function'])
         window[campaign_func['function']](); 
       }
     });
@@ -255,8 +250,6 @@ function landingPageAction(current_page, query_params) {
   // This gets callled on every page visited (script type defer)
   // curent_page: page without query parameters (',', 'pages/landing-page')
   // query_params: dictionary of all query parameters (null if not found)
-  console.log("tracker:")
-  console.log(current_page)
   let utm_affiliate = query_params.utm_affiliate_specific
   if (current_page == '/') {
     // If i'm at site roots url, set affiliate cookies based on affiliate query params and redirect to landing page coookies
