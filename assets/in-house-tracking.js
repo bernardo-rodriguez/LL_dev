@@ -63,7 +63,7 @@ function run_active_campaign() {
   try {
     let campaign_functions = A_B_testing_campaigns['active']['page_and_functions']
 
-    console.log('hello')
+    console.log(campaign_functions)
     for (const campaign_func in campaign_functions) {
       console.log(campaign_func)
       console.log(window.location.href)
