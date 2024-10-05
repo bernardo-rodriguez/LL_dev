@@ -52,15 +52,36 @@ function send_gtag_properties(gtag_payload) {
   }
 }
 
-// function sweatcoin_09_24_upselling_test() {
-//   setCookie('show_upsell', 'false')
-//   $('.dpk_body').hide()
+function sweatcoin_09_24_upselling_test() {
+  console.log('running sweatcoin_09_24_upselling_test')
+  setCookie('show_upsell', 'false')
+  $('.dpk_body').hide()
+}
 
-//   gtag('set', 'user_properties', {
-//     SC_09_24_UPSELL_STATUS: "inactive"
-//   });
-// }
+function run_active_campaign() {
+  // run function if we are on their executable page from page_and_functions in active campaigns dict
+  try {
+    let campaign_functions = A_B_testing_campaigns['active']['page_and_functions']
 
+    for (const campaign_func in campaign_functions) {
+      if (window.location.href.indexOf(campaign_func['page']) > -1) {
+        window[campaign_func['function']](); 
+      }
+    }
+  } catch (e) {
+    console.log('error caught')
+    console.log(e)
+  }
+}
+
+function should_run_active_campaign() {
+  // if cookie that is the google tag name is currently set, that means we should run the active campaign
+  let campaign_google_tag = A_B_testing_campaigns['active']['google_tag']
+  if (getCookie(campaign_google_tag) == 'true') {
+    return true
+  }
+  return false
+}
 
 function LandingPopulateCactus() {
   // Populate landing page text for cactus media
@@ -183,6 +204,7 @@ function setABCookies(d) {
       console.log("apply test")
       setCookie(google_tag, 'true')
       gtag_payload[google_tag] = active_test['active_name']
+      run_active_campaign()
     } else {
       console.log("dont apply test")
       setCookie(google_tag, 'false')
@@ -191,7 +213,7 @@ function setABCookies(d) {
   } else {
     console.log("excluded from active test")
   }
-  
+
   send_gtag_properties(gtag_payload)
 }
 
@@ -255,6 +277,10 @@ function landingPageAction(current_page, query_params) {
   }
   setDefaultStrength(query_params)
   setCookieIfFirstTime()
+
+  if (should_run_active_campaign()) {
+    run_active_campaign()
+  }
 }
 
 function setDefaultStrength(query_params) {
