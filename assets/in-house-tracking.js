@@ -63,8 +63,10 @@ function run_active_campaign() {
   try {
     let campaign_functions = A_B_testing_campaigns['active']['page_and_functions']
 
+    console.log('hello')
     for (const campaign_func in campaign_functions) {
       if (window.location.href.indexOf(campaign_func['page']) > -1) {
+        console.log(campaign_func['function'])
         window[campaign_func['function']](); 
       }
     }
@@ -279,6 +281,7 @@ function landingPageAction(current_page, query_params) {
   setCookieIfFirstTime()
 
   if (should_run_active_campaign()) {
+    console.log('campaign should run')
     run_active_campaign()
   }
 }
