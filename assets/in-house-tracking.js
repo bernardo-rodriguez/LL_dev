@@ -188,10 +188,11 @@ function setABCookies(d) {
       setCookie(google_tag, 'false')
       gtag_payload[google_tag] = active_test['inactive_name']
     }
-    send_gtag_properties(gtag_payload)
   } else {
     console.log("excluded from active test")
   }
+  
+  send_gtag_properties(gtag_payload)
 }
 
 function setCookieIfFirstTime() {
