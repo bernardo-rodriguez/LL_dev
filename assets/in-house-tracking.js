@@ -19,7 +19,7 @@ A_B_testing_campaigns = {
     google_tag: "SC_09_24_UPSELL_STATUS",
     active_name: 'active',
     inactive_name: 'inactive',
-    affiliate_tested: 'sweatcoin',
+    affiliate_tested: supported_affiliates['sweatcoin'],
     active_split: '50',
     page_and_functions: [
       {
@@ -154,8 +154,11 @@ function ifTestApplies() {
   let affiliate_tested = active_test['affiliate_tested']
   const affiliates_tested_list = affiliate_tested.split(","); // Split by comma
 
+  console.log(affiliates_tested_list)
+
   let isCookieSet = affiliates_tested_list.some( cookieName => getCookie(cookieName) != null ) // are any of them set?
 
+  console.log(isCookieSet)
   if (affiliate_tested == 'all' || isCookieSet) { // TODO: verify isCookieSet set is working
     return true
   } 
@@ -174,6 +177,7 @@ function setABCookies(d) {
   gtag_payload['SET_ONETIME_TRACKED'] = 'user_properties_tracked' // cookie and gtag initial setter ran
 
   if (ifTestApplies()) {
+    console.log('test applies')
     gtag['AB_TEST_APPLIES'] = 'user_properties_tracked' // if affiliate to which ab test applies is currently active
     if (test_split >= d) {
       console.log("apply test")
