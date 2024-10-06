@@ -199,7 +199,7 @@ function setABCookies(d) {
 
   if (ifTestApplies()) {
     console.log('test applies')
-    gtag['AB_TEST_APPLIES'] = 'user_properties_tracked' // if affiliate to which ab test applies is currently active
+    gtag_payload['AB_TEST_APPLIES'] = 'user_properties_tracked' // if affiliate to which ab test applies is currently active
     if (test_split >= d) {
       console.log("apply test")
       setCookie(google_tag, 'true')
@@ -217,20 +217,27 @@ function setABCookies(d) {
   send_gtag_properties(gtag_payload)
 }
 
-function setCookieIfFirstTime() {
+function setCookieIfFirstTime(utm_affiliate) {
+  let gtag_properties = {}
   // ran on every page visited
   if (getCookie("cookie_hasnt_been_set") != 'true') {
       // set test order and ab cookies if this hasnt ran before
     var d = Math.random();
 
+    if (utm_affiliate in supported_affiliates) {
+      gtag_payload['AFFILIATE_REFERRER'] = utm_affiliate
+    } else {
+      gtag_payload['AFFILIATE_REFERRER'] = 'NONE'
+    }
+    
     setTestOrders(d)
     setABCookies(d)
     setCookie('cookie_hasnt_been_set', 'true')
   }
 
   // send gtag properties every time
-  let active_test = A_B_testing_campaigns['active']
-  send_gtag_properties({CUSTOM_DIMENSION_TRACKED: "user_properties_tracked"})
+  gtag_properties['CUSTOM_DIMENSION_TRACKED'] = 'user_properties_tracked'
+  send_gtag_properties(gtag_properties)
 }
 
 
@@ -274,7 +281,7 @@ function landingPageAction(current_page, query_params) {
     }
   }
   setDefaultStrength(query_params)
-  setCookieIfFirstTime()
+  setCookieIfFirstTime(utm_affiliate)
 
   if (should_run_active_campaign()) {
     console.log('campaign should run')
