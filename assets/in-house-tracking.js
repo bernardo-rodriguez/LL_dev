@@ -218,7 +218,7 @@ function setABCookies(d) {
 }
 
 function setCookieIfFirstTime(utm_affiliate) {
-  let gtag_properties = {}
+  let gtag_payload = {}
   // ran on every page visited
   if (getCookie("cookie_hasnt_been_set") != 'true') {
       // set test order and ab cookies if this hasnt ran before
@@ -229,15 +229,15 @@ function setCookieIfFirstTime(utm_affiliate) {
     } else {
       gtag_payload['AFFILIATE_REFERRER'] = 'NONE'
     }
-    
+
     setTestOrders(d)
     setABCookies(d)
     setCookie('cookie_hasnt_been_set', 'true')
   }
 
   // send gtag properties every time
-  gtag_properties['CUSTOM_DIMENSION_TRACKED'] = 'user_properties_tracked'
-  send_gtag_properties(gtag_properties)
+  gtag_payload['CUSTOM_DIMENSION_TRACKED'] = 'user_properties_tracked'
+  send_gtag_properties(gtag_payload)
 }
 
 
