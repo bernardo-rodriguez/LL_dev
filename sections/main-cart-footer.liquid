@@ -139,8 +139,9 @@
       } else if (sweatcoin_automatic == 'true') {
         url_params = url_params.concat(['discount=Pen-Addon']);
       } else if (redirect_ut_direct == 'true') {
-        url_params = url_params.concat(['discount=Pen-Addon']);
+        // url_params = url_params.concat(['discount=SUB-N-SAVE']);
       } else if (redirect_ut == 'true') {
+        url_params = url_params.concat(['discount=Pen-Addon']);
         {% comment %} url_params = url_params.concat(['discount=ADD_PEN']); {% endcomment %}
       } else if (redirect_miles == 'true') {
         url_params = url_params.concat(['discount=MILES_AUTOMATIC']);
