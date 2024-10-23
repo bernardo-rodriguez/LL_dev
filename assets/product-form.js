@@ -346,7 +346,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     if (pen != 'false' && pen != null) {
       itemsList.push({
         id: pen,
-        quantity: quantity_setter
+        quantity: 1
       })
     }
 
