@@ -323,7 +323,7 @@ xhttp.send();
               <p style = 'display: inline-block; vertical-align: middle' class="landing-page-main body-xs satisfaction_guarantee">{{ section.settings.satisfaction }}</p>
             </div>
 
-              {% if product.id == 8252255568097 %}
+              {% comment %} {% if product.id == 8252255568097 %}
                 <div>
                   <img
                     src="{{ 'packageprotection.png' | asset_url}}"
@@ -340,7 +340,7 @@ xhttp.send();
                   </div>
                 </div>
 
-              {% endif %}
+              {% endif %} {% endcomment %}
             </div>
             {% endif %}
             
@@ -539,7 +539,7 @@ xhttp.send();
   }
 
   function upsellLogic() {
-    if ($('#main-product-handle-id').html().includes('at-home-whitening-kit-affiliate-ft')) {
+    if ($('#main-product-handle-id').html().includes('at-home-whitening-kit-affiliate-ft') || $('#main-product-handle-id').html().includes('at-home-whitening-kit-affiliate-ut')) {
         show_upsell = getCookie('show_upsell')
         if (show_upsell != 'false') {
           openPopup()
