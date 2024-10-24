@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin language editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -420,7 +420,13 @@
       },
       "subscriptions": {
         "recurring_totals": "-",
-        "recurring_totals_with_initial_order_shipping_discount": "-"
+        "recurring_totals_with_initial_order_shipping_discount": "-",
+        "recurring_totals_with_policies": {
+          "first_cycles": {
+            "one": "First payment discounted"
+          },
+          "following_cycles": ", then $25.00 per refill each {{ interval }}"
+        }
       }
     }
   }
