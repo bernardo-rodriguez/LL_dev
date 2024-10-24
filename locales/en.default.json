@@ -425,7 +425,7 @@
           "first_cycles": {
             "one": "First payment discounted"
           },
-          "following_cycles": ", then $25.00 per refill each {{ interval }}"
+          "following_cycles": ", then $25.00 per refill each {{ interval }} ($20 if doing the 2 kit promo)"
         }
       }
     }
