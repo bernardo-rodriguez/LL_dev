@@ -413,7 +413,6 @@
           "other": "Guaranteed Delivery within 5 business days"
         },
         "subscription_delivery_description": {
-          "recurring_order_shipping_price": "Shipping Insurance Included",
           "first_order_shipping_price_included": "Shipping Insurance Included",
           "first_order_different_shipping_price": "Shipping Insurance Included"
         }
