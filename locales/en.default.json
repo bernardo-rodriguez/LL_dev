@@ -430,7 +430,8 @@
       },
       "order_summary": {
         "recurring_total_label": "Shipping",
-        "recurring_total_tooltip": "Shipping Insurance Guaranteed"
+        "recurring_total_tooltip": "Shipping Insurance Guaranteed",
+        "recurring_subtotal_label": "Shipping"
       }
     }
   }
