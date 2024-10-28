@@ -414,7 +414,8 @@
         },
         "subscription_delivery_description": {
           "first_order_shipping_price_included": "Shipping Insurance Included",
-          "first_order_different_shipping_price": "Shipping Insurance Included"
+          "first_order_different_shipping_price": "Shipping Insurance Included",
+          "recurring_order_shipping_price": "Shipping Insurance Included"
         }
       },
       "subscriptions": {
