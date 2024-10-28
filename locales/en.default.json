@@ -427,6 +427,10 @@
           },
           "following_cycles": "."
         }
+      },
+      "order_summary": {
+        "recurring_total_label": "Shipping",
+        "recurring_total_tooltip": "Shipping Insurance Guaranteed"
       }
     }
   }
