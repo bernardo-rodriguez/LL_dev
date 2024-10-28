@@ -423,7 +423,7 @@
         "recurring_totals_with_initial_order_shipping_discount": "-",
         "recurring_totals_with_policies": {
           "first_cycles": {
-            "one": "First payment discounted"
+            "one": "Shipping Insurance Included"
           },
           "following_cycles": "."
         }
