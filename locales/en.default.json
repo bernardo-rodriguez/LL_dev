@@ -429,8 +429,8 @@
         }
       },
       "order_summary": {
-        "recurring_subtotal_label": "Shipping Insurance Included",
-        "recurring_total_label": "Shipping Insurance Included",
+        "recurring_subtotal_label": "Shipping",
+        "recurring_total_label": "Shipping",
         "recurring_total_tooltip": "Shipping insurance included on every shipment"
       }
     }
