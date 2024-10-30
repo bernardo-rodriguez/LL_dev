@@ -577,7 +577,6 @@ export class SkioPlanPickerComponent extends LitElement {
                       <div>${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? '1 Month Supply' : 'Refills for $25/mo' }</div>
                     </div>
                     <div class="skio-container" style = "margin-top: 10px">
-                      <div>Delivery Frequency</div>
                       <select skio-selling-plans="${ group.id }" class="skio-frequency${ group.selling_plans.length == 1 ? ' skio-frequency--one' : '' }
                       ${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? ' hide-skio-select' : '' }"
                         @change=${ (e) => this.selectSellingPlan(e.target, group) }>
