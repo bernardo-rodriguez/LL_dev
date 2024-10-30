@@ -65,15 +65,15 @@ function dpk_chosen(chosen) {
 <style>
 .dpk_body {
     {% comment %} display: flex; {% endcomment %}
-    justify-content: center;
+    {% comment %} justify-content: center;
     align-items: center;
     margin: 0;
-    padding-bottom: 20px;
+    padding-bottom: 20px; {% endcomment %}
     display: none;
 }
 
 .dpk_container {
-    display: flex;
+    display: none;
     flex-direction: row;
     gap: 20px;
     max-width: 100%;
