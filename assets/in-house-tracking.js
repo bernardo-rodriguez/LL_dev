@@ -1,5 +1,5 @@
-affiliate_cookie_options = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_pinterest']
-affiliate_cookie_options_2 = ['redirect__inspire', 'redirect__ut', 'redirect__ut__direct', 'redirect__paceline', 'redirect__sweatcoin', 'redirect__miles', 'redirect__studentbeans', 'redirect__skimm', 'redirect__pinterest', 'shareasaleShopifySSCID']
+affiliate_cookie_options = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_pinterest', 'cpgap', 'cpgap_gen']
+affiliate_cookie_options_2 = ['redirect__inspire', 'redirect__ut', 'redirect__ut__direct', 'redirect__paceline', 'redirect__sweatcoin', 'redirect__miles', 'redirect__studentbeans', 'redirect__skimm', 'redirect__pinterest', 'cpgap', 'cpgap_gen', 'shareasaleShopifySSCID']
 
 supported_affiliates = {
   'sweatcoin': 'redirect_sweatcoin',
@@ -12,6 +12,8 @@ supported_affiliates = {
   'redirect_inspire': 'redirect_inspire',
   'redirect_pinterest': 'redirect_pinterest',
   'skimm': 'redirect_skimm',
+  'cpgap': 'redirect_cpgap',
+  'cpgap_gen': 'redirect_cpgap_gen'
 }
 
 A_B_testing_campaigns = {
@@ -268,7 +270,7 @@ function landingPageAction(current_page, query_params) {
       if (utm_affiliate in supported_affiliates) {
           setCookieAffiliate(supported_affiliates[utm_affiliate])
       }
-      if (utm_affiliate == 'sweatcoin') {
+      if (utm_affiliate == 'sweatcoin' || utm_affiliate == 'cpgap_gen') {
         LandingPopulateSweatcoin()
       } else if (utm_affiliate == 'cactus_media') {
         LandingPopulateCactus()

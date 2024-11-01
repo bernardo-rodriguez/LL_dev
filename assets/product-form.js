@@ -129,7 +129,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
   getSubPrice() {
     // Return subscription price and text based on redirection cookie
-    const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm']
+    const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_cpgap', 'redirect_cpgap_gen']
 
     let subscriptionCookie = cookies.filter( cookieName => this.getCookie(cookieName) != null )
     let subPrice = ''
@@ -163,6 +163,14 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         subText = 'Starter Special'
         // subPrice = '$0'
         // subText = 'FREE TRIAL SPECIAL'
+        break
+      case 'redirect_cpgap_gen':
+        subPrice = '$0'
+        subText = 'FREE TRIAL SPECIAL'
+        break
+      case 'redirect_cpgap':
+        subPrice = '$19'
+        subText = 'Subscribe & Save'
         break
       case 'redirect_paceline':
         subPrice = '$29'

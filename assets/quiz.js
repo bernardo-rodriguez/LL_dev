@@ -191,6 +191,7 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
       let ut = getCookie('redirect_ut')
       let ut_direct = getCookie('redirect_ut_direct')
       let sweatcoin = getCookie('redirect_sweatcoin')
+      let cpgap_gen = getCookie('redirect_cpgap_gen')
 
       setTimeout(function(){
         console.log(document.cookie)
@@ -199,7 +200,7 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
           window.location = '/products/at-home-whitening-kit-affiliate-ut'
           // window.location = '/products/at-home-whitening-kit'
           // console.log('not 2')
-        } else if (sweatcoin == 'true') {
+        } else if (sweatcoin == 'true' || cpgap_gen == 'true') {
           window.location = '/products/at-home-whitening-kit-affiliate-ft'
         } else {
           window.location = '/products/at-home-whitening-kit'

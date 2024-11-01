@@ -179,7 +179,17 @@
         "type": "number",
         "id": "tracking_v3",
         "label": "Sweatcoin"
-      }
+      },
+      {
+        "type": "number",
+        "id": "tracking_v4",
+        "label": "CPGAP"
+      },
+      {
+        "type": "number",
+        "id": "tracking_v5",
+        "label": "CPGAP_GEN"
+      },
     ]
   },
   {

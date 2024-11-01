@@ -42,7 +42,7 @@ function showAnnouncementBar(bar_text) {
 
 
 function cookie_actions() {
-    const cookies = ['redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm']
+    const cookies = ['redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_cpgap_gen', 'redirect_cpgap']
 
     let subscriptionCookie = cookies.filter( cookieName => getCookie(cookieName) != null )
 
@@ -61,6 +61,17 @@ function cookie_actions() {
         if (path == '/products/at-home-whitening-kit') {
           window.location = '/products/at-home-whitening-kit-affiliate-ut'
         }
+        break
+      case 'redirect_cpgap_gen': //cpgap free trial annoucnement text 
+        showAnnouncementBar('Discount auto applied at checkout!')
+        // showAnnouncementBar('Discount & Free Pen Automatically Applied')
+        path = window.location.pathname
+        if (path == '/products/at-home-whitening-kit') {
+          window.location = '/products/at-home-whitening-kit-affiliate-ft'
+        }
+        break
+      case 'redirect_cpgap': //cpgap annoucnement text 
+        showAnnouncementBar('Discount auto applied at checkout!')
         break
       case 'redirect_inspire': // redirect inspire annoucnement text 
         showAnnouncementBar('InspireMore readers, Discount is Automatically Applied at Checkout!')
