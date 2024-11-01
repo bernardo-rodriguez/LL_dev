@@ -71,7 +71,7 @@ function cookie_actions() {
         }
         break
       case 'redirect_cpgap': //cpgap annoucnement text 
-        showAnnouncementBar('Discount auto applied at checkout!')
+        // showAnnouncementBar('Discount auto applied at checkout!')
         break
       case 'redirect_inspire': // redirect inspire annoucnement text 
         showAnnouncementBar('InspireMore readers, Discount is Automatically Applied at Checkout!')
