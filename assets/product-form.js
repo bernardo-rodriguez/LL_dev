@@ -290,7 +290,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         let pen_formula_dict = {
           'medium': 42210600812769,
           'strong': 42210600845537,
-          'weak': 42210600878305
+          'sensitive': 42210600878305
         }
 
         let formula_id;
