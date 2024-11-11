@@ -400,6 +400,34 @@ xhttp.send();
 {% javascript %}
   document.getElementById('main-clickable-button').addEventListener("click", upsellLogic);
 
+  function add_pen_cookie() {
+        const strength_cookie = getCookie('strength')
+        kit_formula_dict = {
+          'medium': 42250643833057,
+          'strong': 42250643865825,
+          'sensitive': 42250643898593
+        }
+        
+        pen_formula_dict = {
+          'medium': 42210600812769,
+          'strong': 42210600845537,
+          'sensitive': 42210600878305
+        }
+
+        pen_selling_plan_dict = {
+          3449880801: 3450175713,
+          3449913569: 3450208481,
+          3449946337: 3450241249
+        }
+        if (strength_cookie in pen_formula_dict) {
+          formula_id = pen_formula_dict[strength_cookie]
+        } else {
+          formula_id = pen_formula_dict['medium']
+        }
+
+        setCookie('add_pen', formula_id)
+      }
+
    async function setCartAttributes(upsell) {
    let cart = await fetch('/cart/update.js', {
         method: "POST",
