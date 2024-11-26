@@ -145,7 +145,7 @@
         // url_params = url_params.concat(['discount=SUB-N-SAVE']);
       } else if (redirect_ut == 'true') {
         {% comment %} url_params = url_params.concat(['discount=Pen-Addon']); {% endcomment %}
-        {% comment %} url_params = url_params.concat(['discount=ADD_PEN']); {% endcomment %}
+        url_params = url_params.concat(['discount=Pen-Addon']);
       } else if (redirect_miles == 'true') {
         url_params = url_params.concat(['discount=MILES_AUTOMATIC']);
       } else if (redirect_skimm == 'true') {
