@@ -747,7 +747,7 @@ export class SkioPlanPickerComponent extends LitElement {
     }
 
     if(changed.has('selectedSellingPlan')) {
-      if (window.location.href.includes('at-home-whitening-kit-affiliate-ft')) {
+      if (window.location.href.includes('at-home-whitening-kit-affiliate-ft') || window.location.href.includes('at-home-whitening-kit-affiliate-ut')) {
         try {
           let dpk_choice = document.querySelector('input[name="dpk_chooser"]:checked')?.value || null;
           dpk_chosen(dpk_choice)
