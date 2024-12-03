@@ -179,11 +179,11 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         break
       case 'redirect_ut':
         // add_pen_cookie()
-        // this.add_pen()
-        // subPrice = '$9'
-        // subText = 'STARTER SPECIAL'
-        subPrice = '$0'
-        subText = 'FREE TRIAL SPECIAL'
+        this.add_pen()
+        subPrice = '$9'
+        subText = 'STARTER SPECIAL'
+        // subPrice = '$0'
+        // subText = 'FREE TRIAL SPECIAL'
         // subPrice = '$19'
         // subText = 'STARTER SPECIAL'
         break;
