@@ -59,10 +59,10 @@ xhttp.send();
 
         <dl class="product-info">
           <dt class="h6"> 
-            {% if product.metafields.custom.subheading_one == '' %}
-              Your Whitening Formula
-            {% else %}
+            {% if product.metafields.custom.subheading_one %}
               {{ product.metafields.custom.subheading_one }}  
+            {% else %}
+              Your Whitening Formula
             {% endif %}          
         </dt>
           <dd class="p" data-formula-type>
@@ -83,7 +83,7 @@ xhttp.send();
 
         <dl class="product-info">
           <dt class="h6">Includes</dt>
-          {% if product.metafields.custom.includes_text != '' %}
+          {% if product.metafields.custom.includes_text %}
             {{ product.metafields.custom.includes_text }}  
           {% else %}
             {% for item in product.metafields.custom.includes.value %}
