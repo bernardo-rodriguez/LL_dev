@@ -58,7 +58,7 @@ xhttp.send();
         </div>
 
         <dl class="product-info">
-          <dt class="h6">Your Whitening Formula</dt>
+          <dt class="h6"> {{ section.settings.subheading_one }}</dt>
           <dd class="p" data-formula-type>
             {% comment %}
               {{
@@ -705,6 +705,12 @@ xhttp.send();
   "class": "product-section",
   "blocks": [],
   "settings": [
+    {
+      "type": "text",
+      "id": "subheading_one",
+      "label": "Subheading one label",
+      "default": "Your Whitening Formula"
+    },
     {
       "type": "text",
       "id": "atc",
