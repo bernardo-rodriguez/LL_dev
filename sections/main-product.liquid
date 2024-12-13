@@ -59,10 +59,10 @@ xhttp.send();
 
         <dl class="product-info">
           <dt class="h6"> 
-            {% if section.settings.subheading_one == '' %}
+            {% if product.metafields.custom.subheading_one == '' %}
               Your Whitening Formula
             {% else %}
-              {{ section.settings.subheading_one }}  
+              {{ product.metafields.custom.subheading_one }}  
             {% endif %}          
         </dt>
           <dd class="p" data-formula-type>
@@ -715,11 +715,6 @@ xhttp.send();
   "class": "product-section",
   "blocks": [],
   "settings": [
-    {
-      "type": "text",
-      "id": "subheading_one",
-      "label": "Subheading one label"
-    },
     {
       "type": "text",
       "id": "atc",
