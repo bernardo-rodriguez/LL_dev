@@ -83,11 +83,15 @@ xhttp.send();
 
         <dl class="product-info">
           <dt class="h6">Includes</dt>
-          {% for item in product.metafields.custom.includes.value %}
-            <dd class="p">
-              <span>{% render 'icon', icon: 'checkmark' %} </span>{{ item }}
-            </dd>
-          {% endfor %}
+          {% if product.metafields.custom.includes_text != '' %}
+            {{ product.metafields.custom.includes_text }}  
+          {% else %}
+            {% for item in product.metafields.custom.includes.value %}
+              <dd class="p">
+                <span>{% render 'icon', icon: 'checkmark' %} </span>{{ item }}
+              </dd>
+            {% endfor %}
+          {% endif %}          
         </dl>
 
         <div>
