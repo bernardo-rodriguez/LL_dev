@@ -58,7 +58,13 @@ xhttp.send();
         </div>
 
         <dl class="product-info">
-          <dt class="h6"> {{ section.settings.subheading_one }}</dt>
+          <dt class="h6"> 
+            {% unless section.settings.subheading_one%}
+              {% assign subheading_one = "Your Whitening Formula" %}
+            {% endunless %}
+            
+            {{ subheading_one }}            
+        </dt>
           <dd class="p" data-formula-type>
             {% comment %}
               {{
