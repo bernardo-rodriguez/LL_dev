@@ -59,11 +59,11 @@ xhttp.send();
 
         <dl class="product-info">
           <dt class="h6"> 
-            {% unless section.settings.subheading_one%}
-              {% assign subheading_one = "Your Whitening Formula" %}
-            {% endunless %}
-            
-            {{ subheading_one }}            
+            {% if section.settings.subheading_one == '' %}
+              Your Whitening Formula
+            {% else %}
+              {{ section.settings.subheading_one }}  
+            {% endif %}          
         </dt>
           <dd class="p" data-formula-type>
             {% comment %}
@@ -714,8 +714,7 @@ xhttp.send();
     {
       "type": "text",
       "id": "subheading_one",
-      "label": "Subheading one label",
-      "default": "Your Whitening Formula"
+      "label": "Subheading one label"
     },
     {
       "type": "text",
