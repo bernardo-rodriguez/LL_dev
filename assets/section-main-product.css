@@ -436,12 +436,10 @@ input:checked + .slider:before {
   justify-content: center;
 }
 
-/* Hide the default radio button */
 .refill-formula-radio-group input[type="radio"] {
   display: none;
 }
 
-/* Style the label to look like a button */
 .refill-formula-radio-group label {
   display: inline-block;
   padding: 12px 24px;
@@ -454,19 +452,23 @@ input:checked + .slider:before {
   user-select: none;
 }
 
-/* Hover state */
+.price-difference {
+  font-size: 0.75rem;
+  opacity: 0.75;
+  margin-left: 4px;
+  color: inherit;
+}
+
 .refill-formula-radio-group label:hover {
   background-color: #f1f5f9;
 }
 
-/* Checked state */
 .refill-formula-radio-group input[type="radio"]:checked + label {
   background-color: var(--blue) !important;
   color: white;
-  border-color: #23a5dd !important;
+  border-color:  #23a5dd !important;
 }
 
-/* Focus state for accessibility */
 .refill-formula-radio-group input[type="radio"]:focus + label {
   outline: 2px solid #23a5dd;
   outline-offset: 2px;
