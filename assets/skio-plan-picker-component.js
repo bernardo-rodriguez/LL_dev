@@ -747,7 +747,7 @@ export class SkioPlanPickerComponent extends LitElement {
         this.selectedSellingPlan, this.selectedSellingPlanGroup = null
       }
 
-      console.log('what')
+      console.log('why')
       console.log(this.productId)
       console.log(this.selectedSellingPlan)
       console.log(this.selectedVariant)
