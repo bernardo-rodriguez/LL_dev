@@ -456,9 +456,6 @@ export class SkioPlanPickerComponent extends LitElement {
     this.lastSellingPlanName = '';
 
     this.showDetailsHover = false;
-
-    console.log('hello')
-    console.log(this.productId)
     // if (this.productId) {
     //   this.useVariantInputClickEvents = null;
     //   this.variantInputSelector = null;
@@ -750,9 +747,10 @@ export class SkioPlanPickerComponent extends LitElement {
         this.selectedSellingPlan, this.selectedSellingPlanGroup = null
       }
 
+      console.log('hello')
+      console.log(this.productId)
       //update the form that was passed, if any
       this.updateForm();
-
     }
 
     if(changed.has('selectedSellingPlan')) {
