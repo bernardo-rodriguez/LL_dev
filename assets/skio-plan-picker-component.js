@@ -666,10 +666,13 @@ export class SkioPlanPickerComponent extends LitElement {
     if(changed.has('product') && this.product) {
       if (this.product.id == 7498061906145) {
         console.log('this refill product')
+        this.useVariantInputClickEvents = true
+        this.variantInputSelector = 'input[name="refill-strength"]'
+        document.addEventListener('load', this.addVariantClickEventListeners)
       } else {
         console.log('this not refill product')
       }
-      
+
       //update key
       this.key = this.key ? this.key : this.product.id;
 
@@ -743,10 +746,6 @@ export class SkioPlanPickerComponent extends LitElement {
         this.selectedSellingPlan, this.selectedSellingPlanGroup = null
       }
 
-      console.log('why')
-      console.log(this.product.id)
-      console.log(this.selectedSellingPlan)
-      console.log(this.selectedVariant)
       //update the form that was passed, if any
       this.updateForm();
     }
