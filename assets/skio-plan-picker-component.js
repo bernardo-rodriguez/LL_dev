@@ -668,7 +668,7 @@ export class SkioPlanPickerComponent extends LitElement {
         console.log('this refill product')
         this.useVariantInputClickEvents = true
         this.variantInputSelector = 'input[name="refill-strength"]'
-        document.addEventListener('load', this.addVariantClickEventListeners)
+        this.addVariantClickEventListeners()
       } else {
         console.log('this not refill product')
       }
