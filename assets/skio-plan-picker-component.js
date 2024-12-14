@@ -453,14 +453,7 @@ export class SkioPlanPickerComponent extends LitElement {
 
     this.lastSellingPlanName = '';
 
-    this.showDetailsHover = false;
-
-    if (this.product.id == 7498061906145) {
-      console.log('this refill product')
-    } else {
-      console.log('this not refill product')
-    }
-   
+    this.showDetailsHover = false;   
   }
 
   connectedCallback() {
@@ -671,6 +664,12 @@ export class SkioPlanPickerComponent extends LitElement {
 
   updated = (changed) => {
     if(changed.has('product') && this.product) {
+      if (this.product.id == 7498061906145) {
+        console.log('this refill product')
+      } else {
+        console.log('this not refill product')
+      }
+      
       //update key
       this.key = this.key ? this.key : this.product.id;
 
