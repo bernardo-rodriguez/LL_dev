@@ -295,7 +295,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         let selling_plan_input = document.querySelector('input[name="selling_plan"]')
         this.observeForm(selling_plan_input)
         this.setVariant();
-        this.observeFormulaPicker()
+        this.observeFormulaPicker('input[name="refill-strength"]')
       })
     } catch (e) {
         console.log("Error: failure in createSubcriptionWidget() for product-form.js")
@@ -343,8 +343,25 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     }
   }
 
-  observeFormulaPicker() {
-    console.log('observer')
+  observeFormulaPicker(refill_strength_input) {
+    try {
+        console.log(refill_strength_input)
+        let refill_strength = document.querySelectorAll(refill_strength_input)
+
+        // Add change event listener to each radio button
+        radioButtons.forEach(radio => {
+          radio.addEventListener('change', (e) => {
+            // Example of triggering different actions based on selection
+            if (e.target.value === 'extra') {
+              console.log('Extra strength selected - additional actions can go here');
+            } else {
+              console.log('Standard selected - different actions can go here');
+            }
+          });
+        });
+    } catch (e) {
+        console.log("refill strength picker not found")
+    }
   }
 
   add_pen() {
