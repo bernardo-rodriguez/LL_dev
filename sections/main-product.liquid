@@ -266,6 +266,7 @@ xhttp.send();
               {% if skioSellingPlanGroups.size > 0 %}
                 <skio-plan-picker 
                   product='{{ product | json | escape }}'
+                  product_id='{{ product.id }}'
                   selectedVariant='{{ product.selected_or_first_available_variant | json | escape }}'
                   formId='{{ product_form_id }}'
                   currency='{{ cart.currency.iso_code }}'

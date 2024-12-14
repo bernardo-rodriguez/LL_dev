@@ -584,8 +584,8 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
     this.open = this.container.querySelector("[data-sticky-open]")
     this.close = this.container.querySelector("[data-sticky-close]")
 
-    this.waitForEl("sticky-product-bar [data-plans-dropdown").then(() => {
-      this.sellingPlans = this.querySelector("input[name='selling_plan']]")
+    this.waitForEl("sticky-product-bar [data-plans-dropdown]").then(() => {
+      this.sellingPlans = this.querySelector("input[name='selling_plan']")
       console.log(this.sellingPlans)
       this.sellingPlans.addEventListener("change", function(e){
         this.updateSellingPlans(e)
