@@ -153,6 +153,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       }
     } else {
       try {
+        let all_strengths = ['🍃 Gentle (ID: 19-2)', '✨ Everyday (ID: 8-16)', '🔥 Super Strength (ID: 8-17)']
         console.log(selection)
 
         let refill_formula_selector = this.querySelector(`variant-radios input[value="${selection}"]`)
@@ -162,7 +163,12 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         // refill_formula_selector.setAttribute('checked', '');
         // refill_formula_selector.checked = true;
         // refill_formula_selector.dispatchEvent(new Event('change', { bubbles: true }));
-
+        all_strengths.forEach(element => {
+          if(document.querySelector(`[data-formula-type] [data-variant-title="${element}"]`)){
+            document.querySelector(`[data-formula-type] [data-variant-title="${element}"]`).classList.add("hidden")  
+          }
+        });
+        
         if(document.querySelector(`[data-formula-type] [data-variant-title="${selection}"]`)){
           document.querySelector(`[data-formula-type] [data-variant-title="${selection}"]`).classList.remove("hidden")
 
