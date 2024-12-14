@@ -349,13 +349,17 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         let refill_strength = document.querySelectorAll(refill_strength_input)
 
         // Add change event listener to each radio button
-        radioButtons.forEach(radio => {
+        refill_strength.forEach(radio => {
           radio.addEventListener('change', (e) => {
             // Example of triggering different actions based on selection
             if (e.target.value === 'extra') {
               console.log('Extra strength selected - additional actions can go here');
+
+              this.setVariant('🔥 Super Strength (ID: 8-17)')
             } else {
               console.log('Standard selected - different actions can go here');
+
+              this.setVariant('✨ Everyday (ID: 8-16)')
             }
           });
         });
