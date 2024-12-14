@@ -153,7 +153,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       }
     } else {
       try {
-        this.querySelector(`input[value="${selection}"]`).click()
+        this.querySelector(`product-form__input input[value="${selection}"]`).click()
 
         console.log(selection)
         if(document.querySelector(`[data-formula-type] [data-variant-title="${selection}"]`)){
