@@ -41,7 +41,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     this.stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
 
     this.setName();
-    this.setVariant();
 
     this.createSubscriptionWidget();
 
@@ -83,7 +82,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     }
   }
 
-  setVariant() {
+  setVariant(selection='✨ Everyday (ID: 8-16)') {
     // Select the product variant chosen in the quiz in the product page selection
     // Set the product variant formula in the sticky checkout
     // Set the ingredients correpoding to the picked formula, in the product page
@@ -154,13 +153,13 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       }
     } else {
       try {
-        this.querySelector(`input[value="${inputValue}"]`).click()
+        this.querySelector(`input[value="${selection}"]`).click()
 
-        if(document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`)){
-          document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`).classList.remove("hidden")
+        if(document.querySelector(`[data-formula-type] [data-variant-title="${selection}"]`)){
+          document.querySelector(`[data-formula-type] [data-variant-title="${selection}"]`).classList.remove("hidden")
 
           // Set sticky checkout formula
-          if(document.querySelector(`[data-sticky-formula]`)) document.querySelector(`[data-sticky-formula]`).innerHTML = document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`).innerHTML.split(":")[0]
+          if(document.querySelector(`[data-sticky-formula]`)) document.querySelector(`[data-sticky-formula]`).innerHTML = document.querySelector(`[data-formula-type] [data-variant-title="${selection}"]`).innerHTML.split(":")[0]
         }
     
         // Set ingredients based on metafields
@@ -295,6 +294,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
         let selling_plan_input = document.querySelector('input[name="selling_plan"]')
         this.observeForm(selling_plan_input)
+        this.setVariant();
+        this.observeFormulaPicker()
       })
     } catch (e) {
         console.log("Error: failure in createSubcriptionWidget() for product-form.js")
@@ -340,6 +341,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         console.log("Error: failure in observeForm() for product-form.js")
         console.log(e)
     }
+  }
+
+  observeFormulaPicker() {
+    console.log('observer')
   }
 
   add_pen() {
