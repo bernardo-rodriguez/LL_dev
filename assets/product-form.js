@@ -153,7 +153,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       }
     } else {
       try {
-        this.querySelector(`variant-radios input[value="${selection}"]`).click()
+        this.querySelector(`variant-radios input[value="${selection}"]`).checked = true;
 
         console.log(selection)
         if(document.querySelector(`[data-formula-type] [data-variant-title="${selection}"]`)){
