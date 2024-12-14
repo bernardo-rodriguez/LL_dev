@@ -370,7 +370,6 @@ const skioStyles = css`
 export class SkioPlanPickerComponent extends LitElement {
   static properties = {
     product: { type: Object },            //required
-    productId: { type: Object },         //required
     productHandle: { type: String },      //optional (unless product isn't passed, then required)
     key: { type: String },                //optional, defaults to product.id; identifier for this instance of the Skio plan picker
     
@@ -411,7 +410,6 @@ export class SkioPlanPickerComponent extends LitElement {
     super();
     this.product = null;
     this.selectedVariant = null;
-    this.productId = null
 
     this.productHandle = null;
 
@@ -456,14 +454,13 @@ export class SkioPlanPickerComponent extends LitElement {
     this.lastSellingPlanName = '';
 
     this.showDetailsHover = false;
-    // if (this.productId) {
-    //   this.useVariantInputClickEvents = null;
-    //   this.variantInputSelector = null;
-    // } else {
 
-    // }
-    
-
+    if (this.product.id == 7498061906145) {
+      console.log('this refill product')
+    } else {
+      console.log('this not refill product')
+    }
+   
   }
 
   connectedCallback() {
@@ -749,7 +746,6 @@ export class SkioPlanPickerComponent extends LitElement {
 
       console.log('why')
       console.log(this.product.id)
-      console.log(this.productId)
       console.log(this.selectedSellingPlan)
       console.log(this.selectedVariant)
       //update the form that was passed, if any
