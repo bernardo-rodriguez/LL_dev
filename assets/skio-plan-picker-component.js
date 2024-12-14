@@ -749,6 +749,8 @@ export class SkioPlanPickerComponent extends LitElement {
 
       console.log('what')
       console.log(this.productId)
+      console.log(this.selectedSellingPlan)
+      console.log(this.selectedVariant)
       //update the form that was passed, if any
       this.updateForm();
     }
