@@ -1066,11 +1066,14 @@ export class SkioPlanPickerComponent extends LitElement {
   addVariantClickEventListeners() {
     let variantInputs = document.querySelectorAll(this.variantInputSelector)
     let skio = this
+    console.log('add variant click listeners')
     for (let el of variantInputs) {
       el.addEventListener('click', function(e) {
         // may need to replace with ID / e.target depending on client setup
         // may need to use different attribute depending on ^^
         let variantTitle = e.currentTarget.value
+        console.log('variant event listener')
+        console.log(variantTitle)
         skio.selectedVariant = skio.product.variants.find(variant => variant.title == variantTitle)
       })
     }
