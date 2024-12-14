@@ -461,9 +461,9 @@ input:checked + .slider:before {
 
 /* Checked state */
 .refill-formula-radio-group input[type="radio"]:checked + label {
-  background-color: #46BDF0;
+  background-color: var(--blue-tint-20) !important;
   color: white;
-  border-color: #2563eb;
+  border-color: var(--blue) !important;
 }
 
 /* Focus state for accessibility */
