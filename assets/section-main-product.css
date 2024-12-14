@@ -463,11 +463,11 @@ input:checked + .slider:before {
 .refill-formula-radio-group input[type="radio"]:checked + label {
   background-color: var(--blue) !important;
   color: white;
-  border-color: var(--blue) !important;
+  border-color: #23a5dd !important;
 }
 
 /* Focus state for accessibility */
 .refill-formula-radio-group input[type="radio"]:focus + label {
-  outline: 2px solid #2563eb;
+  outline: 2px solid #23a5dd;
   outline-offset: 2px;
 }
