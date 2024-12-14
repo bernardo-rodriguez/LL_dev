@@ -152,8 +152,13 @@ xhttp.send();
               {% unless product.has_only_default_variant %}
                 {% assign picker_type = 'button' %}
                 {% if picker_type == 'button' %}
-                  <variant-radios
+                  {% comment %} <variant-radios
                     class="no-js-hidden visually-hidden"
+                    data-section="{{ section.id }}"
+                    data-url="{{ product.url }}"
+                  > {% endcomment %}
+                  <variant-radios
+                    class="visually-hidden"
                     data-section="{{ section.id }}"
                     data-url="{{ product.url }}"
                   >
