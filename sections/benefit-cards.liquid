@@ -1,5 +1,3 @@
-{% if product.id != 7498061906145 %}
-
 {{ 'section-benefit-cards.css' | asset_url | stylesheet_tag }}
 
 {% assign formatted_heading = section.settings.heading
@@ -18,6 +16,8 @@
   endcapture
   assign ingredient_list = show_ingredients | split: ','
 %}
+
+{% if product.id != 7498061906145 %}
 
 <section class="benefit-cards {% if section.settings.margin_bottom %}with-spacing{% endif %}">
   <div class="page-width">
@@ -91,6 +91,8 @@
   });
 {% endjavascript %}
 
+{% endif %}
+
 {% schema %}
 {
   "name": "Benefits Cards",
@@ -144,5 +146,3 @@
   ]
 }
 {% endschema %}
-
-{% endif %}
