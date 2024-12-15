@@ -190,6 +190,10 @@ const skioStyles = css`
     font-weight: 700;
   }
 
+  .skio-price-shipping {
+    font-weight: 400;
+  }
+
   button.add-to-cart {
     justify-content: center;
     font-weight: 400;
@@ -563,7 +567,7 @@ export class SkioPlanPickerComponent extends LitElement {
                         <del>${ this.moneyFormatter.format(this.selectedVariant.price / 100) }<del>
                       ` : html`` }
                       <span skio-subscription-price>$${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) }</span>
-                       ${ this.product.id == 7498061906145 ? 'Free Shipping Included'  : '' }
+                      <span class = 'skio-price-shipping'> ${ this.product.id == 7498061906145 ? '(+ Free Shipping!)'  : '' }</span>
                     </div>
                   </div>
                 </div>
