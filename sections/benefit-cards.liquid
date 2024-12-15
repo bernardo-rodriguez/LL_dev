@@ -17,8 +17,6 @@
   assign ingredient_list = show_ingredients | split: ','
 %}
 
-{% if product.id != 7498061906145 %}
-
 <section class="benefit-cards {% if section.settings.margin_bottom %}with-spacing{% endif %}">
   <div class="page-width">
     <div class="benefit-cards__inner">
@@ -90,8 +88,6 @@
     }
   });
 {% endjavascript %}
-
-{% endif %}
 
 {% schema %}
 {
