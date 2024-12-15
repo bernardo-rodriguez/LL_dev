@@ -39,7 +39,11 @@
                 class="testimonial__swiper-button body-sm {% if forloop.first %}active{% endif %}"
                 data-swiper-slide="{{ forloop.index0 }}"
               >
-                {{ block.settings.heading }}
+                {% if product.id != 7498061906145 %}
+                  {{ block.settings.heading }}
+                {% else %}
+                  {{ block.settings.heading_refill }}
+                {% endif %}
               </button>
             {% endfor %}
           </div>
@@ -163,6 +167,12 @@
     {
       "type": "textarea",
       "id": "heading",
+      "label": "Heading",
+      "info": "Wrap italized text in {}"
+    },
+    {
+      "type": "textarea",
+      "id": "heading_refill",
       "label": "Heading",
       "info": "Wrap italized text in {}"
     },
