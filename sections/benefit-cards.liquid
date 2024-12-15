@@ -1,3 +1,5 @@
+{% if product.id != 7498061906145 %}
+
 {{ 'section-benefit-cards.css' | asset_url | stylesheet_tag }}
 
 {% assign formatted_heading = section.settings.heading
@@ -142,3 +144,4 @@
   ]
 }
 {% endschema %}
+{% endif %}
