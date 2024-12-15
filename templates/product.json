@@ -12,7 +12,6 @@
     "main": {
       "type": "main-product",
       "settings": {
-        "subheading_one": "{{ product.metafields.custom.subheading_one.value }}",
         "atc": "Buy Now",
         "satisfaction": "30 Day Satisfaction Guarantee",
         "satisfaction_svg": "<svg style=\"vertical-align: middle\" xmlns=\"http://www.w3.org/2000/svg\" width=\"26\" height=\"25\" viewbox=\"0 0 26 25\" fill=\"none\">\n<circle cx=\"11.5\" cy=\"13.5\" r=\"11\" fill=\"white\" stroke=\"#0D2244\"></circle>\n<g clip-path=\"url(#clip0_6_176)\">\n<path d=\"M24.6712 0C24.6712 0 17.4227 4.72968 11.3998 16.3691V16.3724L10.8333 15.6122C9.06901 13.3203 4.66836 9.65063 4.66836 9.65063L4 10.521C4 10.521 9.41322 15.9623 11.5279 22C11.5279 22 16.4333 7.96331 25.1852 0.781257L24.6712 0V0Z\" fill=\"#46BDF0\"></path>\n</g>\n<defs>\n<clippath id=\"clip0_6_176\">\n<rect width=\"21.1852\" height=\"22\" fill=\"white\" transform=\"translate(4)\"></rect>\n</clippath>\n</defs>\n</svg>",
@@ -237,12 +236,20 @@
             "title": "0%",
             "heading": "0% of clinical participants reported an increase in sensitivity after whitening."
           }
+        },
+        "card_jB4QxR": {
+          "type": "card",
+          "settings": {
+            "title": "",
+            "heading": ""
+          }
         }
       },
       "block_order": [
         "01a7a700-2a02-45e1-9bcf-ae1fd13faeb0",
         "fa6ec1b7-630e-491d-b3c8-1ca189421f07",
-        "f2199093-20a4-42b3-b99d-52d12d69cff1"
+        "f2199093-20a4-42b3-b99d-52d12d69cff1",
+        "card_jB4QxR"
       ],
       "settings": {
         "heading": "Believe {The Hype}",
@@ -260,6 +267,23 @@
         "rating": "4.6/5",
         "text": "out of 1512 reviews"
       }
+    },
+    "carousel_2_VmRAx9": {
+      "type": "carousel_2",
+      "blocks": {
+        "slide_P9ycMp": {
+          "type": "slide",
+          "settings": {
+            "svg": "",
+            "png": "shopify://shop_images/2560px-Womenshealthlogo_blue_2bc1baf4-cd78-4578-a6d0-94c86b9800a3.png",
+            "text": "“My personal favorite, I love how easy Laughland is to use”"
+          }
+        }
+      },
+      "block_order": [
+        "slide_P9ycMp"
+      ],
+      "settings": {}
     },
     "1674168377f629ea2c": {
       "type": "apps",
@@ -304,6 +328,7 @@
     "d7a83216-e232-4258-9705-5edf54558f0b",
     "a4ec3822-cf26-400b-a01b-564ae2a93dfc",
     "9a2e356e-af66-4e8f-99d8-12bc66bd56dd",
+    "carousel_2_VmRAx9",
     "1674168377f629ea2c",
     "17036014317451426f"
   ]
