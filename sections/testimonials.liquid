@@ -1,9 +1,17 @@
 {{ 'section-testimonials.css' | asset_url | stylesheet_tag }}
 
-{% assign formatted_heading = section.settings.heading
-  | replace: '{', "<span class='stylized'>"
-  | replace: '}', '</span>'
-%}
+{% if product.id != 7498061906145 %}
+  {% assign formatted_heading = section.settings.heading
+    | replace: '{', "<span class='stylized'>"
+    | replace: '}', '</span>'
+  %}
+{% else %}
+  {% assign formatted_heading = section.settings.heading_refill
+    | replace: '{', "<span class='stylized'>"
+    | replace: '}', '</span>'
+  %}
+{% endif %}
+
 
 <section class="testimonials">
   <div class="page-width">
@@ -39,11 +47,7 @@
                 class="testimonial__swiper-button body-sm {% if forloop.first %}active{% endif %}"
                 data-swiper-slide="{{ forloop.index0 }}"
               >
-                {% if product.id != 7498061906145 %}
-                  {{ block.settings.heading }}
-                {% else %}
-                  {{ block.settings.heading_refill }}
-                {% endif %}
+                {{ block.settings.heading }}
               </button>
             {% endfor %}
           </div>
@@ -173,7 +177,7 @@
     {
       "type": "textarea",
       "id": "heading_refill",
-      "label": "Heading",
+      "label": "Heading Refill",
       "info": "Wrap italized text in {}"
     },
     {
