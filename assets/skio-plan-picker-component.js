@@ -192,6 +192,8 @@ const skioStyles = css`
 
   .skio-price-shipping {
     font-weight: 400;
+    font-size: 12px;
+    color: #323232;
   }
 
   button.add-to-cart {
@@ -569,7 +571,9 @@ export class SkioPlanPickerComponent extends LitElement {
                       <span skio-subscription-price>$${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) }</span>
                     </div>
                   </div>
-                   <span class = 'skio-price-shipping'> ${ this.product.id == 7498061906145 ? '(+ Free Shipping!)'  : '' }</span>
+                </div>
+                <div class="skio-center-wrapper">
+                 <span class = 'skio-price-shipping'> ${ this.product.id == 7498061906145 ? '(+ Free Shipping!)'  : '' }</span>
                 </div>
                 <div class="skio-group-content">
                   <div class="skio-custom-content">
