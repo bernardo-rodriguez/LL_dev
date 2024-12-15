@@ -173,7 +173,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
           document.querySelector(`[data-formula-type] [data-variant-title="${selection}"]`).classList.remove("hidden")
 
           // Set sticky checkout formula
-          if(document.querySelector(`[data-sticky-formula]`)) document.querySelector(`[data-sticky-formula]`).innerHTML = document.querySelector(`[data-formula-type] [data-variant-title="${selection}"]`).innerHTML.split(":")[0]
+          if(document.querySelector(`[data-sticky-formula]`)) document.querySelector(`[data-sticky-formula]`).innerHTML = selection
         }
     
         // Set ingredients based on metafields
