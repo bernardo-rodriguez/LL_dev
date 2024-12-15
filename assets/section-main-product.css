@@ -457,7 +457,7 @@ input:checked + .slider:before {
   opacity: 0.75;
   margin-top: -5px;
   color: inherit;
-  position: aboslute;
+  position: absolute;
 }
 
 .refill-formula-radio-group label:hover {
