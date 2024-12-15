@@ -567,9 +567,9 @@ export class SkioPlanPickerComponent extends LitElement {
                         <del>${ this.moneyFormatter.format(this.selectedVariant.price / 100) }<del>
                       ` : html`` }
                       <span skio-subscription-price>$${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) }</span>
-                      <span class = 'skio-price-shipping'> ${ this.product.id == 7498061906145 ? '(+ Free Shipping!)'  : '' }</span>
                     </div>
                   </div>
+                   <span class = 'skio-price-shipping'> ${ this.product.id == 7498061906145 ? '(+ Free Shipping!)'  : '' }</span>
                 </div>
                 <div class="skio-group-content">
                   <div class="skio-custom-content">
