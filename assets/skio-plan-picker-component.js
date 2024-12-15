@@ -563,6 +563,7 @@ export class SkioPlanPickerComponent extends LitElement {
                         <del>${ this.moneyFormatter.format(this.selectedVariant.price / 100) }<del>
                       ` : html`` }
                       <span skio-subscription-price>$${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) }</span>
+                       ${ this.product.id == 7498061906145 ? 'Free Shipping Included'  : '' }
                     </div>
                   </div>
                 </div>
