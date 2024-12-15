@@ -181,6 +181,7 @@
       ],
       "settings": {
         "heading": "Results that {Shine}",
+        "heading_refill": "Results from a {Routine}",
         "text": "",
         "profile_label": "Customer Profile",
         "formula_label": "Personalized Whitening Formula",
