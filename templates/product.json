@@ -239,20 +239,12 @@
             "title": "0%",
             "heading": "0% of clinical participants reported an increase in sensitivity after whitening."
           }
-        },
-        "card_jB4QxR": {
-          "type": "card",
-          "settings": {
-            "title": "",
-            "heading": ""
-          }
         }
       },
       "block_order": [
         "01a7a700-2a02-45e1-9bcf-ae1fd13faeb0",
         "fa6ec1b7-630e-491d-b3c8-1ca189421f07",
-        "f2199093-20a4-42b3-b99d-52d12d69cff1",
-        "card_jB4QxR"
+        "f2199093-20a4-42b3-b99d-52d12d69cff1"
       ],
       "settings": {
         "heading": "Believe {The Hype}",
