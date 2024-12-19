@@ -668,7 +668,7 @@ export class SkioPlanPickerComponent extends LitElement {
                   One-time
                 </div>
                 <div class="skio-price">
-                  —<span skio-onetime-price>$${ (this.selectedVariant.price / 100).toFixed(0) }</span>
+                  —<span id = 'skio-onetime-price-set' skio-onetime-price>$${ (this.selectedVariant.price / 100).toFixed(0) }</span>
                 </div>
               </div>
             </div>
@@ -1375,7 +1375,7 @@ document.addEventListener('DOMContentLoaded', function() {
           // Add selected class to this option
           this.classList.add('selected');
 
-          document.querySelector('skio-plan-picker').shadowRoot.querySelector('skio-onetime-price').innerHTML = 'sup there'
+          document.querySelector('skio-plan-picker').shadowRoot.querySelector('#skio-onetime-price-set').innerHTML = 'sup there'
       });
 });
 });
