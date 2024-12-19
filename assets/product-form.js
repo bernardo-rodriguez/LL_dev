@@ -26,6 +26,35 @@ function add_pen_cookie() {
   setCookie('add_pen', formula_id)
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+  const bundleOptions = document.querySelectorAll('.bundle-option');
+  
+  // Set initial selected state
+  const initiallySelected = document.querySelector('input[type="radio"]:checked');
+  if (initiallySelected) {
+      initiallySelected.closest('.bundle-option').classList.add('selected');
+  }
+  
+  bundleOptions.forEach(option => {
+      option.addEventListener('click', function(e) {
+          // Prevent default radio button behavior
+          e.preventDefault();
+          
+          // Select the radio button
+          const radio = this.querySelector('input[type="radio"]');
+          radio.checked = true;
+          
+          // Update selected states
+          bundleOptions.forEach(opt => {
+              opt.classList.remove('selected');
+          });
+          this.classList.add('selected');
+          
+          // Dispatch change event
+          radio.dispatchEvent(new Event('change', { bubbles: true }));
+      });
+});
+
 customElements.define('product-form', class ProductForm extends HTMLElement {
   constructor() {
     super();   
