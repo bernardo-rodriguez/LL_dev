@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const bundleOptions = document.querySelectorAll('.bundle-option');
   
   // Set initial selected state
-  const initiallySelected = document.querySelector('input[type="radio"]:checked');
+  const initiallySelected = bundleOptions.querySelector('input[type="radio"]:checked');
   if (initiallySelected) {
       initiallySelected.closest('.bundle-option').classList.add('selected');
   }
