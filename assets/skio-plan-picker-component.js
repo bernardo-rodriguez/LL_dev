@@ -540,6 +540,13 @@ export class SkioPlanPickerComponent extends LitElement {
                   —<span skio-onetime-price>$${ (this.selectedVariant.price / 100).toFixed(0) }</span>
                 </div>
               </div>
+              <div class="skio-group-content">
+                <div class="skio-custom-content">
+                  <div class="skio-container">
+                    <div>hello there</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </label>
         </div>
