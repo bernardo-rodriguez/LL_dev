@@ -658,71 +658,72 @@ export class SkioPlanPickerComponent extends LitElement {
               </div>
             </div>
             
+            ${ this.product.id == 'd' ? html`
             <div class="skio-group-content">
               <div class="skio-custom-content">
                 <div class="skio-container">
                   <div class="bundle-container">
                     <div class="bundle-option" data-bundle="1">
-                        <div class="bundle-content">
-                            <input type="radio" name="bundle" value="1" checked>
-                            <div class="bundle-details">
-                                <div class="bundle-header">
-                                    <div>
-                                        <h3 class="bundle-title">Buy 1 - Save 60%</h3>
-                                        <p class="bundle-description">What's included?</p>
-                                    </div>
-                                    <div class="bundle-pricing">
-                                        <div class="retail-price">Retail $99.99</div>
-                                        <div class="sale-price">$39.99</div>
-                                        <div class="savings">Save $60.00</div>
-                                    </div>
-                                </div>
+                      <div class="bundle-content">
+                        <input type="radio" name="bundle" value="1" checked>
+                        <div class="bundle-details">
+                          <div class="bundle-header">
+                            <div>
+                              <h3 class="bundle-title">Buy 1 - Save 60%</h3>
+                              <p class="bundle-description">What's included?</p>
                             </div>
+                            <div class="bundle-pricing">
+                              <div class="retail-price">Retail $99.99</div>
+                              <div class="sale-price">$39.99</div>
+                              <div class="savings">Save $60.00</div>
+                            </div>
+                          </div>
                         </div>
+                      </div>
                     </div>
-
                     <div class="bundle-option" data-bundle="2">
-                        <div class="badge popular-badge">Most Popular</div>
-                        <div class="bundle-content">
-                            <input type="radio" name="bundle" value="2">
-                            <div class="bundle-details">
-                                <div class="bundle-header">
-                                    <div>
-                                        <h3 class="bundle-title">Buy 2, Get 1 FREE</h3>
-                                        <p class="shipping">+ FREE SHIPPING</p>
-                                    </div>
-                                    <div class="bundle-pricing">
-                                        <div class="retail-price">Retail $299.97</div>
-                                        <div class="sale-price">$79.99</div>
-                                        <div class="savings">Save $219.98</div>
-                                    </div>
-                                </div>
+                      <div class="badge popular-badge">Most Popular</div>
+                      <div class="bundle-content">
+                        <input type="radio" name="bundle" value="2">
+                        <div class="bundle-details">
+                          <div class="bundle-header">
+                            <div>
+                              <h3 class="bundle-title">Buy 2, Get 1 FREE</h3>
+                              <p class="shipping">+ FREE SHIPPING</p>
                             </div>
+                            <div class="bundle-pricing">
+                              <div class="retail-price">Retail $299.97</div>
+                              <div class="sale-price">$79.99</div>
+                              <div class="savings">Save $219.98</div>
+                            </div>
+                          </div>
                         </div>
+                      </div>
                     </div>
 
                     <div class="bundle-option" data-bundle="3">
-                        <div class="badge best-deal-badge">Best Deal</div>
-                        <div class="bundle-content">
-                            <input type="radio" name="bundle" value="3">
-                            <div class="bundle-details">
-                                <div class="bundle-header">
-                                    <div>
-                                        <h3 class="bundle-title">Buy 3, Get 2 FREE</h3>
-                                        <p class="shipping">+ FREE SHIPPING</p>
-                                    </div>
-                                    <div class="bundle-pricing">
-                                        <div class="retail-price">Retail $499.95</div>
-                                        <div class="sale-price">$119.99</div>
-                                        <div class="savings">Save $379.96</div>
-                                    </div>
-                                </div>
+                      <div class="badge best-deal-badge">Best Deal</div>
+                      <div class="bundle-content">
+                        <input type="radio" name="bundle" value="3">
+                        <div class="bundle-details">
+                          <div class="bundle-header">
+                            <div>
+                              <h3 class="bundle-title">Buy 3, Get 2 FREE</h3>
+                              <p class="shipping">+ FREE SHIPPING</p>
                             </div>
+                            <div class="bundle-pricing">
+                              <div class="retail-price">Retail $499.95</div>
+                              <div class="sale-price">$119.99</div>
+                              <div class="savings">Save $379.96</div>
+                            </div>
+                          </div>
                         </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </div>` :  html`` }
           </label>
         </div>
         ${ this.availableSellingPlanGroups ? this.availableSellingPlanGroups.map((group, index) => 
