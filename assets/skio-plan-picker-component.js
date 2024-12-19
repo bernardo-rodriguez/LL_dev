@@ -1330,10 +1330,11 @@ export class SkioPlanPickerComponent extends LitElement {
 customElements.define('skio-plan-picker', SkioPlanPickerComponent);
 
 document.addEventListener('DOMContentLoaded', function() {
-  const bundleOptions = document.querySelectorAll('.bundle-option');
-  
+  // const bundleOptions = document.querySelectorAll('.bundle-option');
+  const bundleOptions = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('.bundle-option');
+
   // Set initial selected state
-  const initiallySelected = document.querySelector('input[type="radio"]:checked');
+  const initiallySelected =  document.querySelector('skio-plan-picker').shadowRoot.querySelector('.bundle-container input[type="radio"]:checked');
   if (initiallySelected) {
       initiallySelected.closest('.bundle-option').classList.add('selected');
   }
@@ -1344,7 +1345,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const radio = this.querySelector('input[type="radio"]');
           
           // Uncheck all other radio buttons
-          document.querySelectorAll('input[name="onetime_bundle"]').forEach(r => {
+          document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]').forEach(r => {
               r.checked = false;
           });
           
