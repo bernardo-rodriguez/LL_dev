@@ -126,6 +126,21 @@ const skioStyles = css`
     pointer-events: none;
   }
 
+  .skio-group-content-2 {
+    width: auto;
+    margin: 0 5px;
+    transition: max-height 0.25s cubic-bezier(0.4,0,0.2,1),
+                opacity 0.25s cubic-bezier(0.4,0,0.2,1);
+    opacity: 1;
+  }
+  
+  /* Hide frequency if not selected */
+  .skio-group-container:not(.skio-group-container--selected) .skio-group-content-2 {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
   .hide-skio-select {
     max-height: 0;
     opacity: 0;
@@ -659,7 +674,7 @@ export class SkioPlanPickerComponent extends LitElement {
             </div>
             
             ${ this.product.id == '7503162605793' ? html`
-            <div style = "max-height: none !important" class="skio-group-content">
+            <div class="skio-group-content-2">
               <div class="skio-custom-content">
                 <div class="skio-container">
                   <div class="bundle-container">
