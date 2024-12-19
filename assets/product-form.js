@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
           // Select the radio button
           const radio = this.querySelector('input[type="radio"]');
           radio.checked = true;
+          radio.click()
           
           // Update selected states
           bundleOptions.forEach(opt => {
