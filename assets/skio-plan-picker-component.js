@@ -658,7 +658,7 @@ export class SkioPlanPickerComponent extends LitElement {
               </div>
             </div>
             
-            ${ this.product.id == 'd' ? html`
+            ${ this.product.id == '7503162605793' ? html`
             <div class="skio-group-content">
               <div class="skio-custom-content">
                 <div class="skio-container">
