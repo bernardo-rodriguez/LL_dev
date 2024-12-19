@@ -37,22 +37,23 @@ document.addEventListener('DOMContentLoaded', function() {
   
   bundleOptions.forEach(option => {
       option.addEventListener('click', function(e) {
-          // Prevent default radio button behavior
-          e.preventDefault();
-          
-          // Select the radio button
-          const radio = this.querySelector('input[type="radio"]');
-          radio.checked = true;
-          radio.click()
-          
-          // Update selected states
-          bundleOptions.forEach(opt => {
-              opt.classList.remove('selected');
-          });
-          this.classList.add('selected');
-          
-          // Dispatch change event
-          radio.dispatchEvent(new Event('change', { bubbles: true }));
+        const radio = this.querySelector('input[type="radio"]');
+                    
+        // Uncheck all other radio buttons
+        document.querySelectorAll('input[name="bundle"]').forEach(r => {
+            r.checked = false;
+        });
+        
+        // Check this radio button
+        radio.checked = true;
+        
+        // Remove selected class from all options
+        bundleOptions.forEach(opt => {
+            opt.classList.remove('selected');
+        });
+        
+        // Add selected class to this option
+        this.classList.add('selected');
       });
     });
 });
