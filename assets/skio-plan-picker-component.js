@@ -371,6 +371,122 @@ const skioStyles = css`
     /* CSS that should be displayed if width is equal to or less than 800px goes here */
   }
 
+
+  /* THIS IS NEWLY INSERTED FOR THE BUNDLE ONE TIME FUNCTIONALITY */
+
+  .bundle-container {
+      max-width: 600px;
+      margin: 40px auto;
+  }
+
+  .bundle-option {
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 16px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.2s ease;
+  }
+
+  .bundle-option:hover {
+      border-color: #93c5fd;
+  }
+
+  .bundle-option.selected {
+      border-color: #3b82f6;
+      background-color: #eff6ff;
+  }
+
+  .bundle-content {
+      display: flex;
+      gap: 16px;
+  }
+
+  .bundle-details {
+      flex-grow: 1;
+  }
+
+  .bundle-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+  }
+
+  .bundle-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0;
+  }
+
+  .bundle-description {
+      color: #6b7280;
+      font-size: 14px;
+      margin-top: 4px;
+  }
+
+  .bundle-pricing {
+      text-align: right;
+  }
+
+  .retail-price {
+      color: #ef4444;
+      text-decoration: line-through;
+      font-size: 14px;
+  }
+
+  .sale-price {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 4px 0;
+  }
+
+  .savings {
+      color: #22c55e;
+      font-size: 14px;
+  }
+
+  .shipping {
+      color: #6b7280;
+      font-size: 14px;
+      margin-top: 8px;
+  }
+
+  .badge {
+      position: absolute;
+      top: -12px;
+      left: -8px;
+      padding: 4px 12px;
+      color: white;
+      font-size: 14px;
+      border-radius: 9999px;
+  }
+
+  .popular-badge {
+      background-color: #ef4444;
+  }
+
+  .best-deal-badge {
+      background-color: #22c55e;
+  }
+
+  .add-to-cart {
+      width: 100%;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 24px;
+      transition: background-color 0.2s ease;
+  }
+
+  .add-to-cart:hover {
+      background-color: #2563eb;
+  }
 `;
 
 export class SkioPlanPickerComponent extends LitElement {
@@ -541,10 +657,69 @@ export class SkioPlanPickerComponent extends LitElement {
                 </div>
               </div>
             </div>
+            
             <div class="skio-group-content">
               <div class="skio-custom-content">
                 <div class="skio-container">
-                  <div>hello there</div>
+                  <div class="bundle-container">
+                    <div class="bundle-option" data-bundle="1">
+                        <div class="bundle-content">
+                            <input type="radio" name="bundle" value="1" checked>
+                            <div class="bundle-details">
+                                <div class="bundle-header">
+                                    <div>
+                                        <h3 class="bundle-title">Buy 1 - Save 60%</h3>
+                                        <p class="bundle-description">What's included?</p>
+                                    </div>
+                                    <div class="bundle-pricing">
+                                        <div class="retail-price">Retail $99.99</div>
+                                        <div class="sale-price">$39.99</div>
+                                        <div class="savings">Save $60.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bundle-option" data-bundle="2">
+                        <div class="badge popular-badge">Most Popular</div>
+                        <div class="bundle-content">
+                            <input type="radio" name="bundle" value="2">
+                            <div class="bundle-details">
+                                <div class="bundle-header">
+                                    <div>
+                                        <h3 class="bundle-title">Buy 2, Get 1 FREE</h3>
+                                        <p class="shipping">+ FREE SHIPPING</p>
+                                    </div>
+                                    <div class="bundle-pricing">
+                                        <div class="retail-price">Retail $299.97</div>
+                                        <div class="sale-price">$79.99</div>
+                                        <div class="savings">Save $219.98</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bundle-option" data-bundle="3">
+                        <div class="badge best-deal-badge">Best Deal</div>
+                        <div class="bundle-content">
+                            <input type="radio" name="bundle" value="3">
+                            <div class="bundle-details">
+                                <div class="bundle-header">
+                                    <div>
+                                        <h3 class="bundle-title">Buy 3, Get 2 FREE</h3>
+                                        <p class="shipping">+ FREE SHIPPING</p>
+                                    </div>
+                                    <div class="bundle-pricing">
+                                        <div class="retail-price">Retail $499.95</div>
+                                        <div class="sale-price">$119.99</div>
+                                        <div class="savings">Save $379.96</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
               </div>
             </div>
