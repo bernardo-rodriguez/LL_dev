@@ -47,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
           
           // Check this radio button
           radio.checked = true;
-          radio.click()
           
           // Remove selected class from all options
           bundleOptions.forEach(opt => {
