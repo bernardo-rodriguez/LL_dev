@@ -665,7 +665,7 @@ export class SkioPlanPickerComponent extends LitElement {
                   <div class="bundle-container">
                     <div class="bundle-option" data-bundle="1">
                       <div class="bundle-content">
-                        <input type="radio" name="bundle" value="1">
+                        <input type="radio" name="onetime_bundle" value="1">
                         <div class="bundle-details">
                           <div class="bundle-header">
                             <div>
@@ -684,7 +684,7 @@ export class SkioPlanPickerComponent extends LitElement {
                     <div class="bundle-option" data-bundle="2">
                       <div class="badge popular-badge">Most Popular</div>
                       <div class="bundle-content">
-                        <input type="radio" name="bundle" value="2">
+                        <input type="radio" name="onetime_bundle" value="2" checked>
                         <div class="bundle-details">
                           <div class="bundle-header">
                             <div>
@@ -704,7 +704,7 @@ export class SkioPlanPickerComponent extends LitElement {
                     <div class="bundle-option" data-bundle="3">
                       <div class="badge best-deal-badge">Best Deal</div>
                       <div class="bundle-content">
-                        <input type="radio" name="bundle" value="3">
+                        <input type="radio" name="onetime_bundle" value="3">
                         <div class="bundle-details">
                           <div class="bundle-header">
                             <div>

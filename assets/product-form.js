@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const radio = this.querySelector('input[type="radio"]');
           
           // Uncheck all other radio buttons
-          document.querySelectorAll('input[name="bundle"]').forEach(r => {
+          document.querySelectorAll('input[name="onetime_bundle"]').forEach(r => {
               r.checked = false;
           });
           
