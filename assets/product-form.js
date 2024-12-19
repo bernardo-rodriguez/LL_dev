@@ -353,11 +353,13 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
           console.log(this.mostRecentSellingPlan)
         })
 
-        onetime_bundle_radio = document.querySelector('skio-plan-picker').shadowRoot.querySelector('.bundle-container input[type="radio"]')
-        onetime_bundle_radio.addEventListener('change', (e) => {
-          this.updateStickyBar(e)
-          this.mostRecentSellingPlan = e.detail.sellingPlan ? e.detail.sellingPlan.id : this.mostRecentSellingPlan
-          console.log(this.mostRecentSellingPlan)
+        onetime_bundle_radio = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('.bundle-container input[type="radio"]')
+        onetime_bundle_radio.forEach(radio => {
+          radio.addEventListener('change', (e) => {
+            this.updateStickyBar(e)
+            this.mostRecentSellingPlan = e.detail.sellingPlan ? e.detail.sellingPlan.id : this.mostRecentSellingPlan
+            console.log(this.mostRecentSellingPlan)
+          });
         });
         
     } catch (e) {
