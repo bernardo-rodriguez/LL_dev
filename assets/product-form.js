@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
           this.classList.add('selected');
       });
 });
+});
 
 customElements.define('product-form', class ProductForm extends HTMLElement {
   constructor() {

@@ -665,7 +665,7 @@ export class SkioPlanPickerComponent extends LitElement {
                   <div class="bundle-container">
                     <div class="bundle-option" data-bundle="1">
                       <div class="bundle-content">
-                        <input type="radio" name="bundle" value="1" checked>
+                        <input type="radio" name="bundle" value="1">
                         <div class="bundle-details">
                           <div class="bundle-header">
                             <div>
