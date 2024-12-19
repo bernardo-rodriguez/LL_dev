@@ -26,38 +26,6 @@ function add_pen_cookie() {
   setCookie('add_pen', formula_id)
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  const bundleOptions = document.querySelectorAll('.bundle-option');
-  
-  // Set initial selected state
-  const initiallySelected = document.querySelector('input[type="radio"]:checked');
-  if (initiallySelected) {
-      initiallySelected.closest('.bundle-option').classList.add('selected');
-  }
-  
-  bundleOptions.forEach(option => {
-      option.addEventListener('click', function(e) {
-          // Find the radio button within this option
-          const radio = this.querySelector('input[type="radio"]');
-          
-          // Uncheck all other radio buttons
-          document.querySelectorAll('input[name="onetime_bundle"]').forEach(r => {
-              r.checked = false;
-          });
-          
-          // Check this radio button
-          radio.checked = true;
-          
-          // Remove selected class from all options
-          bundleOptions.forEach(opt => {
-              opt.classList.remove('selected');
-          });
-          
-          // Add selected class to this option
-          this.classList.add('selected');
-      });
-});
-});
 
 customElements.define('product-form', class ProductForm extends HTMLElement {
   constructor() {
