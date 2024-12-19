@@ -312,7 +312,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         this.setVariant();
         this.observeFormulaPicker('input[name="refill-strength"]')
 
-        onetime_bundle_radio = document.querySelectorAll('input[name="onetime_bundle"]')
+        onetime_bundle_radio = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]')
         console.log('im here')
         console.log(onetime_bundle_radio)
         onetime_bundle_radio.forEach(radio => {
