@@ -680,7 +680,7 @@ export class SkioPlanPickerComponent extends LitElement {
                   <div class="bundle-container">
                     <div class="bundle-option" data-bundle="1">
                       <div class="bundle-content">
-                        <input type="radio" name="onetime_bundle" value="1">
+                        <input type="radio" name="onetime_bundle" value="1" data-custom-price="${ (this.selectedVariant.price / 100).toFixed(0) }">
                         <div class="bundle-details">
                           <div class="bundle-header">
                             <div>
@@ -689,8 +689,8 @@ export class SkioPlanPickerComponent extends LitElement {
                             </div>
                             <div class="bundle-pricing">
                               <div class="retail-price">Retail $99.99</div>
-                              <div class="sale-price">$39.99</div>
-                              <div class="savings">Save $60.00</div>
+                              <div class="sale-price">$${ (this.selectedVariant.price / 100).toFixed(0) }</div>
+                              <div class="savings">Save $30.00</div>
                             </div>
                           </div>
                         </div>
@@ -699,7 +699,7 @@ export class SkioPlanPickerComponent extends LitElement {
                     <div class="bundle-option" data-bundle="2">
                       <div class="badge popular-badge">Most Popular</div>
                       <div class="bundle-content">
-                        <input type="radio" name="onetime_bundle" value="2" checked>
+                        <input type="radio" name="onetime_bundle" value="2" data-custom-price="70" checked>
                         <div class="bundle-details">
                           <div class="bundle-header">
                             <div>
@@ -719,7 +719,7 @@ export class SkioPlanPickerComponent extends LitElement {
                     <div class="bundle-option" data-bundle="3">
                       <div class="badge best-deal-badge">Best Deal</div>
                       <div class="bundle-content">
-                        <input type="radio" name="onetime_bundle" value="3">
+                        <input type="radio" name="onetime_bundle" value="3" data-custom-price="100" >
                         <div class="bundle-details">
                           <div class="bundle-header">
                             <div>
@@ -1374,6 +1374,8 @@ document.addEventListener('DOMContentLoaded', function() {
           
           // Add selected class to this option
           this.classList.add('selected');
+
+          document.querySelector('skio-plan-picker').shadowRoot.querySelector('skio-onetime-price').innerHTML = 'sup there'
       });
 });
 });
