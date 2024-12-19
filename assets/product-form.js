@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
           // Dispatch change event
           radio.dispatchEvent(new Event('change', { bubbles: true }));
       });
+    });
 });
 
 customElements.define('product-form', class ProductForm extends HTMLElement {
