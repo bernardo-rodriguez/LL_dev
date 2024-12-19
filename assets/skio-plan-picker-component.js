@@ -1375,7 +1375,7 @@ document.addEventListener('DOMContentLoaded', function() {
           // Add selected class to this option
           this.classList.add('selected');
 
-          document.querySelector('skio-plan-picker').shadowRoot.querySelector('#skio-onetime-price-set').innerHTML = 'sup there'
+          document.querySelector('skio-plan-picker').shadowRoot.querySelector('#skio-onetime-price-set').innerHTML = radio.dataset.customPrice
       });
 });
 });
