@@ -659,7 +659,7 @@ export class SkioPlanPickerComponent extends LitElement {
             </div>
             
             ${ this.product.id == '7503162605793' ? html`
-            <div class="skio-group-content">
+            <div style = "max-height: none !important" class="skio-group-content">
               <div class="skio-custom-content">
                 <div class="skio-container">
                   <div class="bundle-container">
