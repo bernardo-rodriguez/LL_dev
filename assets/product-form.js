@@ -353,9 +353,9 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let onetime_bundle_radio = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]')
     console.log('im hered')
     console.log(onetime_bundle_radio)
-    // onetime_bundle_radio.addEventListener('change', (e) => {
-    //   console.log('Radio changed:', e.target.checked);
-    // });
+    onetime_bundle_radio.addEventListener('click', (e) => {
+      console.log(document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]'))
+    });
     // onetime_bundle_radio.forEach(radio => {
     //   console.log(radio)
     //   radio.addEventListener('change', (e) => {
@@ -366,14 +366,14 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     //     console.log(this.mostRecentSellingPlan)
     //   });
     // });
-    const host = document.querySelector('#shadow-host');
-    const shadow = host.shadowRoot;
+    // const host = document.querySelector('#shadow-host');
+    // const shadow = host.shadowRoot;
 
-    shadow.addEventListener('change', (e) => {
-        if (e.target.type === 'radio') {
-            console.log('Radio changed:', e.target.checked);
-        }
-    }, true);
+    // shadow.addEventListener('change', (e) => {
+    //     if (e.target.type === 'radio') {
+    //         console.log('Radio changed:', e.target.checked);
+    //     }
+    // }, true);
     return 
   }
 
