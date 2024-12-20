@@ -47,7 +47,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     this.getSubPrice();
 
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', () => {
+      // 'this' here refers to the original outer context
       this.bundleStickyBar();
     });
 
