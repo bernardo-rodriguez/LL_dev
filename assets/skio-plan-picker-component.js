@@ -1362,10 +1362,12 @@ document.addEventListener('DOMContentLoaded', function() {
           // Uncheck all other radio buttons
           document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]').forEach(r => {
               r.checked = false;
+              input.removeAttribute('checked');
           });
           
           // Check this radio button
           radio.checked = true;
+          input.setAttribute('checked', '');
           
           // Remove selected class from all options
           bundleOptions.forEach(opt => {
