@@ -46,7 +46,27 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     this.createSubscriptionWidget();
 
     this.getSubPrice()
-   }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      this.bundleStickyBar()
+    });
+
+  }
+
+
+  bundleStickyBar() {
+      onetime_bundle_radio = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]')
+      console.log('im here')
+      console.log(onetime_bundle_radio)
+      onetime_bundle_radio.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+          console.log('onetime changed')
+          this.updateStickyBar(e)
+          this.mostRecentSellingPlan = e.detail.sellingPlan ? e.detail.sellingPlan.id : this.mostRecentSellingPlan
+          console.log(this.mostRecentSellingPlan)
+        });
+      });
+    }
 
   getCookie(cname) {
     // Get cookie by cookie name
@@ -312,17 +332,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         this.setVariant();
         this.observeFormulaPicker('input[name="refill-strength"]')
 
-        onetime_bundle_radio = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]')
-        console.log('im here')
-        console.log(onetime_bundle_radio)
-        onetime_bundle_radio.forEach(radio => {
-          radio.addEventListener('change', (e) => {
-            console.log('onetime changed')
-            this.updateStickyBar(e)
-            this.mostRecentSellingPlan = e.detail.sellingPlan ? e.detail.sellingPlan.id : this.mostRecentSellingPlan
-            console.log(this.mostRecentSellingPlan)
-          });
-        });
       })
     } catch (e) {
         console.log("Error: failure in createSubcriptionWidget() for product-form.js")
