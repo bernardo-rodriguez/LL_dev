@@ -356,16 +356,24 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     // onetime_bundle_radio.addEventListener('change', (e) => {
     //   console.log('Radio changed:', e.target.checked);
     // });
-    onetime_bundle_radio.forEach(radio => {
-      console.log(radio)
-      radio.addEventListener('change', (e) => {
-        console.log(e)
-        console.log('onetime changed')
-        this.updateStickyBar(e)
-        this.mostRecentSellingPlan = e.detail.sellingPlan ? e.detail.sellingPlan.id : this.mostRecentSellingPlan
-        console.log(this.mostRecentSellingPlan)
-      });
-    });
+    // onetime_bundle_radio.forEach(radio => {
+    //   console.log(radio)
+    //   radio.addEventListener('change', (e) => {
+    //     console.log(e)
+    //     console.log('onetime changed')
+    //     this.updateStickyBar(e)
+    //     this.mostRecentSellingPlan = e.detail.sellingPlan ? e.detail.sellingPlan.id : this.mostRecentSellingPlan
+    //     console.log(this.mostRecentSellingPlan)
+    //   });
+    // });
+    const host = document.querySelector('#shadow-host');
+    const shadow = host.shadowRoot;
+
+    shadow.addEventListener('change', (e) => {
+        if (e.target.type === 'radio') {
+            console.log('Radio changed:', e.target.checked);
+        }
+    }, true);
     return 
   }
 
