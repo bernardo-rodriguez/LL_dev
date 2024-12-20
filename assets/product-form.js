@@ -350,10 +350,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   bundleStickyBar() {
-    let onetime_bundle_radio = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]')
+    let skio_plan_picker = document.querySelector('skio-plan-picker')
     console.log('im hered')
-    console.log(onetime_bundle_radio)
-    onetime_bundle_radio.addEventListener('click', (e) => {
+    console.log(skio_plan_picker)
+    skio_plan_picker.addEventListener('click', (e) => {
       console.log(document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]'))
     });
     // onetime_bundle_radio.forEach(radio => {
