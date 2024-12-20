@@ -354,27 +354,13 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     console.log('im hered')
     console.log(skio_plan_picker)
     skio_plan_picker.addEventListener('click', (e) => {
-      console.log(document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]:checked'))
+      if (document.querySelector('[data-sticky-onetime]').classList.contains('selected')) {
+        console.log(document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]:checked'))
+        let customPrice = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]:checked').dataset.customPrice
+        console.log(customPrice)
+        document.querySelector(".sticky__price").innerHTML = price
+      }
     });
-
-    // onetime_bundle_radio.forEach(radio => {
-    //   console.log(radio)
-    //   radio.addEventListener('change', (e) => {
-    //     console.log(e)
-    //     console.log('onetime changed')
-    //     this.updateStickyBar(e)
-    //     this.mostRecentSellingPlan = e.detail.sellingPlan ? e.detail.sellingPlan.id : this.mostRecentSellingPlan
-    //     console.log(this.mostRecentSellingPlan)
-    //   });
-    // });
-    // const host = document.querySelector('#shadow-host');
-    // const shadow = host.shadowRoot;
-
-    // shadow.addEventListener('change', (e) => {
-    //     if (e.target.type === 'radio') {
-    //         console.log('Radio changed:', e.target.checked);
-    //     }
-    // }, true);
     return 
   }
 
