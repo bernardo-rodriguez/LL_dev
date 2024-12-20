@@ -350,7 +350,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   bundleStickyBar() {
-    let onetime_bundle_radio = document.querySelector('skio-plan-picker').shadowRoot.querySelector('input[name="onetime_bundle"]')
+    let onetime_bundle_radio = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]')
     console.log('im hered')
     console.log(onetime_bundle_radio)
     onetime_bundle_radio.addEventListener('change', (e) => {
