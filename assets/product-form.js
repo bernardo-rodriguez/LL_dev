@@ -354,9 +354,9 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     console.log('im hered')
     console.log(skio_plan_picker)
     skio_plan_picker.addEventListener('click', (e) => {
-      console.log(document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]'))
+      console.log(document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]:checked'))
     });
-    
+
     // onetime_bundle_radio.forEach(radio => {
     //   console.log(radio)
     //   radio.addEventListener('change', (e) => {
