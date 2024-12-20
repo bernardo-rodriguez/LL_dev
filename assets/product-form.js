@@ -353,16 +353,19 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let onetime_bundle_radio = document.querySelector('skio-plan-picker').shadowRoot.querySelector('input[name="onetime_bundle"]')
     console.log('im hered')
     console.log(onetime_bundle_radio)
-    onetime_bundle_radio.forEach(radio => {
-      console.log(radio)
-      radio.addEventListener('change', (e) => {
-        console.log(e)
-        console.log('onetime changed')
-        this.updateStickyBar(e)
-        this.mostRecentSellingPlan = e.detail.sellingPlan ? e.detail.sellingPlan.id : this.mostRecentSellingPlan
-        console.log(this.mostRecentSellingPlan)
-      });
+    onetime_bundle_radio.addEventListener('change', (e) => {
+      console.log('Radio changed:', e.target.checked);
     });
+    // onetime_bundle_radio.forEach(radio => {
+    //   console.log(radio)
+    //   radio.addEventListener('change', (e) => {
+    //     console.log(e)
+    //     console.log('onetime changed')
+    //     this.updateStickyBar(e)
+    //     this.mostRecentSellingPlan = e.detail.sellingPlan ? e.detail.sellingPlan.id : this.mostRecentSellingPlan
+    //     console.log(this.mostRecentSellingPlan)
+    //   });
+    // });
     return 
   }
 
