@@ -731,7 +731,7 @@ export class SkioPlanPickerComponent extends LitElement {
                             <div class="bundle-pricing">
                               <div class="retail-price">${ this.oneTimePricingConfig['second']['retail_saving'] }</div>
                               <div class="sale-price">${ this.oneTimePricingConfig['second']['subtotal'] }</div>
-                              <div class="savings">${ this.oneTimePricingConfig['first']['save'] }</div>
+                              <div class="savings">${ this.oneTimePricingConfig['second']['save'] }</div>
                             </div>
                           </div>
                         </div>
@@ -751,7 +751,7 @@ export class SkioPlanPickerComponent extends LitElement {
                             <div class="bundle-pricing">
                               <div class="retail-price">${ this.oneTimePricingConfig['third']['retail_saving'] }</div>
                               <div class="sale-price">${ this.oneTimePricingConfig['third']['subtotal'] }</div>
-                              <div class="savings">Save $379.96</div>
+                              <div class="savings">${ this.oneTimePricingConfig['third']['save'] }</div>
                             </div>
                           </div>
                         </div>
