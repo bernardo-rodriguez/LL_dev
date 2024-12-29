@@ -358,7 +358,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         console.log(document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]:checked'))
         let customPrice = document.querySelector('skio-plan-picker').shadowRoot.querySelector('input[name="onetime_bundle"]:checked').dataset.customPrice
         console.log(customPrice)
-        document.querySelector(".sticky__price").innerHTML = price
+        document.querySelector(".sticky__price").innerHTML = customPrice
       }
     });
     return 
