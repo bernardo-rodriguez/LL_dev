@@ -579,7 +579,8 @@ export class SkioPlanPickerComponent extends LitElement {
                   <div class="skio-custom-content">
                     <div class="skio-container">
                       <div>${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? 'Whitening Gels' : 'Whitening Gels' }</div>
-                      <div>${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? '1 Month Supply' : 'Refills for $' + (this.price(group.selected_selling_plan, false) / 100).toFixed(0) + '/delivery' }</div>
+                      <!–– <div>${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? '1 Month Supply' : 'Refills for $' + (this.price(group.selected_selling_plan, false) / 100).toFixed(0) + '/delivery' }</div> ––>
+                      <div>${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? '1 Month Supply' : 'Refills for $25/delivery' }</div>
                     </div>
                     <div class="skio-container" style = "margin-top: 10px">
                       <select skio-selling-plans="${ group.id }" class="skio-frequency${ group.selling_plans.length == 1 ? ' skio-frequency--one' : '' }
