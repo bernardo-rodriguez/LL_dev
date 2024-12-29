@@ -211,7 +211,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     switch(subscriptionCookie[0]) {
        // case 'redirect_skimm':
-       //  subPrice = '$19'
+       //  subPrice = '$29'
        //  subText = 'Subscribe & Save'
        //  oneTimeText = 'Skimm One-Time'
        //  oneTimePrice = '$57'
@@ -228,7 +228,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         subText = 'STARTER SPECIAL'
         // subPrice = '$0'
         // subText = 'FREE TRIAL SPECIAL'
-        // subPrice = '$19'
+        // subPrice = '$29'
         // subText = 'STARTER SPECIAL'
         break;
       case 'redirect_ut_direct':
@@ -242,7 +242,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         subText = 'FREE TRIAL SPECIAL'
         break
       case 'redirect_cpgap':
-        subPrice = '$19'
+        subPrice = '$29'
         subText = 'Subscribe & Save'
         break
       case 'redirect_paceline':
@@ -262,7 +262,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         subText = 'Subscribe & Save'
         break
       default:
-        subPrice = '$19'
+        subPrice = '$29'
         subText = 'Subscribe & Save'
         break
     }
