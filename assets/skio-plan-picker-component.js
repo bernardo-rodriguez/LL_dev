@@ -590,7 +590,28 @@ export class SkioPlanPickerComponent extends LitElement {
 
     this.lastSellingPlanName = '';
 
-    this.showDetailsHover = false;   
+    this.showDetailsHover = false;
+    
+    this.oneTimePricingConfig = {
+      'first': {
+        'offer_title': 'Buy 1 - Save 34%',
+        'retail_saving': 'Retail $76',
+        'subtotal': '$59',
+        'save': '$26'
+      },
+      'second': {
+        'offer_title': 'Buy 2, Get 1 FREE + Free Shipping',
+        'retail_saving': 'Retail $228',
+        'subtotal': '$108',
+        'save': '$128'
+      },
+      'third': {
+        'offer_title': 'Buy 3, Get 2 FREE + Free Shipping',
+        'retail_saving': 'Retail $380',
+        'subtotal': '$177',
+        'save': '$230'
+      }
+    }
   }
 
   connectedCallback() {
@@ -668,7 +689,8 @@ export class SkioPlanPickerComponent extends LitElement {
                   One-time
                 </div>
                 <div class="skio-price">
-                  —<span id = 'skio-onetime-price-set' skio-onetime-price>$${ (this.selectedVariant.price / 100).toFixed(0) }</span>
+                  <!-- —<span id = 'skio-onetime-price-set' skio-onetime-price>$${ (this.selectedVariant.price / 100).toFixed(0) }</span> -->
+                  —<span id = 'skio-onetime-price-set' skio-onetime-price>${ this.oneTimePricingConfig['first']['subtotal'] }</span>
                 </div>
               </div>
             </div>
@@ -680,7 +702,7 @@ export class SkioPlanPickerComponent extends LitElement {
                   <div class="bundle-container">
                     <div class="bundle-option" data-bundle="1">
                       <div class="bundle-content">
-                        <input type="radio" name="onetime_bundle" value="1" data-custom-price="${ (this.selectedVariant.price / 100).toFixed(0) }">
+                        <input type="radio" name="onetime_bundle" value="1" data-custom-price="${ this.oneTimePricingConfig['first']['subtotal'] }">
                         <div class="bundle-details">
                           <div class="bundle-header">
                             <div>
@@ -699,7 +721,7 @@ export class SkioPlanPickerComponent extends LitElement {
                     <div class="bundle-option" data-bundle="2">
                       <div class="badge popular-badge">Most Popular</div>
                       <div class="bundle-content">
-                        <input type="radio" name="onetime_bundle" value="2" data-custom-price="70" checked>
+                        <input type="radio" name="onetime_bundle" value="2" data-custom-price="${ this.oneTimePricingConfig['second']['subtotal'] }" checked>
                         <div class="bundle-details">
                           <div class="bundle-header">
                             <div>
@@ -719,7 +741,7 @@ export class SkioPlanPickerComponent extends LitElement {
                     <div class="bundle-option" data-bundle="3">
                       <div class="badge best-deal-badge">Best Deal</div>
                       <div class="bundle-content">
-                        <input type="radio" name="onetime_bundle" value="3" data-custom-price="100" >
+                        <input type="radio" name="onetime_bundle" value="3" data-custom-price="${ this.oneTimePricingConfig['second']['subtotal'] }" >
                         <div class="bundle-details">
                           <div class="bundle-header">
                             <div>
