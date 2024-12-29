@@ -741,7 +741,7 @@ export class SkioPlanPickerComponent extends LitElement {
                     <div class="bundle-option" data-bundle="3">
                       <div class="badge best-deal-badge">Best Deal</div>
                       <div class="bundle-content">
-                        <input type="radio" name="onetime_bundle" value="3" data-custom-price="${ this.oneTimePricingConfig['second']['subtotal'] }" >
+                        <input type="radio" name="onetime_bundle" value="3" data-custom-price="${ this.oneTimePricingConfig['third']['subtotal'] }" >
                         <div class="bundle-details">
                           <div class="bundle-header">
                             <div>
