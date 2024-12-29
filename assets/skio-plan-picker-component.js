@@ -706,7 +706,7 @@ export class SkioPlanPickerComponent extends LitElement {
                         <div class="bundle-details">
                           <div class="bundle-header">
                             <div>
-                              <h3 class="bundle-title">Buy 1 - Save 60%</h3>
+                              <h3 class="bundle-title">${ this.oneTimePricingConfig['first']['offer_title'] }</h3>
                               <p class="bundle-description">What's included?</p>
                             </div>
                             <div class="bundle-pricing">
@@ -725,7 +725,7 @@ export class SkioPlanPickerComponent extends LitElement {
                         <div class="bundle-details">
                           <div class="bundle-header">
                             <div>
-                              <h3 class="bundle-title">Buy 2, Get 1 FREE</h3>
+                              <h3 class="bundle-title">${ this.oneTimePricingConfig['second']['offer_title'] }</h3>
                               <p class="shipping">+ FREE SHIPPING</p>
                             </div>
                             <div class="bundle-pricing">
@@ -745,7 +745,7 @@ export class SkioPlanPickerComponent extends LitElement {
                         <div class="bundle-details">
                           <div class="bundle-header">
                             <div>
-                              <h3 class="bundle-title">Buy 3, Get 2 FREE</h3>
+                              <h3 class="bundle-title">${ this.oneTimePricingConfig['third']['offer_title'] }</h3>
                               <p class="shipping">+ FREE SHIPPING</p>
                             </div>
                             <div class="bundle-pricing">
