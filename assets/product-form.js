@@ -653,5 +653,6 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
+  console.log('remove page transition visibility')
   document.querySelector('.page-transition').classList.remove('visible');
 });
