@@ -543,7 +543,7 @@ xhttp.send();
 
       xhttp.open("POST", "/cart/clear.js", true);
 
-      xhr.onreadystatechange = function() {
+      xhttp.onreadystatechange = function() {
         if (xhr.readyState === 4) {
           // Check the HTTP status code
           if (xhr.status === 200) {
