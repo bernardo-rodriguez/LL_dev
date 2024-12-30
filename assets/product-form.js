@@ -437,6 +437,11 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     console.log(dpk_choice)
     let quantity_setter = (dpk_choice == 'two_kits') ? 2: 1
 
+    if (!(['8187028177121', '8252255568097', '8733239869665'].includes(product_form.product_id))) {
+      let quantity_field = document.querySelector('quantity-input input[name="quantity"]').value
+      quantity_setter = quantity_field
+    }
+
     let pen = this.getCookie('add_pen')
     let itemsList = [{
         id: product_form.id, // this is variant id

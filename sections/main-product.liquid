@@ -150,6 +150,8 @@ xhttp.send();
               data-type: 'add-to-cart-form'
             %}
               <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+              <input type="hidden" name="product_id" value="{{ product.id }}">
+
               
               {% unless product.has_only_default_variant %}
                 {% assign picker_type = 'button' %}
