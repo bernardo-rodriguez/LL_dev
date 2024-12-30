@@ -20,8 +20,9 @@ function getCookie(cname) {
 
 function setCookie(key, value) {
   var date = new Date();
-  date.setDate(date.getDate() + 1)
+  date.setTime(date.getTime() + 2 * 3600 * 1000);
   var expires = date.toUTCString();
+  console.log(expires)
   document.cookie = `${key}=${value}; expires=${expires}; path=/`;
 }
 
@@ -80,7 +81,7 @@ function cookie_actions() {
         showAnnouncementBar('👋 Skimm reader, discount auto-applied at checkout!')
         break
       default:
-        showAnnouncementBar('Start Whitening Today for just $19!')
+        showAnnouncementBar('Start Whitening Today for just $29!')
         break;
     }
 }

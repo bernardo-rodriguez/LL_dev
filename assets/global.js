@@ -289,10 +289,12 @@ function getCookie(name) {
   return v ? v[2] : null;
 }
 
-function setCookie(name, value, days) {
-  var d = new Date;
-  d.setTime(d.getTime() + 24*60*60*1000*days);
-  document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
+function setCookie(key, value) {
+  var date = new Date();
+  date.setTime(date.getTime() + 2 * 3600 * 1000);
+  var expires = date.toUTCString();
+  console.log(expires)
+  document.cookie = `${key}=${value}; expires=${expires}; path=/`;
 }
 
 /* ================================

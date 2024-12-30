@@ -219,7 +219,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     switch(subscriptionCookie[0]) {
        // case 'redirect_skimm':
-       //  subPrice = '$19'
+       //  subPrice = '$29'
        //  subText = 'Subscribe & Save'
        //  oneTimeText = 'Skimm One-Time'
        //  oneTimePrice = '$57'
@@ -230,13 +230,12 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         // this.add_pen()
         break
       case 'redirect_ut':
-        // add_pen_cookie()
-        this.add_pen()
+        add_pen_cookie()
         subPrice = '$9'
         subText = 'STARTER SPECIAL'
         // subPrice = '$0'
         // subText = 'FREE TRIAL SPECIAL'
-        // subPrice = '$19'
+        // subPrice = '$29'
         // subText = 'STARTER SPECIAL'
         break;
       case 'redirect_ut_direct':
@@ -250,7 +249,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         subText = 'FREE TRIAL SPECIAL'
         break
       case 'redirect_cpgap':
-        subPrice = '$19'
+        subPrice = '$29'
         subText = 'Subscribe & Save'
         break
       case 'redirect_paceline':
@@ -270,7 +269,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         subText = 'Subscribe & Save'
         break
       default:
-        subPrice = '$19'
+        subPrice = '$29'
         subText = 'Subscribe & Save'
         break
     }
@@ -460,6 +459,11 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     
     console.log(dpk_choice)
     let quantity_setter = (dpk_choice == 'two_kits') ? 2: 1
+
+    if (!(['8187028177121', '8252255568097', '8733239869665'].includes(product_form.product_id))) {
+      let quantity_field = document.querySelector('quantity-input input[name="quantity"]').value
+      quantity_setter = quantity_field
+    }
 
     let pen = this.getCookie('add_pen')
     let itemsList = [{
@@ -670,3 +674,13 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
   });
   }
 })
+
+
+window.addEventListener('pageshow', function(event) {
+  if (event.persisted) {
+    console.log('loaded from cache')
+    // The page was loaded from bfcache (back-forward cache) or a similar mechanism.
+    // You can force a reload or reinitialize any state here.
+   window.location.reload();
+  }
+});
