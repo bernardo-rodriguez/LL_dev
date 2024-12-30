@@ -456,6 +456,9 @@ xhttp.send();
   }
 
   async function setCartAttributesShareasale(affiliate, affiliate_id) {
+    if (affiliate_id === undefined || affiliate_id === null) {
+      affiliate_id = "none"
+    }
    let cart = await fetch('/cart/update.js', {
         method: "POST",
         headers: {
@@ -526,15 +529,45 @@ xhttp.send();
           await setCartAttributesShareasale("redirect_cpgap", shareasale_cookie_clean); 
         } else if (redirect_cpgap_gen == 'true') {
           await setCartAttributesShareasale("redirect_cpgap_gen", shareasale_cookie_clean); 
-        } 
+        }  else {
+          await setCartAttributesShareasale("none", shareasale_cookie_clean); 
+        }
       } catch (error) {
         console.log('something went wrong when setting cart attributes');
       }
   }
 
-  setTimeout(() => { 
-      setAttributes()
-    }, 1000);
+  async function clear_cart() {
+    await new Promise((resolve, reject) => {
+      var xhttp = new XMLHttpRequest();
+
+      xhttp.open("POST", "/cart/clear.js", true);
+
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          // Check the HTTP status code
+          if (xhr.status === 200) {
+            // Resolve the promise with the response text
+            console.log('cart cleared')
+            resolve(JSON.parse(xhr.responseText));
+          } else {
+            // Reject the promise if there's an error
+            console.log('error clearing cart')
+            reject(new Error(`Request failed with status ${xhr.status}`));
+          }
+        }
+      };
+
+      xhttp.send();
+    });
+  }
+
+  async function cart_setup() {
+    await clear_cart()
+    await setAttributes()
+  }
+
+  cart_setup()
   
   function getCookie(cname) {
     // const value = `; ${document.cookie}`;
