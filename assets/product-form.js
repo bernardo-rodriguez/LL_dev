@@ -651,3 +651,8 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
   });
   }
 })
+
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  document.querySelector('.page-transition').classList.remove('visible');
+});
