@@ -502,15 +502,10 @@ xhttp.send();
       // } else {
       //   let cart = await setCartAttributes("upsell_not_set"); 
       // }
-      try {
-        let shareasale_cookie = getCookie('shareasaleShopifySSCID')
-        let shareasale_cookie_clean = shareasale_cookie ?? "none";
-        console.log('shareasale cookie is:')
-        console.log(shareasale_cookie)
-      } catch (error) {
-        console.log('something went wrong when getting shareasale affiliate');
-        let shareasale_cookie_clean = "none"
-      }
+      let shareasale_cookie = getCookie('shareasaleShopifySSCID')
+      let shareasale_cookie_clean = shareasale_cookie ?? "none";
+      console.log('shareasale cookie is:')
+      console.log(shareasale_cookie_clean)
 
       try {
         if (paceline_automatic == 'true') {
@@ -534,7 +529,7 @@ xhttp.send();
         }
       } catch (error) {
         console.log(error)
-        
+
         console.log('something went wrong when setting cart attributes');
       }
   }
