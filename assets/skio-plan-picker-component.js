@@ -23,6 +23,8 @@ The following web component can be dropped into any standard Shopify theme (i.e.
 */
 
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
+import { unsafeHTML } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/directives/unsafe-html.js';
+
 
 const skioStyles = css`
   .skio-plan-picker {
@@ -712,12 +714,12 @@ export class SkioPlanPickerComponent extends LitElement {
                         <div class="bundle-details">
                           <div class="bundle-header">
                             <div>
-                              <h3 class="bundle-title">${ this.oneTimePricingConfig['first']['offer_title'] }</h3>
-                              <div class="retail-price">${ this.oneTimePricingConfig['first']['retail_saving'] }</div>
+                              <h3 class="bundle-title">${unsafeHTML(this.oneTimePricingConfig['first']['offer_title'])}</h3>
+                              <div class="retail-price">${ unsafeHTML(this.oneTimePricingConfig['first']['retail_saving']) }</div>
                             </div>
                             <div class="bundle-pricing">
-                              <div class="sale-price">${ this.oneTimePricingConfig['first']['subtotal'] }</div>
-                              <div class="savings">${ this.oneTimePricingConfig['first']['save'] }</div>
+                              <div class="sale-price">${ unsafeHTML(this.oneTimePricingConfig['first']['subtotal']) }</div>
+                              <div class="savings">${ unsafeHTML(this.oneTimePricingConfig['first']['save']) }</div>
                             </div>
                           </div>
                         </div>
@@ -730,12 +732,12 @@ export class SkioPlanPickerComponent extends LitElement {
                         <div class="bundle-details">
                           <div class="bundle-header">
                             <div>
-                              <h3 class="bundle-title">${ this.oneTimePricingConfig['second']['offer_title'] }</h3>
-                              <div class="retail-price">${ this.oneTimePricingConfig['second']['retail_saving'] }</div>
+                              <h3 class="bundle-title">${ unsafeHTML(this.oneTimePricingConfig['second']['offer_title']) }</h3>
+                              <div class="retail-price">${ unsafeHTML(this.oneTimePricingConfig['second']['retail_saving']) }</div>
                             </div>
                             <div class="bundle-pricing">
-                              <div class="sale-price">${ this.oneTimePricingConfig['second']['subtotal'] }</div>
-                              <div class="savings">${ this.oneTimePricingConfig['second']['save'] }</div>
+                              <div class="sale-price">${ unsafeHTML(this.oneTimePricingConfig['second']['subtotal']) }</div>
+                              <div class="savings">${ unsafeHTML(this.oneTimePricingConfig['second']['save']) }</div>
                             </div>
                           </div>
                         </div>
@@ -749,12 +751,12 @@ export class SkioPlanPickerComponent extends LitElement {
                         <div class="bundle-details">
                           <div class="bundle-header">
                             <div>
-                              <h3 class="bundle-title">${ this.oneTimePricingConfig['third']['offer_title'] }</h3>
-                              <div class="retail-price">${ this.oneTimePricingConfig['third']['retail_saving'] }</div>
+                              <h3 class="bundle-title">${ unsafeHTML(this.oneTimePricingConfig['third']['offer_title']) }</h3>
+                              <div class="retail-price">${ unsafeHTML(this.oneTimePricingConfig['third']['retail_saving']) }</div>
                             </div>
                             <div class="bundle-pricing">
-                              <div class="sale-price">${ this.oneTimePricingConfig['third']['subtotal'] }</div>
-                              <div class="savings">${ this.oneTimePricingConfig['third']['save'] }</div>
+                              <div class="sale-price">${ unsafeHTML(this.oneTimePricingConfig['third']['subtotal']) }</div>
+                              <div class="savings">${ unsafeHTML(this.oneTimePricingConfig['third']['save']) }</div>
                             </div>
                           </div>
                         </div>
