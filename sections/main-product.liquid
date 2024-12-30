@@ -544,16 +544,16 @@ xhttp.send();
       xhttp.open("POST", "/cart/clear.js", true);
 
       xhttp.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
+        if (xhttp.readyState === 4) {
           // Check the HTTP status code
-          if (xhr.status === 200) {
+          if (xhttp.status === 200) {
             // Resolve the promise with the response text
             console.log('cart cleared')
-            resolve(JSON.parse(xhr.responseText));
+            resolve(JSON.parse(xhttp.responseText));
           } else {
             // Reject the promise if there's an error
             console.log('error clearing cart')
-            reject(new Error(`Request failed with status ${xhr.status}`));
+            reject(new Error(`Request failed with status ${xhttp.status}`));
           }
         }
       };
