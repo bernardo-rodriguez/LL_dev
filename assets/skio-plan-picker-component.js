@@ -23,7 +23,7 @@ The following web component can be dropped into any standard Shopify theme (i.e.
 */
 
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
-import { unsafeHTML } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/directives/unsafe-html.js';
+import { unsafeHTML } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/directives/unsafe-html.min.js';
 
 
 const skioStyles = css`
