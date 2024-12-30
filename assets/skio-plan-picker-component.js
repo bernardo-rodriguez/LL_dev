@@ -606,13 +606,13 @@ export class SkioPlanPickerComponent extends LitElement {
         'save': '$26'
       },
       'second': {
-        'offer_title': 'Buy 2, Get 1 FREE + Free Shipping',
+        'offer_title': 'Buy 2, Get 1 FREE <br> + Free Shipping',
         'retail_saving': 'Retail $228',
         'subtotal': '$108',
         'save': '$128'
       },
       'third': {
-        'offer_title': 'Buy 3, Get 2 FREE + Free Shipping',
+        'offer_title': 'Buy 3, Get 2 FREE <br> + Free Shipping',
         'retail_saving': 'Retail $380',
         'subtotal': '$177',
         'save': '$230'
