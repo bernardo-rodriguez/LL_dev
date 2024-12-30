@@ -418,6 +418,12 @@ const skioStyles = css`
       gap: 16px;
   }
 
+  .bundle-content input {
+      position: fixed;
+      opacity: 0;
+      pointer-events: none;
+  }
+
   .bundle-details {
       flex-grow: 1;
   }
