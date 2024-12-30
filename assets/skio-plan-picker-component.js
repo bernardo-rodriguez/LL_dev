@@ -707,12 +707,11 @@ export class SkioPlanPickerComponent extends LitElement {
                           <div class="bundle-header">
                             <div>
                               <h3 class="bundle-title">${ this.oneTimePricingConfig['first']['offer_title'] }</h3>
-                              <p class="bundle-description">What's included?</p>
+                              <div class="savings">${ this.oneTimePricingConfig['first']['save'] }</div>
                             </div>
                             <div class="bundle-pricing">
                               <div class="retail-price">${ this.oneTimePricingConfig['first']['retail_saving'] }</div>
                               <div class="sale-price">${ this.oneTimePricingConfig['first']['subtotal'] }</div>
-                              <div class="savings">${ this.oneTimePricingConfig['first']['save'] }</div>
                             </div>
                           </div>
                         </div>
@@ -726,12 +725,11 @@ export class SkioPlanPickerComponent extends LitElement {
                           <div class="bundle-header">
                             <div>
                               <h3 class="bundle-title">${ this.oneTimePricingConfig['second']['offer_title'] }</h3>
-                              <p class="shipping">+ FREE SHIPPING</p>
+                              <div class="savings">${ this.oneTimePricingConfig['second']['save'] }</div>
                             </div>
                             <div class="bundle-pricing">
                               <div class="retail-price">${ this.oneTimePricingConfig['second']['retail_saving'] }</div>
                               <div class="sale-price">${ this.oneTimePricingConfig['second']['subtotal'] }</div>
-                              <div class="savings">${ this.oneTimePricingConfig['second']['save'] }</div>
                             </div>
                           </div>
                         </div>
@@ -746,12 +744,11 @@ export class SkioPlanPickerComponent extends LitElement {
                           <div class="bundle-header">
                             <div>
                               <h3 class="bundle-title">${ this.oneTimePricingConfig['third']['offer_title'] }</h3>
-                              <p class="shipping">+ FREE SHIPPING</p>
+                              <div class="savings">${ this.oneTimePricingConfig['third']['save'] }</div>
                             </div>
                             <div class="bundle-pricing">
                               <div class="retail-price">${ this.oneTimePricingConfig['third']['retail_saving'] }</div>
                               <div class="sale-price">${ this.oneTimePricingConfig['third']['subtotal'] }</div>
-                              <div class="savings">${ this.oneTimePricingConfig['third']['save'] }</div>
                             </div>
                           </div>
                         </div>
