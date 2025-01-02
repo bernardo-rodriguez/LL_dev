@@ -440,6 +440,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     document.cookie = "directcheckout=true;path=/";
 
     console.log(this.onetime)
+    
     console.log(this.subsave)
 
     const submitButton = this.querySelector('[type="submit"]');
