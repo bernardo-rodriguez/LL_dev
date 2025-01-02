@@ -482,12 +482,12 @@ const skioStyles = css`
 
   .badge {
       position: absolute;
-      top: -12px;
-      left: -8px;
+      top: -2px;
+      left: -2px;
       padding: 4px 12px;
       color: white;
       font-size: 14px;
-      border-radius: 9999px;
+      // border-radius: 9999px;
   }
 
   .popular-badge {
