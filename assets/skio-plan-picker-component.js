@@ -23,6 +23,8 @@ The following web component can be dropped into any standard Shopify theme (i.e.
 */
 
 import { unsafeHTML, LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
+import { unsafeHTML } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
+
 
 const skioStyles = css`
   .skio-plan-picker {
