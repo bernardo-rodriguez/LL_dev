@@ -439,10 +439,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     evt.preventDefault();    
     document.cookie = "directcheckout=true;path=/";
 
-    console.log(this.onetime)
-    
-    console.log(this.subsave)
-
     const submitButton = this.querySelector('[type="submit"]');
 
     submitButton.setAttribute('disabled', true);
@@ -451,7 +447,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let skio = document.querySelector('skio-plan-picker')
     let product_form = JSON.parse(serializeForm(this.form))
 
-
+    console.log(product_form)
     let dpk_choice = document.querySelector('input[name="dpk_chooser"]:checked')?.value || null;
     
     console.log(dpk_choice)
