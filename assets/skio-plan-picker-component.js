@@ -1378,7 +1378,7 @@ customElements.define('skio-plan-picker', SkioPlanPickerComponent);
 
 document.addEventListener('DOMContentLoaded', function() {
   // const bundleOptions = document.querySelectorAll('.bundle-option');
-  waitForElm('.bundle-option').then(() => {
+  waitForElm('bundle-option').then(() => {
     
     const bundleOptions = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('.bundle-option');
     // Set initial selected state
@@ -1418,14 +1418,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function waitForElm(selector) {
     return new Promise(resolve => {
-        if (document.querySelector(selector)) {
-            return resolve(document.querySelector(selector));
+        if (document.querySelector('skio-plan-picker').shadowRoot.querySelector(selector)) {
+            return resolve(document.querySelector('skio-plan-picker').shadowRoot.querySelector(selector));
         }
 
         const observer = new MutationObserver(mutations => {
-            if (document.querySelector(selector)) {
+            if (ddocument.querySelector('skio-plan-picker').shadowRoot.querySelector(selector)) {
                 observer.disconnect();
-                resolve(document.querySelector(selector));
+                resolve(document.querySelector('skio-plan-picker').shadowRoot.querySelector(selector));
             }
         });
 
