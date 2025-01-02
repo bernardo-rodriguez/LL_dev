@@ -392,7 +392,8 @@ const skioStyles = css`
   /* THIS IS NEWLY INSERTED FOR THE BUNDLE ONE TIME FUNCTIONALITY */
 
   .bundle-container {
-      max-width: 600px;
+      // max-width: 600px;
+      width: 100%;
       margin: 40px auto;
   }
 
