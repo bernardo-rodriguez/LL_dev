@@ -1379,6 +1379,8 @@ customElements.define('skio-plan-picker', SkioPlanPickerComponent);
 document.addEventListener('DOMContentLoaded', function() {
   // const bundleOptions = document.querySelectorAll('.bundle-option');
   setTimeout(function (){
+
+  console.log('what ab timeout')
   
     // Something you want delayed.
 
