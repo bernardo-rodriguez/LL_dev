@@ -1385,7 +1385,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (initiallySelected) {
       initiallySelected.closest('.bundle-option').classList.add('selected');
   }
-  
+  console.log('dom loadedd')
   bundleOptions.forEach(option => {
       console.log('add click event listener')
       option.addEventListener('click', function(e) {
