@@ -459,17 +459,21 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     }
 
     if (!('selling_plan' in product_form) && product_form.product_id == "7503162605793" ) {
+      let bundle_quantities = {'1':1, '2':3, '3': 5}
       let bundle_value = document.querySelector('skio-plan-picker').shadowRoot.querySelector('input[name="onetime_bundle"]:checked').value
       
-      console.log('bundle value is')
-      console.log(bundle_value)
-    }
-
-    let itemsList = [{
+      let itemsList = [{
+        id: product_form.id, // this is variant id
+        quantity: bundle_quantities[bundle_value],
+        selling_plan: product_form.selling_plan // or can also do product_form.selling_plan? skio.selectedSellingPlan.id
+      }]
+    } else {
+      let itemsList = [{
         id: product_form.id, // this is variant id
         quantity: quantity_setter,
         selling_plan: product_form.selling_plan // or can also do product_form.selling_plan? skio.selectedSellingPlan.id
-    }]
+      }]
+    }
     
     let pen = this.getCookie('add_pen')
     if (pen != 'false' && pen != null) {
