@@ -442,7 +442,7 @@ const skioStyles = css`
   }
 
   .bundle-title {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 300;
       margin: 0;
   }
