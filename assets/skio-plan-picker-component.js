@@ -22,7 +22,7 @@ The following web component can be dropped into any standard Shopify theme (i.e.
   document.dispatchEvent( new CustomEvent("variantChanged", { detail: { variantId: variant.id } }) );
 */
 
-import { unsafeHTML, LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
+import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
 import { unsafeHTML } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
 
 
