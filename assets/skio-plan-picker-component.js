@@ -166,10 +166,13 @@ const skioStyles = css`
   }
 
   .skio-custom-content {
-    background-color: var(--blue-tint-20) !important;
     border-radius: 20px;
     padding: 15px;
     margin-top: 6px;
+  }
+
+  .skio-custom-content-background-color {
+      background-color: var(--blue-tint-20) !important;
   }
   
   .skio-frequency {
@@ -802,7 +805,7 @@ export class SkioPlanPickerComponent extends LitElement {
                  <span class = 'skio-price-shipping'> ${ this.product.id == 7498061906145 ? '(+ Free Shipping!)'  : '' }</span>
                 </div>
                 <div class="skio-group-content">
-                  <div class="skio-custom-content">
+                  <div class="skio-custom-content skio-custom-content-background-color">
                     <div class="skio-container">
                       <div>${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? 'Whitening Gels' : 'Whitening Gels' }</div>
                       <div>${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? '1 Month Supply' : 'Refills for $25/delivery' }</div>
