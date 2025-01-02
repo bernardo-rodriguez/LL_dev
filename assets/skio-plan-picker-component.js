@@ -1380,6 +1380,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // const bundleOptions = document.querySelectorAll('.bundle-option');
   const bundleOptions = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('.bundle-option');
 
+  console.log(bundleOptions)
   // Set initial selected state
   const initiallySelected =  document.querySelector('skio-plan-picker').shadowRoot.querySelector('.bundle-container input[type="radio"]:checked');
   if (initiallySelected) {
