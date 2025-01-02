@@ -1397,6 +1397,7 @@ document.addEventListener('DOMContentLoaded', function() {
               r.removeAttribute('checked');
           });
           
+          console.log('hello')
           // Check this radio button
           radio.checked = true;
           radio.setAttribute('checked', '');
@@ -1405,10 +1406,12 @@ document.addEventListener('DOMContentLoaded', function() {
           bundleOptions.forEach(opt => {
               opt.classList.remove('selected');
           });
-          
+
           
           // Add selected class to this option
           this.classList.add('selected');
+
+          console.log(this)
 
           document.querySelector('skio-plan-picker').shadowRoot.querySelector('#skio-onetime-price-set').innerHTML = radio.dataset.customPrice
       });
