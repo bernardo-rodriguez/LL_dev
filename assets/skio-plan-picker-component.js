@@ -1380,49 +1380,47 @@ document.addEventListener('DOMContentLoaded', function() {
   // const bundleOptions = document.querySelectorAll('.bundle-option');
   setTimeout(function (){
 
-  console.log('what ab timeout')
-  
-    // Something you want delayed.
+    console.log('what ab timeout')
+    
+    const bundleOptions = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('.bundle-option');
+    console.log(bundleOptions)
+    // Set initial selected state
+    const initiallySelected =  document.querySelector('skio-plan-picker').shadowRoot.querySelector('.bundle-container input[type="radio"]:checked');
+    if (initiallySelected) {
+        initiallySelected.closest('.bundle-option').classList.add('selected');
+    }
+    console.log('dom loadedd')
+    bundleOptions.forEach(option => {
+        console.log('add click event listener')
+        option.addEventListener('click', function(e) {
+            // Find the radio button within this option
+            const radio = this.querySelector('input[type="radio"]');
+            
+            // Uncheck all other radio buttons
+            document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]').forEach(r => {
+                r.checked = false;
+                r.removeAttribute('checked');
+            });
+            
+            console.log('hello')
+            // Check this radio button
+            radio.checked = true;
+            radio.setAttribute('checked', '');
+            
+            // Remove selected class from all options
+            bundleOptions.forEach(opt => {
+                opt.classList.remove('selected');
+            });
 
-  const bundleOptions = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('.bundle-option');
-  console.log(bundleOptions)
-  // Set initial selected state
-  const initiallySelected =  document.querySelector('skio-plan-picker').shadowRoot.querySelector('.bundle-container input[type="radio"]:checked');
-  if (initiallySelected) {
-      initiallySelected.closest('.bundle-option').classList.add('selected');
-  }
-  console.log('dom loadedd')
-  bundleOptions.forEach(option => {
-      console.log('add click event listener')
-      option.addEventListener('click', function(e) {
-          // Find the radio button within this option
-          const radio = this.querySelector('input[type="radio"]');
-          
-          // Uncheck all other radio buttons
-          document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]').forEach(r => {
-              r.checked = false;
-              r.removeAttribute('checked');
-          });
-          
-          console.log('hello')
-          // Check this radio button
-          radio.checked = true;
-          radio.setAttribute('checked', '');
-          
-          // Remove selected class from all options
-          bundleOptions.forEach(opt => {
-              opt.classList.remove('selected');
-          });
+            
+            // Add selected class to this option
+            this.classList.add('selected');
 
-          
-          // Add selected class to this option
-          this.classList.add('selected');
+            console.log(this)
 
-          console.log(this)
-
-          document.querySelector('skio-plan-picker').shadowRoot.querySelector('#skio-onetime-price-set').innerHTML = radio.dataset.customPrice
-      });
-                    
-  }, 5000);
-});
+            document.querySelector('skio-plan-picker').shadowRoot.querySelector('#skio-onetime-price-set').innerHTML = radio.dataset.customPrice
+        });
+                      
+    }, 5000);
+  });
 });
