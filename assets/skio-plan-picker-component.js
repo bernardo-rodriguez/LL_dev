@@ -22,9 +22,7 @@ The following web component can be dropped into any standard Shopify theme (i.e.
   document.dispatchEvent( new CustomEvent("variantChanged", { detail: { variantId: variant.id } }) );
 */
 
-import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
-import { unsafeHTML } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/directives/unsafe-html.min.js';
-
+import { unsafeHTML, LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
 
 const skioStyles = css`
   .skio-plan-picker {
