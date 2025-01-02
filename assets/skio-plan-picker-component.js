@@ -1420,7 +1420,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             document.querySelector('skio-plan-picker').shadowRoot.querySelector('#skio-onetime-price-set').innerHTML = radio.dataset.customPrice
         });
-                      
+      })              
     }, 5000);
   });
-});
