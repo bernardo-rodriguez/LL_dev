@@ -443,7 +443,7 @@ const skioStyles = css`
 
   .bundle-title {
       font-size: 18px;
-      font-weight: bold;
+      font-weight: 300;
       margin: 0;
   }
 
@@ -468,8 +468,7 @@ const skioStyles = css`
   }
 
   .sale-price {
-      font-size: 24px;
-      font-weight: bold;
+      font-size: 20px;
       margin: 4px 0;
   }
 
