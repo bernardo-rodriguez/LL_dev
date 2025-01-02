@@ -447,6 +447,10 @@ const skioStyles = css`
       margin: 0;
   }
 
+  .bundle-title {
+    margin-top: 12px;
+  }
+
   .bundle-description {
       color: #6b7280;
       font-size: 14px;
@@ -737,7 +741,7 @@ export class SkioPlanPickerComponent extends LitElement {
                         <div class="bundle-details">
                           <div class="bundle-header">
                             <div>
-                              <h3 class="bundle-title">${ unsafeHTML(this.oneTimePricingConfig['second']['offer_title']) }</h3>
+                              <h3 class="bundle-title bundle-title2">${ unsafeHTML(this.oneTimePricingConfig['second']['offer_title']) }</h3>
                               <div class="retail-price">${ unsafeHTML(this.oneTimePricingConfig['second']['retail_saving']) }</div>
                             </div>
                             <div class="bundle-pricing">
@@ -756,7 +760,7 @@ export class SkioPlanPickerComponent extends LitElement {
                         <div class="bundle-details">
                           <div class="bundle-header">
                             <div>
-                              <h3 class="bundle-title">${ unsafeHTML(this.oneTimePricingConfig['third']['offer_title']) }</h3>
+                              <h3 class="bundle-title bundle-title2">${ unsafeHTML(this.oneTimePricingConfig['third']['offer_title']) }</h3>
                               <div class="retail-price">${ unsafeHTML(this.oneTimePricingConfig['third']['retail_saving']) }</div>
                             </div>
                             <div class="bundle-pricing">
