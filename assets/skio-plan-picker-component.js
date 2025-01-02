@@ -1378,7 +1378,7 @@ customElements.define('skio-plan-picker', SkioPlanPickerComponent);
 
 document.addEventListener('DOMContentLoaded', function() {
   // const bundleOptions = document.querySelectorAll('.bundle-option');
-  waitForElm('bundle-option').then(() => {
+  waitForElmShadowRoot('.bundle-option').then(() => {
     
     const bundleOptions = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('.bundle-option');
     // Set initial selected state
@@ -1416,7 +1416,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  function waitForElm(selector) {
+  function waitForElmShadowRoot(selector) {
+
     return new Promise(resolve => {
         if (document.querySelector('skio-plan-picker').shadowRoot.querySelector(selector)) {
             return resolve(document.querySelector('skio-plan-picker').shadowRoot.querySelector(selector));
