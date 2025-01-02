@@ -1392,24 +1392,24 @@ document.addEventListener('DOMContentLoaded', function() {
           const radio = this.querySelector('input[type="radio"]');
           
           // Uncheck all other radio buttons
-          document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]').forEach(r => {
-              r.checked = false;
-              r.removeAttribute('checked');
-          });
+          // document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]').forEach(r => {
+          //     r.checked = false;
+          //     r.removeAttribute('checked');
+          // });
           
-          // Check this radio button
-          radio.checked = true;
-          radio.setAttribute('checked', '');
+          // // Check this radio button
+          // radio.checked = true;
+          // radio.setAttribute('checked', '');
           
-          // Remove selected class from all options
-          bundleOptions.forEach(opt => {
-              opt.classList.remove('selected');
-          });
+          // // Remove selected class from all options
+          // bundleOptions.forEach(opt => {
+          //     opt.classList.remove('selected');
+          // });
           
-          // Add selected class to this option
-          this.classList.add('selected');
+          // // Add selected class to this option
+          // this.classList.add('selected');
 
-          document.querySelector('skio-plan-picker').shadowRoot.querySelector('#skio-onetime-price-set').innerHTML = radio.dataset.customPrice
+          // document.querySelector('skio-plan-picker').shadowRoot.querySelector('#skio-onetime-price-set').innerHTML = radio.dataset.customPrice
       });
 });
 });
