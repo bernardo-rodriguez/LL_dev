@@ -1406,6 +1406,7 @@ document.addEventListener('DOMContentLoaded', function() {
               opt.classList.remove('selected');
           });
           
+          
           // Add selected class to this option
           this.classList.add('selected');
 

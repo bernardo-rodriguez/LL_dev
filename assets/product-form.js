@@ -328,7 +328,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   updateStickyBar(event) {
     // Update selection option for selling plan in sticky checkout
     let subscriptionSelected = !!event.detail.sellingPlan
-    console.log(subscriptionSelected)
     let price
     let skio = document.querySelector('skio-plan-picker').shadowRoot
 
