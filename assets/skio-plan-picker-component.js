@@ -1387,6 +1387,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   bundleOptions.forEach(option => {
+      console.log('add click event listener')
       option.addEventListener('click', function(e) {
           // Find the radio button within this option
           const radio = this.querySelector('input[type="radio"]');
