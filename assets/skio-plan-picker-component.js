@@ -394,7 +394,7 @@ const skioStyles = css`
   .bundle-container {
       // max-width: 600px;
       width: 100%;
-      margin: 20px auto;
+      margin: 0px auto;
   }
 
   .bundle-option {
