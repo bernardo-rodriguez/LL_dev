@@ -408,7 +408,6 @@ const skioStyles = css`
       position: relative;
       cursor: pointer;
       transition: all 0.2s ease;
-      background-color: var(--blue-tint-20) !important;
   }
 
   .bundle-option:hover {
@@ -417,7 +416,8 @@ const skioStyles = css`
 
   .bundle-option.selected {
       border-color: #3b82f6;
-      background-color: #eff6ff;
+      background-color: var(--blue-tint-20) !important;
+      // background-color: #eff6ff;
   }
 
   .bundle-content {
