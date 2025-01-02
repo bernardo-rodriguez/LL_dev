@@ -354,10 +354,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     console.log(skio_plan_picker)
     skio_plan_picker.addEventListener('click', (e) => {
       if (document.querySelector('[data-sticky-onetime]').classList.contains('selected')) {
-        console.log(document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]:checked'))
         let customPrice = document.querySelector('skio-plan-picker').shadowRoot.querySelector('input[name="onetime_bundle"]:checked').dataset.customPrice
-        console.log(customPrice)
-        document.querySelector(".sticky__price").innerHTML = customPrice
+        // document.querySelector(".sticky__price").innerHTML = customPrice TODO: uncommnet
       }
     });
     return 
