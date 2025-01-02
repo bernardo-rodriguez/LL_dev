@@ -1378,20 +1378,15 @@ customElements.define('skio-plan-picker', SkioPlanPickerComponent);
 
 document.addEventListener('DOMContentLoaded', function() {
   // const bundleOptions = document.querySelectorAll('.bundle-option');
-  setTimeout(function (){
-
-    console.log('what ab timeout')
+  waitForElm('.bundle-option').then(() => {
     
     const bundleOptions = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('.bundle-option');
-    console.log(bundleOptions)
     // Set initial selected state
     const initiallySelected =  document.querySelector('skio-plan-picker').shadowRoot.querySelector('.bundle-container input[type="radio"]:checked');
     if (initiallySelected) {
         initiallySelected.closest('.bundle-option').classList.add('selected');
     }
-    console.log('dom loadedd')
     bundleOptions.forEach(option => {
-        console.log('add click event listener')
         option.addEventListener('click', function(e) {
             // Find the radio button within this option
             const radio = this.querySelector('input[type="radio"]');
@@ -1402,7 +1397,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 r.removeAttribute('checked');
             });
             
-            console.log('hello')
             // Check this radio button
             radio.checked = true;
             radio.setAttribute('checked', '');
@@ -1416,10 +1410,29 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add selected class to this option
             this.classList.add('selected');
 
-            console.log(this)
-
             document.querySelector('skio-plan-picker').shadowRoot.querySelector('#skio-onetime-price-set').innerHTML = radio.dataset.customPrice
         });
       })              
-    }, 5000);
+    });
   });
+
+  function waitForElm(selector) {
+    return new Promise(resolve => {
+        if (document.querySelector(selector)) {
+            return resolve(document.querySelector(selector));
+        }
+
+        const observer = new MutationObserver(mutations => {
+            if (document.querySelector(selector)) {
+                observer.disconnect();
+                resolve(document.querySelector(selector));
+            }
+        });
+
+        // If you get "parameter 1 is not of type 'Node'" error, see https://stackoverflow.com/a/77855838/492336
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    });
+}
