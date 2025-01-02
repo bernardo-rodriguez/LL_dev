@@ -422,6 +422,7 @@ const skioStyles = css`
   .bundle-content {
       display: flex;
       gap: 16px;
+      background-color: var(--blue-tint-20) !important;
   }
 
   .bundle-content input {
