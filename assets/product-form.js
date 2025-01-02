@@ -317,12 +317,55 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         this.observeForm(selling_plan_input)
         this.setVariant();
         this.observeFormulaPicker('input[name="refill-strength"]')
-
+        this.bindBundleOptions()
       })
     } catch (e) {
         console.log("Error: failure in createSubcriptionWidget() for product-form.js")
         console.log(e)
     }
+  }
+
+  bindBundleOptions() {
+    // const bundleOptions = document.querySelectorAll('.bundle-option');
+      const bundleOptions = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('.bundle-option');
+
+      // Set initial selected state
+      const initiallySelected =  document.querySelector('skio-plan-picker').shadowRoot.querySelector('.bundle-container input[type="radio"]:checked');
+      if (initiallySelected) {
+          initiallySelected.closest('.bundle-option').classList.add('selected');
+      }
+      console.log('dom loadedd')
+      bundleOptions.forEach(option => {
+          console.log('add click event listener')
+          option.addEventListener('click', function(e) {
+              // Find the radio button within this option
+              const radio = this.querySelector('input[type="radio"]');
+              
+              // Uncheck all other radio buttons
+              document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]').forEach(r => {
+                  r.checked = false;
+                  r.removeAttribute('checked');
+              });
+              
+              console.log('hello')
+              // Check this radio button
+              radio.checked = true;
+              radio.setAttribute('checked', '');
+              
+              // Remove selected class from all options
+              bundleOptions.forEach(opt => {
+                  opt.classList.remove('selected');
+              });
+
+              
+              // Add selected class to this option
+              this.classList.add('selected');
+
+              console.log(this)
+
+              document.querySelector('skio-plan-picker').shadowRoot.querySelector('#skio-onetime-price-set').innerHTML = radio.dataset.customPrice
+          });
+    });
   }
 
   updateStickyBar(event) {
