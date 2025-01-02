@@ -1378,6 +1378,10 @@ customElements.define('skio-plan-picker', SkioPlanPickerComponent);
 
 document.addEventListener('DOMContentLoaded', function() {
   // const bundleOptions = document.querySelectorAll('.bundle-option');
+  setTimeout(function (){
+  
+    // Something you want delayed.
+
   const bundleOptions = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('.bundle-option');
   console.log(document.querySelector('skio-plan-picker'))
   console.log(bundleOptions)
@@ -1417,5 +1421,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
           document.querySelector('skio-plan-picker').shadowRoot.querySelector('#skio-onetime-price-set').innerHTML = radio.dataset.customPrice
       });
+                    
+  }, 5000);
 });
 });
