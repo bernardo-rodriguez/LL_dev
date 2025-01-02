@@ -710,6 +710,7 @@ export class SkioPlanPickerComponent extends LitElement {
             
             ${ this.product.id == '7503162605793' ? html`
             <div class="skio-group-content-2">
+              <div class="skio-group-content">
                 <div class="skio-container">
                   <div class="bundle-container">
                     <div class="bundle-option" data-bundle="1">
@@ -768,6 +769,7 @@ export class SkioPlanPickerComponent extends LitElement {
                     </div>
                   </div>
                 </div>
+              </div>
             </div>` :  html`` }
           </label>
         </div>
