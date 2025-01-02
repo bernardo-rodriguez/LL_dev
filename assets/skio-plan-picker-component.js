@@ -1423,7 +1423,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const observer = new MutationObserver(mutations => {
-            if (ddocument.querySelector('skio-plan-picker').shadowRoot.querySelector(selector)) {
+            if (document.querySelector('skio-plan-picker').shadowRoot.querySelector(selector)) {
                 observer.disconnect();
                 resolve(document.querySelector('skio-plan-picker').shadowRoot.querySelector(selector));
             }
