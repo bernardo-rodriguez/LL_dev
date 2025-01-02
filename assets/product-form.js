@@ -436,9 +436,11 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
 
   onSubmitHandler(evt) {
-    evt.preventDefault();
-    
+    evt.preventDefault();    
     document.cookie = "directcheckout=true;path=/";
+
+    print(this.onetime)
+    print(this.subsave)
 
     const submitButton = this.querySelector('[type="submit"]');
 
@@ -533,24 +535,24 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       body = JSON.stringify(json_body)
     }
     
-    fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
-      .then((response) => response.json())
-      // .then(data => {
-      //   let cactus = this.getCookie('redirect_ut')
+    // fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
+    //   .then((response) => response.json())
+    //   // .then(data => {
+    //   //   let cactus = this.getCookie('redirect_ut')
 
-      //   if (cactus == true) {
-      //     console.log('cactus')
-      //   }
-      // })
-      .catch((e) => {
-        console.log(e)
-      })
-      .finally(() => {
-        submitButton.classList.remove('loading');
-        submitButton.removeAttribute('disabled');
-        document.querySelector('.page-transition').classList.toggle('visible');
-        window.location = '/cart'
-      });
+    //   //   if (cactus == true) {
+    //   //     console.log('cactus')
+    //   //   }
+    //   // })
+    //   .catch((e) => {
+    //     console.log(e)
+    //   })
+    //   .finally(() => {
+    //     submitButton.classList.remove('loading');
+    //     submitButton.removeAttribute('disabled');
+    //     document.querySelector('.page-transition').classList.toggle('visible');
+    //     window.location = '/cart'
+    //   });
   }
 
   getSectionsToRender() {
