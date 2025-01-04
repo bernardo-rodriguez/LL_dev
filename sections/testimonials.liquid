@@ -81,7 +81,11 @@
                         <dt class="p body-bold-weight ">{{ section.settings.formula_label }}</dt>
                         <span class="accordion-toggle">{% render 'icon', icon: 'accordion' %}</span>
                       </button>
-                      <dd>{{ block.settings.formula }}</dd>
+                      {% if product.id != 7498061906145 %}
+                        <dd>{{ block.settings.formula }}</dd>
+                      {% else %}
+                        <dd>{{ block.settings.formula }}</dd>
+                      {% endif %}
                     </dl>
 
                     <dl class="p">
@@ -243,6 +247,11 @@
           "type": "textarea",
           "id": "formula",
           "label": "Formula"
+        },
+        {
+          "type": "textarea",
+          "id": "refill_formula",
+          "label": "Refill Formula"
         },
         {
           "type": "textarea",
