@@ -57,8 +57,12 @@
               {% for block in section.blocks %}
                 <div class="testimonial__item swiper-slide">
                   <div class="testimonial__customer-profile-wrapper">
-                    <p class="testimonial__customer-info p body-medium-weight">{{ block.settings.customer_info }}</p>
-
+                    {% if product.id != 7498061906145 %}
+                      <p class="testimonial__customer-info p body-medium-weight">{{ block.settings.customer_info }}</p>
+                    {% else %}
+                      <p class="testimonial__customer-info p body-medium-weight">{{ block.settings.customer_info_refill }}</p>
+                    {% endif %}
+                    
                     <dl class="p">
                       <dt class="h6 hide-mobile body-bold-weight ">{{ section.settings.profile_label }}</dt>
                       <button class="testimonial__info-button hide-desktop">
@@ -84,7 +88,7 @@
                       {% if product.id != 7498061906145 %}
                         <dd>{{ block.settings.formula }}</dd>
                       {% else %}
-                        <dd>{{ block.settings.formula }}</dd>
+                        <dd>{{ block.settings.refill_formula }}</dd>
                       {% endif %}
                     </dl>
 
@@ -236,6 +240,11 @@
           "type": "textarea",
           "id": "customer_info",
           "label": "Customer info"
+        },
+        {
+          "type": "textarea",
+          "id": "customer_info_refill",
+          "label": "Customer info Refill"
         },
         {
           "type": "textarea",
