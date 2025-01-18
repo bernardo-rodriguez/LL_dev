@@ -433,6 +433,7 @@ const skioStyles = css`
 
   .bundle-details {
       flex-grow: 1;
+      font-weight: 500;
   }
 
   .bundle-header {
@@ -443,7 +444,7 @@ const skioStyles = css`
 
   .bundle-title {
       font-size: 16px;
-      font-weight: 300;
+      font-weight: 500;
       margin: 0;
   }
 
