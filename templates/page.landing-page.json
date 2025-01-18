@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -10,12 +19,12 @@
     "3a2908b4-cb46-4bba-ab1d-db530f856c49": {
       "type": "hero-landing",
       "settings": {
-        "image": "shopify:\/\/shop_images\/Hero_Image.jpg",
-        "mobile_image": "shopify:\/\/shop_images\/mobile-landing_d3f79250-8f3f-4d6a-9703-f3022677a065.png",
-        "review": "4.7\/5",
+        "image": "shopify://shop_images/Hero_Image.jpg",
+        "mobile_image": "shopify://shop_images/mobile-landing_d3f79250-8f3f-4d6a-9703-f3022677a065.png",
+        "review": "4.7/5",
         "title": "Take the first step <br>{to a better smile}",
-        "sub_title": "Get a customized whitening solution for just {<sup>$<\/sup>19} today.",
-        "hero_badges": "shopify:\/\/shop_images\/Women_sHealthBeautyAward_2022_Transparent_1.png",
+        "sub_title": "Get a customized whitening solution for just {<sup>$</sup>19} today.",
+        "hero_badges": "shopify://shop_images/Women_sHealthBeautyAward_2022_Transparent_1.png",
         "button_label": "Start Now",
         "button_link": "#get-started",
         "button_style": "primary",
@@ -35,11 +44,13 @@
           "type": "testimonial",
           "settings": {
             "heading": "Sophia S.",
-            "before_photo": "shopify:\/\/shop_images\/Sophia_-_Before2.png",
-            "after_photo": "shopify:\/\/shop_images\/Sophia_-_After2.png",
+            "before_photo": "shopify://shop_images/Sophia_-_Before2.png",
+            "after_photo": "shopify://shop_images/Sophia_-_After2.png",
             "customer_info": "User Since January 2024",
+            "customer_info_refill": "",
             "profile": "{😣} High Sensitivity\n{☕} Coffee Addict\n{🦷} Light-Brown Stains",
             "formula": "Formula 8-17, Hydrogen Peroxide 11%",
+            "refill_formula": "",
             "review": "I’ve tried SO many whitening products that just don’t work, it’s ridiculous. I’m shocked that after a single use of this product I can actually tell a difference in the color of my teeth. They got me with a promo deal set and I’m hooked now. Not to mention the incredible customer service. My led device didn’t work consistently and they sent a new one right away that works great!  Thank you so much!"
           }
         },
@@ -47,11 +58,13 @@
           "type": "testimonial",
           "settings": {
             "heading": "Lesley C.",
-            "before_photo": "shopify:\/\/shop_images\/Lesleybefore2.jpg",
-            "after_photo": "shopify:\/\/shop_images\/LesleyAfter.jpg",
+            "before_photo": "shopify://shop_images/Lesleybefore2.jpg",
+            "after_photo": "shopify://shop_images/LesleyAfter.jpg",
             "customer_info": "User Since October 2023",
+            "customer_info_refill": "",
             "profile": "{😣} Medium Sensitivity\n{🍷} Wine Drinker\n{🦷} Years of Stains",
             "formula": "Formula 8-16, Hydrogen Peroxide 8%",
+            "refill_formula": "",
             "review": "“I had to come here to say something. Normally I have excruciating pain with crest white strips and this other brand I got from the dentist. Both of which didn’t whiten my teeth very much. So, I had low hopes for Laughland. I got the formula made for highest sensitivity, and I left it on for I think 12 minutes. Just after the first day my teeth look 2 shades whiter. I’m actually really shocked. Usually the sensitivity hits me several hours after whitening my teeth, and it’s now the next morning and I guess I’m all clear. Thanks Laughland!”"
           }
         }
@@ -62,7 +75,8 @@
       ],
       "settings": {
         "heading": "Real {Smiles}, Real {Results}",
-        "text": "4.7\/5 Star Reviews from 80,000+ Smiles Whitened with Laughland.",
+        "heading_refill": "",
+        "text": "4.7/5 Star Reviews from 80,000+ Smiles Whitened with Laughland.",
         "profile_label": "Customer Profile",
         "formula_label": "Personalized Whitening Formula",
         "review_label": "Review"
@@ -113,7 +127,7 @@
           "type": "slide",
           "settings": {
             "svg": "",
-            "png": "shopify:\/\/shop_images\/buzzfeed-logo_blue_0a0973f6-c62c-4750-bc63-096e9ab38351.png",
+            "png": "shopify://shop_images/buzzfeed-logo_blue_0a0973f6-c62c-4750-bc63-096e9ab38351.png",
             "text": "“More convenient, affordable, and, perhaps most important of all, not at all irritating.”"
           }
         },
@@ -121,7 +135,7 @@
           "type": "slide",
           "settings": {
             "svg": "",
-            "png": "shopify:\/\/shop_images\/2560px-Womenshealthlogo_blue_2bc1baf4-cd78-4578-a6d0-94c86b9800a3.png",
+            "png": "shopify://shop_images/2560px-Womenshealthlogo_blue_2bc1baf4-cd78-4578-a6d0-94c86b9800a3.png",
             "text": "“My personal favorite, I love how easy Laughland is to use”"
           }
         },
@@ -129,7 +143,7 @@
           "type": "slide",
           "settings": {
             "svg": "",
-            "png": "shopify:\/\/shop_images\/good-morning-america-seeklogo.com.svg",
+            "png": "shopify://shop_images/good-morning-america-seeklogo.com.svg",
             "text": "“No two smiles are the same, so why should your whitening formula be?\""
           }
         },
@@ -137,7 +151,7 @@
           "type": "slide",
           "settings": {
             "svg": "",
-            "png": "shopify:\/\/shop_images\/1280px-Business_Insider_Logo_svg.png",
+            "png": "shopify://shop_images/1280px-Business_Insider_Logo_svg.png",
             "text": "“The most affordable and innovative teeth-whitening solution”"
           }
         }
@@ -151,8 +165,7 @@
       "custom_css": [
         ".Reviews_Section .Reviews_Inr_Section {background-color: #faf5f1;}"
       ],
-      "settings": {
-      }
+      "settings": {}
     },
     "0bba9f22-7698-459e-80ea-c2869211daea": {
       "type": "featured-product",
@@ -311,7 +324,7 @@
         "button_label": "Start Now",
         "button_url": "#get-started",
         "button_action": "quiz",
-        "badges": "shopify:\/\/shop_images\/Winner_Badge.png"
+        "badges": "shopify://shop_images/Winner_Badge.png"
       }
     },
     "a4c5d03d-76b9-4c42-a509-36657ba4b556": {
@@ -380,7 +393,7 @@
       "settings": {
         "section_heading": "What People {love} about Laughland",
         "section_sub_heading": "",
-        "review_count": "4.7\/5 from 3,500",
+        "review_count": "4.7/5 from 3,500",
         "button_label": "Start Now",
         "button_url": "#get-started",
         "button_action": "quiz"
@@ -392,43 +405,43 @@
         "8ae8e7dc-9492-46f3-a0a8-330fa3f118ae": {
           "type": "faq",
           "settings": {
-            "title": "Other Whitening Kits haven't worked for me.. What's different?",
-            "sub_title": "<p>Laughland is the only whitening brand to create custom whitening formulas based on your quiz profile. Just as a dentist would prescribe a specific whitening treatment for you, we can optimize the strength of the whitening serum to your unique sensitivity levels, dental history and diet. Hence, our formulas are 3x more effective and clinically tested to show a 74% improvement in whiteness. <br\/><br\/>It's the closest you'll get to a dentist, without having to go to one! <\/p>"
+            "title": "Can I use the mouthpiece on top and bottom teeth?",
+            "sub_title": "<p>The LED mouthpiece is designed to be used for both the top and bottom teeth simultaneously, ensuring an effective whitening process.<br/><br/>To help you with the process, please watch this video. It provides step-by-step guidance on how to use the tray effectively.</p>"
           }
         },
         "b4f85b92-4e73-489e-8e59-6fcdabf5d358": {
           "type": "faq",
           "settings": {
             "title": "When will I see the effects?",
-            "sub_title": "<p>While you'll begin to see differences after your first 10+ minute treatment, but the most noticeable changes will come after 6 days of consecutive whitening treatments. You'll be pleasantly surprised :)<\/p>"
+            "sub_title": "<p>While you'll begin to see differences after your first 10+ minute treatment, but the most noticeable changes will come after 6 days of consecutive whitening treatments. You'll be pleasantly surprised :)</p>"
           }
         },
         "211060df-f259-4c34-bf3a-8ff6f7ebc051": {
           "type": "faq",
           "settings": {
             "title": "How long does the Kit last for?",
-            "sub_title": "<p><em>Each kit contains 3 syringes that last for 6 treatments. Results can be immediately noticeable, and lasts months depending on your diet and brushing habits. We recommend users to re-whiten every 2-3 months or as-needed to maintain a shine all year round.<\/em><\/p>"
+            "sub_title": "<p><em>Each kit contains 3 syringes that last for 6 treatments. Results can be immediately noticeable, and lasts months depending on your diet and brushing habits. We recommend users to re-whiten every 2-3 months or as-needed to maintain a shine all year round.</em></p>"
           }
         },
         "7d5a83c8-daae-4afc-826a-7e2c8303468a": {
           "type": "faq",
           "settings": {
             "title": "Can I use Laughland with veneers, caps, implants, bridges, or bonded teeth?",
-            "sub_title": "<p><em>Veneers, caps, implants, bonding or bridges aren’t designed to be whitened, however Laughland can whiten the surrounding teeth to maintain the same shade as your dental work.<br\/><\/em><\/p>"
+            "sub_title": "<p><em>Veneers, caps, implants, bonding or bridges aren’t designed to be whitened, however Laughland can whiten the surrounding teeth to maintain the same shade as your dental work.<br/></em></p>"
           }
         },
         "3f5fff35-bec5-4563-b68f-af7d8b7b045f": {
           "type": "faq",
           "settings": {
             "title": "How does the subscription work?",
-            "sub_title": "<p><em>We offer a flexible subscription to save you the trouble of re-ordering manually.<\/em><\/p><p><em>You can manage your subscription via your account or by emailing us at team@mylaughland.com anytime.<\/em><\/p>"
+            "sub_title": "<p><em>We offer a flexible subscription to save you the trouble of re-ordering manually.</em></p><p><em>You can manage your subscription via your account or by emailing us at team@mylaughland.com anytime.</em></p>"
           }
         },
         "4e2a5fd9-e9b2-4712-ae48-1344c2cf3148": {
           "type": "faq",
           "settings": {
             "title": "What does the LED Blue Light do?",
-            "sub_title": "<p>Our NanoLight technology LED light helps with teeth whitening by activating the ingredients in the whitening gel used during the treatment. Your custom gel contains a variety of bleaching agents that breaks down the stains on the surface of the teeth. When the light is shone on the teeth, it activates the whitening gel, speeding up the chemical reaction and helping the bleaching agent penetrate deeper into the enamel. This results in a more effective and efficient teeth whitening treatment, giving you a brighter and more confident smile. It is important to note that the LED light alone will not change the color of your teeth, but rather enhances the effectiveness of the whitening gel.<\/p>"
+            "sub_title": "<p>Our NanoLight technology LED light helps with teeth whitening by activating the ingredients in the whitening gel used during the treatment. Your custom gel contains a variety of bleaching agents that breaks down the stains on the surface of the teeth. When the light is shone on the teeth, it activates the whitening gel, speeding up the chemical reaction and helping the bleaching agent penetrate deeper into the enamel. This results in a more effective and efficient teeth whitening treatment, giving you a brighter and more confident smile. It is important to note that the LED light alone will not change the color of your teeth, but rather enhances the effectiveness of the whitening gel.</p>"
           }
         }
       },
@@ -451,31 +464,31 @@
         "bf56c20e-2ced-442b-8dd5-831b38863d61": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/IG-Image-1.jpg"
+            "image": "shopify://shop_images/IG-Image-1.jpg"
           }
         },
         "6535ba57-bd90-43b5-8c6e-f75b9a51be31": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/IG-Image-2.jpg"
+            "image": "shopify://shop_images/IG-Image-2.jpg"
           }
         },
         "46369378-93b9-4365-a694-53f175bca28b": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/IG-Image-3.jpg"
+            "image": "shopify://shop_images/IG-Image-3.jpg"
           }
         },
         "9a1df953-43c6-42b5-962e-43f443c50f37": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/IG-Image-4.jpg"
+            "image": "shopify://shop_images/IG-Image-4.jpg"
           }
         },
         "50a6c1e4-9a59-408b-acab-f53140308478": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/IG-Image-5.jpg"
+            "image": "shopify://shop_images/IG-Image-5.jpg"
           }
         }
       },
@@ -489,7 +502,7 @@
       "settings": {
         "section_heading": "Join the movement",
         "section_sub_heading": "@mylaughland",
-        "sub_heading_link": "https:\/\/www.instagram.com\/"
+        "sub_heading_link": "https://www.instagram.com/"
       }
     }
   },
