@@ -80,6 +80,13 @@
             "title": "Will the treatment work in tetracycline stained teeth?",
             "sub_title": "<p><em>Our Standard (8-16) and Extra Strength (8-17) formulas consist of Hydrogen Peroxide will work on the stained teeth, including tetracycline stained teeth.</em></p>"
           }
+        },
+        "faq_Wt4ef7": {
+          "type": "faq",
+          "settings": {
+            "title": "Does Laughland test on Animals?",
+            "sub_title": "<p><em>No, Laughland does not test on any animals and is manufactured following cruelty-free standards. Also, all our ingredients are vegan!</em></p>"
+          }
         }
       },
       "block_order": [
@@ -91,7 +98,8 @@
         "faq_44QXDj",
         "faq_4je8aW",
         "faq_wna9ac",
-        "faq_BxiYDM"
+        "faq_BxiYDM",
+        "faq_Wt4ef7"
       ],
       "settings": {
         "section_heading": "Frequently asked questions",
