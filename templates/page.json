@@ -59,6 +59,13 @@
             "title": "Can I use the whitening formula on repaired, capped, veneered, bridged, or dentured teeth?",
             "sub_title": "<p><em>Our whitening formula works effectively on natural enamel but typically does not alter the color of restorative materials like bonding, composite resins, caps, veneers, bridges, or dentures. The product is safe to use around caps and veneers, helping whiten surrounding natural teeth for a balanced look.</em></p>"
           }
+        },
+        "faq_4je8aW": {
+          "type": "faq",
+          "settings": {
+            "title": "What is the To-go pen?",
+            "sub_title": "<p><em>Our Whitening Pen is an instant whitener designed for on-the-go use. The size of a long lipstick, it fits neatly into purses and pockets, allowing you to quickly and conveniently brighten your smile whenever and wherever you need it. It uses the exact same whitening formula as the standard whitening kit. </em></p>"
+          }
         }
       },
       "block_order": [
@@ -67,7 +74,8 @@
         "faq_FThF9j",
         "faq_kY37yt",
         "faq_TFKdWm",
-        "faq_44QXDj"
+        "faq_44QXDj",
+        "faq_4je8aW"
       ],
       "settings": {
         "section_heading": "Frequently asked questions",
