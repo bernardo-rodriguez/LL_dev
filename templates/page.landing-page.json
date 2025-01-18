@@ -434,14 +434,14 @@
           "type": "faq",
           "settings": {
             "title": "How does the subscription work?",
-            "sub_title": "<p><em>We offer a flexible subscription to save you the trouble of re-ordering manually.</em></p><p><em>You can manage your subscription via your account or by emailing us at team@mylaughland.com anytime.</em></p>"
+            "sub_title": "<p><em>We offer a flexible subscription to save you the trouble of re-ordering manually.</em></p><p></p><p><em>You can manage your subscription via your account or by emailing us at team@mylaughland.com anytime.</em></p>"
           }
         },
         "4e2a5fd9-e9b2-4712-ae48-1344c2cf3148": {
           "type": "faq",
           "settings": {
             "title": "What does the LED Blue Light do?",
-            "sub_title": "<p>Our NanoLight technology LED light helps with teeth whitening by activating the ingredients in the whitening gel used during the treatment. Your custom gel contains a variety of bleaching agents that breaks down the stains on the surface of the teeth. When the light is shone on the teeth, it activates the whitening gel, speeding up the chemical reaction and helping the bleaching agent penetrate deeper into the enamel. This results in a more effective and efficient teeth whitening treatment, giving you a brighter and more confident smile. It is important to note that the LED light alone will not change the color of your teeth, but rather enhances the effectiveness of the whitening gel.</p>"
+            "sub_title": "<p><em>Our NanoLight technology LED light helps with teeth whitening by activating the ingredients in the whitening gel used during the treatment. Your custom gel contains a variety of bleaching agents that breaks down the stains on the surface of the teeth. When the light is shone on the teeth, it activates the whitening gel, speeding up the chemical reaction and helping the bleaching agent penetrate deeper into the enamel. This results in a more effective and efficient teeth whitening treatment, giving you a brighter and more confident smile. It is important to note that the LED light alone will not change the color of your teeth, but rather enhances the effectiveness of the whitening gel.</em></p>"
           }
         }
       },
