@@ -73,6 +73,13 @@
             "title": "How do I login to my account?",
             "sub_title": "<p><em>The subscription plan now allows you to log in without a password. Simply click on \"My Account\", forgot password, enter your email, and you'll receive a login code to access your account.</em></p>"
           }
+        },
+        "faq_BxiYDM": {
+          "type": "faq",
+          "settings": {
+            "title": "Will the treatment work in tetracycline stained teeth?",
+            "sub_title": "<p><em>Our Standard (8-16) and Extra Strength (8-17) formulas consist of Hydrogen Peroxide will work on the stained teeth, including tetracycline stained teeth.</em></p>"
+          }
         }
       },
       "block_order": [
@@ -83,7 +90,8 @@
         "faq_TFKdWm",
         "faq_44QXDj",
         "faq_4je8aW",
-        "faq_wna9ac"
+        "faq_wna9ac",
+        "faq_BxiYDM"
       ],
       "settings": {
         "section_heading": "Frequently asked questions",
