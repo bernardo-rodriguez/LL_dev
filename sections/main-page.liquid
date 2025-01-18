@@ -27,6 +27,17 @@
     {{ page.content }}
   </div>
 </div>
+<script>
+  // Get the pathname of the current page (e.g., "/collections/all", "/products/my-product")
+  const currentPath = window.location.pathname;
+
+  // Get the last part of the pathname (e.g., "all", "my-product")
+  const pageHandle = currentPath.split('/').pop();
+
+  if (pageHandle == 'faq') {
+    document.getElementsByClassName('Default_Page_Header')[0].style.visibility = 'hidden';
+  }
+</script>
 
 {% schema %}
 {
