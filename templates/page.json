@@ -38,12 +38,20 @@
             "title": "Can I cancel my subscription whenever?",
             "sub_title": "<p><em>You can cancel your susbcription whenever! All we ask is you try the whitening treatment for the full 6-day cycle before cancelling. To cancel, please log into your account or contact us on team@mylaughland.com at least 3 days before your next shipment to avoid further charges.</em></p>"
           }
+        },
+        "faq_kY37yt": {
+          "type": "faq",
+          "settings": {
+            "title": "What should I do if my order hasn't been delivered or was sent to the wrong address?",
+            "sub_title": "<p><em>If your package hasn’t arrived within the delivery time, please check your mailbox, front porch, and surrounding area, If still not found please contact the courier to see where the order has been delivered. Keep us updated on their response, and we’ll assist you further.</em></p>"
+          }
         }
       },
       "block_order": [
         "faq_jcePmi",
         "faq_Fc7gWN",
-        "faq_FThF9j"
+        "faq_FThF9j",
+        "faq_kY37yt"
       ],
       "settings": {
         "section_heading": "Frequently asked questions",
