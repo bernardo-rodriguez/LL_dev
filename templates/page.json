@@ -66,6 +66,13 @@
             "title": "What is the To-go pen?",
             "sub_title": "<p><em>Our Whitening Pen is an instant whitener designed for on-the-go use. The size of a long lipstick, it fits neatly into purses and pockets, allowing you to quickly and conveniently brighten your smile whenever and wherever you need it. It uses the exact same whitening formula as the standard whitening kit. </em></p>"
           }
+        },
+        "faq_wna9ac": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I login to my account?",
+            "sub_title": "<p><em>The subscription plan now allows you to log in without a password. Simply click on \"My Account\", forgot password, enter your email, and you'll receive a login code to access your account.</em></p>"
+          }
         }
       },
       "block_order": [
@@ -75,7 +82,8 @@
         "faq_kY37yt",
         "faq_TFKdWm",
         "faq_44QXDj",
-        "faq_4je8aW"
+        "faq_4je8aW",
+        "faq_wna9ac"
       ],
       "settings": {
         "section_heading": "Frequently asked questions",
