@@ -439,7 +439,7 @@ const skioStyles = css`
   .bundle-header {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
   }
 
   .bundle-title {
