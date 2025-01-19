@@ -717,7 +717,7 @@ export class SkioPlanPickerComponent extends LitElement {
             
             ${ this.product.id == '7503162605793' ? html`
             <div class="skio-group-content-2">
-              <div class="skio-custom-content" style = 'margin-right: 0; margin-left: 0'>
+              <div class="skio-custom-content" style = 'padding-right: 0; padding-left: 0'>
                 <div class="skio-container">
                   <div class="bundle-container">
                     <div class="bundle-option" data-bundle="1">
