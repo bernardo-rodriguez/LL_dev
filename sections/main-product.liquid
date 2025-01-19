@@ -507,6 +507,10 @@ xhttp.send();
       console.log('shareasale cookie is:')
       console.log(shareasale_cookie_clean)
 
+      var shareasale_cookie_dict = {
+        '11k9_lrh8b': 'Skimbit'
+      }
+
       try {
         if (paceline_automatic == 'true') {
           await setCartAttributesShareasale("paceline", shareasale_cookie_clean); 
@@ -525,7 +529,11 @@ xhttp.send();
         } else if (redirect_cpgap_gen == 'true') {
           await setCartAttributesShareasale("redirect_cpgap_gen", shareasale_cookie_clean); 
         }  else {
-          await setCartAttributesShareasale("none", shareasale_cookie_clean); 
+          if (shareasale_cookie_clean in shareasale_cookie_dict) {
+            await setCartAttributesShareasale(shareasale_cookie_dict['shareasale_cookie_clean'], shareasale_cookie_clean); 
+          } else {
+            await setCartAttributesShareasale("none", shareasale_cookie_clean); 
+          }
         }
       } catch (error) {
         console.log(error)
