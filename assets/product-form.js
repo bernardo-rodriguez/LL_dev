@@ -274,6 +274,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         break
     }
 
+    
     return [subPrice, subText, oneTimeText, oneTimePrice]
   }
 
