@@ -53,9 +53,9 @@
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     
     {% comment %} <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script> {% endcomment %}
-    <script>
+    {% comment %} <script>
       gtag('set', 'user_properties',{'test': 'true'});
-      </script>
+      </script> {% endcomment %}
     {{ content_for_header }}
 
     {% comment %} <link rel="preload" as="image" href="important.png">
