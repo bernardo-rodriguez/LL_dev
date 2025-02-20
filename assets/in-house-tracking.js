@@ -149,25 +149,25 @@ function clearAllAffiliateCookies(){
 }
 
 function setTestOrders(d) {
-  tracking_1 = parseInt(document.getElementById('tracking_v1').innerHTML) / 100
-  tracking_2 = parseInt(document.getElementById('tracking_v2').innerHTML) / 100
-  tracking_3 = parseInt(document.getElementById('tracking_v3').innerHTML) / 100
+  flow_1 = parseInt(document.getElementById('flow_v1').innerHTML) / 100
+  flow_2 = parseInt(document.getElementById('flow_v2').innerHTML) / 100
+  flow_3 = parseInt(document.getElementById('flow_v3').innerHTML) / 100
   
   var mc = getCookie('redirect_ut')
   var mm = getCookie('redirect_skimm')
   var ss = getCookie('redirect_sweatcoin')
 
   if (mc == 'true') {
-    if (d > tracking_1) {
-      setCookie('test_order', 'true')
+    if (d > flow_1) {
+      setCookie('test_flow', 'true')
     }
   } else if (mm == 'true') {
-    if (d > tracking_2) {
-      setCookie('test_order', 'true')
+    if (d > flow_2) {
+      setCookie('test_flow', 'true')
     }
   } else if (ss == 'true') {
-    if (d > tracking_3) {
-      setCookie('test_order', 'true')
+    if (d > flow_3) {
+      setCookie('test_flow', 'true')
     }
   } 
 }
