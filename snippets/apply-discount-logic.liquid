@@ -22,6 +22,7 @@
         redirect_ut = getCookie('redirect_ut');
         redirect_miles = getCookie('redirect_miles');
         redirect_inspire = getCookie('redirect_inspire')
+        jam_media = getCookie('jam_media');
         productDiscountCode = getCookie('productDiscountCode');
         console.log("productDiscountCode ::",productDiscountCode)
         url_params = [];
@@ -34,6 +35,9 @@
         } else if (redirect_ut == 'true') {
           url_params = url_params.concat(['discount=ADD_PEN']);
           {% comment %} url_params = url_params.concat(['discount=UTM_GEN_AUTOMATIC']); {% endcomment %}
+        } else if (jam_media == 'true') {
+          url_params = url_params.concat(['discount=AFFILIATE-DISCOUNT-TJM']);
+          {% comment %} url_params = url_params.concat(['discount=UTM_GEN_AUTOMATIC']); {% endcomment %}
         } else if (redirect_miles == 'true') {
           url_params = url_params.concat(['discount=MILES_AUTOMATIC']);
         } else if (redirect_inspire == 'true') {
@@ -41,7 +45,7 @@
         } else {
           url_params = url_params.concat(['discount=SUB-N-SAVE']);
         }
-
+        AFFILIATE-DISCOUNT-TJM
         if(productDiscountCode != "" && productDiscountCode != undefined) url_params = url_params.concat([`discount=${productDiscountCode}`]);
 
         
