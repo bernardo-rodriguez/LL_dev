@@ -107,8 +107,18 @@ xhttp.send();
                 <input type="radio" id="standard" name="refill-strength" value="✨ Everyday (ID: 8-16)" checked>
                 <label for="standard">Standard</label>
 
+                {% if product.id == 7498061906145  %}
+
                 <input type="radio" id="extra" name="refill-strength" value="🔥 Super Strength (ID: 8-17)">
                 <label for="extra" style = 'padding-right: 29px;'>Extra Strength <span class="price-difference">+$5</span></label>
+
+                {% endif %}
+                {% if product.id == 8187028177121  %}
+
+                  <input type="radio" id="extra" name="refill-strength" value="🔥 Super Strength (ID: 8-17)">
+                  <label for="extra" style = 'padding-right: 29px;'>Extra Strength</label>
+  
+                  {% endif %}
               </div>
           </dl>
         {% endif %}
