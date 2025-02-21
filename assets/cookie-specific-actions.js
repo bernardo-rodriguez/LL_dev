@@ -72,7 +72,7 @@ function cookie_actions() {
         }
         break
       case 'jam_media':
-        showAnnouncementBar('Discount auto applied at checkout!')
+        showAnnouncementBar('Discount auto applied at checkout!!')
         break
       case 'redirect_cpgap': //cpgap annoucnement text 
         // showAnnouncementBar('Discount auto applied at checkout!')
