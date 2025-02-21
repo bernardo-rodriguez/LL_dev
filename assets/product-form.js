@@ -127,7 +127,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         break;
     }
 
-    if (window.location.href.includes('at-home-whitening-kit')) {
+    if (window.location.href.includes('at-home-whitening-kit') && window.location.href.includes('at-home-whitening-kit-ft')) {
       // If product is kit, try to set the required formula strength
       try {
         this.querySelector(`input[value="${inputValue}"]`).click()
