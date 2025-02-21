@@ -67,7 +67,7 @@
   }
 
   function getSubPriceLanding() {
-      const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_cpgap_gen']
+      const cookies = ['jam_media', 'redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_cpgap_gen']
   
       let subscriptionCookie = cookies.filter( cookieName => getCookie(cookieName) != null )
       let subPrice = ''
@@ -113,6 +113,10 @@
           {% comment %} document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px' {% endcomment %}
           $('.Hero_Subtitle').first().html("See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.")
           subPrice = '0'
+          break;
+        case 'jam_media':
+          $('#hero_subtitle_1').css('margin-bottom', '50px !important')
+          subPrice = '19'
           break;
         case 'redirect_ut_direct':
           subPrice = '9'

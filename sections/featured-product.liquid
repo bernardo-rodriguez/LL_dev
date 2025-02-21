@@ -428,7 +428,7 @@
   }
 
   function getSubPrice() {
-      const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_cpgap_gen']
+      const cookies = ['jam_media', 'redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_cpgap_gen']
   
       let subscriptionCookie = cookies.filter( cookieName => getCookie(cookieName) != null )
       let subPrice = ''
@@ -472,6 +472,11 @@
           discount_name = 'SWEATCOIN_LIMITED'
           discount_desc = '90% OFF' {% endcomment %}
           {% comment %} discount_desc = 'free pen included with purchase' {% endcomment %}
+          break
+        case 'jam_media':
+          subPrice = '$19'
+          subText = 'Starter Special'
+          discount_desc = '35% OFF'
           break
         case 'redirect_miles':
           subPrice = '9'
