@@ -42,21 +42,30 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
   }
 
   bindEvents() {
-    this.open.forEach((button) => {
-      button.addEventListener("click", function(e){
-        e.preventDefault();
-        if(document.querySelector("body").classList.contains("Menu_Open")) {
-          document.querySelector("menu-drawer").closeMenuDrawer()
-        }
-        document.querySelector('.sticky-footer__button')?.click()
-      } )
-    })
-    this.back.addEventListener('click', this.changeFormStep.bind(this, -1))
-    this.next.addEventListener('click', this.changeFormStep.bind(this, 1))
-    this.close.addEventListener('click', this.closeQuiz.bind(this))
-    this.submit.addEventListener('click', function(e){
-      this.submitForm(e)
-    }.bind(this))
+    if (getCookie('redirect_sweatcoin') == 'true' && window.location.pathname == 'pages/landing-page') {
+      this.open.forEach((button) => {
+        button.addEventListener("click", function(e){
+          e.preventDefault();
+          window.location = '/products/at-home-whitening-kit-affiliate-ft'
+        } )
+      })
+    } else {
+      this.open.forEach((button) => {
+        button.addEventListener("click", function(e){
+          e.preventDefault();
+          if(document.querySelector("body").classList.contains("Menu_Open")) {
+            document.querySelector("menu-drawer").closeMenuDrawer()
+          }
+          document.querySelector('.sticky-footer__button')?.click()
+        } )
+      })
+      this.back.addEventListener('click', this.changeFormStep.bind(this, -1))
+      this.next.addEventListener('click', this.changeFormStep.bind(this, 1))
+      this.close.addEventListener('click', this.closeQuiz.bind(this))
+      this.submit.addEventListener('click', function(e){
+        this.submitForm(e)
+      }.bind(this))
+    }
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
