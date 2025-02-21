@@ -526,6 +526,8 @@ export class SkioPlanPickerComponent extends LitElement {
     product: { type: Object },            //required
     productHandle: { type: String },      //optional (unless product isn't passed, then required)
     key: { type: String },                //optional, defaults to product.id; identifier for this instance of the Skio plan picker
+
+    affiliate_jam_media: {type: String},
     
     formId: { type: String },             //optional; if passed, used to connect input fields to form
     needsFormId: { type: Boolean },       //optional, defaults to false; if true, element needs to be passed a formId, else it searches for a form
@@ -564,6 +566,8 @@ export class SkioPlanPickerComponent extends LitElement {
     super();
     this.product = null;
     this.selectedVariant = null;
+
+    this.affiliate_jam_media = getCookie('jam_media')
 
     this.productHandle = null;
 
@@ -629,6 +633,26 @@ export class SkioPlanPickerComponent extends LitElement {
         'save': 'Save $230'
       }
     }
+  }
+
+  getCookie(cname) {
+    // const value = `; ${document.cookie}`;
+    // const parts = value.split(`; ${name}=`);
+    // if (parts.length === 2) return parts.pop().split(';').shift();
+    
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return null;
   }
 
   connectedCallback() {
@@ -809,6 +833,7 @@ export class SkioPlanPickerComponent extends LitElement {
                         <del>${ this.moneyFormatter.format(this.selectedVariant.price / 100) }<del>
                       ` : html`` }
                       <span skio-subscription-price>$${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) }</span>
+                      <span>${ this.affiliate_jam_media } </span
                     </div>
                   </div>
                 </div>
