@@ -46,6 +46,7 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
       this.open.forEach((button) => {
         button.addEventListener("click", function(e){
           e.preventDefault();
+          console.log(window.location.pathname)
           window.location = '/products/at-home-whitening-kit-affiliate-ft'
         } )
       })
@@ -53,6 +54,7 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
       this.open.forEach((button) => {
         button.addEventListener("click", function(e){
           e.preventDefault();
+          console.log(window.location.pathname)
           if(document.querySelector("body").classList.contains("Menu_Open")) {
             document.querySelector("menu-drawer").closeMenuDrawer()
           }
