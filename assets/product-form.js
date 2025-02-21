@@ -162,6 +162,13 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     } else {
       try {
         let all_strengths = ['🍃 Gentle (ID: 19-2)', '✨ Everyday (ID: 8-16)', '🔥 Super Strength (ID: 8-17)']
+        let selection_to_cookie = {
+          '🍃 Gentle (ID: 19-2)': "sensitive",
+          '✨ Everyday (ID: 8-16)': "medium",
+          '🔥 Super Strength (ID: 8-17)': "strong"
+        }
+        setCookie('strength', selection_to_cookie[selection])
+
         console.log(selection)
 
         let refill_formula_selector = this.querySelector(`variant-radios input[value="${selection}"]`)
