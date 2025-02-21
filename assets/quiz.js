@@ -42,7 +42,7 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
   }
 
   bindEvents() {
-    if (getCookie('redirect_sweatcoin') == 'true' && window.location.pathname == 'pages/landing-page') {
+    if (getCookie('redirect_sweatcoin') == 'true' && window.location.href.includes('pages/landing-page')) {
       this.open.forEach((button) => {
         button.addEventListener("click", function(e){
           e.preventDefault();
