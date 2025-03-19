@@ -42,7 +42,7 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
   }
 
   bindEvents() {
-    if (getCookie('redirect_sweatcoin') == 'true' && window.location.href.includes('pages/landing-page')) {
+    if (getCookie('affiliate_referrer') == 'redirect_sweatcoin' && window.location.href.includes('pages/landing-page')) {
       this.open.forEach((button) => {
         button.addEventListener("click", function(e){
           e.preventDefault();
@@ -199,19 +199,14 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
       document.cookie = "firstname=" + document.querySelector('#first_name').value + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
       document.cookie = "lastname=" + document.querySelector('#last_name').value + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
 
-      let ut = getCookie('redirect_ut')
-      let ut_direct = getCookie('redirect_ut_direct')
-      let sweatcoin = getCookie('redirect_sweatcoin')
-      let cpgap_gen = getCookie('redirect_cpgap_gen')
-
       setTimeout(function(){
         console.log(document.cookie)
   
-        if (ut == 'true' && ut_direct != 'true') {
+        if (getCookie('affiliate_referrer') == 'ut' && getCookie('affiliate_referrer') != 'ut_direct') {
           window.location = '/products/at-home-whitening-kit-affiliate-ut'
           // window.location = '/products/at-home-whitening-kit'
           // console.log('not 2')
-        } else if (sweatcoin == 'true' || cpgap_gen == 'true') {
+        } else if (getCookie('affiliate_referrer') == 'redirect_sweatcoin' || getCookie('affiliate_referrer') == 'cpgap_gen') {
           window.location = '/products/at-home-whitening-kit-affiliate-ft'
         } else {
           window.location = '/products/at-home-whitening-kit'

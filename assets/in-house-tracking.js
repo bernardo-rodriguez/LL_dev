@@ -1,5 +1,4 @@
-affiliate_cookie_options = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_pinterest', 'cpgap', 'cpgap_gen']
-affiliate_cookie_options_2 = ['redirect__inspire', 'redirect__ut', 'redirect__ut__direct', 'redirect__paceline', 'redirect__sweatcoin', 'redirect__miles', 'redirect__studentbeans', 'redirect__skimm', 'redirect__pinterest', 'cpgap', 'cpgap_gen', 'shareasaleShopifySSCID']
+affiliate_cookie_options = ['affiliate_referrer', 'redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_pinterest', 'cpgap', 'cpgap_gen']
 
 supported_affiliates = {
   'sweatcoin': 'redirect_sweatcoin',
@@ -33,6 +32,24 @@ A_B_testing_campaigns = {
   },
   cactus_media_2024_08: {
 
+  }
+}
+
+
+affiliate_product_page_offers = {
+  'redirect_cpgap': {
+    'one_time': '49',
+    'code': 'cpgap_onetime',
+    'skip_quiz': true,
+    'one_time_enabled': true,
+    'subscription_enabled': false
+  },
+  'redirect_cpgap_subscription': {
+    'subscription': '49',
+    'code': 'cpgap_sub',
+    'skip_quiz': true,
+    'one_time_enabled': false,
+    'subscription_enabled': true
   }
 }
 
@@ -222,6 +239,7 @@ function setCookieIfFirstTime(utm_affiliate) {
 
 function setCookieAffiliate(cookie) {
   setCookie(cookie, 'true')
+  setCookie('affiliate_referrer', cookie)
 
   // remove all other affiliate cookies except for the one I'm setting
   for (let i = 0; i < affiliate_cookie_options.length; i++) {

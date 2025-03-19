@@ -118,47 +118,33 @@
     parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
   }
+
+  discount_dict = { // legacy discounts
+    'redirect_paceline': 'PACELINE_AUTOMATIC',
+    'redirect_sweatcoin': 'Pen-Addon',
+    'redirect_ut': 'ADD_PEN',
+    'redirect_ut_direct': null,
+    'redirect_miles', 'MILES_AUTOMATIC',
+    'redirect_skimm': 'SKIMM25',
+    'redirect_pinterest': 'PINTEREST25',
+    'redirect_cpgap': 'Pen-Addon',
+    'redirect_cpgap_gen': 'Pen-Addon',
+    'jam_media': 'AFFILIATE-DISCOUNT-TJM',
+  }
   
   const direct_checkout = getCookie('directcheckout');
   if (direct_checkout == 'true') {
     document.cookie = 'directcheckout=expires=Thu, 01 Jan 1970 00:00:01 GMT';
     try {
-      paceline_automatic = getCookie('redirect_paceline');
-      sweatcoin_automatic = getCookie('redirect_sweatcoin');
-      redirect_ut_direct = getCookie('redirect_ut_direct');
-      redirect_ut = getCookie('redirect_ut');
-      redirect_miles = getCookie('redirect_miles');
-      redirect_inspire = getCookie('redirect_inspire');
-      redirect_skimm = getCookie('redirect_skimm')
-      redirect_pinterest = getCookie('redirect_pinterest')
-      redirect_cpgap_gen = getCookie('redirect_cpgap_gen')
-      jam_media = getCookie('jam_media');
+
       productDiscountCode = getCookie('productDiscountCode');
       console.log("Cart productDiscountCode ::",productDiscountCode);
       url_params = [];
-      if (paceline_automatic == 'true') {
-        url_params = url_params.concat(['discount=PACELINE_AUTOMATIC']);
-      } else if (sweatcoin_automatic == 'true') {
-        url_params = url_params.concat(['discount=Pen-Addon']);
-      } else if (redirect_cpgap_gen == 'true') {
-        url_params = url_params.concat(['discount=Pen-Addon']);
-      } else if (redirect_ut_direct == 'true') {
-        // url_params = url_params.concat(['discount=SUB-N-SAVE']);
-      } else if (redirect_ut == 'true') {
-        url_params = url_params.concat(['discount=ADD_PEN']);
-      } else if (jam_media == 'true') {
-        url_params = url_params.concat(['discount=AFFILIATE-DISCOUNT-TJM']);
-        {% comment %} url_params = url_params.concat(['discount=UTM_GEN_AUTOMATIC']); {% endcomment %}
-      } else if (redirect_miles == 'true') {
-        url_params = url_params.concat(['discount=MILES_AUTOMATIC']);
-      } else if (redirect_skimm == 'true') {
-        url_params = url_params.concat(['discount=SKIMM25']);
-      }  else if (redirect_pinterest == 'true') {
-        url_params = url_params.concat(['discount=PINTEREST25']);
-      } else {
-        // url_params = url_params.concat(['discount=SWEATCOIN_AUTOMATIC']);
+
+      a_referrer = getCookie('affiliate_referrer')
+      if (a_referrer in discount_dict) {
+        url_params = url_params.concat(['discount=' + discount_dict[a_referrer]]);
       }
-      {% comment %} url_params = url_params.concat(['discount=ADD_PEN']); {% endcomment %}
 
       if(productDiscountCode != "" && productDiscountCode != undefined){
         url_params = [`discount=${productDiscountCode}`];
@@ -175,77 +161,10 @@
   } else {
     document.querySelector('.page-transition').classList.toggle('visible');
   }
-  
-  
-  {% comment %} document.addEventListener('DOMContentLoaded', function() {
-    // add automatic discount from cart page
-    function isIE() {
-      const ua = window.navigator.userAgent;
-      const msie = ua.indexOf('MSIE ');
-      const trident = ua.indexOf('Trident/');
 
-      return (msie > 0 || trident > 0);
-    }
-
-    if (!isIE()) return;
-    const cartSubmitInput = document.createElement('input');
-    cartSubmitInput.setAttribute('name', 'checkout');
-    cartSubmitInput.setAttribute('type', 'hidden');
-    document.querySelector('#cart').appendChild(cartSubmitInput);
-    document.querySelector('#checkout').addEventListener('click', function(event) {
-      try {
-        paceline_automatic = getCookie('redirect_paceline');
-        sweatcoin_automatic = getCookie('redirect_sweatcoin');
-        redirect_ut_direct = getCookie('redirect_ut_direct');
-        redirect_ut = getCookie('redirect_ut');
-        redirect_miles = getCookie('redirect_miles');
-        redirect_inspire = getCookie('redirect_miles')
-        url_params = [];
-        if (paceline_automatic == 'true') {
-          url_params = url_params.concat(['discount=PACELINE_AUTOMATIC']);
-        } else if (sweatcoin_automatic == 'true') {
-          {% comment %} url_params = url_params.concat(['discount=ADD_PEN,SHIP-FOR-FREE']); {% endcomment %}
-        } else if (redirect_ut_direct == 'true') {
-          url_params = url_params.concat(['discount=SUB-N-SAVE']);
-        } else if (redirect_ut == 'true') {
-          {% comment %} url_params = url_params.concat(['discount=FREE-TRIAL-OFFER']); {% endcomment %}
-        } else if (redirect_miles == 'true') {
-          url_params = url_params.concat(['discount=MILES_AUTOMATIC']);
-        } else if (redirect_inspire == 'true') {
-          url_params = url_params.concat(['discount=SMILE25']);
-        } else {
-          url_params = url_params.concat(['discount=SUB-N-SAVE']);
-        }
-        
-        // if(getCookie('landing_page_product_discount')){
-        //   url_params = url_params.concat([`discount=${getCookie('landing_page_product_discount')}`]);
-        //   document.cookie = 'landing_page_product_discount=;expires=Thu, 01 Jan 1970 00:00:01 GMT';
-        // }
-
-          
-        console.log('heres params');
-        console.log(url_params);
-
-        window.location.href = 'https://mylaughland.com/checkout?' + url_params.join('&');
-        //document.querySelector('#cart').submit();
-      } catch (err) {
-        window.location.href = 'https://mylaughland.com/checkout?discount=SUB-N-SAVE';
-      }
-    });
-  });
-
-  function getCookie(name) {
-    value = `; ${document.cookie}`;
-    parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift(); {% endcomment %}
-  {% comment %} } {% endcomment %}
-
-  paceline = getCookie('redirect_paceline');
-  sweatcoin = getCookie('redirect_sweatcoin');
-
-  if (paceline == 'true') {
+  if (getCookie('affiliate_referrer') == 'redirect_paceline') {
     $('.announcement-bar__message').first().html('PACELINE SALE! DISCOUNT AUTOMATICALLY APPLIED AT CHECKOUT');
-  } else if (sweatcoin == 'true') {
+  } else if (getCookie('affiliate_referrer') == 'redirect_sweatcoin') {
     $('.announcement-bar__message').first().html('SWEATCOIN SALE! DISCOUNT AUTOMATICALLY APPLIED AT CHECKOUT');
   }
 </script>

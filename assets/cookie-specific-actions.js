@@ -43,11 +43,9 @@ function showAnnouncementBar(bar_text) {
 
 
 function cookie_actions() {
-    const cookies = ['jam_media', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_cpgap_gen', 'redirect_cpgap']
+    let subscriptionCookie = getCookie('affiliate_referrer')
 
-    let subscriptionCookie = cookies.filter( cookieName => getCookie(cookieName) != null )
-
-    switch(subscriptionCookie[0]) {
+    switch(subscriptionCookie) {
       case 'redirect_sweatcoin': //sweatcoin annoucnement text 
         showAnnouncementBar('Sweatcoin discounts auto applied at checkout!')
         path = window.location.pathname

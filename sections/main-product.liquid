@@ -494,17 +494,16 @@ xhttp.send();
   }
   
   async function setAttributes() {
-      console.log('set attributes')
-      paceline_automatic = getCookie('redirect_paceline');
-      sweatcoin_automatic = getCookie('redirect_sweatcoin');
-      redirect_ut_direct = getCookie('redirect_ut_direct');
-      redirect_ut = getCookie('redirect_ut');
-      redirect_miles = getCookie('redirect_miles');
-      redirect_inspire = getCookie('redirect_inspire');
-      redirect_skimm = getCookie('redirect_skimm')
-      redirect_pinterest = getCookie('redirect_pinterest')
-      redirect_cpgap = getCookie('redirect_cpgap')
-      redirect_cpgap_gen = getCookie('redirect_cpgap_gen')
+      attribute_dict = { // legacy cart attributes
+        'redirect_paceline': 'paceline',
+        'redirect_sweatcoin': 'sweatcoin',
+        'redirect_ut': 'cactus_media',
+        'redirect_miles', 'miles',
+        'redirect_skimm': 'skimm',
+        'redirect_pinterest': 'pinterest',
+        'redirect_cpgap': 'redirect_cpgap',
+        'redirect_cpgap_gen': 'redirect_cpgap_gen'
+      }
     
       upsell_test = getCookie('upsell_test')
     
@@ -525,23 +524,10 @@ xhttp.send();
       }
 
       try {
-        if (paceline_automatic == 'true') {
-          await setCartAttributesShareasale("paceline", shareasale_cookie_clean); 
-        } else if (sweatcoin_automatic == 'true') {
-          await setCartAttributesShareasale("sweatcoin", shareasale_cookie_clean); 
-        } else if (redirect_ut == 'true') {
-          await setCartAttributesShareasale("cactus_media", shareasale_cookie_clean); 
-        } else if (redirect_miles == 'true') {
-          await setCartAttributesShareasale("miles", shareasale_cookie_clean); 
-        } else if (redirect_skimm == 'true') {
-          await setCartAttributesShareasale("skimm", shareasale_cookie_clean); 
-        }  else if (redirect_pinterest == 'true') {
-          await setCartAttributesShareasale("pinterest", shareasale_cookie_clean); 
-        } else if (redirect_cpgap == 'true') {
-          await setCartAttributesShareasale("redirect_cpgap", shareasale_cookie_clean); 
-        } else if (redirect_cpgap_gen == 'true') {
-          await setCartAttributesShareasale("redirect_cpgap_gen", shareasale_cookie_clean); 
-        }  else {
+        if (getCookie('affiliate_referrer') in attribute_dict) {
+          await setCartAttributesShareasale(attribute_dict[getCookie('affiliate_referrer')], shareasale_cookie_clean); 
+        }  
+        else {
           if (shareasale_cookie_clean in shareasale_cookie_dict) {
             await setCartAttributesShareasale(shareasale_cookie_dict['shareasale_cookie_clean'], shareasale_cookie_clean); 
           } else {
