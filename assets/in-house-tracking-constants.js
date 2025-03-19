@@ -37,7 +37,7 @@ affiliate_config = {
         'onetime': '59',
         'subscription': '29',
         'one_time_enabled': true,
-        'subscription_enabled': false,
+        'subscription_enabled': true,
       },
     },
     'redirect_cpgap_gen': {
