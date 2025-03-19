@@ -708,8 +708,8 @@ export class SkioPlanPickerComponent extends LitElement {
     
     return html`
       <fieldset class="skio-plan-picker" skio-plan-picker="${ this.key }">
-        <input ${ this.formId !== null ? html`form="${ this.formId }"` : '' } name="selling_plan" type="hidden" value="${ this.selectedSellingPlan !== null ? this.selectedSellingPlan?.id : ''}" />
-        <input ${ this.formId !== null ? html`form="${ this.formId }"` : '' } name="properties[Discount]" type="hidden" value="${ this.selectedSellingPlan !== null ? this.discount(this.selectedSellingPlan).percent : '' }" 
+        <input ${ this.formId !== null ? html`form="${ this.formId }"` : '' } name="selling_plan" type="hidden" value="${ affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan !== null ? this.selectedSellingPlan?.id : ''}" />
+        <input ${ this.formId !== null ? html`form="${ this.formId }"` : '' } name="properties[Discount]" type="hidden" value="${ affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan !== null ? this.discount(this.selectedSellingPlan).percent : '' }" 
           ?disabled="${ this.selectedSellingPlan == null ? true : false }" />
         
          ${ affiliate_config[this.affiliate_referrer]['pricing']['one_time_enabled'] ? 
