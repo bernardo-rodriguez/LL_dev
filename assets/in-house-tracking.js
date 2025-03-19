@@ -149,6 +149,9 @@ function getCookie(cname) {
 }
 
 function setCookie(key, value) {
+  console.log(key)
+  console.log(value)
+  
   var date = new Date();
   date.setTime(date.getTime() + 2 * 3600 * 1000);
   var expires = date.toUTCString();
