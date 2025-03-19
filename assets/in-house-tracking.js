@@ -151,7 +151,7 @@ function getCookie(cname) {
 function setCookie(key, value) {
   console.log(key)
   console.log(value)
-  
+
   var date = new Date();
   date.setTime(date.getTime() + 2 * 3600 * 1000);
   var expires = date.toUTCString();
@@ -244,7 +244,7 @@ function setCookieAffiliate(cookie) {
   console.log('hello there??')
   console.log(cookie)
   console.log('weres cookie')
-  setCookie(cookie, 'true')
+  // setCookie(cookie, 'true')
   setCookie('affiliate_referrer', cookie)
 
   // remove all other affiliate cookies except for the one I'm setting
