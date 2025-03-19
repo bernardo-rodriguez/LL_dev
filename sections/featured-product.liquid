@@ -500,19 +500,13 @@
   
       return [subPrice, discount_name, discount_desc]
   }
+
+  
   sub_specs = getSubPrice()
   console.log(sub_specs)
   
-  {% comment %} setTimeout(function(){
-    console.log('sup3')
-    document.getElementsByClassName('price-item--sale')[0].innerHTML = "$" + sub_specs[0]
-    document.getElementsByClassName('button--full')[0].querySelector('span').innerHTML = 'Start Now — $'+sub_specs[0]+''
-    document.getElementsByClassName('discount-code')[0].innerHTML = sub_specs[1]
-    document.getElementsByClassName('discount-text')[0].innerHTML = sub_specs[2]
-    console.log('sup4')
-  }, 100); {% endcomment %}
 
-  {% comment %} setTimeout(function(){
+  setTimeout(function(){
     try {
       sub_specs = getSubPrice()
       document.getElementsByClassName('price-item--sale')[0].innerHTML = "$" + sub_specs[0]
@@ -546,7 +540,7 @@
     } catch(error) {
       console.log('not ready 3')
     }
-  }; {% endcomment %}
+  };
   
 </script>
 
