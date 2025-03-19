@@ -820,8 +820,7 @@ export class SkioPlanPickerComponent extends LitElement {
                     @click=${() => this.selectSellingPlanGroup(group) }>
                     <input id="skio-selling-plan-group-${ index }-${ this.key }" class="skio-group-input" name="skio-group-${ this.key }"
                       type="radio" value="${ group.id }" skio-selling-plan-group="${ group.id }" ?checked=${ 
-                      (affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && !affiliate_config[this.affiliate_referrer]['pricing']['one_time_enabled']) || 
-                      this.selectedSellingPlanGroup == group ? true : false } >
+                      affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlanGroup == group ? true : false } >
                     <label skio-label-subscription class="skio-group-label" for="skio-selling-plan-group-${ index }-${ this.key }">
                       <div class="skio-group-topline">
                         <div class="skio-radio__container">
