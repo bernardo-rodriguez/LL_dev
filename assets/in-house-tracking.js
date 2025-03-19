@@ -156,7 +156,9 @@ function setCookie(key, value) {
   date.setTime(date.getTime() + 2 * 3600 * 1000);
   var expires = date.toUTCString();
   console.log(expires)
-  document.cookie = `${key}=${value}; expires=${expires}; path=/`;
+  cookie_string = `${key}=${value}; expires=${expires}; path=/`
+  console.log(cookie_string)
+  document.cookie = cookie_string;
 }
 
 function removeCookie(key) {
