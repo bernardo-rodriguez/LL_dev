@@ -43,47 +43,25 @@ function showAnnouncementBar(bar_text) {
 
 
 function cookie_actions() {
-    let subscriptionCookie = getCookie('affiliate_referrer')
+    let a_referrer = getCookie('affiliate_referrer')
 
-    switch(subscriptionCookie) {
-      case 'redirect_sweatcoin': //sweatcoin annoucnement text 
-        showAnnouncementBar('Sweatcoin discounts auto applied at checkout!')
+    if (a_referrer in affiliate_config && 'general' in affiliate_config[a_referrer]) {
+      let general_actions = affiliate_config[a_referrer]['general']
+
+      if ('announcement_bar' in general_actions && general_actions['announcement_bar']) {
+        showAnnouncementBar(general_actions['announcement_bar'])
+      }
+    }
+
+    if (a_referrer in affiliate_config && 'flow' in affiliate_config[a_referrer]) {
+      let redirect_flow = affiliate_config[a_referrer]['flow']
+
+      if ('product_page' in redirect_flow && redirect_flow['product_page']) {
         path = window.location.pathname
         if (path == '/products/at-home-whitening-kit') {
-          window.location = '/products/at-home-whitening-kit-affiliate-ft'
+          window.location = redirect_flow['product_page']
         }
-        break
-      case 'redirect_ut': //cactus annoucnement text 
-        showAnnouncementBar('Discount auto applied at checkout!')
-        // showAnnouncementBar('Discount & Free Pen Automatically Applied')
-        path = window.location.pathname
-        if (path == '/products/at-home-whitening-kit') {
-          window.location = '/products/at-home-whitening-kit-affiliate-ut'
-        }
-        break
-      case 'redirect_cpgap_gen': //cpgap free trial annoucnement text 
-        showAnnouncementBar('Discount auto applied at checkout!')
-        // showAnnouncementBar('Discount & Free Pen Automatically Applied')
-        path = window.location.pathname
-        if (path == '/products/at-home-whitening-kit') {
-          window.location = '/products/at-home-whitening-kit-affiliate-ft'
-        }
-        break
-      case 'jam_media':
-        showAnnouncementBar('Discount auto applied at checkout!')
-        break
-      case 'redirect_cpgap': //cpgap annoucnement text 
-        // showAnnouncementBar('Discount auto applied at checkout!')
-        break
-      case 'redirect_inspire': // redirect inspire annoucnement text 
-        showAnnouncementBar('InspireMore readers, Discount is Automatically Applied at Checkout!')
-        break
-      case 'redirect_skimm':
-        showAnnouncementBar('👋 Skimm reader, discount auto-applied at checkout!')
-        break
-      default:
-        showAnnouncementBar('Start Whitening Today for just $29!')
-        break;
+      }
     }
 }
 

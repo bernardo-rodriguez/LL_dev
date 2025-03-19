@@ -1,7 +1,7 @@
 affiliate_config = {
     'default': {
       'general': {
-        'announcement_bar': null,
+        'announcement_bar': 'Start Whitening Today for just $29!',
       },
       'pricing': {
         'onetime': '59',
@@ -35,7 +35,11 @@ affiliate_config = {
       },
     },
     'redirect_cpgap_gen': {
+        'general': {
+        'announcement_bar': 'Discount auto applied at checkout!',
+      },
       'flow': {
+        'product_page':  '/products/at-home-whitening-kit-affiliate-ft',
         'discount_code': 'Pen-Addon',
         'cart_attribute': 'redirect_cpgap_gen',
       },
@@ -65,7 +69,11 @@ affiliate_config = {
       }
     },
     'redirect_sweatcoin': {
+      'general': {
+        'announcement_bar': 'Sweatcoin discounts auto applied at checkout!',
+      },
       'flow': {
+        'product_page': '/products/at-home-whitening-kit-affiliate-ft',
         'discount_code': 'Pen-Addon',
         'cart_attribute': 'sweatcoin',
       },
@@ -83,7 +91,11 @@ affiliate_config = {
       }
     },
     'redirect_ut': {
+        'general': {
+            'announcement_bar': 'Sweatcoin discounts auto applied at checkout!',
+          },
       'flow': {
+        'product_page': '/products/at-home-whitening-kit-affiliate-ut',
         'discount_code': 'ADD_PEN',
         'cart_attribute': 'cactus_media',
       },
@@ -121,6 +133,9 @@ affiliate_config = {
       }
     },
     'redirect_skimm': {
+        'general': {
+            'announcement_bar': '👋 Skimm reader, discount auto-applied at checkout!',
+          },
       'flow': {
         'discount_code': 'SKIMM25',
         'cart_attribute': 'skimm',
@@ -133,6 +148,9 @@ affiliate_config = {
       }
     },
     'jam_media': {
+        'general': {
+        'announcement_bar': 'Discount auto applied at checkout!',
+      },
       'flow': {
         'discount_code': 'AFFILIATE-DISCOUNT-TJM',
         'cart_attribute': 'jam_media',
@@ -157,6 +175,9 @@ affiliate_config = {
       }
     },
     'redirect_inspire': {
+        'general': {
+        'announcement_bar': 'InspireMore readers, Discount is Automatically Applied at Checkout!',
+      },
       'featured_product': {
         'subPrice': '13.5',
         'discount_name': 'Subscribe & Save',
