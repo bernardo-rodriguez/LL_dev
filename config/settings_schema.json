@@ -163,36 +163,6 @@
     ]
   },
   {
-    "name": "Tracking campaigns",
-    "settings": [
-      {
-        "type": "number",
-        "id": "tracking_v1",
-        "label": "Cactus"
-      },
-      {
-        "type": "number",
-        "id": "tracking_v2",
-        "label": "Skimm"
-      },
-      {
-        "type": "number",
-        "id": "tracking_v3",
-        "label": "Sweatcoin"
-      },
-      {
-        "type": "number",
-        "id": "tracking_v4",
-        "label": "CPGAP"
-      },
-      {
-        "type": "number",
-        "id": "tracking_v5",
-        "label": "CPGAP_GEN"
-      },
-    ]
-  },
-  {
     "name": "Landing Page",
     "settings": [
       {
