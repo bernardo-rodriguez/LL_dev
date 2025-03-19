@@ -439,21 +439,21 @@
       if (a_referrer in affiliate_config && 'featured_product' in affiliate_config[a_referrer]) {
         featured_product = affiliate_config[a_referrer]['featured_product']
 
-        if ('subPrice' in landing_page_copy && landing_page_copy['subPrice']) {
-          subPrice = landing_page_copy['subPrice']
+        if ('subPrice' in featured_product && featured_product['subPrice']) {
+          subPrice = featured_product['subPrice']
         }
 
-        if ('discount_name' in landing_page_copy && landing_page_copy['discount_name']) {
-          discount_name = landing_page_copy['discount_name']
+        if ('discount_name' in featured_product && featured_product['discount_name']) {
+          discount_name = featured_product['discount_name']
         }
         
-        if ('discount_desc' in landing_page_copy && landing_page_copy['discount_desc']) {
-          discount_desc = landing_page_copy['discount_desc']
+        if ('discount_desc' in featured_product && featured_product['discount_desc']) {
+          discount_desc = featured_product['discount_desc']
         }
 
-        if ('regular_item_price' in landing_page_copy && landing_page_copy['regular_item_price']) {
-          document.getElementsByClassName('price-item--regular')[0].innerHTML = landing_page_copy['regular_item_price']
-          document.getElementsByClassName('price-item--regular')[1].innerHTML = landing_page_copy['regular_item_price']
+        if ('regular_item_price' in featured_product && featured_product['regular_item_price']) {
+          document.getElementsByClassName('price-item--regular')[0].innerHTML = featured_product['regular_item_price']
+          document.getElementsByClassName('price-item--regular')[1].innerHTML = featured_product['regular_item_price']
         }
       }
   
