@@ -139,7 +139,10 @@
       return subPrice
   }
 
-  try {
+  subPrice = getSubPriceLanding()
+  console.log(subPrice)
+
+  {% comment %} try {
     subPrice = getSubPriceLanding()
     console.log(subPrice)
     
@@ -174,7 +177,7 @@
     } catch (error) { 
       console.log('not ready yet')
     }
-  }, 5000);
+  }, 5000); {% endcomment %}
   
 </script>
 
