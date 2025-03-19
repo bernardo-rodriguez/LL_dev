@@ -812,7 +812,7 @@ export class SkioPlanPickerComponent extends LitElement {
             </div>`
         : ''}
 
-         ${ affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] ? 
+         ${ true ? 
               html`<div>
               ${ this.availableSellingPlanGroups ? this.availableSellingPlanGroups.map((group, index) => 
                 html`
