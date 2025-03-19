@@ -718,7 +718,9 @@ export class SkioPlanPickerComponent extends LitElement {
               @click=${() => this.selectSellingPlanGroup(null) } >
             
               <input id="skio-one-time-${ this.key }" class="skio-group-input" name="skio-group-${ this.key }" type="radio" value="" 
-                skio-one-time ?checked=${ this.startSubscription == false && this.product.requires_selling_plan == false ? true : false }>
+                skio-one-time ?checked=${ 
+                (affiliate_config[this.affiliate_referrer]['pricing']['one_time_enabled'] && !affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled']) || 
+                (this.startSubscription == false && this.product.requires_selling_plan) == false ? true : false }>
 
               <label skio-label-onetime class="skio-group-label" for="skio-one-time-${ this.key }">
                 <div class="skio-group-topline">
@@ -817,7 +819,9 @@ export class SkioPlanPickerComponent extends LitElement {
                   <div class="skio-group-container skio-group-container--available ${ this.selectedSellingPlanGroup == group ? 'skio-group-container--selected' : '' }" skio-group-container
                     @click=${() => this.selectSellingPlanGroup(group) }>
                     <input id="skio-selling-plan-group-${ index }-${ this.key }" class="skio-group-input" name="skio-group-${ this.key }"
-                      type="radio" value="${ group.id }" skio-selling-plan-group="${ group.id }" ?checked=${ this.selectedSellingPlanGroup == group ? true : false } >
+                      type="radio" value="${ group.id }" skio-selling-plan-group="${ group.id }" ?checked=${ 
+                      (affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && !affiliate_config[this.affiliate_referrer]['pricing']['one_time_enabled']) || 
+                      this.selectedSellingPlanGroup == group ? true : false } >
                     <label skio-label-subscription class="skio-group-label" for="skio-selling-plan-group-${ index }-${ this.key }">
                       <div class="skio-group-topline">
                         <div class="skio-radio__container">
