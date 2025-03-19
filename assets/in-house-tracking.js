@@ -270,6 +270,7 @@ function landingPageAction(current_page, query_params) {
       // } else if (utm_affiliate == 'cactus_media') {
       //   LandingPopulateCactus()
       // }
+      getSubPriceLanding()
   } else if (current_page == '/pages/clear-affiliate-cookies' || current_page == '/pages/clear-affiliate-cookies/' || current_page.includes('clear-affiliate-cookies')) {
     clearAllAffiliateCookies()
   } else {
