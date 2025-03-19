@@ -265,11 +265,7 @@ function landingPageAction(current_page, query_params) {
       if (utm_affiliate in supported_affiliates) {
           setCookieAffiliate(supported_affiliates[utm_affiliate])
       }
-      // if (utm_affiliate == 'sweatcoin' || utm_affiliate == 'cpgap_gen') {
-      //   LandingPopulateSweatcoin()
-      // } else if (utm_affiliate == 'cactus_media') {
-      //   LandingPopulateCactus()
-      // }
+
       getSubPriceLanding()
   } else if (current_page == '/pages/clear-affiliate-cookies' || current_page == '/pages/clear-affiliate-cookies/' || current_page.includes('clear-affiliate-cookies')) {
     clearAllAffiliateCookies()
