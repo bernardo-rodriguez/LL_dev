@@ -714,7 +714,10 @@ export class SkioPlanPickerComponent extends LitElement {
         
          ${ affiliate_config[this.affiliate_referrer]['pricing']['one_time_enabled'] ? 
           html`
-            <div class="skio-group-container ${ this.product.requires_selling_plan == false ? 'skio-group-container--available' : '' } ${ this.selectedSellingPlanGroup == null ? 'skio-group-container--selected' : '' } ${ this.subscriptionFirst ? 'skio-onetime-second' : ''}" skio-group-container 
+            <div class="skio-group-container 
+              ${ this.product.requires_selling_plan == false ? 'skio-group-container--available' : '' } 
+              ${ (affiliate_config[this.affiliate_referrer]['pricing']['one_time_enabled'] && !affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled']) || this.selectedSellingPlanGroup == null ? 'skio-group-container--selected' : '' } 
+              ${ this.subscriptionFirst ? 'skio-onetime-second' : ''}" skio-group-container 
               @click=${() => this.selectSellingPlanGroup(null) } >
             
               <input id="skio-one-time-${ this.key }" class="skio-group-input" name="skio-group-${ this.key }" type="radio" value="" 
@@ -812,11 +815,11 @@ export class SkioPlanPickerComponent extends LitElement {
             </div>`
         : ''}
 
-         ${ true ? 
+         ${ affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] ? 
               html`<div>
               ${ this.availableSellingPlanGroups ? this.availableSellingPlanGroups.map((group, index) => 
                 html`
-                  <div class="skio-group-container skio-group-container--available ${ this.selectedSellingPlanGroup == group ? 'skio-group-container--selected' : '' }" skio-group-container
+                  <div class="skio-group-container skio-group-container--available ${ affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlanGroup == group ? 'skio-group-container--selected' : '' }" skio-group-container
                     @click=${() => this.selectSellingPlanGroup(group) }>
                     <input id="skio-selling-plan-group-${ index }-${ this.key }" class="skio-group-input" name="skio-group-${ this.key }"
                       type="radio" value="${ group.id }" skio-selling-plan-group="${ group.id }" ?checked=${ 
