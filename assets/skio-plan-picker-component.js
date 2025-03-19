@@ -1321,31 +1321,31 @@ export class SkioPlanPickerComponent extends LitElement {
       if (form) {
         let selling_plan_input = form.querySelector('[name="selling_plan"]');
         if (selling_plan_input) {
-          selling_plan_input.value = (!affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] || this.selectedSellingPlan?.id !== undefined) ? this.selectedSellingPlan?.id : null;
-          selling_plan_input.disabled = (!affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] || this.selectedSellingPlan?.id !== undefined) ? false : true;
+          selling_plan_input.value = (!affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan?.id !== undefined) ? this.selectedSellingPlan?.id : null;
+          selling_plan_input.disabled = (!affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan?.id !== undefined) ? false : true;
         } else {
           selling_plan_input = document.createElement('input');
           selling_plan_input.type = "hidden";
           selling_plan_input.name = "selling_plan";
-          selling_plan_input.value = (!affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] || this.selectedSellingPlan?.id !== undefined) ? this.selectedSellingPlan?.id : null;
-          selling_plan_input.disabled = (!affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] || this.selectedSellingPlan?.id !== undefined) ? false : true;
+          selling_plan_input.value = (!affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan?.id !== undefined) ? this.selectedSellingPlan?.id : null;
+          selling_plan_input.disabled = (!affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan?.id !== undefined) ? false : true;
           form.append(selling_plan_input);
         }
 
-        let discountValue = (!affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] || this.selectedSellingPlan?.id !== undefined) ? this.discount(this.selectedSellingPlan).percent : null;
+        let discountValue = (!affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan?.id !== undefined) ? this.discount(this.selectedSellingPlan).percent : null;
         if (discountValue == '0%') discountValue = null;
 
         let discount_input = form.querySelector('[name="properties[Discount]"]');
         if (discount_input) {
-          discount_input.value = (!affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] || this.selectedSellingPlan?.id !== undefined) ? this.discount(this.selectedSellingPlan).percent : null;
-          discount_input.disabled = (!affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] || this.selectedSellingPlan?.id !== undefined) ? false : true;
+          discount_input.value = (!affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan?.id !== undefined) ? this.discount(this.selectedSellingPlan).percent : null;
+          discount_input.disabled = (!affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan?.id !== undefined) ? false : true;
           if (discountValue == null) discount_input.disabled = true;
         } else {
           discount_input = document.createElement('input');
           discount_input.type = "hidden";
           discount_input.name = "properties[Discount]";
-          discount_input.value = (!affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] || this.selectedSellingPlan?.id !== undefined) ? this.discount(this.selectedSellingPlan).percent : null;
-          discount_input.disabled = (!affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] || this.selectedSellingPlan?.id !== undefined) ? false : true;
+          discount_input.value = (!affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan?.id !== undefined) ? this.discount(this.selectedSellingPlan).percent : null;
+          discount_input.disabled = (!affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan?.id !== undefined) ? false : true;
           if (discountValue == null) discount_input.disabled = true;
           form.append(discount_input);
         }
