@@ -103,30 +103,30 @@ function should_run_active_campaign() {
   return false
 }
 
-function LandingPopulateCactus() {
-  // Populate landing page text for cactus media
-  $('#hero_subtitle_1').css('margin-bottom', '50px !important')
-  // $('#hero_title').html('Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>') 
-  $('#hero_title').html('Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit') 
+// function LandingPopulateCactus() {
+//   // Populate landing page text for cactus media
+//   $('#hero_subtitle_1').css('margin-bottom', '50px !important')
+//   // $('#hero_title').html('Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>') 
+//   $('#hero_title').html('Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit') 
 
-  // document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
+//   // document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
 
-  // $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>0")
-  $('.Hero_Subtitle').first().text("See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.")
-}
+//   // $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>0")
+//   $('.Hero_Subtitle').first().text("See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.")
+// }
 
-function LandingPopulateSweatcoin() {
-  // Populate landing page text for cactus media
-  $('#hero_subtitle_1').css('margin-bottom', '50px !important')
-  $('#hero_title').html('Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>') 
-  // $('#hero_title').html('Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit') 
+// function LandingPopulateSweatcoin() {
+//   // Populate landing page text for cactus media
+//   $('#hero_subtitle_1').css('margin-bottom', '50px !important')
+//   $('#hero_title').html('Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>') 
+//   // $('#hero_title').html('Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit') 
 
   
-  // document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
+//   // document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
 
-  // $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>0")
-  $('.Hero_Subtitle').first().text("See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.")
-}
+//   // $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>0")
+//   $('.Hero_Subtitle').first().text("See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.")
+// }
 
 function getCookie(cname) {
   // const value = `; ${document.cookie}`;
@@ -265,11 +265,11 @@ function landingPageAction(current_page, query_params) {
       if (utm_affiliate in supported_affiliates) {
           setCookieAffiliate(supported_affiliates[utm_affiliate])
       }
-      if (utm_affiliate == 'sweatcoin' || utm_affiliate == 'cpgap_gen') {
-        LandingPopulateSweatcoin()
-      } else if (utm_affiliate == 'cactus_media') {
-        LandingPopulateCactus()
-      }
+      // if (utm_affiliate == 'sweatcoin' || utm_affiliate == 'cpgap_gen') {
+      //   LandingPopulateSweatcoin()
+      // } else if (utm_affiliate == 'cactus_media') {
+      //   LandingPopulateCactus()
+      // }
   } else if (current_page == '/pages/clear-affiliate-cookies' || current_page == '/pages/clear-affiliate-cookies/' || current_page.includes('clear-affiliate-cookies')) {
     clearAllAffiliateCookies()
   } else {
