@@ -428,80 +428,39 @@
   }
 
   function getSubPrice() {  
-      let subscriptionCookie = getCookie('affiliate_referrer')
-      let subPrice = ''
-  
-      switch(subscriptionCookie) {
-        case 'redirect_ut':
-          {% comment %} subPrice = '0'
-          discount_name = 'FREE_TRIAL_SPECIAL'
-          discount_desc = '100% OFF' {% endcomment %}
-          subPrice = '9'
-          discount_name = 'STARTER_SPECIAL'
-          discount_desc = '85% OFF'
-          document.getElementsByClassName('price-item--regular')[0].innerHTML = '$59'
-          document.getElementsByClassName('price-item--regular')[1].innerHTML = '$59'
-          break;
-        case 'redirect_cpgap_gen':
-          subPrice = '0'
-          discount_name = 'FREE_TRIAL_SPECIAL'
-          discount_desc = '100% OFF'
-          {% comment %} subPrice = '9'
-          discount_name = 'STARTER_SPECIAL'
-          discount_desc = '90% OFF' {% endcomment %}
-          document.getElementsByClassName('price-item--regular')[0].innerHTML = '$59'
-          document.getElementsByClassName('price-item--regular')[1].innerHTML = '$59'
-          break;
-        case 'redirect_ut_direct':
-          subPrice = '9'
-          discount_name = ''
-          discount_desc = ''
-          break
-        case 'redirect_paceline':
-          subPrice = '29'
-          discount_name = ''
-          discount_desc = ''
-          break
-        case 'redirect_sweatcoin':
-          subPrice = '0'
-          discount_name = 'SWEATCOIN_LIMITED'
-          discount_desc = '100% OFF'
-          {% comment %} subPrice = '9'
-          discount_name = 'SWEATCOIN_LIMITED'
-          discount_desc = '90% OFF' {% endcomment %}
-          {% comment %} discount_desc = 'free pen included with purchase' {% endcomment %}
-          break
-        case 'jam_media':
-          subPrice = '19'
-          discount_name = 'Subscribe & Save'
-          discount_desc = '35% OFF'
-          break
-        case 'redirect_miles':
-          subPrice = '9'
-          discount_name = 'MILES_AUTOMATIC'
-          discount_desc = '88% OFF'
-          break
-        case 'redirect_studentbeans':
-          subPrice = '9'
-          discount_name = ''
-          discount_desc = ''
-          break
-        case 'redirect_inspire':
-          subPrice = '$13.5'
-          discount_name = 'Subscribe & Save'
-          discount_desc = '80% OFF'
-          break
-        default:
-          subPrice = '29'
-          discount_name = 'SUB-N-SAVE'
-          discount_desc = '75% OFF'
-          break
+      let feature_product_defaults = affiliate_config['default']['featured_product']
+
+      let subPrice = feature_product_defaults['subPrice']
+      let discount_name = feature_product_defaults['discount_name']
+      let discount_desc = feature_product_defaults['discount_desc']
+
+      a_referrer = getCookie('affiliate_referrer')
+
+      if (a_referrer in affiliate_config && 'featured_product' in affiliate_config[a_referrer]) {
+        featured_product = affiliate_config[a_referrer]['featured_product']
+
+        if ('subPrice' in landing_page_copy && landing_page_copy['subPrice']) {
+          subPrice = landing_page_copy['subPrice']
+        }
+
+        if ('discount_name' in landing_page_copy && landing_page_copy['discount_name']) {
+          discount_name = landing_page_copy['discount_name']
+        }
+        
+        if ('discount_desc' in landing_page_copy && landing_page_copy['discount_desc']) {
+          discount_desc = landing_page_copy['discount_desc']
+        }
+
+        if ('regular_item_price' in landing_page_copy && landing_page_copy['regular_item_price']) {
+          document.getElementsByClassName('price-item--regular')[0].innerHTML = landing_page_copy['regular_item_price']
+          document.getElementsByClassName('price-item--regular')[1].innerHTML = landing_page_copy['regular_item_price']
+        }
       }
   
       return [subPrice, discount_name, discount_desc]
   }
 
-  
+
   sub_specs = getSubPrice()
   console.log(sub_specs)
   

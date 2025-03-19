@@ -67,7 +67,8 @@
   }
 
   function getSubPriceLanding() {  
-      let subPrice = ''
+      let landing_page_copy_defaults = affiliate_config['default']['landing_page_copy']
+      let subPrice = landing_page_copy_defaults['hero_price']
 
       a_referrer = getCookie('affiliate_referrer')
       if (a_referrer in affiliate_config && 'landing_page_copy' in affiliate_config[a_referrer]) {

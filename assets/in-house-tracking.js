@@ -57,12 +57,12 @@ affiliate_config = {
       'hero_subtitle_1': null,
       'hero_title': null,
       'Hero_Subtitle': null,
-      'hero_price': null,
+      'hero_price': '29',
     },
     'featured_product': {
-      'subPrice': null,
-      'discount_name': null,
-      'discount_desc': null,
+      'subPrice': '29',
+      'discount_name': 'SUB-N-SAVE',
+      'discount_desc': '75% OFF',
       'regular_item_price': null
     }
   },
@@ -83,6 +83,12 @@ affiliate_config = {
       'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.",
       'hero_price': '0',
     },
+    'featured_product': {
+      'subPrice': '0',
+      'discount_name': 'FREE_TRIAL_SPECIAL',
+      'discount_desc': '100% OFF',
+      'regular_item_price': '$59'
+    }
   },
   'redirect_paceline': {
     'flow': {
@@ -92,6 +98,9 @@ affiliate_config = {
     'landing_page_copy': {
       'hero_price': '29',
     },
+    'featured_product': {
+      'subPrice': '29'
+    }
   },
   'redirect_sweatcoin': {
     'flow': {
@@ -104,6 +113,12 @@ affiliate_config = {
       'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.",
       'hero_price': '0',
     },
+    'featured_product': {
+      'subPrice': '0',
+      'discount_name': 'SWEATCOIN_LIMITED',
+      'discount_desc': '100% OFF',
+      'regular_item_price': '$59'
+    }
   },
   'redirect_ut': {
     'flow': {
@@ -113,11 +128,21 @@ affiliate_config = {
     'landing_page_copy': {
       'hero_subtitle_1': ['margin-bottom', '50px !important'],
       'hero_title': 'Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit',
-      'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Todayy.",
+      'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.",
       'hero_price': '9',
     },
+    'featured_product': {
+      'subPrice': '9',
+      'discount_name': 'STARTER_SPECIAL',
+      'discount_desc': '85% OFF',
+      'regular_item_price': '$59'
+    }
   },
-  'redirect_ut_direct': null,
+  'redirect_ut_direct': {
+    'featured_product': {
+      'subPrice': '9'
+    }
+  },
   'redirect_miles': {
     'flow': {
       'discount_code': 'MILES_AUTOMATIC',
@@ -126,6 +151,12 @@ affiliate_config = {
     'landing_page_copy': {
       'hero_price': '9',
     },
+    'featured_product': {
+      'subPrice': '9',
+      'discount_name': 'MILES_AUTOMATIC',
+      'discount_desc': '88% OFF',
+      'regular_item_price': '$59'
+    }
   },
   'redirect_skimm': {
     'flow': {
@@ -148,16 +179,28 @@ affiliate_config = {
       'hero_subtitle_1': ['margin-bottom', '50px !important'],
       'hero_price': '19',
     },
+    'featured_product': {
+      'subPrice': '19',
+      'discount_name': 'Subscribe & Save',
+      'discount_desc': '35% OFF',
+      'regular_item_price': '$59'
+    }
   },
   'redirect_studentbeans': {
     'landing_page_copy': {
       'hero_price': '9',
     },
+    'featured_product': {
+      'subPrice': '9'
+    }
   },
   'redirect_inspire': {
-    'landing_page_copy': {
-      'hero_price': '9',
-    },
+    'featured_product': {
+      'subPrice': '13.5',
+      'discount_name': 'Subscribe & Save',
+      'discount_desc': '80% OFF',
+      'regular_item_price': '$59'
+    }
   }
 }
 
