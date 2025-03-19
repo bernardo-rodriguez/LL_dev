@@ -70,44 +70,68 @@ affiliate_config = {
     'flow': {
       'discount_code': 'Pen-Addon',
       'cart_attribute': 'redirect_cpgap',
-    }
+    },
   },
   'redirect_cpgap_gen': {
     'flow': {
       'discount_code': 'Pen-Addon',
       'cart_attribute': 'redirect_cpgap_gen',
-    }
+    },
+    'landing_page_copy': {
+      'hero_subtitle_1': ['margin-bottom', '50px !important'],
+      'hero_title': 'Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>',
+      'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.",
+      'hero_price': '0',
+    },
   },
   'redirect_paceline': {
     'flow': {
       'discount_code': 'PACELINE_AUTOMATIC',
       'cart_attribute': 'paceline',
-    }
+    },
+    'landing_page_copy': {
+      'hero_price': '29',
+    },
   },
   'redirect_sweatcoin': {
     'flow': {
       'discount_code': 'Pen-Addon',
       'cart_attribute': 'sweatcoin',
-    }
+    },
+    'landing_page_copy': {
+      'hero_subtitle_1': ['margin-bottom', '50px !important'],
+      'hero_title': 'Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>',
+      'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.",
+      'hero_price': '0',
+    },
   },
   'redirect_ut': {
     'flow': {
       'discount_code': 'ADD_PEN',
       'cart_attribute': 'cactus_media',
-    }
+    },
+    'landing_page_copy': {
+      'hero_subtitle_1': ['margin-bottom', '50px !important'],
+      'hero_title': 'Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit',
+      'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.",
+      'hero_price': '9',
+    },
   },
   'redirect_ut_direct': null,
   'redirect_miles': {
     'flow': {
       'discount_code': 'MILES_AUTOMATIC',
       'cart_attribute': 'miles',
-    }
+    },
+    'landing_page_copy': {
+      'hero_price': '9',
+    },
   },
   'redirect_skimm': {
     'flow': {
       'discount_code': 'SKIMM25',
       'cart_attribute': 'skimm',
-    }
+    },
   },
   'redirect_pinterest':  {
     'flow': {
@@ -119,8 +143,22 @@ affiliate_config = {
     'flow': {
       'discount_code': 'AFFILIATE-DISCOUNT-TJM',
       'cart_attribute': 'jam_media',
-    }
+    },
+    'landing_page_copy': {
+      'hero_subtitle_1': ['margin-bottom', '50px !important'],
+      'hero_price': '19',
+    },
   },
+  'redirect_studentbeans': {
+    'landing_page_copy': {
+      'hero_price': '9',
+    },
+  },
+  'redirect_inspire': {
+    'landing_page_copy': {
+      'hero_price': '9',
+    },
+  }
 }
 
 function gtagLoaded(gtag_payload) {
