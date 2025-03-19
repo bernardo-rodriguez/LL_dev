@@ -512,7 +512,7 @@
     console.log('sup4')
   }, 100); {% endcomment %}
 
-  setTimeout(function(){
+  {% comment %} setTimeout(function(){
     try {
       sub_specs = getSubPrice()
       document.getElementsByClassName('price-item--sale')[0].innerHTML = "$" + sub_specs[0]
@@ -546,7 +546,7 @@
     } catch(error) {
       console.log('not ready 3')
     }
-  };
+  }; {% endcomment %}
   
 </script>
 
