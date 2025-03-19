@@ -712,7 +712,7 @@ export class SkioPlanPickerComponent extends LitElement {
         <input ${ this.formId !== null ? html`form="${ this.formId }"` : '' } name="properties[Discount]" type="hidden" value="${ affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan !== null ? this.discount(this.selectedSellingPlan).percent : '' }" 
           ?disabled="${ !affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] || this.selectedSellingPlan == null ? true : false }" />
         
-         ${ affiliate_config[this.affiliate_referrer]['pricing']['one_time_enabled'] ? 
+         ${ affiliate_config[this.affiliate_referrer]['pricing']['one_time_enabled'] || true ? 
           html`
             <div class="skio-group-container 
               ${ this.product.requires_selling_plan == false ? 'skio-group-container--available' : '' } 
@@ -815,7 +815,7 @@ export class SkioPlanPickerComponent extends LitElement {
             </div>`
         : ''}
 
-         ${ affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] ? 
+         ${ affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] || true ? 
               html`<div>
               ${ this.availableSellingPlanGroups ? this.availableSellingPlanGroups.map((group, index) => 
                 html`
