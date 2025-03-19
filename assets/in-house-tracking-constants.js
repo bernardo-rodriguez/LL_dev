@@ -30,11 +30,11 @@ affiliate_config = {
     },
     'redirect_cpgap': {
       'flow': {
-        'discount_code': 'Pen-Addon',
+        'discount_code': 'CPGAP_ONETIME',
         'cart_attribute': 'redirect_cpgap',
       },
       'pricing': {
-        'onetime': '59',
+        'onetime': '49',
         'subscription': '29',
         'one_time_enabled': true,
         'subscription_enabled': false,
