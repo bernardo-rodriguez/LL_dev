@@ -118,7 +118,7 @@
     parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
   }
-
+{% comment %} 
   discount_dict = { // legacy discounts
     'redirect_paceline': 'PACELINE_AUTOMATIC',
     'redirect_sweatcoin': 'Pen-Addon',
@@ -130,7 +130,7 @@
     'redirect_cpgap': 'Pen-Addon',
     'redirect_cpgap_gen': 'Pen-Addon',
     'jam_media': 'AFFILIATE-DISCOUNT-TJM',
-  }
+  } {% endcomment %}
   
   const direct_checkout = getCookie('directcheckout');
   if (direct_checkout == 'true') {
@@ -142,8 +142,10 @@
       url_params = [];
 
       a_referrer = getCookie('affiliate_referrer')
-      if (a_referrer in discount_dict) {
-        url_params = url_params.concat(['discount=' + discount_dict[a_referrer]]);
+      if (a_referrer in affiliate_config && 'flow' in affiliate_config[a_referrer] && 'discount_code' in affiliate_config[a_referrer]['flow']) {
+        if (affiliate_config[a_referrer]['flow']['discount']) {
+          url_params = url_params.concat(['discount=' + affiliate_config[a_referrer]['flow']['discount']]);
+        }
       }
 
       if(productDiscountCode != "" && productDiscountCode != undefined){

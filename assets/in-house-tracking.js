@@ -36,21 +36,91 @@ A_B_testing_campaigns = {
 }
 
 
-affiliate_product_page_offers = {
-  'redirect_cpgap': {
-    'one_time': '49',
-    'code': 'cpgap_onetime',
-    'skip_quiz': true,
-    'one_time_enabled': true,
-    'subscription_enabled': false
+affiliate_config = {
+  'default': {
+    'general': {
+      'announcement_bar': null,
+    },
+    'pricing': {
+      'onetime': '59',
+      'subscription': '29',
+      'one_time_enabled': true,
+      'subscription_enabled': true,
+    },
+    'flow': {
+      'product_page': null,
+      'skip_quiz': false,
+      'discount_code': null,
+      'cart_attribute': null,
+    },
+    'landing_page_copy': {
+      'hero_subtitle_1': null,
+      'hero_title': null,
+      'Hero_Subtitle': null,
+      'hero_price': null,
+    },
+    'featured_product': {
+      'subPrice': null,
+      'discount_name': null,
+      'discount_desc': null,
+      'regular_item_price': null
+    }
   },
-  'redirect_cpgap_subscription': {
-    'subscription': '49',
-    'code': 'cpgap_sub',
-    'skip_quiz': true,
-    'one_time_enabled': false,
-    'subscription_enabled': true
-  }
+  'redirect_cpgap': {
+    'flow': {
+      'discount_code': 'Pen-Addon',
+      'cart_attribute': 'redirect_cpgap',
+    }
+  },
+  'redirect_cpgap_gen': {
+    'flow': {
+      'discount_code': 'Pen-Addon',
+      'cart_attribute': 'redirect_cpgap_gen',
+    }
+  },
+  'redirect_paceline': {
+    'flow': {
+      'discount_code': 'PACELINE_AUTOMATIC',
+      'cart_attribute': 'paceline',
+    }
+  },
+  'redirect_sweatcoin': {
+    'flow': {
+      'discount_code': 'Pen-Addon',
+      'cart_attribute': 'sweatcoin',
+    }
+  },
+  'redirect_ut': {
+    'flow': {
+      'discount_code': 'ADD_PEN',
+      'cart_attribute': 'cactus_media',
+    }
+  },
+  'redirect_ut_direct': null,
+  'redirect_miles': {
+    'flow': {
+      'discount_code': 'MILES_AUTOMATIC',
+      'cart_attribute': 'miles',
+    }
+  },
+  'redirect_skimm': {
+    'flow': {
+      'discount_code': 'SKIMM25',
+      'cart_attribute': 'skimm',
+    }
+  },
+  'redirect_pinterest':  {
+    'flow': {
+      'discount_code': 'PINTEREST25',
+      'cart_attribute': 'pinterest',
+    }
+  },
+  'jam_media': {
+    'flow': {
+      'discount_code': 'AFFILIATE-DISCOUNT-TJM',
+      'cart_attribute': 'jam_media',
+    }
+  },
 }
 
 function gtagLoaded(gtag_payload) {

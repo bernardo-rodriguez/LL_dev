@@ -494,16 +494,16 @@ xhttp.send();
   }
   
   async function setAttributes() {
-      attribute_dict = { // legacy cart attributes
-        'redirect_paceline': 'paceline',
-        'redirect_sweatcoin': 'sweatcoin',
-        'redirect_ut': 'cactus_media',
-        'redirect_miles': 'miles',
-        'redirect_skimm': 'skimm',
-        'redirect_pinterest': 'pinterest',
-        'redirect_cpgap': 'redirect_cpgap',
-        'redirect_cpgap_gen': 'redirect_cpgap_gen'
-      }
+      // attribute_dict = { // legacy cart attributes
+      //   'redirect_paceline': 'paceline',
+      //   'redirect_sweatcoin': 'sweatcoin',
+      //   'redirect_ut': 'cactus_media',
+      //   'redirect_miles': 'miles',
+      //   'redirect_skimm': 'skimm',
+      //   'redirect_pinterest': 'pinterest',
+      //   'redirect_cpgap': 'redirect_cpgap',
+      //   'redirect_cpgap_gen': 'redirect_cpgap_gen'
+      // }
     
       upsell_test = getCookie('upsell_test')
     
@@ -524,8 +524,12 @@ xhttp.send();
       }
 
       try {
-        if (getCookie('affiliate_referrer') in attribute_dict) {
-          await setCartAttributesShareasale(attribute_dict[getCookie('affiliate_referrer')], shareasale_cookie_clean); 
+        a_referrer = getCookie('affiliate_referrer')
+
+        if (a_referrer in affiliate_config && 'flow' in affiliate_config[a_referrer] && 'cart_attribute' in affiliate_config[a_referrer]['flow']) {
+          if (affiliate_config[a_referrer]['flow']['cart_attribute']) {
+            await setCartAttributesShareasale(affiliate_config[a_referrer]['flow']['cart_attribute'], shareasale_cookie_clean);
+          } 
         }  
         else {
           if (shareasale_cookie_clean in shareasale_cookie_dict) {
