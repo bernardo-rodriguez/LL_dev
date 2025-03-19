@@ -149,29 +149,6 @@ function clearAllAffiliateCookies(){
   removeCookie('cookie_hasnt_been_set')
 }
 
-function setTestOrders(d) {
-  flow_1 = parseInt(document.getElementById('flow_v1').innerHTML) / 100
-  flow_2 = parseInt(document.getElementById('flow_v2').innerHTML) / 100
-  flow_3 = parseInt(document.getElementById('flow_v3').innerHTML) / 100
-  
-  var mc = getCookie('redirect_ut')
-  var mm = getCookie('redirect_skimm')
-  var ss = getCookie('redirect_sweatcoin')
-
-  if (mc == 'true') {
-    if (d > flow_1) {
-      setCookie('test_flow', 'true')
-    }
-  } else if (mm == 'true') {
-    if (d > flow_2) {
-      setCookie('test_flow', 'true')
-    }
-  } else if (ss == 'true') {
-    if (d > flow_3) {
-      setCookie('test_flow', 'true')
-    }
-  } 
-}
 
 function ifTestApplies() {
   let active_test = A_B_testing_campaigns['active']
@@ -233,7 +210,6 @@ function setCookieIfFirstTime(utm_affiliate) {
       gtag_payload['AFFILIATE_REFERRER'] = 'NONE'
     }
 
-    setTestOrders(d)
     setABCookies(d)
     setCookie('cookie_hasnt_been_set', 'true')
   }
