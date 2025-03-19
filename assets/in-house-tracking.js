@@ -243,16 +243,13 @@ function setCookieIfFirstTime(utm_affiliate) {
 
 
 function setCookieAffiliate(cookie) {
-  console.log('hello there??')
-  console.log(cookie)
-  console.log('weres cookie')
-  // setCookie(cookie, 'true')
+  setCookie(cookie, 'true')
   setCookie('affiliate_referrer', cookie)
 
   // remove all other affiliate cookies except for the one I'm setting
   for (let i = 0; i < affiliate_cookie_options.length; i++) {
     cookie_option = affiliate_cookie_options[i]
-    if (cookie_option != cookie) {
+    if (cookie_option != cookie && cookie_option != 'affiliate_referrer') {
       removeCookie(cookie_option)
     }
   }
