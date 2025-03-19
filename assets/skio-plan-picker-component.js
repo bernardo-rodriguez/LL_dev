@@ -938,6 +938,9 @@ export class SkioPlanPickerComponent extends LitElement {
 
   updated = (changed) => {
     if(changed.has('product') && this.product) {
+      // RAN AT FIRST LOAD AND THEN EVERY RECURRING UPDATE
+
+      console.log(affiliate_config[this.affiliate_referrer])
       if (this.product.id == 7498061906145 && this.product.id == 8187028177121) {
         console.log('this refill product')
         this.useVariantInputClickEvents = true
