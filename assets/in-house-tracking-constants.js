@@ -92,7 +92,7 @@ affiliate_config = {
     },
     'redirect_ut': {
         'general': {
-            'announcement_bar': 'Sweatcoin discounts auto applied at checkout!',
+            'announcement_bar': 'Discount auto applied at checkout!',
           },
       'flow': {
         'product_page': '/products/at-home-whitening-kit-affiliate-ut',
