@@ -712,102 +712,103 @@ export class SkioPlanPickerComponent extends LitElement {
         <input ${ this.formId !== null ? html`form="${ this.formId }"` : '' } name="properties[Discount]" type="hidden" value="${ this.selectedSellingPlan !== null ? this.discount(this.selectedSellingPlan).percent : '' }" 
           ?disabled="${ this.selectedSellingPlan == null ? true : false }" />
         
-        <div class="skio-group-container ${ this.product.requires_selling_plan == false ? 'skio-group-container--available' : '' } ${ this.selectedSellingPlanGroup == null ? 'skio-group-container--selected' : '' } ${ this.subscriptionFirst ? 'skio-onetime-second' : ''}" skio-group-container 
-          @click=${() => this.selectSellingPlanGroup(null) } >
-        
-          <input id="skio-one-time-${ this.key }" class="skio-group-input" name="skio-group-${ this.key }" type="radio" value="" 
-            skio-one-time ?checked=${ this.startSubscription == false && this.product.requires_selling_plan == false ? true : false }>
-
-
-          <label skio-label-onetime class="skio-group-label" for="skio-one-time-${ this.key }">
-            <div class="skio-group-topline">
-              <div class="skio-radio__container">
-                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1"></circle>
-                  <circle class="skio-radio" cx="12" cy="12" r="11" fill="currentColor"></circle>
-                </svg>
-              </div>
-              <div class="skio-center-wrapper">
-                <div class="skio-group-title">
-                  One-time
-                </div>
-                <div class="skio-price">
-                   ${ this.product.id == '7503162605793' ? html`
-                    —<span id = 'skio-onetime-price-set' skio-onetime-price>${ this.oneTimePricingConfig['first']['subtotal'] }</span>
-                    ` :  html`
-                    —<span id = 'skio-onetime-price-set' skio-onetime-price>$${ (this.selectedVariant.price / 100).toFixed(0) }</span>
-                    ` }
-                </div>
-              </div>
-            </div>
+         ${ affiliate_config[this.affiliate_referrer]['pricing']['one_time_enabled'] ? 
+          html`
+            <div class="skio-group-container ${ this.product.requires_selling_plan == false ? 'skio-group-container--available' : '' } ${ this.selectedSellingPlanGroup == null ? 'skio-group-container--selected' : '' } ${ this.subscriptionFirst ? 'skio-onetime-second' : ''}" skio-group-container 
+              @click=${() => this.selectSellingPlanGroup(null) } >
             
-            ${ this.product.id == '7503162605793' ? html`
-            <div class="skio-group-content-2">
-              <div class="skio-custom-content" style = 'padding-right: 0; padding-left: 0'>
-                <div class="skio-container">
-                  <div class="bundle-container">
-                    <div class="bundle-option" data-bundle="1">
-                      <div class="bundle-content">
-                        <input type="radio" name="onetime_bundle" value="1" data-custom-price="${ this.oneTimePricingConfig['first']['subtotal'] }" checked>
-                        <div class="bundle-details">
-                          <div class="bundle-header">
-                            <div>
-                              <h3 class="bundle-title">${unsafeHTML(this.oneTimePricingConfig['first']['offer_title'])}</h3>
-                              <div class="retail-price">${ unsafeHTML(this.oneTimePricingConfig['first']['retail_saving']) }</div>
-                            </div>
-                            <div class="bundle-pricing">
-                              <div class="sale-price">${ unsafeHTML(this.oneTimePricingConfig['first']['subtotal']) }</div>
-                              <div class="savings">${ unsafeHTML(this.oneTimePricingConfig['first']['save']) }</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="bundle-option" data-bundle="2">
-                      <div class="badge popular-badge">Most Popular</div>
-                      <div class="bundle-content">
-                        <input type="radio" name="onetime_bundle" value="2" data-custom-price="${ this.oneTimePricingConfig['second']['subtotal'] }">
-                        <div class="bundle-details">
-                          <div class="bundle-header">
-                            <div>
-                              <h3 class="bundle-title bundle-title2">${ unsafeHTML(this.oneTimePricingConfig['second']['offer_title']) }</h3>
-                              <div class="retail-price">${ unsafeHTML(this.oneTimePricingConfig['second']['retail_saving']) }</div>
-                            </div>
-                            <div class="bundle-pricing">
-                              <div class="sale-price">${ unsafeHTML(this.oneTimePricingConfig['second']['subtotal']) }</div>
-                              <div class="savings">${ unsafeHTML(this.oneTimePricingConfig['second']['save']) }</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+              <input id="skio-one-time-${ this.key }" class="skio-group-input" name="skio-group-${ this.key }" type="radio" value="" 
+                skio-one-time ?checked=${ this.startSubscription == false && this.product.requires_selling_plan == false ? true : false }>
 
-                    <div class="bundle-option" data-bundle="3">
-                      <div class="badge best-deal-badge">Best Deal</div>
-                      <div class="bundle-content">
-                        <input type="radio" name="onetime_bundle" value="3" data-custom-price="${ this.oneTimePricingConfig['third']['subtotal'] }" >
-                        <div class="bundle-details">
-                          <div class="bundle-header">
-                            <div>
-                              <h3 class="bundle-title bundle-title2">${ unsafeHTML(this.oneTimePricingConfig['third']['offer_title']) }</h3>
-                              <div class="retail-price">${ unsafeHTML(this.oneTimePricingConfig['third']['retail_saving']) }</div>
-                            </div>
-                            <div class="bundle-pricing">
-                              <div class="sale-price">${ unsafeHTML(this.oneTimePricingConfig['third']['subtotal']) }</div>
-                              <div class="savings">${ unsafeHTML(this.oneTimePricingConfig['third']['save']) }</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+              <label skio-label-onetime class="skio-group-label" for="skio-one-time-${ this.key }">
+                <div class="skio-group-topline">
+                  <div class="skio-radio__container">
+                    <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1"></circle>
+                      <circle class="skio-radio" cx="12" cy="12" r="11" fill="currentColor"></circle>
+                    </svg>
+                  </div>
+                  <div class="skio-center-wrapper">
+                    <div class="skio-group-title">
+                      One-time
+                    </div>
+                    <div class="skio-price">
+                      ${ this.product.id == '7503162605793' ? html`
+                        —<span id = 'skio-onetime-price-set' skio-onetime-price>${ this.oneTimePricingConfig['first']['subtotal'] }</span>
+                        ` :  html`
+                        —<span id = 'skio-onetime-price-set' skio-onetime-price>$${ (this.selectedVariant.price / 100).toFixed(0) }</span>
+                        ` }
                     </div>
                   </div>
                 </div>
                 
-              </div>
-            </div>` :  html`` }
-          </label>
+                ${ this.product.id == '7503162605793' ? html`
+                <div class="skio-group-content-2">
+                  <div class="skio-custom-content" style = 'padding-right: 0; padding-left: 0'>
+                    <div class="skio-container">
+                      <div class="bundle-container">
+                        <div class="bundle-option" data-bundle="1">
+                          <div class="bundle-content">
+                            <input type="radio" name="onetime_bundle" value="1" data-custom-price="${ this.oneTimePricingConfig['first']['subtotal'] }" checked>
+                            <div class="bundle-details">
+                              <div class="bundle-header">
+                                <div>
+                                  <h3 class="bundle-title">${unsafeHTML(this.oneTimePricingConfig['first']['offer_title'])}</h3>
+                                  <div class="retail-price">${ unsafeHTML(this.oneTimePricingConfig['first']['retail_saving']) }</div>
+                                </div>
+                                <div class="bundle-pricing">
+                                  <div class="sale-price">${ unsafeHTML(this.oneTimePricingConfig['first']['subtotal']) }</div>
+                                  <div class="savings">${ unsafeHTML(this.oneTimePricingConfig['first']['save']) }</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="bundle-option" data-bundle="2">
+                          <div class="badge popular-badge">Most Popular</div>
+                          <div class="bundle-content">
+                            <input type="radio" name="onetime_bundle" value="2" data-custom-price="${ this.oneTimePricingConfig['second']['subtotal'] }">
+                            <div class="bundle-details">
+                              <div class="bundle-header">
+                                <div>
+                                  <h3 class="bundle-title bundle-title2">${ unsafeHTML(this.oneTimePricingConfig['second']['offer_title']) }</h3>
+                                  <div class="retail-price">${ unsafeHTML(this.oneTimePricingConfig['second']['retail_saving']) }</div>
+                                </div>
+                                <div class="bundle-pricing">
+                                  <div class="sale-price">${ unsafeHTML(this.oneTimePricingConfig['second']['subtotal']) }</div>
+                                  <div class="savings">${ unsafeHTML(this.oneTimePricingConfig['second']['save']) }</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
 
-        </div>
+                        <div class="bundle-option" data-bundle="3">
+                          <div class="badge best-deal-badge">Best Deal</div>
+                          <div class="bundle-content">
+                            <input type="radio" name="onetime_bundle" value="3" data-custom-price="${ this.oneTimePricingConfig['third']['subtotal'] }" >
+                            <div class="bundle-details">
+                              <div class="bundle-header">
+                                <div>
+                                  <h3 class="bundle-title bundle-title2">${ unsafeHTML(this.oneTimePricingConfig['third']['offer_title']) }</h3>
+                                  <div class="retail-price">${ unsafeHTML(this.oneTimePricingConfig['third']['retail_saving']) }</div>
+                                </div>
+                                <div class="bundle-pricing">
+                                  <div class="sale-price">${ unsafeHTML(this.oneTimePricingConfig['third']['subtotal']) }</div>
+                                  <div class="savings">${ unsafeHTML(this.oneTimePricingConfig['third']['save']) }</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>` :  html`` }
+              </label>
+            </div>`
+        : ''}
 
          ${ affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] ? 
               html`<div>
