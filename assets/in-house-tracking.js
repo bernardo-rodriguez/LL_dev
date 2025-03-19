@@ -149,15 +149,10 @@ function getCookie(cname) {
 }
 
 function setCookie(key, value) {
-  console.log(key)
-  console.log(value)
-
   var date = new Date();
   date.setTime(date.getTime() + 2 * 3600 * 1000);
   var expires = date.toUTCString();
-  console.log(expires)
   cookie_string = `${key}=${value}; expires=${expires}; path=/`
-  console.log(cookie_string)
   document.cookie = cookie_string;
 }
 
