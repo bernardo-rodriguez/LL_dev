@@ -147,6 +147,8 @@
 
       a_referrer = getCookie('affiliate_referrer')
       console.log(affiliate_config[a_referrer])
+      console.log(affiliate_config[a_referrer]['flow'])
+      console.log(affiliate_config[a_referrer]['flow']['discount'])
       if (a_referrer in affiliate_config && 'flow' in affiliate_config[a_referrer] && 'discount_code' in affiliate_config[a_referrer]['flow']) {
         if (affiliate_config[a_referrer]['flow']['discount']) {
           url_params = url_params.concat(['discount=' + affiliate_config[a_referrer]['flow']['discount']]);
