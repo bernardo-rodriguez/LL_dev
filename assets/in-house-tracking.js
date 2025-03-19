@@ -238,6 +238,7 @@ function setCookieIfFirstTime(utm_affiliate) {
 
 
 function setCookieAffiliate(cookie) {
+  console.log('hello there??')
   setCookie(cookie, 'true')
   setCookie('affiliate_referrer', cookie)
 
