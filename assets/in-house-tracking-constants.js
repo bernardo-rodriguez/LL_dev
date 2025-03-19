@@ -36,8 +36,8 @@ affiliate_config = {
       'pricing': {
         'onetime': '59',
         'subscription': '29',
-        'one_time_enabled': false,
-        'subscription_enabled': true,
+        'one_time_enabled': true,
+        'subscription_enabled': false,
       },
     },
     'redirect_cpgap_gen': {
@@ -45,21 +45,14 @@ affiliate_config = {
         'announcement_bar': 'Discount auto applied at checkout!',
       },
       'flow': {
-        'product_page':  '/products/at-home-whitening-kit-affiliate-ft',
         'discount_code': 'Pen-Addon',
         'cart_attribute': 'redirect_cpgap_gen',
       },
-      'landing_page_copy': {
-        'hero_subtitle_1': ['margin-bottom', '50px !important'],
-        'hero_title': 'Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>',
-        'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.",
-        'hero_price': '0',
-      },
-      'featured_product': {
-        'subPrice': '0',
-        'discount_name': 'FREE_TRIAL_SPECIAL',
-        'discount_desc': '100% OFF',
-        'regular_item_price': '$59'
+      'pricing': {
+        'onetime': '59',
+        'subscription': '29',
+        'one_time_enabled': false,
+        'subscription_enabled': true,
       }
     },
     'redirect_paceline': {
