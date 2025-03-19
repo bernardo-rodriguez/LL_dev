@@ -45,7 +45,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     this.createSubscriptionWidget();
 
-    this.getSubPrice();
+    // this.getSubPrice();
 
     document.addEventListener('DOMContentLoaded', () => {
       // 'this' here refers to the original outer context
@@ -214,78 +214,78 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     }
   }
 
-  getSubPrice() {
-    // Return subscription price and text based on redirection cookie
-    let subscriptionCookie = getCookie('affiliate_referrer')
-    let subPrice = ''
-    let subText = ''
-    let oneTimeText = ''
-    let oneTimePrice = ''
+  // getSubPrice() {
+  //   // Return subscription price and text based on redirection cookie
+  //   let subscriptionCookie = getCookie('affiliate_referrer')
+  //   let subPrice = ''
+  //   let subText = ''
+  //   let oneTimeText = ''
+  //   let oneTimePrice = ''
 
-    switch(subscriptionCookie) {
-       // case 'redirect_skimm':
-       //  subPrice = '$29'
-       //  subText = 'Subscribe & Save'
-       //  oneTimeText = 'Skimm One-Time'
-       //  oneTimePrice = '$57'
-       //  break
-       case 'redirect_sweatcoin':
-        subPrice = '$0'
-        subText = 'SWEATCOIN SPECIAL'
-        // this.add_pen()
-        break
-      case 'redirect_ut':
-        add_pen_cookie()
-        subPrice = '$9'
-        subText = 'STARTER SPECIAL'
-        // subPrice = '$0'
-        // subText = 'FREE TRIAL SPECIAL'
-        // subPrice = '$29'
-        // subText = 'STARTER SPECIAL'
-        break;
-      case 'redirect_ut_direct':
-        subPrice = '$9'
-        subText = 'Starter Special'
-        // subPrice = '$0'
-        // subText = 'FREE TRIAL SPECIAL'
-        break
-      case 'redirect_cpgap_gen':
-        subPrice = '$0'
-        subText = 'FREE TRIAL SPECIAL'
-        break
-      case 'jam_media':
-        subPrice = '$19'
-        subText = 'Starter Special'
-        break
-      case 'redirect_cpgap':
-        subPrice = '$29'
-        subText = 'Subscribe & Save'
-        break
-      case 'redirect_paceline':
-        subPrice = '$29'
-        subText = 'Subscribe & Save'
-        break
-      case 'redirect_miles':
-        subPrice = '$9'
-        subText = 'Subscribe & Save'
-        break
-      case 'redirect_studentbeans':
-        subPrice = '$9'
-        subText = 'Subscribe & Save'
-        break
-      case 'redirect_inspire':
-        subPrice = '$13.5'
-        subText = 'Subscribe & Save'
-        break
-      default:
-        subPrice = '$29'
-        subText = 'Subscribe & Save'
-        break
-    }
+  //   switch(subscriptionCookie) {
+  //      // case 'redirect_skimm':
+  //      //  subPrice = '$29'
+  //      //  subText = 'Subscribe & Save'
+  //      //  oneTimeText = 'Skimm One-Time'
+  //      //  oneTimePrice = '$57'
+  //      //  break
+  //      case 'redirect_sweatcoin':
+  //       subPrice = '$0'
+  //       subText = 'SWEATCOIN SPECIAL'
+  //       // this.add_pen()
+  //       break
+  //     case 'redirect_ut':
+  //       add_pen_cookie()
+  //       subPrice = '$9'
+  //       subText = 'STARTER SPECIAL'
+  //       // subPrice = '$0'
+  //       // subText = 'FREE TRIAL SPECIAL'
+  //       // subPrice = '$29'
+  //       // subText = 'STARTER SPECIAL'
+  //       break;
+  //     case 'redirect_ut_direct':
+  //       subPrice = '$9'
+  //       subText = 'Starter Special'
+  //       // subPrice = '$0'
+  //       // subText = 'FREE TRIAL SPECIAL'
+  //       break
+  //     case 'redirect_cpgap_gen':
+  //       subPrice = '$0'
+  //       subText = 'FREE TRIAL SPECIAL'
+  //       break
+  //     case 'jam_media':
+  //       subPrice = '$19'
+  //       subText = 'Starter Special'
+  //       break
+  //     case 'redirect_cpgap':
+  //       subPrice = '$29'
+  //       subText = 'Subscribe & Save'
+  //       break
+  //     case 'redirect_paceline':
+  //       subPrice = '$29'
+  //       subText = 'Subscribe & Save'
+  //       break
+  //     case 'redirect_miles':
+  //       subPrice = '$9'
+  //       subText = 'Subscribe & Save'
+  //       break
+  //     case 'redirect_studentbeans':
+  //       subPrice = '$9'
+  //       subText = 'Subscribe & Save'
+  //       break
+  //     case 'redirect_inspire':
+  //       subPrice = '$13.5'
+  //       subText = 'Subscribe & Save'
+  //       break
+  //     default:
+  //       subPrice = '$29'
+  //       subText = 'Subscribe & Save'
+  //       break
+  //   }
 
     
-    return [subPrice, subText, oneTimeText, oneTimePrice]
-  }
+  //   return [subPrice, subText, oneTimeText, oneTimePrice]
+  // }
 
   waitForSkio(selector) {
     // Wait for skio-plan-picker to be available on the site
