@@ -113,7 +113,7 @@ affiliate_config = {
     'landing_page_copy': {
       'hero_subtitle_1': ['margin-bottom', '50px !important'],
       'hero_title': 'Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit',
-      'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.",
+      'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Todayy.",
       'hero_price': '9',
     },
   },
