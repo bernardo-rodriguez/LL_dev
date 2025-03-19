@@ -527,7 +527,7 @@ export class SkioPlanPickerComponent extends LitElement {
     productHandle: { type: String },      //optional (unless product isn't passed, then required)
     key: { type: String },                //optional, defaults to product.id; identifier for this instance of the Skio plan picker
 
-    affiliate_jam_media: {type: String},
+    affiliate_referrer: {type: String},
     
     formId: { type: String },             //optional; if passed, used to connect input fields to form
     needsFormId: { type: Boolean },       //optional, defaults to false; if true, element needs to be passed a formId, else it searches for a form
@@ -567,7 +567,7 @@ export class SkioPlanPickerComponent extends LitElement {
     this.product = null;
     this.selectedVariant = null;
 
-    this.affiliate_jam_media = getCookie('jam_media')
+    this.affiliate_referrer = getCookie('affiliate_referrer')
 
     this.productHandle = null;
 
@@ -833,7 +833,7 @@ export class SkioPlanPickerComponent extends LitElement {
                     —${ this.selectedVariant.price < this.selectedVariant.price - this.discount(group.selected_selling_plan).amount ? html`
                         <del>${ this.moneyFormatter.format(this.selectedVariant.price / 100) }<del>
                       ` : html`` }
-                      <span skio-subscription-price>$${ this.affiliate_jam_media == 'true' ? '19' : (this.price(group.selected_selling_plan, false) / 100).toFixed(0) }</span>
+                      <span skio-subscription-price>$${ this.affiliate_referrer == 'jam_media' ? '19' : (this.price(group.selected_selling_plan, false) / 100).toFixed(0) }</span>
                     </div>
                   </div>
                 </div>
