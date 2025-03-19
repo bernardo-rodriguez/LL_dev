@@ -810,7 +810,7 @@ export class SkioPlanPickerComponent extends LitElement {
         </div>
 
          ${ affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] ? 
-              <div>
+              html`<div>
               ${ this.availableSellingPlanGroups ? this.availableSellingPlanGroups.map((group, index) => 
                 html`
                   <div class="skio-group-container skio-group-container--available ${ this.selectedSellingPlanGroup == group ? 'skio-group-container--selected' : '' }" skio-group-container
@@ -872,7 +872,7 @@ export class SkioPlanPickerComponent extends LitElement {
                   </div>
                 `
               ): ''}
-              </div>
+              </div>`
         : ''}
 
 
