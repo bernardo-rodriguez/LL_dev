@@ -717,6 +717,8 @@ export class SkioPlanPickerComponent extends LitElement {
         
           <input id="skio-one-time-${ this.key }" class="skio-group-input" name="skio-group-${ this.key }" type="radio" value="" 
             skio-one-time ?checked=${ this.startSubscription == false && this.product.requires_selling_plan == false ? true : false }>
+
+
           <label skio-label-onetime class="skio-group-label" for="skio-one-time-${ this.key }">
             <div class="skio-group-topline">
               <div class="skio-radio__container">
@@ -804,68 +806,75 @@ export class SkioPlanPickerComponent extends LitElement {
               </div>
             </div>` :  html`` }
           </label>
+
         </div>
-        ${ this.availableSellingPlanGroups ? this.availableSellingPlanGroups.map((group, index) => 
-          html`
-            <div class="skio-group-container skio-group-container--available ${ this.selectedSellingPlanGroup == group ? 'skio-group-container--selected' : '' }" skio-group-container
-              @click=${() => this.selectSellingPlanGroup(group) }>
-              <input id="skio-selling-plan-group-${ index }-${ this.key }" class="skio-group-input" name="skio-group-${ this.key }"
-                type="radio" value="${ group.id }" skio-selling-plan-group="${ group.id }" ?checked=${ this.selectedSellingPlanGroup == group ? true : false } >
-              <label skio-label-subscription class="skio-group-label" for="skio-selling-plan-group-${ index }-${ this.key }">
-                <div class="skio-group-topline">
-                  <div class="skio-radio__container">
-                    <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1"></circle>
-                      <circle class="skio-radio" cx="12" cy="12" r="11" fill="currentColor"></circle>
-                    </svg>
+
+         ${ affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] ? 
+              <div>
+              ${ this.availableSellingPlanGroups ? this.availableSellingPlanGroups.map((group, index) => 
+                html`
+                  <div class="skio-group-container skio-group-container--available ${ this.selectedSellingPlanGroup == group ? 'skio-group-container--selected' : '' }" skio-group-container
+                    @click=${() => this.selectSellingPlanGroup(group) }>
+                    <input id="skio-selling-plan-group-${ index }-${ this.key }" class="skio-group-input" name="skio-group-${ this.key }"
+                      type="radio" value="${ group.id }" skio-selling-plan-group="${ group.id }" ?checked=${ this.selectedSellingPlanGroup == group ? true : false } >
+                    <label skio-label-subscription class="skio-group-label" for="skio-selling-plan-group-${ index }-${ this.key }">
+                      <div class="skio-group-topline">
+                        <div class="skio-radio__container">
+                          <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1"></circle>
+                            <circle class="skio-radio" cx="12" cy="12" r="11" fill="currentColor"></circle>
+                          </svg>
+                        </div>
+                        <div class="skio-center-wrapper">
+                          <div class="skio-group-title" id = 'skio-group-title-sub'>
+                          ${ group.name == 'Subscription' ?  (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' ? 
+                            ((this.product.id == 8187028177121 ) ? 'Sweatcoin Special' : 'Free Trial Special') 
+                            : 'Subscribe & Save' 
+                          : group.name }
+                            ${ this.discount(group.selected_selling_plan).percent !== '0%' ? html` 
+                              <span style="display: none;" class="skio-save">Save <span skio-discount>${ this.discountFormat == 'percent' ? this.discount(group.selected_selling_plan).percent : this.discount(group.selected_selling_plan).amount }</span></span>
+                            ` : html`` }
+                          </div>
+                          <div class="skio-price skio-subscribe-price" id = 'skio-group-price-sub'>
+                          —${ this.selectedVariant.price < this.selectedVariant.price - this.discount(group.selected_selling_plan).amount ? html`
+                              <del>${ this.moneyFormatter.format(this.selectedVariant.price / 100) }<del>
+                            ` : html`` }
+                            <span skio-subscription-price>$${ this.affiliate_referrer == 'jam_media' ? '19' : (this.price(group.selected_selling_plan, false) / 100).toFixed(0) }</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="skio-center-wrapper">
+                      <span class = 'skio-price-shipping'> ${ this.product.id == 7498061906145 ? '(+ Free Shipping!)'  : '' }</span>
+                      </div>
+                      <div class="skio-group-content">
+                        <div class="skio-custom-content skio-custom-content-background-color">
+                          <div class="skio-container">
+                            <div>${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? 'Whitening Gels' : 'Whitening Gels' }</div>
+                            <div>${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? '1 Month Supply' : 'Refills for $25/delivery' }</div>
+                          </div>
+                          <div class="skio-container" style = "margin-top: 10px">
+                            <select skio-selling-plans="${ group.id }" class="skio-frequency${ group.selling_plans.length == 1 ? ' skio-frequency--one' : '' }
+                            ${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? ' hide-skio-select' : '' }"
+                              @change=${ (e) => this.selectSellingPlan(e.target, group) }>
+                              ${ group ? group.selling_plans.map((selling_plan) => 
+                                html`
+                                <option value="${ selling_plan.id }" ?selected=${group.selected_selling_plan == selling_plan }>
+                                  ${ group.name == 'Subscription' ? `Delivery ${ selling_plan.name.toLowerCase() }` : `${ selling_plan.name }` }
+                                </option>
+                                `
+                              ): ''}
+                            </select>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </label>
                   </div>
-                  <div class="skio-center-wrapper">
-                    <div class="skio-group-title" id = 'skio-group-title-sub'>
-                    ${ group.name == 'Subscription' ?  (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' ? 
-                      ((this.product.id == 8187028177121 ) ? 'Sweatcoin Special' : 'Free Trial Special') 
-                      : 'Subscribe & Save' 
-                    : group.name }
-                      ${ this.discount(group.selected_selling_plan).percent !== '0%' ? html` 
-                        <span style="display: none;" class="skio-save">Save <span skio-discount>${ this.discountFormat == 'percent' ? this.discount(group.selected_selling_plan).percent : this.discount(group.selected_selling_plan).amount }</span></span>
-                      ` : html`` }
-                    </div>
-                    <div class="skio-price skio-subscribe-price" id = 'skio-group-price-sub'>
-                    —${ this.selectedVariant.price < this.selectedVariant.price - this.discount(group.selected_selling_plan).amount ? html`
-                        <del>${ this.moneyFormatter.format(this.selectedVariant.price / 100) }<del>
-                      ` : html`` }
-                      <span skio-subscription-price>$${ this.affiliate_referrer == 'jam_media' ? '19' : (this.price(group.selected_selling_plan, false) / 100).toFixed(0) }</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="skio-center-wrapper">
-                 <span class = 'skio-price-shipping'> ${ this.product.id == 7498061906145 ? '(+ Free Shipping!)'  : '' }</span>
-                </div>
-                <div class="skio-group-content">
-                  <div class="skio-custom-content skio-custom-content-background-color">
-                    <div class="skio-container">
-                      <div>${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? 'Whitening Gels' : 'Whitening Gels' }</div>
-                      <div>${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? '1 Month Supply' : 'Refills for $25/delivery' }</div>
-                    </div>
-                    <div class="skio-container" style = "margin-top: 10px">
-                      <select skio-selling-plans="${ group.id }" class="skio-frequency${ group.selling_plans.length == 1 ? ' skio-frequency--one' : '' }
-                      ${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? ' hide-skio-select' : '' }"
-                        @change=${ (e) => this.selectSellingPlan(e.target, group) }>
-                        ${ group ? group.selling_plans.map((selling_plan) => 
-                          html`
-                          <option value="${ selling_plan.id }" ?selected=${group.selected_selling_plan == selling_plan }>
-                            ${ group.name == 'Subscription' ? `Delivery ${ selling_plan.name.toLowerCase() }` : `${ selling_plan.name }` }
-                          </option>
-                          `
-                        ): ''}
-                      </select>
-                      
-                    </div>
-                  </div>
-                </div>
-              </label>
-            </div>
-          `
-        ): ''}
+                `
+              ): ''}
+              </div>
+        : ''}
+
 
             <details class="skio-details" @mouseover=${ (e) => this.detailsMouseover() } @mouseleave=${ (e) => this.detailsMouseleave() }>
               <summary>
@@ -938,9 +947,9 @@ export class SkioPlanPickerComponent extends LitElement {
 
   updated = (changed) => {
     if(changed.has('product') && this.product) {
-      // RAN AT FIRST LOAD AND THEN EVERY RECURRING UPDATE
-
+      // RAN ONLY ON FIRST LOAD
       console.log(affiliate_config[this.affiliate_referrer])
+
       if (this.product.id == 7498061906145 && this.product.id == 8187028177121) {
         console.log('this refill product')
         this.useVariantInputClickEvents = true
