@@ -36,7 +36,7 @@ affiliate_config = {
       'pricing': {
         'onetime': '59',
         'subscription': '29',
-        'one_time_enabled': true,
+        'one_time_enabled': false,
         'subscription_enabled': true,
       },
     },
