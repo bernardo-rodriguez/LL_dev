@@ -730,7 +730,7 @@ export class SkioPlanPickerComponent extends LitElement {
                 (this.one_time_enabled && !this.subscription_enabled) || 
                 (this.startSubscription == false && this.product.requires_selling_plan) == false ? true : false }>
 
-              <label skio-label-onetime class="skio-group-label" for="skio-one-time-${ this.key }">
+              <label skio-label-onetime class="skio-group-label" for="skio-one-time-${ this.key }" style = ${ this.subscription_enabled ? '' : 'padding: none' }>
                 <div class="skio-group-topline">
                   <div class="skio-radio__container" style = ${ this.subscription_enabled && this.one_time_enabled ? '' : 'display: none'} >
                     <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -753,7 +753,7 @@ export class SkioPlanPickerComponent extends LitElement {
                 </div>
                 
                 ${ this.product.id == '7503162605793' ? html`
-                <div class="skio-group-content-2">
+                <div class="skio-group-content-2" style = ${ this.subscription_enabled ? '' : 'margin: 0' }>
                   <div class="skio-custom-content" style = 'padding-right: 0; padding-left: 0'>
                     <div class="skio-container">
                       <div class="bundle-container">
