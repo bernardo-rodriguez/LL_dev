@@ -528,6 +528,8 @@ export class SkioPlanPickerComponent extends LitElement {
     key: { type: String },                //optional, defaults to product.id; identifier for this instance of the Skio plan picker
 
     affiliate_referrer: {type: String},
+    one_time_enabled: {type: Boolean},
+    subscription_enabled: {type: Boolean},
     
     formId: { type: String },             //optional; if passed, used to connect input fields to form
     needsFormId: { type: Boolean },       //optional, defaults to false; if true, element needs to be passed a formId, else it searches for a form
@@ -568,6 +570,9 @@ export class SkioPlanPickerComponent extends LitElement {
     this.selectedVariant = null;
 
     this.affiliate_referrer = getCookie('affiliate_referrer')
+    
+    this.one_time_enabled = this.affiliate_referrer.get('pricing', {}).get('one_time_enabled', true)
+    this.subscription_enabled = this.affiliate_referrer.get('pricing', {}).get('subscription_enabled', true)
 
     this.productHandle = null;
 
@@ -708,21 +713,21 @@ export class SkioPlanPickerComponent extends LitElement {
     
     return html`
       <fieldset class="skio-plan-picker" skio-plan-picker="${ this.key }">
-        <input ${ this.formId !== null ? html`form="${ this.formId }"` : '' } name="selling_plan" type="hidden" value="${ affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan !== null ? this.selectedSellingPlan?.id : ''}" />
-        <input ${ this.formId !== null ? html`form="${ this.formId }"` : '' } name="properties[Discount]" type="hidden" value="${ affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan !== null ? this.discount(this.selectedSellingPlan).percent : '' }" 
-          ?disabled="${ !affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] || this.selectedSellingPlan == null ? true : false }" />
+        <input ${ this.formId !== null ? html`form="${ this.formId }"` : '' } name="selling_plan" type="hidden" value="${ this.subscription_enabled && this.selectedSellingPlan !== null ? this.selectedSellingPlan?.id : ''}" />
+        <input ${ this.formId !== null ? html`form="${ this.formId }"` : '' } name="properties[Discount]" type="hidden" value="${ this.subscription_enabled && this.selectedSellingPlan !== null ? this.discount(this.selectedSellingPlan).percent : '' }" 
+          ?disabled="${ !this.subscription_enabled || this.selectedSellingPlan == null ? true : false }" />
         
-         ${ affiliate_config[this.affiliate_referrer]['pricing']['one_time_enabled'] || true ? 
+         ${ this.one_time_enabled ? 
           html`
             <div class="skio-group-container 
               ${ this.product.requires_selling_plan == false ? 'skio-group-container--available' : '' } 
-              ${ (affiliate_config[this.affiliate_referrer]['pricing']['one_time_enabled'] && !affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled']) || this.selectedSellingPlanGroup == null ? 'skio-group-container--selected' : '' } 
+              ${ (this.one_time_enabled && !this.subscription_enabled) || this.selectedSellingPlanGroup == null ? 'skio-group-container--selected' : '' } 
               ${ this.subscriptionFirst ? 'skio-onetime-second' : ''}" skio-group-container 
               @click=${() => this.selectSellingPlanGroup(null) } >
             
               <input id="skio-one-time-${ this.key }" class="skio-group-input" name="skio-group-${ this.key }" type="radio" value="" 
                 skio-one-time ?checked=${ 
-                (affiliate_config[this.affiliate_referrer]['pricing']['one_time_enabled'] && !affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled']) || 
+                (this.one_time_enabled && !this.subscription_enabled) || 
                 (this.startSubscription == false && this.product.requires_selling_plan) == false ? true : false }>
 
               <label skio-label-onetime class="skio-group-label" for="skio-one-time-${ this.key }">
@@ -815,15 +820,15 @@ export class SkioPlanPickerComponent extends LitElement {
             </div>`
         : ''}
 
-         ${ affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] || true ? 
+         ${ this.subscription_enabled ? 
               html`<div>
               ${ this.availableSellingPlanGroups ? this.availableSellingPlanGroups.map((group, index) => 
                 html`
-                  <div class="skio-group-container skio-group-container--available ${ affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlanGroup == group ? 'skio-group-container--selected' : '' }" skio-group-container
+                  <div class="skio-group-container skio-group-container--available ${ this.subscription_enabled && this.selectedSellingPlanGroup == group ? 'skio-group-container--selected' : '' }" skio-group-container
                     @click=${() => this.selectSellingPlanGroup(group) }>
                     <input id="skio-selling-plan-group-${ index }-${ this.key }" class="skio-group-input" name="skio-group-${ this.key }"
                       type="radio" value="${ group.id }" skio-selling-plan-group="${ group.id }" ?checked=${ 
-                      affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlanGroup == group ? true : false } >
+                      this.subscription_enabled && this.selectedSellingPlanGroup == group ? true : false } >
                     <label skio-label-subscription class="skio-group-label" for="skio-selling-plan-group-${ index }-${ this.key }">
                       <div class="skio-group-topline">
                         <div class="skio-radio__container">
@@ -1321,31 +1326,31 @@ export class SkioPlanPickerComponent extends LitElement {
       if (form) {
         let selling_plan_input = form.querySelector('[name="selling_plan"]');
         if (selling_plan_input) {
-          selling_plan_input.value = (affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan?.id !== undefined) ? this.selectedSellingPlan?.id : null;
-          selling_plan_input.disabled = (affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan?.id !== undefined) ? false : true;
+          selling_plan_input.value = (this.subscription_enabled && this.selectedSellingPlan?.id !== undefined) ? this.selectedSellingPlan?.id : null;
+          selling_plan_input.disabled = (this.subscription_enabled && this.selectedSellingPlan?.id !== undefined) ? false : true;
         } else {
           selling_plan_input = document.createElement('input');
           selling_plan_input.type = "hidden";
           selling_plan_input.name = "selling_plan";
-          selling_plan_input.value = (affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan?.id !== undefined) ? this.selectedSellingPlan?.id : null;
-          selling_plan_input.disabled = (affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan?.id !== undefined) ? false : true;
+          selling_plan_input.value = (this.subscription_enabled && this.selectedSellingPlan?.id !== undefined) ? this.selectedSellingPlan?.id : null;
+          selling_plan_input.disabled = (this.subscription_enabled && this.selectedSellingPlan?.id !== undefined) ? false : true;
           form.append(selling_plan_input);
         }
 
-        let discountValue = (affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan?.id !== undefined) ? this.discount(this.selectedSellingPlan).percent : null;
+        let discountValue = (this.subscription_enabled && this.selectedSellingPlan?.id !== undefined) ? this.discount(this.selectedSellingPlan).percent : null;
         if (discountValue == '0%') discountValue = null;
 
         let discount_input = form.querySelector('[name="properties[Discount]"]');
         if (discount_input) {
-          discount_input.value = (affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan?.id !== undefined) ? this.discount(this.selectedSellingPlan).percent : null;
-          discount_input.disabled = (affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan?.id !== undefined) ? false : true;
+          discount_input.value = (this.subscription_enabled && this.selectedSellingPlan?.id !== undefined) ? this.discount(this.selectedSellingPlan).percent : null;
+          discount_input.disabled = (this.subscription_enabled && this.selectedSellingPlan?.id !== undefined) ? false : true;
           if (discountValue == null) discount_input.disabled = true;
         } else {
           discount_input = document.createElement('input');
           discount_input.type = "hidden";
           discount_input.name = "properties[Discount]";
-          discount_input.value = (affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan?.id !== undefined) ? this.discount(this.selectedSellingPlan).percent : null;
-          discount_input.disabled = (affiliate_config[this.affiliate_referrer]['pricing']['subscription_enabled'] && this.selectedSellingPlan?.id !== undefined) ? false : true;
+          discount_input.value = (this.subscription_enabled && this.selectedSellingPlan?.id !== undefined) ? this.discount(this.selectedSellingPlan).percent : null;
+          discount_input.disabled = (this.subscription_enabled && this.selectedSellingPlan?.id !== undefined) ? false : true;
           if (discountValue == null) discount_input.disabled = true;
           form.append(discount_input);
         }
