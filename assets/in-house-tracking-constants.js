@@ -39,6 +39,16 @@ affiliate_config = {
             'one_time_enabled': true,
             'subscription_enabled': false,
         },
+        'landing_page_copy': {
+            'hero_subtitle_1': ['margin-bottom', '50px !important'],
+            'hero_price': '49',
+        },
+        'featured_product': {
+            'subPrice': '49',
+            'discount_name': 'CPGAP_ONETIME',
+            'discount_desc': '35% OFF',
+            'regular_item_price': '$76'
+        }
     },
     'redirect_cpgap_gen': {
         'general': {
@@ -53,6 +63,16 @@ affiliate_config = {
             'subscription': '19',
             'one_time_enabled': false,
             'subscription_enabled': true,
+        },
+        'landing_page_copy': {
+            'hero_subtitle_1': ['margin-bottom', '50px !important'],
+            'hero_price': '19',
+        },
+        'featured_product': {
+            'subPrice': '19',
+            'discount_name': 'CPGAP_SUBSCRIPTION',
+            'discount_desc': '75% OFF',
+            'regular_item_price': '$76'
         }
     },
     'redirect_paceline': {
@@ -167,8 +187,8 @@ affiliate_config = {
         'featured_product': {
             'subPrice': '19',
             'discount_name': 'Subscribe & Save',
-            'discount_desc': '35% OFF',
-            'regular_item_price': '$59'
+            'discount_desc': '75% OFF',
+            'regular_item_price': '$76'
         }
     },
     'redirect_studentbeans': {
@@ -196,7 +216,7 @@ affiliate_config = {
 one_time_price_copy = {
     'default': {
         'first': {
-            'offer_title': 'Buy 1 - Save 25%',
+            'offer_title': 'Buy 1 - Save 22%',
             'retail_saving': 'Retail $76',
             'subtotal': '$59',
             'save': 'Save $17'
@@ -216,7 +236,7 @@ one_time_price_copy = {
     },
     'redirect_cpgap': {
         'first': {
-            'offer_title': 'Buy 1 - Save 43%',
+            'offer_title': 'Buy 1 - Save 35%',
             'retail_saving': 'Retail $76',
             'subtotal': '$49',
             'save': 'Save $27'
