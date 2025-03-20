@@ -449,6 +449,7 @@ xhttp.send();
   getCookie('affiliate_referrer')
   let subscription_enabled = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.subscription_enabled ?? true;
   if (!subscription_enabled) {
+    console.log('hello there')
     $('#quantity-input-id').hide()
   }
 
