@@ -237,6 +237,12 @@ function landingPageAction(current_page, query_params) {
   // curent_page: page without query parameters (',', 'pages/landing-page')
   // query_params: dictionary of all query parameters (null if not found)
   let utm_affiliate = query_params.utm_affiliate_specific
+  let redirect = query_params.redirect
+
+  if (redirect == 'pdp') {
+    setCookie('url_redirect', 'pdp')
+  }
+
   if (current_page == '/') {
     // If i'm at site roots url, set affiliate cookies based on affiliate query params and redirect to landing page coookies
     // https://stackoverflow.com/questions/8100515/how-to-check-if-the-user-is-visiting-the-sites-root-url

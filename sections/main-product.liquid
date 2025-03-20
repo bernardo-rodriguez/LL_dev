@@ -99,8 +99,7 @@ xhttp.send();
           {% endif %}          
         </dl>
 
-        {% if product.id == 7498061906145  or product.id == 8187028177121  %}
-          
+        {% if product.id == 7498061906145 %}
           <dl class="product-info">
             <dt class="h6">Formula Picker</dt>
               <div class="refill-formula-radio-group">
@@ -110,20 +109,24 @@ xhttp.send();
                 <input type="radio" id="standard" name="refill-strength" value="✨ Everyday (ID: 8-16)" checked>
                 <label for="standard">Standard</label>
 
-                {% if product.id == 7498061906145  %}
-
                 <input type="radio" id="extra" name="refill-strength" value="🔥 Super Strength (ID: 8-17)">
                 <label for="extra" style = 'padding-right: 29px;'>Extra Strength <span class="price-difference">+$5</span></label>
-
-                {% endif %}
-                {% if product.id == 8187028177121  %}
-
-                  <input type="radio" id="extra" name="refill-strength" value="🔥 Super Strength (ID: 8-17)">
-                  <label for="extra" style = 'padding-right: 29px;'>Extra Strength</label>
-  
-                  {% endif %}
               </div>
           </dl>
+        {% else %}
+        <dl class="product-info" id = 'formula-picker-direct' style = 'display: none'>
+          <dt class="h6">Formula Picker</dt>
+            <div class="refill-formula-radio-group">
+              <input type="radio" id="sensitive" name="refill-strength" value="🍃 Gentle (ID: 19-2)">
+              <label for="sensitive">Sensitive</label>
+
+              <input type="radio" id="standard" name="refill-strength" value="✨ Everyday (ID: 8-16)" checked>
+              <label for="standard">Standard</label>
+
+              <input type="radio" id="extra" name="refill-strength" value="🔥 Super Strength (ID: 8-17)">
+              <label for="extra" style = 'padding-right: 29px;'>Extra Strength</label>
+            </div>
+        </dl>
         {% endif %}
 
         <div>
@@ -446,6 +449,11 @@ xhttp.send();
 </section>
 
 {% javascript %}
+  let redirect = getCookie('url_redirect')
+  if (redirect == 'pdp') {
+    $('#formula-picker-direct').show()
+  }
+
   let aff_referrer = getCookie('affiliate_referrer')
   let subscription_enabled = (affiliate_config[aff_referrer] ?? {}).pricing?.subscription_enabled ?? true;
   if (!subscription_enabled) {
