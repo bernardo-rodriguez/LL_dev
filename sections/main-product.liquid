@@ -57,6 +57,8 @@ xhttp.send();
           {% render 'price', product: product, use_variant: true, show_badges: true, price_class: '' %}
         </div>
 
+        {% render 'small-stars' %}
+
         <dl class="product-info">
           <dt class="h6"> 
             {% if product.metafields.custom.subheading_one %}
@@ -95,8 +97,6 @@ xhttp.send();
             {% endfor %}
           {% endif %}          
         </dl>
-
-        {% render 'small-stars' %}
 
         {% if product.id == 7498061906145  or product.id == 8187028177121  %}
           
