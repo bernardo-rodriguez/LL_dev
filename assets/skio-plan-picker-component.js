@@ -618,26 +618,7 @@ export class SkioPlanPickerComponent extends LitElement {
 
     this.showDetailsHover = false;
     
-    this.oneTimePricingConfig = {
-      'first': {
-        'offer_title': 'Buy 1 - Save 34%',
-        'retail_saving': 'Retail $76',
-        'subtotal': '$59',
-        'save': 'Save $26'
-      },
-      'second': {
-        'offer_title': 'Buy 2, Get 1 FREE <br> + Free Shipping',
-        'retail_saving': 'Retail $228',
-        'subtotal': '$108',
-        'save': 'Save $128'
-      },
-      'third': {
-        'offer_title': 'Buy 3, Get 2 FREE <br> + Free Shipping',
-        'retail_saving': 'Retail $380',
-        'subtotal': '$177',
-        'save': 'Save $230'
-      }
-    }
+    this.oneTimePricingConfig = one_time_price_copy[this.affiliate_referrer] ?? one_time_price_copy['default']
   }
 
   getCookie(cname) {
