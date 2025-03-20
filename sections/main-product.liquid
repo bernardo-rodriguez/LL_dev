@@ -303,7 +303,7 @@ xhttp.send();
                   {% comment %} <label class="form__label" for="Quantity-{{ section.id }}">
                     {{ 'products.product.quantity.label' | t }}
                   </label> {% endcomment %}
-                  <quantity-input class="quantity">
+                  <quantity-input class="quantity" id = 'quantity-input-id'>
                     <button class="quantity__button no-js-hidden" name="minus" type="button">
                       <span class="visually-hidden">
                         {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
@@ -449,7 +449,7 @@ xhttp.send();
   getCookie('affiliate_referrer')
   let subscription_enabled = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.subscription_enabled ?? true;
   if (!subscription_enabled) {
-    $('quantity-input').hide()
+    $('#quantity-input-id').hide()
   }
 
   document.getElementById('main-clickable-button').addEventListener("click", upsellLogic);
