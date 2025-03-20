@@ -584,9 +584,6 @@ export class SkioPlanPickerComponent extends LitElement {
     this.one_time_pricing = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.onetime ?? '';
     this.subscription_pricing = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.subscription ?? '';
 
-    console.log('subscription pricing')
-    console.log(this.subscription_pricing)
-
     this.productHandle = null;
 
     this.purchaseOption = 'onetime';
