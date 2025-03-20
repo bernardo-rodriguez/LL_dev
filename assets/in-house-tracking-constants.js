@@ -35,7 +35,7 @@ affiliate_config = {
         },
         'pricing': {
             'onetime': '49',
-            'subscription': '29',
+            'subscription': '19',
             'one_time_enabled': true,
             'subscription_enabled': false,
         },
@@ -49,8 +49,8 @@ affiliate_config = {
             'cart_attribute': 'redirect_cpgap_gen',
         },
         'pricing': {
-            'onetime': '59',
-            'subscription': '29',
+            'onetime': '49',
+            'subscription': '19',
             'one_time_enabled': false,
             'subscription_enabled': true,
         }
@@ -152,7 +152,7 @@ affiliate_config = {
         },
         'pricing': {
             'onetime': '49',
-            'subscription': '29',
+            'subscription': '19',
             'one_time_enabled': true,
             'subscription_enabled': true,
         },
