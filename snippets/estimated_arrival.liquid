@@ -4,6 +4,10 @@
 <script>
 let today = new Date();
 let nextThreeDays = new Date(today. setDate(today. getDate() + 3));
+let monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+let monthName = monthNames[nextThreeDays.getMonth()];
 
-document.getElementById('estimated_arrival_pdp').innerHTML = "Estimated arrival " + nextThreeDays.toString()
+document.getElementById('estimated_arrival_pdp').innerHTML = "Estimated arrival " + monthName + ' ' + nextThreeDays.getDate()
 </script>
