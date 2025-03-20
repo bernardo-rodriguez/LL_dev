@@ -723,7 +723,9 @@ export class SkioPlanPickerComponent extends LitElement {
               ${ this.product.requires_selling_plan == false ? 'skio-group-container--available' : '' } 
               ${ (this.one_time_enabled && !this.subscription_enabled) || this.selectedSellingPlanGroup == null ? 'skio-group-container--selected' : '' } 
               ${ this.subscriptionFirst ? 'skio-onetime-second' : ''}" skio-group-container 
-              @click=${() => this.selectSellingPlanGroup(null) } >
+              @click=${() => this.selectSellingPlanGroup(null) } 
+              style = ${ this.subscription_enabled ? '' : 'border: none; box-shadow: none' }
+              >
             
               <input id="skio-one-time-${ this.key }" class="skio-group-input" name="skio-group-${ this.key }" type="radio" value="" 
                 skio-one-time ?checked=${ 
