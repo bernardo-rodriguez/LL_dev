@@ -1,5 +1,12 @@
+{% capture guarantee_icon %}
+{{ 'icons8-guarantee.svg' | asset_url | file_read }}
+{% endcapture %}
+
 <div>
-    <img width = '20' height = '20' loading = 'lazy' src="{{ 'icons8-guarantee.svg' | asset_url }}" style = 'display: inline-block; vertical-align: middle'>
+    <div style="width: 20px; height: 20px; display: inline-block; vertical-align: middle;">
+        {{ guarantee_icon }}
+    </div>
+    {% comment %} <img width = '20' height = '20' loading = 'lazy' src="{{ 'icons8-guarantee.svg' | asset_url }}" style = 'display: inline-block; vertical-align: middle'> {% endcomment %}
     <p id = 'estimated_arrival_pdp' style = 'padding-top: 5px; display: inline-block'></p>
 </div>
 
