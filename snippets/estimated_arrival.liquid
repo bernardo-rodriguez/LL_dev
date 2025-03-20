@@ -9,5 +9,5 @@ let monthNames = ["January", "February", "March", "April", "May", "June",
 ];
 let monthName = monthNames[nextThreeDays.getMonth()];
 
-document.getElementById('estimated_arrival_pdp').innerHTML = "Estimated arrival " + monthName + ' ' + nextThreeDays.getDate()
+document.getElementById('estimated_arrival_pdp').innerHTML = "<img width = '30' height = '30' loading = 'lazy' src="{{ 'icons8-guarantee.svg' | asset_url }}"> Estimated arrival " + monthName + ' ' + nextThreeDays.getDate()
 </script>
