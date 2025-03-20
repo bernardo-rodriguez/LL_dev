@@ -497,10 +497,12 @@ const skioStyles = css`
 
   .popular-badge {
       background-color: #ef4444;
+      font-weight: 700;
   }
 
   .best-deal-badge {
       background-color: #22c55e;
+      font-weight: 700;
   }
 
   .add-to-cart {
