@@ -367,32 +367,30 @@ xhttp.send();
               </div>
             {% endform %}
 
-            {% if section.settings.satisfaction != blank %}
-            <div>
+            {% if section.settings.satisfaction != blank  and false %}
             <div style = 'margin-top: 10px;'>
               {{ section.settings.satisfaction_svg }}
               <p style = 'display: inline-block; vertical-align: middle' class="landing-page-main body-xs satisfaction_guarantee">{{ section.settings.satisfaction }}</p>
             </div>
+            {% endif %}
 
-              {% if product.id == 8252255568097 %}
-                <div>
-                  <img
-                    src="{{ 'packageprotection.png' | asset_url}}"
-                    style = 'display: inline-block'
-                    loading="lazy"
-                    width="30"
-                    height="30" />
-                  <div style = 'display: inline-block'>
-                    <p style = 'font-size: 12px; line-height: 20px;'>Package Protection - <b>$0.99</b></p>
-                    <label class="switch">
-                      <input id = 'package_protection' type="checkbox" checked>
-                      <span class="slider round"></span>
-                    </label>
-                  </div>
+            {% if product.id == 8252255568097 %}
+              <div>
+                <img
+                  src="{{ 'packageprotection.png' | asset_url}}"
+                  style = 'display: inline-block'
+                  loading="lazy"
+                  width="30"
+                  height="30" />
+                <div style = 'display: inline-block'>
+                  <p style = 'font-size: 12px; line-height: 20px;'>Package Protection - <b>$0.99</b></p>
+                  <label class="switch">
+                    <input id = 'package_protection' type="checkbox" checked>
+                    <span class="slider round"></span>
+                  </label>
                 </div>
+              </div>
 
-              {% endif %}
-            </div>
             {% endif %}
             
 
