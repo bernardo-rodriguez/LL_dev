@@ -1,4 +1,4 @@
-affiliate_cookie_options = ['affiliate_referrer', 'redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_pinterest', 'cpgap', 'cpgap_gen']
+affiliate_cookie_options = ['url_redirect', 'affiliate_referrer', 'redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_pinterest', 'cpgap', 'cpgap_gen']
 
 supported_affiliates = {
   'sweatcoin': 'redirect_sweatcoin',
@@ -239,10 +239,6 @@ function landingPageAction(current_page, query_params) {
   let utm_affiliate = query_params.utm_affiliate_specific
   let redirect = query_params.redirect
 
-  if (redirect == 'pdp') {
-    setCookie('url_redirect', 'pdp')
-  }
-
   if (current_page == '/') {
     // If i'm at site roots url, set affiliate cookies based on affiliate query params and redirect to landing page coookies
     // https://stackoverflow.com/questions/8100515/how-to-check-if-the-user-is-visiting-the-sites-root-url
@@ -264,6 +260,10 @@ function landingPageAction(current_page, query_params) {
   }
   setDefaultStrength(query_params)
   setCookieIfFirstTime(utm_affiliate)
+
+  if (redirect == 'pdp') {
+    setCookie('url_redirect', 'pdp')
+  }
 
   if (should_run_active_campaign()) {
     console.log('campaign should run')
