@@ -45,7 +45,7 @@ affiliate_config = {
         'announcement_bar': 'Discount auto applied at checkout!',
       },
       'flow': {
-        'discount_code': 'Pen-Addon',
+        'discount_code': 'CPGAP_SUBSCRIPTION',
         'cart_attribute': 'redirect_cpgap_gen',
       },
       'pricing': {
