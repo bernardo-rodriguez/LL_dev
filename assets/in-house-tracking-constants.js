@@ -150,6 +150,12 @@ affiliate_config = {
         'general': {
             'announcement_bar': 'Discount auto applied at checkout!',
         },
+        'pricing': {
+            'onetime': '49',
+            'subscription': '29',
+            'one_time_enabled': true,
+            'subscription_enabled': true,
+        },
         'flow': {
             'discount_code': 'AFFILIATE-DISCOUNT-TJM',
             'cart_attribute': 'jam_media',

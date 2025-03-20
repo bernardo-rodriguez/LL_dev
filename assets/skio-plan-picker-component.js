@@ -531,8 +531,12 @@ export class SkioPlanPickerComponent extends LitElement {
     key: { type: String },                //optional, defaults to product.id; identifier for this instance of the Skio plan picker
 
     affiliate_referrer: {type: String},
+
     one_time_enabled: {type: Boolean},
     subscription_enabled: {type: Boolean},
+
+    one_time_pricing: {type: String},
+    subscription_pricing: {type: String},
     
     formId: { type: String },             //optional; if passed, used to connect input fields to form
     needsFormId: { type: Boolean },       //optional, defaults to false; if true, element needs to be passed a formId, else it searches for a form
@@ -576,6 +580,9 @@ export class SkioPlanPickerComponent extends LitElement {
 
     this.one_time_enabled = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.one_time_enabled ?? true;
     this.subscription_enabled = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.subscription_enabled ?? true;
+
+    this.one_time_pricing = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.onetime ?? '';
+    this.subscription_pricing = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.subscription ?? '';
 
     this.productHandle = null;
 
@@ -837,7 +844,7 @@ export class SkioPlanPickerComponent extends LitElement {
                           —${ this.selectedVariant.price < this.selectedVariant.price - this.discount(group.selected_selling_plan).amount ? html`
                               <del>${ this.moneyFormatter.format(this.selectedVariant.price / 100) }<del>
                             ` : html`` }
-                            <span skio-subscription-price>$${ this.affiliate_referrer == 'jam_media' ? '19' : (this.price(group.selected_selling_plan, false) / 100).toFixed(0) }</span>
+                            <span skio-subscription-price>$${ this.subscription_pricing != '' ? this.subscription_pricing : (this.price(group.selected_selling_plan, false) / 100).toFixed(0) }</span>
                           </div>
                         </div>
                       </div>
