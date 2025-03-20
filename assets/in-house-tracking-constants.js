@@ -1,3 +1,4 @@
+//Get a customized whitening solution for just {<sup>$</sup>19} today.
 affiliate_config = {
     'default': {
         'general': {
