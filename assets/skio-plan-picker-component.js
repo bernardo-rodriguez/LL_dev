@@ -444,7 +444,7 @@ const skioStyles = css`
 
   .bundle-title {
       font-size: 16px;
-      font-weight: 500;
+      font-weight: 700;
       margin: 0;
   }
 
@@ -476,6 +476,7 @@ const skioStyles = css`
   .savings {
       color: #22c55e;
       font-size: 14px;
+      font-weight: 700;
   }
 
   .shipping {
