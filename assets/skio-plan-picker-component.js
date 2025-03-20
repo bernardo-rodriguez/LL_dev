@@ -570,7 +570,7 @@ export class SkioPlanPickerComponent extends LitElement {
     this.selectedVariant = null;
 
     this.affiliate_referrer = getCookie('affiliate_referrer')
-    console.log(affiliate_config)
+
     this.one_time_enabled = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.one_time_enabled ?? true;
     this.subscription_enabled = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.subscription_enabled ?? true;
 
