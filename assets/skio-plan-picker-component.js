@@ -571,8 +571,8 @@ export class SkioPlanPickerComponent extends LitElement {
 
     this.affiliate_referrer = getCookie('affiliate_referrer')
     
-    this.one_time_enabled = this.affiliate_referrer.get('pricing', {}).get('one_time_enabled', true)
-    this.subscription_enabled = this.affiliate_referrer.get('pricing', {}).get('subscription_enabled', true)
+    this.one_time_enabled = affiliate_config.get(this.affiliate_referrer, {}).get('pricing', {}).get('one_time_enabled', true)
+    this.subscription_enabled = affiliate_config.get(this.affiliate_referrer, {}).get('pricing', {}).get('subscription_enabled', true)
 
     this.productHandle = null;
 
