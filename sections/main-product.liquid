@@ -446,6 +446,12 @@ xhttp.send();
 </section>
 
 {% javascript %}
+  getCookie('affiliate_referrer')
+  let subscription_enabled = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.subscription_enabled ?? true;
+  if (!subscription_enabled) {
+    $('quantity-input').hide()
+  }
+
   document.getElementById('main-clickable-button').addEventListener("click", upsellLogic);
 
    async function setCartAttributes(upsell) {
