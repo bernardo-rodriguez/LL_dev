@@ -447,10 +447,8 @@ xhttp.send();
 
 {% javascript %}
   let aff_referrer = getCookie('affiliate_referrer')
-  console.log()
   let subscription_enabled = (affiliate_config[aff_referrer] ?? {}).pricing?.subscription_enabled ?? true;
   if (!subscription_enabled) {
-    console.log('hello there')
     $('#quantity-input-id').hide()
   }
 
