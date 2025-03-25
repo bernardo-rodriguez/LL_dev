@@ -13,7 +13,8 @@ supported_affiliates = {
   'skimm': 'redirect_skimm',
   'cpgap': 'redirect_cpgap',
   'cpgap_gen': 'redirect_cpgap_gen',
-  'jam_media': 'jam_media'
+  'jam_media': 'jam_media',
+  'jam_media_gen': 'jam_media_gen'
 }
 
 A_B_testing_campaigns = {

@@ -51,6 +51,56 @@ affiliate_config = {
             'regular_item_price': '$76'
         }
     },
+    'jam_media': {
+        'general': {
+            'announcement_bar': 'Discount auto applied at checkout!',
+        },
+        'flow': {
+            'discount_code': 'AFFILIATE-DISCOUNT-TJM',
+            'cart_attribute': 'jam_media',
+        },
+        'pricing': {
+            'onetime': '49',
+            'subscription': '19',
+            'one_time_enabled': true,
+            'subscription_enabled': false,
+        },
+        'landing_page_copy': {
+            'hero_subtitle_1': ['margin-bottom', '50px !important'],
+            'hero_price': '49',
+        },
+        'featured_product': {
+            'subPrice': '49',
+            'discount_name': 'CPGAP_ONETIME',
+            'discount_desc': '35% OFF',
+            'regular_item_price': '$76'
+        }
+    },
+    'jam_media_gen': {
+        'general': {
+            'announcement_bar': 'Discount auto applied at checkout!',
+        },
+        'flow': {
+            'discount_code': 'AFFILIATE-DISCOUNT-TJM',
+            'cart_attribute': 'jam_media',
+        },
+        'pricing': {
+            'onetime': '49',
+            'subscription': '19',
+            'one_time_enabled': false,
+            'subscription_enabled': true,
+        },
+        'landing_page_copy': {
+            'hero_subtitle_1': ['margin-bottom', '50px !important'],
+            'hero_price': '19',
+        },
+        'featured_product': {
+            'subPrice': '19',
+            'discount_name': 'CPGAP_SUBSCRIPTION',
+            'discount_desc': '75% OFF',
+            'regular_item_price': '$76'
+        }
+    },
     'redirect_cpgap_gen': {
         'general': {
             'announcement_bar': 'Discount auto applied at checkout!',
@@ -165,31 +215,6 @@ affiliate_config = {
         'flow': {
             'discount_code': 'PINTEREST25',
             'cart_attribute': 'pinterest',
-        }
-    },
-    'jam_media': {
-        'general': {
-            'announcement_bar': 'Discount auto applied at checkout!',
-        },
-        'pricing': {
-            'onetime': '49',
-            'subscription': '19',
-            'one_time_enabled': true,
-            'subscription_enabled': true,
-        },
-        'flow': {
-            'discount_code': 'AFFILIATE-DISCOUNT-TJM',
-            'cart_attribute': 'jam_media',
-        },
-        'landing_page_copy': {
-            'hero_subtitle_1': ['margin-bottom', '50px !important'],
-            'hero_price': '19',
-        },
-        'featured_product': {
-            'subPrice': '19',
-            'discount_name': 'Subscribe & Save',
-            'discount_desc': '75% OFF',
-            'regular_item_price': '$76'
         }
     },
     'redirect_studentbeans': {
