@@ -388,7 +388,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let skio = document.querySelector('skio-plan-picker')
     let product_form = JSON.parse(serializeForm(this.form))
 
-    console.log(product_form)
     let dpk_choice = document.querySelector('input[name="dpk_chooser"]:checked')?.value || null;
     
     console.log(dpk_choice)
@@ -406,12 +405,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
       let bundle_quantities = {'1':1, '2':3, '3': 5}
 
-      console.log('product')
-      console.log(p_referrer)
-      console.log(affiliate_config)
       if (p_referrer in affiliate_config && 'flow' in affiliate_config[p_referrer] && 'bundle_discount' in affiliate_config[p_referrer]['flow']) {
         if (affiliate_config[a_referrer]['flow']['bundle_discount'][bundle_value]) {
-          console.log(affiliate_config[a_referrer]['flow']['bundle_discount'][bundle_value])
           setCookie('bundle_discount', affiliate_config[a_referrer]['flow']['bundle_discount'][bundle_value])
         }
       }
