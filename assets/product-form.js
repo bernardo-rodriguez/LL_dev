@@ -409,6 +409,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         if (affiliate_config[a_referrer]['flow']['bundle_discount'][bundle_value]) {
           setCookie('bundle_discount', affiliate_config[a_referrer]['flow']['bundle_discount'][bundle_value])
         }
+      } else {
+        setCookie('bundle_discount', '')
       }
 
       itemsList = [{
@@ -418,6 +420,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       }]
     } 
     else {
+      setCookie('bundle_discount', '')
       itemsList = [{
         id: product_form.id, // this is variant id
         quantity: quantity_setter,
