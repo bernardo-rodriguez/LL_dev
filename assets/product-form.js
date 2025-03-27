@@ -80,7 +80,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let name = `${first_name}${ last_name != "" ? ' ' + last_name : ''}`
 
     if (first_name != '') {
-      let name = first_name
+      name = first_name
     }
 
     if (window.location.href.includes('at-home-whitening-kit')) { 
