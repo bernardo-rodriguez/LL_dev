@@ -452,6 +452,11 @@ xhttp.send();
   let redirect = getCookie('url_redirect')
   if (redirect == 'pdp') {
     $('#formula-picker-direct').show()
+
+    $("p:contains('personalized')").each(function() {
+      const updatedText = $(this).text().replace(/personalized/gi, '');
+      $(this).text(updatedText);
+    });
   }
 
   let aff_referrer = getCookie('affiliate_referrer')
@@ -663,10 +668,7 @@ xhttp.send();
     });
   });
 
-  $("p:contains('personalized')").each(function() {
-  const updatedText = $(this).text().replace(/personalized/gi, '');
-  $(this).text(updatedText);
-});
+
 {% endjavascript %}
 
 <script>
