@@ -92,7 +92,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     }
   }
 
-  setVariant(selection='✨ Everyday (ID: 8-16)') {
+  setVariant(selection='✨ Everyday (ID: 8-16)', picked = false) {
     // Select the product variant chosen in the quiz in the product page selection
     // Set the product variant formula in the sticky checkout
     // Set the ingredients correpoding to the picked formula, in the product page
@@ -131,6 +131,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     if (window.location.href.includes('at-home-whitening-kit') || window.location.href.includes('at-home-whitening-kit-ft')) {
       // If product is kit, try to set the required formula strength
+      console.log(selection)
+      console.log(picked)
       try {
         this.querySelector(`input[value="${inputValue}"]`).click()
 
@@ -323,7 +325,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
           radio.addEventListener('change', (e) => {
             // Example of triggering different actions based on selection
             console.log(e.target.value)
-            this.setVariant(e.target.value)
+            this.setVariant(e.target.value, true)
           });
         });
     } catch (e) {
