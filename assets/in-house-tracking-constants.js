@@ -31,9 +31,9 @@ affiliate_config = {
     },
     'redirect_cpgap': {
         'flow': {
-            'discount_code': 'CPGAP_ONETIME',
+            'discount_code': 'CPGAP_STARTER',
             'cart_attribute': 'redirect_cpgap',
-            'bundle_discount': {'1':'CPGAP_ONETIME', '2':'CPGAP_ONETIME_2', '3': 'CPGAP_ONETIME_3'}
+            'bundle_discount': {'1':'CPGAP_STARTER', '2':'CPGAP_STARTER_2', '3': 'CPGAP_STARTER_3'}
         },
         'pricing': {
             'onetime': '49',
@@ -47,7 +47,7 @@ affiliate_config = {
         },
         'featured_product': {
             'subPrice': '49',
-            'discount_name': 'CPGAP_ONETIME',
+            'discount_name': 'CPGAP_STARTER',
             'discount_desc': '35% OFF',
             'regular_item_price': '$76'
         }
