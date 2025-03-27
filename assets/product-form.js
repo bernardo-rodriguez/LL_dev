@@ -129,10 +129,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         break;
     }
 
-    if (window.location.href.includes('at-home-whitening-kit') || window.location.href.includes('at-home-whitening-kit-ft')) {
+    if ((window.location.href.includes('at-home-whitening-kit') || window.location.href.includes('at-home-whitening-kit-ft')) && !picked) {
       // If product is kit, try to set the required formula strength
-      console.log(selection)
-      console.log(picked)
       try {
         this.querySelector(`input[value="${inputValue}"]`).click()
 
@@ -176,7 +174,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         console.log(selection)
 
         let refill_formula_selector = this.querySelector(`variant-radios input[value="${selection}"]`)
-        console.log(refill_formula_selector)
         refill_formula_selector.click()
 
         // refill_formula_selector.setAttribute('checked', '');
