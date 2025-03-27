@@ -475,7 +475,7 @@ input:checked + .slider:before {
   outline-offset: 2px;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 450px) {
   .refill-formula-radio-group {
     padding: 0;
   }
