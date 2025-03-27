@@ -397,8 +397,13 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     if (!('selling_plan' in product_form) && product_form.product_id == "7503162605793" ) {
       let bundle_quantities = {'1':1, '2':3, '3': 5}
+      let bundle_discount = {'1':'CPGAP_ONETIME', '2':'CPGAP_ONETIME_2', '3': 'CPGAP_ONETIME_3'}
+      
       let bundle_value = document.querySelector('skio-plan-picker').shadowRoot.querySelector('input[name="onetime_bundle"]:checked').value
       
+
+      setCookie('bundle_discount', bundle_discount[bundle_value])
+
       itemsList = [{
         id: product_form.id, // this is variant id
         quantity: bundle_quantities[bundle_value],

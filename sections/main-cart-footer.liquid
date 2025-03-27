@@ -143,9 +143,14 @@
       url_params = [];
 
       a_referrer = getCookie('affiliate_referrer')
+      bundle_discount = getCookie('bundle_discount')
       if (a_referrer in affiliate_config && 'flow' in affiliate_config[a_referrer] && 'discount_code' in affiliate_config[a_referrer]['flow']) {
         if (affiliate_config[a_referrer]['flow']['discount_code']) {
-          url_params = url_params.concat(['discount=' + affiliate_config[a_referrer]['flow']['discount_code']]);
+          if (bundle_discount && bundle_discount.includes("ONETIME")) {
+            url_params = url_params.concat(['discount=' + bundle_discount);
+          } else {
+            url_params = url_params.concat(['discount=' + affiliate_config[a_referrer]['flow']['discount_code']]);
+          }
         }
       }
 
