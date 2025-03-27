@@ -486,3 +486,9 @@ input:checked + .slider:before {
     font-size: 14px;
   }
 }
+
+@media screen and (max-width: 350px) {
+  .refill-formula-radio-group {
+    font-size: 12px;
+  }
+}
