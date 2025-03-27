@@ -662,6 +662,11 @@ xhttp.send();
       }
     });
   });
+
+  $("p:contains('personalized')").each(function() {
+  const updatedText = $(this).text().replace(/personalized/gi, '');
+  $(this).text(updatedText);
+});
 {% endjavascript %}
 
 <script>
