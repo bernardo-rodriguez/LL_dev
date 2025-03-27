@@ -106,7 +106,7 @@ affiliate_config = {
             'announcement_bar': 'Discount auto applied at checkout!',
         },
         'flow': {
-            'discount_code': 'CPGAP_SUBSCRIPTION',
+            'discount_code': 'CPGAP_SUB',
             'cart_attribute': 'redirect_cpgap_gen',
         },
         'pricing': {
@@ -121,7 +121,7 @@ affiliate_config = {
         },
         'featured_product': {
             'subPrice': '19',
-            'discount_name': 'CPGAP_SUBSCRIPTION',
+            'discount_name': 'CPGAP_SUB',
             'discount_desc': '75% OFF',
             'regular_item_price': '$76'
         }
