@@ -270,18 +270,34 @@ one_time_price_copy = {
         'second': {
             'offer_title': 'Buy 2, Get 1 FREE <br> + Free Shipping',
             'retail_saving': 'Retail $228',
-            'subtotal': '$108',
-            'save': 'Save $128'
+            'subtotal': '$98',
+            'save': 'Save $130'
         },
         'third': {
             'offer_title': 'Buy 3, Get 2 FREE <br> + Free Shipping',
             'retail_saving': 'Retail $380',
-            'subtotal': '$177',
-            'save': 'Save $230'
+            'subtotal': '$147',
+            'save': 'Save $233'
+        }
+    },
+    'jam_media': {
+        'first': {
+            'offer_title': 'Buy 1 - Save 35%',
+            'retail_saving': 'Retail $76',
+            'subtotal': '$49',
+            'save': 'Save $27'
+        },
+        'second': {
+            'offer_title': 'Buy 2, Get 1 FREE <br> + Free Shipping',
+            'retail_saving': 'Retail $228',
+            'subtotal': '$98',
+            'save': 'Save $130'
+        },
+        'third': {
+            'offer_title': 'Buy 3, Get 2 FREE <br> + Free Shipping',
+            'retail_saving': 'Retail $380',
+            'subtotal': '$147',
+            'save': 'Save $233'
         }
     }
-    // ,
-    // 'jam_media': {
-        
-    // }
 }
