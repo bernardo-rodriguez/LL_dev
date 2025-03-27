@@ -77,7 +77,11 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     const last_name = getCookie('lastname') || ""
     const storedProductName = this.container?.querySelector('#product__title_id')?.innerHTML
 
-    const name = `${first_name}${ last_name != "" ? ' ' + last_name : ''}`
+    let name = `${first_name}${ last_name != "" ? ' ' + last_name : ''}`
+
+    if (first_name != '') {
+      let name = first_name
+    }
 
     if (window.location.href.includes('at-home-whitening-kit')) { 
       if ( name != "" && !storedProductName?.toLowerCase().includes("to go pen") && window.location.pathname != '/pages/landing-page') {
