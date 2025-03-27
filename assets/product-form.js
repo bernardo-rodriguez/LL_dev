@@ -378,6 +378,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     evt.preventDefault();    
     document.cookie = "directcheckout=true;path=/";
 
+    let p_referrer = getCookie('affiliate_referrer')
+
     const submitButton = this.querySelector('[type="submit"]');
 
     submitButton.setAttribute('disabled', true);
@@ -400,13 +402,15 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let itemsList;
 
     if (!('selling_plan' in product_form) && product_form.product_id == "7503162605793" ) {
-      let bundle_quantities = {'1':1, '2':3, '3': 5}
-      let bundle_discount = {'1':'CPGAP_ONETIME', '2':'CPGAP_ONETIME_2', '3': 'CPGAP_ONETIME_3'}
-      
       let bundle_value = document.querySelector('skio-plan-picker').shadowRoot.querySelector('input[name="onetime_bundle"]:checked').value
-      
 
-      setCookie('bundle_discount', bundle_discount[bundle_value])
+      let bundle_quantities = {'1':1, '2':3, '3': 5}
+
+      if (p_referrer in affiliate_config && 'flow' in affiliate_config[p_referrer] && 'bundle_discount' in affiliate_config[p_referrer]['flow']) {
+        if (affiliate_config[a_referrer]['flow']['bundle_discount'][bundle_value]) {
+          setCookie('bundle_discount', affiliate_config[a_referrer]['flow']['bundle_discount'][bundle_value])
+        }
+      }
 
       itemsList = [{
         id: product_form.id, // this is variant id

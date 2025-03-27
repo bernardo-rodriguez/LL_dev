@@ -33,6 +33,7 @@ affiliate_config = {
         'flow': {
             'discount_code': 'CPGAP_ONETIME',
             'cart_attribute': 'redirect_cpgap',
+            'bundle_discount': {'1':'CPGAP_ONETIME', '2':'CPGAP_ONETIME_2', '3': 'CPGAP_ONETIME_3'}
         },
         'pricing': {
             'onetime': '49',
@@ -58,6 +59,7 @@ affiliate_config = {
         'flow': {
             'discount_code': 'TJM_OFFER_1Q',
             'cart_attribute': 'jam_media',
+            'bundle_discount': {'1':'TJM_OFFER_1Q', '2':'TJM_OFFER_2W', '3': 'TJM_OFFER_3E'}
         },
         'pricing': {
             'onetime': '49',
