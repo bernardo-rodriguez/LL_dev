@@ -194,6 +194,8 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
       klaviyoForm.querySelector(".klaviyo_submit_button").click()
 
       // handle redirect
+      console.log('strength is the following')
+      console.log(formula_translate[sensitivity])
 
       document.cookie =  "strength=" + formula_translate[sensitivity] + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
       document.cookie = "firstname=" + document.querySelector('#first_name').value + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
