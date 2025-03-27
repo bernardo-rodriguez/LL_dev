@@ -1484,3 +1484,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 }
+
+
+
+
+// <div class="skio-custom-content skio-custom-content-background-color">
+// <div class="skio-container">
+//   <div>${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? 'Whitening Gels' : 'Whitening Gels' }</div>
+//   <div>${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? '1 Month Supply' : 'Refills for $25/delivery' }</div>
+// </div>
+// <div class="skio-container" style = "margin-top: 10px; justify-content: flex-end">
+//   <select skio-selling-plans="${ group.id }" class="skio-frequency${ group.selling_plans.length == 1 ? ' skio-frequency--one' : '' }
+//   ${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? ' hide-skio-select' : '' }"
+//     @change=${ (e) => this.selectSellingPlan(e.target, group) }>
+//     ${ group ? group.selling_plans.map((selling_plan) => 
+//       html`
+//       <option value="${ selling_plan.id }" ?selected=${group.selected_selling_plan == selling_plan }>
+//         ${ group.name == 'Subscription' ? `Delivery ${ selling_plan.name.toLowerCase() }` : `${ selling_plan.name }` }
+//       </option>
+//       `
+//     ): ''}
+//   </select>
+// </div>
+// </div>
