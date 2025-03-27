@@ -56,7 +56,7 @@ affiliate_config = {
             'announcement_bar': 'Discount auto applied at checkout!',
         },
         'flow': {
-            'discount_code': 'AFFILIATE-DISCOUNT-TJM',
+            'discount_code': 'TJM_OFFER_1Q',
             'cart_attribute': 'jam_media',
         },
         'pricing': {
@@ -71,7 +71,7 @@ affiliate_config = {
         },
         'featured_product': {
             'subPrice': '49',
-            'discount_name': 'CPGAP_ONETIME',
+            'discount_name': 'TJM_OFFER_1Q',
             'discount_desc': '35% OFF',
             'regular_item_price': '$76'
         }
@@ -81,7 +81,7 @@ affiliate_config = {
             'announcement_bar': 'Discount auto applied at checkout!',
         },
         'flow': {
-            'discount_code': 'AFFILIATE-DISCOUNT-TJM',
+            'discount_code': 'TJM_OFFER_1Q',
             'cart_attribute': 'jam_media',
         },
         'pricing': {
@@ -96,7 +96,7 @@ affiliate_config = {
         },
         'featured_product': {
             'subPrice': '19',
-            'discount_name': 'CPGAP_SUBSCRIPTION',
+            'discount_name': 'TJM_OFFER_1Q',
             'discount_desc': '75% OFF',
             'regular_item_price': '$76'
         }
