@@ -593,21 +593,22 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
       this.atc.setAttribute("disabled", "true")
       document.querySelector(`button[type="submit"]`).click()
     }.bind(this))
-  }
 
-  openStickyBar() {
-    console.log('open sticky')
+
     let referrer = getCookie('affiliate_referrer')
     let one_time_pricing_e = (affiliate_config[referrer] ?? {}).pricing?.one_time_enabled ?? true;
     let sub_pricing_e = (affiliate_config[referrer] ?? {}).pricing?.subscription_enabled ?? true;
     if (one_time_pricing_e && sub_pricing_e) {
-      slideDown(this.parentElement)
-      this.open.setAttribute("aria-hidden", "true")
+      $('#shopify-section-sticky-product-bar').css('display', 'none')
     }
   }
 
+  openStickyBar() {
+      slideDown(this.parentElement)
+      this.open.setAttribute("aria-hidden", "true")
+  }
+
   closeStickyBar() {
-    console.log('close sticky')
     slideUp(this.parentElement)
     this.open.setAttribute("aria-hidden", "false")
   }
