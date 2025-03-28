@@ -779,8 +779,8 @@ form label {
   z-index: -1;
 }
 
-input[type='radio']:checked ~ .custom-radio-button:after,
-input[type='checkbox']:checked ~ .custom-radio-button:after {
+input[type='radio']:checked + .custom-radio-button:after,
+input[type='checkbox']:checked + .custom-radio-button:after {
   background: var(--blue);
   border-color: var(--blue);
 }
