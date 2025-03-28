@@ -252,7 +252,7 @@ one_time_price_copy = {
         'second': {
             'offer_title': 'Buy 2, Get 1 FREE <br> + Free Shipping',
             'retail_saving': 'Retail $228',
-            'subtotal': '$108',
+            'subtotal': '$118',
             'save': 'Save $128'
         },
         'third': {
