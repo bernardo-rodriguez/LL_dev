@@ -781,8 +781,10 @@ form label {
 
 input[type='radio']:checked + .custom-radio-button:after,
 input[type='checkbox']:checked + .custom-radio-button:after {
-  background: var(--blue);
-  border-color: var(--blue);
+  background-color: #3db5ee;
+  border-color: #3db5ee;
+  /* background: var(--blue);
+  border-color: var(--blue); */
 }
 
 /*================ Select ================*/
