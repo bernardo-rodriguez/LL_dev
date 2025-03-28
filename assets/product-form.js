@@ -599,6 +599,7 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
     let one_time_pricing_e = (affiliate_config[referrer] ?? {}).pricing?.one_time_enabled ?? true;
     let sub_pricing_e = (affiliate_config[referrer] ?? {}).pricing?.subscription_enabled ?? true;
     if (one_time_pricing_e && sub_pricing_e) {
+      console.log('yes hide it')
       $('#shopify-section-sticky-product-bar').css('display', 'none')
     }
   }
