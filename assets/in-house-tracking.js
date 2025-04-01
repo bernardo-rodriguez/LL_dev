@@ -14,7 +14,8 @@ supported_affiliates = {
   'cpgap': 'redirect_cpgap',
   'cpgap_gen': 'redirect_cpgap_gen',
   'jam_media': 'jam_media',
-  'jam_media_gen': 'jam_media_gen'
+  'jam_media_gen': 'jam_media_gen',
+  'onetime': 'onetime'
 }
 
 A_B_testing_campaigns = {
