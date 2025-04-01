@@ -29,6 +29,12 @@ affiliate_config = {
             'regular_item_price': null
         }
     },
+    'cpgap_home': {
+        'pricing': {
+            'one_time_enabled': true,
+            'subscription_enabled': true,
+        }
+    },
     'onetime': {
         'pricing': {
             'one_time_enabled': true,
