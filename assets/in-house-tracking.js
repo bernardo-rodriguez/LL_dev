@@ -16,7 +16,9 @@ supported_affiliates = {
   'jam_media': 'jam_media',
   'jam_media_gen': 'jam_media_gen',
   'onetime': 'onetime',
-  'cpgap_home': 'cpgap_home'
+  'cpgap_home': 'cpgap_home',
+  'lo1_offer': 'lo1_offer',
+  'ls1_offer': 'ls1_offer'
 }
 
 A_B_testing_campaigns = {

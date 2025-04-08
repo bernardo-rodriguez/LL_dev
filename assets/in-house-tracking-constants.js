@@ -41,6 +41,18 @@ affiliate_config = {
             'subscription_enabled': false,
         }
     },
+    'lo1_offer': {
+        'pricing': {
+            'one_time_enabled': true,
+            'subscription_enabled': false,
+        }
+    },
+    'ls1_offer': {
+        'pricing': {
+            'one_time_enabled': false,
+            'subscription_enabled': true,
+        }
+    },
     'redirect_cpgap': {
         'flow': {
             'discount_code': 'CPGAP_STARTER',
