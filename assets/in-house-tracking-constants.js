@@ -45,6 +45,18 @@ affiliate_config = {
         'pricing': {
             'one_time_enabled': true,
             'subscription_enabled': false,
+        },
+        'landing_page_copy': {
+            'hero_subtitle_1': null,
+            'hero_title': null,
+            'Hero_Subtitle': null,
+            'hero_price': '59',
+        },
+        'featured_product': {
+            'subPrice': '59',
+            'discount_name': 'Starter Kit',
+            'discount_desc': '22% OFF',
+            'regular_item_price': null
         }
     },
     'ls1_offer': {
