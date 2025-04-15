@@ -23,11 +23,11 @@ supported_affiliates = {
 
 A_B_testing_campaigns = {
   active: {
-    google_tag: "SC_09_24_UPSELL_STATUS",
+    google_tag: "UT_04_14_UPSELL_STATUS",
     active_name: 'active',
     inactive_name: 'inactive',
-    affiliate_tested: supported_affiliates['sweatcoin'],
-    active_split: '0',
+    affiliate_tested: supported_affiliates['cactus_media'],
+    active_split: '100',
     page_and_functions: [
       {
         page: 'at-home-whitening-kit-affiliate-ft',
@@ -60,9 +60,9 @@ function send_gtag_properties(gtag_payload) {
 }
 
 function sweatcoin_09_24_upselling_test() {
-  console.log('running sweatcoin_09_24_upselling_test')
-  setCookie('show_upsell', 'false')
-  $('.dpk_body').hide()
+  console.log('running test show upsell')
+  setCookie('test_show_upsell', 'true')
+  // $('.dpk_body').hide()
 }
 
 function run_active_campaign() {
@@ -71,9 +71,9 @@ function run_active_campaign() {
     let campaign_functions = A_B_testing_campaigns['active']['page_and_functions']
 
     campaign_functions.forEach((campaign_func) => {
-      if (window.location.href.indexOf(campaign_func['page']) > -1) {
+      // if (window.location.href.indexOf(campaign_func['page']) > -1) {
         window[campaign_func['function']](); 
-      }
+      // }
     });
   } catch (e) {
     console.log('error caught')
