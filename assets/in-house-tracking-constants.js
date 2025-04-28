@@ -182,7 +182,7 @@ affiliate_config = {
         },
         'flow': {
             'product_page': '/products/at-home-whitening-kit-affiliate-ft',
-            // 'discount_code': 'Pen-Addon',
+            'discount_code': 'Pen-Addon',
             'cart_attribute': 'sweatcoin',
         },
         'landing_page_copy': {
