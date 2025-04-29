@@ -186,12 +186,13 @@ affiliate_config = {
             'cart_attribute': 'sweatcoin',
         },
         'landing_page_copy': {
+            'hero_subtitle_1': ['margin-bottom', '50px !important'],
+            'hero_price': '9',
             // 'hero_subtitle_1': ['margin-bottom', '50px !important'],
             // 'hero_title': 'Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>',
             // 'hero_title': 'Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit',
             // 'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.",
             // 'hero_price': '0',
-            'hero_price': '9'
         },
         'featured_product': {
             // 'subPrice': '0',
@@ -213,10 +214,10 @@ affiliate_config = {
         },
         'landing_page_copy': {
             'hero_subtitle_1': ['margin-bottom', '50px !important'],
-            'hero_price': '9',
             // 'hero_title': 'Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>',
             // 'hero_title': 'Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit',
             // 'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.",
+            'hero_price': '9',
             // 'hero_price': '0',
         },
         'featured_product': {
