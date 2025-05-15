@@ -29,12 +29,6 @@ affiliate_config = {
             'regular_item_price': null
         }
     },
-    'cpgap_home': {
-        'pricing': {
-            'one_time_enabled': true,
-            'subscription_enabled': true,
-        }
-    },
     'onetime': {
         'pricing': {
             'one_time_enabled': true,
@@ -65,6 +59,12 @@ affiliate_config = {
             'subscription_enabled': true,
         }
     },
+    'cpgap_home': {
+        'pricing': {
+            'one_time_enabled': true,
+            'subscription_enabled': true,
+        }
+    },
     'redirect_cpgap': {
         'flow': {
             'discount_code': 'CPGAP_STARTER',
@@ -85,6 +85,31 @@ affiliate_config = {
             'subPrice': '49',
             'discount_name': 'CPGAP_STARTER',
             'discount_desc': '35% OFF',
+            'regular_item_price': '$76'
+        }
+    },
+    'redirect_cpgap_gen': {
+        'general': {
+            'announcement_bar': 'Discount auto applied at checkout!',
+        },
+        'flow': {
+            'discount_code': 'CPGAP_SUB',
+            'cart_attribute': 'redirect_cpgap_gen',
+        },
+        'pricing': {
+            'onetime': '49',
+            'subscription': '19',
+            'one_time_enabled': false,
+            'subscription_enabled': true,
+        },
+        'landing_page_copy': {
+            'hero_subtitle_1': ['margin-bottom', '50px !important'],
+            'hero_price': '19',
+        },
+        'featured_product': {
+            'subPrice': '19',
+            'discount_name': 'CPGAP_SUB',
+            'discount_desc': '75% OFF',
             'regular_item_price': '$76'
         }
     },
@@ -135,31 +160,6 @@ affiliate_config = {
         'featured_product': {
             'subPrice': '19',
             'discount_name': 'TJM_OFFER_1Q',
-            'discount_desc': '75% OFF',
-            'regular_item_price': '$76'
-        }
-    },
-    'redirect_cpgap_gen': {
-        'general': {
-            'announcement_bar': 'Discount auto applied at checkout!',
-        },
-        'flow': {
-            'discount_code': 'CPGAP_SUB',
-            'cart_attribute': 'redirect_cpgap_gen',
-        },
-        'pricing': {
-            'onetime': '49',
-            'subscription': '19',
-            'one_time_enabled': false,
-            'subscription_enabled': true,
-        },
-        'landing_page_copy': {
-            'hero_subtitle_1': ['margin-bottom', '50px !important'],
-            'hero_price': '19',
-        },
-        'featured_product': {
-            'subPrice': '19',
-            'discount_name': 'CPGAP_SUB',
             'discount_desc': '75% OFF',
             'regular_item_price': '$76'
         }
