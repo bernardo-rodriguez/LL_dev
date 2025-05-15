@@ -334,6 +334,7 @@ xhttp.send();
                 <button type='submit' id = 'real-submit-button' style = 'display: none'>
                   checkout
                 </button>
+                
                 <button
                   {% comment %} type="submit"
                   name="add" {% endcomment %}
@@ -364,6 +365,7 @@ xhttp.send();
                     </svg>
                   </div>
                 </button>
+
                 {% if block.settings.show_dynamic_checkout %}
                   {{ form | payment_button }}
                 {% endif %}
