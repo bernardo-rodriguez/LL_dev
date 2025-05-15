@@ -707,7 +707,7 @@ export class SkioPlanPickerComponent extends LitElement {
     if(!this.product || !this.selectedVariant || this.skioSellingPlanGroups.length == 0 || !this.product?.available) return;
     
     return html`
-      <fieldset ${ this.offer == 'everyday' ? style = 'display : none;' : '' } class="skio-plan-picker" skio-plan-picker="${ this.key }">
+      <fieldset style = ${ this.offer == 'everyday' ? 'display : none;' : '' } class="skio-plan-picker" skio-plan-picker="${ this.key }">
         <input ${ this.formId !== null ? html`form="${ this.formId }"` : '' } name="selling_plan" type="hidden" value="${ this.subscription_enabled && this.selectedSellingPlan !== null ? this.selectedSellingPlan?.id : ''}" />
         <input ${ this.formId !== null ? html`form="${ this.formId }"` : '' } name="properties[Discount]" type="hidden" value="${ this.subscription_enabled && this.selectedSellingPlan !== null ? this.discount(this.selectedSellingPlan).percent : '' }" 
           ?disabled="${ !this.subscription_enabled || this.selectedSellingPlan == null ? true : false }" />
