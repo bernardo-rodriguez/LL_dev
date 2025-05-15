@@ -243,6 +243,7 @@ function landingPageAction(current_page, query_params) {
   // query_params: dictionary of all query parameters (null if not found)
   let utm_affiliate = query_params.utm_affiliate_specific
   let redirect = query_params.redirect
+  let offer = query_params.offer
 
   if (current_page == '/') {
     // If i'm at site roots url, set affiliate cookies based on affiliate query params and redirect to landing page coookies
@@ -268,6 +269,10 @@ function landingPageAction(current_page, query_params) {
 
   if (redirect == 'pdp') {
     setCookie('url_redirect', 'pdp')
+  }
+
+  if (redirect == 'everyday') {
+    setCookie('offer', 'everyday')
   }
 
   if (should_run_active_campaign()) {

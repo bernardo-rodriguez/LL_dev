@@ -530,6 +530,8 @@ export class SkioPlanPickerComponent extends LitElement {
     productHandle: { type: String },      //optional (unless product isn't passed, then required)
     key: { type: String },                //optional, defaults to product.id; identifier for this instance of the Skio plan picker
 
+    offer: { type: String },
+
     affiliate_referrer: {type: String},
 
     one_time_enabled: {type: Boolean},
@@ -575,6 +577,8 @@ export class SkioPlanPickerComponent extends LitElement {
     super();
     this.product = null;
     this.selectedVariant = null;
+
+    this.offer = this.getCookie('offer')
 
     this.affiliate_referrer = getCookie('affiliate_referrer')
 
