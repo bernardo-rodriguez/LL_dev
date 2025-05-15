@@ -35,6 +35,24 @@ affiliate_config = {
             'subscription_enabled': false,
         }
     },
+    'pe1_offer': {
+        'pricing': {
+            'one_time_enabled': false,
+            'subscription_enabled': true,
+        },
+        'landing_page_copy': {
+            'hero_subtitle_1': null,
+            'hero_title': null,
+            'Hero_Subtitle': null,
+            'hero_price': '59',
+        },
+        'featured_product': {
+            'subPrice': '59',
+            'discount_name': 'Starter Kit',
+            'discount_desc': '22% OFF',
+            'regular_item_price': null
+        }
+    },
     'lo1_offer': {
         'pricing': {
             'one_time_enabled': true,

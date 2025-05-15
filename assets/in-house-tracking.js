@@ -18,7 +18,8 @@ supported_affiliates = {
   'onetime': 'onetime',
   'cpgap_home': 'cpgap_home',
   'lo1_offer': 'lo1_offer',
-  'ls1_offer': 'ls1_offer'
+  'ls1_offer': 'ls1_offer',
+  'pe1_offer': 'pe1_offer'
 }
 
 A_B_testing_campaigns = {
