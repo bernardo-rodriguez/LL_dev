@@ -272,7 +272,7 @@ function landingPageAction(current_page, query_params) {
     setCookie('url_redirect', 'pdp')
   }
 
-  if (redirect == 'everyday') {
+  if (offer == 'everyday') {
     setCookie('offer', 'everyday')
   }
 
