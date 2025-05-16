@@ -8,6 +8,19 @@
  * ------------------------------------------------------------
  */
 {
+  "sections": {
+    "featured-product": {
+      "blocks": {
+        "share": {
+          "settings": {
+            "text": {
+              "default": "Share"
+            }
+          }
+        }
+      }
+    }
+  },
   "general": {
     "password_page": {
       "login_form_heading": "Enter store using password:",
@@ -273,18 +286,6 @@
       "subtext": "404"
     }
   },
-  "sections": {
-    "featured-product": {
-      "blocks": {
-        "share": {
-          "settings": {
-            "text": {
-              "default": "Share"
-            }
-          }
-        }
-      }
-    },
     "announcements": {
       "previous_announcement": "Previous announcement",
       "next_announcement": "Next announcement",
