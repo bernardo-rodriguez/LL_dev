@@ -1,5 +1,4 @@
-[
-  {
+[{
     "name": "theme_info",
     "theme_name": "Custom Theme",
     "theme_version": "1.0.0",
@@ -9,19 +8,16 @@
   },
   {
     "name": "Announcement Bar",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "show_announcement",
-        "label": "Show Announcement Bar",
-        "default": false
-      }
-    ]
+    "settings": [{
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show Announcement Bar",
+      "default": false
+    }]
   },
   {
     "name": "Colors",
-    "settings": [
-      {
+    "settings": [{
         "type": "color",
         "id": "background_color",
         "default": "#FAF5F1",
@@ -37,38 +33,72 @@
   },
   {
     "name": "t:settings_schema.colors.name",
-    "settings": [
-      {
-        "type": "color_scheme_group",
-        "id": "color_schemes",
-        "definition": [
-          { "type": "color", "id": "background", "label": "Background", "default": "#FFFFFF" },
-          { "type": "color_background", "id": "background_gradient", "label": "Background gradient", "info": "Background gradient info" },
-          { "type": "color", "id": "text", "label": "Text", "default": "#121212" },
-          { "type": "color", "id": "button", "label": "Button background", "default": "#121212" },
-          { "type": "color", "id": "button_label", "label": "Button label", "default": "#FFFFFF" },
-          { "type": "color", "id": "secondary_button_label", "label": "Secondary button label", "default": "#121212" },
-          { "type": "color", "id": "shadow", "label": "Shadow", "default": "#121212" }
-        ],
-        "role": {
-          "text": "text",
-          "background": { "solid": "background", "gradient": "background_gradient" },
-          "links": "secondary_button_label",
-          "icons": "text",
-          "primary_button": "button",
-          "on_primary_button": "button_label",
-          "primary_button_border": "button",
-          "secondary_button": "background",
-          "on_secondary_button": "secondary_button_label",
-          "secondary_button_border": "secondary_button_label"
+    "settings": [{
+      "type": "color_scheme_group",
+      "id": "color_schemes",
+      "definition": [{
+          "type": "color",
+          "id": "background",
+          "label": "Background",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color_background",
+          "id": "background_gradient",
+          "label": "Background gradient",
+          "info": "Background gradient info"
+        },
+        {
+          "type": "color",
+          "id": "text",
+          "label": "Text",
+          "default": "#121212"
+        },
+        {
+          "type": "color",
+          "id": "button",
+          "label": "Button background",
+          "default": "#121212"
+        },
+        {
+          "type": "color",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "secondary_button_label",
+          "label": "Secondary button label",
+          "default": "#121212"
+        },
+        {
+          "type": "color",
+          "id": "shadow",
+          "label": "Shadow",
+          "default": "#121212"
         }
+      ],
+      "role": {
+        "text": "text",
+        "background": {
+          "solid": "background",
+          "gradient": "background_gradient"
+        },
+        "links": "secondary_button_label",
+        "icons": "text",
+        "primary_button": "button",
+        "on_primary_button": "button_label",
+        "primary_button_border": "button",
+        "secondary_button": "background",
+        "on_secondary_button": "secondary_button_label",
+        "secondary_button_border": "secondary_button_label"
       }
-    ]
+    }]
   },
   {
     "name": "t:settings_schema.social-media.name",
-    "settings": [
-      {
+    "settings": [{
         "type": "header",
         "content": "t:settings_schema.social-media.settings.header.content"
       },
@@ -154,19 +184,16 @@
   },
   {
     "name": "t:settings_schema.favicon.name",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "favicon",
-        "label": "t:settings_schema.favicon.settings.favicon.label",
-        "info": "t:settings_schema.favicon.settings.favicon.info"
-      }
-    ]
+    "settings": [{
+      "type": "image_picker",
+      "id": "favicon",
+      "label": "t:settings_schema.favicon.settings.favicon.label",
+      "info": "t:settings_schema.favicon.settings.favicon.info"
+    }]
   },
   {
     "name": "t:settings_schema.currency_format.name",
-    "settings": [
-      {
+    "settings": [{
         "type": "header",
         "content": "t:settings_schema.currency_format.settings.content"
       },
@@ -184,18 +211,15 @@
   },
   {
     "name": "Page Transition",
-    "settings": [
-      {
-        "type": "textarea",
-        "id": "transition_svg_logo",
-        "label": "SVG Logo"
-      }
-    ]
+    "settings": [{
+      "type": "textarea",
+      "id": "transition_svg_logo",
+      "label": "SVG Logo"
+    }]
   },
   {
     "name": "Landing Page",
-    "settings": [
-      {
+    "settings": [{
         "type": "number",
         "id": "discounted_price",
         "label": "Discounted Price"
@@ -211,5 +235,87 @@
         "label": "Discount Text"
       }
     ]
-  }
+  },
+  {
+    "name": "t:settings_schema.media.name",
+    "settings": [{
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__border.content"
+      },
+      {
+        "type": "range",
+        "id": "media_border_thickness",
+        "min": 0,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.thickness.label",
+        "default": 1
+      },
+      {
+        "type": "range",
+        "id": "media_border_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 5
+      },
+      {
+        "type": "range",
+        "id": "media_radius",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.corner_radius.label",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.global.settings.header__shadow.content"
+      },
+      {
+        "type": "range",
+        "id": "media_shadow_opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.global.settings.opacity.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "media_shadow_horizontal_offset",
+        "min": -40,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.horizontal_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "media_shadow_vertical_offset",
+        "min": -40,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.vertical_offset.label",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "media_shadow_blur",
+        "min": 0,
+        "max": 40,
+        "step": 5,
+        "unit": "px",
+        "label": "t:settings_schema.global.settings.blur.label",
+        "default": 0
+      }
+    ]
+  },
 ]
