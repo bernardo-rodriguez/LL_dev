@@ -60,7 +60,7 @@
         "share_EKMhBJ": {
           "type": "share",
           "settings": {
-            "share_label": "missing translation: \"t:sections.featured-product.blocks.share.settings.text.default\""
+            "share_label": "Share"
           }
         }
       },
