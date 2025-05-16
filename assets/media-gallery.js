@@ -43,6 +43,18 @@ if (!customElements.get('media-gallery')) {
         if (!activeMedia) {
           return;
         }
+        
+        // On mobile, check if this is a click to open the modal
+        if (window.innerWidth < 750) {
+          const modal = document.querySelector(`#ProductModal-${this.closest('.section').id}`);
+          if (modal) {
+            const modalOpener = activeMedia.querySelector('.product__modal-opener');
+            if (modalOpener) {
+              // Simulate click on the modal opener
+              modalOpener.click();
+            }
+          }
+        }
         this.elements.viewer.querySelectorAll('[data-media-id]').forEach((element) => {
           element.classList.remove('is-active');
         });
