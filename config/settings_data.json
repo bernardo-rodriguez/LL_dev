@@ -9,28 +9,6 @@
  */
 {
   "current": {
-    "color_schemes": {
-      "scheme-1": {
-        "settings": {
-          "background": "#FFFFFF",
-          "text": "#121212",
-          "primary": "#334FB4",
-          "secondary": "#F3F3F3",
-          "button_label": "#FFFFFF",
-          "outline_button_label": "#121212"
-        }
-      },
-      "scheme-2": {
-        "settings": {
-          "background": "#FAF5F1",
-          "text": "#0D2244",
-          "primary": "#121212",
-          "secondary": "#ffffff",
-          "button_label": "#FFFFFF",
-          "outline_button_label": "#0D2244"
-        }
-      }
-    },
     "show_announcement": true,
     "share_twitter": false,
     "share_pinterest": false,
