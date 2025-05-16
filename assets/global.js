@@ -920,6 +920,9 @@ class SliderComponent extends HTMLElement {
     console.log('more vars');
     console.log(this.sliderItemsToShow);
     console.log(this.slidesPerPage);
+    console.log('offsets');
+    console.log(this.sliderItemsToShow[0].offsetLeft);
+    console.log(this.sliderItemsToShow[1].offsetLeft);
     this.update();
   }
 
