@@ -72,6 +72,7 @@
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'custom.css' | asset_url | stylesheet_tag }}
     {{ 'in_house_custom.css' | asset_url | stylesheet_tag }}
+    {{ 'product-media-fix.css' | asset_url | stylesheet_tag }}
 
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
@@ -216,6 +217,8 @@ EF.click({
         countrySelectorSearchCount: `{{ 'localization.country_results_count' | t: count: '[count]' }}`,
       };
     </script>
+    <script src="{{ 'media-utils.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'modal-dialog.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
   </body>

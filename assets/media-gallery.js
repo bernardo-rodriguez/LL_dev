@@ -26,6 +26,14 @@ if (!customElements.get('media-gallery')) {
           `[data-target="${event.detail.currentElement.dataset.mediaId}"]`
         );
         this.setActiveThumbnail(thumbnail);
+        
+        // Update the counter for the current slide
+        const sliderCounter = this.querySelector('.slider-counter--current');
+        if (sliderCounter) {
+          const allSlides = Array.from(this.querySelectorAll('.product__media-item'));
+          const currentIndex = allSlides.findIndex(slide => slide.classList.contains('is-active'));
+          sliderCounter.textContent = currentIndex + 1;
+        }
       }
 
       setActiveMedia(mediaId, prepend) {

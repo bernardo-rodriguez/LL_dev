@@ -1,0 +1,35 @@
+/* Mobile-specific fixes for product media gallery */
+@media screen and (max-width: 749px) {
+  /* Fix for smaller height gallery on mobile */
+  .product-media-container {
+    height: auto !important;
+    min-height: 100vw !important; /* Make the container at least as tall as it is wide */
+  }
+  
+  .product__media-list .slider__slide {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 100vh !important;
+  }
+  
+  /* Ensure images take up full height */
+  .product__media img, 
+  .global-media-settings img {
+    display: block !important;
+    height: auto !important;
+    max-height: 100vh !important;
+    width: 100% !important;
+    object-fit: contain !important;
+  }
+}
+
+/* Make sure the modal works */
+.product-media-modal {
+  z-index: 101 !important;
+}
+
+.product-media-modal[open] {
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 9999 !important;
+}
