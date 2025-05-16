@@ -178,6 +178,23 @@
     --media-shadow-blur-radius: {{ settings.media_shadow_blur }}px;
     --media-shadow-visible: {% if settings.media_shadow_opacity > 0 %}1{% else %}0{% endif %};
 
+    --spacing-sections-desktop: {{ settings.spacing_sections }}px;
+    --spacing-sections-mobile: {% if settings.spacing_sections < 24 %}{{ settings.spacing_sections }}{% else %}{{ settings.spacing_sections | times: 0.7 | round | at_least: 20 }}{% endif %}px;
+
+    --grid-desktop-vertical-spacing: {{ settings.spacing_grid_vertical }}px;
+    --grid-desktop-horizontal-spacing: {{ settings.spacing_grid_horizontal }}px;
+    --grid-mobile-vertical-spacing: {{ settings.spacing_grid_vertical | divided_by: 2 }}px;
+    --grid-mobile-horizontal-spacing: {{ settings.spacing_grid_horizontal | divided_by: 2 }}px;
+
+    --text-boxes-border-opacity: {{ settings.text_boxes_border_opacity | divided_by: 100.0 }};
+    --text-boxes-border-width: {{ settings.text_boxes_border_thickness }}px;
+    --text-boxes-radius: {{ settings.text_boxes_radius }}px;
+    --text-boxes-shadow-opacity: {{ settings.text_boxes_shadow_opacity | divided_by: 100.0 }};
+    --text-boxes-shadow-visible: {% if settings.text_boxes_shadow_opacity > 0 %}1{% else %}0{% endif %};
+    --text-boxes-shadow-horizontal-offset: {{ settings.text_boxes_shadow_horizontal_offset }}px;
+    --text-boxes-shadow-vertical-offset: {{ settings.text_boxes_shadow_vertical_offset }}px;
+    --text-boxes-shadow-blur-radius: {{ settings.text_boxes_shadow_blur }}px;
+
     --buttons-radius: {{ settings.buttons_radius }}px;
     --buttons-radius-outset: {% if settings.buttons_radius > 0 %}{{ settings.buttons_radius | plus: settings.buttons_border_thickness }}{% else %}0{% endif %}px;
     --buttons-border-width: {% if settings.buttons_border_opacity > 0 %}{{ settings.buttons_border_thickness }}{% else %}0{% endif %}px;
