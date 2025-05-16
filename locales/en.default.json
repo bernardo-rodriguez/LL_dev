@@ -265,6 +265,17 @@
     }
   },
   "sections": {
+    "featured-product": {
+      "blocks": {
+        "share": {
+          "settings": {
+            "text": {
+              "default": "Share"
+            }
+          }
+        }
+      }
+    },
     "announcements": {
       "previous_announcement": "Previous announcement",
       "next_announcement": "Next announcement",
