@@ -2138,14 +2138,14 @@ input[type='checkbox'] {
     grid-template-areas: 'social-icons language-currency';
   }
 
-  .announcement-bar.announcement-bar--one-announcement,
+  /* .announcement-bar.announcement-bar--one-announcement,
   .announcement-bar--one-announcement .announcement-bar__link {
     width: fit-content;
     margin: auto;
-  }
+  } */
 }
 
-.announcement-bar,
+/* .announcement-bar,
 .announcement-bar__announcement {
   color: rgb(var(--color-foreground));
   width: 100%;
@@ -2155,7 +2155,7 @@ input[type='checkbox'] {
   flex-wrap: wrap;
   align-content: center;
   grid-area: announcements;
-}
+} */
 
 .announcement-bar .slider--everywhere {
   margin-bottom: 0;
