@@ -673,6 +673,8 @@ var VariantSelects = class extends HTMLElement {
   }
 
   renderProductInfo() {
+    console.log('product info')
+    console.log(`${this.dataset.url}?variant=${this.currentVariant.id}&section_id=${this.dataset.section}`)
     fetch(`${this.dataset.url}?variant=${this.currentVariant.id}&section_id=${this.dataset.section}`)
       .then((response) => response.text())
       .then((responseText) => {
