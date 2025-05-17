@@ -596,7 +596,7 @@ var VariantSelects = class extends HTMLElement {
   // }
     updateMasterId() {
       let variantData = this.getVariantData()
-      if (variantData.isArray()) {
+      if (Array.isArray(variantData)) {
         this.currentVariant = variantData.find((variant) => {
           return !variant.options.map((option, index) => {
             return this.options[index] === option;
