@@ -663,6 +663,7 @@ export class SkioPlanPickerComponent extends LitElement {
     }
 
     if(!this.product && this.productHandle) {
+      console.log('connected callback')
       this.fetchProduct(this.productHandle);
     }
 
@@ -1427,6 +1428,7 @@ export class SkioPlanPickerComponent extends LitElement {
   } 
 
   fetchProduct = (handle) => {
+    console.log(handle)
     return fetch(`/products/${ handle }.js`)
     .then((response) => response.json())
     .then((product) => {
