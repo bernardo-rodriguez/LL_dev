@@ -332,8 +332,9 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         if (!strength) {
           strength = 'standard';
         }
-        document.getElementById(strength).checked = true;
-
+        let id = '#' + strength
+        console.log(id);
+        $(id).prop('checked', true).trigger('change');
 
     } catch (e) {
         console.log("refill strength picker not found")
