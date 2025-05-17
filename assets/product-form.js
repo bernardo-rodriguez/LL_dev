@@ -172,9 +172,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         }
         setCookie('strength', selection_to_cookie[selection])
 
-        console.log(selection)
-
-        selection = '✨ Everyday (ID: 8-16)';  // or dynamic string
         let refill_formula_selector = this.querySelector(`variant-radios input[value="${selection}"]`);
         let refill_formula_new_dawn = document.querySelector(`variant-selects input[type="radio"][value="${selection}"]`);
 
