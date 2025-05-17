@@ -656,6 +656,7 @@ var VariantSelects = class extends HTMLElement {
     const pickUpAvailability = document.querySelector('pickup-availability');
     if (!pickUpAvailability) return;
 
+    console.log(pickUpAvailability)
     if (this.currentVariant && this.currentVariant.available) {
       pickUpAvailability.fetchAvailability(this.currentVariant.id);
     } else {
