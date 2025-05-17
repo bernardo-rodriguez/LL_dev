@@ -585,6 +585,7 @@ var VariantSelects = class extends HTMLElement {
     console.log('hi')
     this.variantData = this.variantData || JSON.parse(this.querySelector('[type="application/json"]').textContent);
     console.log(this.querySelector('[type="application/json"]'))
+    console.log(this.variantData)
     return this.variantData;
   }
 
