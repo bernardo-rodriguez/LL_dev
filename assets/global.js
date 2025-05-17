@@ -653,16 +653,20 @@ var VariantSelects = class extends HTMLElement {
   }
 
   updatePickupAvailability() {
-    const pickUpAvailability = document.querySelector('pickup-availability');
-    if (!pickUpAvailability) return;
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      const pickUpAvailability = document.querySelector('pickup-availability');
+      if (!pickUpAvailability) return;
 
-    console.log(pickUpAvailability)
-    if (this.currentVariant && this.currentVariant.available) {
-      pickUpAvailability.fetchAvailability(this.currentVariant.id);
-    } else {
-      pickUpAvailability.removeAttribute('available');
-      pickUpAvailability.innerHTML = '';
-    }
+      if (this.currentVariant && this.currentVariant.available) {
+        pickUpAvailability.fetchAvailability(this.currentVariant.id);
+      } else {
+        pickUpAvailability.removeAttribute('available');
+        pickUpAvailability.innerHTML = '';
+      }
+      
+    });
+
   }
 
   removeErrorMessage() {
