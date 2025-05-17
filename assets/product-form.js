@@ -36,6 +36,11 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     this.container = this.closest(".product__info-wrapper")
     this.productId = this.dataset.productId
 
+    console.log('constructor')
+    console.log(this)
+    console.log(this.form)
+    console.log(this.container)
+
     this.mostRecentSellingPlan = ''
 
     this.stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
@@ -251,12 +256,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         console.log('got it')    
         //remove loading circle when ready
         console.log('updated');
-        try {
-          this.container.querySelector(".loading-overlay__spinner").classList.add("hidden")
-        } catch (e) {
-          console.log(e)
-        }
         
+        this.container.querySelector(".loading-overlay__spinner").classList.add("hidden")
         this.container.querySelector("product-form.visually-hidden").classList.remove("visually-hidden")
         this.stickyBar.querySelector("[data-sticky-atc]").removeAttribute('disabled')
         
