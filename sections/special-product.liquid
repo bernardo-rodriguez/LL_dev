@@ -168,7 +168,7 @@
 
 
 
-                <product-form class="product-form visually-hidden" data-product-id="{{ product.id }}">
+          <product-form class="product-form visually-hidden" data-product-id="{{ product.id }}">
             <div class="product-form__error-message-wrapper" role="alert" hidden>
               <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-error" viewBox="0 0 13 13">
                 <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
@@ -777,7 +777,7 @@
               </dl>
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 
-              {% assign skioSellingPlanGroups = product.selling_plan_groups | where: 'app_id', 'SKIO' %}
+              {% comment %} {% assign skioSellingPlanGroups = product.selling_plan_groups | where: 'app_id', 'SKIO' %}
               {% if skioSellingPlanGroups.size > 0 %}
                 <skio-plan-picker 
                   product='{{ product | json | escape }}'
@@ -790,7 +790,7 @@
                 </skio-plan-picker>
                 <input type="hidden" aria-hidden="true" name="selling_plan" value="">
                 <script src="{{ 'skio-plan-picker-component.js' | asset_url }}" type="module"></script>
-              {% endif %}
+              {% endif %} {% endcomment %}
 
               {%- when 'buy_buttons' -%}
                 {%- render 'buy-buttons',
