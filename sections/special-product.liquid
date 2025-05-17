@@ -303,7 +303,7 @@
                 
               {% endif %}
 
-              {% assign skioSellingPlanGroups = product.selling_plan_groups | where: 'app_id', 'SKIO' %}
+              {% comment %} {% assign skioSellingPlanGroups = product.selling_plan_groups | where: 'app_id', 'SKIO' %}
               {% if skioSellingPlanGroups.size > 0 %}
                 <skio-plan-picker 
                   product='{{ product | json | escape }}'
@@ -316,7 +316,7 @@
                 </skio-plan-picker>
                 <input type="hidden" aria-hidden="true" name="selling_plan" value="">
                 <script src="{{ 'skio-plan-picker-component.js' | asset_url }}" type="module"></script>
-              {% endif %}
+              {% endif %} {% endcomment %}
 
 
               <div class="product-form__buttons">
@@ -778,7 +778,7 @@
               {% comment %} 
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %} {% endcomment %}
 
-              {% comment %} {% assign skioSellingPlanGroups = product.selling_plan_groups | where: 'app_id', 'SKIO' %}
+              {% assign skioSellingPlanGroups = product.selling_plan_groups | where: 'app_id', 'SKIO' %}
               {% if skioSellingPlanGroups.size > 0 %}
                 <skio-plan-picker 
                   product='{{ product | json | escape }}'
@@ -791,7 +791,7 @@
                 </skio-plan-picker>
                 <input type="hidden" aria-hidden="true" name="selling_plan" value="">
                 <script src="{{ 'skio-plan-picker-component.js' | asset_url }}" type="module"></script>
-              {% endif %} {% endcomment %}
+              {% endif %}
 
               {%- when 'buy_buttons' -%}
                 {%- render 'buy-buttons',
