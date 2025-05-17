@@ -326,6 +326,15 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
             this.setVariant(e.target.value, true)
           });
         });
+
+        // initial setting
+        let strength = getCookie('strength')
+        if (!strength) {
+          strength = 'standard';
+        }
+        document.getElementById(strength).checked = true;
+
+
     } catch (e) {
         console.log("refill strength picker not found")
     }
