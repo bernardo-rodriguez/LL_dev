@@ -330,7 +330,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         // initial setting
         let strength = getCookie('strength')
         if (!strength) {
-          strength = 'standard';
+          strength = 'medium';
         }
         let id = '#' + strength
         console.log(id);
