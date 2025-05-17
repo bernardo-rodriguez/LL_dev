@@ -178,6 +178,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         let refill_formula_selector = this.querySelector(`variant-radios input[value="${selection}"]`);
         let refill_formula_new_dawn = this.querySelector(`variant-selects input[type="radio"][value="${selection}"]`);
 
+        console.log(this.querySelector(`variant-selects`))
         if (refill_formula_selector) {
           refill_formula_selector.click();
         } else if (refill_formula_new_dawn) {
@@ -186,10 +187,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
           console.warn(`No radio input found for value: ${selection}`);
         }
         
-
-        // refill_formula_selector.setAttribute('checked', '');
-        // refill_formula_selector.checked = true;
-        // refill_formula_selector.dispatchEvent(new Event('change', { bubbles: true }));
         all_strengths.forEach(element => {
           if(document.querySelector(`[data-formula-type] [data-variant-title="${element}"]`)){
             document.querySelector(`[data-formula-type] [data-variant-title="${element}"]`).classList.add("hidden")  
