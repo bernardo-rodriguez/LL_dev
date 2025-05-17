@@ -245,6 +245,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   createSubscriptionWidget() {
     // Remove loading bars and show Skio UI once its available
     // sticky checkout to observe any updates to selling plan and reflect accordingly
+    console.log('even on here??')
     try {
       this.waitForSkio('skio-plan-picker').then(() => {      
         //remove loading circle when ready
