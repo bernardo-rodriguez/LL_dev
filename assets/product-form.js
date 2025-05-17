@@ -26,15 +26,6 @@ function add_pen_cookie() {
   setCookie('add_pen', formula_id)
 }
 
-window.addEventListener('pageshow', function (event) {
-  if (event.persisted) {
-    // Page was restored from bfcache
-    document.querySelectorAll('input[name="refill-strength"]').forEach((input) => {
-      input.checked = false;
-    });
-  }
-});
-
 customElements.define('product-form', class ProductForm extends HTMLElement {
   constructor() {
     super();   
