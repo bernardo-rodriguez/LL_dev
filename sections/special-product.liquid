@@ -506,7 +506,7 @@
                     <label for="strong" style = 'padding-right: 29px;'>Extra Strength <span class="price-difference">+$5</span></label>
                   </div>
               </dl>
-                {% comment %} {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %} {% endcomment %}
+                {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 
               {% assign skioSellingPlanGroups = product.selling_plan_groups | where: 'app_id', 'SKIO' %}
               {% if skioSellingPlanGroups.size > 0 %}
