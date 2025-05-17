@@ -199,6 +199,7 @@
                     formId='{{ product_form_id }}'
                     currency='{{ cart.currency.iso_code }}'
                     startSubscription="true"
+                    style = 'display: none'
                     >
                   </skio-plan-picker>
                   <script src="{{ 'skio-plan-picker-component.js' | asset_url }}" type="module"></script>
@@ -830,7 +831,7 @@
                   section_id: section.id,
                   show_pickup_availability: true
                 -%} {% endcomment %}
-                  
+
                   <button
                   {% comment %} type="submit"
                   name="add" {% endcomment %}
