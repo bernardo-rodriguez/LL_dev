@@ -516,26 +516,7 @@ xhttp.send();
   }
   
   async function setAttributes() {
-      // attribute_dict = { // legacy cart attributes
-      //   'redirect_paceline': 'paceline',
-      //   'redirect_sweatcoin': 'sweatcoin',
-      //   'redirect_ut': 'cactus_media',
-      //   'redirect_miles': 'miles',
-      //   'redirect_skimm': 'skimm',
-      //   'redirect_pinterest': 'pinterest',
-      //   'redirect_cpgap': 'redirect_cpgap',
-      //   'redirect_cpgap_gen': 'redirect_cpgap_gen'
-      // }
-    
       upsell_test = getCookie('upsell_test')
-    
-      // if (upsell_test == 'true') {
-      //   let cart = await setCartAttributes("upsell_active"); 
-      // } else if (upsell_test = 'false') {
-      //   let cart = await setCartAttributes("upsell_inactive"); 
-      // } else {
-      //   let cart = await setCartAttributes("upsell_not_set"); 
-      // }
       let shareasale_cookie = getCookie('shareasaleShopifySSCID')
       let shareasale_cookie_clean = shareasale_cookie ?? "none";
       console.log('shareasale cookie is:')
@@ -600,10 +581,6 @@ xhttp.send();
   cart_setup()
   
   function getCookie(cname) {
-    // const value = `; ${document.cookie}`;
-    // const parts = value.split(`; ${name}=`);
-    // if (parts.length === 2) return parts.pop().split(';').shift();
-    
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
