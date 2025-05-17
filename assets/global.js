@@ -423,7 +423,6 @@ function atcGetSectionsToRender() {
 }
 
 function addToCart(body, openCart = true) {
-  console.log('is this the correct add to cart function?')
   fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
   .then((response) => response.json())
   .then((parsedState) => {
@@ -605,7 +604,6 @@ var VariantSelects = class extends HTMLElement {
       } else {
         this.currentVariant = variantData
       }
-      console.log(this.currentVariant)
     }
 
   updateMedia() {
@@ -683,8 +681,6 @@ var VariantSelects = class extends HTMLElement {
   }
 
   renderProductInfo() {
-    console.log('product info')
-    console.log(`${this.dataset.url}?variant=${this.currentVariant.id}&section_id=${this.dataset.section}`)
     fetch(`${this.dataset.url}?variant=${this.currentVariant.id}&section_id=${this.dataset.section}`)
       .then((response) => response.text())
       .then((responseText) => {
