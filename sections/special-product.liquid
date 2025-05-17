@@ -188,8 +188,23 @@
             %}
               <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
               <input type="hidden" name="product_id" value="{{ product.id }}">
+              <input type="hidden" aria-hidden="true" name="selling_plan" value="">
 
-              
+              {% assign skioSellingPlanGroups = product.selling_plan_groups | where: 'app_id', 'SKIO' %}
+                {% if skioSellingPlanGroups.size > 0 %}
+                  <skio-plan-picker 
+                    product='{{ product | json | escape }}'
+                    product_id='{{ product.id }}'
+                    selectedVariant='{{ product.selected_or_first_available_variant | json | escape }}'
+                    formId='{{ product_form_id }}'
+                    currency='{{ cart.currency.iso_code }}'
+                    startSubscription="true"
+                    >
+                  </skio-plan-picker>
+                  <script src="{{ 'skio-plan-picker-component.js' | asset_url }}" type="module"></script>
+              {% endif %} 
+
+
               {% unless product.has_only_default_variant %}
                 {% assign picker_type = 'button' %}
                 {% if picker_type == 'button' %}
@@ -302,22 +317,6 @@
                 {% render 'double-kit-promotion' %}
                 
               {% endif %}
-
-              {% assign skioSellingPlanGroups = product.selling_plan_groups | where: 'app_id', 'SKIO' %}
-                {% if skioSellingPlanGroups.size > 0 %}
-                  <skio-plan-picker 
-                    product='{{ product | json | escape }}'
-                    product_id='{{ product.id }}'
-                    selectedVariant='{{ product.selected_or_first_available_variant | json | escape }}'
-                    formId='{{ product_form_id }}'
-                    currency='{{ cart.currency.iso_code }}'
-                    startSubscription="true"
-                    >
-                  </skio-plan-picker>
-                  <input type="hidden" aria-hidden="true" name="selling_plan" value="">
-                  <script src="{{ 'skio-plan-picker-component.js' | asset_url }}" type="module"></script>
-              {% endif %} 
-
 
               <div class="product-form__buttons">
                 <div class="product-form__input product-form__quantity ">
