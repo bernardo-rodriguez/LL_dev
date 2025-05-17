@@ -559,29 +559,23 @@ var VariantSelects = class extends HTMLElement {
   }
 
   onVariantChange() {
-    console.log('1')
     this.updateOptions();
     this.updateMasterId();
-    console.log('2')
     this.toggleAddButton(true, '', false);
     this.updatePickupAvailability();
     this.removeErrorMessage();
-    console.log('3')
 
     if (!this.currentVariant) {
-      console.log('4')
       this.toggleAddButton(true, '', true);
       this.setUnavailable();
       
     } else {
-      console.log('5')
       this.updateMedia();
       this.updateURL();
       this.updateVariantInput();
       this.renderProductInfo();
       this.updateShareUrl();
     }
-    console.log('6')
   }
 
   updateOptions() {
@@ -612,6 +606,7 @@ var VariantSelects = class extends HTMLElement {
       } else {
         this.currentVariant = variantData
       }
+      console.log(this.currentVariant)
     }
 
   updateMedia() {
