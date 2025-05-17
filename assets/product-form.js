@@ -294,13 +294,17 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   bundleStickyBar() {
-    let skio_plan_picker = document.querySelector('skio-plan-picker')
-    skio_plan_picker.addEventListener('click', (e) => {
-      if (document.querySelector('[data-sticky-onetime]').classList.contains('selected')) {
-        let customPrice = document.querySelector('skio-plan-picker').shadowRoot.querySelector('input[name="onetime_bundle"]:checked').dataset.customPrice
-        document.querySelector(".sticky__price").innerHTML = customPrice
-      }
-    });
+    try {
+      let skio_plan_picker = document.querySelector('skio-plan-picker')
+      skio_plan_picker.addEventListener('click', (e) => {
+        if (document.querySelector('[data-sticky-onetime]').classList.contains('selected')) {
+          let customPrice = document.querySelector('skio-plan-picker').shadowRoot.querySelector('input[name="onetime_bundle"]:checked').dataset.customPrice
+          document.querySelector(".sticky__price").innerHTML = customPrice
+        }
+      });
+    } catch (e) {
+      console.log(e)
+    }
     return 
   }
 
