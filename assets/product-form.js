@@ -341,9 +341,9 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
             // Example of triggering different actions based on selection
             console.log(e.target.value)
             this.setVariant(e.target.value, true)
-            console.log(skio.querySelector(`[skio-subscription-price]`)?.innerText)
+            console.log(document.querySelector('skio-plan-picker').shadowRoot.querySelector(`[skio-subscription-price]`)?.innerText)
             
-            const span = document.querySelector('span[skio-subscription-price]');
+            const span = document.querySelector('span[skio-subscription-price]').shadowRoot;
             const priceText = span ? span.textContent.trim() : null;
             console.log(priceText);
 
