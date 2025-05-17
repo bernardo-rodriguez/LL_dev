@@ -36,11 +36,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     this.container = this.closest(".product__info-wrapper")
     this.productId = this.dataset.productId
 
-    console.log('constructor')
-    console.log(this)
-    console.log(this.form)
-    console.log(this.container)
-
     this.mostRecentSellingPlan = ''
 
     this.stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
@@ -251,22 +246,20 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     // Remove loading bars and show Skio UI once its available
     // sticky checkout to observe any updates to selling plan and reflect accordingly
     try {
-      console.log('wait for it')
-      this.waitForSkio('skio-plan-picker').then(() => {  
-        console.log('got it')    
-        //remove loading circle when ready
-        console.log('updated');
+       this.waitForSkio('skio-plan-picker').then(() => {  
+
+        try {
+          this.container.querySelector(".loading-overlay__spinner").classList.add("hidden")
+          this.container.querySelector("product-form.visually-hidden").classList.remove("visually-hidden")
+          this.stickyBar.querySelector("[data-sticky-atc]").removeAttribute('disabled')
+        } catch (e) {
+          //fails on special product
+        }
         
-        this.container.querySelector(".loading-overlay__spinner").classList.add("hidden")
-        this.container.querySelector("product-form.visually-hidden").classList.remove("visually-hidden")
-        this.stickyBar.querySelector("[data-sticky-atc]").removeAttribute('disabled')
-        
-        console.log('2')
         let selling_plan_input = document.querySelector('input[name="selling_plan"]')
         this.observeForm(selling_plan_input)
         this.setVariant();
         this.observeFormulaPicker('input[name="refill-strength"]')
-        console.log('3')
       })
     } catch (e) {
         console.log("Error: failure in createSubcriptionWidget() for product-form.js")
