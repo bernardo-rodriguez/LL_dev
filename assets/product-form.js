@@ -318,6 +318,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         let refill_strength = document.querySelectorAll(refill_strength_input)
 
         console.log('wbbbb i here??')
+        console.log('su')
         // Add change event listener to each radio button
         refill_strength.forEach(radio => {
           radio.addEventListener('change', (e) => {
