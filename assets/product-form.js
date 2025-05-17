@@ -253,11 +253,13 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         this.container.querySelector(".loading-overlay__spinner").classList.add("hidden")
         this.container.querySelector("product-form.visually-hidden").classList.remove("visually-hidden")
         this.stickyBar.querySelector("[data-sticky-atc]").removeAttribute('disabled')
-
+        
+        console.log('2')
         let selling_plan_input = document.querySelector('input[name="selling_plan"]')
         this.observeForm(selling_plan_input)
         this.setVariant();
         this.observeFormulaPicker('input[name="refill-strength"]')
+        console.log('3')
       })
     } catch (e) {
         console.log("Error: failure in createSubcriptionWidget() for product-form.js")
@@ -316,6 +318,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   observeFormulaPicker(refill_strength_input) {
+    console.log('huh');
     try {
         let refill_strength = document.querySelectorAll(refill_strength_input)
 
