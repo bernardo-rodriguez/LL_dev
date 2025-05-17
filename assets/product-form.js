@@ -178,7 +178,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         let refill_formula_selector = this.querySelector(`variant-radios input[value="${selection}"]`);
         let refill_formula_new_dawn = this.querySelector(`variant-selects input[type="radio"][value="${selection}"]`);
 
-        console.log(this.querySelector(`variant-selects`))
+        console.log(document.querySelector(`variant-selects`))
         if (refill_formula_selector) {
           refill_formula_selector.click();
         } else if (refill_formula_new_dawn) {
