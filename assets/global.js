@@ -638,9 +638,14 @@ var VariantSelects = class extends HTMLElement {
   }
 
   updateShareUrl() {
-    const shareButton = document.getElementById(`Share-${this.dataset.section}`);
-    if (!shareButton) return;
-    shareButton.updateUrl(`${window.shopUrl}${this.dataset.url}?variant=${this.currentVariant.id}`);
+    try {
+      const shareButton = document.getElementById(`Share-${this.dataset.section}`);
+      if (!shareButton) return;
+      shareButton.updateUrl(`${window.shopUrl}${this.dataset.url}?variant=${this.currentVariant.id}`);
+    } catch (e) {
+      console.log(e)
+    }
+
   }
 
   updateVariantInput() {
@@ -664,7 +669,7 @@ var VariantSelects = class extends HTMLElement {
         pickUpAvailability.removeAttribute('available');
         pickUpAvailability.innerHTML = '';
       }
-      
+
     });
 
   }
