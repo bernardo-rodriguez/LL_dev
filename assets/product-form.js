@@ -333,7 +333,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   observeFormulaPicker(refill_strength_input) {
     try {
         let refill_strength = document.querySelectorAll(refill_strength_input)
-
+        let skio = document.querySelector('skio-plan-picker')
+        
         // Add change event listener to each radio button
         refill_strength.forEach(radio => {
           radio.addEventListener('change', (e) => {
