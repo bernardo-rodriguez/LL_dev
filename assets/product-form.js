@@ -92,6 +92,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     }
   }
 
+  // skio-plan-picker
+  // input[name='id']
   setVariant(selection='✨ Everyday (ID: 8-16)', picked = false) {
     // Select the product variant chosen in the quiz in the product page selection
     // Set the product variant formula in the sticky checkout
@@ -315,7 +317,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
   observeFormulaPicker(refill_strength_input) {
     try {
-        console.log(refill_strength_input)
         let refill_strength = document.querySelectorAll(refill_strength_input)
 
         // Add change event listener to each radio button
@@ -426,7 +427,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       itemsList = [{
         id: product_form.id, // this is variant id
         quantity: bundle_quantities[bundle_value],
-        selling_plan: product_form.selling_plan // or can also do product_form.selling_plan? skio.selectedSellingPlan.id
+        selling_plan: product_form.selling_plan? skio.selectedSellingPlan.id //product_form.selling_plan // or can also do 
       }]
     } 
     else {
@@ -434,7 +435,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       itemsList = [{
         id: product_form.id, // this is variant id
         quantity: quantity_setter,
-        selling_plan: product_form.selling_plan // or can also do product_form.selling_plan? skio.selectedSellingPlan.id
+        selling_plan: product_form.selling_plan? skio.selectedSellingPlan.id // product_form.selling_plan // or can also do 
       }]
     }
     
