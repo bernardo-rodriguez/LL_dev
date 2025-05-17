@@ -174,14 +174,16 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
         console.log(selection)
 
-        let refill_formula_selector = this.querySelector(`variant-radios input[value="${selection}"]`)
+        let selection = '✨ Everyday (ID: 8-16)';  // or dynamic string
+        let refill_formula_selector = this.querySelector(`variant-radios input[value="${selection}"]`);
         let refill_formula_new_dawn = this.querySelector(`variant-selects input[type="radio"][value="${selection}"]`);
+
         if (refill_formula_selector) {
-          // old dawn had variant radios
-          refill_formula_selector.click()
+          refill_formula_selector.click();
+        } else if (refill_formula_new_dawn) {
+          refill_formula_new_dawn.click();
         } else {
-          // new dawn has variant select
-          refill_formula_new_dawn.click()
+          console.warn(`No radio input found for value: ${selection}`);
         }
         
 
