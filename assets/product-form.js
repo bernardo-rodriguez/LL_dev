@@ -414,6 +414,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     console.log('am i submitted')
     console.log(product_form)
+    return
 
     let dpk_choice = document.querySelector('input[name="dpk_chooser"]:checked')?.value || null;
     
