@@ -164,13 +164,282 @@
                     {%- endif -%}
                   </div>
                 {%- endif -%}
-                <div {{ block.shopify_attributes }}>
+
+
+
+
+                <product-form class="product-form visually-hidden" data-product-id="{{ product.id }}">
+            <div class="product-form__error-message-wrapper" role="alert" hidden>
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-error" viewBox="0 0 13 13">
+                <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
+                <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
+                <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
+                <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
+              </svg>
+              <span class="product-form__error-message"></span>
+            </div>
+
+            {% form 'product',
+              product,
+              id: product_form_id,
+              class: 'form',
+              novalidate: 'novalidate',
+              data-type: 'add-to-cart-form'
+            %}
+              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+              <input type="hidden" name="product_id" value="{{ product.id }}">
+
+              
+              {% unless product.has_only_default_variant %}
+                {% assign picker_type = 'button' %}
+                {% if picker_type == 'button' %}
+                  {% comment %} <variant-radios
+                    class="no-js-hidden visually-hidden"
+                    data-section="{{ section.id }}"
+                    data-url="{{ product.url }}"
+                  > {% endcomment %}
+                  <variant-radios
+                    class="visually-hidden"
+                    data-section="{{ section.id }}"
+                    data-url="{{ product.url }}"
+                  >
+                    {% for option in product.options_with_values %}
+                      <fieldset class="js product-form__input">
+                        <legend class="form__label">{{ option.name }}</legend>
+                        {% for value in option.values %}
+                          <input
+                            type="radio"
+                            id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                            name="{{ option.name }}"
+                            value="{{ value | escape }}"
+                            form="{{ product_form_id }}"
+                            {% if option.selected_value == value %}
+                              checked
+                            {% endif %}
+                          >
+                          <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                            {{ value }}
+                          </label>
+                        {% endfor %}
+                      </fieldset>
+                    {% endfor %}
+                    <script type="application/json">
+                      {{ product.variants | json }}
+                    </script>
+                  </variant-radios>
+                {% else %}
+                  <variant-selects class="no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}">
+                    {% for option in product.options_with_values %}
+                      <div class="product-form__input product-form__input--dropdown">
+                        <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
+                          {{ option.name }}
+                        </label>
+                        <div class="select">
+                          <select
+                            id="Option-{{ section.id }}-{{ forloop.index0 }}"
+                            class="select__select"
+                            name="options[{{ option.name | escape }}]"
+                            form="{{ product_form_id }}"
+                          >
+                            {% for value in option.values %}
+                              <option
+                                value="{{ value | escape }}"
+                                {% if option.selected_value == value %}
+                                  selected="selected"
+                                {% endif %}
+                              >
+                                {{ value }}
+                              </option>
+                            {% endfor %}
+                          </select>
+                          {% render 'icon', icon: 'caret' %}
+                        </div>
+                      </div>
+                    {% endfor %}
+
+                    <script type="application/json">
+                      {{ product.variants | json }}
+                    </script>
+                  </variant-selects>
+                {% endif %}
+              {% endunless %}
+
+              <noscript class="product-form__noscript-wrapper-{{ section.id }}">
+                <div class="product-form__input{% if product.has_only_default_variant %} hidden{% endif %}">
+                  <label class="form__label" for="Variants-{{ section.id }}">
+                    {{- 'products.product.product_variants' | t -}}
+                  </label>
+                  <div class="select">
+                    <select
+                      name="id"
+                      id="Variants-{{ section.id }}"
+                      class="select__select"
+                      form="{{ product_form_id }}"
+                    >
+                      {% for variant in product.variants %}
+                        <option
+                          {% if variant == product.selected_or_first_available_variant %}
+                            selected="selected"
+                          {% endif %}
+                          {% if variant.available == false %}
+                            disabled
+                          {% endif %}
+                          value="{{ variant.id }}"
+                        >
+                          {{ variant.title }}
+                          {% if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
+                          - {{ variant.price | money | strip_html }}
+                        </option>
+                      {% endfor %}
+                    </select>
+                    {% render 'icon', icon: 'caret' %}
+                  </div>
+                </div>
+              </noscript>
+
+              {% if product.id == 8187028177121 or product.id == 8252255568097  %}
+
+                {% render 'double-kit-promotion' %}
+                
+              {% endif %}
+
+              {% assign skioSellingPlanGroups = product.selling_plan_groups | where: 'app_id', 'SKIO' %}
+              {% if skioSellingPlanGroups.size > 0 %}
+                <skio-plan-picker 
+                  product='{{ product | json | escape }}'
+                  product_id='{{ product.id }}'
+                  selectedVariant='{{ product.selected_or_first_available_variant | json | escape }}'
+                  formId='{{ product_form_id }}'
+                  currency='{{ cart.currency.iso_code }}'
+                  startSubscription="true"
+                  >
+                </skio-plan-picker>
+                <input type="hidden" aria-hidden="true" name="selling_plan" value="">
+                <script src="{{ 'skio-plan-picker-component.js' | asset_url }}" type="module"></script>
+              {% endif %}
+
+
+              <div class="product-form__buttons">
+                <div class="product-form__input product-form__quantity ">
+                  {% comment %} <label class="form__label" for="Quantity-{{ section.id }}">
+                    {{ 'products.product.quantity.label' | t }}
+                  </label> {% endcomment %}
+                  <quantity-input class="quantity" id = 'quantity-input-id'>
+                    <button class="quantity__button no-js-hidden" name="minus" type="button">
+                      <span class="visually-hidden">
+                        {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                      </span>
+                      {% render 'icon', icon: 'minus' %}
+                    </button>
+                    <input
+                      class="quantity__input"
+                      type="number"
+                      name="quantity"
+                      id="Quantity-{{ section.id }}"
+                      min="1"
+                      max="3"
+                      value="1"
+                      form="{{ product_form_id }}"
+                    >
+                    <button class="quantity__button no-js-hidden" name="plus" type="button">
+                      <span class="visually-hidden">
+                        {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                      </span>
+                      {% render 'icon', icon: 'plus' %}
+                    </button>
+                  </quantity-input>
+                </div>
+                <button type='submit' id = 'real-submit-button' style = 'display: none'>
+                  checkout
+                </button>
+                
+                <button
+                  {% comment %} type="submit"
+                  name="add" {% endcomment %}
+                  type='button'
+                  id='main-clickable-button'
+                  class="product-form__submit button button--flex {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
+                  {% if product.selected_or_first_available_variant.available == false %}
+                    disabled
+                  {% endif %}
+                >
+                  <span>
+                    {% if product.selected_or_first_available_variant.available %}
+                      {{ section.settings.atc }}
+                    {% else %}
+                      {{ 'products.product.sold_out' | t }}
+                    {% endif %}
+                  </span>
+                  <div class="loading-overlay__spinner hidden">
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      role="presentation"
+                      class="spinner"
+                      viewBox="0 0 66 66"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                    </svg>
+                  </div>
+                </button>
+
+                {% if block.settings.show_dynamic_checkout %}
+                  {{ form | payment_button }}
+                {% endif %}
+              </div>
+            {% endform %}
+
+            {% if section.settings.satisfaction != blank  and false %}
+            <div style = 'margin-top: 10px;'>
+              {{ section.settings.satisfaction_svg }}
+              <p style = 'display: inline-block; vertical-align: middle' class="landing-page-main body-xs satisfaction_guarantee">{{ section.settings.satisfaction }}</p>
+            </div>
+            {% endif %}
+
+            {% if product.id == 8252255568097 %}
+              <div>
+                <img
+                  src="{{ 'packageprotection.png' | asset_url}}"
+                  style = 'display: inline-block'
+                  loading="lazy"
+                  width="30"
+                  height="30" />
+                <div style = 'display: inline-block'>
+                  <p style = 'font-size: 12px; line-height: 20px;'>Package Protection - <b>$0.99</b></p>
+                  <label class="switch">
+                    <input id = 'package_protection' type="checkbox" >
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+
+            {% endif %}
+            
+
+            <div class="visually-hidden subscription-details__wrapper">
+              <div class="subscription-details">
+                <dl class="m-body-xs">
+                  <dt>Whitening Gels</dt>
+                  <dd>1-2 Months Supply</dd>
+                </dl>
+                <dl class="m-body-xs">
+                  <dt>Recurring Cost</dt>
+                  <dd>$29.00</dd>
+                </dl>
+              </div>
+            </div>
+          </product-form>
+
+
+
+                {% comment %} <div {{ block.shopify_attributes }}>
                   {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
                   {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
                     <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
                     {{ form | payment_terms }}
                   {%- endform -%}
-                </div>
+                </div> {% endcomment %}
               {%- when 'inventory' -%}
                 <p
                   class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
