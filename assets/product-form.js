@@ -307,7 +307,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         let skio = document.querySelector('skio-plan-picker')
 
         skio.addEventListener('skio::update-selling-plan', (e) => {
-          this.updateStickyBar(e)
+          if (this.stickyBar) {
+            this.updateStickyBar(e)
+          }
+          
           this.mostRecentSellingPlan = e.detail.sellingPlan ? e.detail.sellingPlan.id : this.mostRecentSellingPlan
           console.log(this.mostRecentSellingPlan)
         })        
@@ -318,12 +321,9 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   observeFormulaPicker(refill_strength_input) {
-    console.log('huh');
     try {
         let refill_strength = document.querySelectorAll(refill_strength_input)
 
-        console.log('wbbbb i here??')
-        console.log('su')
         // Add change event listener to each radio button
         refill_strength.forEach(radio => {
           radio.addEventListener('change', (e) => {
@@ -339,7 +339,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
           strength = 'medium';
         }
         let id = '#' + strength
-        console.log(id);
         $(id).prop('checked', true).trigger('change');
 
     } catch (e) {
