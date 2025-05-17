@@ -76,12 +76,12 @@
 
 p,
 .p {
-  font-family: manrope; /*TODO: did changed this*/
-  font-weight: 500;
   font-size: calc(16 * var(--font-body-scale))px;
   /* font-size: 16px; */
-  line-height: 24px;
-  margin: 0;
+}
+
+form label {
+  font-size: calc(16 * var(--font-body-scale))px;
 }
 
 /* base */
