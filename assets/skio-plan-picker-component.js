@@ -1354,8 +1354,21 @@ export class SkioPlanPickerComponent extends LitElement {
   }
 
   addVariantClickEventListeners() {
+    let initial_setting_dict = {
+          "sensitive": '🍃 Gentle (ID: 19-2)',
+          "medium": '✨ Everyday (ID: 8-16)',
+          "strong": '🔥 Super Strength (ID: 8-17)'
+    }
+    
+
     let variantInputs = document.querySelectorAll(this.variantInputSelector)
     let skio = this
+
+    let inital_strength = this.getCookie('strength')
+    if (inital_strength) {
+      skio.selectedVariant = skio.product.variants.find(variant => variant.title == initial_setting_dict[inital_strength])
+    }
+        
     console.log('add variant click listeners')
     for (let el of variantInputs) {
       el.addEventListener('click', function(e) {
