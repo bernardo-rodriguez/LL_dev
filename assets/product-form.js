@@ -334,7 +334,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     try {
         let refill_strength = document.querySelectorAll(refill_strength_input)
         let skio = document.querySelector('skio-plan-picker')
-        
+
         // Add change event listener to each radio button
         refill_strength.forEach(radio => {
           radio.addEventListener('change', (e) => {
@@ -342,6 +342,11 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
             console.log(e.target.value)
             this.setVariant(e.target.value, true)
             console.log(skio.querySelector(`[skio-subscription-price]`)?.innerText)
+            
+            const span = document.querySelector('span[skio-subscription-price]');
+            const priceText = span ? span.textContent.trim() : null;
+            console.log(priceText);
+
           });
         });
 
