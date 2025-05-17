@@ -587,13 +587,25 @@ var VariantSelects = class extends HTMLElement {
     return this.variantData;
   }
 
-  updateMasterId() {
-    this.currentVariant = this.getVariantData().find((variant) => {
-      return !variant.options.map((option, index) => {
-        return this.options[index] === option;
-      }).includes(false);
-    });
-  }
+  // updateMasterId() {
+  //   this.currentVariant = this.getVariantData().find((variant) => {
+  //     return !variant.options.map((option, index) => {
+  //       return this.options[index] === option;
+  //     }).includes(false);
+  //   });
+  // }
+    updateMasterId() {
+      let variantData = this.getVariantData()
+      if (variantData.isArray()) {
+        this.currentVariant = variantData.find((variant) => {
+          return !variant.options.map((option, index) => {
+            return this.options[index] === option;
+          }).includes(false);
+        });
+      } else {
+        this.currentVariant = variantData
+      }
+    }
 
   updateMedia() {
     if (!this.currentVariant) return;
