@@ -319,7 +319,7 @@
               {% endif %}
 
               <div class="product-form__buttons">
-                <div class="product-form__input product-form__quantity ">
+                {% comment %} <div class="product-form__input product-form__quantity ">
                   {% comment %} <label class="form__label" for="Quantity-{{ section.id }}">
                     {{ 'products.product.quantity.label' | t }}
                   </label> {% endcomment %}
@@ -347,7 +347,7 @@
                       {% render 'icon', icon: 'plus' %}
                     </button>
                   </quantity-input>
-                </div>
+                </div> {% endcomment %}
                 <button type='submit' id = 'real-submit-button' style = 'display: none'>
                   checkout
                 </button>
@@ -550,7 +550,7 @@
                     </span>
                   </label>
                   <div class="price-per-item__container">
-                    <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
+                    {% comment %} <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
                       <button class="quantity__button" name="minus" type="button">
                         <span class="visually-hidden">
                           {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
@@ -583,7 +583,37 @@
                           {{- 'icon-plus.svg' | inline_asset_content -}}
                         </span>
                       </button>
-                    </quantity-input>
+                    </quantity-input> {% endcomment %}
+                    <div class="product-form__input product-form__quantity ">
+                  {% comment %} <label class="form__label" for="Quantity-{{ section.id }}">
+                    {{ 'products.product.quantity.label' | t }}
+                  </label> {% endcomment %}
+                      <quantity-input class="quantity" id = 'quantity-input-id'>
+                        <button class="quantity__button no-js-hidden" name="minus" type="button">
+                          <span class="visually-hidden">
+                            {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                          </span>
+                          {% render 'icon', icon: 'minus' %}
+                        </button>
+                        <input
+                          class="quantity__input"
+                          type="number"
+                          name="quantity"
+                          id="Quantity-{{ section.id }}"
+                          min="1"
+                          max="3"
+                          value="1"
+                          form="{{ product_form_id }}"
+                        >
+                        <button class="quantity__button no-js-hidden" name="plus" type="button">
+                          <span class="visually-hidden">
+                            {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                          </span>
+                          {% render 'icon', icon: 'plus' %}
+                        </button>
+                      </quantity-input>
+                    </div>
+
                     {%- liquid
                       assign volume_pricing_array = product.selected_or_first_available_variant.quantity_price_breaks | sort: 'quantity' | reverse
                       assign current_qty_for_volume_pricing = cart_qty | plus: product.selected_or_first_available_variant.quantity_rule.min
