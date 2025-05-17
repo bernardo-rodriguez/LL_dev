@@ -297,7 +297,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     try {
       let skio_plan_picker = document.querySelector('skio-plan-picker')
       skio_plan_picker.addEventListener('click', (e) => {
-        if (document.querySelector('[data-sticky-onetime]').classList.contains('selected')) {
+        if (document.querySelector('[data-sticky-onetime]')) {
           let customPrice = document.querySelector('skio-plan-picker').shadowRoot.querySelector('input[name="onetime_bundle"]:checked').dataset.customPrice
           document.querySelector(".sticky__price").innerHTML = customPrice
         }
@@ -413,10 +413,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     console.log('am i submitted')
     console.log(product_form)
+    console.log(skio)
 
     let dpk_choice = document.querySelector('input[name="dpk_chooser"]:checked')?.value || null;
     
-    console.log(dpk_choice)
     let quantity_setter = (dpk_choice == 'two_kits') ? 2: 1
 
     if (!(['8187028177121', '8252255568097', '8733239869665'].includes(product_form.product_id))) {
