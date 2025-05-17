@@ -411,7 +411,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let skio = document.querySelector('skio-plan-picker')
     let product_form = JSON.parse(serializeForm(this.form))
 
-
     console.log('am i submitted')
     console.log(product_form)
 
