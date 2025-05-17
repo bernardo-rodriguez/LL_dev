@@ -127,4 +127,4 @@ async function setCartAttributes(upsell) {
             console.log(e)
             $('#real-submit-button').click()
         }
-  }
+    }

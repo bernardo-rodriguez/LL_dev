@@ -352,7 +352,7 @@
                   checkout
                 </button>
                 
-                <button
+                {% comment %} <button
                   {% comment %} type="submit"
                   name="add" {% endcomment %}
                   type='button'
@@ -381,7 +381,7 @@
                       <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
                     </svg>
                   </div>
-                </button>
+                </button> {% endcomment %}
 
                 {% if block.settings.show_dynamic_checkout %}
                   {{ form | payment_button }}
@@ -793,13 +793,44 @@
               {% endif %} {% endcomment %}
 
               {%- when 'buy_buttons' -%}
-                {%- render 'buy-buttons',
+                {% comment %} {%- render 'buy-buttons',
                   block: block,
                   product: product,
                   product_form_id: product_form_id,
                   section_id: section.id,
                   show_pickup_availability: true
-                -%}
+                -%} {% endcomment %}
+                  <button
+                  {% comment %} type="submit"
+                  name="add" {% endcomment %}
+                  type='button'
+                  id='main-clickable-button'
+                  class="product-form__submit button button--flex {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
+                  {% if product.selected_or_first_available_variant.available == false %}
+                    disabled
+                  {% endif %}
+                >
+                  <span>
+                    {% if product.selected_or_first_available_variant.available %}
+                      {{ section.settings.atc }}
+                    {% else %}
+                      {{ 'products.product.sold_out' | t }}
+                    {% endif %}
+                  </span>
+                  <div class="loading-overlay__spinner hidden">
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      role="presentation"
+                      class="spinner"
+                      viewBox="0 0 66 66"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                    </svg>
+                  </div>
+                </button>
+
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
                   <div class="rating-wrapper">
