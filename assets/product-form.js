@@ -246,7 +246,9 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     // Remove loading bars and show Skio UI once its available
     // sticky checkout to observe any updates to selling plan and reflect accordingly
     try {
-      this.waitForSkio('skio-plan-picker').then(() => {      
+      console.log('wait for it')
+      this.waitForSkio('skio-plan-picker').then(() => {  
+        console.log('got it')    
         //remove loading circle when ready
         this.container.querySelector(".loading-overlay__spinner").classList.add("hidden")
         this.container.querySelector("product-form.visually-hidden").classList.remove("visually-hidden")
