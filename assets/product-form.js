@@ -427,7 +427,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       itemsList = [{
         id: product_form.id, // this is variant id
         quantity: bundle_quantities[bundle_value],
-        selling_plan: product_form.selling_plan? skio.selectedSellingPlan.id //product_form.selling_plan // or can also do 
+        selling_plan: product_form.selling_plan? skio.selectedSellingPlan.id: '' //product_form.selling_plan // or can also do 
       }]
     } 
     else {
@@ -435,7 +435,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       itemsList = [{
         id: product_form.id, // this is variant id
         quantity: quantity_setter,
-        selling_plan: product_form.selling_plan? skio.selectedSellingPlan.id // product_form.selling_plan // or can also do 
+        selling_plan: product_form.selling_plan? skio.selectedSellingPlan.id: '' // product_form.selling_plan // or can also do 
       }]
     }
     
