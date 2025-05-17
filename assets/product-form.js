@@ -340,6 +340,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
             // Example of triggering different actions based on selection
             console.log(e.target.value)
             this.setVariant(e.target.value, true)
+            console.log(skio.querySelector(`[skio-subscription-price]`)?.innerText)
           });
         });
 
