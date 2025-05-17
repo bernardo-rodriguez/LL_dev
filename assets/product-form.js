@@ -250,6 +250,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       this.waitForSkio('skio-plan-picker').then(() => {  
         console.log('got it')    
         //remove loading circle when ready
+        console.log('updated');
         this.container.querySelector(".loading-overlay__spinner").classList.add("hidden")
         this.container.querySelector("product-form.visually-hidden").classList.remove("visually-hidden")
         this.stickyBar.querySelector("[data-sticky-atc]").removeAttribute('disabled')
