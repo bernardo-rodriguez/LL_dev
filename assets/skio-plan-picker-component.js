@@ -1429,6 +1429,7 @@ export class SkioPlanPickerComponent extends LitElement {
 
   fetchProduct = (handle) => {
     console.log(handle)
+    console.log('hello there')
     return fetch(`/products/${ handle }.js`)
     .then((response) => response.json())
     .then((product) => {
