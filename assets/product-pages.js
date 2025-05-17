@@ -108,4 +108,18 @@ async function setCartAttributes(upsell) {
   }
 
   cart_setup()
-  
+
+  document.getElementById('main-clickable-button').addEventListener("click", upsellLogic);
+
+    function upsellLogic() {
+    if ($('#main-product-handle-id').html().includes('at-home-whitening-kit-affiliate-ft')) {
+        show_upsell = getCookie('show_upsell')
+        if (show_upsell != 'false') {
+          openPopup()
+        } else {
+          $('#real-submit-button').click()
+        }
+    } else {
+      $('#real-submit-button').click()
+    }
+  }
