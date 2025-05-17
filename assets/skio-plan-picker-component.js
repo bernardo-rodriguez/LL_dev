@@ -954,7 +954,7 @@ export class SkioPlanPickerComponent extends LitElement {
     if(changed.has('product') && this.product) {
       // RAN ONLY ON FIRST LOAD
 
-      if (this.product.id == 7498061906145 && this.product.id == 8187028177121) {
+      if (this.product.id == 7498061906145 || this.product.id == 8187028177121) {
         console.log('this refill product')
         this.useVariantInputClickEvents = true
         this.variantInputSelector = 'input[name="refill-strength"]'
