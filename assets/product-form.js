@@ -315,7 +315,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         let skio = document.querySelector('skio-plan-picker')
 
         skio.addEventListener('skio::update-selling-plan', (e) => {
-          console.log(skio.querySelector(`[skio-subscription-price]`)?.innerText)
+          console.log(document.querySelector('skio-plan-picker').shadowRoot.querySelector(`[skio-subscription-price]`)?.innerText)
 
           if (this.stickyBar) {
             this.updateStickyBar(e)
