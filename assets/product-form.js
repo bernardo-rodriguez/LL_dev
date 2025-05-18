@@ -356,6 +356,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         $(id).prop('checked', true).trigger('change');
 
         let sub_price = document.querySelector('skio-plan-picker').shadowRoot.querySelector(`[skio-subscription-price]`)?.innerText
+        console.log('ok')
+        console.log(sub_price)
         $('span.price-item.price-item--regular').html(sub_price + '.00 USD');
 
     } catch (e) {
