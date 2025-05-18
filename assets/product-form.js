@@ -341,11 +341,9 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
             // Example of triggering different actions based on selection
             console.log(e.target.value)
             this.setVariant(e.target.value, true)
-            console.log(document.querySelector('skio-plan-picker').shadowRoot.querySelector(`[skio-subscription-price]`)?.innerText)
+            let sub_price = document.querySelector('skio-plan-picker').shadowRoot.querySelector(`[skio-subscription-price]`)?.innerText
             
-            const span = document.querySelector('span[skio-subscription-price]').shadowRoot;
-            const priceText = span ? span.textContent.trim() : null;
-            console.log(priceText);
+            $('span.price-item.price-item--regular').html('$' + sub_price + '.00 USD');
 
           });
         });
