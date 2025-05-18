@@ -315,15 +315,18 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         let skio = document.querySelector('skio-plan-picker')
 
         skio.addEventListener('skio::update-selling-plan', (e) => {
-          console.log(document.querySelector('skio-plan-picker').shadowRoot.querySelector(`[skio-subscription-price]`)?.innerText)
+        
+        let sub_price = document.querySelector('skio-plan-picker').shadowRoot.querySelector(`[skio-subscription-price]`)?.innerText
 
-          if (this.stickyBar) {
-            this.updateStickyBar(e)
-          }
-          
-          this.mostRecentSellingPlan = e.detail.sellingPlan ? e.detail.sellingPlan.id : this.mostRecentSellingPlan
-          console.log(this.mostRecentSellingPlan)
-        })        
+        $('span.price-item.price-item--regular').html(sub_price + '.00 USD');
+
+        if (this.stickyBar) {
+          this.updateStickyBar(e)
+        }
+        
+        this.mostRecentSellingPlan = e.detail.sellingPlan ? e.detail.sellingPlan.id : this.mostRecentSellingPlan
+        console.log(this.mostRecentSellingPlan)
+      })        
     } catch (e) {
         console.log("Error: failure in observeForm() for product-form.js")
         console.log(e)
@@ -335,17 +338,12 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         let refill_strength = document.querySelectorAll(refill_strength_input)
         let skio = document.querySelector('skio-plan-picker')
 
-        console.log('this should show right away??')
-
         // Add change event listener to each radio button
         refill_strength.forEach(radio => {
           radio.addEventListener('change', (e) => {
             // Example of triggering different actions based on selection
             console.log(e.target.value)
             this.setVariant(e.target.value, true)
-            let sub_price = document.querySelector('skio-plan-picker').shadowRoot.querySelector(`[skio-subscription-price]`)?.innerText
-            
-            $('span.price-item.price-item--regular').html(sub_price + '.00 USD');
           });
         });
 
@@ -356,11 +354,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         }
         let id = '#' + strength
         $(id).prop('checked', true).trigger('change');
-
-        let sub_price = document.querySelector('skio-plan-picker').shadowRoot.querySelector(`[skio-subscription-price]`)?.innerText
-        console.log('ok')
-        console.log(sub_price)
-        $('span.price-item.price-item--regular').html(sub_price + '.00 USD');
 
     } catch (e) {
         console.log("refill strength picker not found")
