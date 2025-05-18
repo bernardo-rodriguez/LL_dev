@@ -344,7 +344,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
             let sub_price = document.querySelector('skio-plan-picker').shadowRoot.querySelector(`[skio-subscription-price]`)?.innerText
             
             $('span.price-item.price-item--regular').html(sub_price + '.00 USD');
-
           });
         });
 
