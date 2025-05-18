@@ -333,7 +333,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   observeFormulaPicker(refill_strength_input) {
     try {
         let refill_strength = document.querySelectorAll(refill_strength_input)
-        let skio = document.querySelector('skio-plan-picker')
+        let skio = document.querySelector('skio-plan-picker').shadowRoot
 
         // Add change event listener to each radio button
         refill_strength.forEach(radio => {
@@ -341,11 +341,9 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
             // Example of triggering different actions based on selection
             console.log(e.target.value)
             this.setVariant(e.target.value, true)
-            console.log(document.querySelector('skio-plan-picker').shadowRoot.querySelector(`[skio-subscription-price]`)?.innerText)
-            
-            const span = document.querySelector('span[skio-subscription-price]').shadowRoot;
-            const priceText = span ? span.textContent.trim() : null;
-            console.log(priceText);
+
+            let sub_price = skio.querySelector(`[skio-subscription-price]`)?.innerText
+            $('span.price-item.price-item--regular').html('$' + sub_price + '.00 USD');
 
           });
         });
