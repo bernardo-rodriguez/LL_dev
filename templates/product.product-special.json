@@ -338,11 +338,6 @@
         "review_label": "Review"
       }
     },
-    "replo_product_how_to_use_bpLT4L": {
-      "type": "replo-product-how-to-use",
-      "name": "product-how-to-use",
-      "settings": {}
-    },
     "testing_results_aj63KR": {
       "type": "testing-results",
       "blocks": {
@@ -380,6 +375,26 @@
         "link": "shopify://pages/science-of-teeth-whitening",
         "link_text": "Learn More"
       }
+    },
+    "replo_product_how_to_use_bpLT4L": {
+      "type": "replo-product-how-to-use",
+      "name": "product-how-to-use",
+      "settings": {}
+    },
+    "17478665286aeba721": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_ywmKHJ": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_ywmKHJ"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -389,6 +404,7 @@
     "what_to_expect_9m8aj6",
     "testimonials_kNjHQk",
     "testing_results_aj63KR",
-    "replo_product_how_to_use_bpLT4L"
+    "replo_product_how_to_use_bpLT4L",
+    "17478665286aeba721"
   ]
 }
