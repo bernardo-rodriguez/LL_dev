@@ -23,12 +23,12 @@
           "type": "title",
           "settings": {}
         },
-        "ll_stars_bgTQ6P": {
-          "type": "ll_stars",
-          "settings": {}
-        },
         "ll_shipping_and_returns_M3YmTx": {
           "type": "ll_shipping_and_returns",
+          "settings": {}
+        },
+        "ll_stars_bgTQ6P": {
+          "type": "ll_stars",
           "settings": {}
         },
         "price": {
@@ -68,8 +68,8 @@
       "block_order": [
         "vendor",
         "title",
-        "ll_stars_bgTQ6P",
         "ll_shipping_and_returns_M3YmTx",
+        "ll_stars_bgTQ6P",
         "price",
         "variant_picker",
         "quantity_selector",
