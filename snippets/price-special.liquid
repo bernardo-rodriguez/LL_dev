@@ -11,17 +11,21 @@
     // Example dynamic update based on URL
     const url = window.location.href;
 
+    console.log('hello')
+    console.log(url)
+
     // Simple rules for demonstration
     if (url.includes("6-serving-of-whitening-gels-free-starter-kit")) {
-      document.getElementById("originalPrice").textContent = "$48";
-      document.getElementById("salePrice").textContent = "$19";
-      document.getElementById("discountBadge").textContent = "Save 60% Today";
-      document.getElementById("perDose").textContent = "Only $3.1 Per Dose";
+        console.log('edit text')
+        document.getElementById("originalPrice").textContent = "$48";
+        document.getElementById("salePrice").textContent = "$19";
+        document.getElementById("discountBadge").textContent = "Save 60% Today";
+        document.getElementById("perDose").textContent = "Only $3.1 Per Dose";
     } else {
-      document.getElementById("originalPrice").textContent = "$76";
-      document.getElementById("salePrice").textContent = "$19";
-      document.getElementById("discountBadge").textContent = "Save 75% Today";
-      {% comment %} document.getElementById("perDose").textContent = "Only $0.17 Per Dose"; {% endcomment %}
+        document.getElementById("originalPrice").textContent = "$76";
+        document.getElementById("salePrice").textContent = "$19";
+        document.getElementById("discountBadge").textContent = "Save 75% Today";
+        {% comment %} document.getElementById("perDose").textContent = "Only $0.17 Per Dose"; {% endcomment %}
     }
     }
   </script>
