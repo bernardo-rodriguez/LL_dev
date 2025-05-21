@@ -54,6 +54,10 @@
             "swatch_shape": "circle"
           }
         },
+        "ll_what_youll_get_MXxdrC": {
+          "type": "ll_what_youll_get",
+          "settings": {}
+        },
         "quantity_selector": {
           "type": "quantity_selector",
           "disabled": true,
@@ -83,6 +87,7 @@
         "ll_price_KGJKqc",
         "price",
         "variant_picker",
+        "ll_what_youll_get_MXxdrC",
         "quantity_selector",
         "buy_buttons",
         "share"
