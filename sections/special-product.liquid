@@ -541,6 +541,8 @@
                 {% render 'price-special' %}
               {%- when 'variant_picker' -%}
                 {% render 'variant-picker' %}
+              {%- when 'll_what_youll_get' -%}
+                {% render 'what-youll-get' %}
               {%- when 'quantity_selector' -%}
                 <div
                   id="Quantity-Form-{{ section.id }}"
@@ -1256,6 +1258,11 @@
      {
       "type": "ll_price",
       "name": "t:sections.main-product.blocks.ll_price.name",
+      "limit": 1
+    },
+    {
+      "type": "ll_what_youll_get",
+      "name": "t:sections.main-product.blocks.ll_what_youll_get.name",
       "limit": 1
     },
     {
