@@ -543,6 +543,30 @@
                 {% render 'variant-picker' %}
               {%- when 'll_what_youll_get' -%}
                 {% render 'what-youll-get' %}
+              {%- when 'll_product_details' -%}
+                {% if product.metafields.custom.details != blank %}
+                  <div class="product__details">
+                    <div class="product__details-inner">
+                      {% for detail in product.metafields.custom.details.value %}
+                        {% assign formatted_emoji = detail | replace: '{', "<span class='emoji'>" | replace: '}', '</span>' %}
+                        <div class="product__detail-item p">{{ formatted_emoji }}</div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                {% endif %}
+              {%- when 'll_how_to_use' -%}
+                {% if section.settings.how_to_use != blank %}
+                  <div class="product__how-to-use product__accordion">
+                    <button class="product__accordion-button p">
+                      How To Use <span class="accordion-toggle">{% render 'icon', icon: 'accordion' %}</span>
+                    </button>
+                    <div class="product__accordion--inner">
+                      <p>
+                        {{ section.settings.how_to_use }}
+                      </p>
+                    </div>
+                  </div>
+                {% endif %}
               {%- when 'quantity_selector' -%}
                 <div
                   id="Quantity-Form-{{ section.id }}"
@@ -1263,6 +1287,16 @@
     {
       "type": "ll_what_youll_get",
       "name": "t:sections.main-product.blocks.ll_what_youll_get.name",
+      "limit": 1
+    },
+    {
+      "type": "ll_product_details",
+      "name": "t:sections.main-product.blocks.ll_product_details.name",
+      "limit": 1
+    },
+    {
+      "type": "ll_how_to_use",
+      "name": "t:sections.main-product.blocks.ll_how_to_use.name",
       "limit": 1
     },
     {
