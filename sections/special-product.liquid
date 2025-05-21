@@ -127,6 +127,14 @@
                 >
                   {{- block.settings.text -}}
                 </p>
+              {%- when 'special_text' -%}
+                <p
+                  class="{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
+                  style = '{% if block.settings.custom_css %}'
+                  {{ block.shopify_attributes }}
+                >
+                  {{- block.settings.text -}}
+                </p>
               {%- when 'title' -%}
                 <div class="product__title" {{ block.shopify_attributes }}>
                   <h1>{{ product.title | escape }}</h1>
@@ -543,7 +551,7 @@
                 {% render 'variant-picker' %}
               {%- when 'll_what_youll_get' -%}
                 {% render 'what-youll-get' %}
-                
+
               {%- when 'll_product_details' -%}
                 {% if product.metafields.custom.details != blank %}
                   <div class="product__details">
@@ -1183,6 +1191,44 @@
           ],
           "default": "body",
           "label": "t:sections.main-product.blocks.text.settings.text_style.label"
+        }
+      ]
+    },
+    {
+      "type": "special_text",
+      "name": "t:sections.main-product.blocks.special_text.name",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "special_text",
+          "default": "t:sections.main-product.blocks.special_text.settings.text.default",
+          "label": "t:sections.main-product.blocks.special_text.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "body",
+              "label": "t:sections.main-product.blocks.special_text.settings.text_style.options__1.label"
+            },
+            {
+              "value": "subtitle",
+              "label": "t:sections.main-product.blocks.special_text.settings.text_style.options__2.label"
+            },
+            {
+              "value": "uppercase",
+              "label": "t:sections.main-product.blocks.special_text.settings.text_style.options__3.label"
+            }
+          ],
+          "default": "body",
+          "label": "t:sections.main-product.blocks.special_text.settings.text_style.label"
+        },
+        {
+          "type": "text",
+          "id": "custom_css",
+          "label": "t:sections.main-product.blocks.special_text.settings.text.label",
+          "default": "t:sections.main-product.blocks.special_text.settings.text.default"
         }
       ]
     },
