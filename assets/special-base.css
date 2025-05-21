@@ -3,7 +3,7 @@ body {
 }
 
 .testimonials__inner {
-  background: transparent;
+  background: transparent !important;
 }
 
 :root {
