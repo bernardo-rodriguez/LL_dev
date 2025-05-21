@@ -38,6 +38,10 @@
             "text_style": "body"
           }
         },
+        "ll_price_KGJKqc": {
+          "type": "ll_price",
+          "settings": {}
+        },
         "price": {
           "type": "price",
           "settings": {}
@@ -75,6 +79,7 @@
         "ll_shipping_and_returns_M3YmTx",
         "ll_stars_bgTQ6P",
         "text_yaUdnz",
+        "ll_price_KGJKqc",
         "price",
         "variant_picker",
         "quantity_selector",
