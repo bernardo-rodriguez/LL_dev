@@ -23,6 +23,14 @@
           "type": "title",
           "settings": {}
         },
+        "ll_stars_bgTQ6P": {
+          "type": "ll_stars",
+          "settings": {}
+        },
+        "ll_shipping_and_returns_M3YmTx": {
+          "type": "ll_shipping_and_returns",
+          "settings": {}
+        },
         "price": {
           "type": "price",
           "settings": {}
@@ -60,6 +68,8 @@
       "block_order": [
         "vendor",
         "title",
+        "ll_stars_bgTQ6P",
+        "ll_shipping_and_returns_M3YmTx",
         "price",
         "variant_picker",
         "quantity_selector",
@@ -68,6 +78,7 @@
         "share"
       ],
       "settings": {
+        "atc": "Buy Now",
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_size": "medium",
