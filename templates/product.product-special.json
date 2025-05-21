@@ -12,6 +12,14 @@
     "main": {
       "type": "special-product",
       "blocks": {
+        "special_text_b3XcEP": {
+          "type": "special_text",
+          "settings": {
+            "special_text": "Limited Special",
+            "text_style": "subtitle",
+            "custom_css": ""
+          }
+        },
         "vendor": {
           "type": "text",
           "settings": {
@@ -87,6 +95,7 @@
         }
       },
       "block_order": [
+        "special_text_b3XcEP",
         "vendor",
         "title",
         "ll_shipping_and_returns_M3YmTx",
