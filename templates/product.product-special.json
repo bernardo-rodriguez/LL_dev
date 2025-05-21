@@ -93,9 +93,38 @@
         "padding_top": 88,
         "padding_bottom": 12
       }
+    },
+    "carousel_BPDG9g": {
+      "type": "carousel",
+      "blocks": {
+        "slide_NbQWjT": {
+          "type": "slide",
+          "settings": {
+            "svg": "",
+            "png": "shopify://shop_images/2560px-Womenshealthlogo_blue_2bc1baf4-cd78-4578-a6d0-94c86b9800a3.png",
+            "text": "“My personal favorite, I love how easy Laughland is to use”"
+          }
+        },
+        "slide_rGP4JN": {
+          "type": "slide",
+          "settings": {
+            "svg": "",
+            "png": "shopify://shop_images/instyle-logo.png",
+            "opacity": 2,
+            "text": "“not causing any increased sensitivity, so your teeth are in good hands”"
+          }
+        }
+      },
+      "block_order": [
+        "slide_NbQWjT",
+        "slide_rGP4JN"
+      ],
+      "name": "Carousel",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "main",
+    "carousel_BPDG9g"
   ]
 }
