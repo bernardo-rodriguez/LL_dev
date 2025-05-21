@@ -262,11 +262,17 @@
       ],
       "name": "Carousel",
       "settings": {}
+    },
+    "what_to_expect_9m8aj6": {
+      "type": "what-to-expect",
+      "name": "LL Expect",
+      "settings": {}
     }
   },
   "order": [
     "main",
     "logo_bar_8waKgk",
-    "carousel_BPDG9g"
+    "carousel_BPDG9g",
+    "what_to_expect_9m8aj6"
   ]
 }
