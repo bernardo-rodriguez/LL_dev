@@ -278,11 +278,6 @@
       "name": "LL Expect",
       "settings": {}
     },
-    "replo_product_how_to_use_bpLT4L": {
-      "type": "replo-product-how-to-use",
-      "name": "product-how-to-use",
-      "settings": {}
-    },
     "testimonials_kNjHQk": {
       "type": "testimonials",
       "blocks": {
@@ -342,6 +337,49 @@
         "formula_label": "Whitening Formula",
         "review_label": "Review"
       }
+    },
+    "replo_product_how_to_use_bpLT4L": {
+      "type": "replo-product-how-to-use",
+      "name": "product-how-to-use",
+      "settings": {}
+    },
+    "testing_results_aj63KR": {
+      "type": "testing-results",
+      "blocks": {
+        "card_kRkyQh": {
+          "type": "card",
+          "settings": {
+            "title": "100%",
+            "heading": "100% of clinical participants reported whiter teeth after only 6 treatments."
+          }
+        },
+        "card_d7HVix": {
+          "type": "card",
+          "settings": {
+            "title": "74%",
+            "heading": "Clinical participants reported, on average, a 74% increase in teeth brightness."
+          }
+        },
+        "card_hx8NJP": {
+          "type": "card",
+          "settings": {
+            "title": "0%",
+            "heading": "0% of clinical participants reported an increase in sensitivity after whitening."
+          }
+        }
+      },
+      "block_order": [
+        "card_kRkyQh",
+        "card_d7HVix",
+        "card_hx8NJP"
+      ],
+      "settings": {
+        "heading": "Believe {The Hype}",
+        "title": "Consumer Testing Results",
+        "image": "shopify://shop_images/Laughland_79400_1.jpg",
+        "link": "shopify://pages/science-of-teeth-whitening",
+        "link_text": "Learn More"
+      }
     }
   },
   "order": [
@@ -350,6 +388,7 @@
     "carousel_BPDG9g",
     "what_to_expect_9m8aj6",
     "testimonials_kNjHQk",
+    "testing_results_aj63KR",
     "replo_product_how_to_use_bpLT4L"
   ]
 }
