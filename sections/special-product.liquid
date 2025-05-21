@@ -537,6 +537,8 @@
                 {% render 'estimated_arrival_special' %}
               {%- when 'll_stars' -%}
                 {% render 'small-stars' %}
+              {%- when 'll_price' -%}
+                {% render 'price-special' %}
               {%- when 'quantity_selector' -%}
                 <div
                   id="Quantity-Form-{{ section.id }}"
@@ -1262,6 +1264,11 @@
     {
       "type": "ll_stars",
       "name": "t:sections.main-product.blocks.ll_stars.name",
+      "limit": 1
+    },
+     {
+      "type": "ll_price",
+      "name": "t:sections.main-product.blocks.ll_price.name",
       "limit": 1
     },
     {
