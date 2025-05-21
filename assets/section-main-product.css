@@ -234,7 +234,7 @@
   padding-top: 10px;
 }
 
-.product__details-inner {
+/* .product__details-inner {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr))
 }
@@ -263,7 +263,7 @@
 .product__detail-item .emoji {
   font-size: 25px;
   margin-right: 5px;
-}
+} */
 
 .discount--wrapper {
   display: flex;

@@ -63,3 +63,47 @@
     font-size: 12px;
   }
 }
+
+/* product details */
+
+
+.product__details {
+  margin-top: 60px;
+}
+
+@media screen and (max-width: 768px) {
+  .product__details {
+    margin-top: 40px;
+  }
+}
+
+.product__details-inner {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr))
+}
+
+.product__detail-item {
+  width: 100%;
+  padding: 18px 0;
+  border-bottom: 1px solid #CFD3DA;
+}
+
+.product__detail-item:last-of-type,
+.product__detail-item:nth-last-of-type(2){
+  border-bottom: 1px solid transparent;
+}
+
+.product__detail-item:nth-of-type(odd) {
+  padding-right: 18px;
+  border-right: 1px solid #CFD3DA;
+}
+
+.product__detail-item:nth-of-type(even) {
+  padding-left: 18px;
+  border-left: 1px solid #CFD3DA;
+}
+
+.product__detail-item .emoji {
+  font-size: 25px;
+  margin-right: 5px;
+}
