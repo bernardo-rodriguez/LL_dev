@@ -533,6 +533,10 @@
                     </div>
                   </details>
                 </div>
+              {%- when 'll_shipping_and_returns' -%}
+                {% render 'estimated_arrival' %}
+              {%- when 'll_stars' -%}
+                {% render 'small-stars' %}
               {%- when 'quantity_selector' -%}
                 <div
                   id="Quantity-Form-{{ section.id }}"
@@ -1248,6 +1252,16 @@
     {
       "type": "quantity_selector",
       "name": "t:sections.main-product.blocks.quantity_selector.name",
+      "limit": 1
+    },
+    {
+      "type": "ll_shipping_and_returns",
+      "name": "t:sections.main-product.blocks.ll_shipping_and_returns.name",
+      "limit": 1
+    },
+    {
+      "type": "ll_stars",
+      "name": "t:sections.main-product.blocks.ll_stars.name",
       "limit": 1
     },
     {
