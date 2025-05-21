@@ -1,5 +1,5 @@
 <div class="feature-section">
-    <h2>Here's what you'll get:</h2>
+    <h3 style = 'font-weight: 600; margin-bottom: 15px'>Here's what you'll get:</h3>
     <ul class="feature-list" id="featureList">
         <!-- Populated by JavaScript -->
     </ul>
@@ -14,7 +14,7 @@ const mushroomIcon = `
 `;
 
 // Define different features based on URL
-const url = window.location.href;
+let url_get = window.location.href;
 
 const defaultFeatures = [
     "6 Sessions of Whitening Gels",
@@ -33,7 +33,7 @@ const premiumFeatures = [
     "Less than $0.80 per cup"
 ];
 
-const features = url.includes("free-starter") ? premiumFeatures : defaultFeatures;
+const features = url_get.includes("free-starter") ? premiumFeatures : defaultFeatures;
 
 // Populate list
 const list = document.getElementById("featureList");
