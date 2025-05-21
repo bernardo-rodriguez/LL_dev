@@ -37,6 +37,7 @@ const features = url_get.includes("free-starter") ? premiumFeatures : defaultFea
 
 // Populate list
 const list = document.getElementById("featureList");
+
 features.forEach(text => {
     const li = document.createElement("li");
     li.className = "feature-item";
