@@ -16,12 +16,13 @@
           "type": "special_text",
           "settings": {
             "special_text": "Limited Special",
-            "text_style": "subtitle",
+            "text_style": "uppercase",
             "custom_css": ""
           }
         },
         "vendor": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "{{ product.vendor }}",
             "text_style": "uppercase"
