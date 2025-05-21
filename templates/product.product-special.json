@@ -282,6 +282,66 @@
       "type": "replo-product-how-to-use",
       "name": "product-how-to-use",
       "settings": {}
+    },
+    "testimonials_kNjHQk": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_XCRda3": {
+          "type": "testimonial",
+          "settings": {
+            "heading": "Lesley",
+            "before_photo": "shopify://shop_images/IMG_0705.jpg",
+            "after_photo": "shopify://shop_images/LesleyAfter.jpg",
+            "customer_info": "User Since October 2023",
+            "customer_info_refill": "User Since October 2023 (3 refill cycles)",
+            "profile": "{😣} Medium Sensitivity\n{🍷} Wine Drinker\n{🦷} Years of Stains",
+            "formula": "Formula 8-16, Hydrogen Peroxide 8%",
+            "refill_formula": "Extra Strength",
+            "review": "“I had to come here to say something. Normally I have excruciating pain with crest white strips and this other brand I got from the dentist. Both of which didn’t whiten my teeth very much. So, I had low hopes for Laughland. I got the formula made for highest sensitivity, and I left it on for I think 12 minutes. Just after the first day my teeth look 2 shades whiter. I’m actually really shocked. Usually the sensitivity hits me several hours after whitening my teeth, and it’s now the next morning and I guess I’m all clear. Thanks Laughland!”"
+          }
+        },
+        "testimonial_ABVRTb": {
+          "type": "testimonial",
+          "settings": {
+            "heading": "Brisa",
+            "before_photo": "shopify://shop_images/Brisa5.jpg",
+            "after_photo": "shopify://shop_images/BrisaAfter.jpg",
+            "customer_info": "User Since December 2022",
+            "customer_info_refill": "User Since December 2022 (4 refill cycles)",
+            "profile": "{😣} High Sensitivity\n{☕} Coffee Addict\n{🦷} Light-Brown Stains",
+            "formula": "Formula 19-2, Sodium Bicarbonate 23%",
+            "refill_formula": "Standard Strength",
+            "review": "I look at my teeth in shock almost daily now. I can’t believe how well this product works, and it’s lasting without daily use. I will forever have this in my closet."
+          }
+        },
+        "testimonial_GJ78rV": {
+          "type": "testimonial",
+          "settings": {
+            "heading": "Neha",
+            "before_photo": "shopify://shop_images/IMG_0007.jpg",
+            "after_photo": "shopify://shop_images/NehaAfter.jpg",
+            "customer_info": "User Since January 2023",
+            "customer_info_refill": "User Since January 2023 (2 refill cycles)",
+            "profile": "{😄} Zero Sensitivity\n{☕} Light Coffee Drinker\n{🦷} Deep Stains",
+            "formula": "Formula 8-17, Hydrogen Peroxide 11%",
+            "refill_formula": "Extra Strength",
+            "review": "Hands down the best whitening system I have ever used! I was skeptical at first because I have veneers but this was able to whiten the rest of my teeth to almost as white as those! It was so fast and easy. I already ordered a refill pack!"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_XCRda3",
+        "testimonial_ABVRTb",
+        "testimonial_GJ78rV"
+      ],
+      "settings": {
+        "heading": "Results that {Shine}",
+        "heading_refill": "Results from a {Routine}",
+        "text": "",
+        "profile_label": "Customer Profile",
+        "formula_label": "Whitening Formula",
+        "review_label": "Review"
+      }
     }
   },
   "order": [
@@ -289,6 +349,7 @@
     "logo_bar_8waKgk",
     "carousel_BPDG9g",
     "what_to_expect_9m8aj6",
+    "testimonials_kNjHQk",
     "replo_product_how_to_use_bpLT4L"
   ]
 }
