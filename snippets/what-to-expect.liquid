@@ -1,0 +1,144 @@
+<div class="box-container">
+  <div class="box-image">
+    <img src="https://via.placeholder.com/300x300.png?text=Product+Image" alt="Product image">
+  </div>
+  <div class="box-content">
+    <h2>📦 What's in the box?</h2>
+
+    <div class="box-feature">
+      <div class="box-feature-icon">🪥</div>
+      <div class="box-feature-content">
+        <strong>6 Treatments</strong>
+        <span>Dentist-formulated for safe, effective whitening</span>
+      </div>
+    </div>
+
+    <div class="box-feature">
+      <div class="box-feature-icon">⭐</div>
+      <div class="box-feature-content">
+        <strong>5+ Shades Brighter</strong>
+        <span>Noticeably whiter teeth after completing the kit</span>
+      </div>
+    </div>
+
+    <div class="box-feature">
+      <div class="box-feature-icon">💧</div>
+      <div class="box-feature-content">
+        <strong>8% Hydrogen Peroxide</strong>
+        <span>Professional strength for powerful whitening</span>
+      </div>
+    </div>
+
+    <div class="box-expect">
+      <div class="box-expect-icon">😊</div>
+      <div class="box-expect-content">
+        <strong>What to Expect</strong>
+        Reveal your brightest smile in just 6 easy treatments. Most customers see a visibly whiter, more radiant smile—up to 5+ shades brighter—by the end of the kit. Safe for sensitive teeth and formulated by dental professionals.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+
+    .box-container {
+      display: flex;
+      flex-wrap: wrap;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .box-image {
+      flex: 1 1 300px;
+      background: #cfeeff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .box-image img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .box-content {
+      flex: 1 1 400px;
+      padding: 40px;
+      background: linear-gradient(to bottom right, #ffffff, #f5faff);
+    }
+
+    .box-content h2 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #123087;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .box-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .box-feature-icon {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+
+    .box-feature-content strong {
+      font-size: 16px;
+      display: block;
+    }
+
+    .box-feature-content span {
+      font-size: 14px;
+      color: #444;
+    }
+
+    .box-expect {
+      margin-top: 30px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .box-expect-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .box-expect-content {
+      font-size: 14px;
+      color: #333;
+    }
+
+    .box-expect-content strong {
+      color: #123087;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .box-container {
+        flex-direction: column;
+      }
+
+      .box-image, .box-content {
+        padding: 24px;
+      }
+    }
+  </style>

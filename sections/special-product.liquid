@@ -551,7 +551,8 @@
                 {% render 'variant-picker' %}
               {%- when 'll_what_youll_get' -%}
                 {% render 'what-youll-get' %}
-
+              {%- when 'll_what_to_expect' -%}
+                {% render 'what-to-expect' %}
               {%- when 'll_product_details' -%}
                 {% if product.metafields.custom.details != blank %}
                   <div class="product__details">
@@ -1334,6 +1335,11 @@
     {
       "type": "ll_what_youll_get",
       "name": "t:sections.main-product.blocks.ll_what_youll_get.name",
+      "limit": 1
+    },
+    {
+      "type": "ll_what_to_expect",
+      "name": "t:sections.main-product.blocks.ll_what_to_expect.name",
       "limit": 1
     },
     {
