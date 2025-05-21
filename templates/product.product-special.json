@@ -31,6 +31,13 @@
           "type": "ll_stars",
           "settings": {}
         },
+        "text_yaUdnz": {
+          "type": "text",
+          "settings": {
+            "text": "Meet the fastest growing alternative to regular coffee and stimulants that combines functional mushrooms, collagen protein, and nootropics to <strong>promote laser focus, improved mood, all-day energy, and reduced stress.</strong>",
+            "text_style": "body"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {}
@@ -70,6 +77,7 @@
         "title",
         "ll_shipping_and_returns_M3YmTx",
         "ll_stars_bgTQ6P",
+        "text_yaUdnz",
         "price",
         "variant_picker",
         "quantity_selector",
