@@ -64,19 +64,20 @@ features.forEach(text => {
     }
 
     .feature-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin-bottom: 12px;
+        display: flex;
+        align-items: flex-start;
+        gap: 2px;
+        {% comment %} margin-bottom: 12px; {% endcomment %}
     }
 
     .feature-icon {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        margin-top: 2px; /* ✅ align with top of text block */
+        flex-shrink: 0;
     }
 
-    .feature-text strong {
-      font-weight: bold;
+    .feature-text {
+        line-height: 1.4;
     }
   </style>
