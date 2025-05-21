@@ -70,6 +70,14 @@
             "show_gift_card_recipient": false
           }
         },
+        "ll_product_details_rTcGdQ": {
+          "type": "ll_product_details",
+          "settings": {}
+        },
+        "ll_how_to_use_6aP7Ge": {
+          "type": "ll_how_to_use",
+          "settings": {}
+        },
         "share": {
           "type": "share",
           "disabled": true,
@@ -90,6 +98,8 @@
         "ll_what_youll_get_MXxdrC",
         "quantity_selector",
         "buy_buttons",
+        "ll_product_details_rTcGdQ",
+        "ll_how_to_use_6aP7Ge",
         "share"
       ],
       "settings": {
