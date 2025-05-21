@@ -266,7 +266,21 @@
     },
     "what_to_expect_9m8aj6": {
       "type": "what-to-expect",
+      "blocks": {
+        "ll_expect_TXD69V": {
+          "type": "ll_expect",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "ll_expect_TXD69V"
+      ],
       "name": "LL Expect",
+      "settings": {}
+    },
+    "replo_product_how_to_use_bpLT4L": {
+      "type": "replo-product-how-to-use",
+      "name": "product-how-to-use",
       "settings": {}
     }
   },
@@ -274,6 +288,7 @@
     "main",
     "logo_bar_8waKgk",
     "carousel_BPDG9g",
-    "what_to_expect_9m8aj6"
+    "what_to_expect_9m8aj6",
+    "replo_product_how_to_use_bpLT4L"
   ]
 }
