@@ -130,7 +130,7 @@
               {%- when 'special_text' -%}
                 <p
                   class="{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
-                  style = '{{ block.settings.custom_css }} %}'
+                  style = '{{ block.settings.custom_css }}'
                   {{ block.shopify_attributes }}
                 >
                   {{- block.settings.text -}}
