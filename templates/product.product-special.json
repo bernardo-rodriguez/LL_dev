@@ -390,42 +390,6 @@
       "name": "product-how-to-use",
       "settings": {}
     },
-    "results_carousel_Dk7mCW": {
-      "type": "results-carousel",
-      "blocks": {
-        "results_4rGGU4": {
-          "type": "results",
-          "settings": {
-            "heading": "View",
-            "before_photo": "shopify://shop_images/Before_and_After_2_Short.png",
-            "before_label": "",
-            "after_photo": "shopify://shop_images/Before_and_After_2_Short.png",
-            "after_label": ""
-          }
-        },
-        "results_bMFhzt": {
-          "type": "results",
-          "settings": {
-            "heading": "View",
-            "before_photo": "shopify://shop_images/PopUp_Image.webp",
-            "before_label": "",
-            "after_photo": "shopify://shop_images/two_kits.png",
-            "after_label": ""
-          }
-        }
-      },
-      "block_order": [
-        "results_4rGGU4",
-        "results_bMFhzt"
-      ],
-      "name": "Results Carousel",
-      "settings": {
-        "heading": "hi",
-        "text": "",
-        "btn": "",
-        "btn_text": ""
-      }
-    },
     "17478665286aeba721": {
       "type": "apps",
       "blocks": {
@@ -450,7 +414,6 @@
     "testimonials_kNjHQk",
     "testing_results_aj63KR",
     "replo_product_how_to_use_bpLT4L",
-    "results_carousel_Dk7mCW",
     "17478665286aeba721"
   ]
 }
