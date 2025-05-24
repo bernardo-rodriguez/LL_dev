@@ -267,12 +267,21 @@
     "what_to_expect_9m8aj6": {
       "type": "what-to-expect",
       "blocks": {
+        "slide_Hq4fXf": {
+          "type": "slide",
+          "settings": {
+            "svg": "",
+            "png": "shopify://shop_images/Before_and_After_2_Short.png",
+            "text": ""
+          }
+        },
         "ll_expect_TXD69V": {
           "type": "ll_expect",
           "settings": {}
         }
       },
       "block_order": [
+        "slide_Hq4fXf",
         "ll_expect_TXD69V"
       ],
       "name": "LL Expect",
