@@ -98,21 +98,24 @@
       margin: auto;
       padding-bottom: 50px;
       padding-top: 20px;
+      max-width: 1200px;
     }
 
     .box-image {
-      flex: 1 1 50%;
+      flex: 0 0 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-width: 400px;
+      width: 50%;
+      max-width: 600px;
     }
 
     .box-content {
-      flex: 1 1 50%;
+      flex: 0 0 50%;
       padding: 40px;
       background: linear-gradient(to bottom right, #ffffff, #f5faff);
-      min-width: 400px;
+      width: 50%;
+      max-width: 600px;
     }
 
     .box-content h2 {
@@ -270,8 +273,9 @@
 
     @media screen and (max-width: 991px) {
       .box-image, .box-content {
-        flex: 1 1 100%;
-        min-width: 100%;
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
       }
 
       .carousel__slide-text {
