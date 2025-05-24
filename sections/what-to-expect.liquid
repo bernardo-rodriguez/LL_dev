@@ -9,44 +9,46 @@
 
     <div class="box-image">
       <div class="carousel">
-        <div class="carousel__inner">
-          <div class="carousel-instance swiper">
-            <div class="swiper-wrapper">
-              {% for block in section.blocks %}
-                <div class="swiper-slide">
-                  <div class="carousel-slide-inner">
-                    {% if block.settings.svg != blank %}
-                      <div class="carousel-image">
-                        {{ block.settings.svg }}
-                      </div>
-                    {% elsif block.settings.png != blank %}
-                      <div class="carousel-image">
-                        <img
-                          srcset="
-                            {{ block.settings.png | image_url: width: 400 }} 400w,
-                            {{ block.settings.png | image_url: width: 600 }} 600w,
-                            {{ block.settings.png | image_url: width: 800 }} 800w,
-                            {{ block.settings.png | image_url: width: 1200 }} 1200w"
-                          sizes="(max-width: 768px) 400px,
-                                 (max-width: 991px) 600px,
-                                 800px"
-                          src="{{ block.settings.png | image_url: width: 800}}"
-                          loading="lazy"
-                          width="800"
-                          height="800"
-                          alt="{{ block.settings.png.alt | escape }}"
-                          {% if block.settings.opacity != blank %}style="opacity: 0.{{ block.settings.opacity }}"{% endif %}
-                        >
-                      </div>
-                    {% endif %}
-                    <h3 class="carousel__slide-text m-h5">{{ block.settings.text }}</h3>
+        <div class="page-width">
+          <div class="carousel__inner">
+            <div class="carousel-instance swiper">
+              <div class="swiper-wrapper">
+                {% for block in section.blocks %}
+                  <div class="swiper-slide">
+                    <div class="carousel__slide-content">
+                      {% if block.settings.svg != blank %}
+                        <div class="carousel-image">
+                          {{ block.settings.svg }}
+                        </div>
+                      {% elsif block.settings.png != blank %}
+                        <div class="carousel-image">
+                          <img
+                            srcset="
+                              {{ block.settings.png | image_url: width: 400 }} 400w,
+                              {{ block.settings.png | image_url: width: 600 }} 600w,
+                              {{ block.settings.png | image_url: width: 800 }} 800w,
+                              {{ block.settings.png | image_url: width: 1200 }} 1200w"
+                            sizes="(max-width: 768px) 400px,
+                                   (max-width: 991px) 600px,
+                                   800px"
+                            src="{{ block.settings.png | image_url: width: 800}}"
+                            loading="lazy"
+                            width="800"
+                            height="800"
+                            alt="{{ block.settings.png.alt | escape }}"
+                            {% if block.settings.opacity != blank %}style="opacity: 0.{{ block.settings.opacity }}"{% endif %}
+                          >
+                        </div>
+                      {% endif %}
+                      <h3 class="carousel__slide-text m-h5">{{ block.settings.text }}</h3>
+                    </div>
                   </div>
-                </div>
-              {% endfor %}
+                {% endfor %}
+              </div>
+              <div class="swiper-pagination carousel-pagination"></div>
             </div>
-            <div class="swiper-pagination carousel-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev carousel-prev"></div>
+            <div class="swiper-button-next carousel-next"></div>
           </div>
         </div>
       </div>
@@ -313,18 +315,17 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    new Swiper('.carousel-instance', {
+    const carousel = new Swiper('.carousel-instance', {
       slidesPerView: 1,
       spaceBetween: 30,
       loop: true,
       pagination: {
         el: '.carousel-pagination',
         type: 'bullets',
-        clickable: true
       },
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
+        nextEl: '.carousel-next',
+        prevEl: '.carousel-prev',
       },
       autoplay: {
         delay: 5000,

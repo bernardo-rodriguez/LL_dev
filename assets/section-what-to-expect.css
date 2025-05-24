@@ -1,5 +1,5 @@
 .what-to-expect .carousel {
-  width: 100%;
+  margin: 0;
 }
 
 .what-to-expect .carousel__inner {
@@ -11,29 +11,16 @@
 .what-to-expect .carousel-instance {
   grid-column: 2/3;
   width: 100%;
-  overflow: hidden;
-  position: relative;
 }
 
-.what-to-expect .swiper-wrapper {
-  display: flex;
-  align-items: center;
+.what-to-expect .carousel__slide-content {
+  text-align: center;
 }
 
-.what-to-expect .swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-}
-
-.what-to-expect .carousel-slide-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
+.what-to-expect .carousel__slide-text {
+  padding: 40px 0;
+  max-width: 660px;
+  margin: auto;
 }
 
 .what-to-expect .carousel-image {
@@ -54,32 +41,17 @@
   border-radius: 20px;
 }
 
-.what-to-expect .carousel__slide-text {
-  padding: 20px 0;
-  max-width: 660px;
-  margin: auto;
-  text-align: center;
+.what-to-expect .carousel-prev {
+  grid-column: 1/2;
+}
+
+.what-to-expect .carousel-next {
+  grid-column: 3/4;
 }
 
 .what-to-expect .swiper-button-prev,
 .what-to-expect .swiper-button-next {
   color: var(--navy);
-}
-
-.what-to-expect .swiper-button-prev {
-  grid-column: 1/2;
-  left: 0;
-}
-
-.what-to-expect .swiper-button-next {
-  grid-column: 3/4;
-  right: 0;
-}
-
-.what-to-expect .swiper-pagination {
-  position: relative;
-  bottom: 0;
-  margin-top: 20px;
 }
 
 .what-to-expect .swiper-pagination-bullet {
