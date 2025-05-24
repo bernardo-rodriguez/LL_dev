@@ -1,4 +1,5 @@
 {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+{{ 'section-what-to-expect.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
 
 <section class="what-to-expect">
@@ -41,7 +42,7 @@
                 </div>
               {% endfor %}
             </div>
-            <div class="swiper-pagination swiper-pagination-bullets"></div>
+            <div class="swiper-pagination carousel-pagination"></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
           </div>
@@ -253,34 +254,16 @@
       right: 0;
     }
 
-    .swiper-pagination.swiper-pagination-bullets {
-      position: relative !important;
-      bottom: 0 !important;
-      margin-top: 20px !important;
-      display: flex !important;
-      justify-content: center !important;
-      width: 100% !important;
-      z-index: 10 !important;
-      padding: 10px 0 !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-    }
-
     .swiper-pagination-bullet {
-      position: relative !important;
-      background: #CFD3DA !important;
-      width: 12px !important;
-      height: 12px !important;
-      opacity: 1 !important;
-      margin: 0 5px !important;
-      display: inline-block !important;
-      visibility: visible !important;
-      border-radius: 50% !important;
+      background-color: #CFD3DA;
+      width: 9px;
+      height: 9px;
+      opacity: 1;
     }
 
     .swiper-pagination-bullet-active {
-      background: var(--navy) !important;
-      opacity: 1 !important;
+      background-color: var(--navy);
+      opacity: 1;
     }
 
     .carousel-instance .swiper-pagination {
@@ -333,11 +316,9 @@
       spaceBetween: 30,
       loop: true,
       pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
+        el: '.carousel-pagination',
         type: 'bullets',
-        bulletClass: 'swiper-pagination-bullet',
-        bulletActiveClass: 'swiper-pagination-bullet-active'
+        clickable: true
       },
       navigation: {
         nextEl: '.swiper-button-next',
