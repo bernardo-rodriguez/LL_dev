@@ -115,6 +115,7 @@
       grid-column: 2/3;
       width: 100%;
       overflow: hidden;
+      padding-bottom: 50px;
     }
 
     .what-to-expect .swiper-wrapper {
@@ -142,13 +143,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-bottom: 20px;
     }
 
     .what-to-expect .carousel-image img {
       max-width: 100%;
       height: auto;
       width: auto;
-      max-height: 300px;
+      max-height: 400px;
       object-fit: contain;
     }
 
@@ -184,6 +186,10 @@
     .what-to-expect .swiper-pagination-bullet-active {
       background-color: var(--navy);
       opacity: 1;
+    }
+
+    .what-to-expect .swiper-pagination {
+      bottom: 0 !important;
     }
 
     .box-content {
@@ -272,6 +278,10 @@
       
       .what-to-expect .carousel-slide-inner {
         padding: 10px;
+      }
+
+      .what-to-expect .carousel-image img {
+        max-height: 300px;
       }
     }
 </style>
