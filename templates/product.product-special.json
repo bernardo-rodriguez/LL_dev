@@ -351,6 +351,7 @@
         "testimonial_ABVRTb",
         "testimonial_GJ78rV"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Results that {Shine}",
         "heading_refill": "Results from a {Routine}",
