@@ -313,28 +313,23 @@
     }
 </style>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    new Swiper('.carousel-instance', {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      loop: true,
-      pagination: {
-        el: '.carousel-pagination',
-        clickable: true,
-        type: 'bullets'
-      },
-      navigation: {
-        nextEl: '.carousel-next',
-        prevEl: '.carousel-prev'
-      },
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false
-      }
-    });
+{% javascript %}
+  const carousel = new Swiper('.carousel-instance', {
+    slidesPerView: 1,
+    autoplay: {
+      speed: 7000,
+    },
+    loop: true,
+    navigation: {
+      nextEl: '.carousel-next',
+      prevEl: '.carousel-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+    },
   });
-</script>
+{% endjavascript %}
 
 {% schema %}
 {
