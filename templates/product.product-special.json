@@ -290,17 +290,12 @@
             "png": "shopify://shop_images/Group_427.webp",
             "text": ""
           }
-        },
-        "ll_expect_TXD69V": {
-          "type": "ll_expect",
-          "settings": {}
         }
       },
       "block_order": [
         "slide_Hq4fXf",
         "slide_ygBAaY",
-        "slide_jygWgL",
-        "ll_expect_TXD69V"
+        "slide_jygWgL"
       ],
       "name": "LL Expect",
       "settings": {}
