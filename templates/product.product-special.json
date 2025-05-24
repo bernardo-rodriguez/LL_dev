@@ -116,7 +116,7 @@
         "atc": "Buy Now",
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
-        "media_size": "medium",
+        "media_size": "small",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_layout": "thumbnail",
@@ -351,6 +351,7 @@
         "testimonial_ABVRTb",
         "testimonial_GJ78rV"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Results that {Shine}",
         "heading_refill": "Results from a {Routine}",
