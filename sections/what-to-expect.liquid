@@ -5,7 +5,7 @@
   <div class="box-container">
 
     <div class="box-image">
-      <section class="carousel">
+      <div class="carousel">
         <div class="carousel__inner">
           <div class="carousel-instance swiper">
             <div class="swiper-wrapper">
@@ -46,7 +46,7 @@
             <div class="swiper-button-next"></div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
 
     <div class="box-content">
@@ -172,37 +172,36 @@
       margin-bottom: 4px;
     }
 
-    /* Carousel specific styles */
-    .what-to-expect .carousel {
+    .carousel {
       width: 100%;
     }
 
-    .what-to-expect .carousel__inner {
+    .carousel__inner {
       display: grid;
       grid-template-columns: 50px minmax(0, 1fr) 50px;
       position: relative;
     }
 
-    .what-to-expect .carousel-instance {
+    .carousel-instance {
       grid-column: 2/3;
       width: 100%;
       overflow: hidden;
       position: relative;
     }
 
-    .what-to-expect .swiper-wrapper {
+    .swiper-wrapper {
       display: flex;
       align-items: center;
     }
 
-    .what-to-expect .swiper-slide {
+    .swiper-slide {
       display: flex;
       justify-content: center;
       align-items: center;
       height: auto;
     }
 
-    .what-to-expect .carousel-slide-inner {
+    .carousel-slide-inner {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -211,7 +210,7 @@
       margin: 0 auto;
     }
 
-    .what-to-expect .carousel-image {
+    .carousel-image {
       width: 100%;
       display: flex;
       justify-content: center;
@@ -221,7 +220,7 @@
       border-radius: 30px;
     }
 
-    .what-to-expect .carousel-image img {
+    .carousel-image img {
       width: 100%;
       height: auto;
       max-width: 500px;
@@ -229,41 +228,41 @@
       border-radius: 20px;
     }
 
-    .what-to-expect .carousel__slide-text {
+    .carousel__slide-text {
       padding: 20px 0;
       max-width: 660px;
       margin: auto;
       text-align: center;
     }
 
-    .what-to-expect .swiper-button-prev,
-    .what-to-expect .swiper-button-next {
+    .swiper-button-prev,
+    .swiper-button-next {
       color: var(--navy);
     }
 
-    .what-to-expect .swiper-button-prev {
+    .swiper-button-prev {
       grid-column: 1/2;
       left: 0;
     }
 
-    .what-to-expect .swiper-button-next {
+    .swiper-button-next {
       grid-column: 3/4;
       right: 0;
     }
 
-    .what-to-expect .swiper-pagination-bullet {
+    .swiper-pagination-bullet {
       background-color: #CFD3DA;
       width: 9px;
       height: 9px;
       opacity: 1;
     }
 
-    .what-to-expect .swiper-pagination-bullet-active {
+    .swiper-pagination-bullet-active {
       background-color: var(--navy);
       opacity: 1;
     }
 
-    .what-to-expect .swiper-pagination {
+    .swiper-pagination {
       position: relative;
       bottom: 0 !important;
       margin-top: 20px;
@@ -275,32 +274,32 @@
         min-width: 100%;
       }
 
-      .what-to-expect .carousel__slide-text {
+      .carousel__slide-text {
         font-size: 30px;
         padding: 40px 20px;
       }
     }
 
     @media screen and (max-width: 768px) {
-      .what-to-expect .carousel__inner {
+      .carousel__inner {
         grid-template-columns: 20px minmax(0, 1fr) 20px;
       }
 
-      .what-to-expect .carousel__slide-text {
+      .carousel__slide-text {
         font-size: 20px;
         padding: 35px 20px;
       }
 
-      .what-to-expect .carousel {
+      .carousel {
         margin: 30px 0;
       }
 
-      .what-to-expect .carousel-image {
+      .carousel-image {
         min-height: 300px;
         border-radius: 20px;
       }
 
-      .what-to-expect .carousel-image img {
+      .carousel-image img {
         border-radius: 15px;
       }
     }
