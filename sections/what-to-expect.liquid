@@ -41,7 +41,7 @@
                 </div>
               {% endfor %}
             </div>
-            <div class="swiper-pagination"></div>
+            <div class="swiper-pagination swiper-pagination-bullets"></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
           </div>
@@ -259,16 +259,18 @@
       margin-top: 20px;
       display: flex;
       justify-content: center;
-      width: 100%;
-      z-index: 1;
+      width: 100% !important;
+      z-index: 10;
+      padding: 10px 0;
     }
 
     .swiper-pagination-bullet {
       background-color: #CFD3DA;
-      width: 9px;
-      height: 9px;
+      width: 10px;
+      height: 10px;
       opacity: 1;
       margin: 0 5px;
+      display: inline-block;
     }
 
     .swiper-pagination-bullet-active {
@@ -322,7 +324,10 @@
       loop: true,
       pagination: {
         el: '.swiper-pagination',
-        clickable: true
+        clickable: true,
+        type: 'bullets',
+        bulletClass: 'swiper-pagination-bullet',
+        bulletActiveClass: 'swiper-pagination-bullet-active'
       },
       navigation: {
         nextEl: '.swiper-button-next',
