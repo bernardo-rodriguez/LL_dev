@@ -54,11 +54,19 @@
   color: var(--navy);
 }
 
+.what-to-expect .swiper-pagination {
+  position: static;
+  bottom: auto;
+  left: auto;
+  margin-top: 20px;
+}
+
 .what-to-expect .swiper-pagination-bullet {
   background-color: #CFD3DA;
   width: 9px;
   height: 9px;
   opacity: 1;
+  margin: 0 5px;
 }
 
 .what-to-expect .swiper-pagination-bullet-active {
