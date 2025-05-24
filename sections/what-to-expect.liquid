@@ -1,45 +1,45 @@
-{{ 'section-carousel.css' | asset_url | stylesheet_tag }}
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
 
 <section class="what-to-expect">
   <div class="box-container">
 
     <div class="box-image">
       <section class="carousel">
-          <div class="carousel__inner">
-            <div class="carousel-instance swiper">
-              <div class="swiper-wrapper">
-                {% for block in section.blocks %}
-                  <div class="swiper-slide">
-                    <div>
-                      {% if block.settings.svg != blank %}
+        <div class="carousel__inner">
+          <div class="carousel-instance swiper">
+            <div class="swiper-wrapper">
+              {% for block in section.blocks %}
+                <div class="swiper-slide">
+                  <div class="carousel-slide-inner">
+                    {% if block.settings.svg != blank %}
+                      <div class="carousel-image">
                         {{ block.settings.svg }}
-                      {% elsif block.settings.png != blank %}
+                      </div>
+                    {% elsif block.settings.png != blank %}
+                      <div class="carousel-image">
                         <img
-                          srcset="{{ block.settings.png | image_url: width: 300 }} 1x, {{ block.settings.png | image_url: width: 300, scale: 2 }} 2x"
+                          srcset="{{ block.settings.png | image_url: width: 300 }} 1x, {{ block.settings.png | image_url: width: 600 }} 2x"
                           src="{{ block.settings.png | image_url: width: 300}}"
                           loading="lazy"
-                          class="header__heading-logo"
-                          width="{{ block.settings.png.width }}"
-                          height="{{ block.settings.png.height }}"
-                          alt="{{ block.settings.png.alt }}"
-                          {% if block.settings.opacity != blank%}style="opacity: 0.{{ block.settings.opacity }}"{% endif %}
+                          width="300"
+                          height="300"
+                          alt="{{ block.settings.png.alt | escape }}"
+                          {% if block.settings.opacity != blank %}style="opacity: 0.{{ block.settings.opacity }}"{% endif %}
                         >
-                      {% endif %}
-
-                      <h3 class="carousel__slide-text m-h5">{{ block.settings.text }}</h3>
-                    </div>
+                      </div>
+                    {% endif %}
+                    <h3 class="carousel__slide-text m-h5">{{ block.settings.text }}</h3>
                   </div>
-                {% endfor %}
-              </div>
-
-              <div class="swiper-pagination carousel-pagination"></div>
+                </div>
+              {% endfor %}
             </div>
-            <div class="swiper-button-prev carousel-prev hide-mobile"></div>
-            <div class="swiper-button-next carousel-next hide-mobile"></div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
           </div>
+        </div>
       </section>
-
-
     </div>
 
     <div class="box-content">
@@ -82,13 +82,11 @@
 </section>
 
 <style>
-
     .box-container {
       display: flex;
       flex-wrap: wrap;
       background: white;
       border-radius: 16px;
-      {% comment %} box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); {% endcomment %}
       overflow: hidden;
       margin: auto;
       padding-bottom: 50px;
@@ -97,18 +95,95 @@
 
     .box-image {
       flex: 1 1 300px;
-      {% comment %} background: #cfeeff; {% endcomment %}
       display: flex;
       align-items: center;
       justify-content: center;
-      {% comment %} padding: 40px; {% endcomment %}
     }
 
-    .box-image img {
+    /* Carousel specific styles */
+    .what-to-expect .carousel {
       width: 100%;
-      max-width: 320px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .what-to-expect .carousel__inner {
+      display: grid;
+      grid-template-columns: 50px minmax(0, 1fr) 50px;
+      position: relative;
+    }
+
+    .what-to-expect .carousel-instance {
+      grid-column: 2/3;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .what-to-expect .swiper-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    .what-to-expect .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+    }
+
+    .what-to-expect .carousel-slide-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .what-to-expect .carousel-image {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .what-to-expect .carousel-image img {
+      max-width: 100%;
+      height: auto;
+      width: auto;
+      max-height: 300px;
+      object-fit: contain;
+    }
+
+    .what-to-expect .carousel__slide-text {
+      padding: 20px 0;
+      max-width: 660px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .what-to-expect .swiper-button-prev,
+    .what-to-expect .swiper-button-next {
+      color: var(--navy);
+    }
+
+    .what-to-expect .swiper-button-prev {
+      grid-column: 1/2;
+      left: 0;
+    }
+
+    .what-to-expect .swiper-button-next {
+      grid-column: 3/4;
+      right: 0;
+    }
+
+    .what-to-expect .swiper-pagination-bullet {
+      background-color: #CFD3DA;
+      width: 9px;
+      height: 9px;
+      opacity: 1;
+    }
+
+    .what-to-expect .swiper-pagination-bullet-active {
+      background-color: var(--navy);
+      opacity: 1;
     }
 
     .box-content {
@@ -174,17 +249,54 @@
       margin-bottom: 4px;
     }
 
-    @media (max-width: 768px) {
-      .box-container {
-        flex-direction: column;
-      }
-
-      .box-image, .box-content {
-        padding: 24px;
+    @media screen and (max-width: 991px) {
+      .what-to-expect .carousel__slide-text {
+        font-size: 30px;
+        padding: 40px 20px;
       }
     }
-  </style>
 
+    @media screen and (max-width: 768px) {
+      .what-to-expect .carousel__inner {
+        grid-template-columns: 20px minmax(0, 1fr) 20px;
+      }
+
+      .what-to-expect .carousel__slide-text {
+        font-size: 20px;
+        padding: 35px 20px;
+      }
+
+      .what-to-expect .carousel {
+        margin: 30px 0;
+      }
+      
+      .what-to-expect .carousel-slide-inner {
+        padding: 10px;
+      }
+    }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    new Swiper('.carousel-instance', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      }
+    });
+  });
+</script>
 
 {% schema %}
 {
