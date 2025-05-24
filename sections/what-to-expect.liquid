@@ -45,7 +45,7 @@
                   </div>
                 {% endfor %}
               </div>
-              <div class="swiper-pagination carousel-pagination"></div>
+              <div class="swiper-pagination"></div>
             </div>
             <div class="swiper-button-prev carousel-prev"></div>
             <div class="swiper-button-next carousel-next"></div>
@@ -315,17 +315,18 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const carousel = new Swiper('.carousel-instance', {
+    new Swiper('.carousel-instance', {
       slidesPerView: 1,
       spaceBetween: 30,
       loop: true,
       pagination: {
         el: '.carousel-pagination',
-        type: 'bullets',
+        clickable: true,
+        type: 'bullets'
       },
       navigation: {
         nextEl: '.carousel-next',
-        prevEl: '.carousel-prev',
+        prevEl: '.carousel-prev'
       },
       autoplay: {
         delay: 5000,

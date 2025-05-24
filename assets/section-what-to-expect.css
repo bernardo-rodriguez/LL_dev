@@ -11,6 +11,8 @@
 .what-to-expect .carousel-instance {
   grid-column: 2/3;
   width: 100%;
+  position: relative;
+  padding-bottom: 40px;
 }
 
 .what-to-expect .carousel__slide-content {
@@ -55,10 +57,10 @@
 }
 
 .what-to-expect .swiper-pagination {
-  position: static;
-  bottom: auto;
-  left: auto;
-  margin-top: 20px;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  text-align: center;
 }
 
 .what-to-expect .swiper-pagination-bullet {
