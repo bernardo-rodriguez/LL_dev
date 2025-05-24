@@ -19,7 +19,14 @@
                     {% elsif block.settings.png != blank %}
                       <div class="carousel-image">
                         <img
-                          srcset="{{ block.settings.png | image_url: width: 800 }} 1x, {{ block.settings.png | image_url: width: 1600 }} 2x"
+                          srcset="
+                            {{ block.settings.png | image_url: width: 400 }} 400w,
+                            {{ block.settings.png | image_url: width: 600 }} 600w,
+                            {{ block.settings.png | image_url: width: 800 }} 800w,
+                            {{ block.settings.png | image_url: width: 1200 }} 1200w"
+                          sizes="(max-width: 768px) 400px,
+                                 (max-width: 991px) 600px,
+                                 800px"
                           src="{{ block.settings.png | image_url: width: 800}}"
                           loading="lazy"
                           width="800"
@@ -115,7 +122,7 @@
       grid-column: 2/3;
       width: 100%;
       overflow: hidden;
-      padding-bottom: 50px;
+      position: relative;
     }
 
     .what-to-expect .swiper-wrapper {
@@ -135,7 +142,7 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-      padding: 20px;
+      padding: 20px 40px;
     }
 
     .what-to-expect .carousel-image {
@@ -143,8 +150,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 0;
       min-height: 500px;
+      padding: 40px;
+      border-radius: 30px;
+      background: #f8f8f8;
     }
 
     .what-to-expect .carousel-image img {
@@ -153,6 +163,7 @@
       max-width: 800px;
       max-height: 800px;
       object-fit: contain;
+      border-radius: 20px;
     }
 
     .what-to-expect .carousel__slide-text {
@@ -190,7 +201,9 @@
     }
 
     .what-to-expect .swiper-pagination {
+      position: relative;
       bottom: 0 !important;
+      margin-top: 20px;
     }
 
     .box-content {
@@ -278,16 +291,19 @@
       }
       
       .what-to-expect .carousel-slide-inner {
-        padding: 10px;
+        padding: 10px 20px;
       }
 
       .what-to-expect .carousel-image {
         min-height: 300px;
+        padding: 20px;
+        border-radius: 20px;
       }
 
       .what-to-expect .carousel-image img {
         max-width: 500px;
         max-height: 500px;
+        border-radius: 15px;
       }
     }
 </style>
