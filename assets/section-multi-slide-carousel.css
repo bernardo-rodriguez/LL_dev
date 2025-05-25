@@ -38,19 +38,19 @@
   margin: 0 auto;
 }
 
-.multi-slide-carousel .swiper-button-prev,
-.multi-slide-carousel .swiper-button-next {
+.multi-slide-carousel__button-prev,
+.multi-slide-carousel__button-next {
   color: var(--color-base-text);
 }
 
-.multi-slide-carousel .swiper-pagination-bullet {
+.multi-slide-carousel__pagination .swiper-pagination-bullet {
   background-color: #CFD3DA;
   width: 9px;
   height: 9px;
   opacity: 1;
 }
 
-.multi-slide-carousel .swiper-pagination-bullet-active {
+.multi-slide-carousel__pagination .swiper-pagination-bullet-active {
   background-color: var(--color-base-text);
   opacity: 1;
 }
