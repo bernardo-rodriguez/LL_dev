@@ -4,14 +4,16 @@
 
 .multi-slide-carousel__inner {
   display: grid;
-  grid-template-columns: 50px minmax(0, 1fr) 50px;
+  grid-template-columns: minmax(0, 1fr);
   position: relative;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .multi-slide-carousel-instance {
-  grid-column: 2/3;
   width: 100%;
-  overflow: hidden;
+  position: relative;
+  padding: 0 40px;
 }
 
 .multi-slide-carousel__slide {
@@ -41,6 +43,25 @@
 .multi-slide-carousel__button-prev,
 .multi-slide-carousel__button-next {
   color: var(--color-base-text);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+}
+
+.multi-slide-carousel__button-prev {
+  left: 0;
+}
+
+.multi-slide-carousel__button-next {
+  right: 0;
+}
+
+.multi-slide-carousel__pagination {
+  position: relative;
+  bottom: 0;
+  margin-top: 20px;
 }
 
 .multi-slide-carousel__pagination .swiper-pagination-bullet {
@@ -48,6 +69,7 @@
   width: 9px;
   height: 9px;
   opacity: 1;
+  margin: 0 5px;
 }
 
 .multi-slide-carousel__pagination .swiper-pagination-bullet-active {
@@ -57,7 +79,7 @@
 
 @media screen and (max-width: 768px) {
   .multi-slide-carousel__inner {
-    grid-template-columns: 20px minmax(0, 1fr) 20px;
+    padding: 0;
   }
   
   .multi-slide-carousel {
@@ -66,5 +88,9 @@
   
   .multi-slide-carousel__description {
     font-size: 13px;
+  }
+
+  .multi-slide-carousel-instance {
+    padding: 0 20px;
   }
 } 

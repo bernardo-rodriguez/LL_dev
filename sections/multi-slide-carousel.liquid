@@ -40,12 +40,11 @@
           {% endfor %}
         </div>
         <div class="swiper-pagination multi-slide-carousel__pagination"></div>
+        <div class="swiper-button-prev multi-slide-carousel__button-prev"></div>
+        <div class="swiper-button-next multi-slide-carousel__button-next"></div>
       </div>
-      <div class="swiper-button-prev multi-slide-carousel__button-prev"></div>
-      <div class="swiper-button-next multi-slide-carousel__button-next"></div>
     </div>
   </div>
-  
 </section>
 
 {% javascript %}
@@ -54,8 +53,8 @@
     spaceBetween: 20,
     loop: true,
     navigation: {
-      nextEl: '#multiSlideCarousel-{{ section.id }} ~ .multi-slide-carousel__button-next',
-      prevEl: '#multiSlideCarousel-{{ section.id }} ~ .multi-slide-carousel__button-prev',
+      nextEl: '.multi-slide-carousel__button-next',
+      prevEl: '.multi-slide-carousel__button-prev',
     },
     pagination: {
       el: '.multi-slide-carousel__pagination',
