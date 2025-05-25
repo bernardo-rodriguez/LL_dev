@@ -3,7 +3,7 @@
 
 <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
 
-<section class="multi-slide-carousel">
+<section class="multi-slide-carousel" data-section-id="{{ section.id }}">
   <div class="page-width">
     <p>check updates2</p>
     <div class="multi-slide-carousel__inner">
@@ -49,59 +49,62 @@
 
 </section>
 
-{% javascript %}
-document.addEventListener('DOMContentLoaded', function() {
-  const initializeSwiper = function() {
-    const swiperElement = document.querySelector('#multiSlideCarousel-{{ section.id }}');
-    if (!swiperElement) return;
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const initializeSwiper = function(sectionId) {
+      const swiperElement = document.querySelector(`#multiSlideCarousel-${sectionId}`);
+      if (!swiperElement) return;
 
-    const multiSlideCarousel = new Swiper('#multiSlideCarousel-{{ section.id }}', {
-      slidesPerView: 'auto',
-      spaceBetween: 20,
-      loop: true,
-      navigation: {
-        nextEl: '.multi-slide-carousel__button-next',
-        prevEl: '.multi-slide-carousel__button-prev',
-      },
-      pagination: {
-        el: '.multi-slide-carousel__pagination',
-        type: 'bullets',
-        clickable: true
-      },
-      breakpoints: {
-        0: {
-          slidesPerView: 1,
-          spaceBetween: 20
+      const multiSlideCarousel = new Swiper(`#multiSlideCarousel-${sectionId}`, {
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+        loop: true,
+        navigation: {
+          nextEl: '.multi-slide-carousel__button-next',
+          prevEl: '.multi-slide-carousel__button-prev',
         },
-        768: {
-          slidesPerView: 3,
-          spaceBetween: 30
+        pagination: {
+          el: '.multi-slide-carousel__pagination',
+          type: 'bullets',
+          clickable: true
         },
-        990: {
-          slidesPerView: 4,
-          spaceBetween: 30
-        },
-        1200: {
-          slidesPerView: 6,
-          spaceBetween: 40
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 20
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 30
+          },
+          990: {
+            slidesPerView: 4,
+            spaceBetween: 30
+          },
+          1200: {
+            slidesPerView: 6,
+            spaceBetween: 40
+          }
         }
+      });
+    };
+
+    // Initialize all multi-slide carousels on the page
+    document.querySelectorAll('.multi-slide-carousel').forEach(section => {
+      const sectionId = section.dataset.sectionId;
+      if (sectionId) {
+        initializeSwiper(sectionId);
       }
     });
-  };
 
-  // Initialize on page load
-  initializeSwiper();
-
-  // Re-initialize when section is reloaded by Shopify editor
-  if (Shopify.designMode) {
-    document.addEventListener('shopify:section:load', function(event) {
-      if (event.detail.sectionId === '{{ section.id }}') {
-        initializeSwiper();
-      }
-    });
-  }
-});
-{% endjavascript %}
+    // Re-initialize when section is reloaded by Shopify editor
+    if (Shopify.designMode) {
+      document.addEventListener('shopify:section:load', function(event) {
+        initializeSwiper(event.detail.sectionId);
+      });
+    }
+  });
+</script>
 
 {% schema %}
 {
