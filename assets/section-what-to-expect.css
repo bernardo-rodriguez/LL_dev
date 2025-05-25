@@ -1,4 +1,101 @@
+.what-to-expect .box-container {
+  display: flex;
+  flex-wrap: wrap;
+  background: white;
+  overflow: hidden;
+  margin: auto;
+  padding-bottom: 50px;
+  padding-top: 20px;
+}
+
+.what-to-expect .box-image {
+  flex: 0 0 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5faff;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  width: 50%;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+.what-to-expect .box-content {
+  flex: 0 0 50%;
+  padding: 40px;
+  background-color: #f5faff;
+  width: 50%;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.what-to-expect .box-content h2 {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.what-to-expect .box-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.what-to-expect .box-feature:last-of-type {
+  margin-bottom: 0;
+}
+
+.what-to-expect .box-feature-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.what-to-expect .box-feature-content strong {
+  font-size: 16px;
+  display: block;
+}
+
+.what-to-expect .box-feature-content span {
+  font-size: 14px;
+  color: #444;
+}
+
+.what-to-expect .box-expect {
+  margin-top: 30px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.what-to-expect .box-expect-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.what-to-expect .box-expect-content {
+  font-size: 14px;
+  color: #333;
+}
+
+.what-to-expect .box-expect-content strong {
+  color: #123087;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Carousel Styles */
 .what-to-expect .carousel {
+  width: 100%;
   margin: 0;
 }
 
@@ -82,6 +179,25 @@
 }
 
 @media screen and (max-width: 991px) {
+  .what-to-expect .box-image,
+  .what-to-expect .box-content {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .what-to-expect .box-image {
+    border-radius: 0;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+  .what-to-expect .box-content {
+    border-radius: 0;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+
   .what-to-expect .carousel__slide-text {
     font-size: 30px;
     padding: 40px 20px;
