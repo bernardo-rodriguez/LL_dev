@@ -98,6 +98,7 @@
       flex-wrap: wrap;
       background: white;
       border-radius: 16px;
+      background-color: #f5faff;
       overflow: hidden;
       margin: auto;
       padding-bottom: 50px;
@@ -110,7 +111,7 @@
       align-items: center;
       justify-content: center;
       {% comment %} background: linear-gradient(to bottom right, #ffffff, #f5faff); {% endcomment %}
-      background-color: #f5faff;
+      {% comment %} background-color: #f5faff; {% endcomment %}
       padding-top: 40px;
       padding-bottom: 20px;
       width: 50%;
@@ -119,7 +120,7 @@
     .box-content {
       flex: 0 0 50%;
       padding: 40px;
-      background-color: var(--blue-tint-20);
+      {% comment %} background-color: var(--blue-tint-20); {% endcomment %}
       width: 50%;
     }
 
