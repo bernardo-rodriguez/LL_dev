@@ -58,6 +58,20 @@
       const section = swiperElement.closest('.multi-slide-carousel');
       const blockCount = parseInt(section.dataset.blockCount) || 1;
 
+      // Function to update navigation visibility
+      const updateNavigationVisibility = (swiper) => {
+        const currentSlidesPerView = swiper.params.slidesPerView;
+        const shouldShowNavigation = blockCount > currentSlidesPerView;
+        
+        const prevButton = swiperElement.querySelector('.multi-slide-carousel__button-prev');
+        const nextButton = swiperElement.querySelector('.multi-slide-carousel__button-next');
+        const pagination = swiperElement.querySelector('.multi-slide-carousel__pagination');
+        
+        if (prevButton) prevButton.style.display = shouldShowNavigation ? '' : 'none';
+        if (nextButton) nextButton.style.display = shouldShowNavigation ? '' : 'none';
+        if (pagination) pagination.style.display = shouldShowNavigation ? '' : 'none';
+      };
+
       const multiSlideCarousel = new Swiper(`#multiSlideCarousel-${sectionId}`, {
         slidesPerView: 1,
         spaceBetween: 20,
@@ -73,7 +87,7 @@
         },
         breakpoints: {
           0: {
-            slidesPerView: 1,
+            slidesPerView: Math.min(1, blockCount),
             spaceBetween: 20
           },
           768: {
@@ -88,19 +102,21 @@
             slidesPerView: Math.min(6, blockCount),
             spaceBetween: 40
           }
+        },
+        on: {
+          init: function() {
+            updateNavigationVisibility(this);
+          },
+          breakpoint: function() {
+            updateNavigationVisibility(this);
+          }
         }
       });
 
-      // Hide navigation if not needed
-      if (blockCount <= 1) {
-        const prevButton = swiperElement.querySelector('.multi-slide-carousel__button-prev');
-        const nextButton = swiperElement.querySelector('.multi-slide-carousel__button-next');
-        const pagination = swiperElement.querySelector('.multi-slide-carousel__pagination');
-        
-        if (prevButton) prevButton.style.display = 'none';
-        if (nextButton) nextButton.style.display = 'none';
-        if (pagination) pagination.style.display = 'none';
-      }
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        updateNavigationVisibility(multiSlideCarousel);
+      });
     };
 
     // Initialize all multi-slide carousels on the page
