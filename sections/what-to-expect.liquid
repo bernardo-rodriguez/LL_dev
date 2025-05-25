@@ -97,8 +97,6 @@
       display: flex;
       flex-wrap: wrap;
       background: white;
-      border-radius: 16px;
-      background-color: #f5faff;
       overflow: hidden;
       margin: auto;
       padding-bottom: 50px;
@@ -110,18 +108,24 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      {% comment %} background: linear-gradient(to bottom right, #ffffff, #f5faff); {% endcomment %}
-      {% comment %} background-color: #f5faff; {% endcomment %}
+      background-color: #f5faff;
       padding-top: 40px;
       padding-bottom: 20px;
       width: 50%;
+      border-top-left-radius: 16px;
+      border-bottom-left-radius: 16px;
     }
 
     .box-content {
       flex: 0 0 50%;
       padding: 40px;
-      {% comment %} background-color: var(--blue-tint-20); {% endcomment %}
+      background-color: #f5faff;
       width: 50%;
+      border-top-right-radius: 16px;
+      border-bottom-right-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .box-content h2 {
@@ -138,6 +142,10 @@
       align-items: flex-start;
       gap: 12px;
       margin-bottom: 20px;
+    }
+
+    .box-feature:last-of-type {
+      margin-bottom: 0;
     }
 
     .box-feature-icon {
@@ -280,6 +288,18 @@
         flex: 0 0 100%;
         width: 100%;
         max-width: 100%;
+      }
+
+      .box-image {
+        border-radius: 0;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+      }
+
+      .box-content {
+        border-radius: 0;
+        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 16px;
       }
 
       .carousel__slide-text {
