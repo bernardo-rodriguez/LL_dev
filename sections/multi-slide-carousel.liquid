@@ -3,7 +3,7 @@
 
 <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
 
-<section class="multi-slide-carousel" data-section-id="{{ section.id }}">
+<section class="multi-slide-carousel" data-section-id="{{ section.id }}" data-block-count="{{ section.blocks.size }}">
   <div class="page-width">
     <p>check updates2</p>
     <div class="multi-slide-carousel__inner">
@@ -55,10 +55,13 @@
       const swiperElement = document.querySelector(`#multiSlideCarousel-${sectionId}`);
       if (!swiperElement) return;
 
+      const section = swiperElement.closest('.multi-slide-carousel');
+      const blockCount = parseInt(section.dataset.blockCount) || 1;
+
       const multiSlideCarousel = new Swiper(`#multiSlideCarousel-${sectionId}`, {
-        slidesPerView: 'auto',
+        slidesPerView: 1,
         spaceBetween: 20,
-        loop: true,
+        loop: blockCount > 1,
         navigation: {
           nextEl: '.multi-slide-carousel__button-next',
           prevEl: '.multi-slide-carousel__button-prev',
@@ -74,19 +77,30 @@
             spaceBetween: 20
           },
           768: {
-            slidesPerView: 3,
+            slidesPerView: Math.min(3, blockCount),
             spaceBetween: 30
           },
           990: {
-            slidesPerView: 4,
+            slidesPerView: Math.min(4, blockCount),
             spaceBetween: 30
           },
           1200: {
-            slidesPerView: 6,
+            slidesPerView: Math.min(6, blockCount),
             spaceBetween: 40
           }
         }
       });
+
+      // Hide navigation if not needed
+      if (blockCount <= 1) {
+        const prevButton = swiperElement.querySelector('.multi-slide-carousel__button-prev');
+        const nextButton = swiperElement.querySelector('.multi-slide-carousel__button-next');
+        const pagination = swiperElement.querySelector('.multi-slide-carousel__pagination');
+        
+        if (prevButton) prevButton.style.display = 'none';
+        if (nextButton) nextButton.style.display = 'none';
+        if (pagination) pagination.style.display = 'none';
+      }
     };
 
     // Initialize all multi-slide carousels on the page
