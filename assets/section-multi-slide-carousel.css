@@ -53,6 +53,7 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  padding: 0 20px;
 }
 
 .swiper-slide {
@@ -73,6 +74,7 @@
   font-weight: 600;
   color: var(--color-base-text);
   margin: 0;
+  width: 100%;
 }
 
 .multi-slide-carousel__credentials {
@@ -80,6 +82,7 @@
   color: var(--color-base-text-opacity-85);
   margin: 0;
   line-height: 1.4;
+  width: 100%;
 }
 
 .multi-slide-carousel__credentials p {
@@ -99,8 +102,8 @@
   font-size: 14px;
   line-height: 1.4;
   color: var(--color-base-text);
-  max-width: 250px;
   margin: 0;
+  width: 100%;
 }
 
 .multi-slide-carousel__button-prev,
