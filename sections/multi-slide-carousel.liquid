@@ -39,6 +39,20 @@
                 {% if block.settings.description != blank %}
                   <p class="multi-slide-carousel__description">{{ block.settings.description }}</p>
                 {% endif %}
+
+                {% if block.settings.dentist_name != blank or block.settings.dentist_title != blank or block.settings.dentist_school != blank %}
+                  <div class="multi-slide-carousel__dentist-info">
+                    {% if block.settings.dentist_name != blank %}
+                      <p class="multi-slide-carousel__dentist-name">{{ block.settings.dentist_name }}</p>
+                    {% endif %}
+                    {% if block.settings.dentist_title != blank %}
+                      <p class="multi-slide-carousel__dentist-title">{{ block.settings.dentist_title }}</p>
+                    {% endif %}
+                    {% if block.settings.dentist_school != blank %}
+                      <p class="multi-slide-carousel__dentist-school">{{ block.settings.dentist_school }}</p>
+                    {% endif %}
+                  </div>
+                {% endif %}
               </div>
             </div>
           {% endfor %}
@@ -165,6 +179,21 @@
           "id": "description",
           "label": "Description",
           "default": "Add a description for this image"
+        },
+        {
+          "type": "text",
+          "id": "dentist_name",
+          "label": "Dentist Name"
+        },
+        {
+          "type": "text",
+          "id": "dentist_title",
+          "label": "Professional Title"
+        },
+        {
+          "type": "text",
+          "id": "dentist_school",
+          "label": "School of Study"
         }
       ]
     }
