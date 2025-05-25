@@ -46,6 +46,15 @@
   height: 100%;
 }
 
+.multi-slide-carousel__content {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
 .swiper-slide {
   height: auto;
 }
@@ -59,36 +68,38 @@
   object-fit: cover;
 }
 
+.multi-slide-carousel__dentist-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-base-text);
+  margin: 0;
+}
+
+.multi-slide-carousel__credentials {
+  font-size: 14px;
+  color: var(--color-base-text-opacity-85);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.multi-slide-carousel__credentials p {
+  margin: 0;
+}
+
+.multi-slide-carousel__divider {
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-base-text-opacity-85);
+  border: none;
+  margin: 4px 0;
+}
+
 .multi-slide-carousel__description {
   text-align: center;
   font-size: 14px;
   line-height: 1.4;
   color: var(--color-base-text);
   max-width: 250px;
-  margin: 0 auto;
-}
-
-.multi-slide-carousel__dentist-info {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.multi-slide-carousel__dentist-name {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--color-base-text);
-  margin: 0 0 4px;
-}
-
-.multi-slide-carousel__dentist-title {
-  font-size: 14px;
-  color: var(--color-base-text-opacity-85);
-  margin: 0 0 4px;
-}
-
-.multi-slide-carousel__dentist-school {
-  font-size: 14px;
-  color: var(--color-base-text-opacity-85);
   margin: 0;
 }
 
