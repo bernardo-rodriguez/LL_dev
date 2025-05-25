@@ -87,7 +87,7 @@
 }
 
 .multi-slide-carousel__divider {
-  width: 40px;
+  width: 100%;
   height: 2px;
   background-color: black;
   margin: 12px 0;
