@@ -47,7 +47,7 @@
 
 .multi-slide-carousel__button-prev,
 .multi-slide-carousel__button-next {
-  color: var(--color-base-text);
+  color: var(--navy);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -89,7 +89,7 @@
 }
 
 .multi-slide-carousel__pagination .swiper-pagination-bullet-active {
-  background-color: var(--color-base-text);
+  background-color: var(--navy);
   opacity: 1;
 }
 
