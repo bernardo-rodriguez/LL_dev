@@ -68,6 +68,30 @@
   margin: 0 auto;
 }
 
+.multi-slide-carousel__dentist-info {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.multi-slide-carousel__dentist-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-base-text);
+  margin: 0 0 4px;
+}
+
+.multi-slide-carousel__dentist-title {
+  font-size: 14px;
+  color: var(--color-base-text-opacity-85);
+  margin: 0 0 4px;
+}
+
+.multi-slide-carousel__dentist-school {
+  font-size: 14px;
+  color: var(--color-base-text-opacity-85);
+  margin: 0;
+}
+
 .multi-slide-carousel__button-prev,
 .multi-slide-carousel__button-next {
   color: var(--navy);
