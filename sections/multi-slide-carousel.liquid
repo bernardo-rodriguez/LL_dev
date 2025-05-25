@@ -1,0 +1,134 @@
+{{ 'section-multi-slide-carousel.css' | asset_url | stylesheet_tag }}
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+
+<section class="multi-slide-carousel">
+  <div class="page-width">
+    <div class="multi-slide-carousel__inner">
+      <div class="multi-slide-carousel-instance swiper" id="multiSlideCarousel-{{ section.id }}">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="swiper-slide" {{ block.shopify_attributes }}>
+              <div class="multi-slide-carousel__slide">
+                {% if block.settings.image != blank %}
+                  <img
+                    srcset="
+                      {{ block.settings.image | image_url: width: 300 }} 300w,
+                      {{ block.settings.image | image_url: width: 400 }} 400w,
+                      {{ block.settings.image | image_url: width: 500 }} 500w"
+                    sizes="(min-width: 1200px) calc(20vw - 40px),
+                           (min-width: 990px) calc(25vw - 40px),
+                           (min-width: 768px) calc(33vw - 40px),
+                           calc(100vw - 40px)"
+                    src="{{ block.settings.image | image_url: width: 400 }}"
+                    alt="{{ block.settings.image.alt | escape }}"
+                    loading="lazy"
+                    width="400"
+                    height="400"
+                    class="multi-slide-carousel__image"
+                  >
+                {% else %}
+                  {{ 'image' | placeholder_svg_tag: 'multi-slide-carousel__image placeholder' }}
+                {% endif %}
+
+                {% if block.settings.description != blank %}
+                  <p class="multi-slide-carousel__description">{{ block.settings.description }}</p>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-pagination multi-slide-carousel__pagination"></div>
+      </div>
+      <div class="swiper-button-prev multi-slide-carousel__button-prev"></div>
+      <div class="swiper-button-next multi-slide-carousel__button-next"></div>
+    </div>
+  </div>
+</section>
+
+{% javascript %}
+  const multiSlideCarousel = new Swiper('#multiSlideCarousel-{{ section.id }}', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    navigation: {
+      nextEl: '#multiSlideCarousel-{{ section.id }} ~ .multi-slide-carousel__button-next',
+      prevEl: '#multiSlideCarousel-{{ section.id }} ~ .multi-slide-carousel__button-prev',
+    },
+    pagination: {
+      el: '.multi-slide-carousel__pagination',
+      type: 'bullets',
+      clickable: true
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      990: {
+        slidesPerView: 4,
+        spaceBetween: 30
+      },
+      1200: {
+        slidesPerView: 5,
+        spaceBetween: 40
+      }
+    }
+  });
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Multi-slide Carousel",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Carousel Settings"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Add a description for this image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Multi-slide Carousel",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %} 
