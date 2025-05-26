@@ -1155,7 +1155,7 @@
 
 <script>
   // Create a MutationObserver to watch for when the element appears
-  const observer = new MutationObserver((mutations, obs) => {
+  const reviewTextObserver = new MutationObserver((mutations, obs) => {
     const reviewSummary = document.querySelector('.jdgm-rev-widg__summary-text');
     if (reviewSummary) {
       reviewSummary.innerHTML = "Based on 2,403 reviews";
@@ -1164,7 +1164,7 @@
   });
 
   // Start observing the document with the configured parameters
-  observer.observe(document, {
+  reviewTextObserver.observe(document, {
     childList: true,
     subtree: true
   });
