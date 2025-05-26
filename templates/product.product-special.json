@@ -276,6 +276,43 @@
       "name": "Multi-slide Carousel",
       "settings": {}
     },
+    "whats_in_the_box_bfeE6K": {
+      "type": "whats-in-the-box",
+      "blocks": {
+        "text_item_tP9BV6": {
+          "type": "text_item",
+          "settings": {
+            "emoji": "✨",
+            "text": "<p>Premium whitening strips for a brighter smile</p>"
+          }
+        },
+        "text_item_jJUhKn": {
+          "type": "text_item",
+          "settings": {
+            "emoji": "🦷",
+            "text": "<p>Professional-grade formula that's gentle on sensitive teeth</p>"
+          }
+        },
+        "text_item_LddjYz": {
+          "type": "text_item",
+          "settings": {
+            "emoji": "⏰",
+            "text": "<p>14-day treatment for lasting results</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_item_tP9BV6",
+        "text_item_jJUhKn",
+        "text_item_LddjYz"
+      ],
+      "name": "What's in the Box",
+      "settings": {
+        "title": "What's in the Box?",
+        "padding_top": "medium",
+        "padding_bottom": "medium"
+      }
+    },
     "replo_product_how_to_use_bpLT4L": {
       "type": "replo-product-how-to-use",
       "name": "product-how-to-use",
@@ -302,6 +339,7 @@
     "logo_bar_8waKgk",
     "what_to_expect_9m8aj6",
     "multi_slide_carousel_DkwrwT",
+    "whats_in_the_box_bfeE6K",
     "replo_product_how_to_use_bpLT4L",
     "17478665286aeba721"
   ]
