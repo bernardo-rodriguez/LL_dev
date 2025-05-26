@@ -309,6 +309,7 @@
       "name": "What's in the Box",
       "settings": {
         "title": "What's in the Box?",
+        "image": "shopify://shop_images/12_3b5437d5-d5ad-4ec2-9b9f-ce42aad4a781.jpg",
         "padding_top": "medium",
         "padding_bottom": "medium"
       }
