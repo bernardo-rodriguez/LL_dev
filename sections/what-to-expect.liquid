@@ -52,37 +52,37 @@
     </div>
 
     <div class="box-content">
-      <h2>What to Expect?</h2>
+      <h2>{{ section.settings.title }}</h2>
 
       <div class="box-feature">
-        <div class="box-feature-icon">🪥</div>
+        <div class="box-feature-icon">{{ section.settings.feature1_icon }}</div>
         <div class="box-feature-content">
-          <strong>6 Treatments</strong>
-          <span>Dentist-formulated for safe, effective whitening</span>
+          <strong>{{ section.settings.feature1_title }}</strong>
+          <span>{{ section.settings.feature1_text }}</span>
         </div>
       </div>
 
       <div class="box-feature">
-        <div class="box-feature-icon">⭐</div>
+        <div class="box-feature-icon">{{ section.settings.feature2_icon }}</div>
         <div class="box-feature-content">
-          <strong>5+ Shades Brighter</strong>
-          <span>Noticeably whiter teeth after completing the kit</span>
+          <strong>{{ section.settings.feature2_title }}</strong>
+          <span>{{ section.settings.feature2_text }}</span>
         </div>
       </div>
 
       <div class="box-feature">
-        <div class="box-feature-icon">💧</div>
+        <div class="box-feature-icon">{{ section.settings.feature3_icon }}</div>
         <div class="box-feature-content">
-          <strong>8% Hydrogen Peroxide</strong>
-          <span>Professional strength for powerful whitening</span>
+          <strong>{{ section.settings.feature3_title }}</strong>
+          <span>{{ section.settings.feature3_text }}</span>
         </div>
       </div>
 
       <div class="box-expect">
-        <div class="box-expect-icon">😊</div>
+        <div class="box-expect-icon">{{ section.settings.expect_icon }}</div>
         <div class="box-expect-content">
-          <strong>What to Expect</strong>
-          Reveal your brightest smile in just 6 easy treatments. Most customers see a visibly whiter, more radiant smile—up to 5+ shades brighter—by the end of the kit. Safe for sensitive teeth and formulated by dental professionals.
+          <strong>{{ section.settings.expect_title }}</strong>
+          {{ section.settings.expect_text }}
         </div>
       </div>
     </div>
@@ -351,6 +351,102 @@
 {% schema %}
 {
   "name": "What to expect",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "What to Expect?"
+    },
+    {
+      "type": "header",
+      "content": "Feature 1"
+    },
+    {
+      "type": "text",
+      "id": "feature1_icon",
+      "label": "Feature 1 Icon",
+      "default": "🪥"
+    },
+    {
+      "type": "text",
+      "id": "feature1_title",
+      "label": "Feature 1 Title",
+      "default": "6 Treatments"
+    },
+    {
+      "type": "text",
+      "id": "feature1_text",
+      "label": "Feature 1 Text",
+      "default": "Dentist-formulated for safe, effective whitening"
+    },
+    {
+      "type": "header",
+      "content": "Feature 2"
+    },
+    {
+      "type": "text",
+      "id": "feature2_icon",
+      "label": "Feature 2 Icon",
+      "default": "⭐"
+    },
+    {
+      "type": "text",
+      "id": "feature2_title",
+      "label": "Feature 2 Title",
+      "default": "5+ Shades Brighter"
+    },
+    {
+      "type": "text",
+      "id": "feature2_text",
+      "label": "Feature 2 Text",
+      "default": "Noticeably whiter teeth after completing the kit"
+    },
+    {
+      "type": "header",
+      "content": "Feature 3"
+    },
+    {
+      "type": "text",
+      "id": "feature3_icon",
+      "label": "Feature 3 Icon",
+      "default": "💧"
+    },
+    {
+      "type": "text",
+      "id": "feature3_title",
+      "label": "Feature 3 Title",
+      "default": "8% Hydrogen Peroxide"
+    },
+    {
+      "type": "text",
+      "id": "feature3_text",
+      "label": "Feature 3 Text",
+      "default": "Professional strength for powerful whitening"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Expect Box"
+    },
+    {
+      "type": "text",
+      "id": "expect_icon",
+      "label": "Expect Box Icon",
+      "default": "😊"
+    },
+    {
+      "type": "text",
+      "id": "expect_title",
+      "label": "Expect Box Title",
+      "default": "What to Expect"
+    },
+    {
+      "type": "textarea",
+      "id": "expect_text",
+      "label": "Expect Box Text",
+      "default": "Reveal your brightest smile in just 6 easy treatments. Most customers see a visibly whiter, more radiant smile—up to 5+ shades brighter—by the end of the kit. Safe for sensitive teeth and formulated by dental professionals."
+    }
+  ],
   "blocks": [
     {
       "type": "ll_expect",
