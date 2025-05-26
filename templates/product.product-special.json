@@ -235,7 +235,21 @@
         "slide_jygWgL"
       ],
       "name": "LL Expect",
-      "settings": {}
+      "settings": {
+        "title": "What to Expect?",
+        "feature1_icon": "🪥",
+        "feature1_title": "Removes Decade Old Stains",
+        "feature1_text": "Our whitening serum lifts even long-set stains—coffee, wine, or years of buildup don’t stand a chance.",
+        "feature2_icon": "⭐",
+        "feature2_title": "Immediate Results",
+        "feature2_text": "Our dentist-developed formula with fast-acting hydrogen peroxide delivers a noticeably brighter smile in one week, with each treatment building on top of the last for your smile transformation.",
+        "feature3_icon": "💧",
+        "feature3_title": "Sensitivity-Free",
+        "feature3_text": "Clinically formulated with sodium hydroxide to maintain a safe pH to reduce irritation",
+        "expect_icon": "😊",
+        "expect_title": "Improves Oral Health",
+        "expect_text": "Our formula contains antibacterial properties that helps reduce plaque and support gum health"
+      }
     },
     "multi_slide_carousel_DkwrwT": {
       "type": "multi-slide-carousel",
