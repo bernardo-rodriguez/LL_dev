@@ -1,3 +1,7 @@
+.sticky-footer {
+  display: none;
+}
+
 .price-difference {
   font-size: 1.1rem !important;
 }
