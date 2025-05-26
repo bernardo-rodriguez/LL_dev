@@ -302,10 +302,10 @@
         "text_item_LddjYz": {
           "type": "text_item",
           "settings": {
-            "subheading": "💡 Blue Light Accelerating Mouthpiece",
+            "subheading": "Blue Light Accelerating Mouthpiece",
             "text": "<p>Our sleek, easy-to-use mouthpiece uses <strong>blue light technology</strong> to speed up the whitening process for faster, more dramatic results.</p>",
             "icon_type": "emoji",
-            "emoji_icon": "✨",
+            "emoji_icon": "💡",
             "svg_icon": ""
           }
         }
