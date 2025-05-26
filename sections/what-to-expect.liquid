@@ -58,7 +58,7 @@
       <div class="box-feature">
         <div class="box-feature-icon">{{ section.settings.feature1_icon }}</div>
         <div class="box-feature-content">
-          <strong>{{ section.settings.feature1_title }}</strong>
+          <p>{{ section.settings.feature1_title }}</p>
           <span>{{ section.settings.feature1_text }}</span>
         </div>
       </div>
@@ -66,7 +66,7 @@
       <div class="box-feature">
         <div class="box-feature-icon">{{ section.settings.feature2_icon }}</div>
         <div class="box-feature-content">
-          <strong>{{ section.settings.feature2_title }}</strong>
+          <p>{{ section.settings.feature2_title }}</p>
           <span>{{ section.settings.feature2_text }}</span>
         </div>
       </div>
@@ -74,7 +74,7 @@
       <div class="box-feature">
         <div class="box-feature-icon">{{ section.settings.feature3_icon }}</div>
         <div class="box-feature-content">
-          <strong>{{ section.settings.feature3_title }}</strong>
+          <p>{{ section.settings.feature3_title }}</p>
           <span>{{ section.settings.feature3_text }}</span>
         </div>
       </div>
@@ -82,7 +82,7 @@
       <div class="box-expect">
         <div class="box-expect-icon">{{ section.settings.expect_icon }}</div>
         <div class="box-expect-content">
-          <strong>{{ section.settings.expect_title }}</strong>
+          <p>{{ section.settings.expect_title }}</p>
           {{ section.settings.expect_text }}
         </div>
       </div>
@@ -104,8 +104,8 @@
 
     .mobile-title {
       display: none;
-      font-size: 24px;
-      font-weight: bold;
+      font-size: 32px;
+      font-weight: normal;
       width: 100%;
       margin-bottom: 24px;
       padding: 0 20px;
@@ -139,8 +139,8 @@
     }
 
     .box-content h2 {
-      font-size: 24px;
-      font-weight: bold;
+      font-size: 32px;
+      font-weight: normal;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -164,14 +164,13 @@
       flex-shrink: 0;
     }
 
-    .box-feature-content strong {
-      font-size: 16px;
+    .box-feature-content p {
+      font-size: 18px;
       display: block;
     }
 
     .box-feature-content span {
-      font-size: 14px;
-      color: #444;
+      font-size: 16px;
     }
 
     .box-expect {
@@ -188,14 +187,13 @@
     }
 
     .box-expect-content {
-      font-size: 14px;
-      color: #333;
+      font-size: 16px;
     }
 
-    .box-expect-content strong {
-      color: #123087;
+    .box-expect-content p {
       display: block;
       margin-bottom: 4px;
+      font-size: 18px;
     }
 
     .carousel {
@@ -259,6 +257,8 @@
       max-width: 660px;
       margin: auto;
       text-align: center;
+      font-size: 18px;
+      font-weight: normal;
     }
 
     .swiper-button-prev,
@@ -294,8 +294,8 @@
     }
 
     .desktop-only {
-      font-size: 24px;
-      font-weight: bold;
+      font-size: 32px;
+      font-weight: normal;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -331,7 +331,7 @@
       }
 
       .carousel__slide-text {
-        font-size: 30px;
+        font-size: 18px;
         padding: 40px 20px;
       }
     }
@@ -342,7 +342,7 @@
       }
 
       .carousel__slide-text {
-        font-size: 20px;
+        font-size: 18px;
         padding: 35px 20px;
       }
 
