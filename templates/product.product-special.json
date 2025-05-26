@@ -282,22 +282,22 @@
         "text_item_tP9BV6": {
           "type": "text_item",
           "settings": {
-            "emoji": "✨",
-            "text": "<p>Premium whitening strips for a brighter smile</p>"
+            "subheading": "✨ 6 Powerful Treatments",
+            "text": "<p>Includes 3 dentist-formulated whitening gels — enough for <strong>a full whitening cycle</strong> to visibly brighten your smile in just 6 treatments.</p>"
           }
         },
         "text_item_jJUhKn": {
           "type": "text_item",
           "settings": {
-            "emoji": "🦷",
-            "text": "<p>Professional-grade formula that's gentle on sensitive teeth</p>"
+            "subheading": "🔌 Universal Device Compatibility",
+            "text": "<p>Comes with smart adaptors that plug right into <strong>any iPhone or Android device</strong>—no extra gear needed.</p>"
           }
         },
         "text_item_LddjYz": {
           "type": "text_item",
           "settings": {
-            "emoji": "⏰",
-            "text": "<p>14-day treatment for lasting results</p>"
+            "subheading": "💡 Blue Light Accelerating Mouthpiece",
+            "text": "<p>Our sleek, easy-to-use mouthpiece uses <strong>blue light technology</strong> to speed up the whitening process for faster, more dramatic results.</p>"
           }
         }
       },
@@ -309,6 +309,7 @@
       "name": "What's in the Box",
       "settings": {
         "title": "What's in the Box?",
+        "image": "shopify://shop_images/12_3b5437d5-d5ad-4ec2-9b9f-ce42aad4a781.jpg",
         "padding_top": "medium",
         "padding_bottom": "medium"
       }
