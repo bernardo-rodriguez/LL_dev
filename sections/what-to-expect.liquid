@@ -6,6 +6,7 @@
 
 <section class="what-to-expect">
   <div class="box-container page-width">
+    <h2 class="mobile-title">{{ section.settings.title }}</h2>
     <div class="box-image">
       <div class="carousel">
           <div class="carousel__inner">
@@ -52,7 +53,7 @@
     </div>
 
     <div class="box-content">
-      <h2>{{ section.settings.title }}</h2>
+      <h2 class="desktop-title">{{ section.settings.title }}</h2>
 
       <div class="box-feature">
         <div class="box-feature-icon">{{ section.settings.feature1_icon }}</div>
@@ -98,6 +99,25 @@
       margin: auto;
       padding-bottom: 50px;
       padding-top: 20px;
+      position: relative;
+    }
+
+    .mobile-title {
+      display: none;
+      font-size: 24px;
+      font-weight: bold;
+      width: 100%;
+      margin-bottom: 24px;
+      padding: 0 20px;
+    }
+
+    .desktop-title {
+      font-size: 24px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
     }
 
     .box-image {
@@ -281,6 +301,15 @@
     }
 
     @media screen and (max-width: 991px) {
+      .mobile-title {
+        display: block;
+        text-align: center;
+      }
+
+      .desktop-title {
+        display: none;
+      }
+
       .box-image, .box-content {
         flex: 0 0 100%;
         width: 100%;
@@ -291,12 +320,14 @@
         border-radius: 0;
         border-top-left-radius: 16px;
         border-top-right-radius: 16px;
+        order: 2;
       }
 
       .box-content {
         border-radius: 0;
         border-bottom-left-radius: 16px;
         border-bottom-right-radius: 16px;
+        order: 3;
       }
 
       .carousel__slide-text {
