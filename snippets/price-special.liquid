@@ -2,7 +2,7 @@
     <div class="price-info">
       <span class="original-price" id="originalPrice"></span>
       <span class="sale-price" id="salePrice"></span>
-      <span class="discount-badge" id="discountBadge">Save 85% Today</span>
+      <span class="discount-badge" id="discountBadge"></span>
     </div>
     <div class="per-dose" id="perDose">Only $0.90 Per Dose</div>
   </div>
@@ -15,12 +15,12 @@
     if (url.includes("6-serving-of-whitening-gels-free-starter-kit")) {
         document.getElementById("originalPrice").textContent = "$48";
         document.getElementById("salePrice").textContent = "$19";
-        document.getElementById("discountBadge").textContent = "Save 60% Today";
+        document.getElementById("discountBadge").textContent = "SAVE 60% TODAY";
         document.getElementById("perDose").textContent = "Only $3.1 Per Whitening Session";
     } else {
         document.getElementById("originalPrice").textContent = "$76";
         document.getElementById("salePrice").textContent = "$19";
-        document.getElementById("discountBadge").textContent = "Save 75% Today";
+        document.getElementById("discountBadge").textContent = "SAVE 75% TODAY";
         {% comment %} document.getElementById("perDose").textContent = "Only $0.17 Per Dose"; {% endcomment %}
     }
   </script>
@@ -46,7 +46,7 @@
     }
 
     .discount-badge {
-      background-color: #46BDF0;
+      background-color: var(--purple);
       color: white;
       font-weight: bold;
       border-radius: 12px;
