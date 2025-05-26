@@ -6,8 +6,8 @@
 
 <section class="what-to-expect">
   <div class="box-container page-width">
-    <h2 class="mobile-title">{{ section.settings.title }}</h2>
     <div class="box-image">
+      <h2 class="mobile-title">{{ section.settings.title }}</h2>
       <div class="carousel">
           <div class="carousel__inner">
             <div class="carousel-instance swiper">
@@ -99,7 +99,6 @@
       margin: auto;
       padding-bottom: 50px;
       padding-top: 20px;
-      position: relative;
     }
 
     .mobile-title {
@@ -109,20 +108,13 @@
       width: 100%;
       margin-bottom: 24px;
       padding: 0 20px;
-    }
-
-    .desktop-title {
-      font-size: 24px;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 24px;
+      text-align: center;
     }
 
     .box-image {
       flex: 0 0 50%;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       background-color: #f5faff;
@@ -303,10 +295,9 @@
     @media screen and (max-width: 991px) {
       .mobile-title {
         display: block;
-        text-align: center;
       }
 
-      .desktop-title {
+      .box-content h2 {
         display: none;
       }
 
@@ -320,14 +311,12 @@
         border-radius: 0;
         border-top-left-radius: 16px;
         border-top-right-radius: 16px;
-        order: 2;
       }
 
       .box-content {
         border-radius: 0;
         border-bottom-left-radius: 16px;
         border-bottom-right-radius: 16px;
-        order: 3;
       }
 
       .carousel__slide-text {
