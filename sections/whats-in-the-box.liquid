@@ -1,0 +1,218 @@
+{{ 'section-whats-in-the-box.css' | asset_url | stylesheet_tag }}
+
+<div class="whats-in-the-box section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="whats-in-the-box__container">
+      <div class="whats-in-the-box__content">
+        {% if section.settings.title != blank %}
+          <h2 class="whats-in-the-box__title h1">{{ section.settings.title }}</h2>
+        {% endif %}
+        
+        <div class="whats-in-the-box__items">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'text_item' %}
+                <div class="whats-in-the-box__item" {{ block.shopify_attributes }}>
+                  <span class="whats-in-the-box__emoji">{{ block.settings.emoji }}</span>
+                  <div class="whats-in-the-box__text">{{ block.settings.text }}</div>
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="whats-in-the-box__image">
+        {% if section.settings.image != blank %}
+          {%- assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio -%}
+          {{ section.settings.image | image_url: width: section.settings.image.width | image_tag:
+            loading: 'lazy',
+            width: section.settings.image.width,
+            height: image_height,
+            alt: section.settings.image.alt | escape
+          }}
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "What's in the Box",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "What's in the Box"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "padding_top",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "medium",
+      "label": "Top padding"
+    },
+    {
+      "type": "select",
+      "id": "padding_bottom",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "medium",
+      "label": "Bottom padding"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text_item",
+      "name": "Text Item",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "emoji",
+          "label": "Emoji",
+          "default": "✨"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Add your text here</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "What's in the Box",
+      "blocks": [
+        {
+          "type": "text_item",
+          "settings": {
+            "emoji": "✨",
+            "text": "<p>Premium whitening strips for a brighter smile</p>"
+          }
+        },
+        {
+          "type": "text_item",
+          "settings": {
+            "emoji": "🦷",
+            "text": "<p>Professional-grade formula that's gentle on sensitive teeth</p>"
+          }
+        },
+        {
+          "type": "text_item",
+          "settings": {
+            "emoji": "⏰",
+            "text": "<p>14-day treatment for lasting results</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+.whats-in-the-box {
+  padding: var(--section-padding);
+}
+
+.whats-in-the-box__container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 750px) {
+  .whats-in-the-box__container {
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .whats-in-the-box__content,
+  .whats-in-the-box__image {
+    flex: 1;
+  }
+}
+
+.whats-in-the-box__title {
+  margin-bottom: 2rem;
+}
+
+.whats-in-the-box__items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.whats-in-the-box__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.whats-in-the-box__emoji {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.whats-in-the-box__text {
+  flex: 1;
+}
+
+.whats-in-the-box__text p {
+  margin: 0;
+}
+
+.whats-in-the-box__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius);
+}
+{% endstylesheet %} 
