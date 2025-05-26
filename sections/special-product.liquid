@@ -1153,22 +1153,6 @@
 
 <script src="{{ 'product-pages.js' | asset_url }}" defer="defer"></script>
 
-<script>
-  // Create a MutationObserver to watch for when the element appears
-  const observer = new MutationObserver((mutations, obs) => {
-    const reviewSummary = document.querySelector('.jdgm-rev-widg__summary-text');
-    if (reviewSummary) {
-      reviewSummary.innerHTML = "Based on 2,403 reviews";
-      obs.disconnect(); // Stop observing once we've made the change
-    }
-  });
-
-  // Start observing the document with the configured parameters
-  observer.observe(document, {
-    childList: true,
-    subtree: true
-  });
-</script>
 
 {% schema %}
 {
