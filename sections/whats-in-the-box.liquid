@@ -27,10 +27,19 @@
             {% case block.type %}
               {% when 'text_item' %}
                 <div class="whats-in-the-box__item" {{ block.shopify_attributes }}>
-                  {% if block.settings.subheading != blank %}
-                    <h3 class="whats-in-the-box__subheading">{{ block.settings.subheading }}</h3>
-                  {% endif %}
-                  <div class="whats-in-the-box__text">{{ block.settings.text }}</div>
+                  <div class="whats-in-the-box__icon">
+                    {% if block.settings.icon_type == 'emoji' %}
+                      <span class="whats-in-the-box__icon--emoji">{{ block.settings.emoji_icon }}</span>
+                    {% else %}
+                      {{ block.settings.svg_icon }}
+                    {% endif %}
+                  </div>
+                  <div class="whats-in-the-box__text-wrapper">
+                    {% if block.settings.subheading != blank %}
+                      <h3 class="whats-in-the-box__subheading">{{ block.settings.subheading }}</h3>
+                    {% endif %}
+                    <div class="whats-in-the-box__text">{{ block.settings.text }}</div>
+                  </div>
                 </div>
             {% endcase %}
           {% endfor %}
@@ -123,6 +132,35 @@
           "id": "text",
           "label": "Text",
           "default": "<p>Add your text here</p>"
+        },
+        {
+          "type": "select",
+          "id": "icon_type",
+          "label": "Icon Type",
+          "options": [
+            {
+              "value": "emoji",
+              "label": "Emoji"
+            },
+            {
+              "value": "svg",
+              "label": "SVG"
+            }
+          ],
+          "default": "emoji"
+        },
+        {
+          "type": "text",
+          "id": "emoji_icon",
+          "label": "Emoji Icon",
+          "default": "✨",
+          "info": "Enter an emoji to use as the icon"
+        },
+        {
+          "type": "textarea",
+          "id": "svg_icon",
+          "label": "SVG Icon",
+          "info": "Paste your SVG code here"
         }
       ]
     }
@@ -135,21 +173,27 @@
           "type": "text_item",
           "settings": {
             "subheading": "Premium Quality",
-            "text": "<p>Premium whitening strips for a brighter smile</p>"
+            "text": "<p>Premium whitening strips for a brighter smile</p>",
+            "icon_type": "emoji",
+            "emoji_icon": "✨"
           }
         },
         {
           "type": "text_item",
           "settings": {
             "subheading": "Gentle Formula",
-            "text": "<p>Professional-grade formula that's gentle on sensitive teeth</p>"
+            "text": "<p>Professional-grade formula that's gentle on sensitive teeth</p>",
+            "icon_type": "emoji",
+            "emoji_icon": "🦷"
           }
         },
         {
           "type": "text_item",
           "settings": {
             "subheading": "Quick Results",
-            "text": "<p>14-day treatment for lasting results</p>"
+            "text": "<p>14-day treatment for lasting results</p>",
+            "icon_type": "emoji",
+            "emoji_icon": "⏰"
           }
         }
       ]
@@ -219,6 +263,31 @@
 }
 
 .whats-in-the-box__item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.whats-in-the-box__icon {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whats-in-the-box__icon--emoji {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.whats-in-the-box__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.whats-in-the-box__text-wrapper {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
