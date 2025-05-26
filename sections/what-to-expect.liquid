@@ -79,11 +79,11 @@
         </div>
       </div>
 
-      <div class="box-expect">
-        <div class="box-expect-icon">{{ section.settings.expect_icon }}</div>
-        <div class="box-expect-content">
-          <p>{{ section.settings.expect_title }}</p>
-          {{ section.settings.expect_text }}
+      <div class="box-feature">
+        <div class="box-feature-icon">{{ section.settings.feature4_icon }}</div>
+        <div class="box-feature-content">
+          <p>{{ section.settings.feature4_title }}</p>
+          <span>{{ section.settings.feature4_text }}</span>
         </div>
       </div>
     </div>
@@ -167,6 +167,7 @@
     .box-feature-content p {
       font-size: 18px;
       display: block;
+      margin-bottom: 4px;
     }
 
     .box-feature-content span {
@@ -457,25 +458,25 @@
     },
     {
       "type": "header",
-      "content": "Bottom Expect Box"
+      "content": "Feature 4"
     },
     {
       "type": "text",
-      "id": "expect_icon",
-      "label": "Expect Box Icon",
+      "id": "feature4_icon",
+      "label": "Feature 4 Icon",
       "default": "😊"
     },
     {
       "type": "text",
-      "id": "expect_title",
-      "label": "Expect Box Title",
+      "id": "feature4_title",
+      "label": "Feature 4 Title",
       "default": "What to Expect"
     },
     {
-      "type": "textarea",
-      "id": "expect_text",
-      "label": "Expect Box Text",
-      "default": "Reveal your brightest smile in just 6 easy treatments. Most customers see a visibly whiter, more radiant smile—up to 5+ shades brighter—by the end of the kit. Safe for sensitive teeth and formulated by dental professionals."
+      "type": "text",
+      "id": "feature4_text",
+      "label": "Feature 4 Text",
+      "default": "Reveal your brightest smile in just 6 easy treatments"
     }
   ],
   "blocks": [
