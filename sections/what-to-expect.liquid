@@ -6,9 +6,10 @@
 
 <section class="what-to-expect">
   <div class="box-container page-width">
-    <div class="box-image">
-      <h2 class="mobile-title">{{ section.settings.title }}</h2>
-      <div class="carousel">
+    <div class="colored-wrapper">
+      <div class="box-image">
+        <h2 class="mobile-title">{{ section.settings.title }}</h2>
+        <div class="carousel">
           <div class="carousel__inner">
             <div class="carousel-instance swiper">
               <div class="swiper-wrapper">
@@ -49,57 +50,62 @@
             <div class="swiper-button-prev carousel-prev"></div>
             <div class="swiper-button-next carousel-next"></div>
           </div>
-      </div>
-    </div>
-
-    <div class="box-content">
-      <h2 class="desktop-only">{{ section.settings.title }}</h2>
-
-      <div class="box-feature">
-        <div class="box-feature-icon">{{ section.settings.feature1_icon }}</div>
-        <div class="box-feature-content">
-          <p>{{ section.settings.feature1_title }}</p>
-          <span>{{ section.settings.feature1_text }}</span>
         </div>
       </div>
 
-      <div class="box-feature">
-        <div class="box-feature-icon">{{ section.settings.feature2_icon }}</div>
-        <div class="box-feature-content">
-          <p>{{ section.settings.feature2_title }}</p>
-          <span>{{ section.settings.feature2_text }}</span>
-        </div>
-      </div>
+      <div class="box-content">
+        <h2 class="desktop-only">{{ section.settings.title }}</h2>
 
-      <div class="box-feature">
-        <div class="box-feature-icon">{{ section.settings.feature3_icon }}</div>
-        <div class="box-feature-content">
-          <p>{{ section.settings.feature3_title }}</p>
-          <span>{{ section.settings.feature3_text }}</span>
+        <div class="box-feature">
+          <div class="box-feature-icon">{{ section.settings.feature1_icon }}</div>
+          <div class="box-feature-content">
+            <p>{{ section.settings.feature1_title }}</p>
+            <span>{{ section.settings.feature1_text }}</span>
+          </div>
         </div>
-      </div>
 
-      <div class="box-feature">
-        <div class="box-feature-icon">{{ section.settings.feature4_icon }}</div>
-        <div class="box-feature-content">
-          <p>{{ section.settings.feature4_title }}</p>
-          <span>{{ section.settings.feature4_text }}</span>
+        <div class="box-feature">
+          <div class="box-feature-icon">{{ section.settings.feature2_icon }}</div>
+          <div class="box-feature-content">
+            <p>{{ section.settings.feature2_title }}</p>
+            <span>{{ section.settings.feature2_text }}</span>
+          </div>
+        </div>
+
+        <div class="box-feature">
+          <div class="box-feature-icon">{{ section.settings.feature3_icon }}</div>
+          <div class="box-feature-content">
+            <p>{{ section.settings.feature3_title }}</p>
+            <span>{{ section.settings.feature3_text }}</span>
+          </div>
+        </div>
+
+        <div class="box-feature">
+          <div class="box-feature-icon">{{ section.settings.feature4_icon }}</div>
+          <div class="box-feature-content">
+            <p>{{ section.settings.feature4_title }}</p>
+            <span>{{ section.settings.feature4_text }}</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  
 </section>
 
 <style>
     .box-container {
-      display: flex;
-      flex-wrap: wrap;
-      background: white;
-      overflow: hidden;
       margin: auto;
       padding-bottom: 50px;
       padding-top: 20px;
+    }
+
+    .colored-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      background: #f5faff;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid #E5E5E5;
     }
 
     .mobile-title {
@@ -118,21 +124,15 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background-color: #f5faff;
       padding-top: 40px;
       padding-bottom: 20px;
       width: 50%;
-      border-top-left-radius: 16px;
-      border-bottom-left-radius: 16px;
     }
 
     .box-content {
       flex: 0 0 50%;
       padding: 40px;
-      background-color: #f5faff;
       width: 50%;
-      border-top-right-radius: 16px;
-      border-bottom-right-radius: 16px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -308,9 +308,6 @@
         flex: 0 0 100%;
         width: 100%;
         max-width: 100%;
-        border-radius: 0;
-        border-bottom-left-radius: 16px;
-        border-bottom-right-radius: 16px;
         padding: 0 40px 40px 40px;
       }
 
@@ -326,14 +323,6 @@
         flex: 0 0 100%;
         width: 100%;
         max-width: 100%;
-        border-radius: 0;
-        border-top-left-radius: 16px;
-        border-top-right-radius: 16px;
-      }
-
-      .carousel__slide-text {
-        font-size: 18px;
-        padding: 40px 20px;
       }
     }
 
