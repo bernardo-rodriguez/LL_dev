@@ -11,23 +11,18 @@
 .what-to-expect .box-image {
   flex: 0 0 50%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #f5faff;
   padding-top: 40px;
   padding-bottom: 20px;
   width: 50%;
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
 }
 
 .what-to-expect .box-content {
   flex: 0 0 50%;
   padding: 40px;
-  background-color: #f5faff;
   width: 50%;
-  border-top-right-radius: 16px;
-  border-bottom-right-radius: 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
