@@ -311,12 +311,6 @@
         padding: 0;
       }
 
-      .mobile-title {
-        display: block;
-        padding-top: 0;
-        margin-bottom: 0;
-      }
-
       .desktop-only {
         display: none !important;
       }
@@ -333,6 +327,16 @@
     }
 
     @media screen and (max-width: 768px) {
+      .mobile-title {
+        display: block;
+        padding-top: 0;
+        margin-bottom: 0;
+      }
+      
+      .box-image {
+        padding-top: 0;
+      }
+
       .carousel__inner {
         grid-template-columns: 20px minmax(0, 1fr) 20px;
       }
