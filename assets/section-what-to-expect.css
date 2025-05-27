@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #F5F0FF;
+  background-color: #f5faff;
   padding-top: 40px;
   padding-bottom: 20px;
   width: 50%;
@@ -24,7 +24,7 @@
 .what-to-expect .box-content {
   flex: 0 0 50%;
   padding: 40px;
-  background-color: #F5F0FF;
+  background-color: #f5faff;
   width: 50%;
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
