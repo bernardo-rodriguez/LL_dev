@@ -1,6 +1,6 @@
 <div class="whats-in-the-box section-{{ section.id }}-padding">
   <div class="page-width">
-    <div class="colored-wrapper">
+    <div class="colored-wrapper whats-in-the-box__colored-wrapper">
       <div class="whats-in-the-box__container">
         <div class="whats-in-the-box__content">
           {% if section.settings.title != blank %}
@@ -52,7 +52,7 @@
 </div>
 
 <style>
-  .colored-wrapper {
+  .whats-in-the-box__colored-wrapper {
     background: #f5faff;
     overflow: hidden;
     border-radius: 16px;
