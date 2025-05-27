@@ -65,8 +65,8 @@
 }
 
 .what-to-expect .box-feature-content span {
-  font-size: 14px;
-  color: #444;
+  font-size: calc(16 * var(--font-body-scale))px;
+  /* color: #444; */
 }
 
 .what-to-expect .box-expect {
