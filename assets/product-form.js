@@ -469,7 +469,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     }
 
     if (product_form.product_id == 8954966147297) {
-      add_pen_cookie()  
+      add_pen_cookie()
+      setCookie('productDiscountCode', 'ADD_PEN')
     }
 
     let pen = this.getCookie('add_pen')
