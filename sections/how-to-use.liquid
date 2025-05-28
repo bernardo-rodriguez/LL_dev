@@ -59,12 +59,17 @@
                 loading="lazy"
               />
               <div class="text-content">
-                <h3 class = 'whats-in-the-box__subheading'>{{ block.settings.title }}</h3>
-                <p class = 'whats-in-the-box__text'>{{ block.settings.description }}</p>
+                <h3 class="whats-in-the-box__subheading">{{ block.settings.title }}</h3>
+                <p class="whats-in-the-box__text">{{ block.settings.description }}</p>
               </div>
             </div>
         {% endcase %}
       {% endfor %}
+    </div>
+    <div class="how-to-use-cta">
+      <button class="button button--primary" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        Try it Now
+      </button>
     </div>
   </div>
 </section>
@@ -79,7 +84,7 @@
     margin-bottom: 2rem;
   }
   
-  .how-to-use-header h2 {
+  .how-to-use-header h1 {
     font-weight: 400;
   }
   
@@ -88,6 +93,19 @@
     flex-wrap: wrap;
     gap: clamp(1rem, 3vw, 4rem);
     justify-content: center;
+    margin-bottom: 3rem;
+  }
+  
+  .how-to-use-cta {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+  
+  .how-to-use-cta .button {
+    min-width: 200px;
+    font-size: 16px;
+    padding: 1rem 2rem;
   }
   
   .how-step {
