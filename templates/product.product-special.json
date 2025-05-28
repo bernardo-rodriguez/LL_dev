@@ -198,7 +198,6 @@
         "logo_tipq7k",
         "logo_gnUcXn"
       ],
-      "name": "Logo Bar",
       "settings": {}
     },
     "what_to_expect_9m8aj6": {
@@ -234,21 +233,20 @@
         "slide_ygBAaY",
         "slide_jygWgL"
       ],
-      "name": "LL Expect",
       "settings": {
         "title": "What to Expect?",
         "feature1_icon": "🪥",
         "feature1_title": "Removes Decade Old Stains",
-        "feature1_text": "Our whitening serum lifts even long-set stains—coffee, wine, or years of buildup don’t stand a chance.",
+        "feature1_text": "Our whitening formula is designed to target long-set stains—coffee, wine, or years of buildup don’t stand a chance.",
         "feature2_icon": "⭐",
         "feature2_title": "Immediate Results",
-        "feature2_text": "Our dentist-developed formula with fast-acting hydrogen peroxide delivers a noticeably brighter smile in one week, with each treatment building on top of the last for your smile transformation.",
+        "feature2_text": "Our dentist-developed formula with fast-acting hydrogen peroxide brightens your smile in just one week—with results that improve with every use.",
         "feature3_icon": "💧",
         "feature3_title": "Sensitivity-Free",
-        "feature3_text": "Clinically formulated with sodium hydroxide to maintain a safe pH to reduce irritation",
-        "expect_icon": "😊",
-        "expect_title": "Improves Oral Health",
-        "expect_text": "Our formula contains antibacterial properties that helps reduce plaque and support gum health"
+        "feature3_text": "Clinically formulated with sodium hydroxide to maintain a safe pH to reduce irritation and pain",
+        "feature4_icon": "",
+        "feature4_title": "",
+        "feature4_text": ""
       }
     },
     "multi_slide_carousel_DkwrwT": {
@@ -287,7 +285,6 @@
         "slide_jFH8C7",
         "slide_4n3bXe"
       ],
-      "name": "Multi-slide Carousel",
       "settings": {}
     },
     "whats_in_the_box_bfeE6K": {
@@ -329,7 +326,6 @@
         "text_item_jJUhKn",
         "text_item_LddjYz"
       ],
-      "name": "What's in the Box",
       "settings": {
         "title": "What's in the Box?",
         "image": "shopify://shop_images/12_3b5437d5-d5ad-4ec2-9b9f-ce42aad4a781.jpg",
@@ -339,7 +335,6 @@
     },
     "replo_product_how_to_use_bpLT4L": {
       "type": "replo-product-how-to-use",
-      "name": "product-how-to-use",
       "settings": {}
     },
     "17478665286aeba721": {
