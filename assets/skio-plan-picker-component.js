@@ -955,13 +955,13 @@ export class SkioPlanPickerComponent extends LitElement {
     if(changed.has('product') && this.product) {
       // RAN ONLY ON FIRST LOAD
 
-      if (this.product.id == 7498061906145 || this.product.id == 8187028177121) {
-        console.log('this refill product')
+      if (this.product.id == 7498061906145 || this.product.id == 8187028177121 || this.product.id == 8954966147297 || this.product.id == 8943418736865) {
+        console.log('has multiple selling plans')
         this.useVariantInputClickEvents = true
         this.variantInputSelector = 'input[name="refill-strength"]'
         this.addVariantClickEventListeners()
       } else {
-        console.log('this not refill product')
+        console.log('no need to worry about selling plan changes')
       }
 
       //update key
