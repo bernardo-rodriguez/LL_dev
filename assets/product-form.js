@@ -315,27 +315,28 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
   observeForm(selling_plan_input) {
       // Watch selling_plan changes and make updates to sticky bar in case of any changes.
-      try {
-          console.log(selling_plan_input)
-          let skio = document.querySelector('skio-plan-picker')
+      if (!document.querySelector('.price-section')) { // dont give the option for special ones
+        try {
+            let skio = document.querySelector('skio-plan-picker')
 
-          skio.addEventListener('skio::update-selling-plan', (e) => {
-          
-          let sub_price = document.querySelector('skio-plan-picker').shadowRoot.querySelector(`[skio-subscription-price]`)?.innerText
+            skio.addEventListener('skio::update-selling-plan', (e) => {
+            
+            let sub_price = document.querySelector('skio-plan-picker').shadowRoot.querySelector(`[skio-subscription-price]`)?.innerText
 
-          $('span.price-item.price-item--regular').html(sub_price + '.00 USD');
+            $('span.price-item.price-item--regular').html(sub_price + '.00 USD');
 
-          if (this.stickyBar) {
-            this.updateStickyBar(e)
-          }
-          
-          this.mostRecentSellingPlan = e.detail.sellingPlan ? e.detail.sellingPlan.id : this.mostRecentSellingPlan
-          console.log(this.mostRecentSellingPlan)
-        })        
-      } catch (e) {
-          console.log("Error: failure in observeForm() for product-form.js")
-          console.log(e)
-      }
+            if (this.stickyBar) {
+              this.updateStickyBar(e)
+            }
+            
+            this.mostRecentSellingPlan = e.detail.sellingPlan ? e.detail.sellingPlan.id : this.mostRecentSellingPlan
+            console.log(this.mostRecentSellingPlan)
+          })        
+        } catch (e) {
+            console.log("Error: failure in observeForm() for product-form.js")
+            console.log(e)
+        }
+    }
   }
 
   observeFormulaPicker(refill_strength_input) {
