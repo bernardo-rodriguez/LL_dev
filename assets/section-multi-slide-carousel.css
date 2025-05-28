@@ -8,10 +8,7 @@
 }
 
 .multi-slide-carousel__heading {
-  font-size: 32px;
-  line-height: 1.2;
-  margin: 0 0 16px;
-  color: var(--color-base-text);
+  font-weight: 400;
 }
 
 .multi-slide-carousel__subheading {
@@ -166,7 +163,6 @@
   }
 
   .multi-slide-carousel__heading {
-    font-size: 24px;
     margin-bottom: 12px;
   }
 
@@ -190,5 +186,9 @@
   .multi-slide-carousel__button-next {
     width: 32px;
     height: 32px;
+  }
+
+  .multi-slide-carousel__pagination {
+    margin-top: 40px;
   }
 } 
