@@ -6,7 +6,7 @@
 
 <div class="what-to-expect">
   <div class="box-container page-width">
-    <div class="colored-wrapper what-to-expect__colored-wrapper">
+    <div class="what-to-expect__wrapper what-to-expect__colored-wrapper">
       <div class="what-to-expect__content">
         <h2 class="what-to-expect__title h1">{{ section.settings.title }}</h2>
       </div>
@@ -95,6 +95,14 @@
 </div>
 
 <style>
+  .what-to-expect__wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid #E5E5E5;
+  }
+
   .what-to-expect__colored-wrapper {
     background: #f5faff;
   }
@@ -114,14 +122,6 @@
     margin: auto;
     padding-bottom: 50px;
     padding-top: 20px;
-  }
-
-  .colored-wrapper {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    border-radius: 16px;
-    border: 1px solid #E5E5E5;
   }
 
   .what-to-expect__mobile-wrapper {
