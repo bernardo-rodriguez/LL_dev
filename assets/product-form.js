@@ -346,8 +346,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
             console.log(e.target.value)
             this.setVariant(e.target.value, true)
             
+            console.log('now what about this');
             if (document.querySelector('.price-section')) {
-              window.updatePrices(strength === 'strong');
+              console.log(strength);
+              updatePrices(strength === 'strong');
             }
           });
         });
