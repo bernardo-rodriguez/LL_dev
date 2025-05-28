@@ -469,7 +469,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     }
     
     let pen = this.getCookie('add_pen')
-    if (pen != 'false' && pen != null) {
+    if ((pen != 'false' && pen != null) || product_form.product_id == 8954966147297) {
       itemsList.push({
         id: pen,
         quantity: 1
