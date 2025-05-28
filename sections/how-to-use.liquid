@@ -41,6 +41,7 @@
 {% endschema %}
 
 <section class="how-to-use-section">
+  <div class="page-width">
     <div class="how-to-use-header">
       <h2>{{ section.settings.heading }}</h2>
     </div>
@@ -53,8 +54,8 @@
               <img 
                 src="{{ 'how-to-use-' | append: step_number | append: '.webp' | asset_url }}" 
                 alt="Step {{ step_number }} - {{ block.settings.title }}"
-                width="260"
-                height="260"
+                width="250"
+                height="250"
                 loading="lazy"
               />
               <div class="text-content">
@@ -65,106 +66,124 @@
         {% endcase %}
       {% endfor %}
     </div>
-  </section>
+  </div>
+</section>
   
-  <style>
-  .how-to-use-section {
-    padding: 3rem 1rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .how-to-use-header {
-    text-align: center;
-    margin-bottom: 2rem;
+<style>
+.how-to-use-section {
+  padding: 3rem 1rem;
+  margin: 0 auto;
+}
+
+.page-width {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.how-to-use-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.how-to-use-header h2 {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.how-to-use-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc((var(--page-width) - (250px * 4)) / 3);
+  justify-content: center;
+  max-width: var(--page-width);
+  margin: 0 auto;
+}
+
+.how-step {
+  flex: 0 0 250px;
+  max-width: 250px;
+  text-align: left;
+}
+
+.how-step img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  object-fit: contain;
+  max-width: 250px;
+}
+
+.how-step h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: calc(var(--font-heading-scale) * 1.7rem);
+  font-weight: 500;
+}
+
+.how-step p {
+  margin: 0;
+  line-height: 1.4;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .how-to-use-header h2 {
+    font-size: 24px;
   }
   
   .how-to-use-steps {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
   }
-  
+
   .how-step {
-    flex: 1 1 220px;
-    max-width: 260px;
-    text-align: left;
+    max-width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0 1rem;
   }
-  
+
   .how-step img {
-    width: 100%;
+    width: 45%;
     height: auto;
-    border-radius: 1rem;
-    object-fit: contain;
-    max-width: 260px;
+    flex: 0 0 auto;
+    max-width: 250px;
   }
-  
+
+  .how-step .text-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5rem 0;
+  }
+
   .how-step h3 {
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
+    margin-top: 0;
+    font-size: calc(var(--font-heading-scale) * 1.4rem);
   }
   
   .how-step p {
-    margin: 0;
+    font-size: 14px;
     line-height: 1.5;
-    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .how-step {
+    padding: 0 0.5rem;
   }
   
-  /* Responsive */
-  @media (max-width: 768px) {
-    .how-to-use-steps {
-      flex-direction: column;
-      align-items: stretch;
-      gap: 1.5rem;
-    }
-  
-    .how-step {
-      max-width: 100%;
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 0 1rem;
-    }
-  
-    .how-step img {
-      width: 45%;
-      height: auto;
-      flex: 0 0 auto;
-      max-width: 180px;
-    }
-  
-    .how-step .text-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0.5rem 0;
-    }
-  
-    .how-step h3 {
-      margin-top: 0;
-    }
+  .how-step img {
+    width: 40%;
   }
-  
-  @media (max-width: 480px) {
-    .how-step {
-      padding: 0 0.5rem;
-    }
-    
-    .how-step img {
-      width: 40%;
-      max-width: 140px;
-    }
-    
-    .how-step h3 {
-      font-size: 1rem;
-    }
-    
-    .how-step p {
-      font-size: 0.9rem;
-    }
-  }
-  </style>
+}
+</style>
   
