@@ -345,6 +345,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
             // Example of triggering different actions based on selection
             console.log(e.target.value)
             this.setVariant(e.target.value, true)
+            
+            if (document.querySelector('.price-section')) {
+              window.updatePrices(strength === 'strong');
+            }
           });
         });
 
@@ -355,13 +359,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         }
         let id = '#' + strength
         $(id).prop('checked', true).trigger('change');
-
-         // Check if price-special section exists and update prices accordingly
-         console.log(strength)
-         if (document.querySelector('.price-section')) {
-          console.log('we in here');
-          window.updatePrices(strength === 'strong');
-        }
 
     } catch (e) {
         console.log("refill strength picker not found")
