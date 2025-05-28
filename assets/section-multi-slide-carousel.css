@@ -97,7 +97,7 @@
 
 .multi-slide-carousel__description {
   text-align: center;
-  font-size: calc(14 * var(--font-body-scale))px;
+  font-size: calc(13 * var(--font-body-scale))px;
   color: var(--color-base-text);
   margin: 0;
   width: 100%;
@@ -174,7 +174,7 @@
   }
   
   .multi-slide-carousel__description {
-    font-size: calc(13 * var(--font-body-scale))px
+    font-size: calc(12 * var(--font-body-scale))px;
   }
 
   .multi-slide-carousel-instance {
