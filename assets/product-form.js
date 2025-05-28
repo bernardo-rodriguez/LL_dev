@@ -295,22 +295,25 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   bundleStickyBar() {
-    try {
-      let skio_plan_picker = document.querySelector('skio-plan-picker')
-      skio_plan_picker.addEventListener('click', (e) => {
-        if (document.querySelector('[data-sticky-onetime]')) {
-          let customPrice = document.querySelector('skio-plan-picker').shadowRoot.querySelector('input[name="onetime_bundle"]:checked').dataset.customPrice
-          document.querySelector(".sticky__price").innerHTML = customPrice
-        }
-      });
-    } catch (e) {
-      console.log(e)
+    if (!document.querySelector('.price-section')) {
+      try {
+        let skio_plan_picker = document.querySelector('skio-plan-picker')
+        skio_plan_picker.addEventListener('click', (e) => {
+          if (document.querySelector('[data-sticky-onetime]')) {
+            let customPrice = document.querySelector('skio-plan-picker').shadowRoot.querySelector('input[name="onetime_bundle"]:checked').dataset.customPrice
+            document.querySelector(".sticky__price").innerHTML = customPrice
+          }
+        });
+      } catch (e) {
+        console.log(e)
+      }
+      return 
+    } else {
+      return
     }
-    return 
   }
 
   observeForm(selling_plan_input) {
-    if (!document.querySelector('.price-section')) {
       // Watch selling_plan changes and make updates to sticky bar in case of any changes.
       try {
           console.log(selling_plan_input)
@@ -333,7 +336,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
           console.log("Error: failure in observeForm() for product-form.js")
           console.log(e)
       }
-    }
   }
 
   observeFormulaPicker(refill_strength_input) {
