@@ -113,7 +113,7 @@
         "share"
       ],
       "settings": {
-        "atc": "Buy Now",
+        "atc": "BUY NOW",
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_size": "small",
@@ -371,7 +371,6 @@
         "step_NageJh",
         "step_UUeiXD"
       ],
-      "name": "How To Use",
       "settings": {
         "heading": "How to use"
       }
