@@ -8,21 +8,32 @@
   </div>
 
   <script>
-    // Example dynamic update based on URL
-    const url = window.location.href;
+    function updatePrices(strong = false) {
+      const url = window.location.href;
+      let originalPrice, salePrice, perDoseText;
 
-    // Simple rules for demonstration
-    if (url.includes("6-serving-of-whitening-gels-free-starter-kit")) {
-        document.getElementById("originalPrice").textContent = "$48";
-        document.getElementById("salePrice").textContent = "$19";
-        document.getElementById("discountBadge").textContent = "SAVE 60% TODAY";
-        document.getElementById("perDose").textContent = "Only $3.1 Per Whitening Session";
-    } else {
-        document.getElementById("originalPrice").textContent = "$76";
-        document.getElementById("salePrice").textContent = "$19";
-        document.getElementById("discountBadge").textContent = "SAVE 75% TODAY";
-        {% comment %} document.getElementById("perDose").textContent = "Only $0.17 Per Dose"; {% endcomment %}
+      if (url.includes("6-serving-of-whitening-gels-free-starter-kit")) {
+        originalPrice = 59;
+        salePrice = strong ? 29 : 19;
+        perDoseText = `Only $${(salePrice / 6).toFixed(2)} Per Whitening Session`;
+      } else {
+        originalPrice = 76;
+        salePrice = strong ? 29 : 19;
+        perDoseText = `Only $${(salePrice / 6).toFixed(2)} Per Dose`;
+      }
+
+      // Calculate discount percentage
+      const discountPercentage = Math.round((1 - (salePrice / originalPrice)) * 100);
+
+      // Update DOM elements
+      document.getElementById("originalPrice").textContent = `$${originalPrice}`;
+      document.getElementById("salePrice").textContent = `$${salePrice}`;
+      document.getElementById("discountBadge").textContent = `SAVE ${discountPercentage}% TODAY`;
+      document.getElementById("perDose").textContent = perDoseText;
     }
+
+    // Initialize prices
+    updatePrices();
   </script>
 
   <style>
