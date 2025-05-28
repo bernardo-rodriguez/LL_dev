@@ -17,7 +17,7 @@ function add_pen_cookie() {
     3449913569: 3450208481,
     3449946337: 3450241249
   }
-  
+
   if (strength_cookie in pen_formula_dict) {
     formula_id = pen_formula_dict[strength_cookie]
   } else {
@@ -357,7 +357,9 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         $(id).prop('checked', true).trigger('change');
 
          // Check if price-special section exists and update prices accordingly
+         console.log(strength)
          if (document.querySelector('.price-section')) {
+          console.log('we in here');
           window.updatePrices(strength === 'strong');
         }
 
@@ -637,7 +639,6 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
     let one_time_pricing_e = (affiliate_config[referrer] ?? {}).pricing?.one_time_enabled ?? true;
     let sub_pricing_e = (affiliate_config[referrer] ?? {}).pricing?.subscription_enabled ?? true;
     if (!(one_time_pricing_e && sub_pricing_e)) {
-      console.log('yes hide it')
       $('#shopify-section-sticky-product-bar').css('display', 'none')
     }
   }
