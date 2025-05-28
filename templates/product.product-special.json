@@ -337,6 +337,49 @@
       "type": "replo-product-how-to-use",
       "settings": {}
     },
+    "how_to_use_mmYan3": {
+      "type": "how-to-use",
+      "blocks": {
+        "step_ELLHzM": {
+          "type": "step",
+          "settings": {
+            "title": "Brush Teeth",
+            "description": "Brush your teeth first, then make sure to remove excess moisture and leave the mouth dry before starting."
+          }
+        },
+        "step_QqHNn4": {
+          "type": "step",
+          "settings": {
+            "title": "Apply Serum",
+            "description": "Squeeze 1/2 of a whitening serum syringe into the top and bottom of the blue light mouthpiece evenly."
+          }
+        },
+        "step_NageJh": {
+          "type": "step",
+          "settings": {
+            "title": "Insert Light",
+            "description": "Plug the light into your phone and insert the light in your mouth. Gently bite it like a mouthguard. Use for 15 minutes before removing."
+          }
+        },
+        "step_UUeiXD": {
+          "type": "step",
+          "settings": {
+            "title": "Rinse & Repeat",
+            "description": "Rinse your mouth with warm water and remove any excess saliva. Repeat daily for 6 days to complete one treatment cycle."
+          }
+        }
+      },
+      "block_order": [
+        "step_ELLHzM",
+        "step_QqHNn4",
+        "step_NageJh",
+        "step_UUeiXD"
+      ],
+      "name": "How To Use",
+      "settings": {
+        "heading": "How to use"
+      }
+    },
     "17478665286aeba721": {
       "type": "apps",
       "blocks": {
@@ -360,6 +403,7 @@
     "multi_slide_carousel_DkwrwT",
     "whats_in_the_box_bfeE6K",
     "replo_product_how_to_use_bpLT4L",
+    "how_to_use_mmYan3",
     "17478665286aeba721"
   ]
 }
