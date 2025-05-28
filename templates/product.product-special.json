@@ -336,43 +336,35 @@
     "how_to_use_mmYan3": {
       "type": "how-to-use",
       "blocks": {
-        "step_ELLHzM": {
-          "type": "step",
-          "settings": {
-            "title": "Brush Teeth",
-            "description": "Brush your teeth first, then make sure to remove excess moisture and leave the mouth dry before starting."
-          }
-        },
         "step_QqHNn4": {
           "type": "step",
           "settings": {
-            "title": "Apply Serum",
-            "description": "Squeeze 1/2 of a whitening serum syringe into the top and bottom of the blue light mouthpiece evenly."
+            "title": "Squeeze it",
+            "description": "Squeeze 1/2 of a whitening gel syringe onto the mouthpiece evenly."
           }
         },
         "step_NageJh": {
           "type": "step",
           "settings": {
             "title": "Insert Light",
-            "description": "Plug the light into your phone and insert the light in your mouth. Gently bite it like a mouthguard. Use for 15 minutes before removing."
+            "description": "Plug the mouthpiece into your phone and then insert it in your mouth for 15 minutes."
           }
         },
         "step_UUeiXD": {
           "type": "step",
           "settings": {
             "title": "Rinse & Repeat",
-            "description": "Rinse your mouth with warm water and remove any excess saliva. Repeat daily for 6 days to complete one treatment cycle."
+            "description": "Rinse your mouth with warm water. Repeat daily for 6 days to reveal your new smile!"
           }
         }
       },
       "block_order": [
-        "step_ELLHzM",
         "step_QqHNn4",
         "step_NageJh",
         "step_UUeiXD"
       ],
       "settings": {
-        "heading": "How to use"
+        "heading": "Whitening made easy."
       }
     },
     "17478665286aeba721": {
