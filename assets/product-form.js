@@ -340,6 +340,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
   observeFormulaPicker(refill_strength_input) {
     try {
+        console.log('lets no do this thing then')
         let refill_strength = document.querySelectorAll(refill_strength_input)
         let skio = document.querySelector('skio-plan-picker')
 
