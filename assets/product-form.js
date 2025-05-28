@@ -433,7 +433,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     
     let quantity_setter = (dpk_choice == 'two_kits') ? 2: 1
 
-    if (!(['8187028177121', '8252255568097', '8733239869665', '8943418736865'].includes(product_form.product_id))) {
+    if (!(['8187028177121', '8252255568097', '8733239869665', '8943418736865', '8954966147297'].includes(product_form.product_id))) {
       let quantity_field = document.querySelector('quantity-input input[name="quantity"]').value
       quantity_setter = quantity_field
     }
