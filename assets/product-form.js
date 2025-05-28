@@ -17,6 +17,7 @@ function add_pen_cookie() {
     3449913569: 3450208481,
     3449946337: 3450241249
   }
+  
   if (strength_cookie in pen_formula_dict) {
     formula_id = pen_formula_dict[strength_cookie]
   } else {
