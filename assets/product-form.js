@@ -355,8 +355,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         let id = '#' + strength
         $(id).prop('checked', true).trigger('change');
 
-        // Check if price-special section exists and update prices accordingly
-        if (document.querySelector('.price-section')) {
+         // Check if price-special section exists and update prices accordingly
+         if (document.querySelector('.price-section')) {
           window.updatePrices(strength === 'strong');
         }
 
@@ -652,4 +652,37 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
   }
 
   updateSellingPlans(e) {
-    const controller = document.querySelector(`
+    const controller = document.querySelector(`select#${e.target.dataset.controlId} `)
+    controller.value = e.target.value
+  }
+
+  waitForEl(selector) {
+    return new Promise(resolve => {
+      if (document.querySelector(selector)) {
+          return resolve(document.querySelector(selector));
+      }
+
+      const observer = new MutationObserver(mutations => {
+          if (document.querySelector(selector)) {
+              resolve(document.querySelector(selector));
+              observer.disconnect();
+          }
+      });
+
+      observer.observe(document.body, {
+          childList: true,
+          subtree: true
+      });
+  });
+  }
+})
+
+
+window.addEventListener('pageshow', function(event) {
+  if (event.persisted) {
+    console.log('loaded from cache')
+    // The page was loaded from bfcache (back-forward cache) or a similar mechanism.
+    // You can force a reload or reinitialize any state here.
+   window.location.reload();
+  }
+});
