@@ -346,10 +346,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
             console.log(e.target.value)
             this.setVariant(e.target.value, true)
             
-            console.log('now what about this');
             if (document.querySelector('.price-section')) {
-              console.log(strength);
-              updatePrices(strength === 'strong');
+              updatePrices(strength === '🔥 Super Strength (ID: 8-17)');
             }
           });
         });
