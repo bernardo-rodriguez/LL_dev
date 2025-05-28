@@ -21,6 +21,7 @@ const premiumFeatures = [
     "6 Treatments of Whitening Gels",
     "<strong>FREE</strong> blue light mouthpiece",
     "<strong>FREE</strong> phone connector (compatible with all phones)",
+    "<strong>FREE</strong> Laughland to-go pen"
 ];
 
 const defaultFeatures = [
@@ -30,7 +31,7 @@ const defaultFeatures = [
     "<strong>FREE</strong> phone connector (compatible with all phones)",
 ];
 
-const features = url_get.includes("free-starter") ? premiumFeatures : defaultFeatures;
+const features = url_get.includes("free-pen") ? premiumFeatures : defaultFeatures;
 
 // Populate list
 const list = document.getElementById("featureList");
