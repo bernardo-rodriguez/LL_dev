@@ -96,15 +96,16 @@
 .how-to-use-steps {
   display: flex;
   flex-wrap: wrap;
-  gap: calc((var(--page-width) - (250px * 4)) / 3);
+  gap: clamp(2rem, 5vw, 4rem);
   justify-content: center;
   max-width: var(--page-width);
   margin: 0 auto;
 }
 
 .how-step {
-  flex: 0 0 250px;
-  max-width: 250px;
+  flex: 1 1 250px;
+  min-width: 250px;
+  max-width: 350px;
   text-align: left;
 }
 
@@ -113,7 +114,7 @@
   height: auto;
   border-radius: 1rem;
   object-fit: contain;
-  max-width: 250px;
+  max-width: 100%;
 }
 
 .how-step h3 {
