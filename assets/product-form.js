@@ -347,7 +347,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
             this.setVariant(e.target.value, true)
             
             if (document.querySelector('.price-section')) {
-              updatePrices(strength === '🔥 Super Strength (ID: 8-17)');
+              updatePrices(e.target.value === '🔥 Super Strength (ID: 8-17)');
             }
           });
         });
