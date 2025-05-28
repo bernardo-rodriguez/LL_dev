@@ -4,98 +4,110 @@
 
 <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
 
-<section class="what-to-expect">
+<div class="what-to-expect">
   <div class="box-container page-width">
     <div class="colored-wrapper what-to-expect__colored-wrapper">
-      <div class="box-image">
-        <h2 class="mobile-title">{{ section.settings.title }}</h2>
-        <div class="carousel">
-          <div class="carousel__inner">
-            <div class="carousel-instance swiper">
-              <div class="swiper-wrapper">
-                {% for block in section.blocks %}
-                  <div class="swiper-slide">
-                    <div class="carousel__slide-content">
-                      {% if block.settings.svg != blank %}
-                        <div class="carousel-image">
-                          {{ block.settings.svg }}
-                        </div>
-                      {% elsif block.settings.png != blank %}
-                        <div class="carousel-image">
-                          <img
-                            srcset="
-                              {{ block.settings.png | image_url: width: 400 }} 400w,
-                              {{ block.settings.png | image_url: width: 600 }} 600w,
-                              {{ block.settings.png | image_url: width: 800 }} 800w,
-                              {{ block.settings.png | image_url: width: 1200 }} 1200w"
-                            sizes="(max-width: 768px) 400px,
-                                   (max-width: 991px) 600px,
-                                   800px"
-                            src="{{ block.settings.png | image_url: width: 800}}"
-                            loading="lazy"
-                            width="800"
-                            height="800"
-                            alt="{{ block.settings.png.alt | escape }}"
-                            {% if block.settings.opacity != blank %}style="opacity: 0.{{ block.settings.opacity }}"{% endif %}
-                          >
-                        </div>
-                      {% endif %}
-                      <h3 class="carousel__slide-text m-h5">{{ block.settings.text }}</h3>
-                    </div>
-                  </div>
-                {% endfor %}
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
-            <div class="swiper-button-prev carousel-prev"></div>
-            <div class="swiper-button-next carousel-next"></div>
-          </div>
-        </div>
+      <div class="what-to-expect__content">
+        <h2 class="what-to-expect__title h1">{{ section.settings.title }}</h2>
       </div>
-
-      <div class="box-content">
-        <h2 class="desktop-only">{{ section.settings.title }}</h2>
-
-        <div class="box-feature">
-          <div class="box-feature-icon">{{ section.settings.feature1_icon }}</div>
-          <div class="box-feature-content">
-            <p>{{ section.settings.feature1_title }}</p>
-            <span>{{ section.settings.feature1_text }}</span>
+      <div class="what-to-expect__mobile-wrapper">
+        <div class="box-image">
+          <div class="carousel">
+            <div class="carousel__inner">
+              <div class="carousel-instance swiper">
+                <div class="swiper-wrapper">
+                  {% for block in section.blocks %}
+                    <div class="swiper-slide">
+                      <div class="carousel__slide-content">
+                        {% if block.settings.svg != blank %}
+                          <div class="carousel-image">
+                            {{ block.settings.svg }}
+                          </div>
+                        {% elsif block.settings.png != blank %}
+                          <div class="carousel-image">
+                            <img
+                              srcset="
+                                {{ block.settings.png | image_url: width: 400 }} 400w,
+                                {{ block.settings.png | image_url: width: 600 }} 600w,
+                                {{ block.settings.png | image_url: width: 800 }} 800w,
+                                {{ block.settings.png | image_url: width: 1200 }} 1200w"
+                              sizes="(max-width: 768px) 400px,
+                                     (max-width: 991px) 600px,
+                                     800px"
+                              src="{{ block.settings.png | image_url: width: 800}}"
+                              loading="lazy"
+                              width="800"
+                              height="800"
+                              alt="{{ block.settings.png.alt | escape }}"
+                              {% if block.settings.opacity != blank %}style="opacity: 0.{{ block.settings.opacity }}"{% endif %}
+                            >
+                          </div>
+                        {% endif %}
+                        <h3 class="carousel__slide-text m-h5">{{ block.settings.text }}</h3>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+              <div class="swiper-button-prev carousel-prev"></div>
+              <div class="swiper-button-next carousel-next"></div>
+            </div>
           </div>
         </div>
 
-        <div class="box-feature">
-          <div class="box-feature-icon">{{ section.settings.feature2_icon }}</div>
-          <div class="box-feature-content">
-            <p>{{ section.settings.feature2_title }}</p>
-            <span>{{ section.settings.feature2_text }}</span>
+        <div class="box-content">
+          <div class="box-feature">
+            <div class="box-feature-icon">{{ section.settings.feature1_icon }}</div>
+            <div class="box-feature-content">
+              <p>{{ section.settings.feature1_title }}</p>
+              <span>{{ section.settings.feature1_text }}</span>
+            </div>
           </div>
-        </div>
 
-        <div class="box-feature">
-          <div class="box-feature-icon">{{ section.settings.feature3_icon }}</div>
-          <div class="box-feature-content">
-            <p>{{ section.settings.feature3_title }}</p>
-            <span>{{ section.settings.feature3_text }}</span>
+          <div class="box-feature">
+            <div class="box-feature-icon">{{ section.settings.feature2_icon }}</div>
+            <div class="box-feature-content">
+              <p>{{ section.settings.feature2_title }}</p>
+              <span>{{ section.settings.feature2_text }}</span>
+            </div>
           </div>
-        </div>
 
-        <div class="box-feature">
-          <div class="box-feature-icon">{{ section.settings.feature4_icon }}</div>
-          <div class="box-feature-content">
-            <p>{{ section.settings.feature4_title }}</p>
-            <span>{{ section.settings.feature4_text }}</span>
+          <div class="box-feature">
+            <div class="box-feature-icon">{{ section.settings.feature3_icon }}</div>
+            <div class="box-feature-content">
+              <p>{{ section.settings.feature3_title }}</p>
+              <span>{{ section.settings.feature3_text }}</span>
+            </div>
+          </div>
+
+          <div class="box-feature">
+            <div class="box-feature-icon">{{ section.settings.feature4_icon }}</div>
+            <div class="box-feature-content">
+              <p>{{ section.settings.feature4_title }}</p>
+              <span>{{ section.settings.feature4_text }}</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <style>
   .what-to-expect__colored-wrapper {
-    {% comment %} background: #F5F0FF; {% endcomment %}
-     background: #f5faff;
+    background: #f5faff;
+  }
+
+  .what-to-expect__content {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .what-to-expect__title {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 400;
   }
 
   .box-container {
@@ -106,21 +118,19 @@
 
   .colored-wrapper {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     overflow: hidden;
     border-radius: 16px;
     border: 1px solid #E5E5E5;
   }
 
+  .what-to-expect__mobile-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   .mobile-title {
     display: none;
-    font-size: 32px;
-    font-weight: 400;
-    width: 100%;
-    margin-bottom: 24px;
-    padding: 0 20px;
-    text-align: center;
-    line-height: 1.2;
   }
 
   .box-image {
@@ -314,26 +324,12 @@
     visibility: visible !important;
   }
 
-  .desktop-only {
-    font-size: 32px;
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 24px;
-    line-height: 1.2;
-  }
-
   @media screen and (max-width: 991px) {
     .what-to-expect .box-content {
       flex: 0 0 100%;
       width: 100%;
       max-width: 100%;
       padding: 0;
-    }
-
-    .desktop-only {
-      display: none !important;
     }
 
     .what-to-expect .box-image {
