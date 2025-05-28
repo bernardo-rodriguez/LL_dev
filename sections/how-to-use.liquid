@@ -41,6 +41,7 @@
 {% endschema %}
 
 <section class="how-to-use-section">
+  <div class="page-width">
     <div class="how-to-use-header">
       <h2>{{ section.settings.heading }}</h2>
     </div>
@@ -65,18 +66,13 @@
         {% endcase %}
       {% endfor %}
     </div>
-  </section>
-  
-  <style>
+  </div>
+</section>
+
+<style>
   .how-to-use-section {
     padding: 3rem 1rem;
     margin: 0 auto;
-  }
-  
-  .page-width {
-    max-width: var(--page-width);
-    margin: 0 auto;
-    padding: 0 1.5rem;
   }
   
   .how-to-use-header {
@@ -94,15 +90,14 @@
   .how-to-use-steps {
     display: flex;
     flex-wrap: wrap;
-    gap: calc((var(--page-width) - (250px * 4)) / 3);
+    gap: clamp(2rem, calc((100% - (260px * 4)) / 3), 4rem);
     justify-content: center;
-    max-width: var(--page-width);
-    margin: 0 auto;
   }
   
   .how-step {
-    flex: 0 0 250px;
-    max-width: 250px;
+    flex: 1 1 260px;
+    min-width: 260px;
+    max-width: 300px;
     text-align: left;
   }
   
@@ -111,7 +106,7 @@
     height: auto;
     border-radius: 1rem;
     object-fit: contain;
-    max-width: 250px;
+    max-width: 260px;
   }
   
   .how-step h3 {
@@ -152,7 +147,7 @@
       width: 45%;
       height: auto;
       flex: 0 0 auto;
-      max-width: 250px;
+      max-width: 260px;
     }
   
     .how-step .text-content {
@@ -183,5 +178,5 @@
       width: 40%;
     }
   }
-  </style>
+</style>
   
