@@ -96,8 +96,8 @@
     width: 100%;
     height: auto;
     border-radius: 1rem;
-    object-fit: cover;
-    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    max-width: 260px;
   }
   
   .how-step h3 {
@@ -123,7 +123,7 @@
     .how-step {
       max-width: 100%;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 1rem;
       padding: 0 1rem;
     }
@@ -132,7 +132,7 @@
       width: 45%;
       height: auto;
       flex: 0 0 auto;
-      max-height: 200px;
+      max-width: 180px;
     }
   
     .how-step .text-content {
@@ -140,6 +140,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      padding: 0.5rem 0;
     }
   
     .how-step h3 {
@@ -154,7 +155,7 @@
     
     .how-step img {
       width: 40%;
-      max-height: 160px;
+      max-width: 140px;
     }
     
     .how-step h3 {
