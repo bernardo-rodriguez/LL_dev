@@ -467,7 +467,11 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         selling_plan: product_form.selling_plan? skio.selectedSellingPlan.id: '' // product_form.selling_plan // or can also do 
       }]
     }
-    
+
+    if (product_form.product_id == 8954966147297) {
+      add_pen_cookie()  
+    }
+
     let pen = this.getCookie('add_pen')
     if ((pen != 'false' && pen != null) || product_form.product_id == 8954966147297) {
       itemsList.push({
