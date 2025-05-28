@@ -90,14 +90,14 @@
   .how-to-use-steps {
     display: flex;
     flex-wrap: wrap;
-    gap: clamp(2rem, calc((100% - (260px * 4)) / 3), 4rem);
+    gap: clamp(1rem, 3vw, 4rem);
     justify-content: center;
   }
   
   .how-step {
-    flex: 1 1 260px;
-    min-width: 260px;
-    max-width: 300px;
+    flex: 1 1 200px;
+    min-width: 200px;
+    max-width: 260px;
     text-align: left;
   }
   
@@ -106,7 +106,6 @@
     height: auto;
     border-radius: 1rem;
     object-fit: contain;
-    max-width: 260px;
   }
   
   .how-step h3 {
@@ -123,7 +122,15 @@
     font-weight: 400;
   }
   
-  /* Responsive */
+  /* Tablet and smaller desktop */
+  @media (max-width: 990px) {
+    .how-step {
+      flex: 1 1 180px;
+      min-width: 180px;
+    }
+  }
+  
+  /* Mobile */
   @media (max-width: 768px) {
     .how-to-use-header h2 {
       font-size: 24px;
@@ -136,6 +143,7 @@
     }
   
     .how-step {
+      min-width: 100%;
       max-width: 100%;
       display: flex;
       align-items: flex-start;
