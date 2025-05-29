@@ -1,435 +1,467 @@
-<div class="whats-in-the-box">
-  <div class="box-container page-width">
-    <div class="whats-in-the-box__colored-wrapper">
-      <div class="whats-in-the-box__content">
-        {% if section.settings.title != blank %}
-          <h3 class="whats-in-the-box__title">{{ section.settings.title }}</h3>
-        {% endif %}
-      </div>
-      <div class="whats-in-the-box__mobile-wrapper">
-        <div class="whats-in-the-box__image">
-          {% if section.settings.image != blank %}
-            {%- assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio -%}
-            {{ section.settings.image | image_url: width: section.settings.image.width | image_tag:
-              loading: 'lazy',
-              width: section.settings.image.width,
-              height: image_height,
-              alt: section.settings.image.alt | escape
-            }}
-          {% else %}
-            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-          {% endif %}
-        </div>
-        <div class="whats-in-the-box__items">
-          {% for block in section.blocks %}
-            {% case block.type %}
-              {% when 'text_item' %}
-                <div class="whats-in-the-box__item" {{ block.shopify_attributes }}>
-                  <div class="whats-in-the-box__icon">
-                    {% if block.settings.icon_type == 'emoji' %}
-                      <span class="whats-in-the-box__icon--emoji">{{ block.settings.emoji_icon }}</span>
-                    {% else %}
-                      {{ block.settings.svg_icon }}
-                    {% endif %}
-                  </div>
-                  <div class="whats-in-the-box__text-wrapper">
-                    {% if block.settings.subheading != blank %}
-                      <h4 class="special-section-subheading">{{ block.settings.subheading }}</h4>
-                    {% endif %}
-                    <div class="whats-in-the-box__text">{{ block.settings.text }}</div>
-                  </div>
-                </div>
-            {% endcase %}
-          {% endfor %}
+<div class="whats-in-the-box section-{{ section.id }}-padding">
+    <div class="page-width">
+      <div class="colored-wrapper whats-in-the-box__colored-wrapper">
+        <div class="whats-in-the-box__container">
+          <div class="whats-in-the-box__content">
+            {% if section.settings.title != blank %}
+              <h2 class="whats-in-the-box__title h1">{{ section.settings.title }}</h2>
+            {% endif %}
+          </div>
+  
+          <div class="whats-in-the-box__mobile-wrapper">
+            <div class="whats-in-the-box__image">
+              {% if section.settings.image != blank %}
+                {%- assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio -%}
+                {{ section.settings.image | image_url: width: section.settings.image.width | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.image.width,
+                  height: image_height,
+                  alt: section.settings.image.alt | escape
+                }}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </div>
+            
+            <div class="whats-in-the-box__items">
+              {% for block in section.blocks %}
+                {% case block.type %}
+                  {% when 'text_item' %}
+                    <div class="whats-in-the-box__item" {{ block.shopify_attributes }}>
+                      <div class="whats-in-the-box__icon">
+                        {% if block.settings.icon_type == 'emoji' %}
+                          <span class="whats-in-the-box__icon--emoji">{{ block.settings.emoji_icon }}</span>
+                        {% else %}
+                          {{ block.settings.svg_icon }}
+                        {% endif %}
+                      </div>
+                      <div class="whats-in-the-box__text-wrapper">
+                        {% if block.settings.subheading != blank %}
+                          <h3 class="whats-in-the-box__subheading">{{ block.settings.subheading }}</h3>
+                        {% endif %}
+                        <div class="whats-in-the-box__text">{{ block.settings.text }}</div>
+                      </div>
+                    </div>
+                {% endcase %}
+              {% endfor %}
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<style>
-  .box-container {
-    margin: auto;
-    padding-bottom: 50px;
-    padding-top: 20px;
+  
+  <style>
+    .whats-in-the-box__colored-wrapper {
+      background: #f5faff;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid #E5E5E5;
+      padding: 40px;
+    }
+  
+    .whats-in-the-box__container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+  
+    .whats-in-the-box__content {
+      text-align: center;
+    }
+  
+    .whats-in-the-box__title {
+      margin-bottom: 2rem;
+      text-align: center;
+      font-weight: 400;
+    }
+  
+    .whats-in-the-box__mobile-wrapper {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+  
+    .whats-in-the-box__image {
+      flex: 0 0 50%;
+      width: 50%;
+    }
+  
+    .whats-in-the-box__items {
+      flex: 0 0 50%;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+  
+    .whats-in-the-box__item {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      width: 100%;
+    }
+  
+    .whats-in-the-box__icon {
+      flex-shrink: 0;
+      width: 3.5rem;
+      height: auto;
+      display: flex;
+      align-items: center;
+    }
+  
+    .whats-in-the-box__icon--emoji {
+      font-size: 2.5rem;
+      line-height: 1;
+    }
+  
+    .whats-in-the-box__icon svg {
+      width: 100%;
+      height: 100%;
+    }
+  
+    .whats-in-the-box__text-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
+    }
+  
+    .whats-in-the-box__subheading {
+      margin: 0;
+      font-size: calc(var(--font-heading-scale) * 1.7rem);
+      font-weight: 500;
+    }
+  
+    .whats-in-the-box__text {
+      flex: 1;
+    }
+  
+    .whats-in-the-box__text p {
+      margin: 0;
+    }
+  
+    .whats-in-the-box__image img {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 370px;
+      display: block;
+      border-radius: 16px;
+      object-fit: contain;
+    }
+  
+    @media screen and (max-width: 991px) {
+      .whats-in-the-box__mobile-wrapper {
+        flex-direction: column;
+        gap: 30px;
+      }
+  
+      .whats-in-the-box__image,
+      .whats-in-the-box__items {
+        flex: 1;
+        width: 100%;
+        max-width: 100%;
+      }
+  
+      .colored-wrapper {
+        padding: 30px;
+      }
+    }
+  
+    @media screen and (max-width: 749px) {
+      .whats-in-the-box__image img {
+        max-height: 300px;
+      }
+  
+      .whats-in-the-box__item {
+        width: 100%;
+        gap: 0.5rem;
+      }
+  
+      .whats-in-the-box__text-wrapper {
+        width: 100%;
+      }
+    }
+  </style>
+  
+  {% schema %}
+  {
+    "name": "What's in the Box",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "What's in the Box"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "select",
+        "id": "padding_top",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          }
+        ],
+        "default": "medium",
+        "label": "Top padding"
+      },
+      {
+        "type": "select",
+        "id": "padding_bottom",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          }
+        ],
+        "default": "medium",
+        "label": "Bottom padding"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text_item",
+        "name": "Text Item",
+        "limit": 3,
+        "settings": [
+          {
+            "type": "text",
+            "id": "subheading",
+            "label": "Subheading",
+            "default": "Feature Title"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Add your text here</p>"
+          },
+          {
+            "type": "select",
+            "id": "icon_type",
+            "label": "Icon Type",
+            "options": [
+              {
+                "value": "emoji",
+                "label": "Emoji"
+              },
+              {
+                "value": "svg",
+                "label": "SVG"
+              }
+            ],
+            "default": "emoji"
+          },
+          {
+            "type": "text",
+            "id": "emoji_icon",
+            "label": "Emoji Icon",
+            "default": "✨",
+            "info": "Enter an emoji to use as the icon"
+          },
+          {
+            "type": "textarea",
+            "id": "svg_icon",
+            "label": "SVG Icon",
+            "info": "Paste your SVG code here"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "What's in the Box",
+        "blocks": [
+          {
+            "type": "text_item",
+            "settings": {
+              "subheading": "Premium Quality",
+              "text": "<p>Premium whitening strips for a brighter smile</p>",
+              "icon_type": "emoji",
+              "emoji_icon": "✨"
+            }
+          },
+          {
+            "type": "text_item",
+            "settings": {
+              "subheading": "Gentle Formula",
+              "text": "<p>Professional-grade formula that's gentle on sensitive teeth</p>",
+              "icon_type": "emoji",
+              "emoji_icon": "🦷"
+            }
+          },
+          {
+            "type": "text_item",
+            "settings": {
+              "subheading": "Quick Results",
+              "text": "<p>14-day treatment for lasting results</p>",
+              "icon_type": "emoji",
+              "emoji_icon": "⏰"
+            }
+          }
+        ]
+      }
+    ]
   }
-
-  .whats-in-the-box__colored-wrapper {
-    background: #f5faff;
-    overflow: hidden;
-    border-radius: 16px;
-    border: 1px solid #E5E5E5;
-    padding: 30px;
+  {% endschema %}
+  
+  {% stylesheet %}
+  .whats-in-the-box {
+    padding: var(--section-padding);
   }
-
+  
+  .whats-in-the-box__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
   .whats-in-the-box__content {
     text-align: center;
   }
-
+  
+  .whats-in-the-box__mobile-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
   .whats-in-the-box__title {
     margin-bottom: 2rem;
     text-align: center;
     font-weight: 400;
   }
-
-  .whats-in-the-box__mobile-wrapper {
-    display: flex;
-    gap: 40px;
+  
+  @media screen and (min-width: 750px) {
+    .whats-in-the-box__container {
+      padding: 40px;
+    }
+  
+    .whats-in-the-box__mobile-wrapper {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 4rem;
+    }
+  
+    .whats-in-the-box__content {
+      width: 100%;
+    }
+  
+    .whats-in-the-box__image,
+    .whats-in-the-box__items {
+      flex: 1;
+    }
   }
-
-  .whats-in-the-box__image {
-    flex: 0 0 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
+  
   .whats-in-the-box__items {
-    flex: 0 0 50%;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
   }
-
+  
   .whats-in-the-box__item {
     display: flex;
-    align-items: flex-start;
     gap: 1.5rem;
-    margin-bottom: 20px;
+    align-items: center;
   }
-
-  .whats-in-the-box__item:last-of-type {
-    margin-bottom: 0;
-  }
-
+  
   .whats-in-the-box__icon {
     flex-shrink: 0;
     width: 3.5rem;
     height: auto;
-    margin-top: 5px;
     display: flex;
     align-items: center;
-    font-size: 1.8rem;
-    line-height: 1;
   }
-
+  
   .whats-in-the-box__icon--emoji {
     font-size: 2.5rem;
     line-height: 1;
   }
-
+  
   .whats-in-the-box__icon svg {
     width: 100%;
     height: 100%;
   }
-
+  
   .whats-in-the-box__text-wrapper {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    flex: 1;
   }
-
-  .special-section-subheading {
+  
+  .whats-in-the-box__subheading {
     margin: 0;
-    margin-bottom: 0;
     font-size: calc(var(--font-heading-scale) * 1.7rem);
     font-weight: 500;
   }
-
+  
   .whats-in-the-box__text {
     flex: 1;
   }
-
+  
   .whats-in-the-box__text p {
     margin: 0;
   }
-
+  
+  .whats-in-the-box__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
   .whats-in-the-box__image img {
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     height: auto;
     max-height: 370px;
     display: block;
     border-radius: 16px;
     object-fit: contain;
   }
-
-  @media screen and (max-width: 991px) {
-    .whats-in-the-box__mobile-wrapper {
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .whats-in-the-box__image,
-    .whats-in-the-box__items {
-      flex: 0 0 100%;
+  
+  @media screen and (min-width: 750px) {
+    .whats-in-the-box__image img {
+      max-height: 400px;
     }
   }
-
-  @media screen and (max-width: 749px) {
-    .whats-in-the-box__item {
-      gap: 0.5rem;
-    }
-  }
-</style>
-
-{% schema %}
-{
-  "name": "What's in the Box",
-  "tag": "section",
-  "class": "section",
-  "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "What's in the Box"
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Image"
-    },
-    {
-      "type": "select",
-      "id": "padding_top",
-      "options": [
-        {
-          "value": "none",
-          "label": "None"
-        },
-        {
-          "value": "small",
-          "label": "Small"
-        },
-        {
-          "value": "medium",
-          "label": "Medium"
-        },
-        {
-          "value": "large",
-          "label": "Large"
-        }
-      ],
-      "default": "medium",
-      "label": "Top padding"
-    },
-    {
-      "type": "select",
-      "id": "padding_bottom",
-      "options": [
-        {
-          "value": "none",
-          "label": "None"
-        },
-        {
-          "value": "small",
-          "label": "Small"
-        },
-        {
-          "value": "medium",
-          "label": "Medium"
-        },
-        {
-          "value": "large",
-          "label": "Large"
-        }
-      ],
-      "default": "medium",
-      "label": "Bottom padding"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "text_item",
-      "name": "Text Item",
-      "limit": 3,
-      "settings": [
-        {
-          "type": "text",
-          "id": "subheading",
-          "label": "Subheading",
-          "default": "Feature Title"
-        },
-        {
-          "type": "richtext",
-          "id": "text",
-          "label": "Text",
-          "default": "<p>Add your text here</p>"
-        },
-        {
-          "type": "select",
-          "id": "icon_type",
-          "label": "Icon Type",
-          "options": [
-            {
-              "value": "emoji",
-              "label": "Emoji"
-            },
-            {
-              "value": "svg",
-              "label": "SVG"
-            }
-          ],
-          "default": "emoji"
-        },
-        {
-          "type": "text",
-          "id": "emoji_icon",
-          "label": "Emoji Icon",
-          "default": "✨",
-          "info": "Enter an emoji to use as the icon"
-        },
-        {
-          "type": "textarea",
-          "id": "svg_icon",
-          "label": "SVG Icon",
-          "info": "Paste your SVG code here"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "What's in the Box",
-      "blocks": [
-        {
-          "type": "text_item",
-          "settings": {
-            "subheading": "Premium Quality",
-            "text": "<p>Premium whitening strips for a brighter smile</p>",
-            "icon_type": "emoji",
-            "emoji_icon": "✨"
-          }
-        },
-        {
-          "type": "text_item",
-          "settings": {
-            "subheading": "Gentle Formula",
-            "text": "<p>Professional-grade formula that's gentle on sensitive teeth</p>",
-            "icon_type": "emoji",
-            "emoji_icon": "🦷"
-          }
-        },
-        {
-          "type": "text_item",
-          "settings": {
-            "subheading": "Quick Results",
-            "text": "<p>14-day treatment for lasting results</p>",
-            "icon_type": "emoji",
-            "emoji_icon": "⏰"
-          }
-        }
-      ]
-    }
-  ]
-}
-{% endschema %}
-
-{% stylesheet %}
-.whats-in-the-box {
-  padding: var(--section-padding);
-}
-
-.whats-in-the-box__container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.whats-in-the-box__content {
-  text-align: center;
-}
-
-.whats-in-the-box__mobile-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.whats-in-the-box__title {
-  margin-bottom: 2rem;
-  text-align: center;
-  font-weight: 400;
-}
-
-.whats-in-the-box__items {
-  flex: 0 0 50%;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.whats-in-the-box__item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-  margin-bottom: 20px;
-}
-
-.whats-in-the-box__item:last-of-type {
-  margin-bottom: 0;
-}
-
-.whats-in-the-box__icon {
-  flex-shrink: 0;
-  width: 3.5rem;
-  height: auto;
-  margin-top: 5px;
-  display: flex;
-  align-items: center;
-  font-size: 1.8rem;
-  line-height: 1;
-}
-
-.whats-in-the-box__text-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  flex: 1;
-}
-
-.whats-in-the-box__text p {
-  margin: 0;
-}
-
-.whats-in-the-box__image {
-  flex: 0 0 50%;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.whats-in-the-box__image img {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: 370px;
-  display: block;
-  border-radius: 16px;
-  object-fit: contain;
-}
-
-@media screen and (max-width: 991px) {
-  .whats-in-the-box__mobile-wrapper {
-    flex-direction: column;
-  }
-
-  .whats-in-the-box__image,
-  .whats-in-the-box__items {
-    flex: 0 0 100%;
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
-@media screen and (max-width: 749px) {
-  .whats-in-the-box__item {
-    gap: 0.5rem;
-  }
-}
-{% endstylesheet %} 
+  {% endstylesheet %} 
