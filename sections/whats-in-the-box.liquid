@@ -78,6 +78,7 @@
 
   .whats-in-the-box__mobile-wrapper {
     display: flex;
+    flex-wrap: wrap;
     gap: 40px;
     align-items: flex-start;
   }
@@ -85,6 +86,9 @@
   .whats-in-the-box__image {
     flex: 0 0 50%;
     width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .whats-in-the-box__items {
@@ -97,17 +101,24 @@
 
   .whats-in-the-box__item {
     display: flex;
-    gap: 1.5rem;
     align-items: flex-start;
-    width: 100%;
+    gap: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .whats-in-the-box__item:last-of-type {
+    margin-bottom: 0;
   }
 
   .whats-in-the-box__icon {
     flex-shrink: 0;
     width: 3.5rem;
     height: auto;
+    margin-top: 5px;
     display: flex;
     align-items: center;
+    font-size: 1.8rem;
+    line-height: 1;
   }
 
   .whats-in-the-box__icon--emoji {
@@ -127,8 +138,9 @@
     flex: 1;
   }
 
-  .whats-in-the-box__subheading {
+  .special-section-subheading {
     margin: 0;
+    margin-bottom: 0;
     font-size: calc(var(--font-heading-scale) * 1.7rem);
     font-weight: 500;
   }
@@ -159,36 +171,20 @@
 
     .whats-in-the-box__image,
     .whats-in-the-box__items {
-      flex: 1;
+      flex: 0 0 100%;
       width: 100%;
       max-width: 100%;
     }
 
-    .colored-wrapper {
+    .whats-in-the-box__colored-wrapper {
       padding: 30px;
     }
   }
 
   @media screen and (max-width: 749px) {
-    .whats-in-the-box__image img {
-      max-height: 300px;
-    }
-
     .whats-in-the-box__item {
-      width: 100%;
       gap: 0.5rem;
     }
-
-    .whats-in-the-box__text-wrapper {
-      width: 100%;
-    }
-  }
-
-  .special-section-subheading {
-    margin: 0;
-    margin-bottom: 0;
-    font-size: inherit;
-    font-weight: inherit;
   }
 </style>
 
