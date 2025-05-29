@@ -1,52 +1,47 @@
-<div class="whats-in-the-box section-{{ section.id }}-padding">
-  <div class="page-width">
-    <div class="colored-wrapper whats-in-the-box__colored-wrapper">
-      <div class="whats-in-the-box__container">
-        <div class="whats-in-the-box__content">
-          {% if section.settings.title != blank %}
-            {% comment %} <h3 class="whats-in-the-box__title">{{ section.settings.title }}</h3> {% endcomment %}
-            <h3 class="whats-in-the-box__title">updatePrices</h3>
-
+<div class="whats-in-the-box">
+  <div class="box-container page-width">
+    <div class="whats-in-the-box__colored-wrapper">
+      <div class="whats-in-the-box__content">
+        {% if section.settings.title != blank %}
+          <h3 class="whats-in-the-box__title">{{ section.settings.title }}</h3>
+        {% endif %}
+      </div>
+      <div class="whats-in-the-box__mobile-wrapper">
+        <div class="whats-in-the-box__image">
+          {% if section.settings.image != blank %}
+            {%- assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio -%}
+            {{ section.settings.image | image_url: width: section.settings.image.width | image_tag:
+              loading: 'lazy',
+              width: section.settings.image.width,
+              height: image_height,
+              alt: section.settings.image.alt | escape
+            }}
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
           {% endif %}
         </div>
-
-        <div class="whats-in-the-box__mobile-wrapper">
-          <div class="whats-in-the-box__image">
-            {% if section.settings.image != blank %}
-              {%- assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio -%}
-              {{ section.settings.image | image_url: width: section.settings.image.width | image_tag:
-                loading: 'lazy',
-                width: section.settings.image.width,
-                height: image_height,
-                alt: section.settings.image.alt | escape
-              }}
-            {% else %}
-              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-            {% endif %}
-          </div>
-          
-          <div class="whats-in-the-box__items">
-            {% for block in section.blocks %}
-              {% case block.type %}
-                {% when 'text_item' %}
-                  <div class="whats-in-the-box__item" {{ block.shopify_attributes }}>
-                    <div class="whats-in-the-box__icon">
-                      {% if block.settings.icon_type == 'emoji' %}
-                        <span class="whats-in-the-box__icon--emoji">{{ block.settings.emoji_icon }}</span>
-                      {% else %}
-                        {{ block.settings.svg_icon }}
-                      {% endif %}
-                    </div>
-                    <div class="whats-in-the-box__text-wrapper">
-                      {% if block.settings.subheading != blank %}
-                        <h4 class="special-section-subheading">{{ block.settings.subheading }}</h4>
-                      {% endif %}
-                      <div class="whats-in-the-box__text">{{ block.settings.text }}</div>
-                    </div>
+        
+        <div class="whats-in-the-box__items">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'text_item' %}
+                <div class="whats-in-the-box__item" {{ block.shopify_attributes }}>
+                  <div class="whats-in-the-box__icon">
+                    {% if block.settings.icon_type == 'emoji' %}
+                      <span class="whats-in-the-box__icon--emoji">{{ block.settings.emoji_icon }}</span>
+                    {% else %}
+                      {{ block.settings.svg_icon }}
+                    {% endif %}
                   </div>
-              {% endcase %}
-            {% endfor %}
-          </div>
+                  <div class="whats-in-the-box__text-wrapper">
+                    {% if block.settings.subheading != blank %}
+                      <h4 class="special-section-subheading">{{ block.settings.subheading }}</h4>
+                    {% endif %}
+                    <div class="whats-in-the-box__text">{{ block.settings.text }}</div>
+                  </div>
+                </div>
+            {% endcase %}
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -65,7 +60,6 @@
   .whats-in-the-box__container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
   }
 
   .whats-in-the-box__content {
@@ -152,8 +146,7 @@
   }
 
   .whats-in-the-box__image img {
-    width: auto;
-    max-width: 100%;
+    width: 100%;
     height: auto;
     max-height: 370px;
     display: block;
