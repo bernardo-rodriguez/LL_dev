@@ -97,7 +97,6 @@
 
 .multi-slide-carousel__description {
   text-align: center;
-  font-size: 14px;
   color: var(--color-base-text);
   margin: 0;
   width: 100%;
@@ -173,9 +172,9 @@
     padding: 0;
   }
   
-  .multi-slide-carousel__description {
+  /* .multi-slide-carousel__description {
     font-size: 13px;
-  }
+  } */
 
   .multi-slide-carousel-instance {
     padding: 0 20px;
