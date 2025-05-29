@@ -1369,7 +1369,7 @@ shopify-accelerated-checkout-cart {
 
 
 /* Button - other */
-
+/* 
 .button:disabled,
 .button[aria-disabled='true'],
 .button.disabled,
@@ -1413,7 +1413,7 @@ shopify-accelerated-checkout-cart {
 
 .button.loading > .loading__spinner .path {
   stroke: rgb(var(--color-button-text));
-}
+} */
 
 /* Button - social share */
 
