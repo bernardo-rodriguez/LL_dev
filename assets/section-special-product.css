@@ -259,7 +259,7 @@ a.product__text {
 
 .product__title h1 {
   word-break: break-word;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem !important;
 }
 
 /* .product__title > * {
