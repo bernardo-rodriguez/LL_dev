@@ -1165,9 +1165,20 @@
   function updateReviewSummary() {
     const reviewSummary = document.querySelector('.jdgm-rev-widg__summary-text');
     if (reviewSummary) {
-      console.log('update review summary')
-      reviewSummary.innerHTML = "Based on 2,403 reviews";
-      return true; // Successfully updated
+      const currentText = reviewSummary.innerHTML;
+      const match = currentText.match(/Based on (\d+) reviews?/i);
+      
+      if (match) {
+        const currentCount = parseInt(match[1]);
+        console.log('Current review count:', currentCount);
+        
+        // Only modify if less than 1000
+        if (currentCount < 1000) {
+          const newCount = currentCount + 2000;
+          reviewSummary.innerHTML = `Based on ${newCount} reviews`;
+        }
+      }
+      return true; // Successfully processed
     }
     return false; // Element not found
   }
@@ -1188,8 +1199,10 @@
       characterData: true
     });
 
-    // Also try again after a short delay as backup
+    // Also try again after delays as backup
     setTimeout(updateReviewSummary, 1000);
+    setTimeout(updateReviewSummary, 5000);
+    setTimeout(updateReviewSummary, 10000);
   }
 </script>
 
