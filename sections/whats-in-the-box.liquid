@@ -28,7 +28,7 @@
                 {% case block.type %}
                   {% when 'text_item' %}
                     <div class="whats-in-the-box__item" {{ block.shopify_attributes }}>
-                      <div class="box-feature-icon">
+                      <div class="box-feature-icon" style = 'width: auto;'>
                         {% if block.settings.icon_type == 'emoji' %}
                           {% comment %} <span class="box-feature-icon">{{ block.settings.emoji_icon }}</span> {% endcomment %}
                           {{ block.settings.emoji_icon }}
