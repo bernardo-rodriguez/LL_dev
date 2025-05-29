@@ -1176,6 +1176,7 @@
         if (currentCount < 1000) {
           const newCount = currentCount + 2000;
           reviewSummary.innerHTML = `Based on ${newCount} reviews`;
+          reviewSummary.style.visibility = 'visible';
         }
       }
       return true; // Successfully processed
@@ -1206,6 +1207,12 @@
     setTimeout(updateReviewSummary, 10000);
   }
 </script>
+
+<style>
+.jdgm-rev-widg__summary-text {
+  visibility: hidden;
+}
+  </style>
 
 {% schema %}
 {
