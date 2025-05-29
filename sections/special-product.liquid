@@ -1175,8 +1175,10 @@
         // Only modify if less than 1000
         if (currentCount < 1000) {
           const newCount = currentCount + 2000;
-          reviewSummary.innerHTML = `Based on ${newCount} reviews`;
-          reviewSummary.style.visibility = 'visible';
+          if (newCount > 1000) {
+            reviewSummary.innerHTML = `Based on ${newCount} reviews`;
+            reviewSummary.style.visibility = 'visible';
+          }
         }
       }
       return true; // Successfully processed
