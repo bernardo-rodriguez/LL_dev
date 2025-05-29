@@ -403,13 +403,13 @@
                   {{- block.settings.text -}}
                 </p>
               {%- when 'special_text' -%}
-                <p
+                <h3
                   class="{% if block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
                   style = 'text-transform: uppercase; {{ block.settings.custom_css }}'
                   {{ block.shopify_attributes }}
                 >
                   {{- block.settings.special_text -}}
-                </p>
+                </h3>
               {%- when 'title' -%}
                 <div class="product__title" {{ block.shopify_attributes }} style = 'margin-top: 0; margin-bottom: 0'>
                   <h3 class = 'm-h4'>{{ product.title | escape }}</h3>
