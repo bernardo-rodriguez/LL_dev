@@ -60,7 +60,7 @@
           <div class="box-feature">
             <div class="box-feature-icon">{{ section.settings.feature1_icon }}</div>
             <div class="box-feature-content">
-              <h4>{{ section.settings.feature1_title }}</h4>
+              <h4 class = 'special-section-subheading'>{{ section.settings.feature1_title }}</h4>
               <span>{{ section.settings.feature1_text }}</span>
             </div>
           </div>
@@ -68,7 +68,7 @@
           <div class="box-feature">
             <div class="box-feature-icon">{{ section.settings.feature2_icon }}</div>
             <div class="box-feature-content">
-              <h4>{{ section.settings.feature2_title }}</h4>
+              <h4 class = 'special-section-subheading'>{{ section.settings.feature2_title }}</h4>
               <span>{{ section.settings.feature2_text }}</span>
             </div>
           </div>
@@ -76,7 +76,7 @@
           <div class="box-feature">
             <div class="box-feature-icon">{{ section.settings.feature3_icon }}</div>
             <div class="box-feature-content">
-              <h4>{{ section.settings.feature3_title }}</h4>
+              <h4 class = 'special-section-subheading'>{{ section.settings.feature3_title }}</h4>
               <span>{{ section.settings.feature3_text }}</span>
             </div>
           </div>
@@ -84,7 +84,7 @@
           <div class="box-feature">
             <div class="box-feature-icon">{{ section.settings.feature4_icon }}</div>
             <div class="box-feature-content">
-              <h4>{{ section.settings.feature4_title }}</h4>
+              <h4 class = 'special-section-subheading'>{{ section.settings.feature4_title }}</h4>
               <span>{{ section.settings.feature4_text }}</span>
             </div>
           </div>
@@ -95,6 +95,9 @@
 </div>
 
 <style>
+  .special-section-subheading {
+    margin-bottom: 0;
+  }
   .what-to-expect__wrapper {
     display: flex;
     flex-direction: column;
@@ -169,9 +172,10 @@
     flex-shrink: 0;
     width: 3.5rem;
     height: auto;
+    marging-top: 5px;
     display: flex;
     align-items: center;
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     line-height: 1;
   }
 
