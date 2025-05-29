@@ -13,11 +13,11 @@
       let originalPrice, salePrice, perDoseText;
 
       if (url.includes("6-serving-of-whitening-gels-free-starter-kit")) {
-        originalPrice = 59;
+        originalPrice = strong ? 69 : 59;
         salePrice = strong ? 29 : 19;
         perDoseText = `Only $${(salePrice / 6).toFixed(2)} Per Whitening Session`;
       } else {
-        originalPrice = 95;
+        originalPrice = strong ? 105 : 95;
         salePrice = strong ? 39 : 29;
         perDoseText = `Only $${(salePrice / 6).toFixed(2)} Per Dose`;
       }
