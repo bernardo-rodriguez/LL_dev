@@ -4,7 +4,7 @@
         <div class="whats-in-the-box__container">
           <div class="whats-in-the-box__content">
             {% if section.settings.title != blank %}
-              <h2 class="whats-in-the-box__title h1">{{ section.settings.title }}</h2>
+              <h3 class="what-to-expect__title">{{ section.settings.title }}</h3>
             {% endif %}
           </div>
   
@@ -28,16 +28,17 @@
                 {% case block.type %}
                   {% when 'text_item' %}
                     <div class="whats-in-the-box__item" {{ block.shopify_attributes }}>
-                      <div class="whats-in-the-box__icon">
+                      <div class="box-feature-icon">
                         {% if block.settings.icon_type == 'emoji' %}
-                          <span class="whats-in-the-box__icon--emoji">{{ block.settings.emoji_icon }}</span>
+                          {% comment %} <span class="box-feature-icon">{{ block.settings.emoji_icon }}</span> {% endcomment %}
+                          {{ block.settings.emoji_icon }}
                         {% else %}
                           {{ block.settings.svg_icon }}
                         {% endif %}
                       </div>
                       <div class="whats-in-the-box__text-wrapper">
                         {% if block.settings.subheading != blank %}
-                          <h3 class="whats-in-the-box__subheading">{{ block.settings.subheading }}</h3>
+                          <h4 class="special-section-subheading">{{ block.settings.subheading }}</h4>
                         {% endif %}
                         <div class="whats-in-the-box__text">{{ block.settings.text }}</div>
                       </div>
@@ -57,7 +58,7 @@
       overflow: hidden;
       border-radius: 16px;
       border: 1px solid #E5E5E5;
-      padding: 40px;
+      padding: 30px;
     }
   
     .whats-in-the-box__container {
