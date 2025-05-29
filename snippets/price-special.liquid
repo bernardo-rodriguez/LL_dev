@@ -23,12 +23,13 @@
       }
 
       // Calculate discount percentage
-      const discountPercentage = Math.round((1 - (salePrice / originalPrice)) * 100);
+      //const discountPercentage = Math.round((1 - (salePrice / originalPrice)) * 100);
+      const discountPercentage = originalPrice - salePrice;
 
       // Update DOM elements
       document.getElementById("originalPrice").textContent = `$${originalPrice}`;
       document.getElementById("salePrice").textContent = `$${salePrice}`;
-      document.getElementById("discountBadge").textContent = `SAVE ${discountPercentage}% TODAY`;
+      document.getElementById("discountBadge").textContent = `SAVE $${discountPercentage} TODAY`;
       document.getElementById("perDose").textContent = perDoseText;
     }
 
