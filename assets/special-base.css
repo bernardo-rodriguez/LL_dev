@@ -264,6 +264,27 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   font-weight: var(--font-body-weight);
 } */
 
+h4,
+.h4 {
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: -0.015em;
+  text-transform: capitalize;
+}
+
+@media only screen and (max-width: 768px) {
+  h4,
+  .h4 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .m-h4 {
+    font-size: 35px;
+    line-height: 38px;
+    font-weight: 500;
+  }
+}
+
 /* h1,
 h2,
 h3,
