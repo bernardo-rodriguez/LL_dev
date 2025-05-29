@@ -340,21 +340,27 @@
           "type": "step",
           "settings": {
             "title": "Squeeze it",
-            "description": "Squeeze 1/2 of a whitening gel syringe onto the mouthpiece evenly."
+            "description": "Squeeze 1/2 of a whitening gel syringe onto the mouthpiece evenly.",
+            "image": "shopify://shop_images/how-to-use-2.webp",
+            "image_alt": "Step illustration"
           }
         },
         "step_NageJh": {
           "type": "step",
           "settings": {
             "title": "Insert Light",
-            "description": "Plug the mouthpiece into your phone and then insert it in your mouth for 15 minutes."
+            "description": "Plug the mouthpiece into your phone and then insert it in your mouth for 15 minutes.",
+            "image": "shopify://shop_images/how-to-use-3.webp",
+            "image_alt": "Step illustration"
           }
         },
         "step_UUeiXD": {
           "type": "step",
           "settings": {
             "title": "Rinse & Repeat",
-            "description": "Rinse your mouth with warm water. Repeat daily for 6 days to reveal your new smile!"
+            "description": "Rinse your mouth with warm water. Repeat daily for 6 days to reveal your new smile!",
+            "image": "shopify://shop_images/how-to-use-1.webp",
+            "image_alt": "Step illustration"
           }
         }
       },
