@@ -54,7 +54,7 @@
 <section class="how-to-use-section">
   <div class="page-width">
     <div class="how-to-use-header">
-      <h1>{{ section.settings.heading }}</h1>
+      <h3 class="what-to-expect__title">{{ section.settings.heading }}</h3>
     </div>
     <div class="how-to-use-steps">
       {% for block in section.blocks %}
@@ -71,7 +71,7 @@
                 />
               {% endif %}
               <div class="text-content">
-                <h3 class="whats-in-the-box__subheading">{{ block.settings.title }}</h3>
+                <h4>{{ block.settings.title }}</h4>
                 <p class="whats-in-the-box__text">{{ block.settings.description }}</p>
               </div>
             </div>
