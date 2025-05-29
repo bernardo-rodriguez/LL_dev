@@ -1162,20 +1162,34 @@
 <script src="{{ 'product-pages.js' | asset_url }}" defer="defer"></script>
 
 <script>
-  // Create a MutationObserver to watch for when the element appears
-  const reviewTextObserver = new MutationObserver((mutations, obs) => {
+  function updateReviewSummary() {
     const reviewSummary = document.querySelector('.jdgm-rev-widg__summary-text');
     if (reviewSummary) {
       reviewSummary.innerHTML = "Based on 2,403 reviews";
-      obs.disconnect(); // Stop observing once we've made the change
+      return true; // Successfully updated
     }
-  });
+    return false; // Element not found
+  }
 
-  // Start observing the document with the configured parameters
-  reviewTextObserver.observe(document, {
-    childList: true,
-    subtree: true
-  });
+  // Try immediately in case element exists
+  if (!updateReviewSummary()) {
+    // If not successful, set up observer
+    const observer = new MutationObserver((mutations, obs) => {
+      if (updateReviewSummary()) {
+        obs.disconnect(); // Stop observing once we've made the change
+      }
+    });
+
+    // Start observing with a more comprehensive configuration
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      characterData: true
+    });
+
+    // Also try again after a short delay as backup
+    setTimeout(updateReviewSummary, 1000);
+  }
 </script>
 
 {% schema %}
