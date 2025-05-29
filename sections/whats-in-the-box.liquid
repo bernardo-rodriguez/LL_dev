@@ -20,7 +20,6 @@
             {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
           {% endif %}
         </div>
-        
         <div class="whats-in-the-box__items">
           {% for block in section.blocks %}
             {% case block.type %}
@@ -49,17 +48,18 @@
 </div>
 
 <style>
+  .box-container {
+    margin: auto;
+    padding-bottom: 50px;
+    padding-top: 20px;
+  }
+
   .whats-in-the-box__colored-wrapper {
     background: #f5faff;
     overflow: hidden;
     border-radius: 16px;
     border: 1px solid #E5E5E5;
     padding: 30px;
-  }
-
-  .whats-in-the-box__container {
-    display: flex;
-    flex-direction: column;
   }
 
   .whats-in-the-box__content {
