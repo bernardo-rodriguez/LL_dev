@@ -1,0 +1,109 @@
+{% schema %}
+{
+  "name": "Ingredient Cards",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        { "id": "image", "type": "image_picker", "label": "Image" },
+        { "id": "title", "type": "text", "label": "Title" },
+        { "id": "description", "type": "textarea", "label": "Description" }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [{ "name": "Ingredient Cards", "category": "Custom" }]
+}
+{% endschema %}
+
+<div class="ingredient-section">
+  <h2 class="heading">Key Ingredients</h2>
+  <div class="ingredient-cards">
+    {% for block in section.blocks %}
+      <div class="ingredient-card" tabindex="0">
+        {% if block.settings.image %}
+          <div class="ingredient-image">
+            <img src="{{ block.settings.image | img_url: '600x600' }}" alt="{{ block.settings.title }}">
+          </div>
+        {% endif %}
+        <div class="ingredient-info">
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.description }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+.ingredient-cards {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 1rem;
+}
+
+.ingredient-card {
+  flex: 0 0 auto;
+  width: 80%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.ingredient-card:hover .ingredient-info {
+  max-height: 300px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.ingredient-info {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .ingredient-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    overflow-x: visible;
+  }
+  .ingredient-card {
+    width: 100%;
+    max-width: none;
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const cards = document.querySelectorAll(".ingredient-card");
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+  if (isMobile) {
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        card.classList.toggle("open");
+        const info = card.querySelector(".ingredient-info");
+        if (card.classList.contains("open")) {
+          info.style.maxHeight = info.scrollHeight + "px";
+          info.style.opacity = 1;
+          info.style.visibility = "visible";
+        } else {
+          info.style.maxHeight = null;
+          info.style.opacity = 0;
+          info.style.visibility = "hidden";
+        }
+      });
+    });
+  }
+});
+</script>
