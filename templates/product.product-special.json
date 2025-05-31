@@ -479,11 +479,19 @@
             "title": "Sodium Bicarbonate",
             "description": "Sodium Bicarbonate works as a stain remover and breaks down plaque, surface stains and discoloration in the teeth. Its Alkaline nature neutralizes the acids that can cause tooth enamel erosion which can also cause discoloration."
           }
+        },
+        "ingredient_X6qLhN": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Glycerin",
+            "description": "Glycerin creates a protective barrier on the surface of the teeth, prevent staining agents like coffee, tea, and tobacco from adhering to the tooth surface. As a humectant, it helps keep the moisture in the teeth and reduce the amount of abrasion on the teeth, minimizing tooth sensitivity."
+          }
         }
       },
       "block_order": [
         "ingredient_KJz4XU",
-        "ingredient_Rq8RYq"
+        "ingredient_Rq8RYq",
+        "ingredient_X6qLhN"
       ],
       "name": "Ingredient Cards",
       "settings": {}
