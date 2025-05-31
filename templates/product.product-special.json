@@ -387,6 +387,117 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "ingredient_list_PU7QeU": {
+      "type": "ingredient-list",
+      "blocks": {
+        "ingredient_dDNhkG": {
+          "type": "ingredient",
+          "settings": {
+            "heading": "Hydrogen Peroxide",
+            "active": true,
+            "text": "Hydrogen peroxide works as a stain remover that penetrates the surface of the tooth enamel and break down the chromogen that cause stains. This oxidization process removes surface stains and discoloration, leading to a brighter and  even appearance of the teeth."
+          }
+        },
+        "ingredient_YBWzdN": {
+          "type": "ingredient",
+          "settings": {
+            "heading": "Sodium Bicarbonate",
+            "active": true,
+            "text": "Sodium Bicarbonate works as a stain remover and breaks down plaque, surface stains and discoloration in the teeth. Its Alkaline nature neutralizes the acids that can cause tooth enamel erosion which can also cause discoloration."
+          }
+        },
+        "ingredient_tkbrQY": {
+          "type": "ingredient",
+          "settings": {
+            "heading": "Glycerin",
+            "active": false,
+            "text": "Glycerin creates a protective barrier on the surface of the teeth, prevent staining agents like coffee, tea, and tobacco from adhering to the tooth surface. As a humectant, it helps keep the moisture in the teeth and reduce the amount of abrasion on the teeth, minimizing tooth sensitivity."
+          }
+        },
+        "ingredient_98AzGU": {
+          "type": "ingredient",
+          "settings": {
+            "heading": "Cellulose Gum",
+            "active": false,
+            "text": "Cellulose Gum stabilizes and thickens the whitening formula, enhancing the adhesion of the formula to the enamel and accelerating the teeth whitening process."
+          }
+        },
+        "ingredient_rawFHd": {
+          "type": "ingredient",
+          "settings": {
+            "heading": "Sodium Hydroxide",
+            "active": false,
+            "text": "Sodium Hydroxide works as a desensitizer that neutralizes the acidity of Hydrogen Peroxide, reducing the acidity of the whitening solution and decreasing chance of tooth sensitivity."
+          }
+        },
+        "ingredient_PVTadx": {
+          "type": "ingredient",
+          "settings": {
+            "heading": "Aloe Vera",
+            "active": false,
+            "text": "Aloe leaf juice from the Aloe Vera plant is used as the clear gel base for our teeth whitening solutions due to its inflammatory and soothing properties, which can reduce tooth sensitivity and reduce microbes."
+          }
+        },
+        "ingredient_t7JMCQ": {
+          "type": "ingredient",
+          "settings": {
+            "heading": "Mint Extract",
+            "active": false,
+            "text": "Mint extract is added to our whitening formula to create a refreshing taste"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_dDNhkG",
+        "ingredient_YBWzdN",
+        "ingredient_tkbrQY",
+        "ingredient_98AzGU",
+        "ingredient_rawFHd",
+        "ingredient_PVTadx",
+        "ingredient_t7JMCQ"
+      ],
+      "name": "Ingredient List",
+      "settings": {
+        "title": "Clean Ingredients That Work",
+        "heading": "Whiten With Science, {Not Gimmicks}"
+      }
+    },
+    "ingredients_3YJM4L": {
+      "type": "ingredients",
+      "blocks": {
+        "ingredient_KJz4XU": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/Sodium-bicarbonate-baking-soda.webp",
+            "title": "Hydrogen Peroxide",
+            "description": "Hydrogen peroxide works as a stain remover that penetrates the surface of the tooth enamel and break down the chromogen that cause stains. This oxidization process removes surface stains and discoloration, leading to a brighter and  even appearance of the teeth."
+          }
+        },
+        "ingredient_Rq8RYq": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/Sodium-bicarbonate-baking-soda_c753872e-a64c-4a3e-8164-dc56a5c84f7d.webp",
+            "title": "Sodium Bicarbonate",
+            "description": "Sodium Bicarbonate works as a stain remover and breaks down plaque, surface stains and discoloration in the teeth. Its Alkaline nature neutralizes the acids that can cause tooth enamel erosion which can also cause discoloration."
+          }
+        },
+        "ingredient_X6qLhN": {
+          "type": "ingredient",
+          "settings": {
+            "image": "shopify://shop_images/glycerin.jpg",
+            "title": "Glycerin",
+            "description": "Glycerin creates a protective barrier on the surface of the teeth, prevent staining agents like coffee, tea, and tobacco from adhering to the tooth surface. As a humectant, it helps keep the moisture in the teeth and reduce the amount of abrasion on the teeth, minimizing tooth sensitivity."
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_KJz4XU",
+        "ingredient_Rq8RYq",
+        "ingredient_X6qLhN"
+      ],
+      "name": "Ingredient Cards",
+      "settings": {}
     }
   },
   "order": [
@@ -396,6 +507,8 @@
     "multi_slide_carousel_DkwrwT",
     "whats_in_the_box_bfeE6K",
     "how_to_use_mmYan3",
-    "17478665286aeba721"
+    "17478665286aeba721",
+    "ingredient_list_PU7QeU",
+    "ingredients_3YJM4L"
   ]
 }
