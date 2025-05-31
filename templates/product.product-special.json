@@ -469,6 +469,7 @@
         "ingredient_KJz4XU": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/Sodium-bicarbonate-baking-soda.webp",
             "title": "Hydrogen Peroxide",
             "description": "Hydrogen peroxide works as a stain remover that penetrates the surface of the tooth enamel and break down the chromogen that cause stains. This oxidization process removes surface stains and discoloration, leading to a brighter and  even appearance of the teeth."
           }
