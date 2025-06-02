@@ -457,6 +457,7 @@
         "ingredient_PVTadx",
         "ingredient_t7JMCQ"
       ],
+      "disabled": true,
       "name": "Ingredient List",
       "settings": {
         "title": "Clean Ingredients That Work",
@@ -496,6 +497,7 @@
         "ingredient_Rq8RYq",
         "ingredient_X6qLhN"
       ],
+      "disabled": true,
       "name": "Ingredient Cards",
       "settings": {}
     }
