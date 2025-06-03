@@ -90,6 +90,8 @@
   right: 0;
   background: rgba(255, 255, 255, 0.95);
   padding: 1rem;
+  transform: translateY(calc(100% - 3.5rem));
+  transition: transform 0.3s ease;
 }
 
 .ingredient-info h4 {
@@ -99,13 +101,11 @@
 
 .ingredient-description {
   font-size: 14px;
-  transform: translateY(100%);
-  transition: transform 0.3s ease;
   margin-top: 0.5rem;
 }
 
-.ingredient-card:hover .ingredient-description,
-.ingredient-card.open .ingredient-description {
+.ingredient-card:hover .ingredient-info,
+.ingredient-card.open .ingredient-info {
   transform: translateY(0);
 }
 
@@ -119,14 +119,6 @@
   
   .ingredient-card {
     width: 100%;
-  }
-
-  .ingredient-description {
-    transform: translateY(calc(100% - 0.5rem));
-  }
-
-  .ingredient-card:hover .ingredient-description {
-    transform: translateY(0);
   }
 }
 </style>
