@@ -141,7 +141,6 @@
   transition: transform 0.3s ease;
 }
 
-.ingredient-card:hover .toggle-icon::after,
 .ingredient-card.open .toggle-icon::after {
   transform: translate(-50%, -50%) scaleY(0);
 }
@@ -168,10 +167,7 @@
   .ingredient-card {
     width: 100%;
   }
-}
 
-/* Remove the hover effect on mobile */
-@media screen and (min-width: 768px) {
   .ingredient-card:hover .ingredient-info {
     transform: translateY(0);
   }
@@ -179,11 +175,6 @@
   .ingredient-card:hover .toggle-icon::after {
     transform: translate(-50%, -50%) scaleY(0);
   }
-}
-
-/* Handle mobile toggle icon separately */
-.ingredient-card.open .toggle-icon::after {
-  transform: translate(-50%, -50%) scaleY(0);
 }
 </style>
 
