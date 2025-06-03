@@ -168,6 +168,22 @@
     width: 100%;
   }
 }
+
+/* Remove the hover effect on mobile */
+@media screen and (min-width: 768px) {
+  .ingredient-card:hover .ingredient-info {
+    transform: translateY(0);
+  }
+  
+  .ingredient-card:hover .toggle-icon::after {
+    transform: translate(-50%, -50%) scaleY(0);
+  }
+}
+
+/* Handle mobile toggle icon separately */
+.ingredient-card.open .toggle-icon::after {
+  transform: translate(-50%, -50%) scaleY(0);
+}
 </style>
 
 <script>
@@ -181,13 +197,9 @@ document.addEventListener("DOMContentLoaded", function() {
         card.classList.toggle("open");
         const info = card.querySelector(".ingredient-info");
         if (card.classList.contains("open")) {
-          info.style.maxHeight = info.scrollHeight + "px";
-          info.style.opacity = 1;
-          info.style.visibility = "visible";
+          info.style.transform = "translateY(0)";
         } else {
-          info.style.maxHeight = null;
-          info.style.opacity = 0;
-          info.style.visibility = "hidden";
+          info.style.transform = "translateY(calc(100% - 3.5rem))";
         }
       });
     });
