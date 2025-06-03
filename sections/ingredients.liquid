@@ -71,15 +71,16 @@
 
 .ingredient-image {
   width: 100%;
-  height: auto;
+  height: 300px;
   overflow: hidden;
   border-radius: 5px;
 }
 
 .ingredient-image img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
   border-radius: 5px;
 }
@@ -176,6 +177,10 @@
   
   .ingredient-card:hover .toggle-icon::after {
     transform: translate(-50%, -50%) scaleY(0);
+  }
+
+  .ingredient-image {
+    height: 300px;
   }
 }
 
