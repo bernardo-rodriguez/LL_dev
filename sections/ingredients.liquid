@@ -95,12 +95,9 @@
   background: rgba(255, 255, 255, 0.7);
   padding: 1rem;
   transform: translateY(calc(100% - 3.5rem));
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
   color: #000;
   border-top: 1px solid #000;
-  height: auto;
-  display: flex;
-  flex-direction: column;
 }
 
 .ingredient-info h4 {
@@ -146,29 +143,14 @@
   transition: transform 0.3s ease;
 }
 
-.ingredient-card:hover .ingredient-info {
-  transform: none;
-}
-
 .ingredient-description {
   font-size: 14px;
   margin-top: 0.5rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  color: #000;
 }
 
-.ingredient-card:hover .ingredient-description,
-.ingredient-card.open .ingredient-description {
-  opacity: 1;
-}
-
-.ingredient-card.open .ingredient-info {
-  transform: translateY(0);
-}
-
-/* Handle the plus/minus state */
-.ingredient-card.open .toggle-icon::after {
-  transform: translate(-50%, -50%) scaleY(0);
+.ingredient-card:hover .ingredient-info {
+  transform: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -191,10 +173,11 @@
   .ingredient-card:hover .toggle-icon::after {
     transform: translate(-50%, -50%) scaleY(0);
   }
+}
 
-  .ingredient-image {
-    height: 300px;
-  }
+/* Handle the plus/minus state */
+.ingredient-card.open .toggle-icon::after {
+  transform: translate(-50%, -50%) scaleY(0);
 }
 
 .heading {
