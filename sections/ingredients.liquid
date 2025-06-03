@@ -138,6 +138,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
 }
 
 .ingredient-card:hover .toggle-icon::after,
@@ -194,6 +195,8 @@ document.addEventListener("DOMContentLoaded", function() {
   if (isMobile) {
     cards.forEach(card => {
       const info = card.querySelector(".ingredient-info");
+      const toggleIcon = card.querySelector(".toggle-icon::after");
+      
       // Set initial state
       info.style.transform = "translateY(calc(100% - 3.5rem))";
       
