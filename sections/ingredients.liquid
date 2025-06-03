@@ -53,14 +53,14 @@
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-  gap: 1rem;
+  gap: 10px;
   width: 100%;
   padding: 1rem 0;
 }
 
 .ingredient-card {
-  flex: 0 0 100%;
-  width: 100%;
+  flex: 0 0 85%;
+  width: 85%;
   max-width: none;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -161,11 +161,12 @@
   .ingredient-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 5px;
+    gap: 10px;
     overflow-x: visible;
   }
   
   .ingredient-card {
+    flex: none;
     width: 100%;
   }
 
