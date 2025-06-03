@@ -146,11 +146,11 @@
 .ingredient-description {
   font-size: 14px;
   margin-top: 0.5rem;
-  color: #000;
 }
 
-.ingredient-card:hover .ingredient-info {
-  transform: none;
+.ingredient-card:hover .ingredient-info,
+.ingredient-card.open .ingredient-info {
+  transform: translateY(0);
 }
 
 @media screen and (min-width: 768px) {
@@ -165,17 +165,10 @@
     flex: none;
     width: 100%;
   }
-
-  .ingredient-card:hover .ingredient-info {
-    transform: translateY(0);
-  }
-  
-  .ingredient-card:hover .toggle-icon::after {
-    transform: translate(-50%, -50%) scaleY(0);
-  }
 }
 
 /* Handle the plus/minus state */
+.ingredient-card:hover .toggle-icon::after,
 .ingredient-card.open .toggle-icon::after {
   transform: translate(-50%, -50%) scaleY(0);
 }
@@ -194,12 +187,6 @@ document.addEventListener("DOMContentLoaded", function() {
     cards.forEach(card => {
       card.addEventListener("click", () => {
         card.classList.toggle("open");
-        const info = card.querySelector(".ingredient-info");
-        if (card.classList.contains("open")) {
-          info.style.transform = "translateY(0)";
-        } else {
-          info.style.transform = "translateY(calc(100% - 3.5rem))";
-        }
       });
     });
   }
