@@ -138,11 +138,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
 }
 
-.ingredient-card:hover .toggle-icon::after,
-.ingredient-card.open .toggle-icon::after {
-  transform: translate(-50%, -50%) scaleY(0);
+.ingredient-card:hover .ingredient-info {
+  transform: none;
 }
 
 .ingredient-description {
@@ -151,9 +151,9 @@
   color: #000;
 }
 
-.ingredient-card:hover .ingredient-info,
-.ingredient-card.open .ingredient-info {
-  transform: translateY(0);
+/* Handle the plus/minus state */
+.ingredient-card.open .toggle-icon::after {
+  transform: translate(-50%, -50%) scaleY(0);
 }
 
 @media screen and (min-width: 768px) {
@@ -167,10 +167,7 @@
   .ingredient-card {
     width: 100%;
   }
-}
 
-/* Remove the hover effect on mobile */
-@media screen and (min-width: 768px) {
   .ingredient-card:hover .ingredient-info {
     transform: translateY(0);
   }
@@ -178,11 +175,6 @@
   .ingredient-card:hover .toggle-icon::after {
     transform: translate(-50%, -50%) scaleY(0);
   }
-}
-
-/* Handle mobile toggle icon separately */
-.ingredient-card.open .toggle-icon::after {
-  transform: translate(-50%, -50%) scaleY(0);
 }
 </style>
 
