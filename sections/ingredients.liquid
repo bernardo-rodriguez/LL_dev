@@ -66,6 +66,8 @@
   padding: 1rem;
   cursor: pointer;
   transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .ingredient-image {
@@ -81,18 +83,23 @@
   display: block;
 }
 
-.ingredient-card:hover .ingredient-info {
-  max-height: 300px;
+.ingredient-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  max-height: none;
   opacity: 1;
   visibility: visible;
 }
 
-.ingredient-info {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, opacity 0.3s ease;
-  opacity: 0;
-  visibility: hidden;
+.ingredient-card:hover .ingredient-info,
+.ingredient-card.open .ingredient-info {
+  transform: translateY(0);
 }
 
 @media screen and (min-width: 768px) {
@@ -105,6 +112,14 @@
   
   .ingredient-card {
     width: 100%;
+  }
+
+  .ingredient-info {
+    transform: translateY(calc(100% - 3rem));
+  }
+
+  .ingredient-card:hover .ingredient-info {
+    transform: translateY(0);
   }
 }
 </style>
