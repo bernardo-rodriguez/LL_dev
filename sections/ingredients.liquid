@@ -30,8 +30,8 @@
                 </div>
                 {% endif %}
                 <div class="ingredient-info">
-                    <h3>{{ block.settings.title }}</h3>
-                    <p>{{ block.settings.description }}</p>
+                    <h4>{{ block.settings.title }}</h4>
+                    <p class = 'ingredient-description'>{{ block.settings.description }}</p>
                 </div>
             </div>
             {% endfor %}
@@ -100,6 +100,10 @@
 .ingredient-card:hover .ingredient-info,
 .ingredient-card.open .ingredient-info {
   transform: translateY(0);
+}
+
+.ingredient-description {
+  font-size: 14px;
 }
 
 @media screen and (min-width: 768px) {
