@@ -193,9 +193,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
   if (isMobile) {
     cards.forEach(card => {
+      const info = card.querySelector(".ingredient-info");
+      // Set initial state
+      info.style.transform = "translateY(calc(100% - 3.5rem))";
+      
       card.addEventListener("click", () => {
         card.classList.toggle("open");
-        const info = card.querySelector(".ingredient-info");
         if (card.classList.contains("open")) {
           info.style.transform = "translateY(0)";
         } else {
