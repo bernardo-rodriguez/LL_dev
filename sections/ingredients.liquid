@@ -72,14 +72,15 @@
 
 .ingredient-image {
   width: 100%;
-  height: auto;
+  height: 300px;
   overflow: hidden;
 }
 
 .ingredient-image img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
 }
 
@@ -167,6 +168,10 @@
   .ingredient-card {
     flex: none;
     width: 100%;
+  }
+
+  .ingredient-image {
+    height: 300px;
   }
 
   .ingredient-card:hover .ingredient-info {
