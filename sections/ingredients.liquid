@@ -20,7 +20,7 @@
 
 <div class="ingredient-section">
     <div class = 'page-width'>
-        <h2 class="heading">Key Ingredients</h2>
+        <h3 class="heading">Key Ingredients</h3>
         <div class="ingredient-cards">
             {% for block in section.blocks %}
             <div class="ingredient-card" tabindex="0">
@@ -90,20 +90,23 @@
   right: 0;
   background: rgba(255, 255, 255, 0.95);
   padding: 1rem;
-  transform: translateY(100%);
-  transition: transform 0.3s ease;
-  max-height: none;
-  opacity: 1;
-  visibility: visible;
 }
 
-.ingredient-card:hover .ingredient-info,
-.ingredient-card.open .ingredient-info {
-  transform: translateY(0);
+.ingredient-info h4 {
+  margin: 0;
+  padding: 0;
 }
 
 .ingredient-description {
   font-size: 14px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.ingredient-card:hover .ingredient-description,
+.ingredient-card.open .ingredient-description {
+  transform: translateY(0);
 }
 
 @media screen and (min-width: 768px) {
@@ -118,11 +121,11 @@
     width: 100%;
   }
 
-  .ingredient-info {
-    transform: translateY(calc(100% - 3rem));
+  .ingredient-description {
+    transform: translateY(calc(100% - 0.5rem));
   }
 
-  .ingredient-card:hover .ingredient-info {
+  .ingredient-card:hover .ingredient-description {
     transform: translateY(0);
   }
 }
