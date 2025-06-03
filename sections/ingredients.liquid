@@ -30,8 +30,8 @@
                 </div>
                 {% endif %}
                 <div class="ingredient-info">
-                    <h4>{{ block.settings.title }}</h4>
-                    <p class = 'ingredient-description'>{{ block.settings.description }}</p>
+                    <h4>{{ block.settings.title }} <span class="toggle-icon"></span></h4>
+                    <p class="ingredient-description">{{ block.settings.description }}</p>
                 </div>
             </div>
             {% endfor %}
@@ -95,12 +95,54 @@
   transform: translateY(calc(100% - 3.5rem));
   transition: transform 0.3s ease;
   color: #000;
+  border-top: 1px solid #000;
 }
 
 .ingredient-info h4 {
   margin: 0;
   padding: 0;
   color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-icon {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+}
+
+.toggle-icon::before,
+.toggle-icon::after {
+  content: '';
+  position: absolute;
+  background: #000;
+  transition: transform 0.3s ease;
+}
+
+.toggle-icon::before {
+  width: 12px;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.toggle-icon::after {
+  width: 2px;
+  height: 12px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ingredient-card:hover .toggle-icon::after,
+.ingredient-card.open .toggle-icon::after {
+  transform: translate(-50%, -50%) scaleY(0);
 }
 
 .ingredient-description {
