@@ -35,6 +35,9 @@ affiliate_config = {
             'subscription_enabled': false,
         }
     },
+    'nift': {
+        'product_page': 'special'
+    },
     'pe1_offer': {
         'pricing': {
             'one_time_enabled': false,
