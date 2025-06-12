@@ -65,6 +65,5 @@ function cookie_actions() {
     }
 }
 
-
-cookie_actions()
-
+ // Make cookie-actions globally available for the tracking script
+ window.cookie_actions = cookie_actions;

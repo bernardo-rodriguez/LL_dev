@@ -36,7 +36,10 @@ affiliate_config = {
         }
     },
     'nift': {
-        'product_page': 'special'
+        'product_page': 'special',
+        'general': {
+            'announcement_bar': 'Welcome NIFT Users! Your Discount is auto-applied at checkout',
+        },
     },
     'pe1_offer': {
         'pricing': {
