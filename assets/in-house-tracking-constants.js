@@ -38,10 +38,10 @@ affiliate_config = {
     'nift': {
         'product_page': 'special',
         'flow': {
-            'discount_code': 'NIFT_AUTOMATIC,PUSSYGANG'
+            'discount_code': 'NIFT_AUTOMATIC,NIFT_AUTO'
         },
         'general': {
-            'announcement_bar': 'Welcome NIFT Users! Your Discount is auto-applied at checkout',
+            'announcement_bar': 'Welcome NIFT Users! Your discount is auto-applied!',
         },
     },
     'pe1_offer': {
