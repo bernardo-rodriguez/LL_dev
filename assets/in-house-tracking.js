@@ -19,7 +19,8 @@ supported_affiliates = {
   'cpgap_home': 'cpgap_home',
   'lo1_offer': 'lo1_offer',
   'ls1_offer': 'ls1_offer',
-  'pe1_offer': 'pe1_offer'
+  'pe1_offer': 'pe1_offer',
+  'nift': 'nift'
 }
 
 A_B_testing_campaigns = {
