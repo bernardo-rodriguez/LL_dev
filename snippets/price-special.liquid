@@ -55,6 +55,9 @@
       document.getElementById("perDose").textContent = perDoseText;
     }
 
+    // Make updatePrices globally available for the tracking script
+    window.updatePrices = updatePrices;
+
     // Initialize prices
     updatePrices();
   </script>

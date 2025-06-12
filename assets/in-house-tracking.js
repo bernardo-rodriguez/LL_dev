@@ -237,6 +237,11 @@ function setCookieAffiliate(cookie) {
       removeCookie(cookie_option)
     }
   }
+
+  // After setting the affiliate_referrer cookie
+  if (typeof window.updatePrices === 'function') {
+    window.updatePrices();
+  }
 }
 
 function landingPageAction(current_page, query_params) {
