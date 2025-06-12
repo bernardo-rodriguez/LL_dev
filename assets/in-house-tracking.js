@@ -1,4 +1,4 @@
-affiliate_cookie_options = ['url_redirect', 'affiliate_referrer', 'redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_pinterest', 'cpgap', 'cpgap_gen']
+affiliate_cookie_options = ['url_redirect', 'affiliate_referrer', 'redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_pinterest', 'cpgap', 'cpgap_gen', 'add_pen', 'productDiscountCode']
 
 supported_affiliates = {
   'sweatcoin': 'redirect_sweatcoin',
