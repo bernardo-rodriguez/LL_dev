@@ -8,17 +8,39 @@
   </div>
 
   <script>
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+      return null;
+    }
+
     function updatePrices(strong = false) {
       const url = window.location.href;
+      const affiliateReferrer = getCookie('affiliate_referrer');
+      const isNiftAffiliate = affiliateReferrer === 'nift';
+      
       let originalPrice, salePrice, perDoseText;
 
       if (url.includes("6-serving-of-whitening-gels-free-starter-kit")) {
         originalPrice = strong ? 69 : 59;
-        salePrice = strong ? 29 : 19;
+        
+        if (isNiftAffiliate) {
+          salePrice = strong ? 27 : 17;
+        } else {
+          salePrice = strong ? 29 : 19;
+        }
+        
         perDoseText = `Only $${(salePrice / 6).toFixed(2)} Per Whitening Session`;
       } else {
         originalPrice = strong ? 105 : 95;
-        salePrice = strong ? 39 : 29;
+        
+        if (isNiftAffiliate) {
+          salePrice = strong ? 35 : 25;
+        } else {
+          salePrice = strong ? 39 : 29;
+        }
+        
         perDoseText = `Only $${(salePrice / 6).toFixed(2)} Per Dose`;
       }
 
