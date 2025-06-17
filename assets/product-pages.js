@@ -113,7 +113,7 @@ async function setCartAttributes(upsell) {
 
     function upsellLogic() {
         try {
-            if ($('#main-product-handle-id').html() && $('#main-product-handle-id').html().includes('at-home-whitening-kit-affiliate-ft')) {
+            if ($('#main-product-handle-id').html() && ($('#main-product-handle-id').html().includes('at-home-whitening-kit-affiliate-ft') || $('#main-product-handle-id').html().includes('at-home-whitening-kit-affiliate-ut'))) {
                 show_upsell = getCookie('show_upsell')
                 if (show_upsell != 'false') {
                 openPopup()
