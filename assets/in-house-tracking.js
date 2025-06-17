@@ -255,7 +255,7 @@ function landingPageAction(current_page, query_params) {
   let utm_affiliate = query_params.utm_affiliate_specific
   let redirect = query_params.redirect
   let offer = query_params.offer
-  let discount_code = query_params.discount_code
+  let auto_discount = query_params.auto_discount
 
   if (current_page == '/') {
     // If i'm at site roots url, set affiliate cookies based on affiliate query params and redirect to landing page coookies
@@ -287,8 +287,8 @@ function landingPageAction(current_page, query_params) {
     setCookie('offer', 'everyday')
   }
 
-  if (discount_code) {
-    setCookie('productDiscountCode', discount_code)
+  if (auto_discount) {
+    setCookie('productDiscountCode', auto_discount)
   }
 
   if (should_run_active_campaign()) {
