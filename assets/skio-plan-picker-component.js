@@ -864,7 +864,7 @@ export class SkioPlanPickerComponent extends LitElement {
                       <div class="skio-group-content">
                         <div class="skio-custom-content skio-custom-content-background-color">
                           <div class="skio-container">
-                            <div> ${ this.affiliate_referrer == 'redirect_ut' ? "Refills for $35/delivery" : "Refills for $25/delivery" }</div>
+                            <div> ${ this.affiliate_referrer == 'redirect_ut' ? "Refills for $30/delivery" : "Refills for $30/delivery" }</div>
                             <select skio-selling-plans="${ group.id }" class="skio-frequency${ group.selling_plans.length == 1 ? ' skio-frequency--one' : '' }
                             ${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? ' hide-skio-select' : '' }"
                               @change=${ (e) => this.selectSellingPlan(e.target, group) }>
