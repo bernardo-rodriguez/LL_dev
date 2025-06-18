@@ -204,6 +204,10 @@ affiliate_config = {
         }
     },
     'redirect_sweatcoin': {
+        'pricing': {
+            'one_time_enabled': false,
+            'subscription_enabled': true,
+        },
         'general': {
             'announcement_bar': 'Sweatcoin discounts auto applied at checkout!',
         },
@@ -231,6 +235,10 @@ affiliate_config = {
         }
     },
     'redirect_ut': {
+        'pricing': {
+            'one_time_enabled': false,
+            'subscription_enabled': true,
+        },
         'general': {
             'announcement_bar': 'Discount auto applied at checkout!',
         },
