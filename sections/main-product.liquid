@@ -606,6 +606,61 @@ xhttp.send();
 %}
 
 <script>
+  function updateReviewSummary() {
+    const reviewSummary = document.querySelector('.jdgm-rev-widg__summary-text');
+    if (reviewSummary) {
+      const currentText = reviewSummary.innerHTML;
+      const match = currentText.match(/Based on (\d+) reviews?/i);
+      
+      if (match) {
+        const currentCount = parseInt(match[1]);
+        console.log('Current review count:', currentCount);
+        
+        // Only modify if less than 1000
+        if (currentCount < 1000) {
+          const newCount = currentCount + 2000;
+          if (newCount > 1000) {
+            reviewSummary.innerHTML = `Based on ${newCount} reviews`;
+            reviewSummary.style.visibility = 'visible';
+          }
+        }
+      }
+      return true; // Successfully processed
+    }
+    return false; // Element not found
+  }
+
+  // Try immediately in case element exists
+  if (!updateReviewSummary()) {
+    // If not successful, set up observer
+    const observer = new MutationObserver((mutations, obs) => {
+      if (updateReviewSummary()) {
+        obs.disconnect(); // Stop observing once we've made the change
+      }
+    });
+
+    // Start observing with a more comprehensive configuration
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      characterData: true
+    });
+
+    // Also try again after delays as backup
+    setTimeout(updateReviewSummary, 1000);
+    setTimeout(updateReviewSummary, 2000);
+    setTimeout(updateReviewSummary, 5000);
+    setTimeout(updateReviewSummary, 10000);
+  }
+</script>
+
+<style>
+.jdgm-rev-widg__summary-text {
+  visibility: hidden;
+}
+  </style>
+
+<script>
   window.variantIngredients = {{variant_ingredients }}
 </script>
 
