@@ -92,6 +92,44 @@
       ],
       "settings": {}
     },
+    "multi_slide_carousel_rc9KtU": {
+      "type": "multi-slide-carousel",
+      "blocks": {
+        "slide_WpUhrz": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/cara-hodgson2021_2.webp",
+            "description": "\"Next best thing to in office treatment and it’s how I keep my smile bright and shiny. Their obsession with quality won my trust.”",
+            "dentist_name": "Dr. Cara Hodgson DDS",
+            "credentials": "<p>UCLA School of Dentistry </p>"
+          }
+        },
+        "slide_C7CWMk": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-05-22_at_7.17.37_PM_2.webp",
+            "description": "“I’ve been whitening teeth for over 10 years. When patients ask me what the best way to whiten at home is, my answer is Laughland. I wouldn’t recommend anything I wouldn’t use myself and I’ve noticed a visible difference since using Laughland”",
+            "dentist_name": "Dr. Ron Ayzin DDS",
+            "credentials": "<p>Faculty Instructor</p><p> UCLA School of Dentistry</p>"
+          }
+        },
+        "slide_ArCbGL": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-05-22_at_7.12.44_PM_2.webp",
+            "description": "“It’s important to find a system that works and keeps things simple. Laughland does exactly that.”",
+            "dentist_name": "Dr. Kyra Jimenez DDS",
+            "credentials": "<p>President of the NSU </p><p>Dental Cosmetic Society</p>"
+          }
+        }
+      },
+      "block_order": [
+        "slide_WpUhrz",
+        "slide_C7CWMk",
+        "slide_ArCbGL"
+      ],
+      "settings": {}
+    },
     "30a71a58-b5ad-472f-9d70-97379fc62b74": {
       "type": "benefit-cards",
       "blocks": {
@@ -346,18 +384,6 @@
     },
     "17036014317451426f": {
       "type": "apps",
-      "blocks": {
-        "ddc6ad8c-ba9b-4620-a0ad-13f60868164f": {
-          "type": "shopify://apps/yotpo-product-reviews/blocks/reviews/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
-          "disabled": true,
-          "settings": {
-            "product": "{{product}}"
-          }
-        }
-      },
-      "block_order": [
-        "ddc6ad8c-ba9b-4620-a0ad-13f60868164f"
-      ],
       "settings": {
         "include_margins": true
       }
@@ -367,6 +393,7 @@
     "main",
     "product-recommendations",
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
+    "multi_slide_carousel_rc9KtU",
     "30a71a58-b5ad-472f-9d70-97379fc62b74",
     "1c8af4c9-5992-4bfb-9d4a-a8e06e025318",
     "d7a83216-e232-4258-9705-5edf54558f0b",
