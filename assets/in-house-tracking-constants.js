@@ -270,6 +270,7 @@ affiliate_config = {
         'pricing': {
             'one_time_enabled': false,
             'subscription_enabled': true,
+            'subscription': '4.95'
         },
         'general': {
             'announcement_bar': 'Discount auto applied at checkout!',
