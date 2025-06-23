@@ -269,18 +269,17 @@ affiliate_config = {
     'redirect_ut_trial': {
         'pricing': {
             'one_time_enabled': false,
-            'subscription_enabled': true,
-            'subscription': '4.95'
+            'subscription_enabled': true
+            // 'subscription': '4.95'
         },
         'general': {
             'announcement_bar': 'Discount auto applied at checkout!',
         },
         'flow': {
             'product_page': '/products/at-home-whitening-kit-affiliate-ut',
-            'discount_code': 'Pen-Addon',
             'cart_attribute': 'cactus_media',
             'show_upsell': true,
-            'discount_code': 'UTMTRIAL'
+            'discount_code': 'UTMTRIAL,Pen-Addon'
         },
         'landing_page_copy': {
             'hero_subtitle_1': ['margin-bottom', '50px !important'],
