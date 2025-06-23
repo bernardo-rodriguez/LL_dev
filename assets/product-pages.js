@@ -115,7 +115,7 @@ async function setCartAttributes(upsell) {
         // here is upsell_logic upsell logic upsell-logic
         a_referrer = getCookie('affiliate_referrer')
         if (a_referrer in affiliate_config && 'flow' in affiliate_config[a_referrer] && 'show_upsell' in affiliate_config[a_referrer]['flow']) {
-          if (affiliate_config[a_referrer]['flow']['show_upsell'][bundle_value]) {
+          if (affiliate_config[a_referrer]['flow']['show_upsell']) {
             openPopup()
           } else {
             $('#real-submit-button').click()
