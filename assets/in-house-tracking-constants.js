@@ -218,19 +218,19 @@ affiliate_config = {
         },
         'landing_page_copy': {
             'hero_subtitle_1': ['margin-bottom', '50px !important'],
-            // 'hero_price': '9',
+            'hero_price': '9',
             // 'hero_subtitle_1': ['margin-bottom', '50px !important'],
-            'hero_title': 'Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>',
-            // 'hero_title': 'Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit',
+            // 'hero_title': 'Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>',
+            'hero_title': 'Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit',
             'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.",
-            'hero_price': '0',
+            // 'hero_price': '0',
         },
         'featured_product': {
             'subPrice': '0',
-            // 'subPrice': '9',
+            'subPrice': '9',
             'discount_name': 'SWEATCOIN_LIMITED',
-            'discount_desc': '100% OFF',
-            // 'discount_desc': '85% OFF',
+            // 'discount_desc': '100% OFF',
+            'discount_desc': '85% OFF',
             'regular_item_price': '$59'
         }
     },
