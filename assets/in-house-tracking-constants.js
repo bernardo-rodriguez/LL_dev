@@ -205,7 +205,7 @@ affiliate_config = {
     },
     'redirect_sweatcoin': {
         'pricing': {
-            'one_time_enabled': false,
+            'one_time_enabled': true,
             'subscription_enabled': true,
         },
         'general': {
