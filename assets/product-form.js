@@ -414,6 +414,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
   onSubmitHandler(evt) {
     evt.preventDefault();    
+    console.log('onSubmitHandler');
     document.cookie = "directcheckout=true;path=/";
 
     let p_referrer = getCookie('affiliate_referrer')
