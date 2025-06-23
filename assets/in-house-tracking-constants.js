@@ -245,7 +245,39 @@ affiliate_config = {
         'flow': {
             'product_page': '/products/at-home-whitening-kit-affiliate-ut',
             'discount_code': 'Pen-Addon',
-            'cart_attribute': 'cactus_media'
+            'cart_attribute': 'cactus_media',
+            'show_upsell': false
+        },
+        'landing_page_copy': {
+            'hero_subtitle_1': ['margin-bottom', '50px !important'],
+            // 'hero_title': 'Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>',
+            // 'hero_title': 'Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit',
+            // 'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.",
+            'hero_price': '9',
+            // 'hero_price': '0',
+        },
+        'featured_product': {
+            // 'subPrice': '0',
+            'subPrice': '9',
+            // 'discount_name': 'FREE_TRIAL_SPECIAL',
+            'discount_name': 'STARTER_SPECIAL',
+            'discount_desc': '85% OFF',
+            'regular_item_price': '$59'
+        }
+    },
+    'redirect_ut_trial': {
+        'pricing': {
+            'one_time_enabled': false,
+            'subscription_enabled': true,
+        },
+        'general': {
+            'announcement_bar': 'Discount auto applied at checkout!',
+        },
+        'flow': {
+            'product_page': '/products/at-home-whitening-kit-affiliate-ut',
+            'discount_code': 'Pen-Addon',
+            'cart_attribute': 'cactus_media',
+            'show_upsell': true
         },
         'landing_page_copy': {
             'hero_subtitle_1': ['margin-bottom', '50px !important'],

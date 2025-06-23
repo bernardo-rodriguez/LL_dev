@@ -112,19 +112,29 @@ async function setCartAttributes(upsell) {
   document.getElementById('main-clickable-button').addEventListener("click", upsellLogic);
 
     function upsellLogic() {
-        try {
-            if ($('#main-product-handle-id').html() && ($('#main-product-handle-id').html().includes('at-home-whitening-kit-affiliate-ft') || $('#main-product-handle-id').html().includes('at-home-whitening-kit-affiliate-ut'))) {
-                show_upsell = getCookie('show_upsell')
-                if (show_upsell != 'false') {
-                openPopup()
-                } else {
-                $('#real-submit-button').click()
-                }
-            } else {
+        // here is upsell_logic upsell logic upsell-logic
+        a_referrer = getCookie('affiliate_referrer')
+        if (a_referrer in affiliate_config && 'flow' in affiliate_config[a_referrer] && 'show_upsell' in affiliate_config[a_referrer]['flow']) {
+          if (affiliate_config[a_referrer]['flow']['show_upsell'][bundle_value]) {
+            openPopup()
+          } else {
             $('#real-submit-button').click()
-            }
-        } catch (e) {
-            console.log(e)
-            $('#real-submit-button').click()
+          }
         }
+
+        // try {
+        //     if ($('#main-product-handle-id').html() && ($('#main-product-handle-id').html().includes('at-home-whitening-kit-affiliate-ft') || $('#main-product-handle-id').html().includes('at-home-whitening-kit-affiliate-ut'))) {
+        //         show_upsell = getCookie('show_upsell')
+        //         if (show_upsell != 'false') {
+        //         openPopup()
+        //         } else {
+        //         $('#real-submit-button').click()
+        //         }
+        //     } else {
+        //     $('#real-submit-button').click()
+        //     }
+        // } catch (e) {
+        //     console.log(e)
+        //     $('#real-submit-button').click()
+        // }
     }

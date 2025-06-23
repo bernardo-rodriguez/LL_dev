@@ -1,4 +1,4 @@
-affiliate_cookie_options = ['url_redirect', 'affiliate_referrer', 'redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_pinterest', 'cpgap', 'cpgap_gen', 'add_pen', 'productDiscountCode']
+affiliate_cookie_options = ['url_redirect', 'affiliate_referrer', 'redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_ut_trial', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_pinterest', 'cpgap', 'cpgap_gen', 'add_pen', 'productDiscountCode']
 
 supported_affiliates = {
   'sweatcoin': 'redirect_sweatcoin',
@@ -8,6 +8,7 @@ supported_affiliates = {
   'utm_partner': 'utm_partner',
   'utm_gen_direct': 'utm_gen_direct',
   'cactus_media': 'redirect_ut',
+  'cactus_media_trial': 'redirect_ut_trial',
   'redirect_inspire': 'redirect_inspire',
   'redirect_pinterest': 'redirect_pinterest',
   'skimm': 'redirect_skimm',
