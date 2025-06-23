@@ -119,7 +119,6 @@ async function setCartAttributes(upsell) {
           if (affiliate_config[a_referrer]['flow']['show_upsell']) {
             openPopup()
           } else {
-            console.log('real-submit-button');
             $('#real-submit-button').click()
           }
         } else {

@@ -293,7 +293,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     this.stickyBar.querySelector(".sticky__price").innerHTML = price
   }
 
-  bundleStickyBar() {
+    bundleStickyBar() {
     if (!document.querySelector('.price-section')) {
       try {
         let skio_plan_picker = document.querySelector('skio-plan-picker')
