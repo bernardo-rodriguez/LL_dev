@@ -112,6 +112,7 @@ async function setCartAttributes(upsell) {
   document.getElementById('main-clickable-button').addEventListener("click", upsellLogic);
 
     function upsellLogic() {
+      console.log('upsellLogic');
         // here is upsell_logic upsell logic upsell-logic
         a_referrer = getCookie('affiliate_referrer')
         if (a_referrer in affiliate_config && 'flow' in affiliate_config[a_referrer] && 'show_upsell' in affiliate_config[a_referrer]['flow']) {
