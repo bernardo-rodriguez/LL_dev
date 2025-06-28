@@ -856,7 +856,7 @@ export class SkioPlanPickerComponent extends LitElement {
                             ` : html`` }
                             <span skio-subscription-price>$${ 
                               // Product-specific pricing logic
-                              this.product.id == 7503162605793 ? '29' :
+                              this.product.id == 7503162605793 ? '' :
                               this.subscription_pricing != '' ? this.subscription_pricing : 
                               (this.affiliate_referrer == 'redirect_ut_trial' ? 
                                 (() => {
