@@ -869,6 +869,9 @@ export class SkioPlanPickerComponent extends LitElement {
                               })()
                             ) }
                             </span>
+                            ${ this.product.id == 7503162605793 && this.discount(group.selected_selling_plan).percent !== '0%' ? 
+                              html`<span style="margin-left: 8px;">- Save ${ this.discount(group.selected_selling_plan).percent }</span>` 
+                              : html`` }
                           </div>
                         </div>
                       </div>
