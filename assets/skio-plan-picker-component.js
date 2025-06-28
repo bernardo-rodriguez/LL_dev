@@ -840,7 +840,7 @@ export class SkioPlanPickerComponent extends LitElement {
                         <div class="skio-center-wrapper">
                           ${ this.product.id == 7503162605793 ? html`
                             <div class="skio-group-title" id = 'skio-group-title-sub'>
-                              Subscribe and Save - $29
+                              Subscribe and Save - $29 (SAVE 50%)
                             </div>
                           ` : html`
                             <div class="skio-group-title" id = 'skio-group-title-sub'>
@@ -871,7 +871,7 @@ export class SkioPlanPickerComponent extends LitElement {
                                 })()
                               ) }
                               </span>
-                              ${ this.product.id == 7503162605793 && this.discount(group.selected_selling_plan).percent !== '0%' ? 
+                              ${ false && this.product.id == 7503162605793 && this.discount(group.selected_selling_plan).percent !== '0%' ? 
                                 html`<span style="font-weight: 500;">&nbsp;&nbsp;(SAVE ${ this.discount(group.selected_selling_plan).percent })</span>` 
                                 : html`` }
                             </div>
