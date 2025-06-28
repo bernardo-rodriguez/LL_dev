@@ -876,7 +876,14 @@ export class SkioPlanPickerComponent extends LitElement {
                         </div>
                       </div>
                       <div class="skio-center-wrapper">
-                      <span class = 'skio-price-shipping'> ${ this.product.id == 7498061906145 ? '(+ Free Shipping!)'  : '' }</span>
+                      <span class = 'skio-price-shipping'> ${ (() => {
+                        if (this.product.id == 7503162605793 && this.discount(group.selected_selling_plan).percent !== '0%') {
+                          return `(Save ${ this.discount(group.selected_selling_plan).percent })`;
+                        } else if (this.product.id == 7498061906145) {
+                          return '(+ Free Shipping!)';
+                        }
+                        return '';
+                      })() }</span>
                       </div>
 
                       ${ this.product.id != 8187028177121 && this.product.id != 8252255568097 ?
