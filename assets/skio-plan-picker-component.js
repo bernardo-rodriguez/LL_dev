@@ -840,13 +840,11 @@ export class SkioPlanPickerComponent extends LitElement {
                         <div class="skio-center-wrapper">
                           <div class="skio-group-title" id = 'skio-group-title-sub'>
                           ${ this.product.id == 7498061906145 ? 'Refill Kit' :
-                          
+                            this.product.id == 7503162605793 ? 'Subscribe and Save - $29' :
                             (group.name == 'Subscription' ?  (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' ? 
                               ((this.product.id == 8187028177121 ) ? 'Sweatcoin Special' : 'Free Trial Special') 
                               : 'Starter Kit' 
-
                             : group.name )
-                          
                           }
                             ${ this.discount(group.selected_selling_plan).percent !== '0%' ? html` 
                               <span style="display: none;" class="skio-save">Save <span skio-discount>${ this.discountFormat == 'percent' ? this.discount(group.selected_selling_plan).percent : this.discount(group.selected_selling_plan).amount }</span></span>
