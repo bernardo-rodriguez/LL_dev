@@ -840,7 +840,7 @@ export class SkioPlanPickerComponent extends LitElement {
                         <div class="skio-center-wrapper">
                           ${ this.product.id == 7503162605793 ? html`
                             <div class="skio-group-title" id = 'skio-group-title-sub'>
-                              Subscribe and Save - $29 (SAVE 50%)
+                              Subscribe & Save 50% - $29
                             </div>
                           ` : html`
                             <div class="skio-group-title" id = 'skio-group-title-sub'>
