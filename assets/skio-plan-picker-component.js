@@ -869,8 +869,7 @@ export class SkioPlanPickerComponent extends LitElement {
                               })()
                             ) }
                             </span>
-                            <!-- comment out for now -->
-                            ${ false && this.product.id == 7503162605793 && this.discount(group.selected_selling_plan).percent !== '0%' ? 
+                            ${ this.product.id == 7503162605793 && this.discount(group.selected_selling_plan).percent !== '0%' ? 
                               html`<span style="font-weight: 500;">— Save ${ this.discount(group.selected_selling_plan).percent }</span>` 
                               : html`` }
                           </div>
@@ -878,9 +877,10 @@ export class SkioPlanPickerComponent extends LitElement {
                       </div>
                       <div class="skio-center-wrapper">
                       <span class = 'skio-price-shipping'> ${ (() => {
-                        if (this.product.id == 7503162605793 && this.discount(group.selected_selling_plan).percent !== '0%') {
-                          return `(Save ${ this.discount(group.selected_selling_plan).percent })`;
-                        } else if (this.product.id == 7498061906145) {
+                        // if (this.product.id == 7503162605793 && this.discount(group.selected_selling_plan).percent !== '0%') {
+                        //   return `(Save ${ this.discount(group.selected_selling_plan).percent })`;
+                        // } else 
+                         if (this.product.id == 7498061906145) {
                           return '(+ Free Shipping!)';
                         }
                         return '';
