@@ -854,19 +854,22 @@ export class SkioPlanPickerComponent extends LitElement {
                           —${ this.selectedVariant.price < this.selectedVariant.price - this.discount(group.selected_selling_plan).amount ? html`
                               <del>${ this.moneyFormatter.format(this.selectedVariant.price / 100) }<del>
                             ` : html`` }
-                            <span skio-subscription-price>$${ this.subscription_pricing != '' ? this.subscription_pricing : 
-                            (this.affiliate_referrer == 'redirect_ut_trial' ? 
-                              (() => {
-                                const price = (this.price(group.selected_selling_plan, false) / 100) - 4;
-                                return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
-                              })() 
-                              : 
-                              (() => {
-                                const price = (this.price(group.selected_selling_plan, false) / 100);
-                                return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
-                              })()
-                            ) }
-                            </span>
+                            <span skio-subscription-price>$${ 
+                              // Product-specific pricing logic
+                              this.product.id == 7503162605793 ? '29' :
+                              this.subscription_pricing != '' ? this.subscription_pricing : 
+                              (this.affiliate_referrer == 'redirect_ut_trial' ? 
+                                (() => {
+                                  const price = (this.price(group.selected_selling_plan, false) / 100) - 4;
+                                  return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
+                                })() 
+                                : 
+                                (() => {
+                                  const price = (this.price(group.selected_selling_plan, false) / 100);
+                                  return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
+                                })()
+                              )
+                            }</span>
                             ${ false && this.product.id == 7503162605793 && this.discount(group.selected_selling_plan).percent !== '0%' ? 
                               html`<span style="font-weight: 500;">&nbsp;&nbsp;(SAVE ${ this.discount(group.selected_selling_plan).percent })</span>` 
                               : html`` }
