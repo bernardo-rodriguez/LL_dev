@@ -838,26 +838,27 @@ export class SkioPlanPickerComponent extends LitElement {
                           </svg>
                         </div>
                         <div class="skio-center-wrapper">
-                          <div class="skio-group-title" id = 'skio-group-title-sub'>
-                          ${ this.product.id == 7498061906145 ? 'Refill Kit' :
-                            this.product.id == 7503162605793 ? 'Subscribe and Save - $29' :
-                            (group.name == 'Subscription' ?  (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' ? 
-                              ((this.product.id == 8187028177121 ) ? 'Sweatcoin Special' : 'Free Trial Special') 
-                              : 'Starter Kit' 
-                            : group.name )
-                          }
-                            ${ this.discount(group.selected_selling_plan).percent !== '0%' ? html` 
-                              <span style="display: none;" class="skio-save">Save <span skio-discount>${ this.discountFormat == 'percent' ? this.discount(group.selected_selling_plan).percent : this.discount(group.selected_selling_plan).amount }</span></span>
-                            ` : html`` }
-                          </div>
-                          <div class="skio-price skio-subscribe-price" id = 'skio-group-price-sub'>
-                          —${ this.selectedVariant.price < this.selectedVariant.price - this.discount(group.selected_selling_plan).amount ? html`
-                              <del>${ this.moneyFormatter.format(this.selectedVariant.price / 100) }<del>
-                            ` : html`` }
-                            <span skio-subscription-price>$${ 
-                              // Product-specific pricing logic
-                              this.product.id == 7503162605793 ? '' :
-                              this.subscription_pricing != '' ? this.subscription_pricing : 
+                          ${ this.product.id == 7503162605793 ? html`
+                            <div class="skio-group-title" id = 'skio-group-title-sub'>
+                              Subscribe and Save - $29
+                            </div>
+                          ` : html`
+                            <div class="skio-group-title" id = 'skio-group-title-sub'>
+                              ${ this.product.id == 7498061906145 ? 'Refill Kit' :
+                                (group.name == 'Subscription' ?  (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' ? 
+                                  ((this.product.id == 8187028177121 ) ? 'Sweatcoin Special' : 'Free Trial Special') 
+                                  : 'Starter Kit' 
+                                : group.name )
+                              }
+                              ${ this.discount(group.selected_selling_plan).percent !== '0%' ? html` 
+                                <span style="display: none;" class="skio-save">Save <span skio-discount>${ this.discountFormat == 'percent' ? this.discount(group.selected_selling_plan).percent : this.discount(group.selected_selling_plan).amount }</span></span>
+                              ` : html`` }
+                            </div>
+                            <div class="skio-price skio-subscribe-price" id = 'skio-group-price-sub'>
+                              —${ this.selectedVariant.price < this.selectedVariant.price - this.discount(group.selected_selling_plan).amount ? html`
+                                  <del>${ this.moneyFormatter.format(this.selectedVariant.price / 100) }<del>
+                                ` : html`` }
+                              <span skio-subscription-price>$${ this.subscription_pricing != '' ? this.subscription_pricing : 
                               (this.affiliate_referrer == 'redirect_ut_trial' ? 
                                 (() => {
                                   const price = (this.price(group.selected_selling_plan, false) / 100) - 4;
@@ -868,12 +869,13 @@ export class SkioPlanPickerComponent extends LitElement {
                                   const price = (this.price(group.selected_selling_plan, false) / 100);
                                   return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
                                 })()
-                              )
-                            }</span>
-                            ${ false && this.product.id == 7503162605793 && this.discount(group.selected_selling_plan).percent !== '0%' ? 
-                              html`<span style="font-weight: 500;">&nbsp;&nbsp;(SAVE ${ this.discount(group.selected_selling_plan).percent })</span>` 
-                              : html`` }
-                          </div>
+                              ) }
+                              </span>
+                              ${ this.product.id == 7503162605793 && this.discount(group.selected_selling_plan).percent !== '0%' ? 
+                                html`<span style="font-weight: 500;">&nbsp;&nbsp;(SAVE ${ this.discount(group.selected_selling_plan).percent })</span>` 
+                                : html`` }
+                            </div>
+                          ` }
                         </div>
                       </div>
                       <div class="skio-center-wrapper">
