@@ -59,7 +59,7 @@ affiliate_config = {
             'hero_subtitle_1': ['margin-bottom', '50px !important'],
             'hero_title': 'Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">Today</span>',
             // 'hero_title': 'Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit',
-            'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.",
+            // 'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.",
             'hero_price': '19',
             'pricing_table_us_data': '19',
             // 'hero_price': '0',
@@ -85,7 +85,7 @@ affiliate_config = {
         'landing_page_copy': {
             'hero_subtitle_1': ['margin-bottom', '50px !important'],
             'hero_title': 'Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">Today</span>',
-            'hero_title': 'Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit',
+            // 'hero_title': 'Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit',
             // 'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.",
             'hero_price': '25',
             'pricing_table_us_data': '19',
