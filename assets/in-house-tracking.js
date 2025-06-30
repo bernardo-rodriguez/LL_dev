@@ -1,4 +1,4 @@
-affiliate_cookie_options = ['nift_6', 'nift_bundle', 'url_redirect', 'affiliate_referrer', 'redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_ut_trial', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_pinterest', 'cpgap', 'cpgap_gen', 'add_pen', 'productDiscountCode']
+affiliate_cookie_options = ['nift_6', 'nift_bundle', 'nift', 'url_redirect', 'affiliate_referrer', 'redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_ut_trial', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_pinterest', 'cpgap', 'cpgap_gen', 'add_pen', 'productDiscountCode']
 
 // legacy redirects
 supported_affiliates = {
