@@ -1,5 +1,6 @@
-affiliate_cookie_options = ['url_redirect', 'affiliate_referrer', 'redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_ut_trial', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_pinterest', 'cpgap', 'cpgap_gen', 'add_pen', 'productDiscountCode']
+affiliate_cookie_options = ['nift_6', 'nift_bundle', 'url_redirect', 'affiliate_referrer', 'redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_ut_trial', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_pinterest', 'cpgap', 'cpgap_gen', 'add_pen', 'productDiscountCode']
 
+// legacy redirects
 supported_affiliates = {
   'sweatcoin': 'redirect_sweatcoin',
   'product-direct': 'redirect_ut_direct',
@@ -21,7 +22,9 @@ supported_affiliates = {
   'lo1_offer': 'lo1_offer',
   'ls1_offer': 'ls1_offer',
   'pe1_offer': 'pe1_offer',
-  'nift': 'nift'
+  'nift': 'nift',
+  'nift_6': 'nift_6',
+  'nift_bundle': 'nift_bundle'
 }
 
 A_B_testing_campaigns = {

@@ -44,6 +44,58 @@ affiliate_config = {
             'announcement_bar': 'Welcome NIFT Users! Your discount is auto-applied!',
         },
     },
+    'nift_6': {
+        'product_page': 'special',
+        'general': {
+            'announcement_bar': 'Welcome NIFT Users! Your discount is auto-applied!',
+        },
+        'flow': {
+            'product_page': '/products/6-serving-of-whitening-gels-free-starter-kit',
+            'cart_attribute': 'nift_6',
+            'discount_code': 'NIFT_AUTOMATIC,NIFT_AUTO,ADD_PEN'
+        },
+        'landing_page_copy': {
+            'hero_subtitle_1': ['margin-bottom', '50px !important'],
+            'hero_title': 'Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">Today</span>',
+            // 'hero_title': 'Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit',
+            'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.",
+            'hero_price': '19',
+            // 'hero_price': '0',
+        },
+        'featured_product': {
+            // 'subPrice': '0',
+            'subPrice': '19',
+            'discount_name': 'NIFT_AUTOMATIC',
+            'discount_desc': '72% OFF',
+            'regular_item_price': '$59'
+        }
+    },
+    'nift_bundle': {
+        'product_page': 'special',
+        'general': {
+            'announcement_bar': 'Welcome NIFT Users! Your discount is auto-applied!',
+        },
+        'flow': {
+            'product_page': '/products/starter-whitening-kit-6-treatments-free-pen',
+            'cart_attribute': 'nift_bundle',
+            'discount_code': 'NIFT_AUTOMATIC,NIFT_AUTO,ADD_PEN'
+        },
+        'landing_page_copy': {
+            'hero_subtitle_1': ['margin-bottom', '50px !important'],
+            'hero_title': 'Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">Today</span>',
+            'hero_title': 'Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit',
+            // 'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.",
+            'hero_price': '25',
+            // 'hero_price': '0',
+        },
+        'featured_product': {
+            // 'subPrice': '0',
+            'subPrice': '25',
+            'discount_name': 'NIFT_AUTO',
+            'discount_desc': '74% OFF',
+            'regular_item_price': '$95'
+        }
+    },
     'pe1_offer': {
         'pricing': {
             'one_time_enabled': false,
