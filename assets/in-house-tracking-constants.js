@@ -21,6 +21,7 @@ affiliate_config = {
             'hero_title': null,
             'Hero_Subtitle': null,
             'hero_price': '29',
+            'pricing_table_us_data': '59',
         },
         'featured_product': {
             'subPrice': '29',
@@ -60,6 +61,7 @@ affiliate_config = {
             // 'hero_title': 'Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit',
             'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.",
             'hero_price': '19',
+            'pricing_table_us_data': '19',
             // 'hero_price': '0',
         },
         'featured_product': {
@@ -86,6 +88,7 @@ affiliate_config = {
             'hero_title': 'Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit',
             // 'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.",
             'hero_price': '25',
+            'pricing_table_us_data': '19',
             // 'hero_price': '0',
         },
         'featured_product': {

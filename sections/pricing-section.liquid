@@ -46,7 +46,7 @@
                     {% endif %}
                   {% endif %}
                 </td>
-                <td class="sh3">
+                <td class="sh3" id = 'pricing_table_us_data'>
                   {%- if block.settings.us_data != blank -%}
                     {{ block.settings.us_data }}
                   {%- else -%}
@@ -71,6 +71,28 @@
     </div>
   </div>
 </div>
+
+<script>
+  function getPricingTableUSData() {  
+    let landing_page_copy_defaults = affiliate_config['default']['landing_page_copy']
+    let pricingUSTable = landing_page_copy_defaults['pricing_table_us_data']
+
+    a_referrer = getCookie('affiliate_referrer')
+    if (a_referrer in affiliate_config && 'landing_page_copy' in affiliate_config[a_referrer]) {
+      landing_page_copy = affiliate_config[a_referrer]['landing_page_copy']
+
+      if ('pricing_table_us_data' in landing_page_copy && landing_page_copy['pricing_table_us_data']) {
+        pricingUSTable = landing_page_copy['pricing_table_us_data']
+      }
+    }
+
+    if (pricingUSTable != '') {
+      $('#pricing_table_us_data').html(pricingUSTable)
+    }
+
+}
+
+</script>
 
 {% schema %}
   {

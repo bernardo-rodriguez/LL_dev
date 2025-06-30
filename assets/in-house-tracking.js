@@ -273,6 +273,7 @@ function landingPageAction(current_page, query_params) {
       }
 
       getSubPriceLanding()
+      getPricingTableUSData()
   } else if (current_page == '/pages/clear-affiliate-cookies' || current_page == '/pages/clear-affiliate-cookies/' || current_page.includes('clear-affiliate-cookies')) {
     clearAllAffiliateCookies()
   } else {
