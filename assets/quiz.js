@@ -210,6 +210,10 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
           // console.log('not 2')
         } else if (getCookie('affiliate_referrer') == 'redirect_sweatcoin' || getCookie('affiliate_referrer') == 'cpgap_gen') {
           window.location = '/products/at-home-whitening-kit-affiliate-ft'
+        } else if (getCookie('affiliate_referrer') == 'nift_6') {
+          window.location = '/products/6-serving-of-whitening-gels-free-starter-kit'
+        } else if (getCookie('affiliate_referrer') == 'nift_bundle') {
+          window.location = '/products/starter-whitening-kit-6-treatments-free-pen'
         } else {
           window.location = '/products/at-home-whitening-kit'
         }
