@@ -18,7 +18,7 @@
     function updatePrices(strong = false) {
       const url = window.location.href;
       const affiliateReferrer = getCookie('affiliate_referrer');
-      const isNiftAffiliate = affiliateReferrer === 'nift';
+      const isNiftAffiliate = affiliateReferrer && affiliateReferrer.includes('nift');
       
       let originalPrice, salePrice, perDoseText;
 
