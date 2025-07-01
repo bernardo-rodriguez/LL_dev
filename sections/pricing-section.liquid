@@ -46,7 +46,7 @@
                     {% endif %}
                   {% endif %}
                 </td>
-                <td class="sh3" id = 'pricing_table_us_data'>
+                <td class="sh3 pricing_table_us_data">
                   {%- if block.settings.us_data != blank -%}
                     {{ block.settings.us_data }}
                   {%- else -%}
@@ -87,7 +87,7 @@
 
     if (pricingUSTable != '') {
       console.log('set this one', pricingUSTable)
-      $('#pricing_table_us_data').html('$'+pricingUSTable)
+      $('.pricing_table_us_data').last().html('$'+pricingUSTable)
     }
 
 }
