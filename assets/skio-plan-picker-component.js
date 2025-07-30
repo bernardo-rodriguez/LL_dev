@@ -859,7 +859,7 @@ export class SkioPlanPickerComponent extends LitElement {
                                   <del>${ this.moneyFormatter.format(this.selectedVariant.price / 100) }<del>
                                 ` : html`` }
                               <span skio-subscription-price>$${ this.subscription_pricing != '' ? this.subscription_pricing : 
-                              (this.affiliate_referrer == 'redirect_ut_trial' ? 
+                              (this.affiliate_referrer == 'redirect_ut_trial' || this.affiliate_referrer == 'redirect_ut' ? 
                                 (() => {
                                   const price = (this.price(group.selected_selling_plan, false) / 100) - 4;
                                   return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
