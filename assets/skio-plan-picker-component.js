@@ -875,10 +875,14 @@ export class SkioPlanPickerComponent extends LitElement {
                                 html`` }
                             </div>
                             <div class="skio-price skio-subscribe-price" id = 'skio-group-price-sub'>
-                              —${ this.selectedVariant.price < this.selectedVariant.price - this.discount(group.selected_selling_plan).amount ? html`
-                                  <del>${ this.moneyFormatter.format(this.selectedVariant.price / 100) }<del>
-                                ` : html`` }
-                              <span skio-subscription-price>$${ this.subscription_pricing != '' ? this.subscription_pricing : 
+                              —${ this.selectedVariant.price < this.selectedVariant.price - this.discount(group.selected_selling_plan).amount ? 
+                                html`
+                                <del>${ this.moneyFormatter.format(this.selectedVariant.price / 100) }<del>` 
+                                : 
+                                html`` }
+                              <span skio-subscription-price>$${ this.subscription_pricing != '' ? 
+                              this.subscription_pricing 
+                              : 
                               (this.affiliate_referrer == 'redirect_ut_trial' ? 
                               // (false ? 
                                 (() => {
@@ -892,9 +896,10 @@ export class SkioPlanPickerComponent extends LitElement {
                                 })()
                               ) }
                               </span>
-                              ${ false && this.product.id == 7503162605793 && this.discount(group.selected_selling_plan).percent !== '0%' ? 
+                              ${ false && this.product.id == in_house_products['KIT_DEFAULT']['product_id'] && this.discount(group.selected_selling_plan).percent !== '0%' ? 
                                 html`<span style="font-weight: 500;">&nbsp;&nbsp;(SAVE ${ this.discount(group.selected_selling_plan).percent })</span>` 
-                                : html`` }
+                                : 
+                                html`` }
                             </div>
                           ` }
                         </div>
@@ -904,20 +909,35 @@ export class SkioPlanPickerComponent extends LitElement {
                         // if (this.product.id == 7503162605793 && this.discount(group.selected_selling_plan).percent !== '0%') {
                         //   return `(Save ${ this.discount(group.selected_selling_plan).percent })`;
                         // } else 
-                         if (this.product.id == 7498061906145) {
+                         if (this.product.id == in_house_products['REFILL_DEFAULT']['product_id']) {
                           return '(+ Free Shipping!)';
                         }
                         return '';
                       })() }</span>
                       </div>
 
-                      ${ this.product.id != 8187028177121 && this.product.id != 8252255568097 ?
+                      ${ this.product.id != in_house_products['KIT_DOUBLE_LIGHTNING']['product_id'] 
+                      && this.product.id != in_house_products['KIT_EMPTY_SPACE']['product_id'] ?
                         html`<div class="skio-group-content">
                           <div class="skio-custom-content skio-custom-content-background-color">
                             <div class="skio-container">
-                              <div> ${ this.affiliate_referrer == 'redirect_ut' ? "Refills for $30" : "Refills for $30" }</div>
-                              <select skio-selling-plans="${ group.id }" class="skio-frequency${ group.selling_plans.length == 1 ? ' skio-frequency--one' : '' }
-                              ${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? ' hide-skio-select' : '' }"
+                              <div> ${ this.affiliate_referrer == 'redirect_ut' ? 
+                                "Refills for $30" 
+                                : 
+                                "Refills for $30" }
+                              </div>
+                              <select skio-selling-plans="${ group.id }" class="skio-frequency
+                              ${ group.selling_plans.length == 1 ? 
+                               ' skio-frequency--one' 
+                               : 
+                               ''
+                              }
+                              ${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' 
+                              || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? 
+                                ' hide-skio-select' 
+                                : 
+                                '' 
+                              }"
                                 @change=${ (e) => this.selectSellingPlan(e.target, group) }>
                                 ${ group ? group.selling_plans.map((selling_plan) => 
                                   html`
@@ -930,8 +950,8 @@ export class SkioPlanPickerComponent extends LitElement {
                             </div>
                           </div>
                         </div>`
-                      :
-                      html`` } 
+                        :
+                        html`` } 
                     </label>
                   </div>
                 `
@@ -1013,7 +1033,11 @@ export class SkioPlanPickerComponent extends LitElement {
     if(changed.has('product') && this.product) {
       // RAN ONLY ON FIRST LOAD
 
-      if (this.product.id == 7498061906145 || this.product.id == 8187028177121 || this.product.id == 8954966147297 || this.product.id == 8943418736865 || this.product.id == 8252255568097) {
+      if (this.product.id == in_house_products['REFILL_DEFAULT']['product_id'] 
+      || this.product.id == in_house_products['KIT_DOUBLE_LIGHTNING']['product_id']
+      || this.product.id == 8954966147297 
+      || this.product.id == 8943418736865 
+      || this.product.id == in_house_products['KIT_EMPTY_SPACE']['product_id'] ) {
         console.log('has multiple selling plans')
         this.useVariantInputClickEvents = true
         this.variantInputSelector = 'input[name="refill-strength"]'
