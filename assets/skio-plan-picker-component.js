@@ -742,6 +742,7 @@ export class SkioPlanPickerComponent extends LitElement {
                     <div class="skio-group-title">
                       One-time
                     </div>
+                    
                     <div class="skio-price">
                       ${ this.product.id == in_house_products['KIT_DEFAULT']['product_id'] ? html`
                         —<span id = 'skio-onetime-price-set' skio-onetime-price>${ this.oneTimePricingConfig['first']['subtotal'] }</span>
