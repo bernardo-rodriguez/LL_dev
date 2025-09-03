@@ -743,7 +743,7 @@ export class SkioPlanPickerComponent extends LitElement {
                       One-time
                     </div>
                     <div class="skio-price">
-                      ${ this.product.id != in_house_products['KIT_DEFAULT']['product_id'] ? html`
+                      ${ this.product.id == in_house_products['KIT_DEFAULT']['product_id'] ? html`
                         —<span id = 'skio-onetime-price-set' skio-onetime-price>${ this.oneTimePricingConfig['first']['subtotal'] }</span>
                         ` :  html`
                         —<span id = 'skio-onetime-price-set' skio-onetime-price>$${ (this.selectedVariant.price / 100).toFixed(0) }</span>
@@ -752,7 +752,7 @@ export class SkioPlanPickerComponent extends LitElement {
                   </div>
                 </div>
                 
-                ${ this.product.id != in_house_products['KIT_DEFAULT']['product_id'] ? html`
+                ${ this.product.id == in_house_products['KIT_DEFAULT']['product_id'] ? html`
                 <div class="skio-group-content-2" style = ${ this.subscription_enabled ? '' : 'margin: 0' }>
                   <div class="skio-custom-content" style = 'padding-right: 0; padding-left: 0'>
                     <div class="skio-container">
