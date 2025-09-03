@@ -839,21 +839,40 @@ export class SkioPlanPickerComponent extends LitElement {
                           </svg>
                         </div>
                         <div class="skio-center-wrapper">
-                          ${ this.product.id == in_house_products['KIT_DEFAULT']['product_id'] ? html`
+                          ${ this.product.id == in_house_products['KIT_DEFAULT']['product_id'] ? 
+                            html`
+                              <div class="skio-group-title" id = 'skio-group-title-sub'>
+                                Subscribe & Save 50% <span style="font-weight: 600;">&mdash; $29</span>
+                              </div>
+                            ` 
+                            : 
+                            html`
                             <div class="skio-group-title" id = 'skio-group-title-sub'>
-                              Subscribe & Save 50% <span style="font-weight: 600;">&mdash; $29</span>
-                            </div>
-                          ` : html`
-                            <div class="skio-group-title" id = 'skio-group-title-sub'>
-                              ${ this.product.id == in_house_products['REFILL_DEFAULT']['product_id'] ? 'Refill Kit' :
-                                (group.name == 'Subscription' ?  (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' ? 
-                                  ((this.product.id == in_house_products['KIT_DOUBLE_LIGHTNING']['product_id']) ? 'Sweatcoin Special' : 'Free Trial Special') 
-                                  : 'Starter Kit' 
-                                : group.name )
+                              ${ this.product.id == in_house_products['REFILL_DEFAULT']['product_id'] ? 
+                                'Refill Kit' 
+                                :
+                                (group.name == 'Subscription' ?  
+                                  (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' ? 
+                                    ((this.product.id == in_house_products['KIT_DOUBLE_LIGHTNING']['product_id']) ? 
+                                      'Sweatcoin Special' 
+                                      : 
+                                      'Free Trial Special') 
+                                    : 
+                                    'Starter Kit' 
+                                  : 
+                                  group.name 
+                                )
                               }
-                              ${ this.discount(group.selected_selling_plan).percent !== '0%' ? html` 
-                                <span style="display: none;" class="skio-save">Save <span skio-discount>${ this.discountFormat == 'percent' ? this.discount(group.selected_selling_plan).percent : this.discount(group.selected_selling_plan).amount }</span></span>
-                              ` : html`` }
+                              ${ this.discount(group.selected_selling_plan).percent !== '0%' ? 
+                               html` 
+                                <span style="display: none;" class="skio-save">Save <span skio-discount>
+                                ${ this.discountFormat == 'percent' ?
+                                  this.discount(group.selected_selling_plan).percent 
+                                  : 
+                                  this.discount(group.selected_selling_plan).amount }</span></span>
+                                ` 
+                                : 
+                                html`` }
                             </div>
                             <div class="skio-price skio-subscribe-price" id = 'skio-group-price-sub'>
                               —${ this.selectedVariant.price < this.selectedVariant.price - this.discount(group.selected_selling_plan).amount ? html`
