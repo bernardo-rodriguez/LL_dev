@@ -290,7 +290,7 @@
                       {{ 'products.product.quantity.label' | t }}
                     </label>
                   {% endcomment %}
-                  <quantity-input class="quantity">
+                  {% comment %} <quantity-input class="quantity">
                     <button class="quantity__button no-js-hidden" name="minus" type="button">
                       <span class="visually-hidden">
                         {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
@@ -313,7 +313,7 @@
                       </span>
                       {% render 'icon', icon: 'plus' %}
                     </button>
-                  </quantity-input>
+                  </quantity-input> {% endcomment %}
                 </div>
                 <button type="submit" id="real-submit-button" style="display: none">checkout</button>
                 <button

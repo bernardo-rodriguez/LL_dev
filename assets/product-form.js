@@ -431,12 +431,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let skio = document.querySelector('skio-plan-picker')
     let product_form = JSON.parse(serializeForm(this.form))
 
-    console.log('am i submitted')
     console.log(product_form)
-
-    let dpk_choice = document.querySelector('input[name="dpk_chooser"]:checked')?.value || null;
-    
-    let quantity_setter = (dpk_choice == 'two_kits') ? 2: 1
 
     if (!(['8187028177121', '8252255568097', '8733239869665', '8943418736865', '8954966147297'].includes(product_form.product_id))) {
       let quantity_field = document.querySelector('quantity-input input[name="quantity"]').value

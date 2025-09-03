@@ -229,7 +229,7 @@
                 </div>
               </noscript>
 
-              <div class="product-form__input product-form__quantity visually-hidden">
+              {% comment %} <div class="product-form__input product-form__quantity visually-hidden">
                 <label class="form__label" for="Quantity-{{ section.id }}">
                   {{ 'products.product.quantity.label' | t }}
                 </label>
@@ -256,7 +256,7 @@
                     {% render 'icon', icon: 'plus' %}
                   </button>
                 </quantity-input>
-              </div>
+              </div> {% endcomment %}
 
               {% if settings.discount_code != blank and settings.discount_text != blank %}
                 <div class="discount--wrapper">

@@ -309,7 +309,7 @@ xhttp.send();
                   {% comment %} <label class="form__label" for="Quantity-{{ section.id }}">
                     {{ 'products.product.quantity.label' | t }}
                   </label> {% endcomment %}
-                  <quantity-input class="quantity" id = 'quantity-input-id'>
+                  {% comment %} <quantity-input class="quantity" id = 'quantity-input-id'>
                     <button class="quantity__button no-js-hidden" name="minus" type="button">
                       <span class="visually-hidden">
                         {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
@@ -332,7 +332,7 @@ xhttp.send();
                       </span>
                       {% render 'icon', icon: 'plus' %}
                     </button>
-                  </quantity-input>
+                  </quantity-input> {% endcomment %}
                 </div>
                 <button type='submit' id = 'real-submit-button' style = 'display: none'>
                   checkout

@@ -240,7 +240,7 @@
                       >
                     </span>
                   </label>
-                  <div class="price-per-item__container">
+                  {% comment %} <div class="price-per-item__container">
                     <div class="product-form__input product-form__quantity ">
                       <quantity-input class="quantity" id = 'quantity-input-id'>
                         <button class="quantity__button no-js-hidden" name="minus" type="button">
@@ -266,7 +266,7 @@
                           {% render 'icon', icon: 'plus' %}
                         </button>
                       </quantity-input>
-                    </div>
+                    </div> {% endcomment %}
 
                     {%- liquid
                       assign volume_pricing_array = product.selected_or_first_available_variant.quantity_price_breaks | sort: 'quantity' | reverse
