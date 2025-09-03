@@ -742,7 +742,7 @@ export class SkioPlanPickerComponent extends LitElement {
                     <div class="skio-group-title">
                       One-time
                     </div>
-                    
+
                     <div class="skio-price">
                       ${ this.product.id == in_house_products['KIT_DEFAULT']['product_id'] ? html`
                         —<span id = 'skio-onetime-price-set' skio-onetime-price>${ this.oneTimePricingConfig['first']['subtotal'] }</span>
@@ -839,15 +839,15 @@ export class SkioPlanPickerComponent extends LitElement {
                           </svg>
                         </div>
                         <div class="skio-center-wrapper">
-                          ${ this.product.id == 7503162605793 ? html`
+                          ${ this.product.id == in_house_products['KIT_DEFAULT']['product_id'] ? html`
                             <div class="skio-group-title" id = 'skio-group-title-sub'>
                               Subscribe & Save 50% <span style="font-weight: 600;">&mdash; $29</span>
                             </div>
                           ` : html`
                             <div class="skio-group-title" id = 'skio-group-title-sub'>
-                              ${ this.product.id == 7498061906145 ? 'Refill Kit' :
+                              ${ this.product.id == in_house_products['REFILL_DEFAULT']['product_id'] ? 'Refill Kit' :
                                 (group.name == 'Subscription' ?  (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' ? 
-                                  ((this.product.id == 8187028177121 ) ? 'Sweatcoin Special' : 'Free Trial Special') 
+                                  ((this.product.id == in_house_products['KIT_DOUBLE_LIGHTNING']['product_id']) ? 'Sweatcoin Special' : 'Free Trial Special') 
                                   : 'Starter Kit' 
                                 : group.name )
                               }
