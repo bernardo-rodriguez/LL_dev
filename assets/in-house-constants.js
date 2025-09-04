@@ -23,6 +23,14 @@ in_house_products = {
             'super': 42210192490721,
         }
     },
+    'KIT_ONE_MONTH_SUPPLY': {
+        'product_id': 8954966147297,
+        'variants': {
+            'everyday': 46506492100833,
+            'gentle': 46506492166369,
+            'super': 46506492133601,
+        }
+    },
     'REFILL_DEFAULT': {
         'product_id': 7498061906145,
         'variants': {

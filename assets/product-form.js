@@ -433,14 +433,13 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     console.log(product_form)
 
-    if (!(['8187028177121', '8252255568097', '8733239869665', '8943418736865', '8954966147297'].includes(product_form.product_id))) {
-      let quantity_field = document.querySelector('quantity-input input[name="quantity"]').value
-      quantity_setter = quantity_field
-    }
+    quantity_setter = 1
 
     let itemsList;
 
-    if (!('selling_plan' in product_form) && product_form.product_id == "7503162605793" ) {
+    // not subscription and bundle is not explicitly disabled: use onetime bundle quantity and set bundle_discount
+    if (!('selling_plan' in product_form) && 
+    !(p_referrer in affiliate_config && 'flow' in affiliate_config[p_referrer] && 'bundle_enabled' in affiliate_config[p_referrer]['flow'] && affiliate_config[p_referrer]['flow']['bundle_enabled'] == False)) {
       let bundle_value = document.querySelector('skio-plan-picker').shadowRoot.querySelector('input[name="onetime_bundle"]:checked').value
 
       let bundle_quantities = {'1':1, '2':3, '3': 5}
@@ -468,13 +467,13 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       }]
     }
 
-    if (product_form.product_id == 8954966147297) {
+    if (product_form.product_id == in_house_products['KIT_ONE_MONTH_SUPPLY']['product_id']) {
       add_pen_cookie()
       // setCookie('productDiscountCode', 'ADD_PEN')
     }
 
     let pen = this.getCookie('add_pen')
-    if ((pen != 'false' && pen != null) || product_form.product_id == 8954966147297) {
+    if ((pen && pen == 'true') || product_form.product_id == in_house_products['KIT_ONE_MONTH_SUPPLY']['product_id']) {
       itemsList.push({
         id: pen,
         quantity: 1
