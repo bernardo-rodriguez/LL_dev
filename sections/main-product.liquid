@@ -101,7 +101,8 @@ xhttp.send();
         </dl>
 
         {% comment %} {% if product.id == 7498061906145 or product.id == 8252255568097 or product.id == 8187028177121 %} {% endcomment %}
-        {% if product.id == in_house_products['REFILL_DEFAULT']['product_id'] or product.id == in_house_products['KIT_EMPTY_SPACE']['product_id'] %}
+        {% if product.id == 7498061906145 or product.id == 8252255568097 %}
+          {% comment %} {% if product.id == in_house_products['REFILL_DEFAULT']['product_id'] or product.id == in_house_products['KIT_EMPTY_SPACE']['product_id'] %} {% endcomment %}
           <dl class="product-info">
             <dt class="h6">Formula Picker</dt>
               <div class="refill-formula-radio-group">
