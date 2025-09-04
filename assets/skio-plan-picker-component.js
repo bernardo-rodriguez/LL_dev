@@ -744,7 +744,7 @@ export class SkioPlanPickerComponent extends LitElement {
                     </div>
 
                     <div class="skio-price">
-                      ${ this.product.id == in_house_products['KIT_DEFAULT']['product_id'] ? html`
+                      ${ this.product.id == window.ProductConfig.KIT_DEFAULT.product_id ? html`
                         —<span id = 'skio-onetime-price-set' skio-onetime-price>${ this.oneTimePricingConfig['first']['subtotal'] }</span>
                         ` :  html`
                         —<span id = 'skio-onetime-price-set' skio-onetime-price>$${ (this.selectedVariant.price / 100).toFixed(0) }</span>
@@ -753,7 +753,7 @@ export class SkioPlanPickerComponent extends LitElement {
                   </div>
                 </div>
                 
-                ${ this.product.id == in_house_products['KIT_DEFAULT']['product_id'] ? html`
+                ${ this.product.id == window.ProductConfig.KIT_DEFAULT.product_id ? html`
                 <div class="skio-group-content-2" style = ${ this.subscription_enabled ? '' : 'margin: 0' }>
                   <div class="skio-custom-content" style = 'padding-right: 0; padding-left: 0'>
                     <div class="skio-container">
@@ -839,7 +839,7 @@ export class SkioPlanPickerComponent extends LitElement {
                           </svg>
                         </div>
                         <div class="skio-center-wrapper">
-                          ${ this.product.id == in_house_products['KIT_DEFAULT']['product_id'] ? 
+                          ${ this.product.id == window.ProductConfig.KIT_DEFAULT.product_id ? 
                             html`
                               <div class="skio-group-title" id = 'skio-group-title-sub'>
                                 Subscribe & Save 50% <span style="font-weight: 600;">&mdash; $29</span>
@@ -848,12 +848,12 @@ export class SkioPlanPickerComponent extends LitElement {
                             : 
                             html`
                             <div class="skio-group-title" id = 'skio-group-title-sub'>
-                              ${ this.product.id == in_house_products['REFILL_DEFAULT']['product_id'] ? 
+                              ${ this.product.id == window.ProductConfig.REFILL_DEFAULT.product_id ? 
                                 'Refill Kit' 
                                 :
                                 (group.name == 'Subscription' ?  
                                   (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' ? 
-                                    ((this.product.id == in_house_products['KIT_DOUBLE_LIGHTNING']['product_id']) ? 
+                                    ((this.product.id == window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id) ? 
                                       'Sweatcoin Special' 
                                       : 
                                       'Free Trial Special') 
@@ -896,7 +896,7 @@ export class SkioPlanPickerComponent extends LitElement {
                                 })()
                               ) }
                               </span>
-                              ${ false && this.product.id == in_house_products['KIT_DEFAULT']['product_id'] && this.discount(group.selected_selling_plan).percent !== '0%' ? 
+                              ${ false && this.product.id == window.ProductConfig.KIT_DEFAULT.product_id && this.discount(group.selected_selling_plan).percent !== '0%' ? 
                                 html`<span style="font-weight: 500;">&nbsp;&nbsp;(SAVE ${ this.discount(group.selected_selling_plan).percent })</span>` 
                                 : 
                                 html`` }
@@ -909,15 +909,15 @@ export class SkioPlanPickerComponent extends LitElement {
                         // if (this.product.id == 7503162605793 && this.discount(group.selected_selling_plan).percent !== '0%') {
                         //   return `(Save ${ this.discount(group.selected_selling_plan).percent })`;
                         // } else 
-                         if (this.product.id == in_house_products['REFILL_DEFAULT']['product_id']) {
+                         if (this.product.id == window.ProductConfig.REFILL_DEFAULT.product_id) {
                           return '(+ Free Shipping!)';
                         }
                         return '';
                       })() }</span>
                       </div>
 
-                      ${ this.product.id != in_house_products['KIT_DOUBLE_LIGHTNING']['product_id'] 
-                      && this.product.id != in_house_products['KIT_EMPTY_SPACE']['product_id'] ?
+                      ${ this.product.id != window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id 
+                      && this.product.id != window.ProductConfig.KIT_EMPTY_SPACE.product_id ?
                         html`<div class="skio-group-content">
                           <div class="skio-custom-content skio-custom-content-background-color">
                             <div class="skio-container">
@@ -1032,12 +1032,12 @@ export class SkioPlanPickerComponent extends LitElement {
   updated = (changed) => {
     if(changed.has('product') && this.product) {
       // RAN ONLY ON FIRST LOAD
-
-      if (this.product.id == in_house_products['REFILL_DEFAULT']['product_id'] 
-      || this.product.id == in_house_products['KIT_DOUBLE_LIGHTNING']['product_id']
+      window.ProductConfig.REFILL_DEFAULT.product_id
+      if (this.product.id == window.ProductConfig.REFILL_DEFAULT.product_id 
+      || this.product.id == window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id
       || this.product.id == 8954966147297 
       || this.product.id == 8943418736865 
-      || this.product.id == in_house_products['KIT_EMPTY_SPACE']['product_id'] ) {
+      || this.product.id == window.ProductConfig.KIT_EMPTY_SPACE.product_id ) {
         console.log('has multiple selling plans')
         this.useVariantInputClickEvents = true
         this.variantInputSelector = 'input[name="refill-strength"]'

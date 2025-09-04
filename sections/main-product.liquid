@@ -5,6 +5,7 @@
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
 {{ 'recharge-widget-styles.css' | asset_url | stylesheet_tag }}
 
+{%- assign cfg = shop.metafields.catalog.product_refs.value -%}
 <div style = 'display:none' id = 'main-product-handle-id'>{{product.handle}}</div>
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 <script>
@@ -101,8 +102,7 @@ xhttp.send();
         </dl>
 
         {% comment %} {% if product.id == 7498061906145 or product.id == 8252255568097 or product.id == 8187028177121 %} {% endcomment %}
-        {% if product.id == 7498061906145 or product.id == 8252255568097 %}
-          {% comment %} {% if product.id == in_house_products['REFILL_DEFAULT']['product_id'] or product.id == in_house_products['KIT_EMPTY_SPACE']['product_id'] %} {% endcomment %}
+        {% if product.id == cfg.REFILL_DEFAULT.product_id or product.id == cfg.KIT_EMPTY_SPACE.product_id %}
           <dl class="product-info">
             <dt class="h6">Formula Picker</dt>
               <div class="refill-formula-radio-group">
@@ -283,7 +283,7 @@ xhttp.send();
                 </div>
               </noscript>
 
-              {% if product.id == 8187028177121 or product.id == 8252255568097  %}
+              {% if product.id == cfg.KIT_DOUBLE_LIGHTNING.product_id or product.id == cfg.KIT_EMPTY_SPACE.product_id  %}
 
                 {% render 'double-kit-promotion' %}
                 
@@ -383,7 +383,7 @@ xhttp.send();
             </div>
             {% endif %}
 
-            {% if product.id == 8252255568097 %}
+            {% if product.id == cfg.KIT_EMPTY_SPACE.product_id %}
               <div>
                 <img
                   src="{{ 'packageprotection.png' | asset_url}}"
