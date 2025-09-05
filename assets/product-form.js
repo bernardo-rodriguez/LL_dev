@@ -502,18 +502,18 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       if (product_form.selling_plan) {
         let cadenceKey = this.currentProductSellingPlan[skio.selectedSellingPlan.id]
         console.log(window.ProductConfig.REFILL_DEFAULT.product_id)
-        console.log(window.ProductConfig.REFILL_DEFAULT.product_id.everyday)
+        console.log(window.ProductConfig.REFILL_DEFAULT.variants.everyday)
         console.log(cadenceKey)
         console.log(this.sellingPlansByVariant)
-        let addOnSellingPlanId = this.sellingPlansByVariant[window.ProductConfig.REFILL_DEFAULT.product_id][window.ProductConfig.REFILL_DEFAULT.product_id.everyday][cadenceKey]
+        let addOnSellingPlanId = this.sellingPlansByVariant[window.ProductConfig.REFILL_DEFAULT.product_id][window.ProductConfig.REFILL_DEFAULT.variants.everyday][cadenceKey]
         itemsList.push({
-          id: window.ProductConfig.REFILL_DEFAULT.product_id.everyday,
+          id: window.ProductConfig.REFILL_DEFAULT.variants.everyday,
           quantity: 1,
           selling_plan: addOnSellingPlanId
         })
       } else {
         itemsList.push({
-          id: window.ProductConfig.REFILL_DEFAULT.product_id.everyday,
+          id: window.ProductConfig.REFILL_DEFAULT.variants.everyday,
           quantity: 1
         })
       }
