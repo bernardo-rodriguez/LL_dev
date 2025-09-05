@@ -494,7 +494,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     }
 
     const treatmentQuantity = document.querySelector('input[name="treatment-quantity"]:checked')?.value;
-    
+    console.log('this is treatment quantity')
+    console.log(treatmentQuantity)
     if (treatmentQuantity === '6') {
       console.log('6 treatments selected');
     } else if (treatmentQuantity === '12') {
