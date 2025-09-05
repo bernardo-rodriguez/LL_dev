@@ -1004,7 +1004,7 @@ export class SkioPlanPickerComponent extends LitElement {
                       ${ this.product.id != window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id 
                       && this.product.id != window.ProductConfig.KIT_EMPTY_SPACE.product_id ?
                         html`
-                        <div class="skio-group-content skio-custom-content-background-color; border-radius: 8px">
+                        <div class="skio-group-content skio-custom-content-background-color" style= "border-radius: 8px">
                               <div class="bundle-option" data-bundle="1" style = "border: none; margin-bottom: 0">
                                 <div class="bundle-content">
                                   <input type="radio" name="onetime_bundle" value="1" data-custom-price="${ this.oneTimePricingConfig['first']['bottom_left'] }" checked>
