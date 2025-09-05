@@ -733,23 +733,26 @@ export class SkioPlanPickerComponent extends LitElement {
     if (this.treatmentQuantity === '12') {
       // Update config for 12 treatments
       this.oneTimePricingConfig = {
-        'first': {
-          'top_left': 'Buy 1 - Save 35%',
-          'bottom_left': 'Retail $152',
-          'top_right': '$99',
-          'bottom_right': 'Save $53'
+         'first': {
+            'top_left': 'Buy 1 - Save 25%',
+            'bottom_left': '$89',
+            'bottom_left_2': '$118',
+            'top_right': '25% OFF',
+            'bottom_right': '$7.42/Treatment'
         },
         'second': {
-          'top_left': 'Buy 2, Get 1 FREE <br> + Free Shipping',
-          'bottom_left': 'Retail $456',
-          'top_right': '$198',
-          'bottom_right': 'Save $258'
+            'top_left': 'Buy 2, Get 1 FREE',
+            'bottom_left': '$178',
+            'bottom_left_2': '$267',
+            'top_right': '33% OFF',
+            'bottom_right': '$4.94/Treatment'
         },
         'third': {
-          'top_left': 'Buy 3, Get 2 FREE <br> + Free Shipping',
-          'bottom_left': 'Retail $760',
-          'top_right': '$297',
-          'bottom_right': 'Save $463'
+            'top_left': 'Buy 3, Get 2 FREE',
+            'bottom_left': '$267',
+            'bottom_left_2': '$445',
+            'top_right': '40% OFF',
+            'bottom_right': '$4.45/Treatment'
         }
       };
     } else {

@@ -477,62 +477,71 @@ affiliate_config = {
 one_time_price_copy = {
     'default': {
         'first': {
-            'top_left': 'Buy 1 - Save 22%',
-            'bottom_left': 'Retail $76',
-            'top_right': '$59',
-            'bottom_right': 'Save $17'
+            'top_left': 'Buy 1 - Save 25%',
+            'bottom_left': '$59',
+            'bottom_left_2': '$76',
+            'top_right': '22% OFF',
+            'bottom_right': '$9.83/Treatment'
         },
         'second': {
-            'top_left': 'Buy 2, Get 1 FREE <br> + Free Shipping',
-            'bottom_left': 'Retail $228',
-            'top_right': '$118',
-            'bottom_right': 'Save $128'
+            'top_left': 'Buy 2, Get 1 FREE',
+            'bottom_left': '$118',
+            'bottom_left_2': '$228',
+            'top_right': '33% OFF',
+            'bottom_right': '$6.55/Treatment'
         },
         'third': {
-            'top_left': 'Buy 3, Get 2 FREE <br> + Free Shipping',
-            'bottom_left': 'Retail $380',
-            'top_right': '$177',
-            'bottom_right': 'Save $230'
+            'top_left': 'Buy 3, Get 2 FREE',
+            'bottom_left': '$177',
+            'bottom_left_2': '$295',
+            'top_right': '40% OFF',
+            'bottom_right': '$5.9/Treatment'
         }
     },
     'redirect_cpgap': {
         'first': {
-            'top_left': 'Buy 1 - Save 35%',
-            'bottom_left': 'Retail $76',
-            'top_right': '$49',
-            'bottom_right': 'Save $27'
+            'top_left': 'Buy 1 - Save 25%',
+            'bottom_left': '$59',
+            'bottom_left_2': '$76',
+            'top_right': '22% OFF',
+            'bottom_right': '$9.83/Treatment'
         },
         'second': {
-            'top_left': 'Buy 2, Get 1 FREE <br> + Free Shipping',
-            'bottom_left': 'Retail $228',
-            'top_right': '$98',
-            'bottom_right': 'Save $130'
+            'top_left': 'Buy 2, Get 1 FREE',
+            'bottom_left': '$118',
+            'bottom_left_2': '$228',
+            'top_right': '33% OFF',
+            'bottom_right': '$6.55/Treatment'
         },
         'third': {
-            'top_left': 'Buy 3, Get 2 FREE <br> + Free Shipping',
-            'bottom_left': 'Retail $380',
-            'top_right': '$147',
-            'bottom_right': 'Save $233'
+            'top_left': 'Buy 3, Get 2 FREE',
+            'bottom_left': '$177',
+            'bottom_left_2': '$295',
+            'top_right': '40% OFF',
+            'bottom_right': '$5.9/Treatment'
         }
     },
     'jam_media': {
         'first': {
-            'top_left': 'Buy 1 - Save 35%',
-            'bottom_left': 'Retail $76',
-            'top_right': '$49',
-            'bottom_right': 'Save $27'
+            'top_left': 'Buy 1 - Save 25%',
+            'bottom_left': '$59',
+            'bottom_left_2': '$76',
+            'top_right': '22% OFF',
+            'bottom_right': '$9.83/Treatment'
         },
         'second': {
-            'top_left': 'Buy 2, Get 1 FREE <br> + Free Shipping',
-            'bottom_left': 'Retail $228',
-            'top_right': '$98',
-            'bottom_right': 'Save $130'
+            'top_left': 'Buy 2, Get 1 FREE',
+            'bottom_left': '$118',
+            'bottom_left_2': '$228',
+            'top_right': '33% OFF',
+            'bottom_right': '$6.55/Treatment'
         },
         'third': {
-            'top_left': 'Buy 3, Get 2 FREE <br> + Free Shipping',
-            'bottom_left': 'Retail $380',
-            'top_right': '$147',
-            'bottom_right': 'Save $233'
+            'top_left': 'Buy 3, Get 2 FREE',
+            'bottom_left': '$177',
+            'bottom_left_2': '$295',
+            'top_right': '40% OFF',
+            'bottom_right': '$5.9/Treatment'
         }
     }
 }
