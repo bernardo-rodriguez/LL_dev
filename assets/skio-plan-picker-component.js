@@ -467,7 +467,6 @@ const skioStyles = css`
   }
 
   .bottom-left {
-      text-decoration: line-through;
       font-size: 19px;
       font-weight: 700;
   }
@@ -476,6 +475,7 @@ const skioStyles = css`
     font-size: 16px;
     font-weight: 300;
     padding-left: 10px;
+    text-decoration: line-through;
   }
 
   .top-right {
@@ -854,7 +854,7 @@ export class SkioPlanPickerComponent extends LitElement {
                         </div>
                         <div class="bundle-option" data-bundle="2">
                           <div class="bundle-content">
-                            <input type="radio" name="onetime_bundle" value="2" data-custom-price="${ this.oneTimePricingConfig['second']['top_right'] }">
+                            <input type="radio" name="onetime_bundle" value="2" data-custom-price="${ this.oneTimePricingConfig['second']['bottom-left'] }">
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
@@ -877,7 +877,7 @@ export class SkioPlanPickerComponent extends LitElement {
 
                         <div class="bundle-option" data-bundle="3" style = 'margin-bottom: 0;'>
                           <div class="bundle-content">
-                            <input type="radio" name="onetime_bundle" value="3" data-custom-price="${ this.oneTimePricingConfig['third']['top_right'] }" >
+                            <input type="radio" name="onetime_bundle" value="3" data-custom-price="${ this.oneTimePricingConfig['third']['bottom-left'] }" >
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
