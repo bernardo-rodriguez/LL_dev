@@ -500,6 +500,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       console.log('6 treatments selected');
     } else if (treatmentQuantity === '12') {
       if (product_form.selling_plan) {
+        console.log(window.ProductConfig.REFILL_DEFAULT.product_id)
+        console.log(window.ProductConfig.REFILL_DEFAULT.product_id.everyday)
+        console.log(cadenceKey)
+        console.log(this.sellingPlansByVariant)
         let cadenceKey = this.currentProductSellingPlan[skio.selectedSellingPlan.id]
         let addOnSellingPlanId = this.sellingPlansByVariant[window.ProductConfig.REFILL_DEFAULT.product_id][window.ProductConfig.REFILL_DEFAULT.product_id.everyday][cadenceKey]
         itemsList.push({
