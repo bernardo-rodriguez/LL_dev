@@ -48,6 +48,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     
     // Initialize selling plans
     this.initializeSellingPlans();
+    this.indexPlansByVariant(this.sellingPlans);
 
     document.addEventListener('DOMContentLoaded', () => {
       // 'this' here refers to the original outer context
@@ -68,6 +69,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     }
   }
 
+  indexPlansByVariant(sellingPlans) {
+    this.sellingPlansByVariant = indexPlansByVariant(sellingPlans);
+    console.log(this.sellingPlansByVariant)
+  }
 
   getCookie(cname) {
     // Get cookie by cookie name
