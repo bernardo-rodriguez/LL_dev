@@ -467,6 +467,12 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
       if (product_form.selling_plan) {
         let cadenceKey = this.currentProductSellingPlan[skio.selectedSellingPlan.id]
+        console.log('start')
+        console.log(translate[strength_cookie])
+        console.log(addOnProductId)
+        console.log(addOnVariantId)
+        console.log(cadenceKey)
+        console.log(this.sellingPlansByVariant)
         let addOnSellingPlanId = this.sellingPlansByVariant[addOnProductId][addOnVariantId][cadenceKey]
 
         itemsList.push({
