@@ -498,9 +498,19 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     if (treatmentQuantity === '6') {
       console.log('6 treatments selected');
     } else if (treatmentQuantity === '12') {
-      // Handle 12 treatments logic  
-      console.log('12 treatments selected');
-      // Add your logic for 12 treatments here
+      if (product_form.selling_plan) {
+        let cadenceKey = this.currentProductSellingPlan[skio.selectedSellingPlan.id]
+        let addOnSellingPlanId = this.sellingPlansByVariant[window.ProductConfig.REFILL_DEFAULT.product_id][cadenceKey]
+        itemsList.push({
+          id: addOnSellingPlanId,
+          quantity: 1
+        })
+      } else {
+        itemsList.push({
+          id: window.ProductConfig.REFILL_DEFAULT.product_id,
+          quantity: 1
+        })
+      }
     }
 
     if (product_form.product_id == window.ProductConfig.KIT_ONE_MONTH_SUPPLY.product_id) {
