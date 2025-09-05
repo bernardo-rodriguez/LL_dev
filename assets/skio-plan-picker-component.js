@@ -482,6 +482,7 @@ const skioStyles = css`
       color: #22c55e;
       font-size: 14px;
       font-weight: 700;
+      padding-top: 5px;
   }
 
   .shipping {
@@ -526,6 +527,17 @@ const skioStyles = css`
 
   .add-to-cart:hover {
       background-color: #2563eb;
+  }
+
+  .savings-button {
+    background-color: #69BBEB;
+    width: 100%;
+    max-width: 85px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 14px;
+    padding: 5px;
+    font-weight: 700;
   }
 `;
 
@@ -826,7 +838,7 @@ export class SkioPlanPickerComponent extends LitElement {
                                   </div>
                                 </div>
                                 <div class="bundle-pricing">
-                                  <div>
+                                  <div class = "savings-button">
                                     <span class = 'top-right'>${ unsafeHTML(this.oneTimePricingConfig['first']['top_right']) }</span>
                                   </div>
                                   <div class="bottom-right">${ unsafeHTML(this.oneTimePricingConfig['first']['bottom_right']) }</div>
