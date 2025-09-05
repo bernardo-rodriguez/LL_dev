@@ -465,12 +465,12 @@ const skioStyles = css`
 
   .bottom-left {
       text-decoration: line-through;
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 700;
   }
 
   .bottom-left-2 {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 300;
     padding-left: 10px;
   }
