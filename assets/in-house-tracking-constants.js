@@ -477,62 +477,62 @@ affiliate_config = {
 one_time_price_copy = {
     'default': {
         'first': {
-            'offer_title': 'Buy 1 - Save 22%',
-            'retail_saving': 'Retail $76',
-            'subtotal': '$59',
-            'save': 'Save $17'
+            'top_left': 'Buy 1 - Save 22%',
+            'bottom_left': 'Retail $76',
+            'top_right': '$59',
+            'bottom_right': 'Save $17'
         },
         'second': {
-            'offer_title': 'Buy 2, Get 1 FREE <br> + Free Shipping',
-            'retail_saving': 'Retail $228',
-            'subtotal': '$118',
-            'save': 'Save $128'
+            'top_left': 'Buy 2, Get 1 FREE <br> + Free Shipping',
+            'bottom_left': 'Retail $228',
+            'top_right': '$118',
+            'bottom_right': 'Save $128'
         },
         'third': {
-            'offer_title': 'Buy 3, Get 2 FREE <br> + Free Shipping',
-            'retail_saving': 'Retail $380',
-            'subtotal': '$177',
-            'save': 'Save $230'
+            'top_left': 'Buy 3, Get 2 FREE <br> + Free Shipping',
+            'bottom_left': 'Retail $380',
+            'top_right': '$177',
+            'bottom_right': 'Save $230'
         }
     },
     'redirect_cpgap': {
         'first': {
-            'offer_title': 'Buy 1 - Save 35%',
-            'retail_saving': 'Retail $76',
-            'subtotal': '$49',
-            'save': 'Save $27'
+            'top_left': 'Buy 1 - Save 35%',
+            'bottom_left': 'Retail $76',
+            'top_right': '$49',
+            'bottom_right': 'Save $27'
         },
         'second': {
-            'offer_title': 'Buy 2, Get 1 FREE <br> + Free Shipping',
-            'retail_saving': 'Retail $228',
-            'subtotal': '$98',
-            'save': 'Save $130'
+            'top_left': 'Buy 2, Get 1 FREE <br> + Free Shipping',
+            'bottom_left': 'Retail $228',
+            'top_right': '$98',
+            'bottom_right': 'Save $130'
         },
         'third': {
-            'offer_title': 'Buy 3, Get 2 FREE <br> + Free Shipping',
-            'retail_saving': 'Retail $380',
-            'subtotal': '$147',
-            'save': 'Save $233'
+            'top_left': 'Buy 3, Get 2 FREE <br> + Free Shipping',
+            'bottom_left': 'Retail $380',
+            'top_right': '$147',
+            'bottom_right': 'Save $233'
         }
     },
     'jam_media': {
         'first': {
-            'offer_title': 'Buy 1 - Save 35%',
-            'retail_saving': 'Retail $76',
-            'subtotal': '$49',
-            'save': 'Save $27'
+            'top_left': 'Buy 1 - Save 35%',
+            'bottom_left': 'Retail $76',
+            'top_right': '$49',
+            'bottom_right': 'Save $27'
         },
         'second': {
-            'offer_title': 'Buy 2, Get 1 FREE <br> + Free Shipping',
-            'retail_saving': 'Retail $228',
-            'subtotal': '$98',
-            'save': 'Save $130'
+            'top_left': 'Buy 2, Get 1 FREE <br> + Free Shipping',
+            'bottom_left': 'Retail $228',
+            'top_right': '$98',
+            'bottom_right': 'Save $130'
         },
         'third': {
-            'offer_title': 'Buy 3, Get 2 FREE <br> + Free Shipping',
-            'retail_saving': 'Retail $380',
-            'subtotal': '$147',
-            'save': 'Save $233'
+            'top_left': 'Buy 3, Get 2 FREE <br> + Free Shipping',
+            'bottom_left': 'Retail $380',
+            'top_right': '$147',
+            'bottom_right': 'Save $233'
         }
     }
 }

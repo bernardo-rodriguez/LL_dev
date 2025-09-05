@@ -447,13 +447,13 @@ const skioStyles = css`
       align-items: center;
   }
 
-  .bundle-title {
+  .top-left {
       font-size: 16px;
       font-weight: 700;
       margin: 0;
   }
 
-  .bundle-title {
+  .top-left {
     margin-top: 12px;
   }
 
@@ -467,18 +467,18 @@ const skioStyles = css`
       text-align: right;
   }
 
-  .retail-price {
+  .bottom-left {
       color: #ef4444;
       text-decoration: line-through;
       font-size: 14px;
   }
 
-  .sale-price {
+  .top-right {
       font-size: 20px;
       margin: 4px 0;
   }
 
-  .savings {
+  .bottom-right {
       color: #22c55e;
       font-size: 14px;
       font-weight: 700;
@@ -750,7 +750,7 @@ export class SkioPlanPickerComponent extends LitElement {
 
                     <div class="skio-price">
                       ${ this.product.id == window.ProductConfig.KIT_DEFAULT.product_id ? html`
-                        —<span id = 'skio-onetime-price-set' skio-onetime-price>${ this.oneTimePricingConfig['first']['subtotal'] }</span>
+                        —<span id = 'skio-onetime-price-set' skio-onetime-price>${ this.oneTimePricingConfig['first']['top_right'] }</span>
                         ` :  html`
                         —<span id = 'skio-onetime-price-set' skio-onetime-price>$${ (this.selectedVariant.price / 100).toFixed(0) }</span>
                         ` }
@@ -765,16 +765,16 @@ export class SkioPlanPickerComponent extends LitElement {
                       <div class="bundle-container">
                         <div class="bundle-option" data-bundle="1">
                           <div class="bundle-content">
-                            <input type="radio" name="onetime_bundle" value="1" data-custom-price="${ this.oneTimePricingConfig['first']['subtotal'] }" checked>
+                            <input type="radio" name="onetime_bundle" value="1" data-custom-price="${ this.oneTimePricingConfig['first']['top_right'] }" checked>
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
-                                  <h3 class="bundle-title">${unsafeHTML(this.oneTimePricingConfig['first']['offer_title'])}</h3>
-                                  <div class="retail-price">${ unsafeHTML(this.oneTimePricingConfig['first']['retail_saving']) }</div>
+                                  <h3 class="top-left">${unsafeHTML(this.oneTimePricingConfig['first']['top_left'])}</h3>
+                                  <div class="bottom-left">${ unsafeHTML(this.oneTimePricingConfig['first']['bottom_left']) }</div>
                                 </div>
                                 <div class="bundle-pricing">
-                                  <div class="sale-price">${ unsafeHTML(this.oneTimePricingConfig['first']['subtotal']) }</div>
-                                  <div class="savings">${ unsafeHTML(this.oneTimePricingConfig['first']['save']) }</div>
+                                  <div class="top-right">${ unsafeHTML(this.oneTimePricingConfig['first']['top_right']) }</div>
+                                  <div class="bottom-right">${ unsafeHTML(this.oneTimePricingConfig['first']['bottom_right']) }</div>
                                 </div>
                               </div>
                             </div>
@@ -782,16 +782,16 @@ export class SkioPlanPickerComponent extends LitElement {
                         </div>
                         <div class="bundle-option" data-bundle="2">
                           <div class="bundle-content">
-                            <input type="radio" name="onetime_bundle" value="2" data-custom-price="${ this.oneTimePricingConfig['second']['subtotal'] }">
+                            <input type="radio" name="onetime_bundle" value="2" data-custom-price="${ this.oneTimePricingConfig['second']['top_right'] }">
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
-                                  <h3 class="bundle-title bundle-title2">${ unsafeHTML(this.oneTimePricingConfig['second']['offer_title']) }</h3>
-                                  <div class="retail-price">${ unsafeHTML(this.oneTimePricingConfig['second']['retail_saving']) }</div>
+                                  <h3 class="top-left top-left2">${ unsafeHTML(this.oneTimePricingConfig['second']['top_left']) }</h3>
+                                  <div class="bottom-left">${ unsafeHTML(this.oneTimePricingConfig['second']['bottom_left']) }</div>
                                 </div>
                                 <div class="bundle-pricing">
-                                  <div class="sale-price">${ unsafeHTML(this.oneTimePricingConfig['second']['subtotal']) }</div>
-                                  <div class="savings">${ unsafeHTML(this.oneTimePricingConfig['second']['save']) }</div>
+                                  <div class="top-right">${ unsafeHTML(this.oneTimePricingConfig['second']['top_right']) }</div>
+                                  <div class="bottom-right">${ unsafeHTML(this.oneTimePricingConfig['second']['bottom_right']) }</div>
                                 </div>
                               </div>
                             </div>
@@ -800,16 +800,16 @@ export class SkioPlanPickerComponent extends LitElement {
 
                         <div class="bundle-option" data-bundle="3">
                           <div class="bundle-content">
-                            <input type="radio" name="onetime_bundle" value="3" data-custom-price="${ this.oneTimePricingConfig['third']['subtotal'] }" >
+                            <input type="radio" name="onetime_bundle" value="3" data-custom-price="${ this.oneTimePricingConfig['third']['top_right'] }" >
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
-                                  <h3 class="bundle-title bundle-title2">${ unsafeHTML(this.oneTimePricingConfig['third']['offer_title']) }</h3>
-                                  <div class="retail-price">${ unsafeHTML(this.oneTimePricingConfig['third']['retail_saving']) }</div>
+                                  <h3 class="top-left top-left2">${ unsafeHTML(this.oneTimePricingConfig['third']['top_left']) }</h3>
+                                  <div class="bottom-left">${ unsafeHTML(this.oneTimePricingConfig['third']['bottom_left']) }</div>
                                 </div>
                                 <div class="bundle-pricing">
-                                  <div class="sale-price">${ unsafeHTML(this.oneTimePricingConfig['third']['subtotal']) }</div>
-                                  <div class="savings">${ unsafeHTML(this.oneTimePricingConfig['third']['save']) }</div>
+                                  <div class="top-right">${ unsafeHTML(this.oneTimePricingConfig['third']['top_right']) }</div>
+                                  <div class="bottom-right">${ unsafeHTML(this.oneTimePricingConfig['third']['bottom_right']) }</div>
                                 </div>
                               </div>
                             </div>
