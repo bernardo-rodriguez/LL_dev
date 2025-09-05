@@ -406,7 +406,8 @@ const skioStyles = css`
   }
 
   .bundle-option {
-      border: 2px solid #e5e7eb;
+      /* border: 2px solid #e5e7eb; */
+      border: 1px solid black;
       border-radius: 8px;
       padding: 10px;
       margin-bottom: 16px;
@@ -420,7 +421,7 @@ const skioStyles = css`
   }
 
   .bundle-option.selected {
-      border-color: #3b82f6;
+      /* border-color: #3b82f6; */
       background-color: var(--blue-tint-20) !important;
       // background-color: #eff6ff;
   }
@@ -534,7 +535,7 @@ const skioStyles = css`
     background-color: #69BBEB;
     width: 100%;
     max-width: 85px;
-    border-radius: 10px;
+    border-radius: 20px;
     text-align: center;
     font-size: 14px;
     padding: 5px;
