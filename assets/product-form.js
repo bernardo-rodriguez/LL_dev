@@ -401,49 +401,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     }
   }
 
-  add_pen() {
-    try {
-        console.log('adding pen')
-        const strength_cookie = getCookie('strength')
-        
-        let pen_formula_dict = {
-          'medium': 42210600812769,
-          'strong': 42210600845537,
-          'sensitive': 42210600878305
-        }
-
-        let formula_id;
-        if (strength_cookie in pen_formula_dict) {
-          formula_id = pen_formula_dict[strength_cookie]
-        } else {
-          formula_id = pen_formula_dict['medium']
-        }
-
-        var pen = 
-          {
-          "id": formula_id,
-          "quantity":  1
-          }
-
-        jQuery.ajax({
-          type: 'POST',
-          url: '/cart/add.js',
-          data: pen,
-          dataType: 'json',
-          success: function() {
-            console.log('pen added') 
-          },
-          error: function (exception) {
-            console.log(exception)
-          }
-        });
-    } catch (e) {
-        console.log("Error: failure in add_pen() for product-form.js")
-        console.log(e)
-    }
-  }
-
-
   onSubmitHandler(evt) {
     evt.preventDefault();    
     console.log('onSubmitHandler');
@@ -499,22 +456,27 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     if (treatmentQuantity === '6') {
       console.log('6 treatments selected');
     } else if (treatmentQuantity === '12') {
+      const strength_cookie = getCookie('strength')
+      let translate = {
+        'medium': 'everyday',
+        'strong': 'super',
+        'sensitive': 'gentle'
+      }
+      let addOnProductId = window.ProductConfig.REFILL_DEFAULT.product_id
+      let addOnVariantId = window.ProductConfig.REFILL_DEFAULT.variants[translate[strength_cookie]]
+
       if (product_form.selling_plan) {
         let cadenceKey = this.currentProductSellingPlan[skio.selectedSellingPlan.id]
-        console.log(window.ProductConfig.REFILL_DEFAULT.product_id)
-        console.log(window.ProductConfig.REFILL_DEFAULT.variants.everyday)
-        console.log(cadenceKey)
-        
-        console.log(this.sellingPlansByVariant)
-        let addOnSellingPlanId = this.sellingPlansByVariant[window.ProductConfig.REFILL_DEFAULT.product_id][window.ProductConfig.REFILL_DEFAULT.variants.everyday][cadenceKey]
+        let addOnSellingPlanId = this.sellingPlansByVariant[addOnProductId][addOnVariantId][cadenceKey]
+
         itemsList.push({
-          id: window.ProductConfig.REFILL_DEFAULT.variants.everyday,
+          id: addOnVariantId,
           quantity: 1,
           selling_plan: addOnSellingPlanId
         })
       } else {
         itemsList.push({
-          id: window.ProductConfig.REFILL_DEFAULT.variants.everyday,
+          id: addOnVariantId,
           quantity: 1
         })
       }
@@ -546,21 +508,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     let body = JSON.stringify(formData)
 
-    // let body =  JSON.stringify({
-    //   ...JSON.parse(serializeForm(this.form)),
-    //   sections: this.getSectionsToRender().map((section) => section.section),
-    //   sections_url: window.location.pathname
-    // });
-    
 
-    // if (window.location.href.includes('at-home-whitening-kit')) { 
-    //   if (window.location.href.includes('at-home-whitening-kit-affiliate-ft') || window.location.href.includes('at-home-whitening-kit-affiliate-ut')) {
-    //     body = JSON.parse(body)
-    //     body['quantity'] = '1'
-    //     body = JSON.stringify(body)
-    //   }
-
-    // } 
     if (window.location.href.includes('landing-page-product-main')) {
       let json_body = JSON.parse(body)
       let id_dict = {
