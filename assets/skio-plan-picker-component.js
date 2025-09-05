@@ -467,7 +467,12 @@ const skioStyles = css`
       text-decoration: line-through;
       font-size: 20px;
       font-weight: 700;
-      padding-left: 10px;
+  }
+
+  .bottom-left-2 {
+    font-size: 14px;
+    font-weight: 300;
+    padding-left: 10px;
   }
 
   .top-right {
@@ -830,8 +835,8 @@ export class SkioPlanPickerComponent extends LitElement {
                                 <div>
                                   <h3 class="top-left">${unsafeHTML(this.oneTimePricingConfig['first']['top_left'])}</h3>
                                   <div>
-                                    <span>${ unsafeHTML(this.oneTimePricingConfig['first']['bottom_left']) }</span>
-                                    <span class = 'bottom-left'>${ unsafeHTML(this.oneTimePricingConfig['first']['bottom_left_2']) }</span>
+                                    <span class = 'bottom-left'>${ unsafeHTML(this.oneTimePricingConfig['first']['bottom_left']) }</span>
+                                    <span class = 'bottom-left-2'>${ unsafeHTML(this.oneTimePricingConfig['first']['bottom_left_2']) }</span>
                                   </div>
                                 </div>
                                 <div class="bundle-pricing">
@@ -852,8 +857,8 @@ export class SkioPlanPickerComponent extends LitElement {
                                 <div>
                                   <h3 class="top-left top-left2">${ unsafeHTML(this.oneTimePricingConfig['second']['top_left']) }</h3>
                                   <div>
-                                    <span>${ unsafeHTML(this.oneTimePricingConfig['second']['bottom_left']) }</span>
-                                    <span class = 'bottom-left'>${ unsafeHTML(this.oneTimePricingConfig['second']['bottom_left_2']) }</span>
+                                    <span class = 'bottom-left'>${ unsafeHTML(this.oneTimePricingConfig['second']['bottom_left']) }</span>
+                                    <span class = 'bottom-left-2'>${ unsafeHTML(this.oneTimePricingConfig['second']['bottom_left_2']) }</span>
                                   </div>
                                 </div>
                                 <div class="bundle-pricing">
@@ -875,8 +880,8 @@ export class SkioPlanPickerComponent extends LitElement {
                                 <div>
                                   <h3 class="top-left top-left2">${ unsafeHTML(this.oneTimePricingConfig['third']['top_left']) }</h3>
                                   <div>
-                                    <span>${ unsafeHTML(this.oneTimePricingConfig['third']['bottom_left']) }</span>
-                                    <span class = 'bottom-left'>${ unsafeHTML(this.oneTimePricingConfig['third']['bottom_left_2']) }</span>
+                                    <span class = 'bottom-left'>${ unsafeHTML(this.oneTimePricingConfig['third']['bottom_left']) }</span>
+                                    <span class = 'bottom-left-2'>${ unsafeHTML(this.oneTimePricingConfig['third']['bottom_left_2']) }</span>
                                   </div>
                                 </div>
                                 <div class="bundle-pricing">
