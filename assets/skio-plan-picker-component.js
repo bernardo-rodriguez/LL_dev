@@ -827,7 +827,9 @@ export class SkioPlanPickerComponent extends LitElement {
                                 </div>
                                 <div class="bundle-pricing">
                                   <div class="top-right">${ unsafeHTML(this.oneTimePricingConfig['first']['top_right']) }</div>
-                                  <div class="bottom-right">${ unsafeHTML(this.oneTimePricingConfig['first']['bottom_right']) }</div>
+                                  <div>
+                                    <span class = 'bottom-right'>${ unsafeHTML(this.oneTimePricingConfig['first']['bottom_right']) }</span>
+                                  </div>
                                 </div>
                               </div>
                             </div>
