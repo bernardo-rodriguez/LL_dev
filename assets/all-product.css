@@ -125,9 +125,8 @@
 
 .quantity-radio-group {
   display: flex;
-  background: #f5f5f5;
+  background: #ffffff;
   border-radius: 12px;
-  padding: 4px;
   position: relative;
   border: 2px solid #e0e0e0;
   transition: all 0.3s ease;
@@ -166,7 +165,7 @@
 }
 
 .quantity-radio-group input[type="radio"]:checked + .quantity-option {
-  background: #fff;
+  background: #69BBEB;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
