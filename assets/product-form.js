@@ -457,6 +457,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       console.log('6 treatments selected');
     } else if (treatmentQuantity === '12') {
       const strength_cookie = getCookie('strength')
+      console.log('strength_cookie')
+      console.log(strength_cookie)
       let translate = {
         'medium': 'everyday',
         'strong': 'super',
