@@ -117,6 +117,7 @@ function indexPlansByVariant(products) {
     for (const p of products) {
         let curr_out = {}
         out[fromGid(p.id)] = curr_out
+    
         for (const v of p.variants.nodes) {
             const variantId = fromGid(v.id); // numeric string
             const map = (curr_out[variantId] ||= {});
