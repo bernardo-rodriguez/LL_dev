@@ -44,12 +44,13 @@ const skioStyles = css`
   .skio-group-container--available {
     display: block;
     position: relative;
-    box-shadow: 0 0 5px rgba(23, 24, 24, 0.05), 0 1px 2px rgba(0, 0, 0, 0.07);
+    //box-shadow: 0 0 5px rgba(23, 24, 24, 0.05), 0 1px 2px rgba(0, 0, 0, 0.07);
     border-radius: 30px;
     border-width: 1px;
-    border-color: transparent;
+    //border-color: transparent;
     border-style: solid; 
     transition: border-color 0.2s ease;
+    border-color: #000;
   }
   .skio-group-container--selected {
     border-color: #000;
