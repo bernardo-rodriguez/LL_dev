@@ -418,9 +418,9 @@ const skioStyles = css`
       transition: all 0.2s ease;
   }
 
-  .bundle-option:hover {
-      border-color: #93c5fd;
-  }
+  // .bundle-option:hover {
+  //     border-color: #93c5fd;
+  // }
 
   .bundle-option.selected {
       /* border-color: #3b82f6; */
