@@ -129,6 +129,7 @@ const skioStyles = css`
   }
   */
 
+
   .skio-group-content-2 {
     width: auto;
     margin: 0 5px;
@@ -145,6 +146,7 @@ const skioStyles = css`
     pointer-events: none;
   }
   */
+ 
 
   .hide-skio-select {
     max-height: 0;
