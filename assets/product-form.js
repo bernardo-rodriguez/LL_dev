@@ -433,7 +433,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     console.log(product_form)
 
-    quantity_setter = 1
+    let quantity_setter = 1
 
     let itemsList;
 
