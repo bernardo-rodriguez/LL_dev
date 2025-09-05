@@ -23,7 +23,7 @@
       gtag('js', new Date());
       gtag('config', 'G-ED2C9KNXNY');
     </script> {% endcomment %}
-    {%- assign cfg = shop.metafields.catalog.product_refs.value -%}
+    {%- assign cfg = shop.metafields.catalog.product_reference.value -%}
     <script id="product-config" type="application/json">
       {{ cfg | json }}
     </script>
