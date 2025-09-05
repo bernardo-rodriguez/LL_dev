@@ -121,12 +121,13 @@ const skioStyles = css`
     opacity: 1;
   }
   
-  /* Hide frequency if not selected */
+  /* Hide frequency if not selected 
   .skio-group-container:not(.skio-group-container--selected) .skio-group-content {
     max-height: 0;
     opacity: 0;
     pointer-events: none;
   }
+  */
 
   .skio-group-content-2 {
     width: auto;
@@ -136,12 +137,14 @@ const skioStyles = css`
     opacity: 1;
   }
   
-  /* Hide frequency if not selected */
+  /* Hide frequency if not selected 
+  
   .skio-group-container:not(.skio-group-container--selected) .skio-group-content-2 {
     max-height: 0;
     opacity: 0;
     pointer-events: none;
   }
+  */
 
   .hide-skio-select {
     max-height: 0;
