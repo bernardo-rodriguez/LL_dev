@@ -800,7 +800,7 @@ export class SkioPlanPickerComponent extends LitElement {
 
                     <div class="skio-price">
                       ${ this.product.id == window.ProductConfig.KIT_DEFAULT.product_id ? html`
-                        —<span id = 'skio-onetime-price-set' skio-onetime-price>${ this.oneTimePricingConfig['first']['top_right'] }</span>
+                        —<span id = 'skio-onetime-price-set' skio-onetime-price>${ this.oneTimePricingConfig['first']['bottom_left'] }</span>
                         ` :  html`
                         —<span id = 'skio-onetime-price-set' skio-onetime-price>$${ (this.selectedVariant.price / 100).toFixed(0) }</span>
                         ` }
