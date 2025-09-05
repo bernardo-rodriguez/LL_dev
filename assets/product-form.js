@@ -48,7 +48,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     
     // Initialize selling plans
     this.initializeSellingPlans();
-    this.indexPlansByVariant(this.sellingPlans);
 
     document.addEventListener('DOMContentLoaded', () => {
       // 'this' here refers to the original outer context
@@ -62,6 +61,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       if (this.productId) {
         this.sellingPlans = await fetchPlansByProductIds([this.productId]);
         console.log('Selling plans loaded:', this.sellingPlans);
+        this.indexPlansByVariant(this.sellingPlans);
       }
     } catch (error) {
       console.error('Error fetching selling plans:', error);
