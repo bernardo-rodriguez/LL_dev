@@ -1004,24 +1004,24 @@ export class SkioPlanPickerComponent extends LitElement {
                       ${ this.product.id != window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id 
                       && this.product.id != window.ProductConfig.KIT_EMPTY_SPACE.product_id ?
                         html`
-                        <div class="skio-group-content skio-custom-content-background-color" style= "border-radius: 8px">
+                        <div class="skio-group-content skio-custom-content-background-color" style= "border-radius: 8px; margin-top: 10px;">
                               <div class="bundle-option" data-bundle="1" style = "border: none; margin-bottom: 0">
                                 <div class="bundle-content">
                                   <input type="radio" name="onetime_bundle" value="1" data-custom-price="${ this.oneTimePricingConfig['first']['bottom_left'] }" checked>
                                   <div class="bundle-details">
                                     <div class="bundle-header">
                                       <div>
-                                        <h3 class="top-left">${unsafeHTML(this.oneTimePricingConfig['first']['top_left'])}</h3>
+                                        <h3 class="top-left">Whitening Kit (12 Treatments)</h3>
                                         <div>
-                                          <span class = 'bottom-left'>${ unsafeHTML(this.oneTimePricingConfig['first']['bottom_left']) }</span>
-                                          <span class = 'bottom-left-2'>${ unsafeHTML(this.oneTimePricingConfig['first']['bottom_left_2']) }</span>
+                                          <span class = 'bottom-left'>$45</span>
+                                          <span class = 'bottom-left-2'>89</span>
                                         </div>
                                       </div>
                                       <div class="bundle-pricing">
                                         <div class = "savings-button">
-                                          <span class = 'top-right'>${ unsafeHTML(this.oneTimePricingConfig['first']['top_right']) }</span>
+                                          <span class = 'top-right'>50% OFF</span>
                                         </div>
-                                        <div class="bottom-right">${ unsafeHTML(this.oneTimePricingConfig['first']['bottom_right']) }</div>
+                                        <div class="bottom-right">$3.75/Treatment</div>
                                       </div>
                                     </div>
                                   </div>
