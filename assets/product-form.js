@@ -501,10 +501,11 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     } else if (treatmentQuantity === '12') {
       if (product_form.selling_plan) {
         let cadenceKey = this.currentProductSellingPlan[skio.selectedSellingPlan.id]
-        let addOnSellingPlanId = this.sellingPlansByVariant[window.ProductConfig.REFILL_DEFAULT.product_id][cadenceKey]
+        let addOnSellingPlanId = this.sellingPlansByVariant[window.ProductConfig.REFILL_DEFAULT.product_id][window.ProductConfig.REFILL_DEFAULT.product_id.everyday][cadenceKey]
         itemsList.push({
-          id: addOnSellingPlanId,
-          quantity: 1
+          id: window.ProductConfig.REFILL_DEFAULT.product_id.everyday,
+          quantity: 1,
+          selling_plan: addOnSellingPlanId
         })
       } else {
         itemsList.push({
