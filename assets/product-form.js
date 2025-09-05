@@ -72,10 +72,12 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   indexPlans(sellingPlans) {
-    this.sellingPlansByVariant = indexPlansByVariant(sellingPlans);
+    this.sellingPlansByVariant = indexPlansByVariant(sellingPlans, this.productId);
+    console.log('sellingPlansByVariant')
     console.log(this.sellingPlansByVariant)
 
     this.currentProductSellingPlan = indexPlansCurrentProduct(sellingPlans, this.productId);
+    console.log('currentProductSellingPlan')
     console.log(this.currentProductSellingPlan)
   }
 
