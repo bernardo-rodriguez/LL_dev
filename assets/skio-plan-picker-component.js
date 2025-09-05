@@ -174,7 +174,7 @@ const skioStyles = css`
 
   .skio-custom-content {
     border-radius: 20px;
-    padding: 15px;
+    // padding: 15px;
   }
 
   .skio-custom-content-background-color {
