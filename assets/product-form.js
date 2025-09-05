@@ -504,6 +504,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         console.log(window.ProductConfig.REFILL_DEFAULT.product_id)
         console.log(window.ProductConfig.REFILL_DEFAULT.variants.everyday)
         console.log(cadenceKey)
+        
         console.log(this.sellingPlansByVariant)
         let addOnSellingPlanId = this.sellingPlansByVariant[window.ProductConfig.REFILL_DEFAULT.product_id][window.ProductConfig.REFILL_DEFAULT.variants.everyday][cadenceKey]
         itemsList.push({
