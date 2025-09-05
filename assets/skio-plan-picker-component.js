@@ -819,10 +819,10 @@ export class SkioPlanPickerComponent extends LitElement {
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
-                                  <h3 class="top-left">${unsafeHTML(this.oneTimePricingConfig['first']['top_left'])}</h3>
+                                  <h3 class="top-left">${unsafeHTML(this.oneTimePricingConfig['first']['bottom_left'])}</h3>
                                   <div>
-                                    <span class = 'bottom-left'>${ unsafeHTML(this.oneTimePricingConfig['first']['bottom_left']) }</span>
-                                    <span>${ unsafeHTML(this.oneTimePricingConfig['first']['bottom_left_2']) }</span>
+                                    <span>${ unsafeHTML(this.oneTimePricingConfig['first']['bottom_left']) }</span>
+                                    <span class = 'bottom-left'>${ unsafeHTML(this.oneTimePricingConfig['first']['bottom_left_2']) }</span>
                                   </div>
                                 </div>
                                 <div class="bundle-pricing">
@@ -841,10 +841,10 @@ export class SkioPlanPickerComponent extends LitElement {
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
-                                  <h3 class="top-left top-left2">${ unsafeHTML(this.oneTimePricingConfig['second']['top_left']) }</h3>
+                                  <h3 class="top-left top-left2">${ unsafeHTML(this.oneTimePricingConfig['second']['bottom_left']) }</h3>
                                   <div>
-                                    <span class = 'bottom-left'>${ unsafeHTML(this.oneTimePricingConfig['second']['bottom_left']) }</span>
-                                    <span>${ unsafeHTML(this.oneTimePricingConfig['second']['bottom_left_2']) }</span>
+                                    <span>${ unsafeHTML(this.oneTimePricingConfig['second']['bottom_left']) }</span>
+                                    <span class = 'bottom-left'>${ unsafeHTML(this.oneTimePricingConfig['second']['bottom_left_2']) }</span>
                                   </div>
                                 </div>
                                 <div class="bundle-pricing">
@@ -862,10 +862,10 @@ export class SkioPlanPickerComponent extends LitElement {
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
-                                  <h3 class="top-left top-left2">${ unsafeHTML(this.oneTimePricingConfig['third']['top_left']) }</h3>
+                                  <h3 class="top-left top-left2">${ unsafeHTML(this.oneTimePricingConfig['third']['bottom_left']) }</h3>
                                   <div>
-                                    <span class = 'bottom-left'>${ unsafeHTML(this.oneTimePricingConfig['third']['bottom_left']) }</span>
-                                    <span>${ unsafeHTML(this.oneTimePricingConfig['third']['bottom_left_2']) }</span>
+                                    <span>${ unsafeHTML(this.oneTimePricingConfig['third']['bottom_left']) }</span>
+                                    <span class = 'bottom-left'>${ unsafeHTML(this.oneTimePricingConfig['third']['bottom_left_2']) }</span>
                                   </div>
                                 </div>
                                 <div class="bundle-pricing">
