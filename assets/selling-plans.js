@@ -125,6 +125,7 @@ function indexPlansByVariant(products) {
                 const sp = edge.node.sellingPlan;
                 const cadence = extractCadenceFromSellingPlan(sp);
                 const key = cadence && cadenceKey(cadence);
+                print(key)
                 if (!key) continue;
                 map[key] = fromGid(sp.id); // numeric selling_plan id as string
             }

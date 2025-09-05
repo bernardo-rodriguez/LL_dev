@@ -59,7 +59,9 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   async initializeSellingPlans() {
     try {
       if (this.productId) {
-        this.sellingPlans = await fetchPlansByProductIds([this.productId, window.ProductConfig.REFILL_DEFAULT.product_id]);
+        // this.sellingPlans = await fetchPlansByProductIds([this.productId, window.ProductConfig.REFILL_DEFAULT.product_id]);
+        this.sellingPlans = await fetchPlansByProductIds([window.ProductConfig.REFILL_DEFAULT.product_id]);
+
         console.log('Selling plans loaded:', this.sellingPlans);
         this.indexPlansByVariant(this.sellingPlans);
       }
