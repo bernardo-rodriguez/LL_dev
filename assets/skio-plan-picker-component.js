@@ -1003,7 +1003,8 @@ export class SkioPlanPickerComponent extends LitElement {
 
                       ${ this.product.id != window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id 
                       && this.product.id != window.ProductConfig.KIT_EMPTY_SPACE.product_id ?
-                        html`<div class="skio-group-content">
+                        html`
+                        <div class="skio-group-content">
                           <div class="skio-custom-content skio-custom-content-background-color">
                             <div class="skio-container">
                               <div class="bundle-option" data-bundle="1">
@@ -1028,6 +1029,7 @@ export class SkioPlanPickerComponent extends LitElement {
                                   </div>
                                 </div>
                               </div>
+                            </div>
                           </div>
                         </div>`
                         :
