@@ -38,18 +38,34 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     this.productId = this.dataset.productId
 
     this.mostRecentSellingPlan = ''
+    this.sellingPlans = null; // Initialize selling plans attribute
 
     this.stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
 
     this.setName();
 
     this.createSubscriptionWidget();
+    
+    // Initialize selling plans
+    this.initializeSellingPlans();
 
     document.addEventListener('DOMContentLoaded', () => {
       // 'this' here refers to the original outer context
       this.bundleStickyBar();
     });
 
+  }
+
+  async initializeSellingPlans() {
+    try {
+      if (this.productId) {
+        this.sellingPlans = await fetchPlansByProductIds([this.productId]);
+        console.log('Selling plans loaded:', this.sellingPlans);
+      }
+    } catch (error) {
+      console.error('Error fetching selling plans:', error);
+      this.sellingPlans = null;
+    }
   }
 
 
