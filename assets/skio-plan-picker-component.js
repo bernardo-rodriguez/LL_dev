@@ -573,7 +573,9 @@ export class SkioPlanPickerComponent extends LitElement {
     meta: {},
 
     useVariantInputClickEvents: {type: Boolean}, // optional, allows use of variant input click events to update skio's selectedVariant
-    variantInputSelector: {}
+    variantInputSelector: {},
+
+    treatmentQuantity: { type: String }, // Add this new property
   };
 
   static styles = skioStyles;
@@ -638,6 +640,8 @@ export class SkioPlanPickerComponent extends LitElement {
     this.showDetailsHover = false;
     
     this.oneTimePricingConfig = one_time_price_copy[this.affiliate_referrer] ?? one_time_price_copy['default']
+
+    this.treatmentQuantity = '6'; // Default value
   }
 
   getCookie(cname) {
@@ -709,6 +713,49 @@ export class SkioPlanPickerComponent extends LitElement {
       document.addEventListener('load', skio.addVariantClickEventListeners)
     }
 
+    // Add treatment quantity change listener
+    document.addEventListener('change', (e) => {
+      if (e.target.name === 'treatment-quantity') {
+        this.treatmentQuantity = e.target.value;
+        this.updatePricingConfigForTreatmentQuantity();
+        this.requestUpdate(); // Trigger re-render
+      }
+    });
+
+    // Set initial treatment quantity and update config
+    this.treatmentQuantity = document.querySelector('input[name="treatment-quantity"]:checked')?.value || '6';
+    this.updatePricingConfigForTreatmentQuantity();
+  }
+
+  updatePricingConfigForTreatmentQuantity() {
+    const baseConfig = one_time_price_copy[this.affiliate_referrer] ?? one_time_price_copy['default'];
+    
+    if (this.treatmentQuantity === '12') {
+      // Update config for 12 treatments
+      this.oneTimePricingConfig = {
+        'first': {
+          'top_left': 'Buy 1 - Save 35%',
+          'bottom_left': 'Retail $152',
+          'top_right': '$99',
+          'bottom_right': 'Save $53'
+        },
+        'second': {
+          'top_left': 'Buy 2, Get 1 FREE <br> + Free Shipping',
+          'bottom_left': 'Retail $456',
+          'top_right': '$198',
+          'bottom_right': 'Save $258'
+        },
+        'third': {
+          'top_left': 'Buy 3, Get 2 FREE <br> + Free Shipping',
+          'bottom_left': 'Retail $760',
+          'top_right': '$297',
+          'bottom_right': 'Save $463'
+        }
+      };
+    } else {
+      // Use default config for 6 treatments
+      this.oneTimePricingConfig = baseConfig;
+    }
   }
 
   render() {
@@ -1174,6 +1221,10 @@ export class SkioPlanPickerComponent extends LitElement {
     if(changed.has('formId')) {
       //update the form that was passed, if any
       this.updateForm();
+    }
+
+    if(changed.has('treatmentQuantity')) {
+      this.updatePricingConfigForTreatmentQuantity();
     }
 
   }
