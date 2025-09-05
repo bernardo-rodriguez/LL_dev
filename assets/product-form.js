@@ -439,7 +439,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     // not subscription and bundle is not explicitly disabled: use onetime bundle quantity and set bundle_discount
     if (!('selling_plan' in product_form) && 
-    !(ConfigUtils.equals(affiliate_config, `${p_referrer}.flow.bundle_enabled`, False))) {
+    !(ConfigUtils.equals(affiliate_config, `${p_referrer}.flow.bundle_enabled`, false))) {
       let bundle_value = document.querySelector('skio-plan-picker').shadowRoot.querySelector('input[name="onetime_bundle"]:checked').value
 
       let bundle_quantities = {'1':1, '2':3, '3': 5}
