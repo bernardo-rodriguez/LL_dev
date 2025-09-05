@@ -101,24 +101,11 @@ xhttp.send();
           {% endif %}          
         </dl>
 
-        {% comment %} {% if product.id == 7498061906145 or product.id == 8252255568097 or product.id == 8187028177121 %} {% endcomment %}
-        {% if product.id == cfg.REFILL_DEFAULT.product_id or product.id == cfg.KIT_EMPTY_SPACE.product_id %}
-          <dl class="product-info">
-            <dt class="h6">Formula Picker</dt>
-              <div class="refill-formula-radio-group">
 
-                <input type="radio" id="sensitive" name="refill-strength" value="🍃 Gentle (ID: 19-2)">
-                <label for="sensitive">Sensitive</label>
-
-                <input type="radio" id="medium" name="refill-strength" value="✨ Everyday (ID: 8-16)">
-                <label for="medium">Standard</label>
-
-                <input type="radio" id="strong" name="refill-strength" value="🔥 Super Strength (ID: 8-17)">
-                <label for="strong" style = 'padding-right: 29px;'>Extra Strength <span class="price-difference">+$5</span></label>
-              </div>
-          </dl>
-        {% else %}
-        <dl class="product-info" id = 'formula-picker-direct' style = 'display: none'>
+        <dl class="product-info" id = 'formula-picker-direct' 
+            {% if product.id != cfg.REFILL_DEFAULT.product_id and product.id != cfg.KIT_EMPTY_SPACE.product_id %} 
+              style = 'display: none' 
+            {% endif %}>
           <dt class="h6">Formula Picker</dt>
             <div class="refill-formula-radio-group">
               <input type="radio" id="sensitive" name="refill-strength" value="🍃 Gentle (ID: 19-2)">
@@ -128,10 +115,13 @@ xhttp.send();
               <label for="medium">Standard</label>
 
               <input type="radio" id="strong" name="refill-strength" value="🔥 Super Strength (ID: 8-17)">
-              <label for="strong" style = 'padding-right: 29px;'>Extra Strength</label>
+              <label for="strong" style = 'padding-right: 29px;'>Extra Strength
+                {% if product.id != cfg.REFILL_DEFAULT.product_id and product.id != cfg.KIT_EMPTY_SPACE.product_id %}
+                  <span class="price-difference">+$5</span>
+                {% endif %}
+              </label>
             </div>
         </dl>
-        {% endif %}
 
         <div>
           <div class="loading-overlay__spinner">
@@ -459,6 +449,7 @@ xhttp.send();
   if (redirect == 'pdp') {
     $('#formula-picker-direct').show()
 
+    // removes personalized from everywhere in the text.
     $("p:contains('personalized')").each(function() {
       const updatedText = $(this).text().replace(/personalized/gi, '');
       $(this).text(updatedText);
