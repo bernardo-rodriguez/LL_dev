@@ -29,7 +29,9 @@
     </script>
 
     <script>
+      console.log('parse here')
       window.ProductConfig = JSON.parse(document.getElementById('product-config').textContent);
+      console.log('parsed')
       {% comment %} const everydayVariantId = window.ProductConfig.KIT_DEFAULT?.variants?.everyday; {% endcomment %}
     </script>
 
