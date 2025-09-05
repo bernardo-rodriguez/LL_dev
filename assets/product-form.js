@@ -423,13 +423,12 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let itemsList;
 
     let bundle_value = null
+    let bundle_quantities = {'1':1, '2':3, '3': 5}
 
     // not subscription and bundle is not explicitly disabled: use onetime bundle quantity and set bundle_discount
     if (!('selling_plan' in product_form) && 
     !(ConfigUtils.equals(affiliate_config, `${p_referrer}.flow.bundle_enabled`, false))) {
       bundle_value = document.querySelector('skio-plan-picker').shadowRoot.querySelector('input[name="onetime_bundle"]:checked').value
-
-      let bundle_quantities = {'1':1, '2':3, '3': 5}
 
       if (ConfigUtils.exists(affiliate_config, `${p_referrer}.flow.bundle_discount.${bundle_value}`)) {
         setCookie('bundle_discount', ConfigUtils.getValue(affiliate_config, `${p_referrer}.flow.bundle_discount.${bundle_value}`))
@@ -476,7 +475,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         })
       } else {
         if (bundle_value) {
-          quantity_setter = bundle_value
+          quantity_setter = bundle_quantities[bundle_value]
         }
 
         itemsList.push({
