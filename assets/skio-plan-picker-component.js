@@ -448,13 +448,9 @@ const skioStyles = css`
   }
 
   .top-left {
-      font-size: 16px;
+      font-size: 20px;
       font-weight: 700;
       margin: 0;
-  }
-
-  .top-left {
-    margin-top: 12px;
   }
 
   .bundle-description {
@@ -468,9 +464,10 @@ const skioStyles = css`
   }
 
   .bottom-left {
-      color: #ef4444;
       text-decoration: line-through;
-      font-size: 14px;
+      font-size: 16px;
+      font-weight: 300;
+      padding-left: 10px;
   }
 
   .top-right {
