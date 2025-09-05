@@ -408,7 +408,7 @@ const skioStyles = css`
   .bundle-option {
       border: 2px solid #e5e7eb;
       border-radius: 8px;
-      padding: 20px;
+      padding: 10px;
       margin-bottom: 16px;
       position: relative;
       cursor: pointer;
