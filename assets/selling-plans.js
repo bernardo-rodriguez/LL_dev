@@ -60,32 +60,23 @@ async function fetchPlansByProductIds(productIds = []) {
 
 // '30 days' -> {count:30, interval:'day'} ; supports weeks/months/years; tolerant to plurals
 function parseCountUnit(str) {
-    const m = String(str).toLowerCase().match(/(\d+)\s*(day|week|month|year)s?/);
+    const text = String(str).toLowerCase().trim();
+  
+    // Match optional number, followed by unit
+    const m = text.match(/(?:every\s*)?(\d+)?\s*(day|week|month|year)s?/);
     if (!m) return null;
-    const count = parseInt(m[1], 10);
+  
+    const count = m[1] ? parseInt(m[1], 10) : 1; // default to 1 if no number
     const unit = m[2];
+  
     return {
-        count,
-        interval: unit
+      count,
+      interval: unit
     }; // day|week|month|year
-}
+  }
 
 // Try to extract cadence from options first, then fall back to name.
 function extractCadenceFromSellingPlan(plan) {
-    // 1) Options like [{name:'Frequency', value:'30 days'}]
-    for (const opt of plan.options || []) {
-        const byValue = parseCountUnit(opt.value);
-        if (byValue) return byValue;
-
-        // 2) Split across options: Frequency: 30, Unit: days
-        if (opt.name && /frequency|delivery every|billing every/i.test(opt.name) && /\d+/.test(opt.value)) {
-            const count = parseInt(opt.value, 10);
-            // try to find a sibling option naming unit
-            const unitOpt = (plan.options || []).find(o => /unit|interval/i.test(o.name) || /(day|week|month|year)s?/i.test(o.value));
-            const unitFromSibling = unitOpt ? parseCountUnit(`${count} ${unitOpt.value}`) : null;
-            if (unitFromSibling) return unitFromSibling;
-        }
-    }
     // 3) Fallback: plan.name like "Every 30 days" / "30-day subscription"
     const byName = parseCountUnit(plan.name);
     if (byName) return byName;
