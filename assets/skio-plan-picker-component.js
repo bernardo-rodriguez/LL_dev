@@ -448,7 +448,7 @@ const skioStyles = css`
   }
 
   .top-left {
-      font-size: 20px;
+      font-size: 16px;
       font-weight: 700;
       margin: 0;
   }
@@ -465,8 +465,8 @@ const skioStyles = css`
 
   .bottom-left {
       text-decoration: line-through;
-      font-size: 16px;
-      font-weight: 300;
+      font-size: 20px;
+      font-weight: 700;
       padding-left: 10px;
   }
 
