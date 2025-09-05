@@ -474,8 +474,7 @@ const skioStyles = css`
   }
 
   .top-right {
-      font-size: 20px;
-      margin: 4px 0;
+
   }
 
   .bottom-right {
