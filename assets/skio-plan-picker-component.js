@@ -1005,7 +1005,6 @@ export class SkioPlanPickerComponent extends LitElement {
                       && this.product.id != window.ProductConfig.KIT_EMPTY_SPACE.product_id ?
                         html`
                         <div class="skio-group-content">
-                          <div class="skio-custom-content skio-custom-content-background-color">
                             <div class="skio-container">
                               <div class="bundle-option" data-bundle="1">
                                 <div class="bundle-content">
@@ -1030,7 +1029,6 @@ export class SkioPlanPickerComponent extends LitElement {
                                 </div>
                               </div>
                             </div>
-                          </div>
                         </div>`
                         :
                         html`` } 
