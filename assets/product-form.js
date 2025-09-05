@@ -509,7 +509,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         })
       } else {
         itemsList.push({
-          id: window.ProductConfig.REFILL_DEFAULT.product_id,
+          id: window.ProductConfig.REFILL_DEFAULT.product_id.everyday,
           quantity: 1
         })
       }
