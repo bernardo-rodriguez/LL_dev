@@ -59,11 +59,11 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   async initializeSellingPlans() {
     try {
       if (this.productId) {
-        // this.sellingPlans = await fetchPlansByProductIds([this.productId, window.ProductConfig.REFILL_DEFAULT.product_id]);
-        this.sellingPlans = await fetchPlansByProductIds([window.ProductConfig.REFILL_DEFAULT.product_id]);
+        this.sellingPlans = await fetchPlansByProductIds([this.productId, window.ProductConfig.REFILL_DEFAULT.product_id]);
+        // this.sellingPlans = await fetchPlansByProductIds([window.ProductConfig.REFILL_DEFAULT.product_id]);
 
         console.log('Selling plans loaded:', this.sellingPlans);
-        this.indexPlansByVariant(this.sellingPlans);
+        this.indexPlans(this.sellingPlans);
       }
     } catch (error) {
       console.error('Error fetching selling plans:', error);
@@ -71,9 +71,12 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     }
   }
 
-  indexPlansByVariant(sellingPlans) {
+  indexPlans(sellingPlans) {
     this.sellingPlansByVariant = indexPlansByVariant(sellingPlans);
     console.log(this.sellingPlansByVariant)
+
+    this.currentProductSellingPlan = indexPlansCurrentProduct(sellingPlans, this.productId);
+    console.log(this.currentProductSellingPlan)
   }
 
   getCookie(cname) {
@@ -491,17 +494,11 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     const treatmentQuantity = document.querySelector('input[name="treatment-quantity"]:checked')?.value;
     
     if (treatmentQuantity === '6') {
-      // Handle 6 treatments logic
       console.log('6 treatments selected');
-      // Add your logic for 6 treatments here
     } else if (treatmentQuantity === '12') {
       // Handle 12 treatments logic  
       console.log('12 treatments selected');
       // Add your logic for 12 treatments here
-    } else {
-      // Handle default case or no selection
-      console.log('No treatment quantity selected or unexpected value:', treatmentQuantity);
-      // Add your default logic here
     }
 
     if (product_form.product_id == window.ProductConfig.KIT_ONE_MONTH_SUPPLY.product_id) {

@@ -100,26 +100,53 @@ function cadenceKey({
 
 
 /**
- * products: array returned by fetchPlansByProductIds
+ * products: array returned by fetchPlansByProductIds, for potential add-on products
  * Returns: { [variantNumericId]: { [cadenceKey]: sellingPlanNumericId } }
  */
-function indexPlansByVariant(products) {
+function indexPlansByVariant(sellingPlans, currentProductId) {
     const out = {};
-    for (const p of products) {
-        let curr_out = {}
-        out[fromGid(p.id)] = curr_out
-    
-        for (const v of p.variants.nodes) {
-            const variantId = fromGid(v.id); // numeric string
-            const map = (curr_out[variantId] ||= {});
-            for (const edge of v.sellingPlanAllocations.edges) {
-                const sp = edge.node.sellingPlan;
-                const cadence = extractCadenceFromSellingPlan(sp);
-                const key = cadence && cadenceKey(cadence);
-                if (!key) continue;
-                map[key] = fromGid(sp.id); // numeric selling_plan id as string
+    for (const p of sellingPlans) {
+        let productId = fromGid(p.id)
+        if (productId != currentProductId) {
+            let curr_out = {}
+            out[productId] = curr_out
+        
+            for (const v of p.variants.nodes) {
+                const variantId = fromGid(v.id); // numeric string
+                const map = (curr_out[variantId] ||= {});
+                for (const edge of v.sellingPlanAllocations.edges) {
+                    const sp = edge.node.sellingPlan;
+                    const cadence = extractCadenceFromSellingPlan(sp);
+                    const key = cadence && cadenceKey(cadence);
+                    if (!key) continue;
+                    map[key] = fromGid(sp.id); // numeric selling_plan id as string
+                }
             }
         }
     }
     return out;
+}
+
+
+/**
+ * products: array returned by fetchPlansByProductIds, for the current product
+ * Returns: { [sellingPlanNumericId]: cadenceKey }
+ */
+function indexPlansCurrentProduct(sellingPlans, currentProductId) {
+    const out = {}
+    for (const p of sellingPlans) {
+        let productId = fromGid(p.id)
+        if (productId == currentProductId) {
+            for (const v of p.variants.nodes) {
+                for (const edge of v.sellingPlanAllocations.edges) {
+                    const sp = edge.node.sellingPlan;
+                    const cadence = extractCadenceFromSellingPlan(sp);
+                    const key = cadence && cadenceKey(cadence);
+                    if (!key) continue;
+                    out[fromGid(sp.id)] = key;
+                }
+            }
+        }
+    }
+    return out
 }
