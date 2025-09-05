@@ -33,6 +33,74 @@
       {% comment %} const everydayVariantId = window.ProductConfig.KIT_DEFAULT?.variants?.everyday; {% endcomment %}
     </script>
 
+    <script>
+      // Utility function for safe object navigation and conditional checks
+      window.ConfigUtils = {
+        // Check if a nested path exists in an object
+        hasPath: function(obj, path) {
+          if (!obj || typeof obj !== 'object') return false;
+          
+          const keys = path.split('.');
+          let current = obj;
+          
+          for (let key of keys) {
+            if (current === null || current === undefined || !(key in current)) {
+              return false;
+            }
+            current = current[key];
+          }
+          return true;
+        },
+        
+        // Get a value from a nested path with optional default
+        getValue: function(obj, path, defaultValue = null) {
+          if (!obj || typeof obj !== 'object') return defaultValue;
+          
+          const keys = path.split('.');
+          let current = obj;
+          
+          for (let key of keys) {
+            if (current === null || current === undefined || !(key in current)) {
+              return defaultValue;
+            }
+            current = current[key];
+          }
+          return current;
+        },
+        
+        // Check if a nested property equals a specific value
+        equals: function(obj, path, value) {
+          return this.getValue(obj, path) === value;
+        },
+        
+        // Check if a nested property is truthy
+        isTruthy: function(obj, path) {
+          return !!this.getValue(obj, path);
+        },
+        
+        // Check if a nested property is falsy
+        isFalsy: function(obj, path) {
+          return !this.getValue(obj, path);
+        },
+        
+        // Check if a nested property is false (strictly)
+        isFalse: function(obj, path) {
+          return this.getValue(obj, path) === false;
+        },
+        
+        // Check if a nested property is true (strictly)
+        isTrue: function(obj, path) {
+          return this.getValue(obj, path) === true;
+        },
+        
+        // Check if a nested property exists and is not null/undefined
+        exists: function(obj, path) {
+          const value = this.getValue(obj, path, undefined);
+          return value !== undefined && value !== null;
+        }
+      };
+    </script>
+
 
     <script src="{{ 'in-house-constants.js' | asset_url }}"></script>
     <script src="{{ 'in-house-tracking-constants.js' | asset_url }}"></script>
@@ -269,3 +337,22 @@ EF.click({
   }
 </script>
 {% endif %}
+
+{% comment %} 
+// Check if a path exists
+ConfigUtils.hasPath(affiliate_config, 'p_referrer.flow.bundle_enabled')
+
+// Get a value with fallback
+const bundleEnabled = ConfigUtils.getValue(affiliate_config, 'p_referrer.flow.bundle_enabled', true)
+
+// Check if a value equals something specific
+ConfigUtils.equals(affiliate_config, 'p_referrer.flow.bundle_enabled', false)
+
+// Check if a value is truthy
+ConfigUtils.isTruthy(affiliate_config, 'p_referrer.flow.discount_code')
+
+// Check if a value is falsy
+ConfigUtils.isFalsy(affiliate_config, 'p_referrer.flow.show_upsell')
+
+// Check if a value exists (not null/undefined)
+ConfigUtils.exists(affiliate_config, 'p_referrer.flow.cart_attribute') {% endcomment %}
