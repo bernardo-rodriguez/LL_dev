@@ -90,6 +90,7 @@ const skioStyles = css`
     flex: 1;
     justify-content: center;
     align-items: center;
+    font-weight: 700;
   }
   
   .skio-radio__container {
@@ -174,7 +175,6 @@ const skioStyles = css`
   .skio-custom-content {
     border-radius: 20px;
     padding: 15px;
-    margin-top: 6px;
   }
 
   .skio-custom-content-background-color {
@@ -811,7 +811,7 @@ export class SkioPlanPickerComponent extends LitElement {
                   </div>
                   <div class="skio-center-wrapper">
                     <div class="skio-group-title">
-                      One-time
+                      One-Time
                     </div>
 
                     <div class="skio-price">
