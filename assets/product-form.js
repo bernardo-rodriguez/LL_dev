@@ -465,6 +465,22 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       }]
     }
 
+    const treatmentQuantity = document.querySelector('input[name="treatment-quantity"]:checked')?.value;
+    
+    if (treatmentQuantity === '6') {
+      // Handle 6 treatments logic
+      console.log('6 treatments selected');
+      // Add your logic for 6 treatments here
+    } else if (treatmentQuantity === '12') {
+      // Handle 12 treatments logic  
+      console.log('12 treatments selected');
+      // Add your logic for 12 treatments here
+    } else {
+      // Handle default case or no selection
+      console.log('No treatment quantity selected or unexpected value:', treatmentQuantity);
+      // Add your default logic here
+    }
+
     if (product_form.product_id == window.ProductConfig.KIT_ONE_MONTH_SUPPLY.product_id) {
       add_pen_cookie()
       // setCookie('productDiscountCode', 'ADD_PEN')
