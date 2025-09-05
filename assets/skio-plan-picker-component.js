@@ -464,7 +464,7 @@ const skioStyles = css`
   }
 
   .bundle-pricing {
-      text-align: right;
+      text-align: center;
   }
 
   .bottom-left {
@@ -537,6 +537,7 @@ const skioStyles = css`
     font-size: 14px;
     padding: 5px;
     font-weight: 700;
+    display: inline-block
   }
 `;
 
@@ -859,7 +860,9 @@ export class SkioPlanPickerComponent extends LitElement {
                                   </div>
                                 </div>
                                 <div class="bundle-pricing">
-                                  <div class="top-right">${ unsafeHTML(this.oneTimePricingConfig['second']['top_right']) }</div>
+                                  <div class = "savings-button">
+                                    <span class = 'top-right'>${ unsafeHTML(this.oneTimePricingConfig['second']['top_right']) }</span>
+                                  </div>
                                   <div class="bottom-right">${ unsafeHTML(this.oneTimePricingConfig['second']['bottom_right']) }</div>
                                 </div>
                               </div>
@@ -880,7 +883,9 @@ export class SkioPlanPickerComponent extends LitElement {
                                   </div>
                                 </div>
                                 <div class="bundle-pricing">
-                                  <div class="top-right">${ unsafeHTML(this.oneTimePricingConfig['third']['top_right']) }</div>
+                                  <div class = "savings-button">
+                                    <span class = 'top-right'>${ unsafeHTML(this.oneTimePricingConfig['third']['top_right']) }</span>
+                                  </div>
                                   <div class="bottom-right">${ unsafeHTML(this.oneTimePricingConfig['third']['bottom_right']) }</div>
                                 </div>
                               </div>
