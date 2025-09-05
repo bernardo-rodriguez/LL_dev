@@ -128,7 +128,7 @@
   background: #ffffff;
   border-radius: 12px;
   position: relative;
-  border: 2px solid #e0e0e0;
+  border: 1px solid black;
   transition: all 0.3s ease;
 }
 
@@ -170,23 +170,19 @@
 }
 
 .quantity-radio-group input[type="radio"]:checked + .quantity-option .quantity-number {
-  color: #000;
+  color: black;
 }
 
 .quantity-radio-group input[type="radio"]:checked + .quantity-option .quantity-text {
-  color: #333;
-}
-
-.quantity-radio-group:hover {
-  border-color: #ccc;
+  color: black;
 }
 
 .quantity-option:hover .quantity-number {
-  color: #333;
+  color: black;
 }
 
 .quantity-option:hover .quantity-text {
-  color: #666;
+  color: black;
 }
 
 @media screen and (max-width: 768px) {
