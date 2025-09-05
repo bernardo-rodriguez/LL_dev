@@ -1006,33 +1006,28 @@ export class SkioPlanPickerComponent extends LitElement {
                         html`<div class="skio-group-content">
                           <div class="skio-custom-content skio-custom-content-background-color">
                             <div class="skio-container">
-                              <div> ${ this.affiliate_referrer == 'redirect_ut' ? 
-                                "Refills for $30" 
-                                : 
-                                "Refills for $30" }
+                              <div class="bundle-option" data-bundle="1">
+                                <div class="bundle-content">
+                                  <input type="radio" name="onetime_bundle" value="1" data-custom-price="${ this.oneTimePricingConfig['first']['bottom_left'] }" checked>
+                                  <div class="bundle-details">
+                                    <div class="bundle-header">
+                                      <div>
+                                        <h3 class="top-left">${unsafeHTML(this.oneTimePricingConfig['first']['top_left'])}</h3>
+                                        <div>
+                                          <span class = 'bottom-left'>${ unsafeHTML(this.oneTimePricingConfig['first']['bottom_left']) }</span>
+                                          <span class = 'bottom-left-2'>${ unsafeHTML(this.oneTimePricingConfig['first']['bottom_left_2']) }</span>
+                                        </div>
+                                      </div>
+                                      <div class="bundle-pricing">
+                                        <div class = "savings-button">
+                                          <span class = 'top-right'>${ unsafeHTML(this.oneTimePricingConfig['first']['top_right']) }</span>
+                                        </div>
+                                        <div class="bottom-right">${ unsafeHTML(this.oneTimePricingConfig['first']['bottom_right']) }</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
-                              <select skio-selling-plans="${ group.id }" class="skio-frequency
-                              ${ group.selling_plans.length == 1 ? 
-                               ' skio-frequency--one' 
-                               : 
-                               ''
-                              }
-                              ${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' 
-                              || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? 
-                                ' hide-skio-select' 
-                                : 
-                                '' 
-                              }"
-                                @change=${ (e) => this.selectSellingPlan(e.target, group) }>
-                                ${ group ? group.selling_plans.map((selling_plan) => 
-                                  html`
-                                  <option value="${ selling_plan.id }" ?selected=${group.selected_selling_plan == selling_plan }>
-                                    ${ group.name == 'Subscription' ? `Delivery ${ selling_plan.name.toLowerCase() }` : `${ selling_plan.name }` }
-                                  </option>
-                                  `
-                                ): ''}
-                              </select>
-                            </div>
                           </div>
                         </div>`
                         :
@@ -1677,24 +1672,31 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 
-
-
-// <div class="skio-custom-content skio-custom-content-background-color">
-// <div class="skio-container">
-//   <div>${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? 'Whitening Gels' : 'Whitening Gels' }</div>
-//   <div>${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? '1 Month Supply' : 'Refills for $25/delivery' }</div>
-// </div>
-// <div class="skio-container" style = "margin-top: 10px; justify-content: flex-end">
-//   <select skio-selling-plans="${ group.id }" class="skio-frequency${ group.selling_plans.length == 1 ? ' skio-frequency--one' : '' }
-//   ${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' || (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? ' hide-skio-select' : '' }"
-//     @change=${ (e) => this.selectSellingPlan(e.target, group) }>
-//     ${ group ? group.selling_plans.map((selling_plan) => 
-//       html`
-//       <option value="${ selling_plan.id }" ?selected=${group.selected_selling_plan == selling_plan }>
-//         ${ group.name == 'Subscription' ? `Delivery ${ selling_plan.name.toLowerCase() }` : `${ selling_plan.name }` }
-//       </option>
-//       `
-//     ): ''}
-//   </select>
-// </div>
-// </div>
+// old skio-container refill
+{/* <div> ${ this.affiliate_referrer == 'redirect_ut' ? 
+  "Refills for $30" 
+  : 
+  "Refills for $30" }
+</div>
+<select skio-selling-plans="${ group.id }" class="skio-frequency
+${ group.selling_plans.length == 1 ? 
+ ' skio-frequency--one' 
+ : 
+ ''
+}
+${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' 
+|| (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? 
+  ' hide-skio-select' 
+  : 
+  '' 
+}"
+  @change=${ (e) => this.selectSellingPlan(e.target, group) }>
+  ${ group ? group.selling_plans.map((selling_plan) => 
+    html`
+    <option value="${ selling_plan.id }" ?selected=${group.selected_selling_plan == selling_plan }>
+      ${ group.name == 'Subscription' ? `Delivery ${ selling_plan.name.toLowerCase() }` : `${ selling_plan.name }` }
+    </option>
+    `
+  ): ''}
+</select>
+</div> */}
