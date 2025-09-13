@@ -875,6 +875,7 @@ export class SkioPlanPickerComponent extends LitElement {
                           </div>
                         </div>
 
+                        <!--
                         <div class="bundle-option" data-bundle="3" style = 'margin-bottom: 0;'>
                           <div class="bundle-content">
                             <input type="radio" name="onetime_bundle" value="3" data-custom-price="${ this.oneTimePricingConfig['third']['bottom_left'] }" >
@@ -897,6 +898,8 @@ export class SkioPlanPickerComponent extends LitElement {
                             </div>
                           </div>
                         </div>
+                        -->
+                        
                       </div>
                     </div>
                     
