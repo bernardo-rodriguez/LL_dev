@@ -450,7 +450,7 @@ const skioStyles = css`
       align-items: center;
   }
 
-  .top-left {
+  .bundle_price_per_treatment {
       font-size: 16px;
       font-weight: 700;
       margin: 0;
@@ -466,23 +466,23 @@ const skioStyles = css`
       text-align: center;
   }
 
-  .bottom-left {
+  .bundle_previous_price {
       font-size: 19px;
       font-weight: 700;
   }
 
-  .bottom-left-2 {
+  .bundle_current_price {
     font-size: 16px;
     font-weight: 300;
     padding-left: 10px;
     text-decoration: line-through;
   }
 
-  .top-right {
+  .bundle_percent_off {
 
   }
 
-  .bottom-right {
+  .bundle_price_per_treatment {
       color: #22c55e;
       font-size: 14px;
       font-weight: 700;
@@ -836,17 +836,17 @@ export class SkioPlanPickerComponent extends LitElement {
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
-                                  <h3 class="top-left">${unsafeHTML(this.oneTimePricingConfig['first']['bundle_offer_title'])}</h3>
+                                  <h3 class="bundle_price_per_treatment">${unsafeHTML(this.oneTimePricingConfig['first']['bundle_offer_title'])}</h3>
                                   <div>
-                                    <span class = 'bottom-left'>${ unsafeHTML(this.oneTimePricingConfig['first']['bundle_current_price']) }</span>
-                                    <span class = 'bottom-left-2'>${ unsafeHTML(this.oneTimePricingConfig['first']['bundle_previous_price']) }</span>
+                                    <span class = 'bundle_previous_price'>${ unsafeHTML(this.oneTimePricingConfig['first']['bundle_current_price']) }</span>
+                                    <span class = 'bundle_current_price'>${ unsafeHTML(this.oneTimePricingConfig['first']['bundle_previous_price']) }</span>
                                   </div>
                                 </div>
                                 <div class="bundle-pricing">
                                   <div class = "savings-button">
-                                    <span class = 'top-right'>${ unsafeHTML(this.oneTimePricingConfig['first']['bundle_percent_off']) }</span>
+                                    <span class = 'bundle_percent_off'>${ unsafeHTML(this.oneTimePricingConfig['first']['bundle_percent_off']) }</span>
                                   </div>
-                                  <div class="bottom-right">${ unsafeHTML(this.oneTimePricingConfig['first']['bundle_price_per_treatment']) }</div>
+                                  <div class="bundle_price_per_treatment">${ unsafeHTML(this.oneTimePricingConfig['first']['bundle_price_per_treatment']) }</div>
                                 </div>
                               </div>
                             </div>
@@ -858,17 +858,17 @@ export class SkioPlanPickerComponent extends LitElement {
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
-                                  <h3 class="top-left top-left2">${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_offer_title']) }</h3>
+                                  <h3 class="bundle_price_per_treatment bundle_price_per_treatment2">${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_offer_title']) }</h3>
                                   <div>
-                                    <span class = 'bottom-left'>${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_current_price']) }</span>
-                                    <span class = 'bottom-left-2'>${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_previous_price']) }</span>
+                                    <span class = 'bundle_previous_price'>${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_current_price']) }</span>
+                                    <span class = 'bundle_current_price'>${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_previous_price']) }</span>
                                   </div>
                                 </div>
                                 <div class="bundle-pricing">
                                   <div class = "savings-button">
-                                    <span class = 'top-right'>${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_percent_off']) }</span>
+                                    <span class = 'bundle_percent_off'>${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_percent_off']) }</span>
                                   </div>
-                                  <div class="bottom-right">${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_price_per_treatment']) }</div>
+                                  <div class="bundle_price_per_treatment">${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_price_per_treatment']) }</div>
                                 </div>
                               </div>
                             </div>
@@ -882,17 +882,17 @@ export class SkioPlanPickerComponent extends LitElement {
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
-                                  <h3 class="top-left top-left2">${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_offer_title']) }</h3>
+                                  <h3 class="bundle_price_per_treatment bundle_price_per_treatment2">${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_offer_title']) }</h3>
                                   <div>
-                                    <span class = 'bottom-left'>${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_current_price']) }</span>
-                                    <span class = 'bottom-left-2'>${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_previous_price']) }</span>
+                                    <span class = 'bundle_previous_price'>${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_current_price']) }</span>
+                                    <span class = 'bundle_current_price'>${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_previous_price']) }</span>
                                   </div>
                                 </div>
                                 <div class="bundle-pricing">
                                   <div class = "savings-button">
-                                    <span class = 'top-right'>${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_percent_off']) }</span>
+                                    <span class = 'bundle_percent_off'>${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_percent_off']) }</span>
                                   </div>
-                                  <div class="bottom-right">${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_price_per_treatment']) }</div>
+                                  <div class="bundle_price_per_treatment">${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_price_per_treatment']) }</div>
                                 </div>
                               </div>
                             </div>
@@ -1014,17 +1014,17 @@ export class SkioPlanPickerComponent extends LitElement {
                                   <div class="bundle-details">
                                     <div class="bundle-header">
                                       <div>
-                                        <h3 class="top-left">Whitening Kit (12 Treatments)</h3>
+                                        <h3 class="bundle_price_per_treatment">Whitening Kit (12 Treatments)</h3>
                                         <div>
-                                          <span class = 'bottom-left'>$45</span>
-                                          <span class = 'bottom-left-2'>89</span>
+                                          <span class = 'bundle_previous_price'>$45</span>
+                                          <span class = 'bundle_current_price'>89</span>
                                         </div>
                                       </div>
                                       <div class="bundle-pricing">
                                         <div class = "savings-button">
-                                          <span class = 'top-right'>50% OFF</span>
+                                          <span class = 'bundle_percent_off'>50% OFF</span>
                                         </div>
-                                        <div class="bottom-right">$3.75/Treatment</div>
+                                        <div class="bundle_price_per_treatment">$3.75/Treatment</div>
                                       </div>
                                     </div>
                                   </div>
