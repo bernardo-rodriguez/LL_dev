@@ -450,7 +450,7 @@ const skioStyles = css`
       align-items: center;
   }
 
-  .bundle_price_per_treatment {
+  .bundle_offer_title {
       font-size: 16px;
       font-weight: 700;
       margin: 0;
@@ -836,7 +836,7 @@ export class SkioPlanPickerComponent extends LitElement {
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
-                                  <h3 class="bundle_price_per_treatment">${unsafeHTML(this.oneTimePricingConfig['first']['bundle_offer_title'])}</h3>
+                                  <h3 class="bundle_offer_title">${unsafeHTML(this.oneTimePricingConfig['first']['bundle_offer_title'])}</h3>
                                   <div>
                                     <span class = 'bundle_previous_price'>${ unsafeHTML(this.oneTimePricingConfig['first']['bundle_current_price']) }</span>
                                     <span class = 'bundle_current_price'>${ unsafeHTML(this.oneTimePricingConfig['first']['bundle_previous_price']) }</span>
@@ -858,7 +858,7 @@ export class SkioPlanPickerComponent extends LitElement {
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
-                                  <h3 class="bundle_price_per_treatment bundle_price_per_treatment2">${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_offer_title']) }</h3>
+                                  <h3 class="bundle_offer_title">${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_offer_title']) }</h3>
                                   <div>
                                     <span class = 'bundle_previous_price'>${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_current_price']) }</span>
                                     <span class = 'bundle_current_price'>${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_previous_price']) }</span>
@@ -882,7 +882,7 @@ export class SkioPlanPickerComponent extends LitElement {
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
-                                  <h3 class="bundle_price_per_treatment bundle_price_per_treatment2">${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_offer_title']) }</h3>
+                                  <h3 class="bundle_offer_title">${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_offer_title']) }</h3>
                                   <div>
                                     <span class = 'bundle_previous_price'>${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_current_price']) }</span>
                                     <span class = 'bundle_current_price'>${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_previous_price']) }</span>
@@ -1014,7 +1014,7 @@ export class SkioPlanPickerComponent extends LitElement {
                                   <div class="bundle-details">
                                     <div class="bundle-header">
                                       <div>
-                                        <h3 class="bundle_price_per_treatment">Whitening Kit (12 Treatments)</h3>
+                                        <h3 class="bundle_offer_title">Whitening Kit (12 Treatments)</h3>
                                         <div>
                                           <span class = 'bundle_previous_price'>$45</span>
                                           <span class = 'bundle_current_price'>89</span>

@@ -1163,7 +1163,7 @@ deferred-media {
     padding-bottom: 0;
   }
 
-  .header--top-left,
+  .header--bundle_offer_title,
   .header--middle-left:not(.header--has-menu) {
     grid-template-areas:
       'heading icons'
