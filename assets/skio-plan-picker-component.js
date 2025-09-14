@@ -857,17 +857,14 @@ export class SkioPlanPickerComponent extends LitElement {
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
-                                  <h3 class="bundle_offer_title">${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_offer_title']) }</h3>
-                                  <div>
-                                    <span class = 'bundle_previous_price'>${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_current_price']) }</span>
-                                    <span class = 'bundle_current_price'>${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_previous_price']) }</span>
-                                  </div>
+                                  <h3 class="bundle_offer_title">${unsafeHTML(this.oneTimePricingConfig['second']['bundle_offer_title'])}</h3>
+                                  <div class="bundle_price_per_treatment">${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_price_per_treatment']) }</div>
                                 </div>
                                 <div class="bundle-pricing">
-                                  <div class = "savings-button">
-                                    <span class = 'bundle_percent_off'>${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_percent_off']) }</span>
+                                  <div>
+                                    <span class = 'bundle_previous_price'>${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_previous_price']) }</span>
+                                    <span class = 'bundle_current_price'>${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_current_price']) }</span>
                                   </div>
-                                  <div class="bundle_price_per_treatment">${ unsafeHTML(this.oneTimePricingConfig['second']['bundle_price_per_treatment']) }</div>
                                 </div>
                               </div>
                             </div>
@@ -881,17 +878,14 @@ export class SkioPlanPickerComponent extends LitElement {
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
-                                  <h3 class="bundle_offer_title">${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_offer_title']) }</h3>
-                                  <div>
-                                    <span class = 'bundle_previous_price'>${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_current_price']) }</span>
-                                    <span class = 'bundle_current_price'>${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_previous_price']) }</span>
-                                  </div>
+                                  <h3 class="bundle_offer_title">${unsafeHTML(this.oneTimePricingConfig['third']['bundle_offer_title'])}</h3>
+                                  <div class="bundle_price_per_treatment">${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_price_per_treatment']) }</div>
                                 </div>
                                 <div class="bundle-pricing">
-                                  <div class = "savings-button">
-                                    <span class = 'bundle_percent_off'>${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_percent_off']) }</span>
+                                  <div>
+                                    <span class = 'bundle_previous_price'>${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_previous_price']) }</span>
+                                    <span class = 'bundle_current_price'>${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_current_price']) }</span>
                                   </div>
-                                  <div class="bundle_price_per_treatment">${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_price_per_treatment']) }</div>
                                 </div>
                               </div>
                             </div>
