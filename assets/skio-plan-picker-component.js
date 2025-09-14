@@ -752,32 +752,11 @@ export class SkioPlanPickerComponent extends LitElement {
 
   updatePricingConfigForTreatmentQuantity() {
     const baseConfig = one_time_price_copy[this.affiliate_referrer] ?? one_time_price_copy['default'];
-    
+    const upsellConfig = upsell_price_copy[this.affiliate_referrer] ?? upsell_one_time_price_copy['default'];
+
     if (this.treatmentQuantity === '12') {
       // Update config for 12 treatments
-      this.oneTimePricingConfig = {
-         'first': {
-            'bundle_offer_title': 'Buy 1 - Save 25%',
-            'bundle_current_price': '$89',
-            'bundle_previous_price': '$118',
-            'bundle_percent_off': '25% OFF',
-            'bundle_price_per_treatment': '$7.42/Treatment'
-        },
-        'second': {
-            'bundle_offer_title': 'Buy 2, Get 1 FREE',
-            'bundle_current_price': '$178',
-            'bundle_previous_price': '$267',
-            'bundle_percent_off': '33% OFF',
-            'bundle_price_per_treatment': '$4.94/Treatment'
-        },
-        'third': {
-            'bundle_offer_title': 'Buy 3, Get 2 FREE',
-            'bundle_current_price': '$267',
-            'bundle_previous_price': '$445',
-            'bundle_percent_off': '40% OFF',
-            'bundle_price_per_treatment': '$4.45/Treatment'
-        }
-      };
+      this.oneTimePricingConfig = upsellConfig
     } else {
       // Use default config for 6 treatments
       this.oneTimePricingConfig = baseConfig;
