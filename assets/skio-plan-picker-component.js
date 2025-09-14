@@ -752,7 +752,7 @@ export class SkioPlanPickerComponent extends LitElement {
 
   updatePricingConfigForTreatmentQuantity() {
     const baseConfig = one_time_price_copy[this.affiliate_referrer] ?? one_time_price_copy['default'];
-    const upsellConfig = upsell_price_copy[this.affiliate_referrer] ?? upsell_one_time_price_copy['default'];
+    const upsellConfig = upsell_one_time_price_copy[this.affiliate_referrer] ?? upsell_one_time_price_copy['default'];
 
     if (this.treatmentQuantity === '12') {
       // Update config for 12 treatments
