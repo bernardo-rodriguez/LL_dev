@@ -664,8 +664,8 @@ export class SkioPlanPickerComponent extends LitElement {
 
     this.showDetailsHover = false;
     
-    this.oneTimePricingConfig = one_time_price_copy[this.affiliate_referrer] ?? one_time_price_copy['default']
-    this.subscriptionPricingConfig = subscription_price_copy[this.affiliate_referrer] ?? subscription_price_copy['default']
+    this.oneTimePricingConfig = affiliate_one_time_price_copy[this.affiliate_referrer] ?? affiliate_one_time_price_copy['default']
+    this.subscriptionPricingConfig = affiliate_subscription_price_copy[this.affiliate_referrer] ?? affiliate_subscription_price_copy['default']
 
     this.treatmentQuantity = '6'; // Default value
 
@@ -756,11 +756,11 @@ export class SkioPlanPickerComponent extends LitElement {
   }
 
   updatePricingConfigForTreatmentQuantity() {
-    const baseConfig = one_time_price_copy[this.affiliate_referrer] ?? one_time_price_copy['default'];
-    const upsellConfig = upsell_one_time_price_copy[this.affiliate_referrer] ?? upsell_one_time_price_copy['default'];
+    const baseConfig = affiliate_one_time_price_copy[this.affiliate_referrer] ?? affiliate_one_time_price_copy['default'];
+    const upsellConfig = affiliate_upsell_one_time_price_copy[this.affiliate_referrer] ?? affiliate_upsell_one_time_price_copy['default'];
 
-    const subscriptionConfig = subscription_price_copy[this.affiliate_referrer] ?? subscription_price_copy['default'];
-    const upsellSubscriptionConfig = upsell_subscription_price_copy[this.affiliate_referrer] ?? upsell_subscription_price_copy['default'];
+    const subscriptionConfig = affiliate_subscription_price_copy[this.affiliate_referrer] ?? affiliate_subscription_price_copy['default'];
+    const upsellSubscriptionConfig = affiliate_upsell_subscription_price_copy[this.affiliate_referrer] ?? affiliate_upsell_subscription_price_copy['default'];
 
     if (this.treatmentQuantity === '12') {
       // Update config for 12 treatments
