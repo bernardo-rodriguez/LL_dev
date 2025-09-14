@@ -475,7 +475,7 @@ affiliate_config = {
     }
 }
 
-affiliate_one_time_price_copy = {
+base_one_time_price_copy = {
     'default': {
         'first': {
             'bundle_offer_title': 'Buy 1 - Save 25%',
