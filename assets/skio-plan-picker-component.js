@@ -1007,17 +1007,14 @@ export class SkioPlanPickerComponent extends LitElement {
                                   <div class="bundle-details">
                                     <div class="bundle-header">
                                       <div>
-                                        <h3 class="bundle_offer_title">Whitening Kit (12 Treatments)</h3>
-                                        <div>
-                                          <span class = 'bundle_previous_price'>$45</span>
-                                          <span class = 'bundle_current_price'>89</span>
-                                        </div>
+                                        <h3 class="bundle_offer_title">${unsafeHTML(this.oneTimePricingConfig['third']['bundle_offer_title'])}</h3>
+                                        <div class="bundle_price_per_treatment">${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_price_per_treatment']) }</div>
                                       </div>
                                       <div class="bundle-pricing">
-                                        <div class = "savings-button">
-                                          <span class = 'bundle_percent_off'>50% OFF</span>
+                                        <div>
+                                          <span class = 'bundle_previous_price'>${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_previous_price']) }</span>
+                                          <span class = 'bundle_current_price'>${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_current_price']) }</span>
                                         </div>
-                                        <div class="bundle_price_per_treatment">$3.75/Treatment</div>
                                       </div>
                                     </div>
                                   </div>
