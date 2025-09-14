@@ -909,11 +909,12 @@ export class SkioPlanPickerComponent extends LitElement {
                             html`
                               <div class="skio-group-title" id = 'skio-group-title-sub'>
                                 Subscribe & Save 50% <span style="font-weight: 600;">&mdash; 
-                                $${
-                                  () => {
+                                $
+                                ${
+                                  (() => {
                                     const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount);
                                     return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
-                                  }
+                                  })()
                                 }
                                 </span>
                               </div>
