@@ -564,6 +564,7 @@ export class SkioPlanPickerComponent extends LitElement {
 
     one_time_pricing: {type: String},
     subscription_pricing: {type: String},
+    subscription_discount: {type: String},
     
     formId: { type: String },             //optional; if passed, used to connect input fields to form
     needsFormId: { type: Boolean },       //optional, defaults to false; if true, element needs to be passed a formId, else it searches for a form
@@ -615,6 +616,7 @@ export class SkioPlanPickerComponent extends LitElement {
 
     this.one_time_pricing = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.onetime ?? '';
     this.subscription_pricing = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.subscription ?? '';
+    this.subscription_discount = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.subscription_discount ?? '0';
 
     this.productHandle = null;
 
@@ -906,7 +908,14 @@ export class SkioPlanPickerComponent extends LitElement {
                           ${ this.product.id == window.ProductConfig.KIT_DEFAULT.product_id ? 
                             html`
                               <div class="skio-group-title" id = 'skio-group-title-sub'>
-                                Subscribe & Save 50% <span style="font-weight: 600;">&mdash; $29</span>
+                                Subscribe & Save 50% <span style="font-weight: 600;">&mdash; 
+                                $${
+                                  () => {
+                                    const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount);
+                                    return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
+                                  }
+                                }
+                                </span>
                               </div>
                             ` 
                             : 

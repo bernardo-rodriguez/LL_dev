@@ -392,6 +392,7 @@ affiliate_config = {
             'subscription_enabled': true,
             'one_time_enabled': true,
             'bundle_enabled': true,
+            'subscription_discount': '4',
         },
         'general': {
             'announcement_bar': 'Discount auto applied at checkout!',
