@@ -411,7 +411,7 @@ const skioStyles = css`
       /* border: 2px solid #e5e7eb; */
       border: 1px solid black;
       border-radius: 8px;
-      padding: 10px;
+      padding: 15px 25px;
       margin-bottom: 16px;
       position: relative;
       cursor: pointer;
@@ -841,8 +841,8 @@ export class SkioPlanPickerComponent extends LitElement {
                                 </div>
                                 <div class="bundle-pricing">
                                   <div>
-                                    <span class = 'bundle_previous_price'>${ unsafeHTML(this.oneTimePricingConfig['first']['bundle_current_price']) }</span>
                                     <span class = 'bundle_current_price'>${ unsafeHTML(this.oneTimePricingConfig['first']['bundle_previous_price']) }</span>
+                                    <span class = 'bundle_previous_price'>${ unsafeHTML(this.oneTimePricingConfig['first']['bundle_current_price']) }</span>
                                   </div>
                                 </div>
                               </div>
