@@ -560,6 +560,7 @@ export class SkioPlanPickerComponent extends LitElement {
 
     one_time_enabled: {type: Boolean},
     subscription_enabled: {type: Boolean},
+    bundle_enabled: {type: Boolean},
 
     one_time_pricing: {type: String},
     subscription_pricing: {type: String},
@@ -610,6 +611,7 @@ export class SkioPlanPickerComponent extends LitElement {
 
     this.one_time_enabled = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.one_time_enabled ?? true;
     this.subscription_enabled = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.subscription_enabled ?? true;
+    this.bundle_enabled = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.bundle_enabled ?? true;
 
     this.one_time_pricing = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.onetime ?? '';
     this.subscription_pricing = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.subscription ?? '';

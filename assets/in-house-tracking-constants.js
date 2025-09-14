@@ -9,6 +9,7 @@ affiliate_config = {
             'subscription': '29',
             'one_time_enabled': true,
             'subscription_enabled': true,
+            'bundle_enabled': true,
         },
         'flow': {
             'product_page': null,
@@ -291,8 +292,9 @@ affiliate_config = {
     },
     'redirect_ut': {
         'pricing': {
-            'one_time_enabled': false,
             'subscription_enabled': true,
+            'one_time_enabled': true,
+            'bundle_enabled': true,
         },
         'general': {
             'announcement_bar': 'Discount auto applied at checkout!',
@@ -387,9 +389,9 @@ affiliate_config = {
     // },
     'redirect_ut_trial': {
         'pricing': {
-            'one_time_enabled': false,
-            'subscription_enabled': true
-            // 'subscription': '4.95'
+            'subscription_enabled': true,
+            'one_time_enabled': true,
+            'bundle_enabled': true,
         },
         'general': {
             'announcement_bar': 'Discount auto applied at checkout!',
@@ -543,5 +545,11 @@ one_time_price_copy = {
             'bundle_percent_off': '40% OFF',
             'bundle_price_per_treatment': '$5.9/Treatment'
         }
+    }
+}
+
+subscription_price_copy = {
+    'default': {
+        'bundle_offer_title': 'Subscribe & Save 50%'    
     }
 }
