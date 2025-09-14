@@ -663,6 +663,8 @@ export class SkioPlanPickerComponent extends LitElement {
     this.oneTimePricingConfig = one_time_price_copy[this.affiliate_referrer] ?? one_time_price_copy['default']
 
     this.treatmentQuantity = '6'; // Default value
+
+    console.log('this is bundle enabled', this.bundle_enabled)
   }
 
   getCookie(cname) {
