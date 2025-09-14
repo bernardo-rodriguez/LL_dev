@@ -466,15 +466,15 @@ const skioStyles = css`
       text-align: center;
   }
 
-  .bundle_previous_price {
+  .bundle_current_price {
       font-size: 19px;
-      font-weight: 700;
+      font-weight: 600;
   }
 
-  .bundle_current_price {
+  .bundle_previous_price {
     font-size: 16px;
-    font-weight: 300;
-    padding-left: 10px;
+    font-weight: 400;
+    padding-right: 10px;
     text-decoration: line-through;
   }
 
@@ -841,8 +841,8 @@ export class SkioPlanPickerComponent extends LitElement {
                                 </div>
                                 <div class="bundle-pricing">
                                   <div>
-                                    <span class = 'bundle_current_price'>${ unsafeHTML(this.oneTimePricingConfig['first']['bundle_previous_price']) }</span>
-                                    <span class = 'bundle_previous_price'>${ unsafeHTML(this.oneTimePricingConfig['first']['bundle_current_price']) }</span>
+                                    <span class = 'bundle_current_price'>${ unsafeHTML(this.oneTimePricingConfig['first']['bundle_current_price']) }</span>
+                                    <span class = 'bundle_previous_price'>${ unsafeHTML(this.oneTimePricingConfig['first']['bundle_previous_price']) }</span>
                                   </div>
                                 </div>
                               </div>
