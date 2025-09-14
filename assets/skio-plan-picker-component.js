@@ -665,6 +665,7 @@ export class SkioPlanPickerComponent extends LitElement {
     this.showDetailsHover = false;
     
     this.oneTimePricingConfig = one_time_price_copy[this.affiliate_referrer] ?? one_time_price_copy['default']
+    this.subscriptionPricingConfig = subscription_price_copy[this.affiliate_referrer] ?? subscription_price_copy['default']
 
     this.treatmentQuantity = '6'; // Default value
 
@@ -758,12 +759,17 @@ export class SkioPlanPickerComponent extends LitElement {
     const baseConfig = one_time_price_copy[this.affiliate_referrer] ?? one_time_price_copy['default'];
     const upsellConfig = upsell_one_time_price_copy[this.affiliate_referrer] ?? upsell_one_time_price_copy['default'];
 
+    const subscriptionConfig = subscription_price_copy[this.affiliate_referrer] ?? subscription_price_copy['default'];
+    const upsellSubscriptionConfig = upsell_subscription_price_copy[this.affiliate_referrer] ?? upsell_subscription_price_copy['default'];
+
     if (this.treatmentQuantity === '12') {
       // Update config for 12 treatments
       this.oneTimePricingConfig = upsellConfig
+      this.subscriptionPricingConfig = upsellSubscriptionConfig;
     } else {
       // Use default config for 6 treatments
       this.oneTimePricingConfig = baseConfig;
+      this.subscriptionPricingConfig = subscriptionConfig;
     }
   }
 
@@ -915,7 +921,7 @@ export class SkioPlanPickerComponent extends LitElement {
                             <span style="font-weight: 600;"> &mdash;  
                             $${
                               (() => {
-                                const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount);
+                                const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount) - parseInt(this.subscriptionPricingConfig['discount']);
                                 return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
                               })()
                             }
@@ -957,13 +963,19 @@ export class SkioPlanPickerComponent extends LitElement {
                                   <div class="bundle-details">
                                     <div class="bundle-header">
                                       <div>
-                                        <h3 class="bundle_offer_title">${unsafeHTML(this.oneTimePricingConfig['third']['bundle_offer_title'])}</h3>
+                                        <h3 class="bundle_offer_title">${ this.subscriptionPricingConfig['subscription_product_title'] }</h3>
                                         <div class="bundle_price_per_treatment">${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_price_per_treatment']) }</div>
                                       </div>
                                       <div class="bundle-pricing">
                                         <div>
                                           <span class = 'bundle_previous_price'>${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_previous_price']) }</span>
-                                          <span class = 'bundle_current_price'>${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_current_price']) }</span>
+                                          <span class = 'bundle_current_price'>${
+                                              (() => {
+                                                const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount) - parseInt(this.subscriptionPricingConfig['discount']);
+                                                return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
+                                              })()
+                                            }
+                                         </span>
                                         </div>
                                       </div>
                                     </div>

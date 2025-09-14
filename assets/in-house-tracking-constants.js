@@ -489,79 +489,94 @@ affiliate_config = {
 }
 
 base_one_time_price_copy = {
+    'first': {
+        'bundle_offer_title': 'Buy 1 - Save 25%',
+        'bundle_current_price': '$59',
+        'bundle_previous_price': '$76',
+        'bundle_percent_off': '22% OFF',
+        'bundle_price_per_treatment': '$9.83/Treatment'
+    },
+    'second': {
+        'bundle_offer_title': 'Buy 2, Get 1 FREE',
+        'bundle_current_price': '$118',
+        'bundle_previous_price': '$228',
+        'bundle_percent_off': '33% OFF',
+        'bundle_price_per_treatment': '$6.55/Treatment'
+    },
+    'third': {
+        'bundle_offer_title': 'Buy 3, Get 2 FREE',
+        'bundle_current_price': '$177',
+        'bundle_previous_price': '$295',
+        'bundle_percent_off': '40% OFF',
+        'bundle_price_per_treatment': '$5.9/Treatment'
+    }
+}
+
+base_upsell_one_time_price_copy = {
+    'first': {
+        'bundle_offer_title': 'Buy 1 - Save 25%',
+        'bundle_current_price': '$89',
+        'bundle_previous_price': '$118',
+        'bundle_percent_off': '25% OFF',
+        'bundle_price_per_treatment': '$7.42/Treatment'
+    },
+    'second': {
+        'bundle_offer_title': 'Buy 2, Get 1 FREE',
+        'bundle_current_price': '$178',
+        'bundle_previous_price': '$267',
+        'bundle_percent_off': '33% OFF',
+        'bundle_price_per_treatment': '$4.94/Treatment'
+    },
+    'third': {
+        'bundle_offer_title': 'Buy 3, Get 2 FREE',
+        'bundle_current_price': '$267',
+        'bundle_previous_price': '$445',
+        'bundle_percent_off': '40% OFF',
+        'bundle_price_per_treatment': '$4.45/Treatment'
+    }
+}
+
+affiliate_one_time_price_copy = {
     'default': {
-        'first': {
-            'bundle_offer_title': 'Buy 1 - Save 25%',
-            'bundle_current_price': '$59',
-            'bundle_previous_price': '$76',
-            'bundle_percent_off': '22% OFF',
-            'bundle_price_per_treatment': '$9.83/Treatment'
-        },
-        'second': {
-            'bundle_offer_title': 'Buy 2, Get 1 FREE',
-            'bundle_current_price': '$118',
-            'bundle_previous_price': '$228',
-            'bundle_percent_off': '33% OFF',
-            'bundle_price_per_treatment': '$6.55/Treatment'
-        },
-        'third': {
-            'bundle_offer_title': 'Buy 3, Get 2 FREE',
-            'bundle_current_price': '$177',
-            'bundle_previous_price': '$295',
-            'bundle_percent_off': '40% OFF',
-            'bundle_price_per_treatment': '$5.9/Treatment'
-        }
+        'first': base_one_time_price_copy['first'],
+        'second': base_one_time_price_copy['second'],
+        'third': base_one_time_price_copy['third']
+    },
+    'redirect_cpgap': {
+        'first': base_one_time_price_copy['first'],
+        'second': base_one_time_price_copy['second'],
+        'third': base_one_time_price_copy['third']
+    },
+    'jam_media': {
+        'first': base_one_time_price_copy['first'],
+        'second': base_one_time_price_copy['second'],
+        'third': base_one_time_price_copy['third']
     }
 }
 
 affiliate_upsell_one_time_price_copy = {
     'default': {
-        'first': {
-            'bundle_offer_title': 'Buy 1 - Save 25%',
-            'bundle_current_price': '$89',
-            'bundle_previous_price': '$118',
-            'bundle_percent_off': '25% OFF',
-            'bundle_price_per_treatment': '$7.42/Treatment'
-        },
-        'second': {
-            'bundle_offer_title': 'Buy 2, Get 1 FREE',
-            'bundle_current_price': '$178',
-            'bundle_previous_price': '$267',
-            'bundle_percent_off': '33% OFF',
-            'bundle_price_per_treatment': '$4.94/Treatment'
-        },
-        'third': {
-            'bundle_offer_title': 'Buy 3, Get 2 FREE',
-            'bundle_current_price': '$267',
-            'bundle_previous_price': '$445',
-            'bundle_percent_off': '40% OFF',
-            'bundle_price_per_treatment': '$4.45/Treatment'
-        }
+        'first': base_upsell_one_time_price_copy['first'],
+        'second': base_upsell_one_time_price_copy['second'],
+        'third': base_upsell_one_time_price_copy['third']
     }
 }
 
-one_time_price_copy = {
-    'default': {
-        'first': base_one_time_price_copy['default']['first'],
-        'second': base_one_time_price_copy['default']['second'],
-        'third': base_one_time_price_copy['default']['third']
-    },
-    'redirect_cpgap': {
-        'first': base_one_time_price_copy['default']['first'],
-        'second': base_one_time_price_copy['default']['second'],
-        'third': base_one_time_price_copy['default']['third']
-    },
-    'jam_media': {
-        'first': base_one_time_price_copy['default']['first'],
-        'second': base_one_time_price_copy['default']['second'],
-        'third': base_one_time_price_copy['default']['third']
-    }
+
+base_subscription_price_copy = {
+    'subscription_product_title': 'Whitening Kit (6 Treatments)',
+    'discount': '0'
 }
 
-upsell_one_time_price_copy = {
-    'default': {
-        'first': affiliate_upsell_one_time_price_copy['default']['first'],
-        'second': affiliate_upsell_one_time_price_copy['default']['second'],
-        'third': affiliate_upsell_one_time_price_copy['default']['third']
-    }
+base_upsell_subscription_price_copy = {
+    'subscription_product_title': 'Whitening Kit (12 Treatments)',
+    'discount': '17'
+}
+
+affiliate_subscription_price_copy = {
+    'default': base_subscription_price_copy,
+}
+
+affiliate_upsell_subscription_price_copy = {
+    'default': base_upsell_subscription_price_copy,
 }
