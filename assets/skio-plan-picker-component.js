@@ -908,7 +908,11 @@ export class SkioPlanPickerComponent extends LitElement {
                         </div>
                         <div class="skio-center-wrapper">
                           <div class="skio-group-title" id = 'skio-group-title-sub'>
-                            ${this.product_page_copy['bundle_offer_title']}<span style="font-weight: 600;"> &mdash;  
+                            ${ (this.product.id == window.ProductConfig.REFILL_DEFAULT.product_id) ? 
+                              'Refill Kit' 
+                            : 
+                              this.product_page_copy['bundle_offer_title']}
+                            <span style="font-weight: 600;"> &mdash;  
                             $${
                               (() => {
                                 const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount);
