@@ -570,7 +570,7 @@ base_subscription_price_copy = {
 
 base_upsell_subscription_price_copy = {
     'subscription_product_title': 'Whitening Kit (12 Treatments)',
-    'discount': '17'
+    'discount': '16'
 }
 
 affiliate_subscription_price_copy = {
