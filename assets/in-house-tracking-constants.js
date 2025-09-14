@@ -270,6 +270,9 @@ affiliate_config = {
         'general': {
             'announcement_bar': 'Sweatcoin discounts auto applied at checkout!',
         },
+        'product_page_copy': {
+            'bundle_offer_title': 'Sweatcoin Special',
+        },
         'flow': {
             'product_page': '/products/at-home-whitening-kit-affiliate-ft',
             'discount_code': 'Pen-Addon',
@@ -301,6 +304,9 @@ affiliate_config = {
         },
         'general': {
             'announcement_bar': 'Discount auto applied at checkout!',
+        },
+        'product_page_copy': {
+            'bundle_offer_title': 'Starter Kit',
         },
         'flow': {
             'product_page': '/products/at-home-whitening-kit-affiliate-ut',
@@ -399,6 +405,9 @@ affiliate_config = {
         },
         'general': {
             'announcement_bar': 'Discount auto applied at checkout!',
+        },
+        'product_page_copy': {
+            'bundle_offer_title': 'Starter Kit',
         },
         'flow': {
             'product_page': '/products/at-home-whitening-kit-affiliate-ut',
