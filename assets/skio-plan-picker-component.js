@@ -907,76 +907,28 @@ export class SkioPlanPickerComponent extends LitElement {
                           </svg>
                         </div>
                         <div class="skio-center-wrapper">
-                          ${ this.product.id == window.ProductConfig.KIT_DEFAULT.product_id ? 
-                            html`
-                              <div class="skio-group-title" id = 'skio-group-title-sub'>
-                                ${this.product_page_copy['bundle_offer_title']}<span style="font-weight: 600;"> &mdash;  
-                                $${
-                                  (() => {
-                                    const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount);
-                                    return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
-                                  })()
-                                }
-                                </span>
-                              </div>
-                            ` 
+                          <div class="skio-group-title" id = 'skio-group-title-sub'>
+                            ${this.product_page_copy['bundle_offer_title']}<span style="font-weight: 600;"> &mdash;  
+                            $${
+                              (() => {
+                                const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount);
+                                return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
+                              })()
+                            }
+                            </span>
+
+                            ${ this.discount(group.selected_selling_plan).percent !== '0%' ? 
+                            html` 
+                              <span style="display: none;" class="skio-save">Save <span skio-discount>
+                              ${ this.discountFormat == 'percent' ?
+                                this.discount(group.selected_selling_plan).percent 
+                                : 
+                                this.discount(group.selected_selling_plan).amount }</span></span>
+                              ` 
                             : 
-                            html`
-                            <div class="skio-group-title" id = 'skio-group-title-sub'>
-                              ${ this.product.id == window.ProductConfig.REFILL_DEFAULT.product_id ? 
-                                'Refill Kit' 
-                                :
-                                (group.name == 'Subscription' ?  
-                                  (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' ? 
-                                    ((this.product.id == window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id) ? 
-                                      'Sweatcoin Special' 
-                                      : 
-                                      'Free Trial Special') 
-                                    : 
-                                    'Starter Kit' 
-                                  : 
-                                  group.name 
-                                )
-                              }
-                              ${ this.discount(group.selected_selling_plan).percent !== '0%' ? 
-                               html` 
-                                <span style="display: none;" class="skio-save">Save <span skio-discount>
-                                ${ this.discountFormat == 'percent' ?
-                                  this.discount(group.selected_selling_plan).percent 
-                                  : 
-                                  this.discount(group.selected_selling_plan).amount }</span></span>
-                                ` 
-                                : 
-                                html`` }
-                            </div>
-                            <div class="skio-price skio-subscribe-price" id = 'skio-group-price-sub'>
-                              —${ this.selectedVariant.price < this.selectedVariant.price - this.discount(group.selected_selling_plan).amount ? 
-                                html`
-                                <del>${ this.moneyFormatter.format(this.selectedVariant.price / 100) }<del>` 
-                                : 
-                                html`` }
-                              <span skio-subscription-price>$${ this.subscription_pricing != '' ? 
-                              this.subscription_pricing 
-                              : 
-                              (this.affiliate_referrer == 'redirect_ut_trial' ? 
-                              // (false ? 
-                                (() => {
-                                  const price = (this.price(group.selected_selling_plan, false) / 100) - 4;
-                                  return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
-                                })() 
-                                : 
-                                (() => {
-                                  const price = (this.price(group.selected_selling_plan, false) / 100);
-                                  return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
-                                })()
-                              ) }
-                              </span>
-                              ${ false && this.product.id == window.ProductConfig.KIT_DEFAULT.product_id && this.discount(group.selected_selling_plan).percent !== '0%' ? 
-                                html`<span style="font-weight: 500;">&nbsp;&nbsp;(SAVE ${ this.discount(group.selected_selling_plan).percent })</span>` 
-                                : 
-                                html`` }
-                            </div>
-                          ` }
+                              html`` 
+                            }
+                          </div>
                         </div>
                       </div>
                       <div class="skio-center-wrapper">
