@@ -159,6 +159,7 @@ const skioStyles = css`
   
   .skio-group-title {
     min-width: max-content;
+    font-weight: 500;
   }
   
   .skio-save {
@@ -474,8 +475,9 @@ const skioStyles = css`
   .bundle_previous_price {
     font-size: 16px;
     font-weight: 400;
-    padding-right: 10px;
+    padding-right: 5px;
     text-decoration: line-through;
+    color: #666666;
   }
 
   .bundle_percent_off {
