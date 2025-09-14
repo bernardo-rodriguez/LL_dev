@@ -618,6 +618,8 @@ export class SkioPlanPickerComponent extends LitElement {
     this.subscription_pricing = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.subscription ?? '';
     this.subscription_discount = (affiliate_config[this.affiliate_referrer] ?? {}).pricing?.subscription_discount ?? '0';
 
+    this.product_page_copy = (affiliate_config[this.affiliate_referrer] ?? {}).product_page_copy ?? affiliate_config['default'].product_page_copy;
+
     this.productHandle = null;
 
     this.purchaseOption = 'onetime';
@@ -908,7 +910,7 @@ export class SkioPlanPickerComponent extends LitElement {
                           ${ this.product.id == window.ProductConfig.KIT_DEFAULT.product_id ? 
                             html`
                               <div class="skio-group-title" id = 'skio-group-title-sub'>
-                                Subscribe & Save 50% <span style="font-weight: 600;">&mdash; 
+                                ${this.product_page_copy['bundle_offer_title']}<span style="font-weight: 600;">&mdash; 
                                 $${
                                   (() => {
                                     const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount);

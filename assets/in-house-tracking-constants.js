@@ -17,6 +17,9 @@ affiliate_config = {
             'discount_code': null,
             'cart_attribute': null,
         },
+        'product_page_copy': {
+            'bundle_offer_title': 'Subscribe & Save 50%',
+        },
         'landing_page_copy': {
             'hero_subtitle_1': null,
             'hero_title': null,
@@ -551,11 +554,5 @@ upsell_one_time_price_copy = {
         'first': affiliate_upsell_one_time_price_copy['default']['first'],
         'second': affiliate_upsell_one_time_price_copy['default']['second'],
         'third': affiliate_upsell_one_time_price_copy['default']['third']
-    }
-}
-
-subscription_price_copy = {
-    'default': {
-        'bundle_offer_title': 'Subscribe & Save 50%'    
     }
 }
