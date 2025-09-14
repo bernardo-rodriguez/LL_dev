@@ -964,11 +964,11 @@ export class SkioPlanPickerComponent extends LitElement {
                                     <div class="bundle-header">
                                       <div>
                                         <h3 class="bundle_offer_title">${ this.subscriptionPricingConfig['subscription_product_title'] }</h3>
-                                        <div class="bundle_price_per_treatment">${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_price_per_treatment']) }</div>
+                                        <div class="bundle_price_per_treatment">${ this.subscriptionPricingConfig['price_per_treatment'] }</div>
                                       </div>
                                       <div class="bundle-pricing">
                                         <div>
-                                          <span class = 'bundle_previous_price'>${ unsafeHTML(this.oneTimePricingConfig['third']['bundle_previous_price']) }</span>
+                                          <span class = 'bundle_previous_price'>${ this.subscriptionPricingConfig['previous_price'] }</span>
                                           <span class = 'bundle_current_price'>${
                                               (() => {
                                                 const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount) + parseInt(this.subscriptionPricingConfig['discount']);
