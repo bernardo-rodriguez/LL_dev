@@ -1335,11 +1335,13 @@ export class SkioPlanPickerComponent extends LitElement {
   selectSellingPlan(element, group) {
     let selling_plan = group.selling_plans.find(x => x.id == element.value);
     if (selling_plan) {
+      console.log('selling plan is!')
       group.selected_selling_plan = selling_plan;
       this.selectedSellingPlanGroup = group;
       this.selectedSellingPlan = selling_plan;
       this.lastSellingPlanName = this.selectedSellingPlan.name;
     }
+    console.log('selling plan is not!')
     else this.log("Error: couldn't find selling plan with id " + element.value + " for variant " + this.selectedVariant.id + " from product " + this.product.id + " : " + this.product.handle);
   }
 
