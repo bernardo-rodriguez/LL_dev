@@ -597,6 +597,7 @@ export class SkioPlanPickerComponent extends LitElement {
     variantInputSelector: {},
 
     treatmentQuantity: { type: String }, // Add this new property
+    selectedBundle: { type: String },
   };
 
   static styles = skioStyles;
@@ -668,6 +669,7 @@ export class SkioPlanPickerComponent extends LitElement {
     this.subscriptionPricingConfig = affiliate_subscription_price_copy[this.affiliate_referrer] ?? affiliate_subscription_price_copy['default']
 
     this.treatmentQuantity = '6'; // Default value
+    this.selectedBundle = '1'; // Default to first bundle
 
     console.log('this is bundle enabled', this.bundle_enabled)
   }
@@ -816,7 +818,12 @@ export class SkioPlanPickerComponent extends LitElement {
 
                     <div class="skio-price">
                       ${ this.bundle_enabled ? html`
-                        —<span id = 'skio-onetime-price-set' skio-onetime-price>${ this.oneTimePricingConfig['first']['bundle_current_price'] }</span>
+                        —<span id = 'skio-onetime-price-set' skio-onetime-price>
+                          ${this.selectedBundle === '1' ? 
+                            this.oneTimePricingConfig['first']['bundle_current_price'] : 
+                            this.oneTimePricingConfig['second']['bundle_current_price']
+                          }
+                        </span>
                         ` :  html`
                         —<span id = 'skio-onetime-price-set' skio-onetime-price>$${ (this.selectedVariant.price / 100).toFixed(0) }</span>
                         ` }
@@ -829,9 +836,13 @@ export class SkioPlanPickerComponent extends LitElement {
                   <div class="skio-custom-content" style = 'padding-right: 0; padding-left: 0'>
                     <div class="skio-container">
                       <div class="bundle-container">
-                        <div class="bundle-option" data-bundle="1">
+                        <div class="bundle-option ${this.selectedBundle === '1' ? 'selected' : ''}" 
+                             data-bundle="1" 
+                             @click=${() => this.selectBundle('1')}>
                           <div class="bundle-content">
-                            <input type="radio" name="onetime_bundle" value="1" data-custom-price="${ this.oneTimePricingConfig['first']['bundle_current_price'] }" checked>
+                            <input type="radio" name="onetime_bundle" value="1" 
+                                   data-custom-price="${this.oneTimePricingConfig['first']['bundle_current_price']}" 
+                                   ?checked=${this.selectedBundle === '1'}>
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
@@ -848,9 +859,13 @@ export class SkioPlanPickerComponent extends LitElement {
                             </div>
                           </div>
                         </div>
-                        <div class="bundle-option" data-bundle="2">
+                        <div class="bundle-option ${this.selectedBundle === '2' ? 'selected' : ''}" 
+                             data-bundle="2" 
+                             @click=${() => this.selectBundle('2')}>
                           <div class="bundle-content">
-                            <input type="radio" name="onetime_bundle" value="2" data-custom-price="${ this.oneTimePricingConfig['second']['bundle_current_price'] }">
+                            <input type="radio" name="onetime_bundle" value="2" 
+                                   data-custom-price="${this.oneTimePricingConfig['second']['bundle_current_price']}" 
+                                   ?checked=${this.selectedBundle === '2'}>
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
@@ -1563,49 +1578,54 @@ export class SkioPlanPickerComponent extends LitElement {
       return product;
     });
   }
+
+  selectBundle(bundleValue) {
+    this.selectedBundle = bundleValue;
+    this.requestUpdate(); // Trigger re-render
+  }
 }
 
 customElements.define('skio-plan-picker', SkioPlanPickerComponent);
 
-document.addEventListener('DOMContentLoaded', function() {
-  // const bundleOptions = document.querySelectorAll('.bundle-option');
-  waitForElmShadowRoot('.bundle-option').then(() => {
+// document.addEventListener('DOMContentLoaded', function() {
+//   // const bundleOptions = document.querySelectorAll('.bundle-option');
+//   waitForElmShadowRoot('.bundle-option').then(() => {
     
-    const bundleOptions = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('.bundle-option');
-    // Set initial selected state
-    const initiallySelected =  document.querySelector('skio-plan-picker').shadowRoot.querySelector('.bundle-container input[type="radio"]:checked');
-    if (initiallySelected) {
-        initiallySelected.closest('.bundle-option').classList.add('selected');
-    }
-    bundleOptions.forEach(option => {
-        option.addEventListener('click', function(e) {
-            // Find the radio button within this option
-            const radio = this.querySelector('input[type="radio"]');
+//     const bundleOptions = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('.bundle-option');
+//     // Set initial selected state
+//     const initiallySelected =  document.querySelector('skio-plan-picker').shadowRoot.querySelector('.bundle-container input[type="radio"]:checked');
+//     if (initiallySelected) {
+//         initiallySelected.closest('.bundle-option').classList.add('selected');
+//     }
+//     bundleOptions.forEach(option => {
+//         option.addEventListener('click', function(e) {
+//             // Find the radio button within this option
+//             const radio = this.querySelector('input[type="radio"]');
             
-            // Uncheck all other radio buttons
-            document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]').forEach(r => {
-                r.checked = false;
-                r.removeAttribute('checked');
-            });
+//             // Uncheck all other radio buttons
+//             document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]').forEach(r => {
+//                 r.checked = false;
+//                 r.removeAttribute('checked');
+//             });
             
-            // Check this radio button
-            radio.checked = true;
-            radio.setAttribute('checked', '');
+//             // Check this radio button
+//             radio.checked = true;
+//             radio.setAttribute('checked', '');
             
-            // Remove selected class from all options
-            bundleOptions.forEach(opt => {
-                opt.classList.remove('selected');
-            });
+//             // Remove selected class from all options
+//             bundleOptions.forEach(opt => {
+//                 opt.classList.remove('selected');
+//             });
 
             
-            // Add selected class to this option
-            this.classList.add('selected');
+//             // Add selected class to this option
+//             this.classList.add('selected');
 
-            document.querySelector('skio-plan-picker').shadowRoot.querySelector('#skio-onetime-price-set').innerHTML = radio.dataset.customPrice
-        });
-      })              
-    });
-  });
+//             document.querySelector('skio-plan-picker').shadowRoot.querySelector('#skio-onetime-price-set').innerHTML = radio.dataset.customPrice
+//         });
+//       })              
+//     });
+//   });
 
   function waitForElmShadowRoot(selector) {
 
