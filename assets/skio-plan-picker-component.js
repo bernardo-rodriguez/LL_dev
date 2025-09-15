@@ -744,9 +744,13 @@ export class SkioPlanPickerComponent extends LitElement {
     // Add treatment quantity change listener
     document.addEventListener('change', (e) => {
       if (e.target.name === 'treatment-quantity') {
+        console.log('hello there 0')
+        console.log('treatment-quantity', e.target.name)
         this.treatmentQuantity = e.target.value;
         this.updatePricingConfigForTreatmentQuantity();
+        console.log('hello there 1')
         this.requestUpdate(); // Trigger re-render
+        console.log('hello there 2')
       }
     });
 
