@@ -546,6 +546,11 @@ const skioStyles = css`
     font-weight: 700;
     display: inline-block
   }
+
+  .subscription_selling_plan_details {
+    font-weight: 500;
+    padding: 10px 15px;
+  }
 `;
 
 export class SkioPlanPickerComponent extends LitElement {
@@ -1012,7 +1017,7 @@ export class SkioPlanPickerComponent extends LitElement {
                                 </div>
                               </div>
                         </div>
-                        <div>
+                        <div class = "subscription_selling_plan_details">
                             ${ this.lastSellingPlanName }
                         </div>
                         `
