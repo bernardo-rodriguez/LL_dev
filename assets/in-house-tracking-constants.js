@@ -572,15 +572,27 @@ base_subscription_price_copy = {
 
 base_upsell_subscription_price_copy = {
     'subscription_product_title': 'Whitening Kit (12 Treatments)',
-    'discount': '16',
+    'next_price': '16',
     'price_per_treatment': '$3.75/Treatment',
     'previous_price': '$89'
 }
 
 affiliate_subscription_price_copy = {
     'default': base_subscription_price_copy,
+    'redirect_ut_trial': {
+        'subscription_product_title': 'Whitening Kit (6 Treatments)',
+        'next_price': '0',
+        'price_per_treatment': '$2.98/Treatment',
+        'previous_price': '$59'
+    }
 }
 
 affiliate_upsell_subscription_price_copy = {
     'default': base_upsell_subscription_price_copy,
+    'redirect_ut_trial': {
+        'subscription_product_title': 'Whitening Kit (12 Treatments)',
+        'next_price': '7',
+        'price_per_treatment': '$1.32/Treatment',
+        'previous_price': '89'
+    }
 }
