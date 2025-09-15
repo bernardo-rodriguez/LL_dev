@@ -128,7 +128,7 @@ xhttp.send();
           <div class="quantity-radio-group">
             <input type="radio" id="quantity-6" name="treatment-quantity" value="6" checked>
             <label for="quantity-6" class="quantity-option quantity-option-1">
-              <span class="quantity-title">6 Treatment</span>
+              <span class="quantity-title">6 Treatments</span>
             </label>
             
             <input type="radio" id="quantity-12" name="treatment-quantity" value="12">
@@ -460,45 +460,6 @@ xhttp.send();
 </section>
 
 {% javascript %}
-  // Fix for treatment quantity radio button state restoration
-  document.addEventListener('DOMContentLoaded', function() {
-    function updateTreatmentQuantityVisualState() {
-      const checkedRadio = document.querySelector('input[name="treatment-quantity"]:checked');
-      const allRadios = document.querySelectorAll('input[name="treatment-quantity"]');
-      
-      // Remove visual state from all options
-      allRadios.forEach(radio => {
-        const label = radio.nextElementSibling;
-        if (label && label.classList.contains('quantity-option')) {
-          label.style.background = '';
-          label.style.boxShadow = '';
-        }
-      });
-      
-      // Apply visual state to checked option
-      if (checkedRadio) {
-        const label = checkedRadio.nextElementSibling;
-        if (label && label.classList.contains('quantity-option')) {
-          label.style.background = '#69BBEB';
-          label.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1)';
-        }
-      }
-    }
-    
-    // Update immediately
-    updateTreatmentQuantityVisualState();
-    
-    // Update when radio buttons change
-    document.addEventListener('change', function(e) {
-      if (e.target.name === 'treatment-quantity') {
-        updateTreatmentQuantityVisualState();
-      }
-    });
-    
-    // Also update after a short delay to catch any delayed state changes
-    setTimeout(updateTreatmentQuantityVisualState, 100);
-  });
-
   let redirect = getCookie('url_redirect')
   if (redirect == 'pdp') {
     $('#formula-picker-direct').show()
