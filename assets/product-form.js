@@ -689,11 +689,12 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
 })
 
 
-window.addEventListener('pageshow', function(event) {
-  if (event.persisted) {
-    console.log('loaded from cache')
-    // The page was loaded from bfcache (back-forward cache) or a similar mechanism.
-    // You can force a reload or reinitialize any state here.
-   window.location.reload();
-  }
-});
+// Commented out to fix treatment quantity radio button state restoration issue
+// window.addEventListener('pageshow', function(event) {
+//   if (event.persisted) {
+//     console.log('loaded from cache')
+//     // The page was loaded from bfcache (back-forward cache) or a similar mechanism.
+//     // You can force a reload or reinitialize any state here.
+//    window.location.reload();
+//   }
+// });

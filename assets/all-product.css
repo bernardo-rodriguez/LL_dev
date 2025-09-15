@@ -171,6 +171,12 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
+/* Ensure unchecked options don't have the selected styling */
+.quantity-radio-group input[type="radio"]:not(:checked) + .quantity-option {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
 @media screen and (max-width: 768px) {
   .quantity-option {
     padding: 10px 12px;
