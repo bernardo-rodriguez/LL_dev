@@ -784,7 +784,8 @@ export class SkioPlanPickerComponent extends LitElement {
     console.log(this.selectedSellingPlan)
     console.log(this.selectedSellingPlanGroup)
     // TODO: update here
-    this.selectSellingPlan(sellingPlan, this.selectedSellingPlanGroup)
+    this.selectedSellingPlan = sellingPlan;
+    this.lastSellingPlanName = this.selectedSellingPlan.name;
   }
 
   render() {
@@ -1333,9 +1334,6 @@ export class SkioPlanPickerComponent extends LitElement {
 
   // Update selected selling plan; called on change of skio-frequency select element
   selectSellingPlan(element, group) {
-    console.log('selectSellingPlan')
-    console.log(element)
-    console.log(group)
     let selling_plan = group.selling_plans.find(x => x.id == element.value);
     if (selling_plan) {
       console.log('selling plan is!')
