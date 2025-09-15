@@ -775,7 +775,7 @@ export class SkioPlanPickerComponent extends LitElement {
       console.log(this.selectedSellingPlanGroup)
       console.log('this is the selling plans')
       console.log(this.selectedSellingPlanGroup.selling_plans)
-      sellingPlan = this.selectedSellingPlanGroup.selling_plans.find(plan => plan.name === '3 months');
+      sellingPlan = this.selectedSellingPlanGroup.selling_plans.find(plan => plan.name.includes('3 month')) || this.selectedSellingPlan;
       console.log('this is the new selling plan')
       console.log(sellingPlan)
     } else {
@@ -783,7 +783,7 @@ export class SkioPlanPickerComponent extends LitElement {
       this.oneTimePricingConfig = baseConfig;
       this.subscriptionPricingConfig = subscriptionConfig;
 
-      sellingPlan = this.selectedSellingPlanGroup.selling_plans.find(plan => plan.name === '2 months') || this.selectedSellingPlan;
+      sellingPlan = this.selectedSellingPlanGroup.selling_plans.find(plan => plan.name.includes('2 month')) || this.selectedSellingPlan;
     }
 
     console.log('this is the selected selling plan')
