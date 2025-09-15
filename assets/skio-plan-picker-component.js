@@ -1340,9 +1340,10 @@ export class SkioPlanPickerComponent extends LitElement {
       this.selectedSellingPlanGroup = group;
       this.selectedSellingPlan = selling_plan;
       this.lastSellingPlanName = this.selectedSellingPlan.name;
+    } else {  
+      console.log('selling plan is not!')
+      this.log("Error: couldn't find selling plan with id " + element.value + " for variant " + this.selectedVariant.id + " from product " + this.product.id + " : " + this.product.handle);
     }
-    console.log('selling plan is not!')
-    else this.log("Error: couldn't find selling plan with id " + element.value + " for variant " + this.selectedVariant.id + " from product " + this.product.id + " : " + this.product.handle);
   }
 
   // Update selected selling plan; called on change of skio-frequency select element
