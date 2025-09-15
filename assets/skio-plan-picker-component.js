@@ -1018,7 +1018,31 @@ export class SkioPlanPickerComponent extends LitElement {
                               </div>
                         </div>
                         <div class = "subscription_selling_plan_details">
+                          <div>
+                            <svg
+                              class="icon icon-checkmark"
+                              width="14"
+                              height="14"
+                              viewBox="0 0 14 14"
+                              fill="none"
+                            >
+                              <path d="M23.4177 0C23.4177 0 15.2061 5.15966 8.38295 17.8572V17.8608L7.7412 17.0315C5.74251 14.5312 0.757158 10.528 0.757158 10.528L0 11.4775C0 11.4775 6.13246 17.4134 8.52809 24C8.52809 24 14.0852 8.68725 24 0.85228L23.4177 0V0Z" fill="#46BDF0"/>
+                            </svg>
                             ${ this.lastSellingPlanName }
+                          </div>
+                          <div>
+                            <svg
+                              class="icon icon-checkmark"
+                              width="14"
+                              height="14"
+                              viewBox="0 0 14 14"
+                              fill="none"
+                            >
+                              <path d="M23.4177 0C23.4177 0 15.2061 5.15966 8.38295 17.8572V17.8608L7.7412 17.0315C5.74251 14.5312 0.757158 10.528 0.757158 10.528L0 11.4775C0 11.4775 6.13246 17.4134 8.52809 24C8.52809 24 14.0852 8.68725 24 0.85228L23.4177 0V0Z" fill="#46BDF0"/>
+                            </svg>
+                            Pause or Cancel anytime
+                          </div>
+                          
                         </div>
                         `
                         :
