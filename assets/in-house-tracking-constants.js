@@ -565,7 +565,7 @@ affiliate_upsell_one_time_price_copy = {
 
 base_subscription_price_copy = {
     'subscription_product_title': 'Whitening Kit (6 Treatments)',
-    'discount': '0',
+    'next_price': '0',
     'price_per_treatment': '$4.83/Treatment',
     'previous_price': '$59'
 }
