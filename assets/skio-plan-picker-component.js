@@ -1333,6 +1333,9 @@ export class SkioPlanPickerComponent extends LitElement {
 
   // Update selected selling plan; called on change of skio-frequency select element
   selectSellingPlan(element, group) {
+    console.log('selectSellingPlan')
+    console.log(element)
+    console.log(group)
     let selling_plan = group.selling_plans.find(x => x.id == element.value);
     if (selling_plan) {
       console.log('selling plan is!')
