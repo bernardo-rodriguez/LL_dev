@@ -774,9 +774,8 @@ export class SkioPlanPickerComponent extends LitElement {
       this.subscriptionPricingConfig = subscriptionConfig;
     }
 
-    console.log('here are the new configs ')
-    console.log(this.oneTimePricingConfig)
-    console.log(this.subscriptionPricingConfig)
+    console.log('this is the selected selling plan')
+    console.log(this.selectedSellingPlan)
   }
 
   render() {
@@ -1567,8 +1566,6 @@ export class SkioPlanPickerComponent extends LitElement {
   } 
 
   fetchProduct = (handle) => {
-    console.log(handle)
-    console.log('hello there')
     return fetch(`/products/${ handle }.js`)
     .then((response) => response.json())
     .then((product) => {
@@ -1586,46 +1583,6 @@ export class SkioPlanPickerComponent extends LitElement {
 }
 
 customElements.define('skio-plan-picker', SkioPlanPickerComponent);
-
-// document.addEventListener('DOMContentLoaded', function() {
-//   // const bundleOptions = document.querySelectorAll('.bundle-option');
-//   waitForElmShadowRoot('.bundle-option').then(() => {
-    
-//     const bundleOptions = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('.bundle-option');
-//     // Set initial selected state
-//     const initiallySelected =  document.querySelector('skio-plan-picker').shadowRoot.querySelector('.bundle-container input[type="radio"]:checked');
-//     if (initiallySelected) {
-//         initiallySelected.closest('.bundle-option').classList.add('selected');
-//     }
-//     bundleOptions.forEach(option => {
-//         option.addEventListener('click', function(e) {
-//             // Find the radio button within this option
-//             const radio = this.querySelector('input[type="radio"]');
-            
-//             // Uncheck all other radio buttons
-//             document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('input[name="onetime_bundle"]').forEach(r => {
-//                 r.checked = false;
-//                 r.removeAttribute('checked');
-//             });
-            
-//             // Check this radio button
-//             radio.checked = true;
-//             radio.setAttribute('checked', '');
-            
-//             // Remove selected class from all options
-//             bundleOptions.forEach(opt => {
-//                 opt.classList.remove('selected');
-//             });
-
-            
-//             // Add selected class to this option
-//             this.classList.add('selected');
-
-//             document.querySelector('skio-plan-picker').shadowRoot.querySelector('#skio-onetime-price-set').innerHTML = radio.dataset.customPrice
-//         });
-//       })              
-//     });
-//   });
 
   function waitForElmShadowRoot(selector) {
 
@@ -1648,33 +1605,3 @@ customElements.define('skio-plan-picker', SkioPlanPickerComponent);
         });
     });
 }
-
-
-// old skio-container refill
-{/* <div> ${ this.affiliate_referrer == 'redirect_ut' ? 
-  "Refills for $30" 
-  : 
-  "Refills for $30" }
-</div>
-<select skio-selling-plans="${ group.id }" class="skio-frequency
-${ group.selling_plans.length == 1 ? 
- ' skio-frequency--one' 
- : 
- ''
-}
-${ (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '0' 
-|| (this.price(group.selected_selling_plan, false) / 100).toFixed(0) == '9' ? 
-  ' hide-skio-select' 
-  : 
-  '' 
-}"
-  @change=${ (e) => this.selectSellingPlan(e.target, group) }>
-  ${ group ? group.selling_plans.map((selling_plan) => 
-    html`
-    <option value="${ selling_plan.id }" ?selected=${group.selected_selling_plan == selling_plan }>
-      ${ group.name == 'Subscription' ? `Delivery ${ selling_plan.name.toLowerCase() }` : `${ selling_plan.name }` }
-    </option>
-    `
-  ): ''}
-</select>
-</div> */}
