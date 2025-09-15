@@ -1326,8 +1326,13 @@ export class SkioPlanPickerComponent extends LitElement {
     this.selectedSellingPlanGroup = group;
     this.selectedSellingPlan = group?.selected_selling_plan;
     if (this.selectedSellingPlan) this.lastSellingPlanName = this.selectedSellingPlan.name;
-    if (group) this.purchaseOption = 'subscription'
-    else this.purchaseOption = 'onetime'
+    if (group) {
+      this.purchaseOption = 'subscription';
+      this.selectedBundle = 'sub'; // Add this line
+    } else {
+      this.purchaseOption = 'onetime';
+      // Don't change selectedBundle here, let it be managed by selectBundle calls
+    }
 
     //update the form that was passed, if any
     this.updateForm();
@@ -1593,19 +1598,6 @@ export class SkioPlanPickerComponent extends LitElement {
 
   selectBundle(bundleValue) {
     this.selectedBundle = bundleValue;
-    
-    // Uncheck all radio buttons with name="onetime_bundle"
-    const radioButtons = this.renderRoot.querySelectorAll('input[name="onetime_bundle"]');
-    radioButtons.forEach(radio => {
-      radio.checked = false;
-    });
-    
-    // Check the selected radio button
-    const selectedRadio = this.renderRoot.querySelector(`input[name="onetime_bundle"][value="${bundleValue}"]`);
-    if (selectedRadio) {
-      selectedRadio.checked = true;
-    }
-    
     this.requestUpdate(); // Trigger re-render
   }
 }
