@@ -764,29 +764,30 @@ export class SkioPlanPickerComponent extends LitElement {
 
     let sellingPlan = this.selectedSellingPlan;
 
-    console.log('all available selling plan groups')
-    console.log(this.availableSellingPlanGroups)
-    
     if (this.treatmentQuantity === '12') { 
       // Update config for 12 treatments
       this.oneTimePricingConfig = upsellConfig
       this.subscriptionPricingConfig = upsellSubscriptionConfig;
 
-      sellingPlan = this.selectedSellingPlanGroup.selling_plans.find(plan => plan.name.includes('3 month')) || this.selectedSellingPlan;
+      sellingPlan = this.availableSellingPlanGroups.selling_plans.find(plan => plan.name.includes('3 month')) || this.selectedSellingPlan;
     } else { 
       // Use default config for 6 treatments
       this.oneTimePricingConfig = baseConfig;
       this.subscriptionPricingConfig = subscriptionConfig;
 
-      sellingPlan = this.selectedSellingPlanGroup.selling_plans.find(plan => plan.name.includes('2 month')) || this.selectedSellingPlan;
+      sellingPlan = this.availableSellingPlanGroups.selling_plans.find(plan => plan.name.includes('2 month')) || this.selectedSellingPlan;
     }
 
     console.log('this is the selected selling plan')
     console.log(this.selectedSellingPlan)
     console.log(this.selectedSellingPlanGroup)
     // update selling plans depending on the treatment quantity
-    this.selectedSellingPlan = sellingPlan;
-    this.lastSellingPlanName = this.selectedSellingPlan.name;
+
+    // if selected selling plan is null, then onetime is selected and we don't need to update the selling plan
+    if (this.selectedSellingPlan) {
+      this.selectedSellingPlan = sellingPlan;
+    }
+    this.lastSellingPlanName = sellingPlan.name;
 
   }
 
