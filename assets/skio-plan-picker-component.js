@@ -764,13 +764,16 @@ export class SkioPlanPickerComponent extends LitElement {
 
     let sellingPlan = this.selectedSellingPlan;
 
-    if (this.treatmentQuantity === '12') {
+    console.log('all available selling plan groups')
+    console.log(this.availableSellingPlanGroups)
+    
+    if (this.treatmentQuantity === '12') { 
       // Update config for 12 treatments
       this.oneTimePricingConfig = upsellConfig
       this.subscriptionPricingConfig = upsellSubscriptionConfig;
 
       sellingPlan = this.selectedSellingPlanGroup.selling_plans.find(plan => plan.name.includes('3 month')) || this.selectedSellingPlan;
-    } else {
+    } else { 
       // Use default config for 6 treatments
       this.oneTimePricingConfig = baseConfig;
       this.subscriptionPricingConfig = subscriptionConfig;
