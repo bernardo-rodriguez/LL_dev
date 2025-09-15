@@ -988,7 +988,7 @@ export class SkioPlanPickerComponent extends LitElement {
                         <div class="skio-group-content skio-custom-content-background-color" style= "border-radius: 8px; margin-top: 10px;">
                               <div class="bundle-option" style = "margin-bottom: 0">
                                 <div class="bundle-content">
-                                  <input type="radio" name="onetime_bundle" value = "sub" checked>
+                                  <input type="radio" name="onetime_bundle" value = "sub" ?checked=${this.selectedBundle === 'sub'}>
                                   <div class="bundle-details">
                                     <div class="bundle-header">
                                       <div>
@@ -1593,6 +1593,19 @@ export class SkioPlanPickerComponent extends LitElement {
 
   selectBundle(bundleValue) {
     this.selectedBundle = bundleValue;
+    
+    // Uncheck all radio buttons with name="onetime_bundle"
+    const radioButtons = this.renderRoot.querySelectorAll('input[name="onetime_bundle"]');
+    radioButtons.forEach(radio => {
+      radio.checked = false;
+    });
+    
+    // Check the selected radio button
+    const selectedRadio = this.renderRoot.querySelector(`input[name="onetime_bundle"][value="${bundleValue}"]`);
+    if (selectedRadio) {
+      selectedRadio.checked = true;
+    }
+    
     this.requestUpdate(); // Trigger re-render
   }
 }
