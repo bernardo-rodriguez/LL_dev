@@ -764,21 +764,27 @@ export class SkioPlanPickerComponent extends LitElement {
     const subscriptionConfig = affiliate_subscription_price_copy[this.affiliate_referrer] ?? affiliate_subscription_price_copy['default'];
     const upsellSubscriptionConfig = affiliate_upsell_subscription_price_copy[this.affiliate_referrer] ?? affiliate_upsell_subscription_price_copy['default'];
 
+    let sellingPlan = this.selectedSellingPlan;
+
     if (this.treatmentQuantity === '12') {
       // Update config for 12 treatments
       this.oneTimePricingConfig = upsellConfig
       this.subscriptionPricingConfig = upsellSubscriptionConfig;
+
+      sellingPlan = this.selectedSellingPlanGroup.selling_plans.find(plan => plan.name === '3 months') || this.selectedSellingPlan;
     } else {
       // Use default config for 6 treatments
       this.oneTimePricingConfig = baseConfig;
       this.subscriptionPricingConfig = subscriptionConfig;
+
+      sellingPlan = this.selectedSellingPlanGroup.selling_plans.find(plan => plan.name === '2 months') || this.selectedSellingPlan;
     }
 
     console.log('this is the selected selling plan')
     console.log(this.selectedSellingPlan)
     console.log(this.selectedSellingPlanGroup)
     // TODO: update here
-    this.selectSellingPlan(this.selectedSellingPlan, this.selectedSellingPlanGroup)
+    this.selectSellingPlan(sellingPlan, this.selectedSellingPlanGroup)
   }
 
   render() {
