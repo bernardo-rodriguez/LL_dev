@@ -655,7 +655,7 @@ export class SkioPlanPickerComponent extends LitElement {
       maximumFractionDigits: 2,
     });
 
-    this.defaultFrequency = null;
+    this.defaultFrequency = '2 months';
 
     this.showAddToCartButton = false;
 
