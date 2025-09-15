@@ -742,15 +742,11 @@ export class SkioPlanPickerComponent extends LitElement {
     }
 
     // Add treatment quantity change listener
-    document.addEventListener('change', (e) => {
+    document.addEventListener('change', (e) => { // TODO: update this to use a custom event
       if (e.target.name === 'treatment-quantity') {
-        console.log('hello there 0')
-        console.log('treatment-quantity', e.target.name)
         this.treatmentQuantity = e.target.value;
         this.updatePricingConfigForTreatmentQuantity();
-        console.log('hello there 1')
         this.requestUpdate(); // Trigger re-render
-        console.log('hello there 2')
       }
     });
 
@@ -775,6 +771,10 @@ export class SkioPlanPickerComponent extends LitElement {
       this.oneTimePricingConfig = baseConfig;
       this.subscriptionPricingConfig = subscriptionConfig;
     }
+
+    console.log('here are the new configs ')
+    console.log(this.oneTimePricingConfig)
+    console.log(this.subscriptionPricingConfig)
   }
 
   render() {
