@@ -167,8 +167,8 @@
 }
 
 .quantity-radio-group input[type="radio"]:checked + .quantity-option {
-  background: #69BBEB;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: #69BBEB !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
 @media screen and (max-width: 768px) {
