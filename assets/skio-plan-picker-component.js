@@ -777,14 +777,14 @@ export class SkioPlanPickerComponent extends LitElement {
 
       sellingPlan = this.selectedSellingPlanGroup.selling_plans.find(plan => plan.name.includes('2 month')) || this.selectedSellingPlan;
     }
-
+    
+    console.log('this is the selected selling plan')
+    console.log(this.selectedSellingPlan)
+    console.log(this.selectedSellingPlanGroup)
     // update selling plans depending on the treatment quantity
     this.selectedSellingPlan = sellingPlan;
     this.lastSellingPlanName = this.selectedSellingPlan.name;
 
-    console.log('this is the selected selling plan')
-    console.log(this.selectedSellingPlan)
-    console.log(this.selectedSellingPlanGroup)
   }
 
   render() {
