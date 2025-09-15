@@ -551,6 +551,15 @@ const skioStyles = css`
     font-weight: 500;
     padding: 10px 15px;
   }
+
+  @media (max-width: 440px) {
+    .bundle-option {
+      padding: 15px 15px;
+    }
+    .bundle_offer_title {
+      font-size: 14px;
+    }
+  }
 `;
 
 export class SkioPlanPickerComponent extends LitElement {
