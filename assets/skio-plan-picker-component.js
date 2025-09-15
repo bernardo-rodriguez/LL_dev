@@ -769,10 +769,8 @@ export class SkioPlanPickerComponent extends LitElement {
     });
 
     // Set initial treatment quantity and update config
-    // Only set if not already set by browser form restoration
-    if (!this.treatmentQuantity) {
-      this.treatmentQuantity = document.querySelector('input[name="treatment-quantity"]:checked')?.value || '6';
-    }
+    // Always read from DOM to respect browser form restoration
+    this.treatmentQuantity = document.querySelector('input[name="treatment-quantity"]:checked')?.value || '6';
     this.updatePricingConfigForTreatmentQuantity();
   }
 
