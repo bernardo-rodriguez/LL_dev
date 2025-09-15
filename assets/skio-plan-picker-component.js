@@ -670,8 +670,6 @@ export class SkioPlanPickerComponent extends LitElement {
 
     this.treatmentQuantity = '6'; // Default value
     this.selectedBundle = '1'; // Default to first bundle
-
-    console.log('this is bundle enabled', this.bundle_enabled)
   }
 
   getCookie(cname) {
@@ -771,11 +769,7 @@ export class SkioPlanPickerComponent extends LitElement {
       this.oneTimePricingConfig = upsellConfig
       this.subscriptionPricingConfig = upsellSubscriptionConfig;
 
-      console.log('this is the selling plans!')
-      console.log(this.selectedSellingPlanGroup.selling_plans)
       sellingPlan = this.selectedSellingPlanGroup.selling_plans.find(plan => plan.name.includes('3 month')) || this.selectedSellingPlan;
-      console.log('this is the new selling plan')
-      console.log(sellingPlan)
     } else {
       // Use default config for 6 treatments
       this.oneTimePricingConfig = baseConfig;
@@ -784,10 +778,7 @@ export class SkioPlanPickerComponent extends LitElement {
       sellingPlan = this.selectedSellingPlanGroup.selling_plans.find(plan => plan.name.includes('2 month')) || this.selectedSellingPlan;
     }
 
-    console.log('this is the selected selling plan')
-    console.log(this.selectedSellingPlan)
-    console.log(this.selectedSellingPlanGroup)
-    // TODO: update here
+    // update selling plans depending on the treatment quantity
     this.selectedSellingPlan = sellingPlan;
     this.lastSellingPlanName = this.selectedSellingPlan.name;
   }
@@ -1340,13 +1331,11 @@ export class SkioPlanPickerComponent extends LitElement {
   selectSellingPlan(element, group) {
     let selling_plan = group.selling_plans.find(x => x.id == element.value);
     if (selling_plan) {
-      console.log('selling plan is!')
       group.selected_selling_plan = selling_plan;
       this.selectedSellingPlanGroup = group;
       this.selectedSellingPlan = selling_plan;
       this.lastSellingPlanName = this.selectedSellingPlan.name;
     } else {  
-      console.log('selling plan is not!')
       this.log("Error: couldn't find selling plan with id " + element.value + " for variant " + this.selectedVariant.id + " from product " + this.product.id + " : " + this.product.handle);
     }
   }
