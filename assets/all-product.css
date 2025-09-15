@@ -160,7 +160,9 @@
 
 .quantity-title {
   font-size: 14px;
-  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-weight: 500;
   color: black;
 }
 
