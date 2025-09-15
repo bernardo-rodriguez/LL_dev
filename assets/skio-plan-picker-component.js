@@ -764,10 +764,6 @@ export class SkioPlanPickerComponent extends LitElement {
 
     let sellingPlan = this.selectedSellingPlan;
 
-    console.log('this is the available selling plan groups')
-
-    console.log(this.availableSellingPlanGroups)
-
     if (this.treatmentQuantity === '12') { 
       // Update config for 12 treatments
       this.oneTimePricingConfig = upsellConfig
@@ -782,15 +778,12 @@ export class SkioPlanPickerComponent extends LitElement {
       sellingPlan = this.availableSellingPlanGroups[0].selling_plans.find(plan => plan.name.includes('2 month')) || this.selectedSellingPlan;
     }
 
-    console.log('this is the selected selling plan')
-    console.log(this.selectedSellingPlan)
-    console.log(this.selectedSellingPlanGroup)
-    // update selling plans depending on the treatment quantity
-
     // if selected selling plan is null, then onetime is selected and we don't need to update the selling plan
     if (this.selectedSellingPlan) {
       this.selectedSellingPlan = sellingPlan;
     }
+
+    // update the last selling plan name. When one time is selected, selectedSellingPlan is null, so we need to keep track of the last selling plan name
     this.lastSellingPlanName = sellingPlan.name;
 
   }
@@ -1004,7 +997,7 @@ export class SkioPlanPickerComponent extends LitElement {
                                       <div class="bundle-pricing">
                                         <div>
                                           <span class = 'bundle_previous_price'>${ this.subscriptionPricingConfig['previous_price'] }</span>
-                                          <span class = 'bundle_current_price'>${
+                                          <span class = 'bundle_current_price'>$${
                                               (() => {
                                                 const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount) + parseInt(this.subscriptionPricingConfig['next_price']);
                                                 return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
