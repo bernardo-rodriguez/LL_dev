@@ -777,7 +777,7 @@ export class SkioPlanPickerComponent extends LitElement {
 
       sellingPlan = this.selectedSellingPlanGroup.selling_plans.find(plan => plan.name.includes('2 month')) || this.selectedSellingPlan;
     }
-    
+
     console.log('this is the selected selling plan')
     console.log(this.selectedSellingPlan)
     console.log(this.selectedSellingPlanGroup)
@@ -1011,7 +1011,7 @@ export class SkioPlanPickerComponent extends LitElement {
                               </div>
                         </div>
                         <div>
-                            ${ this.selectedSellingPlan.name }
+                            ${ this.lastSellingPlanName }
                         </div>
                         `
                         :
