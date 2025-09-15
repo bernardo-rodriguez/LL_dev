@@ -781,6 +781,10 @@ export class SkioPlanPickerComponent extends LitElement {
     // update selling plans depending on the treatment quantity
     this.selectedSellingPlan = sellingPlan;
     this.lastSellingPlanName = this.selectedSellingPlan.name;
+
+    console.log('this is the selected selling plan')
+    console.log(this.selectedSellingPlan)
+    console.log(this.selectedSellingPlanGroup)
   }
 
   render() {
