@@ -985,7 +985,7 @@ export class SkioPlanPickerComponent extends LitElement {
                       ${ this.product.id != window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id 
                       && this.product.id != window.ProductConfig.KIT_EMPTY_SPACE.product_id ?
                         html`
-                        <div class="skio-group-content skio-custom-content-background-color" style= "border-radius: 8px; margin-top: 10px;">
+                        <div class="skio-group-content ${this.selectedBundle === 'sub' ? 'skio-custom-content-background-color' : ''}" style= "border-radius: 8px; margin-top: 10px;">
                               <div class="bundle-option" style = "margin-bottom: 0">
                                 <div class="bundle-content">
                                   <input type="radio" name="onetime_bundle" value = "sub" ?checked=${this.selectedBundle === 'sub'}>
@@ -1328,7 +1328,8 @@ export class SkioPlanPickerComponent extends LitElement {
     if (this.selectedSellingPlan) this.lastSellingPlanName = this.selectedSellingPlan.name;
     if (group) {
       this.purchaseOption = 'subscription';
-      this.selectedBundle = 'sub'; // Add this line
+      // update the selected bundle to subscription. This ensure only one box is checked at any time
+      this.selectedBundle = 'sub';
     } else {
       this.purchaseOption = 'onetime';
       // Don't change selectedBundle here, let it be managed by selectBundle calls
