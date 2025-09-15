@@ -999,11 +999,12 @@ export class SkioPlanPickerComponent extends LitElement {
                                     </div>
                                   </div>
                                 </div>
-                                <div>
-                                    ${ this.selectedSellingPlan.name }
-                                </div>
                               </div>
-                        </div>`
+                        </div>
+                        <div>
+                            ${ this.selectedSellingPlan.name }
+                        </div>
+                        `
                         :
                         html`` } 
                     </label>
