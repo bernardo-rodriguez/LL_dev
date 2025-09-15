@@ -771,7 +771,7 @@ export class SkioPlanPickerComponent extends LitElement {
       this.oneTimePricingConfig = upsellConfig
       this.subscriptionPricingConfig = upsellSubscriptionConfig;
 
-      sellingPlan = this.selectedSellingPlanGroup.selling_plans.find(plan => plan.name === '3 months') || this.selectedSellingPlan;
+      sellingPlan = this.selectedSellingPlanGroup.selling_plans.find(plan => plan.name === '3 months');
     } else {
       // Use default config for 6 treatments
       this.oneTimePricingConfig = baseConfig;
