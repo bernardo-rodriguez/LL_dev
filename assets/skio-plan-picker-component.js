@@ -559,6 +559,9 @@ const skioStyles = css`
     .bundle_offer_title {
       font-size: 14px;
     }
+    .subscription_selling_plan_details {
+      font-size: 14px;
+    }
   }
 `;
 
