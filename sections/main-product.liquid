@@ -478,7 +478,7 @@ xhttp.send();
   }
 
   let treatment_quantity_selector = (affiliate_config[aff_referrer] ?? {}).pricing?.quantity_selector ?? false;
-  if (!treatment_quantity_selector) {
+  if (!treatment_quantity_selector && product.id != window.ProductConfig.KIT_DEFAULT.product_id) {
     $('#treatment-quantity-selector-id').hide()
   }
   // document.getElementById('main-clickable-button').addEventListener("click", upsellLogic);
