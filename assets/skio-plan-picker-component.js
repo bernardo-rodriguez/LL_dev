@@ -759,48 +759,34 @@ export class SkioPlanPickerComponent extends LitElement {
     }
 
     // Add treatment quantity change listener
-    document.addEventListener('change', (e) => { // TODO: update this to use a custom event
+    document.addEventListener('change', (e) => {
       if (e.target.name === 'treatment-quantity') {
         this.treatmentQuantity = e.target.value;
         this.updatePricingConfigForTreatmentQuantity();
-        // Don't re-render on treatment quantity change to avoid interfering with form state
-        // this.requestUpdate(); // Trigger re-render
+        this.requestUpdate(); // Trigger re-render for real-time updates
       }
     });
 
     // Set initial treatment quantity and update config
     // Always read from DOM to respect browser form restoration
-    const checkedRadio = document.querySelector('input[name="treatment-quantity"]:checked');
-    console.log('Checked radio button:', checkedRadio);
-    console.log('Checked radio value:', checkedRadio?.value);
-    
-    this.treatmentQuantity = checkedRadio?.value || '6';
-    console.log('Set treatmentQuantity to:', this.treatmentQuantity);
-    
+    this.treatmentQuantity = document.querySelector('input[name="treatment-quantity"]:checked')?.value || '6';
     this.updatePricingConfigForTreatmentQuantity();
     this.requestUpdate(); // Trigger re-render to update bundle titles and pricing
     
-    // Retry update after a delay in case pricing config variables aren't loaded yet
+    // Retry update after a delay to handle browser form restoration timing
     setTimeout(() => {
-      const checkedRadioDelayed = document.querySelector('input[name="treatment-quantity"]:checked');
-      console.log('Delayed check - checked radio:', checkedRadioDelayed);
-      console.log('Delayed check - value:', checkedRadioDelayed?.value);
-      
-      if (checkedRadioDelayed?.value !== this.treatmentQuantity) {
-        console.log('Treatment quantity changed from', this.treatmentQuantity, 'to', checkedRadioDelayed?.value);
-        this.treatmentQuantity = checkedRadioDelayed?.value || '6';
+      const checkedRadio = document.querySelector('input[name="treatment-quantity"]:checked');
+      if (checkedRadio?.value !== this.treatmentQuantity) {
+        this.treatmentQuantity = checkedRadio?.value || '6';
         this.updatePricingConfigForTreatmentQuantity();
         this.requestUpdate();
       }
-    }, 100);
+    }, 200);
   }
 
   updatePricingConfigForTreatmentQuantity() {
-    console.log('updatePricingConfigForTreatmentQuantity called with treatmentQuantity:', this.treatmentQuantity);
-    
     // Check if the pricing config variables are available
     if (typeof affiliate_one_time_price_copy === 'undefined') {
-      console.log('affiliate_one_time_price_copy not available yet, skipping update');
       return;
     }
     
@@ -810,16 +796,12 @@ export class SkioPlanPickerComponent extends LitElement {
     const subscriptionConfig = affiliate_subscription_price_copy[this.affiliate_referrer] ?? affiliate_subscription_price_copy['default'];
     const upsellSubscriptionConfig = affiliate_upsell_subscription_price_copy[this.affiliate_referrer] ?? affiliate_upsell_subscription_price_copy['default'];
 
-    console.log('baseConfig:', baseConfig);
-    console.log('upsellConfig:', upsellConfig);
-
     let sellingPlan = this.selectedSellingPlan;
 
     if (this.treatmentQuantity === '12') { 
       // Update config for 12 treatments
       this.oneTimePricingConfig = upsellConfig
       this.subscriptionPricingConfig = upsellSubscriptionConfig;
-      console.log('Updated to 12 treatment config:', this.oneTimePricingConfig);
 
       // Only update selling plan if availableSellingPlanGroups is set
       if (this.availableSellingPlanGroups && this.availableSellingPlanGroups.length > 0) {
@@ -829,7 +811,6 @@ export class SkioPlanPickerComponent extends LitElement {
       // Use default config for 6 treatments
       this.oneTimePricingConfig = baseConfig;
       this.subscriptionPricingConfig = subscriptionConfig;
-      console.log('Updated to 6 treatment config:', this.oneTimePricingConfig);
 
       // Only update selling plan if availableSellingPlanGroups is set
       if (this.availableSellingPlanGroups && this.availableSellingPlanGroups.length > 0) {
