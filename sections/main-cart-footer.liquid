@@ -156,6 +156,7 @@
 
       manual_discount = getCookie('manual_discount')
       if (manual_discount !== null && manual_discount !== '') {
+        console.log('manual_discount ::', manual_discount);
         url_params = url_params.concat(['discount=' + manual_discount]);
         document.cookie = 'manual_discount=;expires=Thu, 01 Jan 1970 00:00:01 GMT';
       }

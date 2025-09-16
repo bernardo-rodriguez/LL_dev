@@ -427,10 +427,11 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     const treatmentQuantity = document.querySelector('input[name="treatment-quantity"]:checked')?.value;
 
-    if (product_form.productId == window.ProductConfig.REFILL_DEFAULT.product_id
+    if (product_form.productId == window.ProductConfig.KIT_DEFAULT.product_id
       && treatmentQuantity == '12'
       && 'selling_plan' in product_form
     ) {
+      console.log('SUB_12_TREATMENTS')
       setCookie('manual_discount', 'SUB_12_TREATMENTS')
     } else {
       setCookie('manual_discount', '')
