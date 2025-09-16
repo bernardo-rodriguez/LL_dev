@@ -10,6 +10,7 @@ affiliate_config = {
             'one_time_enabled': true,
             'subscription_enabled': true,
             'bundle_enabled': true,
+            'quantity_selector': true,
         },
         'flow': {
             'product_page': null,
@@ -38,6 +39,7 @@ affiliate_config = {
         'pricing': {
             'one_time_enabled': true,
             'subscription_enabled': false,
+            'bundle_enabled': false,
         }
     },
     'nift': {
@@ -264,7 +266,7 @@ affiliate_config = {
     },
     'redirect_sweatcoin': {
         'pricing': {
-            'one_time_enabled': true,
+            'one_time_enabled': false,
             'subscription_enabled': true,
         },
         'general': {
@@ -299,8 +301,8 @@ affiliate_config = {
     'redirect_ut': {
         'pricing': {
             'subscription_enabled': true,
-            'one_time_enabled': true,
-            'bundle_enabled': true,
+            'one_time_enabled': false,
+            'bundle_enabled': false,
         },
         'general': {
             'announcement_bar': 'Discount auto applied at checkout!',
@@ -399,8 +401,8 @@ affiliate_config = {
     'redirect_ut_trial': {
         'pricing': {
             'subscription_enabled': true,
-            'one_time_enabled': true,
-            'bundle_enabled': true,
+            'one_time_enabled': false,
+            'bundle_enabled': false,
             'subscription_discount': '4',
         },
         'general': {
