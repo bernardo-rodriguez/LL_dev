@@ -131,9 +131,11 @@ xhttp.send();
               <span class="quantity-title">6 Treatments</span>
             </label>
             
+            
             <input type="radio" id="quantity-12" name="treatment-quantity" value="12">
             <label for="quantity-12" class="quantity-option quantity-option-2">
               <span class="quantity-title">12 Treatments</span>
+              <div class="best-value-badge">BEST VALUE - 25% OFF</div>
             </label>
           </div>
         </div>
@@ -668,6 +670,39 @@ xhttp.send();
 <style>
 .jdgm-rev-widg__summary-text {
   visibility: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .quantity-option {
+    padding: 10px 12px;
+  }
+}
+
+/* Best Value Badge */
+.best-value-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff6b35;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media screen and (max-width: 768px) {
+  .best-value-badge {
+    font-size: 9px;
+    padding: 3px 6px;
+    top: -6px;
+    right: -6px;
+  }
 }
   </style>
 
