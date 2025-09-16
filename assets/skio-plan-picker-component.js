@@ -868,7 +868,10 @@ export class SkioPlanPickerComponent extends LitElement {
                     </div>
 
                     <div class="skio-price">
-                      ${ this.bundle_enabled ? html`
+                      ${ this.bundle_enabled 
+                       && (this.product.id == window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id 
+                        || this.product.id == window.ProductConfig.KIT_EMPTY_SPACE.product_id 
+                        || this.product.id == window.ProductConfig.KIT_DEFAULT.product_id)? html`
                         —<span id = 'skio-onetime-price-set' skio-onetime-price>
                           ${this.selectedBundle === '1' ? 
                             this.oneTimePricingConfig['first']['bundle_current_price'] : 
