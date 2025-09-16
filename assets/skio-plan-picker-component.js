@@ -773,14 +773,31 @@ export class SkioPlanPickerComponent extends LitElement {
     this.treatmentQuantity = document.querySelector('input[name="treatment-quantity"]:checked')?.value || '6';
     this.updatePricingConfigForTreatmentQuantity();
     this.requestUpdate(); // Trigger re-render to update bundle titles and pricing
+    
+    // Retry update after a delay in case pricing config variables aren't loaded yet
+    setTimeout(() => {
+      this.updatePricingConfigForTreatmentQuantity();
+      this.requestUpdate();
+    }, 100);
   }
 
   updatePricingConfigForTreatmentQuantity() {
+    console.log('updatePricingConfigForTreatmentQuantity called with treatmentQuantity:', this.treatmentQuantity);
+    
+    // Check if the pricing config variables are available
+    if (typeof affiliate_one_time_price_copy === 'undefined') {
+      console.log('affiliate_one_time_price_copy not available yet, skipping update');
+      return;
+    }
+    
     const baseConfig = affiliate_one_time_price_copy[this.affiliate_referrer] ?? affiliate_one_time_price_copy['default'];
     const upsellConfig = affiliate_upsell_one_time_price_copy[this.affiliate_referrer] ?? affiliate_upsell_one_time_price_copy['default'];
 
     const subscriptionConfig = affiliate_subscription_price_copy[this.affiliate_referrer] ?? affiliate_subscription_price_copy['default'];
     const upsellSubscriptionConfig = affiliate_upsell_subscription_price_copy[this.affiliate_referrer] ?? affiliate_upsell_subscription_price_copy['default'];
+
+    console.log('baseConfig:', baseConfig);
+    console.log('upsellConfig:', upsellConfig);
 
     let sellingPlan = this.selectedSellingPlan;
 
@@ -788,6 +805,7 @@ export class SkioPlanPickerComponent extends LitElement {
       // Update config for 12 treatments
       this.oneTimePricingConfig = upsellConfig
       this.subscriptionPricingConfig = upsellSubscriptionConfig;
+      console.log('Updated to 12 treatment config:', this.oneTimePricingConfig);
 
       // Only update selling plan if availableSellingPlanGroups is set
       if (this.availableSellingPlanGroups && this.availableSellingPlanGroups.length > 0) {
@@ -797,6 +815,7 @@ export class SkioPlanPickerComponent extends LitElement {
       // Use default config for 6 treatments
       this.oneTimePricingConfig = baseConfig;
       this.subscriptionPricingConfig = subscriptionConfig;
+      console.log('Updated to 6 treatment config:', this.oneTimePricingConfig);
 
       // Only update selling plan if availableSellingPlanGroups is set
       if (this.availableSellingPlanGroups && this.availableSellingPlanGroups.length > 0) {
