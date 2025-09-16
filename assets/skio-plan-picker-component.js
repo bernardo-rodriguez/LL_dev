@@ -1039,6 +1039,7 @@ export class SkioPlanPickerComponent extends LitElement {
 
                       ${ this.product.id != window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id 
                       && this.product.id != window.ProductConfig.KIT_EMPTY_SPACE.product_id ?
+
                         (this.product.id == window.ProductConfig.REFILL_DEFAULT.product_id) ?      
                         html`<div class="skio-group-content">
                           <div class="skio-custom-content-refill skio-custom-content-background-color">
