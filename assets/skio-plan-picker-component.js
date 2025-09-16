@@ -770,14 +770,28 @@ export class SkioPlanPickerComponent extends LitElement {
 
     // Set initial treatment quantity and update config
     // Always read from DOM to respect browser form restoration
-    this.treatmentQuantity = document.querySelector('input[name="treatment-quantity"]:checked')?.value || '6';
+    const checkedRadio = document.querySelector('input[name="treatment-quantity"]:checked');
+    console.log('Checked radio button:', checkedRadio);
+    console.log('Checked radio value:', checkedRadio?.value);
+    
+    this.treatmentQuantity = checkedRadio?.value || '6';
+    console.log('Set treatmentQuantity to:', this.treatmentQuantity);
+    
     this.updatePricingConfigForTreatmentQuantity();
     this.requestUpdate(); // Trigger re-render to update bundle titles and pricing
     
     // Retry update after a delay in case pricing config variables aren't loaded yet
     setTimeout(() => {
-      this.updatePricingConfigForTreatmentQuantity();
-      this.requestUpdate();
+      const checkedRadioDelayed = document.querySelector('input[name="treatment-quantity"]:checked');
+      console.log('Delayed check - checked radio:', checkedRadioDelayed);
+      console.log('Delayed check - value:', checkedRadioDelayed?.value);
+      
+      if (checkedRadioDelayed?.value !== this.treatmentQuantity) {
+        console.log('Treatment quantity changed from', this.treatmentQuantity, 'to', checkedRadioDelayed?.value);
+        this.treatmentQuantity = checkedRadioDelayed?.value || '6';
+        this.updatePricingConfigForTreatmentQuantity();
+        this.requestUpdate();
+      }
     }, 100);
   }
 
