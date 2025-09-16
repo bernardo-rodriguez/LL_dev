@@ -772,6 +772,7 @@ export class SkioPlanPickerComponent extends LitElement {
     // Always read from DOM to respect browser form restoration
     this.treatmentQuantity = document.querySelector('input[name="treatment-quantity"]:checked')?.value || '6';
     this.updatePricingConfigForTreatmentQuantity();
+    this.requestUpdate(); // Trigger re-render to update bundle titles and pricing
   }
 
   updatePricingConfigForTreatmentQuantity() {
