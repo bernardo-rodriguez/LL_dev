@@ -425,6 +425,17 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let bundle_value = null
     let bundle_quantities = {'1':1, '2':3, '3': 5}
 
+    const treatmentQuantity = document.querySelector('input[name="treatment-quantity"]:checked')?.value;
+
+    if (product_form.productId == window.ProductConfig.REFILL_DEFAULT.product_id
+      && treatmentQuantity == '12'
+      && 'selling_plan' in product_form
+    ) {
+      setCookie('manual_discount', 'SUB_12_TREATMENTS')
+    } else {
+      setCookie('manual_discount', '')
+    }
+
     // not subscription and bundle is not explicitly disabled: use onetime bundle quantity and set bundle_discount
     if (!('selling_plan' in product_form) && 
     !(ConfigUtils.equals(affiliate_config, `${p_referrer}.flow.bundle_enabled`, false))) {
@@ -451,7 +462,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       }]
     }
 
-    const treatmentQuantity = document.querySelector('input[name="treatment-quantity"]:checked')?.value;
     if (treatmentQuantity === '6') {
       console.log('6 treatments selected');
     } else if (treatmentQuantity === '12') {

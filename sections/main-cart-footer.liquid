@@ -154,8 +154,14 @@
         }
       }
 
+      manual_discount = getCookie('manual_discount')
+      if (manual_discount !== null && manual_discount !== '') {
+        url_params = url_params.concat(['discount=' + manual_discount]);
+        document.cookie = 'manual_discount=;expires=Thu, 01 Jan 1970 00:00:01 GMT';
+      }
+
       if(productDiscountCode != "" && productDiscountCode != undefined){
-        url_params = [`discount=${productDiscountCode}`];
+        url_params = [`discount=${productDiscountCode}`]; // TODO: should I be appeding here?
         document.cookie = 'productDiscountCode=;expires=Thu, 01 Jan 1970 00:00:01 GMT';
       }
       console.log(url_params);
