@@ -427,6 +427,11 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     const treatmentQuantity = document.querySelector('input[name="treatment-quantity"]:checked')?.value;
 
+    console.log('product_form.productId ::', product_form.productId)
+    console.log('window.ProductConfig.KIT_DEFAULT.product_id ::', window.ProductConfig.KIT_DEFAULT.product_id)
+    console.log('treatmentQuantity ::', treatmentQuantity)
+    console.log('selling_plan' in product_form)
+
     if (product_form.productId == window.ProductConfig.KIT_DEFAULT.product_id
       && treatmentQuantity == '12'
       && 'selling_plan' in product_form
