@@ -789,13 +789,19 @@ export class SkioPlanPickerComponent extends LitElement {
       this.oneTimePricingConfig = upsellConfig
       this.subscriptionPricingConfig = upsellSubscriptionConfig;
 
-      sellingPlan = this.availableSellingPlanGroups[0].selling_plans.find(plan => plan.name.includes('3 month')) || this.selectedSellingPlan;
+      // Only update selling plan if availableSellingPlanGroups is set
+      if (this.availableSellingPlanGroups && this.availableSellingPlanGroups.length > 0) {
+        sellingPlan = this.availableSellingPlanGroups[0].selling_plans.find(plan => plan.name.includes('3 month')) || this.selectedSellingPlan;
+      }
     } else { 
       // Use default config for 6 treatments
       this.oneTimePricingConfig = baseConfig;
       this.subscriptionPricingConfig = subscriptionConfig;
 
-      sellingPlan = this.availableSellingPlanGroups[0].selling_plans.find(plan => plan.name.includes('2 month')) || this.selectedSellingPlan;
+      // Only update selling plan if availableSellingPlanGroups is set
+      if (this.availableSellingPlanGroups && this.availableSellingPlanGroups.length > 0) {
+        sellingPlan = this.availableSellingPlanGroups[0].selling_plans.find(plan => plan.name.includes('2 month')) || this.selectedSellingPlan;
+      }
     }
 
     // if selected selling plan is null, then onetime is selected and we don't need to update the selling plan
@@ -804,7 +810,9 @@ export class SkioPlanPickerComponent extends LitElement {
     }
 
     // update the last selling plan name. When one time is selected, selectedSellingPlan is null, so we need to keep track of the last selling plan name
-    this.lastSellingPlanName = sellingPlan.name;
+    if (sellingPlan && sellingPlan.name) {
+      this.lastSellingPlanName = sellingPlan.name;
+    }
 
   }
 
@@ -1231,6 +1239,9 @@ export class SkioPlanPickerComponent extends LitElement {
 
       //update the form that was passed, if any
       this.updateForm();
+      
+      // Update pricing config for treatment quantity now that selling plan groups are available
+      this.updatePricingConfigForTreatmentQuantity();
     }
 
     if(changed.has('selectedSellingPlan')) {
