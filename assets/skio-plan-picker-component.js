@@ -882,7 +882,10 @@ export class SkioPlanPickerComponent extends LitElement {
                   </div>
                 </div>
                 
-                ${ this.bundle_enabled ? html`
+                ${ this.bundle_enabled 
+                  && (this.product.id == window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id 
+                 || this.product.id == window.ProductConfig.KIT_EMPTY_SPACE.product_id 
+                 || this.product.id == window.ProductConfig.KIT_DEFAULT.product_id) ? html`
                 <div class="skio-group-content-2" style = ${ this.subscription_enabled ? '' : 'margin: 0' }>
                   <div class="skio-custom-content" style = 'padding-right: 0; padding-left: 0'>
                     <div class="skio-container">
