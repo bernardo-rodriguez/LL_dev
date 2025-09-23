@@ -1439,7 +1439,9 @@ export class SkioPlanPickerComponent extends LitElement {
     if (group) {
       this.purchaseOption = 'subscription';
       // update the selected bundle to subscription. This ensure only one box is checked at any time
-      this.prevSelectedBundle = this.selectedBundle;
+      if (this.selectedBundle != 'sub') {
+        this.prevSelectedBundle = this.selectedBundle;
+      }
       this.selectedBundle = 'sub';
     } else {
       this.purchaseOption = 'onetime';
@@ -1710,7 +1712,9 @@ export class SkioPlanPickerComponent extends LitElement {
   }
 
   selectBundle(bundleValue) {
-    this.prevSelectedBundle = this.selectedBundle;
+    if (this.selectedBundle != 'sub') {
+      this.prevSelectedBundle = this.selectedBundle;
+    }
     this.selectedBundle = bundleValue;
     this.requestUpdate(); // Trigger re-render
   }
