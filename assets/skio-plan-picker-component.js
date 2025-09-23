@@ -623,6 +623,7 @@ export class SkioPlanPickerComponent extends LitElement {
 
     treatmentQuantity: { type: String }, // Add this new property
     selectedBundle: { type: String },
+    prevSelectedBundle: { type: String },
   };
 
   static styles = skioStyles;
@@ -694,7 +695,8 @@ export class SkioPlanPickerComponent extends LitElement {
     this.subscriptionPricingConfig = affiliate_subscription_price_copy[this.affiliate_referrer] ?? affiliate_subscription_price_copy['default']
 
     this.treatmentQuantity = '6'; // Default value
-    this.selectedBundle = '1'; // Default to first bundle
+    this.selectedBundle = 'sub'; // Default to first bundle
+    this.prevSelectedBundle = '1'; // Default to first bundle
   }
 
   getCookie(cname) {
@@ -881,7 +883,7 @@ export class SkioPlanPickerComponent extends LitElement {
                         || this.product.id == window.ProductConfig.KIT_EMPTY_SPACE.product_id 
                         || this.product.id == window.ProductConfig.KIT_DEFAULT.product_id)? html`
                         —<span id = 'skio-onetime-price-set' skio-onetime-price>
-                          ${this.selectedBundle === '1' ? 
+                          ${this.selectedBundle === '1' || (this.prevSelectedBundle === '1' && this.selectedBundle == 'sub') ? 
                             this.oneTimePricingConfig['first']['bundle_current_price'] : 
                             this.oneTimePricingConfig['second']['bundle_current_price']
                           }
@@ -901,13 +903,13 @@ export class SkioPlanPickerComponent extends LitElement {
                   <div class="skio-custom-content" style = 'padding-right: 0; padding-left: 0'>
                     <div class="skio-container">
                       <div class="bundle-container">
-                        <div class="bundle-option ${this.selectedBundle === '1' ? 'selected' : ''}" 
+                        <div class="bundle-option ${this.selectedBundle === '1' || (this.prevSelectedBundle === '1' && this.selectedBundle == 'sub') ? 'selected' : ''}" 
                              data-bundle="1" 
                              @click=${() => this.selectBundle('1')}>
                           <div class="bundle-content">
                             <input type="radio" name="onetime_bundle" value="1" 
                                    data-custom-price="${this.oneTimePricingConfig['first']['bundle_current_price']}" 
-                                   ?checked=${this.selectedBundle === '1'}>
+                                   ?checked=${this.selectedBundle === '1' || (this.prevSelectedBundle === '1' && this.selectedBundle == 'sub')}>
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
@@ -924,13 +926,13 @@ export class SkioPlanPickerComponent extends LitElement {
                             </div>
                           </div>
                         </div>
-                        <div class="bundle-option ${this.selectedBundle === '2' ? 'selected' : ''}" 
+                        <div class="bundle-option ${this.selectedBundle === '2' || (this.prevSelectedBundle === '2' && this.selectedBundle == 'sub') ? 'selected' : ''}" 
                              data-bundle="2" 
                              @click=${() => this.selectBundle('2')}>
                           <div class="bundle-content">
                             <input type="radio" name="onetime_bundle" value="2" 
                                    data-custom-price="${this.oneTimePricingConfig['second']['bundle_current_price']}" 
-                                   ?checked=${this.selectedBundle === '2'}>
+                                   ?checked=${this.selectedBundle === '2' || (this.prevSelectedBundle === '2' && this.selectedBundle == 'sub')}>
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
@@ -1437,6 +1439,7 @@ export class SkioPlanPickerComponent extends LitElement {
     if (group) {
       this.purchaseOption = 'subscription';
       // update the selected bundle to subscription. This ensure only one box is checked at any time
+      this.prevSelectedBundle = this.selectedBundle;
       this.selectedBundle = 'sub';
     } else {
       this.purchaseOption = 'onetime';
@@ -1706,6 +1709,7 @@ export class SkioPlanPickerComponent extends LitElement {
   }
 
   selectBundle(bundleValue) {
+    this.prevSelectedBundle = this.selectedBundle;
     this.selectedBundle = bundleValue;
     this.requestUpdate(); // Trigger re-render
   }
