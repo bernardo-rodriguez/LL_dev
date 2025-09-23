@@ -481,9 +481,11 @@ xhttp.send();
 
   let treatment_quantity_selector = (affiliate_config[aff_referrer] ?? {}).pricing?.quantity_selector ?? true;
   console.log('treatment_quantity_selector', treatment_quantity_selector)
-  console.log('product.id', product.id)
+  
+  let product_id = document.querySelector('input[name="product_id"]').value;
+  console.log('product.id', product_id)
   console.log('window.ProductConfig.KIT_DEFAULT.product_id', window.ProductConfig.KIT_DEFAULT.product_id)
-  if (!treatment_quantity_selector || product.id != window.ProductConfig.KIT_DEFAULT.product_id) {
+  if (!treatment_quantity_selector || product_id != window.ProductConfig.KIT_DEFAULT.product_id) {
     console.log('hiding treatment quantity selector')
     $('#treatment-quantity-selector-id').hide()
   }
