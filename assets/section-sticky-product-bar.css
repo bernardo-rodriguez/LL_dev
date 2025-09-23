@@ -14,6 +14,7 @@
   padding: 12px 30px;
   transform: translateY(100%);
   transition: transform .4s ease;
+  display: none !important;
 }
 
 #shopify-section-sticky-product-bar.scrolled {

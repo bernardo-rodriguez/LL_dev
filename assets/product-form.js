@@ -661,6 +661,7 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
     if (!(one_time_pricing_e && sub_pricing_e)) {
       $('#shopify-section-sticky-product-bar').css('display', 'none')
     }
+    $('#shopify-section-sticky-product-bar').css('display', 'none')
   }
 
   openStickyBar() {
