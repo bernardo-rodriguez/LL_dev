@@ -903,13 +903,13 @@ export class SkioPlanPickerComponent extends LitElement {
                   <div class="skio-custom-content" style = 'padding-right: 0; padding-left: 0'>
                     <div class="skio-container">
                       <div class="bundle-container">
-                        <div class="bundle-option ${this.selectedBundle === '1' || (this.prevSelectedBundle === '1' && this.selectedBundle == 'sub') ? 'selected' : ''}" 
+                        <div class="bundle-option ${this.selectedBundle === '1' ? 'selected' : ''}" 
                              data-bundle="1" 
                              @click=${() => this.selectBundle('1')}>
                           <div class="bundle-content">
                             <input type="radio" name="onetime_bundle" value="1" 
                                    data-custom-price="${this.oneTimePricingConfig['first']['bundle_current_price']}" 
-                                   ?checked=${this.selectedBundle === '1' || (this.prevSelectedBundle === '1' && this.selectedBundle == 'sub')}>
+                                   ?checked=${this.selectedBundle === '1'}>
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
@@ -926,13 +926,13 @@ export class SkioPlanPickerComponent extends LitElement {
                             </div>
                           </div>
                         </div>
-                        <div class="bundle-option ${this.selectedBundle === '2' || (this.prevSelectedBundle === '2' && this.selectedBundle == 'sub') ? 'selected' : ''}" 
+                        <div class="bundle-option ${this.selectedBundle === '2' ? 'selected' : ''}" 
                              data-bundle="2" 
                              @click=${() => this.selectBundle('2')}>
                           <div class="bundle-content">
                             <input type="radio" name="onetime_bundle" value="2" 
                                    data-custom-price="${this.oneTimePricingConfig['second']['bundle_current_price']}" 
-                                   ?checked=${this.selectedBundle === '2' || (this.prevSelectedBundle === '2' && this.selectedBundle == 'sub')}>
+                                   ?checked=${this.selectedBundle === '2' }>
                             <div class="bundle-details">
                               <div class="bundle-header">
                                 <div>
