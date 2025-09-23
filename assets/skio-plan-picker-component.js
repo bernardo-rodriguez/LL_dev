@@ -96,6 +96,7 @@ const skioStyles = css`
   .skio-radio__container {
     display: flex;
     margin-right: auto;
+    margin-left: 5px;
   }
   
   .skio-radio {
