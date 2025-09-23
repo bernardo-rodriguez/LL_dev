@@ -1445,7 +1445,8 @@ export class SkioPlanPickerComponent extends LitElement {
       this.purchaseOption = 'onetime';
       // Don't change selectedBundle here, let it be managed by selectBundle calls
     }
-
+    console.log('prevSelectedBundle', this.prevSelectedBundle)
+    console.log('selectedBundle', this.selectedBundle)
     //update the form that was passed, if any
     this.updateForm();
   }
