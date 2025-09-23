@@ -479,7 +479,7 @@ xhttp.send();
     $('#quantity-input-id').hide()
   }
 
-  let treatment_quantity_selector = (affiliate_config[aff_referrer] ?? {}).pricing?.quantity_selector ?? false;
+  let treatment_quantity_selector = (affiliate_config[aff_referrer] ?? {}).pricing?.quantity_selector ?? true;
   if (!treatment_quantity_selector || product.id != window.ProductConfig.KIT_DEFAULT.product_id) {
     $('#treatment-quantity-selector-id').hide()
   }
