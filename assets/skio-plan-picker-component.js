@@ -142,14 +142,12 @@ const skioStyles = css`
     padding-top: 10px;
   }
   
-  /* Hide frequency if not selected 
   
   .skio-group-container:not(.skio-group-container--selected) .skio-group-content-2 {
     max-height: 0;
     opacity: 0;
     pointer-events: none;
   }
-  */
  
 
   .hide-skio-select {
