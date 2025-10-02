@@ -1444,7 +1444,10 @@ export class SkioPlanPickerComponent extends LitElement {
       this.selectedBundle = 'sub';
     } else {
       this.purchaseOption = 'onetime';
-      // Don't change selectedBundle here, let it be managed by selectBundle calls
+      // Set default bundle when switching to one-time mode
+      if (this.selectedBundle === 'sub') {
+        this.selectedBundle = this.prevSelectedBundle || '1'; // Use previous bundle or default to '1'
+      }
     }
     console.log('prevSelectedBundle', this.prevSelectedBundle)
     console.log('selectedBundle', this.selectedBundle)
