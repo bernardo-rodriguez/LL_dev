@@ -146,7 +146,7 @@ const skioStyles = css`
   .skio-group-container:not(.skio-group-container--selected) .skio-group-content-2 {
     max-height: 0;
     opacity: 0;
-    pointer-events: none;
+    // pointer-events: none;
     padding-top: 0;
   }
  
