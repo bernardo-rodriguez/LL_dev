@@ -147,6 +147,7 @@ const skioStyles = css`
     max-height: 0;
     opacity: 0;
     pointer-events: none;
+    padding-top: 0;
   }
  
 
