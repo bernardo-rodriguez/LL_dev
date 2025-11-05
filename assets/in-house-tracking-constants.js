@@ -303,7 +303,7 @@ affiliate_config = {
             'subscription_enabled': true,
             'one_time_enabled': false,
             'bundle_enabled': false,
-            'subscription_discount': '5',
+            'subscription_discount': '6',
         },
         'general': {
             'announcement_bar': 'Discount auto applied at checkout!',
