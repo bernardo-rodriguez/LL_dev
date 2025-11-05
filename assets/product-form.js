@@ -1,13 +1,3 @@
-setTimeout(() => {
-  if (document.querySelector('.page-transition').classList.contains('visible')) {
-    // document.querySelector('.page-transition').classList.toggle('visible');
-    // document.querySelector('.sticky-footer__button').classList.toggle('hide')
-    // document.querySelector('.page-transition__content').style.removeProperty('transform')
-    document.querySelector('.page-transition').classList.remove('visible');
-
-  }
-}, 900)
-
 function add_pen_cookie() {
   const strength_cookie = getCookie('strength')
   kit_formula_dict = {

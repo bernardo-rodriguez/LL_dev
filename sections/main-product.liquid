@@ -462,15 +462,28 @@ xhttp.send();
 </section>
 
 {% javascript %}
-  setTimeout(() => {
-  if (document.querySelector('.page-transition').classList.contains('visible')) {
-    // document.querySelector('.page-transition').classList.toggle('visible');
-    // document.querySelector('.sticky-footer__button').classList.toggle('hide')
-    // document.querySelector('.page-transition__content').style.removeProperty('transform')
-    document.querySelector('.page-transition').classList.remove('visible');
-
+  function removePageTransitionVisible() {
+    const pageTransition = document.querySelector('.page-transition');
+    if (pageTransition && pageTransition.classList.contains('visible')) {
+      pageTransition.classList.remove('visible');
+      return true;
+    }
+    return false;
   }
-}, 900)
+
+  // Try immediately if DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(removePageTransitionVisible, 900);
+    });
+  } else {
+    // DOM is already ready
+    setTimeout(removePageTransitionVisible, 900);
+  }
+  
+  // Fallback: try again after a longer delay in case element is added later
+  setTimeout(removePageTransitionVisible, 1500);
+  setTimeout(removePageTransitionVisible, 2000);
 
   let redirect = getCookie('url_redirect')
   if (redirect == 'pdp') {
