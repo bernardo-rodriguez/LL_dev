@@ -436,7 +436,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       setCookie('manual_discount', '')
     }
 
-    console.log('1')
     // not subscription and bundle is not explicitly disabled: use onetime bundle quantity and set bundle_discount
     if (!('selling_plan' in product_form) && 
     !(ConfigUtils.equals(affiliate_config, `${p_referrer}.flow.bundle_enabled`, false))
@@ -464,7 +463,6 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       }]
     }
 
-    console.log('2')
     if (treatmentQuantity === '6') {
       console.log('6 treatments selected');
     } else if (treatmentQuantity === '12') {
@@ -497,17 +495,13 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         })
       }
     }
-    console.log('3')
 
     if (product_form.product_id == window.ProductConfig.KIT_ONE_MONTH_SUPPLY.product_id) {
       add_pen_cookie()
       // setCookie('productDiscountCode', 'ADD_PEN')
     }
 
-    console.log('4')
     let pen = this.getCookie('add_pen')
-    console.log('something is wrong with pen here')
-    console.log('pen', pen)
     if ((pen && pen != 'false') || product_form.product_id == window.ProductConfig.KIT_ONE_MONTH_SUPPLY.product_id) {
       itemsList.push({
         id: pen,
