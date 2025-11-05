@@ -1,7 +1,9 @@
 setTimeout(() => {
-  document.querySelector('.page-transition').classList.toggle('visible');
-  document.querySelector('.sticky-footer__button').classList.toggle('hide')
-  document.querySelector('.page-transition__content').style.removeProperty('transform')
+  if (document.querySelector('.page-transition').classList.contains('visible')) {
+    document.querySelector('.page-transition').classList.toggle('visible');
+    document.querySelector('.sticky-footer__button').classList.toggle('hide')
+    document.querySelector('.page-transition__content').style.removeProperty('transform')
+  }
 }, 900)
 
 
