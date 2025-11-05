@@ -1,3 +1,5 @@
+document.querySelector('.page-transition__content').style.removeProperty('transform')
+
 function add_pen_cookie() {
   const strength_cookie = getCookie('strength')
   kit_formula_dict = {
