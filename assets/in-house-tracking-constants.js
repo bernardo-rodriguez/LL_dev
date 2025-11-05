@@ -594,7 +594,7 @@ affiliate_upsell_subscription_price_copy = {
     'default': base_upsell_subscription_price_copy,
     'redirect_ut': {
         'subscription_product_title': 'Whitening Kit (12 Treatments)',
-        'next_price': '8',
+        'next_price': '6',
         'price_per_treatment': '$1.32/Treatment',
         'previous_price': '89'
     }
