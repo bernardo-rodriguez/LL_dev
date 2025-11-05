@@ -416,7 +416,7 @@ affiliate_config = {
             'product_page': '/products/at-home-whitening-kit-affiliate-ut',
             'cart_attribute': 'cactus_media',
             'show_upsell': true,
-            'discount_code': 'UTM_GEN_TRIAL,Pen-Addon,UTM_SUB_12_TREATMENTS'
+            'discount_code': 'UTM_GEN_TRIAL,Pen-Addon,UTM_SUB_12_TREATMENTS,UTM_SUB_12_TREATMENTS_STRONG'
         },
         'landing_page_copy': {
             'hero_subtitle_1': ['margin-bottom', '50px !important'],
@@ -597,6 +597,6 @@ affiliate_upsell_subscription_price_copy = {
         'next_price': '6',
         'price_per_treatment': '$1.32/Treatment',
         'previous_price': '89'
-        
+
     }
 }
