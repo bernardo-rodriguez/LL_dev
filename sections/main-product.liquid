@@ -471,6 +471,19 @@ xhttp.send();
     return false;
   }
 
+  // Handle pages restored from cache (back/forward navigation)
+  window.addEventListener('pageshow', function(event) {
+    // event.persisted is true when page is restored from bfcache
+    if (event.persisted) {
+      // Remove visible class immediately when restored from cache
+      removePageTransitionVisible();
+      // Also try after delays as fallback
+      setTimeout(removePageTransitionVisible, 100);
+      setTimeout(removePageTransitionVisible, 500);
+      setTimeout(removePageTransitionVisible, 900);
+    }
+  });
+
   // Try immediately if DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
