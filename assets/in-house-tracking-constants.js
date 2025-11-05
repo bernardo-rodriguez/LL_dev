@@ -315,7 +315,7 @@ affiliate_config = {
             'product_page': '/products/at-home-whitening-kit-affiliate-ut',
             'discount_code': 'Pen-Addon',
             'cart_attribute': 'cactus_media',
-            'show_upsell': false,
+            'show_upsell': true,
             'discount_code': 'UTM_GEN_TRIAL, ADD_PEN'
         },
         'landing_page_copy': {
