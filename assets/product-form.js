@@ -1,4 +1,9 @@
-document.querySelector('.page-transition__content').style.removeProperty('transform')
+setTimeout(() => {
+  document.querySelector('.page-transition').classList.toggle('visible');
+  document.querySelector('.sticky-footer__button').classList.toggle('hide')
+  document.querySelector('.page-transition__content').style.removeProperty('transform')
+}, 900)
+
 
 function add_pen_cookie() {
   const strength_cookie = getCookie('strength')
