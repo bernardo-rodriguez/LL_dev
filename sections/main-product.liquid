@@ -481,6 +481,10 @@ xhttp.send();
       setTimeout(removePageTransitionVisible, 100);
       setTimeout(removePageTransitionVisible, 500);
       setTimeout(removePageTransitionVisible, 900);
+
+      const xhttp = new XMLHttpRequest();
+      xhttp.open("POST", "/cart/clear.js", true);
+      xhttp.send();
     }
   });
 
