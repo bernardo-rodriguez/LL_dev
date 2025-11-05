@@ -508,7 +508,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     let pen = this.getCookie('add_pen')
     console.log('something is wrong with pen here')
     console.log('pen', pen)
-    if ((pen) || product_form.product_id == window.ProductConfig.KIT_ONE_MONTH_SUPPLY.product_id) {
+    if ((pen && pen != 'false') || product_form.product_id == window.ProductConfig.KIT_ONE_MONTH_SUPPLY.product_id) {
       itemsList.push({
         id: pen,
         quantity: 1
