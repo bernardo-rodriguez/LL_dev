@@ -597,5 +597,6 @@ affiliate_upsell_subscription_price_copy = {
         'next_price': '6',
         'price_per_treatment': '$1.32/Treatment',
         'previous_price': '89'
+        
     }
 }
