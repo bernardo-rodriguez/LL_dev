@@ -483,9 +483,7 @@ xhttp.send();
   console.log('treatment_quantity_selector', treatment_quantity_selector)
   
   let product_id = document.querySelector('input[name="product_id"]').value;
-  if (!treatment_quantity_selector || ((product_id != window.ProductConfig.KIT_DEFAULT.product_id) && (product_id != window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id))) {
-    console.log('treatment_quantity_selector', treatment_quantity_selector)
-    console.log('lets hide the treatment quantity selector')
+  if (!treatment_quantity_selector || ((product_id != window.ProductConfig.KIT_DEFAULT.product_id) && (product_id != window.ProductConfig.KIT_EMPTY_SPACE.product_id))) {
     $('#treatment-quantity-selector-id').hide()
   }
   // document.getElementById('main-clickable-button').addEventListener("click", upsellLogic);
