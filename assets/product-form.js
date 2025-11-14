@@ -496,17 +496,12 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       }
     }
 
-    console.log('thingy')
-    console.log(product_form.product_id)
-    console.log(window.ProductConfig.KIT_EMPTY_SPACE)
     if (product_form.product_id == window.ProductConfig.KIT_ONE_MONTH_SUPPLY.product_id || product_form.product_id == window.ProductConfig.KIT_EMPTY_SPACE.product_id) {
-      console.log('adding pen cookie')
       add_pen_cookie()
       // setCookie('productDiscountCode', 'ADD_PEN')
     }
 
     let pen = this.getCookie('add_pen')
-    console.log(pen)
     if ((pen && pen != 'false') || (product_form.product_id == window.ProductConfig.KIT_ONE_MONTH_SUPPLY.product_id || product_form.product_id == window.ProductConfig.KIT_EMPTY_SPACE.product_id)) {
       itemsList.push({
         id: pen,
