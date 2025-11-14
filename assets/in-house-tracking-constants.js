@@ -344,6 +344,7 @@ affiliate_config = {
         },
         'general': {
             'announcement_bar': 'Discount auto applied at checkout!',
+            
         },
         'flow': {
             'product_page': '/products/at-home-whitening-kit-affiliate-ut',
