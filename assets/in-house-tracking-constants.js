@@ -338,7 +338,8 @@ affiliate_config = {
     'redirect_ut': {
         'pricing': {
             'one_time_enabled': false,
-            'subscription_enabled': true
+            'subscription_enabled': true,
+            'subscription_discount': '4',
             // 'subscription': '4.95'
         },
         'general': {
