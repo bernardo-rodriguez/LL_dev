@@ -339,7 +339,7 @@ affiliate_config = {
         'pricing': {
             'one_time_enabled': false,
             'subscription_enabled': true,
-            'subscription_discount': '4',
+            // 'subscription_discount': '4',
             // 'subscription': '4.95'
         },
         'general': {
