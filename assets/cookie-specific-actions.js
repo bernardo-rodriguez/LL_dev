@@ -46,6 +46,7 @@ function cookie_actions() {
     console.log('here are cookie actions')
     let a_referrer = getCookie('affiliate_referrer')
 
+    console.log(a_referrer)
     if (a_referrer in affiliate_config && 'general' in affiliate_config[a_referrer]) {
       let general_actions = affiliate_config[a_referrer]['general']
 
