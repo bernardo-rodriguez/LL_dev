@@ -2,7 +2,7 @@
 affiliate_config = {
     'default': {
         'general': {
-            'announcement_bar': 'Start Whitening Today for just $29!',
+            'announcement_bar': 'Black Friday automatic site-wide 20% off!',
         },
         'pricing': {
             'onetime': '59',
