@@ -43,20 +43,14 @@ function showAnnouncementBar(bar_text) {
 
 
 function cookie_actions() {
-    console.log('here are cookie actions')
     let a_referrer = getCookie('affiliate_referrer')
-
-    console.log(a_referrer)
-    console.log('aight')
     if (a_referrer in affiliate_config && 'general' in affiliate_config[a_referrer]) {
       let general_actions = affiliate_config[a_referrer]['general']
-
-      console.log(general_actions)
-      console.log('that was general action')
       if ('announcement_bar' in general_actions && general_actions['announcement_bar']) {
-        console.log('show announcement_bar')
         showAnnouncementBar(general_actions['announcement_bar'])
       }
+    } {
+      showAnnouncementBar(affiliate_config['default']['general']['announcement_bar'])
     }
 
     if (a_referrer in affiliate_config && 'flow' in affiliate_config[a_referrer]) {
