@@ -43,6 +43,7 @@ function showAnnouncementBar(bar_text) {
 
 
 function cookie_actions() {
+    console.log('here are cookie actions')
     let a_referrer = getCookie('affiliate_referrer')
 
     if (a_referrer in affiliate_config && 'general' in affiliate_config[a_referrer]) {
