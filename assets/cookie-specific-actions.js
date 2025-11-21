@@ -49,6 +49,8 @@ function cookie_actions() {
     if (a_referrer in affiliate_config && 'general' in affiliate_config[a_referrer]) {
       let general_actions = affiliate_config[a_referrer]['general']
 
+      console.log(general_actions)
+      console.log('that was general action')
       if ('announcement_bar' in general_actions && general_actions['announcement_bar']) {
         console.log('show announcement_bar')
         showAnnouncementBar(general_actions['announcement_bar'])
