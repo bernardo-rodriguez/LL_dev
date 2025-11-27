@@ -49,7 +49,7 @@ function cookie_actions() {
       if ('announcement_bar' in general_actions && general_actions['announcement_bar']) {
         showAnnouncementBar(general_actions['announcement_bar'])
       }
-    } {
+    } else if ('announcement_bar' in affiliate_config['default']['general']) {
       showAnnouncementBar(affiliate_config['default']['general']['announcement_bar'])
     }
 

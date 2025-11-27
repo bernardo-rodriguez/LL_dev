@@ -2,7 +2,7 @@
 affiliate_config = {
     'default': {
         'general': {
-            'announcement_bar': 'Black Friday - Enjoy 20% OFF Sitewide!',
+            // 'announcement_bar': 'Black Friday - Enjoy 20% OFF Sitewide!',
         },
         'pricing': {
             'onetime': '59',
