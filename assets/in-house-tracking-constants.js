@@ -19,7 +19,7 @@ affiliate_config = {
             'cart_attribute': null,
         },
         'product_page_copy': {
-            'bundle_offer_title': 'Subscribe & Save 50%',
+            'bundle_offer_title': 'Buy Now',
         },
         'landing_page_copy': {
             'hero_subtitle_1': null,
@@ -595,7 +595,6 @@ affiliate_subscription_price_copy = {
 affiliate_upsell_subscription_price_copy = {
     'default': base_upsell_subscription_price_copy,
     'redirect_ut': {
-        
         'subscription_product_title': 'Whitening Kit (12 Treatments)',
         'next_price': '6.5',
         'price_per_treatment': '$1.32/Treatment',
