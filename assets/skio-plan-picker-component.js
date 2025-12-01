@@ -1007,9 +1007,9 @@ export class SkioPlanPickerComponent extends LitElement {
                             <span style="font-weight: 700;"> 
                             $${
                               (() => {
-                                const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount) + parseInt(this.subscriptionPricingConfig['next_price']);
+                                                const price = (this.price(group.selected_selling_plan, false) / 100) - parseFloat(this.subscription_discount) + parseFloat(this.subscriptionPricingConfig['next_price']);
                                 return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
-                                
+
                               })()
                             }
                             </span>
@@ -1083,7 +1083,7 @@ export class SkioPlanPickerComponent extends LitElement {
                                           <span class = 'bundle_previous_price'>${ this.subscriptionPricingConfig['previous_price'] }</span>
                                           <span class = 'bundle_current_price'>$${
                                               (() => {
-                                                const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount) + parseInt(this.subscriptionPricingConfig['next_price']);
+                                                const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount) + parseFloat(this.subscriptionPricingConfig['next_price']);
                                                 return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
                                               })()
                                             }
