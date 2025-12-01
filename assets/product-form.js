@@ -27,6 +27,8 @@ function add_pen_cookie() {
   setCookie('add_pen', formula_id)
 }
 
+setCookie('add_pen', 'false')
+
 customElements.define('product-form', class ProductForm extends HTMLElement {
   constructor() {
     super();   
