@@ -350,7 +350,7 @@ affiliate_config = {
             'product_page': '/products/at-home-whitening-kit-affiliate-ut',
             'cart_attribute': 'cactus_media',
             'show_upsell': false,
-            //'discount_code': 'pen-addon,UTM_SUB_12_TREATMENTS_,UTM_SUB_12_TREATMENTS_STRONG_'
+            'discount_code': 'pen-addon,UTM_SUB_12_TREATMENTS_,UTM_SUB_12_TREATMENTS_STRONG_'
         },
         'landing_page_copy': {
             'hero_subtitle_1': ['margin-bottom', '50px !important'],
