@@ -1009,6 +1009,7 @@ export class SkioPlanPickerComponent extends LitElement {
                               (() => {
                                 const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount) + parseInt(this.subscriptionPricingConfig['next_price']);
                                 return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
+                                
                               })()
                             }
                             </span>
