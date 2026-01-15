@@ -1,9 +1,9 @@
 //Get a customized whitening solution for just {<sup>$</sup>19} today.
 affiliate_config = {
     'default': {
-        'general': {
-            'announcement_bar': 'HOLIDAY SALE LIVE - 20% OFF ALL PRODUCTS',
-        },
+        // 'general': {
+        //     'announcement_bar': 'HOLIDAY SALE LIVE - 20% OFF ALL PRODUCTS',
+        // },
         'pricing': {
             'onetime': '59',
             'subscription': '29',
