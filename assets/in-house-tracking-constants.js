@@ -357,15 +357,15 @@ affiliate_config = {
             // 'hero_title': 'Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>',
             // 'hero_title': 'Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit',
             // 'Hero_Subtitle': "See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.",
-            // 'hero_price': '8.99',
-            'hero_price': '2.95',
+            'hero_price': '8.99',
+            // 'hero_price': '2.95',
         },
         'featured_product': {
-            'subPrice': '2.95',
-            // 'subPrice': '8.99',
+            // 'subPrice': '2.95',
+            'subPrice': '8.99',
             // 'discount_name': 'FREE_TRIAL_SPECIAL',
             'discount_name': 'STARTER_SPECIAL',
-            'discount_desc': '90% OFF',
+            'discount_desc': '85% OFF',
             'regular_item_price': '$59'
         }
     },
