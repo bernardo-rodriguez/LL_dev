@@ -76,6 +76,9 @@ const skioStyles = css`
     border-color: #000;
     background: #ADD8E6 !important;
   }
+  .skio-plan-picker__purchase-row .skio-group-container--selected {
+    border-bottom: none;
+  }
   
   .skio-group-input {
     position: absolute;
@@ -263,8 +266,9 @@ const skioStyles = css`
   }
   
   .skio-first-order-includes {
-    margin-top: 12px;
+    margin-top: -12px;
     border: 1px solid #000;
+    border-top: none;
     border-radius: 0;
     padding: 12px;
     background: #fff;
