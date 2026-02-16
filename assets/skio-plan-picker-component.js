@@ -375,6 +375,54 @@ const skioStyles = css`
     line-height: 1.5;
   }
 
+  @media (max-width: 768px) {
+    .skio-first-order-includes {
+      padding: 10px 12px;
+    }
+    .skio-first-order-includes__title {
+      margin-bottom: 10px;
+    }
+    .skio-first-order-item {
+      gap: 8px;
+      padding: 8px 0;
+    }
+    .skio-first-order-item__image {
+      width: 40px;
+      height: 40px;
+    }
+    .skio-first-order-item__content {
+      min-width: 0;
+    }
+    .skio-first-order-item__title {
+      font-size: 12px;
+      margin-bottom: 2px;
+    }
+    .skio-first-order-item__bullets {
+      font-size: 11px;
+      line-height: 1.3;
+    }
+    .skio-first-order-item__price {
+      min-width: 60px;
+      font-size: 12px;
+    }
+    .skio-first-order-item--shipping {
+      padding: 4px 0;
+    }
+    .skio-total-row {
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+    .skio-total-row__price {
+      min-width: 60px;
+    }
+    .skio-total-row__label {
+      font-size: 16px;
+    }
+    .skio-total-row__price .price--current {
+      font-size: 16px;
+    }
+  }
+
   .skio-container {
     display: flex;
     justify-content: space-between;
