@@ -120,23 +120,49 @@
 
 /* PDP Product Options - aligned kit and purchase pickers */
 .pdp-product-options {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: auto auto;
   gap: 12px;
   margin-top: 30px;
   margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.pdp-product-options__row {
+/* Row 1: Kit options - labels are direct grid children via display:contents */
+.treatment-quantity-selector {
+  grid-column: 1 / -1;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 12px;
 }
 
-/* Form row: single child must span both columns so skio gets full width */
-.pdp-product-options__form-row > div {
+/* Row 2: Form/skio - spans full width, skio renders its 2-col grid inside */
+.pdp-product-options__form-row {
   grid-column: 1 / -1;
+  display: block;
+  width: 100%;
   min-width: 0;
+}
+
+.pdp-product-options__form-row > div {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Ensure form and product-form don't constrain width */
+.pdp-product-options__form-row > div,
+.pdp-product-options__form-row product-form,
+.pdp-product-options__form-row product-form .form {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+.pdp-product-options__form-row product-form .form {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 

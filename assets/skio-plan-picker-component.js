@@ -27,12 +27,25 @@ import { unsafeHTML } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.m
 
 
 const skioStyles = css`
+  :host {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+  fieldset.skio-plan-picker {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
   .skio-plan-picker {
     display: flex;
     flex-direction: column;
     gap: 12px;
     padding: 0;
     border: 0;
+    margin: 0;
+    width: 100%;
+    min-width: 0;
   }
   .skio-plan-picker__purchase-row {
     display: grid;
