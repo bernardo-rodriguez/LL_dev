@@ -156,6 +156,35 @@
   align-items: center;
 }
 
+/* PDP Buy Now button - new design */
+#main-clickable-button {
+  width: 100%;
+  max-width: 100%;
+  background: #69BBEB !important;
+  color: #000 !important;
+  border: 1px solid #000 !important;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 16px 24px;
+  transition: all 0.2s ease;
+}
+
+#main-clickable-button:hover:not(:disabled) {
+  background: #5aa8d9 !important;
+  border-color: #000 !important;
+  color: #000 !important;
+}
+
+@media screen and (min-width: 769px) {
+  #main-clickable-button {
+    font-size: 20px;
+    padding: 18px 32px;
+  }
+}
+
 .dropdown-quantity_selector {
   border-radius: 20px;
   background-color: #faf5f1;

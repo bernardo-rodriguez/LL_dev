@@ -118,14 +118,111 @@
   border-radius: 50%;
 }
 
-/* Treatment Quantity Selector */
+/* Treatment Quantity Selector - New PDP Kit UI */
 .treatment-quantity-selector {
   margin-top: 30px;
   margin-bottom: 20px;
-
 }
 
-.quantity-radio-group {
+.pdp-kit-selector.quantity-radio-group {
+  display: flex;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.pdp-kit-selector .quantity-option {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  background: #ffffff;
+  border: 1px solid #000;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.pdp-kit-option .pdp-kit-image {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.pdp-kit-option .pdp-kit-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pdp-kit-option .quantity-title {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #000;
+  display: block;
+  line-height: 1.2;
+}
+
+.pdp-kit-option .quantity-subtitle {
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #000;
+  display: block;
+  margin-top: 2px;
+}
+
+.pdp-kit-badge {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  background: #000;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 15%);
+}
+
+.pdp-kit-selector .quantity-option-1 {
+  border-radius: 8px;
+}
+
+.pdp-kit-selector .quantity-option-2 {
+  border-radius: 8px;
+  position: relative;
+}
+
+.quantity-radio-group input[type="radio"] {
+  display: none;
+}
+
+.quantity-radio-group input[type="radio"]:checked + .pdp-kit-option {
+  background: #69BBEB !important;
+  border-color: #000 !important;
+  box-shadow: none !important;
+}
+
+.quantity-radio-group input[type="radio"]:not(:checked) + .pdp-kit-option {
+  background: #ffffff !important;
+  box-shadow: none !important;
+}
+
+/* Legacy quantity-option styles for non-PDP contexts */
+.quantity-radio-group:not(.pdp-kit-selector) {
   display: flex;
   background: #ffffff;
   border-radius: 12px;
@@ -134,11 +231,7 @@
   transition: all 0.3s ease;
 }
 
-.quantity-radio-group input[type="radio"] {
-  display: none;
-}
-
-.quantity-option {
+.quantity-radio-group:not(.pdp-kit-selector) .quantity-option {
   flex: 1;
   text-align: center;
   padding: 12px 16px;
@@ -152,15 +245,15 @@
   gap: 4px;
 }
 
-.quantity-option-1 {
+.quantity-option-1:not(.pdp-kit-option) {
   border-radius: 12px 0 0 12px;
 }
 
-.quantity-option-2 {
+.quantity-option-2:not(.pdp-kit-option) {
   border-radius: 0 12px 12px 0;
 }
 
-.quantity-title {
+.quantity-option .quantity-title:not(.pdp-kit-option .quantity-title) {
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -168,19 +261,40 @@
   color: black;
 }
 
-.quantity-radio-group input[type="radio"]:checked + .quantity-option {
+.quantity-radio-group:not(.pdp-kit-selector) input[type="radio"]:checked + .quantity-option {
   background: #69BBEB !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Ensure unchecked options don't have the selected styling */
-.quantity-radio-group input[type="radio"]:not(:checked) + .quantity-option {
-  background: transparent !important;
-  box-shadow: none !important;
+.best-value-badge {
+  display: none;
+}
+
+@media screen and (min-width: 769px) {
+  .pdp-kit-selector .quantity-option {
+    padding: 20px 24px;
+  }
+  .pdp-kit-option .pdp-kit-image {
+    width: 80px;
+    height: 80px;
+  }
+  .pdp-kit-option .quantity-title {
+    font-size: 18px;
+  }
+  .pdp-kit-option .quantity-subtitle {
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .quantity-option {
-    padding: 10px 12px;
+  .pdp-kit-option {
+    padding: 12px !important;
+  }
+  .pdp-kit-option .pdp-kit-image {
+    width: 50px;
+    height: 50px;
+  }
+  .pdp-kit-option .quantity-title {
+    font-size: 14px;
   }
 }

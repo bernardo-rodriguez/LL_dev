@@ -30,9 +30,14 @@ const skioStyles = css`
   .skio-plan-picker {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     padding: 0;
     border: 0;
+  }
+  .skio-plan-picker__purchase-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
   }
   .skio-onetime-second {
     order: 2;
@@ -44,16 +49,16 @@ const skioStyles = css`
   .skio-group-container--available {
     display: block;
     position: relative;
-    //box-shadow: 0 0 5px rgba(23, 24, 24, 0.05), 0 1px 2px rgba(0, 0, 0, 0.07);
-    border-radius: 30px;
-    border-width: 1px;
-    //border-color: transparent;
-    border-style: solid; 
-    transition: border-color 0.2s ease;
-    border-color: #000;
+    flex: 1;
+    min-width: 140px;
+    border-radius: 8px;
+    border: 1px solid #000;
+    transition: all 0.2s ease;
+    background: #fff;
   }
   .skio-group-container--selected {
     border-color: #000;
+    background: #69BBEB !important;
   }
   
   .skio-group-input {
@@ -72,8 +77,9 @@ const skioStyles = css`
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    padding: 15px;
+    padding: 16px;
     overflow: hidden;
+    border-radius: 8px;
   }
   
   .skio-group-topline {
@@ -159,7 +165,24 @@ const skioStyles = css`
   
   .skio-group-title {
     min-width: max-content;
-    font-weight: 500;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  
+  .skio-save-ribbon {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    background: #000;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 15%);
   }
   
   .skio-save {
@@ -167,6 +190,107 @@ const skioStyles = css`
     border: 1px #0fa573 solid; 
     padding: 0px 8px;
     border-radius: 20px;
+  }
+  
+  .skio-first-order-includes {
+    margin-top: 12px;
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 16px;
+    background: #fff;
+  }
+  .skio-first-order-includes__title {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+    color: #000;
+  }
+  .skio-first-order-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+  .skio-first-order-item:last-of-type {
+    border-bottom: none;
+  }
+  .skio-first-order-item__image {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #f5f5f5;
+  }
+  .skio-first-order-item__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .skio-first-order-item__content {
+    flex: 1;
+    min-width: 0;
+  }
+  .skio-first-order-item__title {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: #000;
+    margin-bottom: 4px;
+  }
+  .skio-first-order-item__bullets {
+    font-size: 12px;
+    color: #333;
+    line-height: 1.4;
+    margin: 0;
+  }
+  .skio-first-order-item__price {
+    text-align: right;
+    flex-shrink: 0;
+    font-size: 14px;
+  }
+  .skio-first-order-item__price .price--strike {
+    text-decoration: line-through;
+    color: #666;
+    margin-right: 4px;
+  }
+  .skio-first-order-item__price .price--current {
+    font-weight: 700;
+    color: #000;
+  }
+  .skio-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    margin-top: 16px;
+    border-top: 1px solid #000;
+  }
+  .skio-total-row__label {
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+  }
+  .skio-total-row__price .price--strike {
+    text-decoration: line-through;
+    color: #666;
+    margin-right: 8px;
+  }
+  .skio-total-row__price .price--current {
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+  }
+  .skio-subscription-footer {
+    font-size: 12px;
+    color: #000;
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.5;
   }
 
   .skio-container {
@@ -848,6 +972,7 @@ export class SkioPlanPickerComponent extends LitElement {
         <input ${ this.formId !== null ? html`form="${ this.formId }"` : '' } name="properties[Discount]" type="hidden" value="${ this.subscription_enabled && this.selectedSellingPlan !== null ? this.discount(this.selectedSellingPlan).percent : '' }" 
           ?disabled="${ !this.subscription_enabled || this.selectedSellingPlan == null ? true : false }" />
         
+        <div class="skio-plan-picker__purchase-row">
          ${ this.one_time_enabled ? 
           html`
             <div class="skio-group-container 
@@ -865,30 +990,29 @@ export class SkioPlanPickerComponent extends LitElement {
 
               <label skio-label-onetime class="skio-group-label" for="skio-one-time-${ this.key }" style = ${ this.subscription_enabled ? '' : 'padding: 0' }>
                 <div class="skio-group-topline" style = ${ this.subscription_enabled ? '' : 'display: none' }>
-                  <div class="skio-radio__container" style = ${ this.subscription_enabled && this.one_time_enabled ? '' : 'display: none'} >
+                  <div class="skio-radio__container" style="display: none;">
                     <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1"></circle>
                       <circle class="skio-radio" cx="12" cy="12" r="11" fill="currentColor"></circle>
                     </svg>
                   </div>
-                  <div class="skio-center-wrapper">
+                  <div class="skio-center-wrapper" style="justify-content: space-between; width: 100%;">
                     <div class="skio-group-title">
-                      One-Time
+                      ONE-TIME
                     </div>
-
-                    <div class="skio-price">
+                    <div class="skio-price" style="font-weight: 700;">
                       ${ this.bundle_enabled 
                        && (this.product.id == window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id 
                         || this.product.id == window.ProductConfig.KIT_EMPTY_SPACE.product_id 
                         || this.product.id == window.ProductConfig.KIT_DEFAULT.product_id)? html`
-                        —<span id = 'skio-onetime-price-set' skio-onetime-price>
+                        <span id = 'skio-onetime-price-set' skio-onetime-price>
                           ${this.selectedBundle === '1' || (this.prevSelectedBundle === '1' && this.selectedBundle == 'sub') ? 
                             this.oneTimePricingConfig['first']['bundle_current_price'] : 
                             this.oneTimePricingConfig['second']['bundle_current_price']
                           }
                         </span>
                         ` :  html`
-                        —<span id = 'skio-onetime-price-set' skio-onetime-price>$${ (this.selectedVariant.price / 100).toFixed(0) }</span>
+                        <span id = 'skio-onetime-price-set' skio-onetime-price>$${ (this.selectedVariant.price / 100).toFixed(0) }</span>
                         ` }
                     </div>
                   </div>
@@ -986,49 +1110,41 @@ export class SkioPlanPickerComponent extends LitElement {
                 html`
                   <div class="skio-group-container skio-group-container--available ${ this.subscription_enabled && this.selectedSellingPlanGroup == group ? 'skio-group-container--selected' : '' }" skio-group-container
                     @click=${() => this.selectSellingPlanGroup(group) }>
+                    ${ this.discount(group.selected_selling_plan).percent !== '0%' && this.product.id != window.ProductConfig.REFILL_DEFAULT.product_id ? 
+                      html`<span class="skio-save-ribbon">SAVE ${ this.discount(group.selected_selling_plan).percent }</span>` : '' }
                     <input id="skio-selling-plan-group-${ index }-${ this.key }" class="skio-group-input" name="skio-group-${ this.key }"
                       type="radio" value="${ group.id }" skio-selling-plan-group="${ group.id }" ?checked=${ 
                       this.subscription_enabled && this.selectedSellingPlanGroup == group ? true : false } >
                     <label skio-label-subscription class="skio-group-label" for="skio-selling-plan-group-${ index }-${ this.key }">
                       <div class="skio-group-topline">
-                        <div class="skio-radio__container" style = ${ this.subscription_enabled && this.one_time_enabled ? '' : 'display: none'}>
+                        <div class="skio-radio__container" style="display: none;">
                           <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1"></circle>
                             <circle class="skio-radio" cx="12" cy="12" r="11" fill="currentColor"></circle>
                           </svg>
                         </div>
-                        <div class="skio-center-wrapper">
+                        <div class="skio-center-wrapper" style="justify-content: space-between; width: 100%; flex-wrap: wrap; gap: 4px;">
                           <div class="skio-group-title" id = 'skio-group-title-sub'>
                             ${ (this.product.id == window.ProductConfig.REFILL_DEFAULT.product_id) ? 
                               'Refill Kit' 
                             : 
-                              this.product_page_copy['bundle_offer_title']}
-                             &mdash;
-                            <span style="font-weight: 700;"> 
-                            $${
+                              'SUBSCRIBE & SAVE'}
+                          </div>
+                          <div class="skio-price" style="display: flex; align-items: center; gap: 8px;">
+                            ${ this.subscriptionPricingConfig['previous_price'] ? 
+                              html`<span style="text-decoration: line-through; color: #666; font-weight: 400;">${ this.subscriptionPricingConfig['previous_price'] }</span>` : '' }
+                            <span skio-subscription-price style="font-weight: 700;"> 
+                            ${
                               (() => {
-                                const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount) + parseFloat(this.subscriptionPricingConfig['next_price']);
+                                const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount || 0) + parseFloat(this.subscriptionPricingConfig['next_price'] || 0);
                                 return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
-
                               })()
                             }
                             </span>
-
-                            ${ this.discount(group.selected_selling_plan).percent !== '0%' ? 
-                            html` 
-                              <span style="display: none;" class="skio-save">Save <span skio-discount>
-                              ${ this.discountFormat == 'percent' ?
-                                this.discount(group.selected_selling_plan).percent 
-                                : 
-                                this.discount(group.selected_selling_plan).amount }</span></span>
-                              ` 
-                            : 
-                              html`` 
-                            }
                           </div>
                         </div>
                       </div>
-                      <div class="skio-center-wrapper">
+                      <div class="skio-center-wrapper" style="${ (this.product.id == window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id || this.product.id == window.ProductConfig.KIT_EMPTY_SPACE.product_id || this.product.id == window.ProductConfig.KIT_DEFAULT.product_id) ? 'display: none;' : '' }">
                       <span class = 'skio-price-shipping'> ${ (() => {
                         // if (this.product.id == 7503162605793 && this.discount(group.selected_selling_plan).percent !== '0%') {
                         //   return `(Save ${ this.discount(group.selected_selling_plan).percent })`;
@@ -1041,7 +1157,8 @@ export class SkioPlanPickerComponent extends LitElement {
                       </div>
 
                       ${ this.product.id != window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id 
-                      && this.product.id != window.ProductConfig.KIT_EMPTY_SPACE.product_id ?
+                      && this.product.id != window.ProductConfig.KIT_EMPTY_SPACE.product_id 
+                      && this.product.id != window.ProductConfig.KIT_DEFAULT.product_id ?
 
                         (this.product.id == window.ProductConfig.REFILL_DEFAULT.product_id) ?      
                         html`<div class="skio-group-content">
@@ -1131,7 +1248,78 @@ export class SkioPlanPickerComponent extends LitElement {
               ): ''}
               </div>`
         : ''}
+        </div>
 
+        ${ this.selectedSellingPlanGroup != null && this.subscription_enabled && 
+           (this.product.id == window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id || 
+            this.product.id == window.ProductConfig.KIT_EMPTY_SPACE.product_id || 
+            this.product.id == window.ProductConfig.KIT_DEFAULT.product_id) ? html`
+        <div class="skio-first-order-includes">
+          <div class="skio-first-order-includes__title">FIRST ORDER INCLUDES</div>
+          <div class="skio-first-order-item">
+            <div class="skio-first-order-item__image">
+              ${ (this.product?.featured_image?.src || this.product?.featured_image?.url || this.product?.images?.[0]?.src) ? html`<img src="${ this.product.featured_image?.src || this.product.featured_image?.url || this.product.images[0]?.src }" alt="" width="50" height="50" />` : '' }
+            </div>
+            <div class="skio-first-order-item__content">
+              <div class="skio-first-order-item__title">CUSTOM WHITENING KIT</div>
+              <p class="skio-first-order-item__bullets">• ${ this.treatmentQuantity } TREATMENTS (${ this.treatmentQuantity == '12' ? '4' : '2' }-MONTH SUPPLY)<br>• 30-DAY SATISFACTION GUARANTEE</p>
+            </div>
+            <div class="skio-first-order-item__price">
+              <span class="price--strike">${ this.subscriptionPricingConfig['previous_price'] || '$70' }</span>
+              <span class="price--current">$${ (() => {
+                const group = this.availableSellingPlanGroups?.[0];
+                if (group) {
+                  const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount || 0) + parseFloat(this.subscriptionPricingConfig['next_price'] || 0);
+                  return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
+                }
+                return '39';
+              })() }</span>
+            </div>
+          </div>
+          <div class="skio-first-order-item">
+            <div class="skio-first-order-item__image">
+              ${ (this.product?.media?.[1]?.preview_image?.src || this.product?.media?.[1]?.src || this.product?.images?.[1]?.src) ? html`<img src="${ this.product.media[1]?.preview_image?.src || this.product.media[1]?.src || this.product.images[1]?.src }" alt="" width="50" height="50" />` : '' }
+            </div>
+            <div class="skio-first-order-item__content">
+              <div class="skio-first-order-item__title">TO-GO WHITENING PEN</div>
+              <p class="skio-first-order-item__bullets">• SAME CUSTOM FORMULA</p>
+            </div>
+            <div class="skio-first-order-item__price">
+              <span class="price--strike">$30</span>
+              <span class="price--current">FREE</span>
+            </div>
+          </div>
+          <div class="skio-first-order-item">
+            <div class="skio-first-order-item__image"></div>
+            <div class="skio-first-order-item__content">
+              <div class="skio-first-order-item__title">SHIPPING</div>
+            </div>
+            <div class="skio-first-order-item__price">
+              <span class="price--strike">$5</span>
+              <span class="price--current">FREE</span>
+            </div>
+          </div>
+          <div class="skio-total-row">
+            <span class="skio-total-row__label">TOTAL</span>
+            <div class="skio-total-row__price">
+              <span class="price--strike">${ (() => {
+                const prev = this.subscriptionPricingConfig['previous_price'] || '$70';
+                const prevNum = parseInt(prev.replace(/[^0-9]/g, '')) || 70;
+                return '$' + (prevNum + 30 + 5);
+              })() }</span>
+              <span class="price--current">$${ (() => {
+                const group = this.availableSellingPlanGroups?.[0];
+                if (group) {
+                  const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount || 0) + parseFloat(this.subscriptionPricingConfig['next_price'] || 0);
+                  return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
+                }
+                return '39';
+              })() }</span>
+            </div>
+          </div>
+        </div>
+        <p class="skio-subscription-footer">MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS</p>
+        ` : '' }
 
             <details class="skio-details" @mouseover=${ (e) => this.detailsMouseover() } @mouseleave=${ (e) => this.detailsMouseleave() } style = ${ this.subscription_enabled ? '' : 'display: none' }>
               <summary>
