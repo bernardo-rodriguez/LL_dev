@@ -30,12 +30,16 @@
 
 .ingredients-that-work__header {
   margin-bottom: 20px;
-  text-align: center;
 }
 
 .ingredients-that-work__title {
   margin: 0 0 12px;
   color: var(--navy);
+  text-align: center;
+}
+
+.ingredients-that-work__intro {
+  text-align: left;
 }
 
 .ingredients-that-work__stylized {

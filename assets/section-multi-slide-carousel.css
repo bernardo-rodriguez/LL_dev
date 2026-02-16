@@ -2,6 +2,12 @@
   margin: 0 0 60px;
 }
 
+@media screen and (min-width: 769px) {
+  .multi-slide-carousel {
+    margin-top: 30px;
+  }
+}
+
 .multi-slide-carousel__header {
   text-align: center;
   margin-bottom: 40px;
