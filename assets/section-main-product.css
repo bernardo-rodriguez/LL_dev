@@ -162,6 +162,11 @@
   align-items: center;
 }
 
+/* Hide main button when BUY NOW is inside includes section */
+product-form:has(skio-plan-picker[data-has-includes-cta]) #main-clickable-button {
+  display: none !important;
+}
+
 /* PDP Buy Now button - new design */
 #main-clickable-button {
   width: 100%;

@@ -404,6 +404,23 @@ const skioStyles = css`
     margin-top: 12px;
     line-height: 1.5;
   }
+  .skio-includes-cta {
+    margin-top: 16px;
+    background-color: #69BBEB !important;
+    color: #000 !important;
+    border: 1px solid #000 !important;
+  }
+  .skio-includes-cta:hover {
+    background-color: #5aa8d9 !important;
+  }
+  .skio-modify-disclaimer {
+    font-size: 11px;
+    color: #666;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 0;
+    letter-spacing: 0.02em;
+  }
 
   @media (max-width: 768px) {
     .skio-first-order-includes {
@@ -1112,6 +1129,12 @@ export class SkioPlanPickerComponent extends LitElement {
   render() {
     if(!this.product || !this.selectedVariant || this.skioSellingPlanGroups.length == 0 || !this.product?.available) return;
     
+    const hasIncludesCta = this.product.id == window.ProductConfig?.KIT_DOUBLE_LIGHTNING?.product_id
+      || this.product.id == window.ProductConfig?.KIT_EMPTY_SPACE?.product_id
+      || this.product.id == window.ProductConfig?.KIT_DEFAULT?.product_id;
+    if (hasIncludesCta) this.setAttribute('data-has-includes-cta', 'true');
+    else this.removeAttribute('data-has-includes-cta');
+    
     return html`
       <fieldset style = ${ this.offer == 'everyday' ? 'display : none;' : '' } class="skio-plan-picker" skio-plan-picker="${ this.key }">
         <input ${ this.formId !== null ? html`form="${ this.formId }"` : '' } name="selling_plan" type="hidden" value="${ this.subscription_enabled && this.selectedSellingPlan !== null ? this.selectedSellingPlan?.id : ''}" />
@@ -1483,6 +1506,8 @@ export class SkioPlanPickerComponent extends LitElement {
               })() }` : this.oneTimePricingConfig['first']['bundle_current_price'] }</span>
             </div>
           </div>
+          <button type="button" class="add-to-cart skio-includes-cta" @click=${() => document.getElementById('main-clickable-button')?.click()}>BUY NOW</button>
+          ${ this.selectedSellingPlanGroup != null ? html`<p class="skio-modify-disclaimer">MODIFY OR CANCEL ANYTIME</p>` : '' }
         </div>
         ${ footerText ? html`<p class="skio-subscription-footer">${ footerText }</p>` : '' }
         `;
@@ -1550,10 +1575,6 @@ export class SkioPlanPickerComponent extends LitElement {
                 </div>
               </div>
             </details>
-
-            ${ this.showAddToCartButton ? html`
-              <button @click=${() => this.addToCart() } class="add-to-cart">Add to Cart</button>
-            ` : html``}
 
       </fieldset>`
   }
