@@ -250,6 +250,9 @@ const skioStyles = css`
     text-transform: uppercase;
     letter-spacing: 0.02em;
     border-radius: 0;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
   }
   
   .skio-save {

@@ -135,7 +135,7 @@
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 12px;
+  gap: 12px
 }
 
 /* Row 2: Form/skio - spans full width, skio renders its 2-col grid inside */
@@ -249,6 +249,9 @@
   text-transform: uppercase;
   letter-spacing: 0.02em;
   border-radius: 0;
+  text-align: center;
+  display: inline-block;
+  box-sizing: border-box;
 }
 
 .pdp-kit-selector .quantity-option-1 {
