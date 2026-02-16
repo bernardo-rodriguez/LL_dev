@@ -314,15 +314,15 @@ const skioStyles = css`
     padding: 6px 0;
   }
   .skio-first-order-item--shipping {
-    padding: 4px 0;
-    align-items: center;
+    padding: 6px 0;
+    align-items: flex-start;
   }
   .skio-first-order-item--shipping .skio-first-order-item__image {
-    display: none;
+    background: transparent;
   }
   .skio-first-order-item--shipping .skio-first-order-item__title {
-    font-size: 12px;
-    margin-bottom: 0;
+    font-size: 14px;
+    margin-bottom: 2px;
   }
   .skio-first-order-item__image {
     width: 50px;
@@ -416,7 +416,7 @@ const skioStyles = css`
     border: 1px solid #000 !important;
     font-family: jakarta, sans-serif !important;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 700 !important;
     text-transform: uppercase;
     letter-spacing: 0.02em;
     border-radius: 0 !important;
@@ -455,7 +455,7 @@ const skioStyles = css`
       min-width: 60px;
     }
     .skio-first-order-item--shipping {
-      padding: 4px 0;
+      padding: 6px 0;
     }
     .skio-total-row__price {
       min-width: 60px;
