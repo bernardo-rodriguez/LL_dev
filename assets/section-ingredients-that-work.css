@@ -101,6 +101,12 @@
   color: #0d2244;
 }
 
+/* Ingredient benefit text: 13px on mobile, larger on desktop */
+.ingredients-benefits-text {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
 .ingredients-that-work__benefits-list li:last-child {
   margin-bottom: 0;
 }
@@ -175,6 +181,11 @@
 
   .ingredients-that-work__summary {
     margin-bottom: 24px;
+  }
+
+  .ingredients-benefits-text {
+    font-size: 14px;
+    line-height: 1.5;
   }
 
   .ingredients-that-work__key-benefit {
