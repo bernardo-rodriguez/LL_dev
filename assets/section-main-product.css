@@ -19,6 +19,11 @@ body.template-product #MainContent,
   }
 }
 
+/* Match Judge.me reviews section width to product page (1800px) */
+body.template-product #shopify-section-1674168377f629ea2c .page-width {
+  max-width: 1800px;
+}
+
 .product {
   display: grid;
   grid-template-columns: minmax(0, .5fr) minmax(0, .5fr);
