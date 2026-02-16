@@ -35,13 +35,9 @@ const skioStyles = css`
     border: 0;
   }
   .skio-plan-picker__purchase-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
-    flex-wrap: wrap;
-  }
-  .skio-plan-picker__purchase-row > .skio-group-container {
-    flex: 1 1 calc(50% - 6px);
-    min-width: 140px;
   }
   .skio-onetime-second {
     order: 2;
@@ -1042,11 +1038,12 @@ export class SkioPlanPickerComponent extends LitElement {
                   </div>
                 </div>
                 
-                ${ this.bundle_enabled 
+                ${ /* RE-ENABLE ONE-TIME QUANTITY PICKER: Remove style="display: none" from the div below to show Buy 1 vs Buy 2 options. Underlying selectBundle(), selectedBundle, oneTimePricingConfig remain intact. */
+                  this.bundle_enabled 
                   && (this.product.id == window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id 
                  || this.product.id == window.ProductConfig.KIT_EMPTY_SPACE.product_id 
                  || this.product.id == window.ProductConfig.KIT_DEFAULT.product_id) ? html`
-                <div class="skio-group-content-2" style = ${ this.subscription_enabled ? '' : 'margin: 0' }>
+                <div class="skio-group-content-2" style="display: none; ${ this.subscription_enabled ? '' : 'margin: 0' }">
                   <div class="skio-custom-content" style = 'padding-right: 0; padding-left: 0'>
                     <div class="skio-container">
                       <div class="bundle-container">
@@ -1274,8 +1271,7 @@ export class SkioPlanPickerComponent extends LitElement {
         : ''}
         </div>
 
-        ${ this.selectedSellingPlanGroup != null && this.subscription_enabled && 
-           (this.product.id == window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id || 
+        ${ (this.product.id == window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id || 
             this.product.id == window.ProductConfig.KIT_EMPTY_SPACE.product_id || 
             this.product.id == window.ProductConfig.KIT_DEFAULT.product_id) ? html`
         <div class="skio-first-order-includes">
@@ -1289,15 +1285,15 @@ export class SkioPlanPickerComponent extends LitElement {
               <p class="skio-first-order-item__bullets">• ${ this.treatmentQuantity } TREATMENTS (${ this.treatmentQuantity == '12' ? '4' : '2' }-MONTH SUPPLY)<br>• 30-DAY SATISFACTION GUARANTEE</p>
             </div>
             <div class="skio-first-order-item__price">
-              <span class="price--strike">${ this.subscriptionPricingConfig['previous_price'] || '$70' }</span>
-              <span class="price--current">$${ (() => {
+              <span class="price--strike">${ this.selectedSellingPlanGroup != null ? (this.subscriptionPricingConfig['previous_price'] || '$70') : (this.oneTimePricingConfig['first']['bundle_previous_price'] || '$76') }</span>
+              <span class="price--current">${ this.selectedSellingPlanGroup != null ? html`$${ (() => {
                 const group = this.availableSellingPlanGroups?.[0];
                 if (group) {
                   const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount || 0) + parseFloat(this.subscriptionPricingConfig['next_price'] || 0);
                   return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
                 }
                 return '39';
-              })() }</span>
+              })() }` : this.oneTimePricingConfig['first']['bundle_current_price'] }</span>
             </div>
           </div>
           <div class="skio-first-order-item">
@@ -1327,22 +1323,27 @@ export class SkioPlanPickerComponent extends LitElement {
             <span class="skio-total-row__label">TOTAL</span>
             <div class="skio-total-row__price">
               <span class="price--strike">${ (() => {
-                const prev = this.subscriptionPricingConfig['previous_price'] || '$70';
-                const prevNum = parseInt(prev.replace(/[^0-9]/g, '')) || 70;
+                if (this.selectedSellingPlanGroup != null) {
+                  const prev = this.subscriptionPricingConfig['previous_price'] || '$70';
+                  const prevNum = parseInt(prev.replace(/[^0-9]/g, '')) || 70;
+                  return '$' + (prevNum + 30 + 5);
+                }
+                const prev = this.oneTimePricingConfig['first']['bundle_previous_price'] || '$76';
+                const prevNum = parseInt(prev.replace(/[^0-9]/g, '')) || 76;
                 return '$' + (prevNum + 30 + 5);
               })() }</span>
-              <span class="price--current">$${ (() => {
+              <span class="price--current">${ this.selectedSellingPlanGroup != null ? html`$${ (() => {
                 const group = this.availableSellingPlanGroups?.[0];
                 if (group) {
                   const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount || 0) + parseFloat(this.subscriptionPricingConfig['next_price'] || 0);
                   return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
                 }
                 return '39';
-              })() }</span>
+              })() }` : this.oneTimePricingConfig['first']['bundle_current_price'] }</span>
             </div>
           </div>
         </div>
-        <p class="skio-subscription-footer">MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS</p>
+        ${ this.selectedSellingPlanGroup != null ? html`<p class="skio-subscription-footer">MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS</p>` : '' }
         ` : '' }
 
             <details class="skio-details" @mouseover=${ (e) => this.detailsMouseover() } @mouseleave=${ (e) => this.detailsMouseleave() } style = ${ this.subscription_enabled ? '' : 'display: none' }>

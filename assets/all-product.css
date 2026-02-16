@@ -118,23 +118,33 @@
   border-radius: 50%;
 }
 
-/* Treatment Quantity Selector - New PDP Kit UI */
-.treatment-quantity-selector {
+/* PDP Product Options - aligned kit and purchase pickers */
+.pdp-product-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   margin-top: 30px;
   margin-bottom: 20px;
 }
 
-.pdp-kit-selector.quantity-radio-group {
-  display: flex;
+.pdp-product-options__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
-  background: transparent;
-  border: none;
-  padding: 0;
+}
+
+
+/* Treatment Quantity Selector - New PDP Kit UI */
+.treatment-quantity-selector {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.pdp-kit-selector.quantity-radio-group {
+  display: contents;
 }
 
 .pdp-kit-selector .quantity-option {
-  flex: 1 1 calc(50% - 6px);
-  min-width: 140px;
   padding: 16px;
   display: flex;
   flex-direction: row;
