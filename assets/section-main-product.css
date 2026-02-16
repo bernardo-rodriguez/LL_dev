@@ -107,8 +107,16 @@
   flex-wrap: wrap;
 }
 
-/* Remove separator between small-stars and first product-info (Your Whitening Formula) */
+/* No separator above "Your Whitening Formula", but keep separator below it */
 .product-info:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  border-bottom: 1px solid var(--navy);
+  padding-bottom: 8px;
+}
+
+/* Avoid double line when Formula Picker follows */
+.product-info:first-of-type + .product-info {
   border-top: none;
   padding-top: 0;
 }
