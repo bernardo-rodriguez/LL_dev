@@ -85,7 +85,8 @@ const skioStyles = css`
     align-self: stretch;
   }
   .skio-plan-picker__purchase-row .skio-onetime-second.skio-group-container--selected {
-    border-left: none;
+    border-left: 1px solid #000;
+    margin-left: -1px;
   }
   .skio-plan-picker__purchase-row .skio-group-container--available:not(.skio-group-container--selected) {
     border: none;
