@@ -84,6 +84,15 @@ const skioStyles = css`
     border-bottom: none;
     align-self: stretch;
   }
+  /* Divider via box-shadow to avoid jog where unselected option ends */
+  .skio-plan-picker__purchase-row .skio-subscription-first .skio-group-container--selected {
+    border-right: none;
+    box-shadow: inset -1px 0 0 #000;
+  }
+  .skio-plan-picker__purchase-row .skio-onetime-second.skio-group-container--selected {
+    border-left: none;
+    box-shadow: inset 1px 0 0 #000;
+  }
   .skio-plan-picker__purchase-row .skio-group-container--available:not(.skio-group-container--selected) {
     border: none;
     border-bottom: 1px solid #000;
