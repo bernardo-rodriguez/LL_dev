@@ -52,6 +52,9 @@ const skioStyles = css`
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 12px;
   }
+  .skio-subscription-first {
+    order: 1;
+  }
   .skio-onetime-second {
     order: 2;
   }
@@ -117,6 +120,11 @@ const skioStyles = css`
     width: 100%;
     gap: 4px;
     justify-content: flex-start !important;
+  }
+
+  /* Align purchase card text with kit card text (image 60px + gap 12px + padding 16px = 88px) */
+  .skio-plan-picker__purchase-row .skio-group-label {
+    padding-left: 88px;
   }
 
   .skio-purchase-option-price {
@@ -232,7 +240,7 @@ const skioStyles = css`
   .skio-save-ribbon {
     position: absolute;
     top: 0;
-    left: 0;
+    left: -1px;
     transform: translateY(-50%);
     background: #000;
     color: #fff;
@@ -1045,10 +1053,9 @@ export class SkioPlanPickerComponent extends LitElement {
         <div class="skio-plan-picker__purchase-row">
          ${ this.one_time_enabled ? 
           html`
-            <div class="skio-group-container 
+            <div class="skio-group-container skio-onetime-second
               ${ this.product.requires_selling_plan == false ? 'skio-group-container--available' : '' } 
-              ${ (this.one_time_enabled && !this.subscription_enabled) || this.selectedSellingPlanGroup == null ? 'skio-group-container--selected' : '' } 
-              ${ this.subscriptionFirst ? 'skio-onetime-second' : ''}" skio-group-container 
+              ${ (this.one_time_enabled && !this.subscription_enabled) || this.selectedSellingPlanGroup == null ? 'skio-group-container--selected' : '' }" skio-group-container 
               @click=${() => this.selectSellingPlanGroup(null) } 
               style = ${ this.subscription_enabled ? '' : 'border: none; box-shadow: none' }
               >
@@ -1176,7 +1183,7 @@ export class SkioPlanPickerComponent extends LitElement {
         : ''}
 
          ${ this.subscription_enabled ? 
-              html`<div>
+              html`<div class="skio-subscription-first">
               ${ this.availableSellingPlanGroups ? this.availableSellingPlanGroups.map((group, index) => 
                 html`
                   <div class="skio-group-container skio-group-container--available ${ this.subscription_enabled && this.selectedSellingPlanGroup == group ? 'skio-group-container--selected' : '' }" skio-group-container
@@ -1208,7 +1215,7 @@ export class SkioPlanPickerComponent extends LitElement {
                             ${
                               (() => {
                                 const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount || 0) + parseFloat(this.subscriptionPricingConfig['next_price'] || 0);
-                                return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
+                                return '$' + (price % 1 === 0 ? price.toFixed(0) : price.toFixed(2));
                               })()
                             }
                             </span>
