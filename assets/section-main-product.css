@@ -274,6 +274,13 @@ product-form:has(skio-plan-picker[data-has-includes-cta]) #main-clickable-button
   border-top: 1px solid var(--navy);
 }
 
+/* No space between product details and How To Use */
+.product__details + .product__how-to-use.product__accordion {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 1px solid var(--navy);
+}
+
 .product__accordion .product__accordion-button {
   display: flex;
   flex-direction: row;

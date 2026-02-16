@@ -453,7 +453,7 @@ xhttp.send();
         {% if product.metafields.custom.details != blank %}
           <div class="product__details">
             <div class="product__details-inner">
-              {% for detail in product.metafields.custom.details.value %}
+              {% for detail in product.metafields.custom.details.value limit: 2 %}
                 {% assign formatted_emoji = detail | replace: '{', "<span class='emoji'>" | replace: '}', '</span>' %}
                 <div class="product__detail-item p">{{ formatted_emoji }}</div>
               {% endfor %}
