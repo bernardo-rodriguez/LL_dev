@@ -94,6 +94,12 @@
     padding: 20px 20px;
     margin-right: 0;
   }
+  /* Full-bleed product options on small screens (kit picker + purchase options + order includes) */
+  .pdp-product-options {
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+  }
 }
 
 .product-info {
