@@ -107,6 +107,12 @@
   flex-wrap: wrap;
 }
 
+/* Remove separator between small-stars and first product-info (Your Whitening Formula) */
+.product-info:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
 .product-info dt {
   margin-bottom: 16px;
   flex-basis: 100%;
