@@ -240,7 +240,7 @@ const skioStyles = css`
   .skio-save-ribbon {
     position: absolute;
     top: 0;
-    left: 0;
+    left: -1px;
     transform: translateY(-50%);
     background: #000;
     color: #fff;
