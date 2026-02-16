@@ -85,7 +85,7 @@ const skioStyles = css`
     border-bottom: 1px solid #000;
     border-left: 1px solid #000;
     border-right: 1px solid #000;
-    align-self: start;
+    align-self: stretch;
   }
   .skio-plan-picker__purchase-row .skio-group-container--available:not(.skio-group-container--selected) .skio-group-label {
     padding: 10px 16px;
