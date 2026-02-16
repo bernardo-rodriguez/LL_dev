@@ -185,7 +185,7 @@
 /* Desktop: two-column split - left: title + summary + bullets, right: intro + ingredients stacked */
 @media screen and (min-width: 769px) {
   .ingredients-that-work__inner {
-    padding: 24px 40px 0;
+    padding: 32px 48px 48px;
   }
 
   .ingredients-that-work__columns {
@@ -228,12 +228,21 @@
     min-width: auto;
     max-width: none;
     flex-direction: row;
-    align-items: flex-start;
-    gap: 10px;
+    align-items: center;
+    gap: 16px;
   }
 
   .ingredients-that-work__ingredient-icon {
+    flex-shrink: 0;
     margin-bottom: 0;
+    width: 72px;
+    height: 72px;
+  }
+
+  .ingredients-that-work__ingredient-icon img,
+  .ingredients-that-work__ingredient-placeholder {
+    width: 72px;
+    height: 72px;
   }
 
   .ingredients-that-work__summary {
@@ -241,7 +250,7 @@
   }
 
   .ingredients-benefits-text {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.35;
   }
 
