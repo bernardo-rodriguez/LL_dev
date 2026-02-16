@@ -94,8 +94,8 @@
     padding: 20px 20px;
     margin-right: 0;
   }
-  /* Full-bleed product options on small screens (kit picker + purchase options + order includes) */
-  .pdp-product-options {
+  /* Full-bleed purchase options + includes only (kit picker keeps padding) */
+  .pdp-product-options__form-row {
     margin-left: -20px;
     margin-right: -20px;
     width: calc(100% + 40px);

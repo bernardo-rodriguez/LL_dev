@@ -437,6 +437,8 @@ const skioStyles = css`
   @media (max-width: 768px) {
     .skio-first-order-includes {
       padding: 10px 12px;
+      border-left: none;
+      border-right: none;
     }
     .skio-first-order-includes__title {
       margin-bottom: 8px;
@@ -457,6 +459,13 @@ const skioStyles = css`
     }
     .skio-total-row__price {
       min-width: 60px;
+    }
+    /* Remove side borders when full-bleed */
+    .skio-plan-picker__purchase-row .skio-subscription-first .skio-group-container {
+      border-left: none;
+    }
+    .skio-plan-picker__purchase-row .skio-onetime-second .skio-group-container {
+      border-right: none;
     }
   }
 

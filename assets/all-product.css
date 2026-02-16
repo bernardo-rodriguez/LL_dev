@@ -125,9 +125,15 @@
   grid-template-rows: auto auto;
   gap: 12px;
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   width: 100%;
   box-sizing: border-box;
+}
+
+/* No gap between product options and section below */
+.pdp-product-options + .product__details,
+.pdp-product-options + .product__how-to-use {
+  margin-top: 0;
 }
 
 /* Row 1: Kit options - labels are direct grid children via display:contents */
