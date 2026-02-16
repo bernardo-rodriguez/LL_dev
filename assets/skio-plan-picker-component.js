@@ -438,6 +438,24 @@ const skioStyles = css`
     letter-spacing: 0.02em;
     line-height: 1.4;
   }
+  .skio-onetime-subscribe-disclaimer {
+    padding: 10px 12px;
+    background-color: #fff9e6;
+    border: 1px solid #000;
+    border-radius: 0;
+    margin: 8px 0 12px 0;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .skio-onetime-subscribe-disclaimer a {
+    color: #000;
+    text-decoration: underline;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .skio-onetime-subscribe-disclaimer a:hover {
+    text-decoration: underline;
+  }
 
   @media (max-width: 768px) {
     .skio-first-order-includes {
@@ -1486,6 +1504,12 @@ export class SkioPlanPickerComponent extends LitElement {
               })() }` : this.oneTimePricingConfig['first']['bundle_current_price'] }</span>
             </div>
           </div>
+          ${ purchaseKey === 'one_time' && this.availableSellingPlanGroups?.length > 0 ? html`
+          <div class="skio-onetime-subscribe-disclaimer">
+            Save <strong>30%</strong> on your first order when subscribing and receive <strong>2 Free Gifts</strong> + <strong>Free Shipping</strong>.<br>
+            <a href="#" @click=${(e) => { e.preventDefault(); this.selectSellingPlanGroup(this.availableSellingPlanGroups[0]); }}>Switch to <strong>Subscribe &amp; Save</strong></a>
+          </div>
+          ` : '' }
           <div class="skio-first-order-item">
             <div class="skio-first-order-item__image">
               <img src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/og_small_26338a09-fa97-40d9-a133-2eb7374c16ea.png?v=1771274817" alt="" width="50" height="50" />
