@@ -333,7 +333,8 @@ const skioStyles = css`
     border-radius: 12px;
     overflow: hidden;
     background: #f5f5f5;
-    border: 1px solid #ddd;
+    border: 1px solid #000;
+    box-sizing: border-box;
   }
   .skio-first-order-item__image img {
     width: 100%;
