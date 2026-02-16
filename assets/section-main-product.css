@@ -6,12 +6,36 @@ body.template-product #MainContent,
   background-color: #ffffff;
 }
 
+/* Product page width: 1800px on desktop */
+.product-page-width {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .product-page-width {
+    padding: 0 10px;
+  }
+}
+
 .product {
   display: grid;
   grid-template-columns: minmax(0, .5fr) minmax(0, .5fr);
   gap: 50px;
   margin-bottom: 20px;
   align-items: start;
+}
+
+@media screen and (min-width: 769px) {
+  .product {
+    gap: 0;
+  }
+
+  .product__info-wrapper {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 @media screen and (max-width: 768px) {
