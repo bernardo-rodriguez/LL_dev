@@ -14,16 +14,13 @@ body.template-product #MainContent,
   }
 }
 
-@media screen and (max-width: 768px) {
-  body.template-product .product-section {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}
-
 /* Match Judge.me reviews section width to product page (1800px) */
-body.template-product #shopify-section-1674168377f629ea2c .page-width {
-  max-width: 1800px;
+body.template-product #shopify-section-1674168377f629ea2c .page-width,
+body.template-product #shopify-section-1674168377f629ea2c .jdgm-rev-widg,
+body.template-product #shopify-section-1674168377f629ea2c .jdgm-widget,
+body.template-product #shopify-section-1674168377f629ea2c .shopify-app-block,
+body.template-product #shopify-section-1674168377f629ea2c [style*="max-width: 1200px"] {
+  max-width: 1800px !important;
 }
 
 .product {
