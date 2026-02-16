@@ -50,7 +50,7 @@ const skioStyles = css`
   .skio-plan-picker__purchase-row {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 12px;
+    gap: 0;
   }
   .skio-subscription-first {
     order: 1;
@@ -70,14 +70,17 @@ const skioStyles = css`
     border-radius: 0;
     border: 1px solid #000;
     transition: all 0.2s ease;
-    background: #fff;
+    background: #e5e5e5;
   }
   .skio-group-container--selected {
     border-color: #000;
-    background: #ADD8E6 !important;
+    background: #fff !important;
   }
   .skio-plan-picker__purchase-row .skio-group-container--selected {
     border-bottom: none;
+  }
+  .skio-plan-picker__purchase-row .skio-onetime-second {
+    margin-left: -1px;
   }
   
   .skio-group-input {
