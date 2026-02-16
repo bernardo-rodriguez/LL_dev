@@ -2,7 +2,7 @@
 
 .ingredients-that-work {
   background: #ffffff;
-  color: #0d2244;
+  color: var(--navy);
 }
 
 .ingredients-that-work--with-spacing {
@@ -11,17 +11,16 @@
 
 .ingredients-that-work__inner {
   max-width: 100%;
-  padding: 40px 24px;
+  padding: 20px 24px 40px;
 }
 
 .ingredients-that-work__header {
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 
 .ingredients-that-work__title {
   margin: 0 0 12px;
-  font-weight: 700;
-  color: #0d2244;
+  color: var(--navy);
 }
 
 .ingredients-that-work__stylized {
@@ -30,8 +29,7 @@
 
 .ingredients-that-work__intro {
   margin: 0;
-  color: #0d2244;
-  font-weight: 400;
+  color: var(--navy);
 }
 
 /* Ingredient grid - mobile: stacked vertically */
@@ -76,8 +74,7 @@
 
 .ingredients-that-work__ingredient-name {
   margin: 0 0 10px;
-  font-weight: 600;
-  color: #0d2244;
+  color: var(--navy);
 }
 
 .ingredients-that-work__benefits-list {
@@ -137,11 +134,11 @@
 /* Desktop: horizontal layout for ingredients */
 @media screen and (min-width: 769px) {
   .ingredients-that-work__inner {
-    padding: 60px 40px;
+    padding: 24px 40px 60px;
   }
 
   .ingredients-that-work__header {
-    margin-bottom: 40px;
+    margin-bottom: 24px;
   }
 
   .ingredients-that-work__grid {

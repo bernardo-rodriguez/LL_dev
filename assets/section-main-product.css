@@ -10,7 +10,7 @@ body.template-product #MainContent,
   display: grid;
   grid-template-columns: minmax(0, .5fr) minmax(0, .5fr);
   gap: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   align-items: start;
 }
 
@@ -87,7 +87,7 @@ body.template-product #MainContent,
   /* max-width: calc( 1440px / 2 ); */
   max-width: 600px;
   margin-right: 50px;
-  padding: 60px 0 40px;
+  padding: 60px 0 16px;
   margin-left: 50px; /* looks better on wider formats */
 }
 
@@ -267,10 +267,10 @@ product-form:has(skio-plan-picker[data-has-includes-cta]) #main-clickable-button
 /* PRODUCT ACCORDION */
 
 .product__accordion {
-  margin-top: 16px;
-  padding-top: 18px;
+  margin-top: 12px;
+  padding-top: 14px;
   border-bottom: 1px solid var(--navy);
-  padding-bottom: 18px;
+  padding-bottom: 14px;
   border-top: 1px solid var(--navy);
 }
 
