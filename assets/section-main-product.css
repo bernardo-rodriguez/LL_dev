@@ -132,7 +132,7 @@ body.template-product #shopify-section-1674168377f629ea2c [style*="max-width: 12
 
 .product__info-wrapper {
   /* max-width: calc( 1440px / 2 ); */
-  max-width: 600px;
+  max-width: 800px;
   margin-right: 50px;
   padding: 60px 0 0;
   margin-left: 50px; /* looks better on wider formats */
