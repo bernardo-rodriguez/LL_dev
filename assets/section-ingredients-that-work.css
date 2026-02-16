@@ -3,6 +3,7 @@
 .ingredients-that-work {
   background: #ffffff;
   color: var(--navy);
+  margin-bottom: -24px;
 }
 
 .ingredients-that-work--with-spacing {
