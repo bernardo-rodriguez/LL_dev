@@ -71,7 +71,7 @@ const skioStyles = css`
   }
   .skio-group-container--selected {
     border-color: #000;
-    background: #69BBEB !important;
+    background: #ADD8E6 !important;
   }
   
   .skio-group-input {
@@ -105,6 +105,20 @@ const skioStyles = css`
     gap: 12px;
   }
 
+  .skio-plan-picker__purchase-row .skio-group-topline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .skio-plan-picker__purchase-row .skio-center-wrapper {
+    flex-direction: column !important;
+    align-items: flex-start;
+    width: 100%;
+    gap: 4px;
+    justify-content: flex-start !important;
+  }
+
   .skio-purchase-option-price {
     flex-shrink: 0;
     min-width: 85px;
@@ -112,11 +126,26 @@ const skioStyles = css`
     font-weight: 700;
   }
 
+  .skio-plan-picker__purchase-row .skio-purchase-option-price {
+    min-width: 0;
+    text-align: left;
+  }
+
   .skio-purchase-option-price .price--strike {
     text-decoration: line-through;
-    color: #666;
+    color: #999;
     font-weight: 400;
+    font-size: 14px;
     margin-right: 6px;
+  }
+
+  .skio-plan-picker__purchase-row .skio-purchase-option-price .price--strike {
+    font-size: 14px;
+  }
+
+  .skio-plan-picker__purchase-row .skio-purchase-option-price span:not(.price--strike) {
+    font-size: 16px;
+    font-weight: 700;
   }
 
   .skio-center-wrapper {
@@ -204,13 +233,13 @@ const skioStyles = css`
     top: -1px;
     left: -1px;
     background: #000;
-    color: #fff;
+    color: #B8E986;
     font-size: 10px;
     font-weight: 700;
     padding: 4px 10px;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 15%);
+    clip-path: polygon(0% 0%, 85% 0%, 100% 15%, 100% 100%, 0% 100%);
   }
   
   .skio-save {

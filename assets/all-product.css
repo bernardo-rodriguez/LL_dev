@@ -239,7 +239,8 @@
 .pdp-kit-badge {
   position: absolute;
   top: -1px;
-  right: -1px;
+  left: 50%;
+  transform: translateX(-50%);
   background: #000;
   color: #fff;
   font-size: 10px;
@@ -247,7 +248,7 @@
   padding: 4px 10px;
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 15%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 85%);
 }
 
 .pdp-kit-selector .quantity-option-1 {
@@ -264,7 +265,7 @@
 }
 
 .quantity-radio-group input[type="radio"]:checked + .pdp-kit-option {
-  background: #69BBEB !important;
+  background: #ADD8E6 !important;
   border-color: #000 !important;
   box-shadow: none !important;
 }
