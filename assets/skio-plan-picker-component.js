@@ -266,7 +266,7 @@ const skioStyles = css`
     margin-top: 12px;
     border: 1px solid #000;
     border-radius: 0;
-    padding: 16px;
+    padding: 12px;
     background: #fff;
   }
   .skio-first-order-includes__title {
@@ -274,17 +274,17 @@ const skioStyles = css`
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
     color: #000;
   }
   .skio-first-order-item {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
-    padding: 12px 0;
+    gap: 8px;
+    padding: 6px 0;
   }
   .skio-first-order-item--shipping {
-    padding: 6px 0;
+    padding: 4px 0;
     align-items: center;
   }
   .skio-first-order-item--shipping .skio-first-order-item__image {
@@ -317,12 +317,12 @@ const skioStyles = css`
     text-transform: uppercase;
     letter-spacing: 0.02em;
     color: #000;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
   }
   .skio-first-order-item__bullets {
     font-size: 12px;
     color: #333;
-    line-height: 1.4;
+    line-height: 1.3;
     margin: 0;
   }
   .skio-first-order-item__price {
@@ -344,8 +344,8 @@ const skioStyles = css`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 16px;
-    margin-top: 16px;
+    padding-top: 10px;
+    margin-top: 10px;
     border-top: 1px solid #000;
   }
   .skio-total-row__price {
@@ -380,46 +380,24 @@ const skioStyles = css`
       padding: 10px 12px;
     }
     .skio-first-order-includes__title {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .skio-first-order-item {
       gap: 8px;
-      padding: 8px 0;
+      padding: 6px 0;
     }
     .skio-first-order-item__image {
       width: 40px;
       height: 40px;
     }
-    .skio-first-order-item__content {
-      min-width: 0;
-    }
-    .skio-first-order-item__title {
-      font-size: 12px;
-      margin-bottom: 2px;
-    }
-    .skio-first-order-item__bullets {
-      font-size: 11px;
-      line-height: 1.3;
-    }
     .skio-first-order-item__price {
       min-width: 60px;
-      font-size: 12px;
     }
     .skio-first-order-item--shipping {
       padding: 4px 0;
     }
-    .skio-total-row {
-      padding-top: 10px;
-      margin-top: 10px;
-    }
     .skio-total-row__price {
       min-width: 60px;
-    }
-    .skio-total-row__label {
-      font-size: 16px;
-    }
-    .skio-total-row__price .price--current {
-      font-size: 16px;
     }
   }
 
