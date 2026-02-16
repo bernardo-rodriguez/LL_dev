@@ -123,7 +123,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   grid-template-rows: auto auto;
-  gap: 12px;
+  gap: 22px 12px;
   margin-top: 10px;
   margin-bottom: 0;
   width: 100%;
