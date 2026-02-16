@@ -39,7 +39,7 @@
           "settings": {
             "svg": "",
             "png": "shopify://shop_images/2560px-Womenshealthlogo_blue_2bc1baf4-cd78-4578-a6d0-94c86b9800a3.png",
-            "text": "\u201cMy personal favorite, I love how easy Laughland is to use\u201d"
+            "text": "“My personal favorite, I love how easy Laughland is to use”"
           }
         },
         "9bbf2b6f-692a-4a71-b44c-e91ac56d2c31": {
@@ -48,14 +48,14 @@
             "svg": "",
             "png": "shopify://shop_images/instyle-logo_fd11ccc7-b9e1-4d8f-9f87-7438947a8269.png",
             "opacity": 2,
-            "text": "\u201cnot causing any increased sensitivity, so your teeth are in good hands\u201d"
+            "text": "“not causing any increased sensitivity, so your teeth are in good hands”"
           }
         },
         "a6324188-9e54-4a74-90d0-cc2c1e550053": {
           "type": "slide",
           "settings": {
             "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"svg-icon logo-insider-new logo-vertically-center\" aria-labelledby=\"title desc\" role=\"img\" width=\"308\" height=\"48\" viewbox=\"0 0 308 48\">\n\n    <title id=\"title\">Insider logo</title>\n    <desc id=\"desc\">The word \"Insider\".</desc>\n\n    <g class=\"logo-INSIDER logo-vertically-center-icon-fill\" fill=\"#111\" fill-rule=\"evenodd\">\n        <path d=\"M0 1.594h7.638V46.42H0zM61.883 30.262L30.854.903v45.516h7.344V17.257l31.029 29.855V1.594h-7.344zM109.088 21.451l-7.269-2.629c-3.746-1.312-5.877-2.628-5.877-5.912 0-3.65 3.38-5.403 7.932-5.403 5.287 0 9.401 1.971 13.145 4.819V4.513c-3.597-2.335-8.224-3.65-13.292-3.65-8.299 0-15.202 4.307-15.202 12.192 0 7.373 4.553 10.586 10.575 12.776l6.536 2.337c4.039 1.533 6.316 2.921 6.316 6.424 0 4.015-3.599 5.841-8.74 5.841-5.286 0-10.208-1.897-14.321-5.184v7.958c3.159 2.191 8.299 3.943 14.321 3.943 9.182 0 16.157-4.528 16.157-12.704 0-6.497-3.23-10.44-10.281-12.995zM136.576 1.594h7.637V46.42h-7.637zM185.105 1.595h-17.296V46.42h17.296c13.293 0 21.886-8.761 21.886-22.414 0-13.651-8.594-22.411-21.886-22.411zm-.294 38.037h-9.363V8.311h9.363c9.471 0 14.54 6.059 14.54 15.695 0 9.563-5.068 15.626-14.54 15.626zM224.325 46.42h27.354v-6.788h-19.864V25.74h17.807v-6.644h-17.807V8.31h19.864V1.594h-27.354zM291.318 27.949c7.124-1.095 10.483-5.403 10.483-12.923 0-8.76-6.021-13.432-15.349-13.432h-16.358V46.42h7.637V28.241h5.435l15.698 18.179h8.666l-16.212-18.471zm-13.586-6.06V8.164h8.573c5.067 0 7.932 2.701 7.932 6.862 0 4.162-2.865 6.863-7.932 6.863h-8.573z\"></path>\n    </g>\n</svg>",
-            "text": "\u201cThe most affordable and innovative teeth-whitening solution\u201d"
+            "text": "“The most affordable and innovative teeth-whitening solution”"
           }
         },
         "acdae580-daaf-420f-a785-bd7ebc76fd81": {
@@ -99,25 +99,25 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/cara-hodgson2021_2.webp",
-            "description": "\"Next best thing to in office treatment and it\u2019s how I keep my smile bright and shiny. Their obsession with quality won my trust.\u201d",
+            "description": "\"Next best thing to in office treatment and it’s how I keep my smile bright and shiny. Their obsession with quality won my trust.”",
             "dentist_name": "Dr. Cara Hodgson DDS",
-            "credentials": "<p>UCLA School of Dentistry\u2028</p>"
+            "credentials": "<p>UCLA School of Dentistry</p>"
           }
         },
         "slide_C7CWMk": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Screenshot_2025-05-22_at_7.17.37_PM_2.webp",
-            "description": "\u201cI\u2019ve been whitening teeth for over 10 years. When patients ask me what the best way to whiten at home is, my answer is Laughland. I wouldn\u2019t recommend anything I wouldn\u2019t use myself and I\u2019ve noticed a visible difference since using Laughland\u201d",
+            "description": "“I’ve been whitening teeth for over 10 years. When patients ask me what the best way to whiten at home is, my answer is Laughland. I wouldn’t recommend anything I wouldn’t use myself and I’ve noticed a visible difference since using Laughland”",
             "dentist_name": "Dr. Ron Ayzin DDS",
-            "credentials": "<p>Faculty Instructor</p><p>\u2028UCLA School of Dentistry</p>"
+            "credentials": "<p>Faculty Instructor</p><p>UCLA School of Dentistry</p>"
           }
         },
         "slide_ArCbGL": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Screenshot_2025-05-22_at_7.12.44_PM_2.webp",
-            "description": "\u201cIt\u2019s important to find a system that works and keeps things simple. Laughland does exactly that.\u201d",
+            "description": "“It’s important to find a system that works and keeps things simple. Laughland does exactly that.”",
             "dentist_name": "Dr. Kyra Jimenez DDS",
             "credentials": "<p>President of the NSU </p><p>Dental Cosmetic Society</p>"
           }
@@ -141,10 +141,10 @@
             "after_photo": "shopify://shop_images/LesleyAfter.jpg",
             "customer_info": "User Since October 2023",
             "customer_info_refill": "User Since October 2023 (3 refill cycles)",
-            "profile": "{\ud83d\ude23} Medium Sensitivity\n{\ud83c\udf77} Wine Drinker\n{\ud83e\uddb7} Years of Stains",
+            "profile": "{😣} Medium Sensitivity\n{🍷} Wine Drinker\n{🦷} Years of Stains",
             "formula": "Formula 8-16, Hydrogen Peroxide 8%",
             "refill_formula": "Extra Strength",
-            "review": "\u201cI had to come here to say something. Normally I have excruciating pain with crest white strips and this other brand I got from the dentist. Both of which didn\u2019t whiten my teeth very much. So, I had low hopes for Laughland. I got the formula made for highest sensitivity, and I left it on for I think 12 minutes. Just after the first day my teeth look 2 shades whiter. I\u2019m actually really shocked. Usually the sensitivity hits me several hours after whitening my teeth, and it\u2019s now the next morning and I guess I\u2019m all clear. Thanks Laughland!\u201d"
+            "review": "“I had to come here to say something. Normally I have excruciating pain with crest white strips and this other brand I got from the dentist. Both of which didn’t whiten my teeth very much. So, I had low hopes for Laughland. I got the formula made for highest sensitivity, and I left it on for I think 12 minutes. Just after the first day my teeth look 2 shades whiter. I’m actually really shocked. Usually the sensitivity hits me several hours after whitening my teeth, and it’s now the next morning and I guess I’m all clear. Thanks Laughland!”"
           }
         },
         "83b0fb1b-8e72-454e-ac9e-75ebdb17eaf8": {
@@ -155,10 +155,10 @@
             "after_photo": "shopify://shop_images/BrisaAfter.jpg",
             "customer_info": "User Since December 2022",
             "customer_info_refill": "User Since December 2022 (4 refill cycles)",
-            "profile": "{\ud83d\ude23} High Sensitivity\n{\u2615} Coffee Addict\n{\ud83e\uddb7} Light-Brown Stains",
+            "profile": "{😣} High Sensitivity\n{☕} Coffee Addict\n{🦷} Light-Brown Stains",
             "formula": "Formula 19-2, Sodium Bicarbonate 23%",
             "refill_formula": "Standard Strength",
-            "review": "I look at my teeth in shock almost daily now. I can\u2019t believe how well this product works, and it\u2019s lasting without daily use. I will forever have this in my closet."
+            "review": "I look at my teeth in shock almost daily now. I can’t believe how well this product works, and it’s lasting without daily use. I will forever have this in my closet."
           }
         },
         "ea2bda35-88d0-42e1-b5a6-aee3275092ff": {
@@ -169,7 +169,7 @@
             "after_photo": "shopify://shop_images/NehaAfter.jpg",
             "customer_info": "User Since January 2023",
             "customer_info_refill": "User Since January 2023 (2 refill cycles)",
-            "profile": "{\ud83d\ude04} Zero Sensitivity\n{\u2615} Light Coffee Drinker\n{\ud83e\uddb7} Deep Stains",
+            "profile": "{😄} Zero Sensitivity\n{☕} Light Coffee Drinker\n{🦷} Deep Stains",
             "formula": "Formula 8-17, Hydrogen Peroxide 11%",
             "refill_formula": "Extra Strength",
             "review": "Hands down the best whitening system I have ever used! I was skeptical at first because I have veneers but this was able to whiten the rest of my teeth to almost as white as those! It was so fast and easy. I already ordered a refill pack!"
@@ -194,63 +194,41 @@
       }
     },
     "30a71a58-b5ad-472f-9d70-97379fc62b74": {
-      "type": "ingredients-that-work",
+      "type": "benefit-cards",
       "blocks": {
-        "ing-1": {
-          "type": "ingredient",
+        "44df7525-2bdb-4448-84a3-58ee0f326b42": {
+          "type": "card",
           "settings": {
-            "percentage": "11%",
-            "name": "Hydrogen Peroxide",
-            "benefits": "Whitens teeth by oxidizing dark chromogens\n2.2 times stronger than Colgate's Whitening Pen and\n25% stronger than Crest Gentle Routine Strips"
+            "heading": "Hydrogen Peroxide",
+            "title": "To Whiten",
+            "text": "A powerful whitening agent, Hydrogen Peroxide absorbs into your outer teeth and oxidizes with your teeth’s outermost layer, turning any stains & discoloration white."
           }
         },
-        "ing-2": {
-          "type": "ingredient",
+        "8b04b829-5bbf-46de-8a5d-157270bfd271": {
+          "type": "card",
           "settings": {
-            "percentage": "27%",
-            "name": "Glycerin",
-            "benefits": "Hydrates enamel \u2192 Deeper Peroxide penetration\nCreates barrier around enamel to prevent sensitivity"
+            "heading": "Sodium Bicarbonate",
+            "title": "To Whiten",
+            "text": "A sensitivity-free whitening agent, Sodium Bicarbonate absorbs into your outer teeth and oxidizes with your teeth’s outermost layer, turning stains & discoloration white."
           }
         },
-        "ing-3": {
-          "type": "ingredient",
+        "0b6a308a-6d38-4b82-8f83-097ae148e804": {
+          "type": "card",
           "settings": {
-            "percentage": "7%",
-            "name": "Xylitol",
-            "benefits": "Reduces plaque and oral acidity for long-lasting results\nStrengthens enamel"
-          }
-        },
-        "ben-1": {
-          "type": "benefit",
-          "settings": {
-            "text": "As strong as your smile can comfortably handle."
-          }
-        },
-        "ben-2": {
-          "type": "benefit",
-          "settings": {
-            "text": "Same methodology used by dentists for whitening"
-          }
-        },
-        "ben-3": {
-          "type": "benefit",
-          "settings": {
-            "text": "Sensitivity-free guarantee"
+            "heading": "Glycerin",
+            "title": "To Moisturize",
+            "text": "A natural moisturizer, Glycerin rehydrates your teeth that loses moisture during the whitening process, protecting the enamel from decay and pH imbalance from dryness."
           }
         }
       },
       "block_order": [
-        "ing-1",
-        "ing-2",
-        "ing-3",
-        "ben-1",
-        "ben-2",
-        "ben-3"
+        "44df7525-2bdb-4448-84a3-58ee0f326b42",
+        "8b04b829-5bbf-46de-8a5d-157270bfd271",
+        "0b6a308a-6d38-4b82-8f83-097ae148e804"
       ],
       "settings": {
-        "heading": "Your Formula:",
-        "intro_text": "Given your medium-sensitivity, diet and current teeth shade, we prescribed:",
-        "summary": "With Laughland, you're matched to the exact strength your goals and tolerance demands \u2014 Dramatic results without the drama.",
+        "heading": "Ingredients That Work {For You}",
+        "text": "Clinically tested ingredients backed by science.",
         "margin_bottom": true
       }
     },
@@ -273,9 +251,9 @@
         "layout": true,
         "margin_bottom": true,
         "heading": "A Brighter Smile\n{Starts Today}",
-        "text": "While our personalized formulas have proven to whiten teeth by 7+ shades in under a week, whitening is like skincare - a continuous, ongoing process. Daily habits + natural aging will bring back those unwanted stains back.The only way to a consistent bright smile is ritual. <strong>We\u2019ll be with you every shade of the way!</strong>",
+        "text": "While our personalized formulas have proven to whiten teeth by 7+ shades in under a week, whitening is like skincare - a continuous, ongoing process. Daily habits + natural aging will bring back those unwanted stains back.The only way to a consistent bright smile is ritual. <strong>We’ll be with you every shade of the way!</strong>",
         "heading-refill": "Consistency Makes {Perfect}",
-        "text-refill": "<p>The real magic happens with consistent use. Most customers notice their most radiant results during their 2nd and 3rd treatment cycles.\u2028<br/><br/>Each treatment builds on the last, gently lifting stains and brightening your smile over time. By committing to a regular whitening schedule, you allow the formula to work its best, helping you achieve that brilliantly bright smile you\u2019ve always wanted.</p>",
+        "text-refill": "<p>The real magic happens with consistent use. Most customers notice their most radiant results during their 2nd and 3rd treatment cycles.<br/><br/>Each treatment builds on the last, gently lifting stains and brightening your smile over time. By committing to a regular whitening schedule, you allow the formula to work its best, helping you achieve that brilliantly bright smile you’ve always wanted.</p>",
         "btn": "",
         "btn_text": "",
         "link": "",
@@ -337,7 +315,7 @@
           "settings": {
             "svg": "",
             "png": "shopify://shop_images/2560px-Womenshealthlogo_blue_2bc1baf4-cd78-4578-a6d0-94c86b9800a3.png",
-            "text": "\u201cMy personal favorite, I love how easy Laughland is to use\u201d"
+            "text": "“My personal favorite, I love how easy Laughland is to use”"
           }
         },
         "slide_k79WCA": {
@@ -346,14 +324,14 @@
             "svg": "",
             "png": "shopify://shop_images/instyle-logo_fd11ccc7-b9e1-4d8f-9f87-7438947a8269.png",
             "opacity": 2,
-            "text": "\u201cnot causing any increased sensitivity, so your teeth are in good hands\u201d"
+            "text": "“not causing any increased sensitivity, so your teeth are in good hands”"
           }
         },
         "slide_cLeF8t": {
           "type": "slide",
           "settings": {
             "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" class=\"svg-icon logo-insider-new logo-vertically-center\" aria-labelledby=\"title desc\" role=\"img\" width=\"308\" height=\"48\" viewbox=\"0 0 308 48\">\n\n    <title id=\"title\">Insider logo</title>\n    <desc id=\"desc\">The word \"Insider\".</desc>\n\n    <g class=\"logo-INSIDER logo-vertically-center-icon-fill\" fill=\"#111\" fill-rule=\"evenodd\">\n        <path d=\"M0 1.594h7.638V46.42H0zM61.883 30.262L30.854.903v45.516h7.344V17.257l31.029 29.855V1.594h-7.344zM109.088 21.451l-7.269-2.629c-3.746-1.312-5.877-2.628-5.877-5.912 0-3.65 3.38-5.403 7.932-5.403 5.287 0 9.401 1.971 13.145 4.819V4.513c-3.597-2.335-8.224-3.65-13.292-3.65-8.299 0-15.202 4.307-15.202 12.192 0 7.373 4.553 10.586 10.575 12.776l6.536 2.337c4.039 1.533 6.316 2.921 6.316 6.424 0 4.015-3.599 5.841-8.74 5.841-5.286 0-10.208-1.897-14.321-5.184v7.958c3.159 2.191 8.299 3.943 14.321 3.943 9.182 0 16.157-4.528 16.157-12.704 0-6.497-3.23-10.44-10.281-12.995zM136.576 1.594h7.637V46.42h-7.637zM185.105 1.595h-17.296V46.42h17.296c13.293 0 21.886-8.761 21.886-22.414 0-13.651-8.594-22.411-21.886-22.411zm-.294 38.037h-9.363V8.311h9.363c9.471 0 14.54 6.059 14.54 15.695 0 9.563-5.068 15.626-14.54 15.626zM224.325 46.42h27.354v-6.788h-19.864V25.74h17.807v-6.644h-17.807V8.31h19.864V1.594h-27.354zM291.318 27.949c7.124-1.095 10.483-5.403 10.483-12.923 0-8.76-6.021-13.432-15.349-13.432h-16.358V46.42h7.637V28.241h5.435l15.698 18.179h8.666l-16.212-18.471zm-13.586-6.06V8.164h8.573c5.067 0 7.932 2.701 7.932 6.862 0 4.162-2.865 6.863-7.932 6.863h-8.573z\"></path>\n    </g>\n</svg>",
-            "text": "\u201cThe most affordable and innovative teeth-whitening solution\u201d"
+            "text": "“The most affordable and innovative teeth-whitening solution”"
           }
         },
         "slide_x6GLGU": {
