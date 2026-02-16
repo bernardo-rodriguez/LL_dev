@@ -178,6 +178,16 @@
   margin-bottom: 0;
 }
 
+.pdp-kit-selector__title {
+  grid-column: 1 / -1;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
 .pdp-kit-selector.quantity-radio-group {
   display: contents;
 }
