@@ -9,9 +9,22 @@
   margin-bottom: 60px;
 }
 
+/* Match product section: 10px horizontal padding on mobile */
+@media screen and (max-width: 768px) {
+  .ingredients-that-work .page-width {
+    padding: 0 10px;
+  }
+}
+
 .ingredients-that-work__inner {
   max-width: 100%;
   padding: 12px 24px 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .ingredients-that-work__inner {
+    padding: 12px 0 40px;
+  }
 }
 
 .ingredients-that-work__header {
