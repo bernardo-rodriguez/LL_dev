@@ -85,10 +85,16 @@ const skioStyles = css`
     border-bottom: 1px solid #000;
     border-left: 1px solid #000;
     border-right: 1px solid #000;
-    align-self: stretch;
+    align-self: end;
   }
   .skio-plan-picker__purchase-row .skio-group-container--available:not(.skio-group-container--selected) .skio-group-label {
     padding: 10px 16px;
+  }
+  .skio-plan-picker__purchase-row .skio-subscription-first .skio-group-container--available:not(.skio-group-container--selected) {
+    border-left: none;
+  }
+  .skio-plan-picker__purchase-row .skio-onetime-second.skio-group-container--available:not(.skio-group-container--selected) {
+    border-right: none;
   }
   .skio-plan-picker__purchase-row .skio-onetime-second {
     margin-left: -1px;
