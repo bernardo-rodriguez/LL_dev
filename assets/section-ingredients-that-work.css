@@ -143,7 +143,7 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
   color: #0d2244;
 }
 
@@ -209,6 +209,6 @@
   }
 
   .ingredients-that-work__key-benefit {
-    margin-bottom: 14px;
+    margin-bottom: 8px;
   }
 }
