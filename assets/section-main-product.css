@@ -6,16 +6,18 @@ body.template-product #MainContent,
   background-color: #ffffff;
 }
 
-/* Product page width: 1800px on desktop */
-.product-page-width {
-  max-width: 1800px;
-  margin: 0 auto;
-  padding: 0 50px;
+/* Product section: media extends to left edge, info aligns with 1800px content width */
+@media screen and (min-width: 769px) {
+  body.template-product .product-section {
+    padding-left: 0;
+    padding-right: max(50px, calc((100vw - 1800px) / 2));
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .product-page-width {
-    padding: 0 10px;
+  body.template-product .product-section {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
