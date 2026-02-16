@@ -131,9 +131,7 @@ xhttp.send();
             <input type="radio" id="quantity-6" name="treatment-quantity" value="6" checked>
             <label for="quantity-6" class="quantity-option quantity-option-1 pdp-kit-option">
               <span class="pdp-kit-image">
-                {% if product.media[0] %}
-                  {{ product.media[0] | image_url: width: 80 | image_tag: loading: 'lazy', widths: '80,160' }}
-                {% endif %}
+                <img src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/single_ll_background_removed.png?v=1771274817" alt="Starter Kit" width="80" height="80" loading="lazy">
               </span>
               <div class="pdp-kit-text">
                 <span class="quantity-title">STARTER KIT</span>
@@ -145,11 +143,7 @@ xhttp.send();
             <label for="quantity-12" class="quantity-option quantity-option-2 pdp-kit-option">
               <span class="pdp-kit-badge">BEST VALUE</span>
               <span class="pdp-kit-image">
-                {% if product.media[1] %}
-                  {{ product.media[1] | image_url: width: 80 | image_tag: loading: 'lazy', widths: '80,160' }}
-                {% elsif product.media[0] %}
-                  {{ product.media[0] | image_url: width: 80 | image_tag: loading: 'lazy', widths: '80,160' }}
-                {% endif %}
+                <img src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/12_treatment_bg_removed.png?v=1771274817" alt="Deluxe Kit" width="80" height="80" loading="lazy">
               </span>
               <div class="pdp-kit-text">
                 <span class="quantity-title">DELUXE KIT</span>
