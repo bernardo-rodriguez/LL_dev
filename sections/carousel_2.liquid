@@ -3,7 +3,7 @@
 {{ 'section-carousel.css' | asset_url | stylesheet_tag }}
 
 <section class="carousel">
-  <div class="page-width">
+  <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
     <div class="carousel__inner">
       <div class="carousel-instance swiper">
         <div class="swiper-wrapper">

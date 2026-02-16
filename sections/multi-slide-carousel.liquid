@@ -4,7 +4,7 @@
 <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
 
 <section class="multi-slide-carousel" data-section-id="{{ section.id }}" data-block-count="{{ section.blocks.size }}">
-  <div class="page-width">
+  <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
     <div class="multi-slide-carousel__header">
       <h3 class="what-to-expect__title">Designed by Dentists, Trusted by Experts</h3>
       {% comment %} <p class="multi-slide-carousel__subheading">Expert-backed whitening, developed by dentists for safe, stunning results without sensitivity.</p> {% endcomment %}

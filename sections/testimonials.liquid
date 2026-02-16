@@ -14,7 +14,7 @@
 
 
 <section class="testimonials">
-  <div class="page-width">
+  <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
     <div class="testimonials__inner">
       <h2 class="testimonials__heading m-h4">{{ formatted_heading }}</h2>
       <p class="testimonials__text">{{ section.settings.text }}</p>
