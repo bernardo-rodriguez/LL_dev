@@ -1469,7 +1469,7 @@ export class SkioPlanPickerComponent extends LitElement {
           const kitKey = this.treatmentQuantity == '12' ? 'deluxe' : 'starter';
           const purchaseKey = this.selectedSellingPlanGroup != null ? 'subscription' : 'one_time';
           const foConfig = this.firstOrderIncludesConfig?.[kitKey]?.[purchaseKey] || {};
-          const sectionTitle = foConfig.section_title || 'FIRST ORDER INCLUDES';
+          const sectionTitle = purchaseKey === 'one_time' ? 'YOUR ORDER ONLY INCLUDES' : (foConfig.section_title || 'FIRST ORDER INCLUDES');
           const kitTitle = foConfig.kit_title || 'CUSTOM WHITENING KIT';
           const treatmentSupply = foConfig.treatment_supply || (this.treatmentQuantity == '12' ? '12 TREATMENTS (4-MONTH SUPPLY)' : '6 TREATMENTS (2-MONTH SUPPLY)');
           const guarantee = foConfig.guarantee || '30-DAY SATISFACTION GUARANTEE';
@@ -1535,6 +1535,7 @@ export class SkioPlanPickerComponent extends LitElement {
             </div>
           </div>
           ` : '' }
+          ${ purchaseKey !== 'one_time' ? html`
           <div class="skio-total-row">
             <span class="skio-total-row__label">TOTAL</span>
             <div class="skio-total-row__price">
@@ -1558,6 +1559,7 @@ export class SkioPlanPickerComponent extends LitElement {
               })() }` : this.oneTimePricingConfig['first']['bundle_current_price'] }</span>
             </div>
           </div>
+          ` : '' }
           <button type="button" class="add-to-cart skio-includes-cta" @click=${() => document.getElementById('main-clickable-button')?.click()}>BUY NOW</button>
           ${ footerText ? html`<p class="skio-modify-disclaimer">${ footerText }</p>` : '' }
         </div>
