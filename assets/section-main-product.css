@@ -1,10 +1,10 @@
 /* Product page - white background */
-body.template-product,
+/* body.template-product,
 body.template-product #MainContent,
 .product-section,
 .product-section .product {
   background-color: #ffffff;
-}
+} */
 
 .product {
   display: grid;
