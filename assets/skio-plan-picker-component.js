@@ -63,8 +63,8 @@ const skioStyles = css`
     display: block;
     position: relative;
     min-width: 0;
-    overflow: hidden;
-    border-radius: 8px;
+    overflow: visible;
+    border-radius: 0;
     border: 1px solid #000;
     transition: all 0.2s ease;
     background: #fff;
@@ -83,7 +83,7 @@ const skioStyles = css`
   .skio-group-input:focus-visible ~ .skio-group-label {
     outline: 2px #ccc solid;
     outline-offset: 4px;
-    border-radius: 5px;
+    border-radius: 0;
   }
   
   .skio-group-label {
@@ -92,7 +92,7 @@ const skioStyles = css`
     cursor: pointer;
     padding: 16px;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 0;
   }
   
   .skio-group-topline {
@@ -136,11 +136,12 @@ const skioStyles = css`
     color: #999;
     font-weight: 400;
     font-size: 14px;
-    margin-right: 6px;
+    margin-right: 2px;
   }
 
   .skio-plan-picker__purchase-row .skio-purchase-option-price .price--strike {
     font-size: 14px;
+    margin-right: 2px;
   }
 
   .skio-plan-picker__purchase-row .skio-purchase-option-price span:not(.price--strike) {
@@ -230,16 +231,17 @@ const skioStyles = css`
   
   .skio-save-ribbon {
     position: absolute;
-    top: -1px;
-    left: -1px;
+    top: 0;
+    left: 0;
+    transform: translateY(-50%);
     background: #000;
-    color: #B8E986;
+    color: #fff;
     font-size: 10px;
     font-weight: 700;
     padding: 4px 10px;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    clip-path: polygon(0% 0%, 85% 0%, 100% 15%, 100% 100%, 0% 100%);
+    border-radius: 0;
   }
   
   .skio-save {
