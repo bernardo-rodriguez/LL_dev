@@ -319,6 +319,8 @@ const skioStyles = css`
   }
   .skio-first-order-item--shipping .skio-first-order-item__image {
     background: transparent;
+    height: 0;
+    min-height: 0;
   }
   .skio-first-order-item--shipping .skio-first-order-item__title {
     font-size: 14px;
@@ -328,7 +330,7 @@ const skioStyles = css`
     width: 50px;
     height: 50px;
     flex-shrink: 0;
-    border-radius: 0;
+    border-radius: 50%;
     overflow: hidden;
     background: #f5f5f5;
   }
@@ -1463,7 +1465,7 @@ export class SkioPlanPickerComponent extends LitElement {
           <div class="skio-first-order-includes__title">${ sectionTitle }</div>
           <div class="skio-first-order-item">
             <div class="skio-first-order-item__image">
-              ${ (this.product?.featured_image?.src || this.product?.featured_image?.url || this.product?.images?.[0]?.src) ? html`<img src="${ this.product.featured_image?.src || this.product.featured_image?.url || this.product.images[0]?.src }" alt="" width="50" height="50" />` : '' }
+              <img src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/og_small_26338a09-fa97-40d9-a133-2eb7374c16ea.png?v=1771274817" alt="" width="50" height="50" />
             </div>
             <div class="skio-first-order-item__content">
               <div class="skio-first-order-item__title">${ kitTitle }</div>
@@ -1483,7 +1485,7 @@ export class SkioPlanPickerComponent extends LitElement {
           </div>
           <div class="skio-first-order-item">
             <div class="skio-first-order-item__image">
-              ${ (this.product?.media?.[1]?.preview_image?.src || this.product?.media?.[1]?.src || this.product?.images?.[1]?.src) ? html`<img src="${ this.product.media[1]?.preview_image?.src || this.product.media[1]?.src || this.product.images[1]?.src }" alt="" width="50" height="50" />` : '' }
+              <img src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/og_small_26338a09-fa97-40d9-a133-2eb7374c16ea.png?v=1771274817" alt="" width="50" height="50" />
             </div>
             <div class="skio-first-order-item__content">
               <div class="skio-first-order-item__title">${ penTitle }</div>
