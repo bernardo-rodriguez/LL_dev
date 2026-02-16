@@ -1488,8 +1488,8 @@ export class SkioPlanPickerComponent extends LitElement {
         `;
         })() : '' }
 
-            ${ /* skio-details - "How do subscriptions work?" - commented out for potential future use
-            false && html`<details class="skio-details" @mouseover=${ (e) => this.detailsMouseover() } @mouseleave=${ (e) => this.detailsMouseleave() } style = ${ this.subscription_enabled ? '' : 'display: none' }>
+            <!-- skio-details "How do subscriptions work?" - hidden via style for potential future use -->
+            <details class="skio-details" @mouseover=${ (e) => this.detailsMouseover() } @mouseleave=${ (e) => this.detailsMouseleave() } style="display: none">
               <summary>
                 <span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ai ai-ArrowRepeat"><path d="M18 2l3 3-3 3"/><path d="M6 22l-3-3 3-3"/><path d="M21 5H10a7 7 0 0 0-7 7"/><path d="M3 19h11a7 7 0 0 0 7-7"/></svg>
@@ -1549,8 +1549,7 @@ export class SkioPlanPickerComponent extends LitElement {
                   
                 </div>
               </div>
-            </details>` */}
-            null }
+            </details>
 
             ${ this.showAddToCartButton ? html`
               <button @click=${() => this.addToCart() } class="add-to-cart">Add to Cart</button>
