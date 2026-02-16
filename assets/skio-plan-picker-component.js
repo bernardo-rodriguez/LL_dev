@@ -39,6 +39,10 @@ const skioStyles = css`
     gap: 12px;
     flex-wrap: wrap;
   }
+  .skio-plan-picker__purchase-row > .skio-group-container {
+    flex: 1 1 calc(50% - 6px);
+    min-width: 140px;
+  }
   .skio-onetime-second {
     order: 2;
   }
@@ -84,11 +88,26 @@ const skioStyles = css`
   
   .skio-group-topline {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     width: 100%;
     font-size: 16px;
+    gap: 12px;
+  }
+
+  .skio-purchase-option-price {
+    flex-shrink: 0;
+    min-width: 85px;
+    text-align: right;
+    font-weight: 700;
+  }
+
+  .skio-purchase-option-price .price--strike {
+    text-decoration: line-through;
+    color: #666;
+    font-weight: 400;
+    margin-right: 6px;
   }
 
   .skio-center-wrapper {
@@ -252,6 +271,7 @@ const skioStyles = css`
     text-align: right;
     flex-shrink: 0;
     font-size: 14px;
+    min-width: 90px;
   }
   .skio-first-order-item__price .price--strike {
     text-decoration: line-through;
@@ -269,6 +289,10 @@ const skioStyles = css`
     padding-top: 16px;
     margin-top: 16px;
     border-top: 1px solid #000;
+  }
+  .skio-total-row__price {
+    min-width: 90px;
+    text-align: right;
   }
   .skio-total-row__label {
     font-size: 18px;
@@ -1000,7 +1024,7 @@ export class SkioPlanPickerComponent extends LitElement {
                     <div class="skio-group-title">
                       ONE-TIME
                     </div>
-                    <div class="skio-price" style="font-weight: 700;">
+                    <div class="skio-purchase-option-price skio-price">
                       ${ this.bundle_enabled 
                        && (this.product.id == window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id 
                         || this.product.id == window.ProductConfig.KIT_EMPTY_SPACE.product_id 
@@ -1123,17 +1147,17 @@ export class SkioPlanPickerComponent extends LitElement {
                             <circle class="skio-radio" cx="12" cy="12" r="11" fill="currentColor"></circle>
                           </svg>
                         </div>
-                        <div class="skio-center-wrapper" style="justify-content: space-between; width: 100%; flex-wrap: wrap; gap: 4px;">
+                        <div class="skio-center-wrapper" style="justify-content: space-between; width: 100%;">
                           <div class="skio-group-title" id = 'skio-group-title-sub'>
                             ${ (this.product.id == window.ProductConfig.REFILL_DEFAULT.product_id) ? 
                               'Refill Kit' 
                             : 
                               'SUBSCRIBE & SAVE'}
                           </div>
-                          <div class="skio-price" style="display: flex; align-items: center; gap: 8px;">
+                          <div class="skio-purchase-option-price skio-price">
                             ${ this.subscriptionPricingConfig['previous_price'] ? 
-                              html`<span style="text-decoration: line-through; color: #666; font-weight: 400;">${ this.subscriptionPricingConfig['previous_price'] }</span>` : '' }
-                            <span skio-subscription-price style="font-weight: 700;"> 
+                              html`<span class="price--strike">${ this.subscriptionPricingConfig['previous_price'] }</span>` : '' }
+                            <span skio-subscription-price> 
                             ${
                               (() => {
                                 const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount || 0) + parseFloat(this.subscriptionPricingConfig['next_price'] || 0);
