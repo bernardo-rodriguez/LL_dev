@@ -54,6 +54,8 @@ const skioStyles = css`
   }
   .skio-subscription-first {
     order: 1;
+    display: flex;
+    flex-direction: column;
   }
   .skio-onetime-second {
     order: 2;
