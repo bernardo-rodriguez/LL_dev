@@ -1,0 +1,204 @@
+{{ 'section-ingredients-that-work.css' | asset_url | stylesheet_tag }}
+
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='ingredients-that-work__stylized'>"
+  | replace: '}', '</span>'
+%}
+
+<section class="ingredients-that-work {% if section.settings.margin_bottom %}ingredients-that-work--with-spacing{% endif %}">
+  <div class="page-width">
+    <div class="ingredients-that-work__inner">
+      <div class="ingredients-that-work__header">
+        {% if section.settings.heading != blank %}
+          <h2 class="ingredients-that-work__title m-h4">{{ formatted_heading }}</h2>
+        {% endif %}
+        {% if section.settings.intro_text != blank %}
+          <p class="ingredients-that-work__intro body-lg">{{ section.settings.intro_text }}</p>
+        {% endif %}
+      </div>
+
+      <div class="ingredients-that-work__grid">
+        {% for block in section.blocks %}
+          {% if block.type == 'ingredient' %}
+              <div class="ingredients-that-work__ingredient" {{ block.shopify_attributes }}>
+                <div class="ingredients-that-work__ingredient-icon">
+                  {% if block.settings.image != blank %}
+                    <img
+                      src="{{ block.settings.image | image_url: width: 80 }}"
+                      alt="{{ block.settings.name | escape }}"
+                      width="48"
+                      height="48"
+                      loading="lazy"
+                    >
+                  {% else %}
+                    <span class="ingredients-that-work__ingredient-placeholder" aria-hidden="true"></span>
+                  {% endif %}
+                </div>
+                <div class="ingredients-that-work__ingredient-content">
+                  {% assign ingredient_name = block.settings.name | default: block.settings.heading %}
+                  <h3 class="ingredients-that-work__ingredient-name sh1-medium">
+                    {% if block.settings.percentage != blank %}{{ block.settings.percentage }} {% endif %}{{ ingredient_name }}
+                  </h3>
+                  {% assign benefits_text = block.settings.benefits | default: block.settings.text %}
+                  {% if benefits_text != blank %}
+                    <ul class="ingredients-that-work__benefits-list">
+                      {% assign benefits_lines = benefits_text | newline_to_br | split: '<br />' %}
+                      {% for line in benefits_lines %}
+                        {% assign trimmed = line | strip %}
+                        {% if trimmed != blank %}
+                          <li class="body-sm">{{ trimmed }}</li>
+                        {% endif %}
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                </div>
+              </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="ingredients-that-work__footer">
+        {% if section.settings.summary != blank %}
+          <p class="ingredients-that-work__summary body-lg">{{ section.settings.summary }}</p>
+        {% endif %}
+        {% assign benefit_blocks = section.blocks | where: 'type', 'benefit' %}
+        {% if benefit_blocks.size > 0 %}
+          <ul class="ingredients-that-work__key-benefits">
+            {% for block in benefit_blocks %}
+              <li class="ingredients-that-work__key-benefit body-lg" {{ block.shopify_attributes }}>
+                <span class="ingredients-that-work__checkmark" aria-hidden="true">✓</span>
+                {{ block.settings.text }}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredients That Work For You",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Your Formula:",
+      "info": "Wrap emphasized text in {}"
+    },
+    {
+      "type": "textarea",
+      "id": "intro_text",
+      "label": "Intro text",
+      "default": "Given your medium-sensitivity, diet and current teeth shade, we prescribed:"
+    },
+    {
+      "type": "textarea",
+      "id": "summary",
+      "label": "Summary paragraph",
+      "default": "With Laughland, you're matched to the exact strength your goals and tolerance demands — Dramatic results without the drama."
+    },
+    {
+      "type": "checkbox",
+      "id": "margin_bottom",
+      "label": "Margin bottom",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Ingredient",
+      "type": "ingredient",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon/Image",
+          "info": "Leave empty for light blue placeholder until you add images"
+        },
+        {
+          "type": "text",
+          "id": "percentage",
+          "label": "Percentage",
+          "default": "11%"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Ingredient name",
+          "default": "Hydrogen Peroxide"
+        },
+        {
+          "type": "textarea",
+          "id": "benefits",
+          "label": "Benefits (one per line)",
+          "default": "Whitens teeth by oxidizing dark chromogens\n2.2 times stronger than Colgate's Whitening Pen and\n25% stronger than Crest Gentle Routine Strips"
+        }
+      ]
+    },
+    {
+      "name": "Key benefit",
+      "type": "benefit",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Benefit text",
+          "default": "As strong as your smile can comfortably handle."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients That Work For You",
+      "blocks": [
+        {
+          "type": "ingredient",
+          "settings": {
+            "percentage": "11%",
+            "name": "Hydrogen Peroxide",
+            "benefits": "Whitens teeth by oxidizing dark chromogens\n2.2 times stronger than Colgate's Whitening Pen and\n25% stronger than Crest Gentle Routine Strips"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "percentage": "27%",
+            "name": "Glycerin",
+            "benefits": "Hydrates enamel → Deeper Peroxide penetration\nCreates barrier around enamel to prevent sensitivity"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "percentage": "7%",
+            "name": "Xylitol",
+            "benefits": "Reduces plaque and oral acidity for long-lasting results\nStrengthens enamel"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "text": "As strong as your smile can comfortably handle."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "text": "Same methodology used by dentists for whitening"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "text": "Sensitivity-free guarantee"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
