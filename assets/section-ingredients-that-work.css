@@ -133,6 +133,12 @@
   list-style: none;
 }
 
+/* Key benefits below "With Laughland": 14px on mobile */
+.ingredients-key-benefit-text {
+  font-size: 14px;
+  line-height: 1.35;
+}
+
 .ingredients-that-work__key-benefit {
   display: flex;
   align-items: flex-start;
@@ -194,6 +200,11 @@
 
   .ingredients-body-text {
     font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .ingredients-key-benefit-text {
+    font-size: 16px;
     line-height: 1.4;
   }
 

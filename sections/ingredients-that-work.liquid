@@ -65,7 +65,7 @@
         {% if benefit_blocks.size > 0 %}
           <ul class="ingredients-that-work__key-benefits">
             {% for block in benefit_blocks %}
-              <li class="ingredients-that-work__key-benefit ingredients-body-text" {{ block.shopify_attributes }}>
+              <li class="ingredients-that-work__key-benefit ingredients-key-benefit-text" {{ block.shopify_attributes }}>
                 <span class="ingredients-that-work__checkmark" aria-hidden="true">✓</span>
                 {{ block.settings.text }}
               </li>
