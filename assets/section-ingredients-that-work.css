@@ -49,7 +49,7 @@
 }
 
 .ingredients-that-work__title {
-  margin: 0 0 12px;
+  margin: 0 0 6px;
   color: var(--navy);
   text-align: center;
 }
@@ -70,6 +70,7 @@
 
 .ingredients-that-work__intro {
   margin: 0;
+  padding-bottom: 16px;
   color: var(--navy);
 }
 
@@ -213,10 +214,6 @@
 
   .ingredients-that-work__title {
     text-align: left;
-  }
-
-  .ingredients-that-work__intro {
-    margin-bottom: 16px;
   }
 
   .ingredients-that-work__grid {
