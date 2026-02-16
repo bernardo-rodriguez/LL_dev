@@ -13,7 +13,7 @@
           <h3 class="ingredients-that-work__title what-to-expect__title">{{ formatted_heading }}</h3>
         {% endif %}
         {% if section.settings.intro_text != blank %}
-          <p class="ingredients-that-work__intro body-lg">{{ section.settings.intro_text }}</p>
+          <p class="ingredients-that-work__intro ingredients-body-text">{{ section.settings.intro_text }}</p>
         {% endif %}
       </div>
 
@@ -59,13 +59,13 @@
 
       <div class="ingredients-that-work__footer">
         {% if section.settings.summary != blank %}
-          <p class="ingredients-that-work__summary body-lg">{{ section.settings.summary }}</p>
+          <p class="ingredients-that-work__summary ingredients-body-text">{{ section.settings.summary }}</p>
         {% endif %}
         {% assign benefit_blocks = section.blocks | where: 'type', 'benefit' %}
         {% if benefit_blocks.size > 0 %}
           <ul class="ingredients-that-work__key-benefits">
             {% for block in benefit_blocks %}
-              <li class="ingredients-that-work__key-benefit body-lg" {{ block.shopify_attributes }}>
+              <li class="ingredients-that-work__key-benefit ingredients-body-text" {{ block.shopify_attributes }}>
                 <span class="ingredients-that-work__checkmark" aria-hidden="true">✓</span>
                 {{ block.settings.text }}
               </li>
