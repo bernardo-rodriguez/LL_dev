@@ -1510,6 +1510,7 @@ export class SkioPlanPickerComponent extends LitElement {
             <a href="#" @click=${(e) => { e.preventDefault(); this.selectSellingPlanGroup(this.availableSellingPlanGroups[0]); }}>Switch to <strong>Subscribe &amp; Save</strong></a>
           </div>
           ` : '' }
+          ${ purchaseKey !== 'one_time' ? html`
           <div class="skio-first-order-item">
             <div class="skio-first-order-item__image">
               <img src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/og_small_26338a09-fa97-40d9-a133-2eb7374c16ea.png?v=1771274817" alt="" width="50" height="50" />
@@ -1533,6 +1534,7 @@ export class SkioPlanPickerComponent extends LitElement {
               <span class="price--current">${ shippingCurrPrice }</span>
             </div>
           </div>
+          ` : '' }
           <div class="skio-total-row">
             <span class="skio-total-row__label">TOTAL</span>
             <div class="skio-total-row__price">
