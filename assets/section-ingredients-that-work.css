@@ -43,6 +43,7 @@
 .ingredients-that-work__intro {
   margin: 0;
   color: var(--navy);
+  line-height: 1.35;
 }
 
 /* Ingredient grid - mobile: stacked vertically */
@@ -86,7 +87,7 @@
 }
 
 .ingredients-that-work__ingredient-name {
-  margin: 0 0 10px;
+  margin: 0 0 4px;
   color: var(--navy);
 }
 
@@ -97,14 +98,14 @@
 }
 
 .ingredients-that-work__benefits-list li {
-  margin-bottom: 6px;
+  margin-bottom: 2px;
   color: #0d2244;
 }
 
 /* Ingredient benefit text: 13px on mobile, larger on desktop */
 .ingredients-benefits-text {
   font-size: 13px;
-  line-height: 1.4;
+  line-height: 1.2;
 }
 
 .ingredients-that-work__benefits-list li:last-child {
@@ -119,7 +120,7 @@
 .ingredients-that-work__summary {
   margin: 0 0 20px;
   color: #0d2244;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 .ingredients-that-work__key-benefits {
@@ -185,7 +186,7 @@
 
   .ingredients-benefits-text {
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 1.35;
   }
 
   .ingredients-that-work__key-benefit {
