@@ -321,6 +321,7 @@ const skioStyles = css`
     background: transparent;
     height: 0;
     min-height: 0;
+    border: none;
   }
   .skio-first-order-item--shipping .skio-first-order-item__title {
     font-size: 14px;
