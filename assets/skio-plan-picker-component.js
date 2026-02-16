@@ -521,6 +521,7 @@ const skioStyles = css`
     border-color: #000;
   }
 
+  /* skio-details - "How do subscriptions work?" - commented out for potential future use
   .skio-details {
     --text-color: #333;
     --text-color-secondary: #888; 
@@ -660,6 +661,7 @@ const skioStyles = css`
     align-items: center;
     gap: 3px;
   }
+  */
 
   @media (max-width: 420px) {
     .skio-group-label {
@@ -1486,7 +1488,8 @@ export class SkioPlanPickerComponent extends LitElement {
         `;
         })() : '' }
 
-            <details class="skio-details" @mouseover=${ (e) => this.detailsMouseover() } @mouseleave=${ (e) => this.detailsMouseleave() } style = ${ this.subscription_enabled ? '' : 'display: none' }>
+            ${ /* skio-details - "How do subscriptions work?" - commented out for potential future use
+            false && html`<details class="skio-details" @mouseover=${ (e) => this.detailsMouseover() } @mouseleave=${ (e) => this.detailsMouseleave() } style = ${ this.subscription_enabled ? '' : 'display: none' }>
               <summary>
                 <span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ai ai-ArrowRepeat"><path d="M18 2l3 3-3 3"/><path d="M6 22l-3-3 3-3"/><path d="M21 5H10a7 7 0 0 0-7 7"/><path d="M3 19h11a7 7 0 0 0 7-7"/></svg>
@@ -1546,7 +1549,8 @@ export class SkioPlanPickerComponent extends LitElement {
                   
                 </div>
               </div>
-            </details>
+            </details>` */}
+            null }
 
             ${ this.showAddToCartButton ? html`
               <button @click=${() => this.addToCart() } class="add-to-cart">Add to Cart</button>
@@ -1720,8 +1724,8 @@ export class SkioPlanPickerComponent extends LitElement {
 
   detailsMouseover() {
     let details = this.renderRoot.querySelector('.skio-details');
-    let summary = this.renderRoot.querySelector('.skio-details summary');
-    if (!details.hasAttribute('open') && this.showDetailsHover == false) {
+    let summary = details?.querySelector('summary');
+    if (details && summary && !details.hasAttribute('open') && this.showDetailsHover == false) {
       summary.click();
       this.showDetailsHover = true;
     }
@@ -1729,8 +1733,8 @@ export class SkioPlanPickerComponent extends LitElement {
 
   detailsMouseleave() {
     let details = this.renderRoot.querySelector('.skio-details');
-    let summary = this.renderRoot.querySelector('.skio-details summary');
-    if (details.hasAttribute('open') && this.showDetailsHover == true) {
+    let summary = details?.querySelector('summary');
+    if (details && summary && details.hasAttribute('open') && this.showDetailsHover == true) {
       summary.click();
       this.showDetailsHover = false;
     }
