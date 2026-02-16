@@ -36,7 +36,7 @@ const skioStyles = css`
   }
   .skio-plan-picker__purchase-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 12px;
   }
   .skio-onetime-second {
@@ -49,8 +49,8 @@ const skioStyles = css`
   .skio-group-container--available {
     display: block;
     position: relative;
-    flex: 1;
-    min-width: 140px;
+    min-width: 0;
+    overflow: hidden;
     border-radius: 8px;
     border: 1px solid #000;
     transition: all 0.2s ease;
@@ -838,6 +838,12 @@ export class SkioPlanPickerComponent extends LitElement {
     this.subscriptionPricingConfig = affiliate_subscription_price_copy[this.affiliate_referrer] ?? affiliate_subscription_price_copy['default']
 
     this.treatmentQuantity = '6'; // Default value
+
+    // First Order Includes copy - from assets/in-house-tracking-constants.js
+    // Structure: { starter: { subscription: {...}, one_time: {...} }, deluxe: { ... } }
+    this.firstOrderIncludesConfig = (typeof affiliate_first_order_includes !== 'undefined' && affiliate_first_order_includes?.[this.affiliate_referrer]) 
+      ? affiliate_first_order_includes[this.affiliate_referrer] 
+      : (typeof base_first_order_includes !== 'undefined' ? base_first_order_includes : {})
     this.selectedBundle = 'sub'; // Default to first bundle
     this.prevSelectedBundle = '1'; // Default to first bundle
   }
@@ -1273,16 +1279,32 @@ export class SkioPlanPickerComponent extends LitElement {
 
         ${ (this.product.id == window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id || 
             this.product.id == window.ProductConfig.KIT_EMPTY_SPACE.product_id || 
-            this.product.id == window.ProductConfig.KIT_DEFAULT.product_id) ? html`
+            this.product.id == window.ProductConfig.KIT_DEFAULT.product_id) ? (() => {
+          const kitKey = this.treatmentQuantity == '12' ? 'deluxe' : 'starter';
+          const purchaseKey = this.selectedSellingPlanGroup != null ? 'subscription' : 'one_time';
+          const foConfig = this.firstOrderIncludesConfig?.[kitKey]?.[purchaseKey] || {};
+          const sectionTitle = foConfig.section_title || 'FIRST ORDER INCLUDES';
+          const kitTitle = foConfig.kit_title || 'CUSTOM WHITENING KIT';
+          const treatmentSupply = foConfig.treatment_supply || (this.treatmentQuantity == '12' ? '12 TREATMENTS (4-MONTH SUPPLY)' : '6 TREATMENTS (2-MONTH SUPPLY)');
+          const guarantee = foConfig.guarantee || '30-DAY SATISFACTION GUARANTEE';
+          const penTitle = foConfig.pen_title || 'TO-GO WHITENING PEN';
+          const penBullet = foConfig.pen_bullet || 'SAME CUSTOM FORMULA';
+          const penPrevPrice = foConfig.pen_previous_price || '$30';
+          const penCurrPrice = foConfig.pen_current_price || 'FREE';
+          const shippingTitle = foConfig.shipping_title || 'SHIPPING';
+          const shippingPrevPrice = foConfig.shipping_previous_price || '$5';
+          const shippingCurrPrice = foConfig.shipping_current_price || 'FREE';
+          const footerText = foConfig.footer_text || '';
+          return html`
         <div class="skio-first-order-includes">
-          <div class="skio-first-order-includes__title">FIRST ORDER INCLUDES</div>
+          <div class="skio-first-order-includes__title">${ sectionTitle }</div>
           <div class="skio-first-order-item">
             <div class="skio-first-order-item__image">
               ${ (this.product?.featured_image?.src || this.product?.featured_image?.url || this.product?.images?.[0]?.src) ? html`<img src="${ this.product.featured_image?.src || this.product.featured_image?.url || this.product.images[0]?.src }" alt="" width="50" height="50" />` : '' }
             </div>
             <div class="skio-first-order-item__content">
-              <div class="skio-first-order-item__title">CUSTOM WHITENING KIT</div>
-              <p class="skio-first-order-item__bullets">• ${ this.treatmentQuantity } TREATMENTS (${ this.treatmentQuantity == '12' ? '4' : '2' }-MONTH SUPPLY)<br>• 30-DAY SATISFACTION GUARANTEE</p>
+              <div class="skio-first-order-item__title">${ kitTitle }</div>
+              <p class="skio-first-order-item__bullets">• ${ treatmentSupply }<br>• ${ guarantee }</p>
             </div>
             <div class="skio-first-order-item__price">
               <span class="price--strike">${ this.selectedSellingPlanGroup != null ? (this.subscriptionPricingConfig['previous_price'] || '$70') : (this.oneTimePricingConfig['first']['bundle_previous_price'] || '$76') }</span>
@@ -1301,22 +1323,22 @@ export class SkioPlanPickerComponent extends LitElement {
               ${ (this.product?.media?.[1]?.preview_image?.src || this.product?.media?.[1]?.src || this.product?.images?.[1]?.src) ? html`<img src="${ this.product.media[1]?.preview_image?.src || this.product.media[1]?.src || this.product.images[1]?.src }" alt="" width="50" height="50" />` : '' }
             </div>
             <div class="skio-first-order-item__content">
-              <div class="skio-first-order-item__title">TO-GO WHITENING PEN</div>
-              <p class="skio-first-order-item__bullets">• SAME CUSTOM FORMULA</p>
+              <div class="skio-first-order-item__title">${ penTitle }</div>
+              <p class="skio-first-order-item__bullets">• ${ penBullet }</p>
             </div>
             <div class="skio-first-order-item__price">
-              <span class="price--strike">$30</span>
-              <span class="price--current">FREE</span>
+              <span class="price--strike">${ penPrevPrice }</span>
+              <span class="price--current">${ penCurrPrice }</span>
             </div>
           </div>
           <div class="skio-first-order-item">
             <div class="skio-first-order-item__image"></div>
             <div class="skio-first-order-item__content">
-              <div class="skio-first-order-item__title">SHIPPING</div>
+              <div class="skio-first-order-item__title">${ shippingTitle }</div>
             </div>
             <div class="skio-first-order-item__price">
-              <span class="price--strike">$5</span>
-              <span class="price--current">FREE</span>
+              <span class="price--strike">${ shippingPrevPrice }</span>
+              <span class="price--current">${ shippingCurrPrice }</span>
             </div>
           </div>
           <div class="skio-total-row">
@@ -1343,8 +1365,9 @@ export class SkioPlanPickerComponent extends LitElement {
             </div>
           </div>
         </div>
-        ${ this.selectedSellingPlanGroup != null ? html`<p class="skio-subscription-footer">MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS</p>` : '' }
-        ` : '' }
+        ${ footerText ? html`<p class="skio-subscription-footer">${ footerText }</p>` : '' }
+        `;
+        })() : '' }
 
             <details class="skio-details" @mouseover=${ (e) => this.detailsMouseover() } @mouseleave=${ (e) => this.detailsMouseleave() } style = ${ this.subscription_enabled ? '' : 'display: none' }>
               <summary>

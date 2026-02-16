@@ -601,3 +601,75 @@ affiliate_upsell_subscription_price_copy = {
         'previous_price': '89'
     }
 }
+
+/**
+ * First Order Includes section copy - customize item titles, bullets, and display text.
+ * Keyed by: kit (starter=6 treatments, deluxe=12) x purchase type (subscription, one_time).
+ * Prices for kit/total come from oneTimePricingConfig / subscriptionPricingConfig.
+ */
+base_first_order_includes = {
+    starter: {
+        subscription: {
+            section_title: 'FIRST ORDER INCLUDES',
+            kit_title: 'CUSTOM WHITENING KIT',
+            treatment_supply: '6 TREATMENTS (2-MONTH SUPPLY)',
+            guarantee: '30-DAY SATISFACTION GUARANTEE',
+            pen_title: 'TO-GO WHITENING PEN',
+            pen_bullet: 'SAME CUSTOM FORMULA',
+            pen_previous_price: '$30',
+            pen_current_price: 'FREE',
+            shipping_title: 'SHIPPING',
+            shipping_previous_price: '$5',
+            shipping_current_price: 'FREE',
+            footer_text: 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS'
+        },
+        one_time: {
+            section_title: 'FIRST ORDER INCLUDES',
+            kit_title: 'CUSTOM WHITENING KIT',
+            treatment_supply: '6 TREATMENTS (2-MONTH SUPPLY)',
+            guarantee: '30-DAY SATISFACTION GUARANTEE',
+            pen_title: 'TO-GO WHITENING PEN',
+            pen_bullet: 'SAME CUSTOM FORMULA',
+            pen_previous_price: '$30',
+            pen_current_price: 'FREE',
+            shipping_title: 'SHIPPING',
+            shipping_previous_price: '$5',
+            shipping_current_price: 'FREE',
+            footer_text: ''
+        }
+    },
+    deluxe: {
+        subscription: {
+            section_title: 'FIRST ORDER INCLUDES',
+            kit_title: 'CUSTOM WHITENING KIT',
+            treatment_supply: '12 TREATMENTS (4-MONTH SUPPLY)',
+            guarantee: '30-DAY SATISFACTION GUARANTEE',
+            pen_title: 'TO-GO WHITENING PEN',
+            pen_bullet: 'SAME CUSTOM FORMULA',
+            pen_previous_price: '$30',
+            pen_current_price: 'FREE',
+            shipping_title: 'SHIPPING',
+            shipping_previous_price: '$5',
+            shipping_current_price: 'FREE',
+            footer_text: 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS'
+        },
+        one_time: {
+            section_title: 'FIRST ORDER INCLUDES',
+            kit_title: 'CUSTOM WHITENING KIT',
+            treatment_supply: '12 TREATMENTS (4-MONTH SUPPLY)',
+            guarantee: '30-DAY SATISFACTION GUARANTEE',
+            pen_title: 'TO-GO WHITENING PEN',
+            pen_bullet: 'SAME CUSTOM FORMULA',
+            pen_previous_price: '$30',
+            pen_current_price: 'FREE',
+            shipping_title: 'SHIPPING',
+            shipping_previous_price: '$5',
+            shipping_current_price: 'FREE',
+            footer_text: ''
+        }
+    }
+}
+
+affiliate_first_order_includes = {
+    'default': base_first_order_includes
+}
