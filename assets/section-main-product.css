@@ -1,3 +1,11 @@
+/* Product page - white background */
+body.template-product,
+body.template-product #MainContent,
+.product-section,
+.product-section .product {
+  background-color: #ffffff;
+}
+
 .product {
   display: grid;
   grid-template-columns: minmax(0, .5fr) minmax(0, .5fr);
