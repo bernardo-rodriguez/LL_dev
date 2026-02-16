@@ -122,9 +122,9 @@ const skioStyles = css`
     justify-content: flex-start !important;
   }
 
-  /* Align purchase card text with kit card text (image 60px + gap 12px + padding 16px = 88px) */
+  /* Align purchase card text with kit card image start (padding 16px = where image starts) */
   .skio-plan-picker__purchase-row .skio-group-label {
-    padding-left: 88px;
+    padding-left: 16px;
   }
 
   .skio-purchase-option-price {

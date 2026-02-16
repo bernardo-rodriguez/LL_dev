@@ -124,9 +124,7 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   grid-template-rows: auto auto;
   gap: 12px;
-  margin-top: 30px;
   margin-bottom: 20px;
-  padding-top: 10px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -240,7 +238,7 @@
 .pdp-kit-badge {
   position: absolute;
   top: 0;
-  left: -16px;
+  left: 0;
   transform: translateY(-50%);
   background: #000;
   color: #fff;
