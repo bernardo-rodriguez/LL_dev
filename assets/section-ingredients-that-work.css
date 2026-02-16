@@ -1,4 +1,20 @@
-/* Ingredients That Work For You - Mobile first, horizontal on desktop */
+/* Ingredients That Work For You - Mobile first, split layout on desktop */
+
+/* Mobile: use display:contents + order to keep original flow (title, intro, ingredients, summary, bullets) */
+.ingredients-that-work__columns {
+  display: flex;
+  flex-direction: column;
+}
+
+.ingredients-that-work__left,
+.ingredients-that-work__right {
+  display: contents;
+}
+
+.ingredients-that-work__header { order: 1; }
+.ingredients-that-work__intro { order: 2; }
+.ingredients-that-work__grid { order: 3; }
+.ingredients-that-work__footer { order: 4; }
 
 .ingredients-that-work {
   background: #ffffff;
@@ -165,34 +181,62 @@
   line-height: 1.3;
 }
 
-/* Desktop: horizontal layout for ingredients */
+/* Desktop: two-column split - left: title + summary + bullets, right: intro + ingredients stacked */
 @media screen and (min-width: 769px) {
   .ingredients-that-work__inner {
     padding: 24px 40px 0;
+  }
+
+  .ingredients-that-work__columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 48px;
+    align-items: start;
+  }
+
+  .ingredients-that-work__left,
+  .ingredients-that-work__right {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ingredients-that-work__header,
+  .ingredients-that-work__intro,
+  .ingredients-that-work__grid,
+  .ingredients-that-work__footer {
+    order: unset;
   }
 
   .ingredients-that-work__header {
     margin-bottom: 24px;
   }
 
+  .ingredients-that-work__title {
+    text-align: left;
+  }
+
+  .ingredients-that-work__intro {
+    margin-bottom: 16px;
+  }
+
   .ingredients-that-work__grid {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 32px 40px;
+    flex-direction: column;
+    gap: 28px;
     margin-bottom: 0;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   .ingredients-that-work__ingredient {
-    flex: 1;
-    min-width: 200px;
-    max-width: calc(33.333% - 27px);
-    flex-direction: column;
+    flex: none;
+    min-width: auto;
+    max-width: none;
+    flex-direction: row;
     align-items: flex-start;
+    gap: 10px;
   }
 
   .ingredients-that-work__ingredient-icon {
-    margin-bottom: 4px;
+    margin-bottom: 0;
   }
 
   .ingredients-that-work__summary {
