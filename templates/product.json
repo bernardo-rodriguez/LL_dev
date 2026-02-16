@@ -31,6 +31,106 @@
         "show_rating": false
       }
     },
+    "ingredients_that_work_N67RbP": {
+      "type": "ingredients-that-work",
+      "blocks": {
+        "ingredient_TeEhpt": {
+          "type": "ingredient",
+          "settings": {
+            "percentage": "11%",
+            "name": "Hydrogen Peroxide",
+            "benefits": "Whitens teeth by oxidizing dark chromogens\n2.2 times stronger than Colgate's Whitening Pen and\n25% stronger than Crest Gentle Routine Strips"
+          }
+        },
+        "ingredient_TPPdAC": {
+          "type": "ingredient",
+          "settings": {
+            "percentage": "27%",
+            "name": "Glycerin",
+            "benefits": "Hydrates enamel → Deeper Peroxide penetration\nCreates barrier around enamel to prevent sensitivity"
+          }
+        },
+        "ingredient_BaMgrt": {
+          "type": "ingredient",
+          "settings": {
+            "percentage": "7%",
+            "name": "Xylitol",
+            "benefits": "Reduces plaque and oral acidity for long-lasting results\nStrengthens enamel"
+          }
+        },
+        "benefit_8E7Pkn": {
+          "type": "benefit",
+          "settings": {
+            "text": "As strong as your smile can comfortably handle."
+          }
+        },
+        "benefit_BxCKhA": {
+          "type": "benefit",
+          "settings": {
+            "text": "Same methodology used by dentists for whitening"
+          }
+        },
+        "benefit_BLGLmP": {
+          "type": "benefit",
+          "settings": {
+            "text": "Sensitivity-free guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_TeEhpt",
+        "ingredient_TPPdAC",
+        "ingredient_BaMgrt",
+        "benefit_8E7Pkn",
+        "benefit_BxCKhA",
+        "benefit_BLGLmP"
+      ],
+      "name": "Ingredients",
+      "settings": {
+        "heading": "Your Formula:",
+        "intro_text": "Given your medium-sensitivity, diet and current teeth shade, we prescribed:",
+        "summary": "With Laughland, you're matched to the exact strength your goals and tolerance demands — Dramatic results without the drama.",
+        "margin_bottom": true
+      }
+    },
+    "multi_slide_carousel_rc9KtU": {
+      "type": "multi-slide-carousel",
+      "blocks": {
+        "slide_WpUhrz": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/cara-hodgson2021_2.webp",
+            "description": "\"Next best thing to in office treatment and it’s how I keep my smile bright and shiny. Their obsession with quality won my trust.”",
+            "dentist_name": "Dr. Cara Hodgson DDS",
+            "credentials": "<p>UCLA School of Dentistry</p>"
+          }
+        },
+        "slide_C7CWMk": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-05-22_at_7.17.37_PM_2.webp",
+            "description": "“I’ve been whitening teeth for over 10 years. When patients ask me what the best way to whiten at home is, my answer is Laughland. I wouldn’t recommend anything I wouldn’t use myself and I’ve noticed a visible difference since using Laughland”",
+            "dentist_name": "Dr. Ron Ayzin DDS",
+            "credentials": "<p>Faculty Instructor</p><p>UCLA School of Dentistry</p>"
+          }
+        },
+        "slide_ArCbGL": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-05-22_at_7.12.44_PM_2.webp",
+            "description": "“It’s important to find a system that works and keeps things simple. Laughland does exactly that.”",
+            "dentist_name": "Dr. Kyra Jimenez DDS",
+            "credentials": "<p>President of the NSU </p><p>Dental Cosmetic Society</p>"
+          }
+        }
+      },
+      "block_order": [
+        "slide_WpUhrz",
+        "slide_C7CWMk",
+        "slide_ArCbGL"
+      ],
+      "settings": {}
+    },
     "6916709c-578f-4b73-afd1-d8e53aa1db15": {
       "type": "carousel",
       "blocks": {
@@ -90,44 +190,7 @@
         "b8fa3c20-0f92-467d-aed9-3c298c29c985",
         "fdad4c12-ad06-4693-a187-c7b5b051e001"
       ],
-      "settings": {}
-    },
-    "multi_slide_carousel_rc9KtU": {
-      "type": "multi-slide-carousel",
-      "blocks": {
-        "slide_WpUhrz": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/cara-hodgson2021_2.webp",
-            "description": "\"Next best thing to in office treatment and it’s how I keep my smile bright and shiny. Their obsession with quality won my trust.”",
-            "dentist_name": "Dr. Cara Hodgson DDS",
-            "credentials": "<p>UCLA School of Dentistry</p>"
-          }
-        },
-        "slide_C7CWMk": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Screenshot_2025-05-22_at_7.17.37_PM_2.webp",
-            "description": "“I’ve been whitening teeth for over 10 years. When patients ask me what the best way to whiten at home is, my answer is Laughland. I wouldn’t recommend anything I wouldn’t use myself and I’ve noticed a visible difference since using Laughland”",
-            "dentist_name": "Dr. Ron Ayzin DDS",
-            "credentials": "<p>Faculty Instructor</p><p>UCLA School of Dentistry</p>"
-          }
-        },
-        "slide_ArCbGL": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Screenshot_2025-05-22_at_7.12.44_PM_2.webp",
-            "description": "“It’s important to find a system that works and keeps things simple. Laughland does exactly that.”",
-            "dentist_name": "Dr. Kyra Jimenez DDS",
-            "credentials": "<p>President of the NSU </p><p>Dental Cosmetic Society</p>"
-          }
-        }
-      },
-      "block_order": [
-        "slide_WpUhrz",
-        "slide_C7CWMk",
-        "slide_ArCbGL"
-      ],
+      "disabled": true,
       "settings": {}
     },
     "1c8af4c9-5992-4bfb-9d4a-a8e06e025318": {
@@ -181,6 +244,7 @@
         "83b0fb1b-8e72-454e-ac9e-75ebdb17eaf8",
         "ea2bda35-88d0-42e1-b5a6-aee3275092ff"
       ],
+      "disabled": true,
       "custom_css": [
         ".testimonials__inner {background-color: #faf5f1;}"
       ],
@@ -226,6 +290,7 @@
         "8b04b829-5bbf-46de-8a5d-157270bfd271",
         "0b6a308a-6d38-4b82-8f83-097ae148e804"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Ingredients That Work {For You}",
         "text": "Clinically tested ingredients backed by science.",
@@ -247,6 +312,7 @@
       "block_order": [
         "08f82279-8d20-4992-a74f-f3500388ef05"
       ],
+      "disabled": true,
       "settings": {
         "layout": true,
         "margin_bottom": true,
@@ -372,7 +438,12 @@
       "blocks": {
         "7a7484a7-a212-4abe-9cc8-8965128c84fd": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
         }
       },
       "block_order": [
@@ -392,8 +463,9 @@
   "order": [
     "main",
     "product-recommendations",
-    "6916709c-578f-4b73-afd1-d8e53aa1db15",
+    "ingredients_that_work_N67RbP",
     "multi_slide_carousel_rc9KtU",
+    "6916709c-578f-4b73-afd1-d8e53aa1db15",
     "1c8af4c9-5992-4bfb-9d4a-a8e06e025318",
     "30a71a58-b5ad-472f-9d70-97379fc62b74",
     "d7a83216-e232-4258-9705-5edf54558f0b",
