@@ -265,7 +265,7 @@ const skioStyles = css`
   .skio-first-order-includes {
     margin-top: 12px;
     border: 1px solid #000;
-    border-radius: 8px;
+    border-radius: 0;
     padding: 16px;
     background: #fff;
   }
@@ -282,16 +282,23 @@ const skioStyles = css`
     align-items: flex-start;
     gap: 12px;
     padding: 12px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
   }
-  .skio-first-order-item:last-of-type {
-    border-bottom: none;
+  .skio-first-order-item--shipping {
+    padding: 6px 0;
+    align-items: center;
+  }
+  .skio-first-order-item--shipping .skio-first-order-item__image {
+    display: none;
+  }
+  .skio-first-order-item--shipping .skio-first-order-item__title {
+    font-size: 12px;
+    margin-bottom: 0;
   }
   .skio-first-order-item__image {
     width: 50px;
     height: 50px;
     flex-shrink: 0;
-    border-radius: 4px;
+    border-radius: 0;
     overflow: hidden;
     background: #f5f5f5;
   }
@@ -1385,7 +1392,7 @@ export class SkioPlanPickerComponent extends LitElement {
               <span class="price--current">${ penCurrPrice }</span>
             </div>
           </div>
-          <div class="skio-first-order-item">
+          <div class="skio-first-order-item skio-first-order-item--shipping">
             <div class="skio-first-order-item__image"></div>
             <div class="skio-first-order-item__content">
               <div class="skio-first-order-item__title">${ shippingTitle }</div>

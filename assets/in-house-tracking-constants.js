@@ -624,7 +624,7 @@ base_first_order_includes = {
             footer_text: 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS'
         },
         one_time: {
-            section_title: 'FIRST ORDER INCLUDES',
+            section_title: 'ORDER INCLUDES',
             kit_title: 'CUSTOM WHITENING KIT',
             treatment_supply: '6 TREATMENTS (2-MONTH SUPPLY)',
             guarantee: '30-DAY SATISFACTION GUARANTEE',
@@ -654,7 +654,7 @@ base_first_order_includes = {
             footer_text: 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS'
         },
         one_time: {
-            section_title: 'FIRST ORDER INCLUDES',
+            section_title: 'ORDER INCLUDES',
             kit_title: 'CUSTOM WHITENING KIT',
             treatment_supply: '12 TREATMENTS (4-MONTH SUPPLY)',
             guarantee: '30-DAY SATISFACTION GUARANTEE',
