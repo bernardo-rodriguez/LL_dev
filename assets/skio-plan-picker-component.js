@@ -83,7 +83,12 @@ const skioStyles = css`
   .skio-plan-picker__purchase-row .skio-group-container--available:not(.skio-group-container--selected) {
     border: none;
     border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
     align-self: start;
+  }
+  .skio-plan-picker__purchase-row .skio-group-container--available:not(.skio-group-container--selected) .skio-group-label {
+    padding: 10px 16px;
   }
   .skio-plan-picker__purchase-row .skio-onetime-second {
     margin-left: -1px;
