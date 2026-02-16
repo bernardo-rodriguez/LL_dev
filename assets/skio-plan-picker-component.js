@@ -330,9 +330,10 @@ const skioStyles = css`
     width: 50px;
     height: 50px;
     flex-shrink: 0;
-    border-radius: 50%;
+    border-radius: 12px;
     overflow: hidden;
     background: #f5f5f5;
+    border: 1px solid #ddd;
   }
   .skio-first-order-item__image img {
     width: 100%;
