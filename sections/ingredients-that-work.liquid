@@ -7,7 +7,7 @@
 %}
 
 <section class="ingredients-that-work {% if section.settings.margin_bottom %}ingredients-that-work--with-spacing{% endif %}">
-  <div class="page-width">
+  <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
     <div class="ingredients-that-work__inner">
       <div class="ingredients-that-work__columns">
         <div class="ingredients-that-work__left">

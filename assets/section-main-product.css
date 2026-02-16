@@ -1,3 +1,22 @@
+/* Product page - 1800px page-width (only affects product template) */
+body.template-product .page-width--product {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+@media screen and (max-width: 1050px) {
+  body.template-product .page-width--product {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body.template-product .page-width--product {
+    padding: 0 20px;
+  }
+}
+
 /* Product page - white background */
 body.template-product,
 body.template-product #MainContent,
