@@ -406,24 +406,20 @@ const skioStyles = css`
   }
   .skio-includes-cta {
     margin-top: 16px;
-    padding: 24px 32px;
-    min-width: 140px;
-    min-height: 80px;
-    aspect-ratio: 1;
-    width: auto !important;
-    max-width: 180px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 20px 24px;
+    width: 100%;
     display: flex !important;
     align-items: center;
     justify-content: center;
     background-color: #C4E9FF !important;
     color: #000 !important;
     border: 1px solid #000 !important;
+    font-family: jakarta, sans-serif !important;
     font-size: 18px;
     font-weight: 700;
     text-transform: uppercase;
-    border-radius: 0;
+    letter-spacing: 0.02em;
+    border-radius: 0 !important;
   }
   .skio-includes-cta:hover {
     background-color: #b0dff8 !important;
