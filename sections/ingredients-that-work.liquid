@@ -3,6 +3,7 @@
 {% assign formatted_heading = section.settings.heading
   | replace: '{', "<span class='ingredients-that-work__stylized'>"
   | replace: '}', '</span>'
+  | replace: ':', ''
 %}
 
 <section class="ingredients-that-work {% if section.settings.margin_bottom %}ingredients-that-work--with-spacing{% endif %}">
@@ -85,7 +86,7 @@
       "type": "textarea",
       "id": "heading",
       "label": "Heading",
-      "default": "Your Formula:",
+      "default": "Your Formula",
       "info": "Wrap emphasized text in {}"
     },
     {
