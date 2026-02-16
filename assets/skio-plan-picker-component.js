@@ -73,8 +73,9 @@ const skioStyles = css`
     overflow: visible;
     border-radius: 0;
     border: 1px solid #000;
-    transition: all 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
     background: #e5e5e5;
+    -webkit-tap-highlight-color: transparent;
   }
   .skio-group-container--selected {
     border-color: #000;
@@ -123,6 +124,7 @@ const skioStyles = css`
     padding: 16px;
     overflow: hidden;
     border-radius: 0;
+    -webkit-tap-highlight-color: transparent;
   }
   
   .skio-group-topline {
