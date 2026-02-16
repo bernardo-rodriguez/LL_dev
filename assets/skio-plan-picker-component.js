@@ -406,20 +406,36 @@ const skioStyles = css`
   }
   .skio-includes-cta {
     margin-top: 16px;
-    background-color: #69BBEB !important;
+    padding: 24px 32px;
+    min-width: 140px;
+    min-height: 80px;
+    aspect-ratio: 1;
+    width: auto !important;
+    max-width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background-color: #C4E9FF !important;
     color: #000 !important;
     border: 1px solid #000 !important;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 0;
   }
   .skio-includes-cta:hover {
-    background-color: #5aa8d9 !important;
+    background-color: #b0dff8 !important;
   }
   .skio-modify-disclaimer {
     font-size: 11px;
-    color: #666;
+    color: #000;
     text-align: center;
-    margin-top: 8px;
+    margin-top: 12px;
     margin-bottom: 0;
     letter-spacing: 0.02em;
+    line-height: 1.4;
   }
 
   @media (max-width: 768px) {
@@ -1507,9 +1523,8 @@ export class SkioPlanPickerComponent extends LitElement {
             </div>
           </div>
           <button type="button" class="add-to-cart skio-includes-cta" @click=${() => document.getElementById('main-clickable-button')?.click()}>BUY NOW</button>
-          ${ this.selectedSellingPlanGroup != null ? html`<p class="skio-modify-disclaimer">MODIFY OR CANCEL ANYTIME</p>` : '' }
+          ${ footerText ? html`<p class="skio-modify-disclaimer">${ footerText }</p>` : '' }
         </div>
-        ${ footerText ? html`<p class="skio-subscription-footer">${ footerText }</p>` : '' }
         `;
         })() : '' }
 
