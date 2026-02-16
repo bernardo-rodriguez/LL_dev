@@ -96,18 +96,11 @@ const skioStyles = css`
   .skio-plan-picker__purchase-row .skio-group-container--available:not(.skio-group-container--selected) {
     border: none;
     border-bottom: 1px solid #000;
-    border-left: 1px solid #000;
-    border-right: 1px solid #000;
   }
   .skio-plan-picker__purchase-row .skio-group-container--available:not(.skio-group-container--selected) .skio-group-label {
     padding: 10px 16px;
   }
-  /* Unselected: no divider border (selected option provides it) */
-  .skio-plan-picker__purchase-row .skio-subscription-first .skio-group-container--available:not(.skio-group-container--selected) {
-    border-right: none;
-  }
   .skio-plan-picker__purchase-row .skio-onetime-second.skio-group-container--available:not(.skio-group-container--selected) {
-    border-left: none;
     align-self: end;
   }
   
