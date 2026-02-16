@@ -182,7 +182,7 @@
   grid-column: 1 / -1;
   font-weight: 700;
   font-size: 15px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #1a1a1a;
   line-height: 1.2;
@@ -222,7 +222,8 @@
 .pdp-kit-option .pdp-kit-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
 }
 
 .pdp-kit-text {
