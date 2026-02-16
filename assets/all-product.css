@@ -239,7 +239,7 @@
 .pdp-kit-badge {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -1px;
   transform: translateY(-50%);
   background: #000;
   color: #fff;
@@ -326,12 +326,12 @@
 
 @media screen and (min-width: 769px) {
   .pdp-kit-selector .quantity-option {
-    padding: 16px 20px;
+    padding: 14px 18px;
   }
-  /* Keep image size consistent with mobile - prevents kit cards from growing taller than subscribe/one-time row */
+  /* Smaller images on desktop to match height of subscribe/one-time row */
   .pdp-kit-option .pdp-kit-image {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
   }
   .pdp-kit-option .quantity-title {
     font-size: 16px;
