@@ -10,7 +10,8 @@ body.template-product #MainContent,
   display: grid;
   grid-template-columns: minmax(0, .5fr) minmax(0, .5fr);
   gap: 50px;
-  margin-bottom: 120px;
+  margin-bottom: 50px;
+  align-items: start;
 }
 
 @media screen and (max-width: 768px) {
@@ -34,11 +35,10 @@ body.template-product #MainContent,
 
 @media screen and (min-width: 769px) {
   .product__media-wrapper {
-    height: 100vh;
-    min-height: 600px;
+    aspect-ratio: 1;
+    min-height: 400px;
     position: sticky;
     top: 0;
-    aspect-ratio: unset;
   }
 }
 
@@ -87,7 +87,7 @@ body.template-product #MainContent,
   /* max-width: calc( 1440px / 2 ); */
   max-width: 600px;
   margin-right: 50px;
-  padding: 100px 0;
+  padding: 60px 0 40px;
   margin-left: 50px; /* looks better on wider formats */
 }
 
