@@ -52,7 +52,7 @@ body.template-product #shopify-section-1674168377f629ea2c [style*="max-width: 12
 
 @media screen and (min-width: 769px) {
   .product {
-    gap: 0;
+    gap: 50px;
   }
 
   .product__info-wrapper {
@@ -82,8 +82,9 @@ body.template-product #shopify-section-1674168377f629ea2c [style*="max-width: 12
 
 @media screen and (min-width: 769px) {
   .product__media-wrapper {
-    aspect-ratio: 1;
-    min-height: 400px;
+    height: 100vh;
+    min-height: 600px;
+    aspect-ratio: unset;
     position: sticky;
     top: 0;
   }
