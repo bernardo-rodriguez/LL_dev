@@ -50,6 +50,14 @@
                       height="48"
                       loading="lazy"
                     >
+                  {% elsif block.settings.image_url != blank %}
+                    <img
+                      src="{{ block.settings.image_url }}"
+                      alt="{{ block.settings.name | escape }}"
+                      width="48"
+                      height="48"
+                      loading="lazy"
+                    >
                   {% else %}
                     <span class="ingredients-that-work__ingredient-placeholder" aria-hidden="true"></span>
                   {% endif %}
@@ -122,6 +130,12 @@
           "id": "image",
           "label": "Icon/Image",
           "info": "Leave empty for light blue placeholder until you add images"
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Image URL (alternative)",
+          "info": "Use full CDN URL if image not set via picker"
         },
         {
           "type": "text",

@@ -40,7 +40,8 @@
           "settings": {
             "percentage": "11%",
             "name": "Hydrogen Peroxide",
-            "benefits": "Whitens teeth by oxidizing dark chromogens\n2.2 times stronger than Colgate's Whitening Pen\n25% stronger than Crest Gentle Routine Strips"
+            "benefits": "Whitens teeth by oxidizing dark chromogens\n2.2 times stronger than Colgate's Whitening Pen\n25% stronger than Crest Gentle Routine Strips",
+            "image_url": "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/Clear_Background.png?v=1771286740"
           }
         },
         "ingredient_TPPdAC": {
@@ -48,7 +49,8 @@
           "settings": {
             "percentage": "27%",
             "name": "Glycerin",
-            "benefits": "Hydrates enamel → Deeper Peroxide penetration\nCreates barrier around enamel to prevent sensitivity"
+            "benefits": "Hydrates enamel → Deeper Peroxide penetration\nCreates barrier around enamel to prevent sensitivity",
+            "image_url": "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/138695074-liquid-hyaluronic-acid-gel-on-a-digital-screen-of-microscope.jpg?v=1771286740"
           }
         },
         "ingredient_BaMgrt": {
@@ -56,7 +58,8 @@
           "settings": {
             "percentage": "7%",
             "name": "Xylitol",
-            "benefits": "Reduces plaque and oral acidity for long-lasting results\nStrengthens enamel"
+            "benefits": "Reduces plaque and oral acidity for long-lasting results\nStrengthens enamel",
+            "image_url": "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/xylitol.png?v=1771286740"
           }
         },
         "benefit_8E7Pkn": {

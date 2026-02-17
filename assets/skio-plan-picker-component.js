@@ -1474,6 +1474,7 @@ export class SkioPlanPickerComponent extends LitElement {
           const treatmentSupply = foConfig.treatment_supply || (this.treatmentQuantity == '12' ? '12 TREATMENTS (4-MONTH SUPPLY)' : '6 TREATMENTS (2-MONTH SUPPLY)');
           const guarantee = foConfig.guarantee || '30-DAY SATISFACTION GUARANTEE';
           const penTitle = foConfig.pen_title || 'TO-GO WHITENING PEN';
+          const penImage = foConfig.pen_image || 'https://cdn.shopify.com/s/files/1/0066/4728/3782/files/og_small_26338a09-fa97-40d9-a133-2eb7374c16ea.png?v=1771274817';
           const penBullet = foConfig.pen_bullet || 'SAME CUSTOM FORMULA';
           const penPrevPrice = foConfig.pen_previous_price || '$30';
           const penCurrPrice = foConfig.pen_current_price || 'FREE';
@@ -1513,7 +1514,7 @@ export class SkioPlanPickerComponent extends LitElement {
           ${ purchaseKey !== 'one_time' ? html`
           <div class="skio-first-order-item">
             <div class="skio-first-order-item__image">
-              <img src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/og_small_26338a09-fa97-40d9-a133-2eb7374c16ea.png?v=1771274817" alt="" width="50" height="50" />
+              <img src="${ penImage }" alt="" width="50" height="50" />
             </div>
             <div class="skio-first-order-item__content">
               <div class="skio-first-order-item__title">${ penTitle }</div>
