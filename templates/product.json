@@ -38,28 +38,28 @@
         "ingredient_TeEhpt": {
           "type": "ingredient",
           "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/Clear_Background.png?v=1771286740",
             "percentage": "11%",
             "name": "Hydrogen Peroxide",
-            "benefits": "Whitens teeth by oxidizing dark chromogens\n2.2 times stronger than Colgate's Whitening Pen\n25% stronger than Crest Gentle Routine Strips",
-            "image_url": "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/Clear_Background.png?v=1771286740"
+            "benefits": "Whitens teeth by oxidizing dark chromogens\n2.2 times stronger than Colgate's Whitening Pen\n25% stronger than Crest Gentle Routine Strips"
           }
         },
         "ingredient_TPPdAC": {
           "type": "ingredient",
           "settings": {
+            "image_url": "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/138695074-liquid-hyaluronic-acid-gel-on-a-digital-screen-of-microscope.jpg?v=1771286740",
             "percentage": "27%",
             "name": "Glycerin",
-            "benefits": "Hydrates enamel → Deeper Peroxide penetration\nCreates barrier around enamel to prevent sensitivity",
-            "image_url": "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/138695074-liquid-hyaluronic-acid-gel-on-a-digital-screen-of-microscope.jpg?v=1771286740"
+            "benefits": "Hydrates enamel → Deeper Peroxide penetration\nCreates barrier around enamel to prevent sensitivity"
           }
         },
         "ingredient_BaMgrt": {
           "type": "ingredient",
           "settings": {
+            "image_url": "",
             "percentage": "7%",
             "name": "Xylitol",
-            "benefits": "Reduces plaque and oral acidity for long-lasting results\nStrengthens enamel",
-            "image_url": "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/xylitol.png?v=1771286740"
+            "benefits": "Reduces plaque and oral acidity for long-lasting results\nStrengthens enamel"
           }
         },
         "benefit_8E7Pkn": {
@@ -443,7 +443,7 @@
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "review_data": "sample_data",
-            "max_width": 1800,
+            "max_width": 1200,
             "show_shop_reviews": false,
             "empty_state": "empty_widget"
           }
