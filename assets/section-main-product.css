@@ -1,6 +1,6 @@
-/* Product page - 1800px page-width (only affects product template) */
+/* Product page - 1600px page-width (only affects product template) */
 body.template-product .page-width--product {
-  max-width: 1800px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 50px;
 }
@@ -25,21 +25,12 @@ body.template-product #MainContent,
   background-color: #ffffff;
 }
 
-/* Product section: media extends to left edge, info aligns with 1800px content width */
+/* Product section: media extends to left edge, info aligns with 1600px content width */
 @media screen and (min-width: 769px) {
   body.template-product .product-section {
     padding-left: 0;
-    padding-right: max(50px, calc((100vw - 1800px) / 2));
+    padding-right: max(50px, calc((100vw - 1600px) / 2));
   }
-}
-
-/* Match Judge.me reviews section width to product page (1800px) */
-body.template-product #shopify-section-1674168377f629ea2c .page-width,
-body.template-product #shopify-section-1674168377f629ea2c .jdgm-rev-widg,
-body.template-product #shopify-section-1674168377f629ea2c .jdgm-widget,
-body.template-product #shopify-section-1674168377f629ea2c .shopify-app-block,
-body.template-product #shopify-section-1674168377f629ea2c [style*="max-width: 1200px"] {
-  max-width: 1800px !important;
 }
 
 .product {
@@ -133,7 +124,7 @@ body.template-product #shopify-section-1674168377f629ea2c [style*="max-width: 12
 
 .product__info-wrapper {
   /* max-width: calc( 1440px / 2 ); */
-  max-width: 800px;
+  max-width: 700px;
   margin-right: 50px;
   padding: 60px 0 0;
   margin-left: 50px; /* looks better on wider formats */
