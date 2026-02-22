@@ -85,6 +85,8 @@
   width: 100%;
   padding: 18px 0;
   border-bottom: 1px solid #CFD3DA;
+  display: flex;
+  align-items: center;
 }
 
 .product__detail-item:last-of-type,
@@ -105,6 +107,8 @@
 .product__detail-item .emoji {
   font-size: 25px;
   margin-right: 5px;
+  flex-shrink: 0;
+  line-height: 1;
 }
 
 /* treatment quantity selector */
@@ -286,7 +290,7 @@
 }
 
 .quantity-radio-group input[type="radio"]:checked + .pdp-kit-option {
-  background: #ADD8E6 !important;
+  background: #C4E9FF !important;
   border-color: #000 !important;
   box-shadow: none !important;
 }
