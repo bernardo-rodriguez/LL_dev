@@ -238,7 +238,8 @@
 
   .ingredients-that-work__grid {
     flex-direction: column;
-    gap: 28px;
+    gap: 38px;
+    margin-top: 20px;
     margin-bottom: 0;
     justify-content: flex-start;
   }
