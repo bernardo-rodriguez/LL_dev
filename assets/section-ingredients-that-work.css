@@ -69,10 +69,6 @@
 }
 
 .ingredients-body-text {
-  font-family: manrope, sans-serif;
-  font-size: 16px;
-  line-height: 1.35;
-  font-weight: 500;
 }
 
 .ingredients-that-work__intro {
@@ -270,8 +266,6 @@
   }
 
   .ingredients-body-text {
-    font-size: 18px;
-    line-height: 1.4;
   }
 
   .ingredients-key-benefit-text {
