@@ -495,8 +495,8 @@ p,
 
 .label {
   font-family: manrope, sans-serif;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 14px;
+  line-height: 18px;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -504,9 +504,9 @@ p,
 
 .label-sm {
   font-family: manrope, sans-serif;
-  font-size: 10px;
-  line-height: 14px;
-  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
