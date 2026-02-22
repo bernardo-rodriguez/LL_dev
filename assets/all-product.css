@@ -226,26 +226,14 @@
 }
 
 .pdp-kit-option .quantity-title {
-  font-family: manrope, sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
   color: #000;
   display: block;
-  line-height: 18px;
 }
 
 .pdp-kit-option .quantity-subtitle {
-  font-family: manrope, sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
   color: #000;
   display: block;
   margin-top: 2px;
-  line-height: 16px;
 }
 
 .pdp-kit-badge {
@@ -255,12 +243,7 @@
   transform: translateY(-50%);
   background: #000;
   color: #fff;
-  font-family: manrope, sans-serif;
-  font-size: 10px;
-  font-weight: 700;
   padding: 4px 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
   border-radius: 0;
   text-align: center;
   display: inline-block;
@@ -344,16 +327,9 @@
   .pdp-kit-selector .quantity-option {
     padding: 14px 18px;
   }
-  /* Smaller images on desktop to match height of subscribe/one-time row */
   .pdp-kit-option .pdp-kit-image {
     width: 50px;
     height: 50px;
-  }
-  .pdp-kit-option .quantity-title {
-    font-size: 16px;
-  }
-  .pdp-kit-option .quantity-subtitle {
-    font-size: 12px;
   }
 }
 
@@ -364,8 +340,5 @@
   .pdp-kit-option .pdp-kit-image {
     width: 50px;
     height: 50px;
-  }
-  .pdp-kit-option .quantity-title {
-    font-size: 14px;
   }
 }

@@ -134,20 +134,20 @@ xhttp.send();
                 <img src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/single_ll_background_removed.png?v=1771274817" alt="Starter Kit" width="80" height="80" loading="lazy">
               </span>
               <div class="pdp-kit-text">
-                <span class="quantity-title">STARTER KIT</span>
-                <span class="quantity-subtitle">6 TREATMENTS</span>
+                <span class="quantity-title label">STARTER KIT</span>
+                <span class="quantity-subtitle label-sm">6 TREATMENTS</span>
               </div>
             </label>
             
             <input type="radio" id="quantity-12" name="treatment-quantity" value="12">
             <label for="quantity-12" class="quantity-option quantity-option-2 pdp-kit-option">
-              <span class="pdp-kit-badge">BEST VALUE</span>
+              <span class="pdp-kit-badge label-sm">BEST VALUE</span>
               <span class="pdp-kit-image">
                 <img src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/12_treatment_bg_removed.png?v=1771274817" alt="Deluxe Kit" width="80" height="80" loading="lazy">
               </span>
               <div class="pdp-kit-text">
-                <span class="quantity-title">DELUXE KIT</span>
-                <span class="quantity-subtitle">12 TREATMENTS</span>
+                <span class="quantity-title label">DELUXE KIT</span>
+                <span class="quantity-subtitle label-sm">12 TREATMENTS</span>
               </div>
             </label>
           </div>
@@ -455,7 +455,7 @@ xhttp.send();
             <div class="product__details-inner">
               {% for detail in product.metafields.custom.details.value limit: 2 %}
                 {% assign formatted_emoji = detail | replace: '{', "<span class='emoji'>" | replace: '}', '</span>' %}
-                <div class="product__detail-item p">{{ formatted_emoji }}</div>
+                <div class="product__detail-item sh3">{{ formatted_emoji }}</div>
               {% endfor %}
             </div>
           </div>
@@ -463,7 +463,7 @@ xhttp.send();
 
         {% if section.settings.how_to_use != blank %}
           <div class="product__how-to-use product__accordion">
-            <button class="product__accordion-button p">
+            <button class="product__accordion-button sh3">
               How To Use <span class="accordion-toggle">{% render 'icon', icon: 'accordion' %}</span>
             </button>
             <div class="product__accordion--inner">
@@ -476,7 +476,7 @@ xhttp.send();
 
         {% if section.settings.why_subscribe != blank %}
           <div class="product__why-subscribe product__accordion">
-            <button class="product__accordion-button p">
+            <button class="product__accordion-button sh3">
               Why Subscribe <span class="accordion-toggle">{% render 'icon', icon: 'accordion' %}</span>
             </button>
             <div class="product__accordion--inner">

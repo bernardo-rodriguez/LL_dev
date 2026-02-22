@@ -268,10 +268,10 @@ product-form:has(skio-plan-picker[data-has-includes-cta]) #main-clickable-button
 
 .below_button_guarantee {
   text-align: center;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 14px;
-  line-height: 21px;
-  font-family: Jakarta;
+  line-height: 22px;
+  font-family: manrope, sans-serif;
   max-width: 90px;
 }
 
