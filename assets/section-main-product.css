@@ -1,6 +1,6 @@
-/* Product page - 1600px page-width (only affects product template) */
+/* Product page - 1400px page-width (only affects product template) */
 body.template-product .page-width--product {
-  max-width: 1600px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 50px;
 }
