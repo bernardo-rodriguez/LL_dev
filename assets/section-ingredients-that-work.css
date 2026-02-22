@@ -134,10 +134,6 @@
 }
 
 .ingredients-benefits-text {
-  font-family: manrope, sans-serif;
-  font-size: 13px;
-  line-height: 1.2;
-  font-weight: 500;
 }
 
 .ingredients-that-work__benefits-list li:last-child {
@@ -167,10 +163,6 @@
 }
 
 .ingredients-key-benefit-text {
-  font-family: manrope, sans-serif;
-  font-size: 14px;
-  line-height: 1.35;
-  font-weight: 500;
 }
 
 .ingredients-that-work__key-benefit {
@@ -261,16 +253,12 @@
   }
 
   .ingredients-benefits-text {
-    font-size: 16px;
-    line-height: 1.35;
   }
 
   .ingredients-body-text {
   }
 
   .ingredients-key-benefit-text {
-    font-size: 16px;
-    line-height: 1.4;
   }
 
   .ingredients-that-work__key-benefit {
