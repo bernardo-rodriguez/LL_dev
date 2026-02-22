@@ -64,9 +64,9 @@
                 </div>
                 <div class="ingredients-that-work__ingredient-content">
                   {% assign ingredient_name = block.settings.name | default: block.settings.heading %}
-                  <h4 class="ingredients-that-work__ingredient-name">
+                  <p class="ingredients-that-work__ingredient-name">
                     {% if block.settings.percentage != blank %}{{ block.settings.percentage }} {% endif %}{{ ingredient_name }}
-                  </h3>
+                  </p>
                   {% assign benefits_text = block.settings.benefits | default: block.settings.text %}
                   {% if benefits_text != blank %}
                     <ul class="ingredients-that-work__benefits-list">
