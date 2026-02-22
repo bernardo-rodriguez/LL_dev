@@ -93,23 +93,29 @@
 
 .ingredients-that-work__ingredient-icon {
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
 }
 
 .ingredients-that-work__ingredient-icon img {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
 }
 
 .ingredients-that-work__ingredient-placeholder {
   display: block;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background-color: #cfe6f4;
+}
+
+@media screen and (max-width: 768px) {
+  .ingredients-that-work__ingredient {
+    gap: 5px;
+  }
 }
 
 .ingredients-that-work__ingredient-content {
