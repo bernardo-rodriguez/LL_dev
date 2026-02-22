@@ -603,75 +603,85 @@ affiliate_upsell_subscription_price_copy = {
 }
 
 /**
- * First Order Includes section copy - customize item titles, bullets, and display text.
- * Keyed by: kit (starter=6 treatments, deluxe=12) x purchase type (subscription, one_time).
- * Prices for kit/total come from oneTimePricingConfig / subscriptionPricingConfig.
+ * Reusable include items -- define once, reference in any config block.
+ * type: 'item' = product/shipping row | 'disclaimer' = styled text box with link
+ * dynamic_price: true = price calculated from variant/selling plan in renderer
+ * is_shipping: true = renders with no image/border (shipping-style row)
+ */
+const INCLUDE_KIT_STARTER = {
+    type: 'item',
+    title: 'CUSTOM WHITENING KIT',
+    image: 'https://cdn.shopify.com/s/files/1/0066/4728/3782/files/og_small_26338a09-fa97-40d9-a133-2eb7374c16ea.png?v=1771274817',
+    bullets: ['6 TREATMENTS (2-MONTH SUPPLY)', '30-DAY SATISFACTION GUARANTEE'],
+    dynamic_price: true,
+};
+
+const INCLUDE_KIT_DELUXE = {
+    type: 'item',
+    title: 'CUSTOM WHITENING KIT',
+    image: 'https://cdn.shopify.com/s/files/1/0066/4728/3782/files/og_small_26338a09-fa97-40d9-a133-2eb7374c16ea.png?v=1771274817',
+    bullets: ['12 TREATMENTS (4-MONTH SUPPLY)', '30-DAY SATISFACTION GUARANTEE'],
+    dynamic_price: true,
+};
+
+const INCLUDE_PEN = {
+    type: 'item',
+    title: 'TO-GO WHITENING PEN',
+    image: 'https://cdn.shopify.com/s/files/1/0066/4728/3782/files/Generated_with_Kive.ai_-_Create_a_product_shot_of_this_with_a_white_background_behind_it._It_should_just_have_the_product_and_the_packaging.png?v=1771286740',
+    bullets: ['SAME CUSTOM FORMULA'],
+    previous_price: '$30',
+    current_price: 'FREE',
+};
+
+const INCLUDE_SHIPPING = {
+    type: 'item',
+    title: 'SHIPPING',
+    is_shipping: true,
+    bullets: [],
+    previous_price: '$5',
+    current_price: 'FREE',
+};
+
+const INCLUDE_SUBSCRIBE_DISCLAIMER = {
+    type: 'disclaimer',
+    text: 'Save <strong>30%</strong> on your first order when subscribing and receive <strong>2 Free Gifts</strong> + <strong>Free Shipping</strong>.',
+    link_text: 'Switch to <strong>Subscribe &amp; Save</strong>',
+};
+
+/**
+ * First Order Includes config.
+ * Keyed by: kit (starter/deluxe) x purchase type (subscription/one_time).
+ * Each block has: section_title, items[], show_total, footer_text.
  */
 base_first_order_includes = {
     starter: {
         subscription: {
             section_title: 'FIRST ORDER INCLUDES',
-            kit_title: 'CUSTOM WHITENING KIT',
-            treatment_supply: '6 TREATMENTS (2-MONTH SUPPLY)',
-            guarantee: '30-DAY SATISFACTION GUARANTEE',
-            pen_title: 'TO-GO WHITENING PEN',
-            pen_image: 'https://cdn.shopify.com/s/files/1/0066/4728/3782/files/Generated_with_Kive.ai_-_Create_a_product_shot_of_this_with_a_white_background_behind_it._It_should_just_have_the_product_and_the_packaging.png?v=1771286740',
-            pen_bullet: 'SAME CUSTOM FORMULA',
-            pen_previous_price: '$30',
-            pen_current_price: 'FREE',
-            shipping_title: 'SHIPPING',
-            shipping_previous_price: '$5',
-            shipping_current_price: 'FREE',
-            footer_text: 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS'
+            items: [INCLUDE_KIT_STARTER, INCLUDE_PEN, INCLUDE_SHIPPING],
+            show_total: true,
+            footer_text: 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS',
         },
         one_time: {
             section_title: 'ORDER INCLUDES',
-            kit_title: 'CUSTOM WHITENING KIT',
-            treatment_supply: '6 TREATMENTS (2-MONTH SUPPLY)',
-            guarantee: '30-DAY SATISFACTION GUARANTEE',
-            pen_title: 'TO-GO WHITENING PEN',
-            pen_image: 'https://cdn.shopify.com/s/files/1/0066/4728/3782/files/Generated_with_Kive.ai_-_Create_a_product_shot_of_this_with_a_white_background_behind_it._It_should_just_have_the_product_and_the_packaging.png?v=1771286740',
-            pen_bullet: 'SAME CUSTOM FORMULA',
-            pen_previous_price: '$30',
-            pen_current_price: 'FREE',
-            shipping_title: 'SHIPPING',
-            shipping_previous_price: '$5',
-            shipping_current_price: 'FREE',
-            footer_text: ''
-        }
+            items: [INCLUDE_KIT_STARTER, INCLUDE_SUBSCRIBE_DISCLAIMER],
+            show_total: false,
+            footer_text: '',
+        },
     },
     deluxe: {
         subscription: {
             section_title: 'FIRST ORDER INCLUDES',
-            kit_title: 'CUSTOM WHITENING KIT',
-            treatment_supply: '12 TREATMENTS (4-MONTH SUPPLY)',
-            guarantee: '30-DAY SATISFACTION GUARANTEE',
-            pen_title: 'TO-GO WHITENING PEN',
-            pen_image: 'https://cdn.shopify.com/s/files/1/0066/4728/3782/files/Generated_with_Kive.ai_-_Create_a_product_shot_of_this_with_a_white_background_behind_it._It_should_just_have_the_product_and_the_packaging.png?v=1771286740',
-            pen_bullet: 'SAME CUSTOM FORMULA',
-            pen_previous_price: '$30',
-            pen_current_price: 'FREE',
-            shipping_title: 'SHIPPING',
-            shipping_previous_price: '$5',
-            shipping_current_price: 'FREE',
-            footer_text: 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS'
+            items: [INCLUDE_KIT_DELUXE, INCLUDE_PEN, INCLUDE_SHIPPING],
+            show_total: true,
+            footer_text: 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS',
         },
         one_time: {
             section_title: 'ORDER INCLUDES',
-            kit_title: 'CUSTOM WHITENING KIT',
-            treatment_supply: '12 TREATMENTS (4-MONTH SUPPLY)',
-            guarantee: '30-DAY SATISFACTION GUARANTEE',
-            pen_title: 'TO-GO WHITENING PEN',
-            pen_image: 'https://cdn.shopify.com/s/files/1/0066/4728/3782/files/Generated_with_Kive.ai_-_Create_a_product_shot_of_this_with_a_white_background_behind_it._It_should_just_have_the_product_and_the_packaging.png?v=1771286740',
-            pen_bullet: 'SAME CUSTOM FORMULA',
-            pen_previous_price: '$30',
-            pen_current_price: 'FREE',
-            shipping_title: 'SHIPPING',
-            shipping_previous_price: '$5',
-            shipping_current_price: 'FREE',
-            footer_text: ''
-        }
-    }
+            items: [INCLUDE_KIT_DELUXE, INCLUDE_SUBSCRIBE_DISCLAIMER],
+            show_total: false,
+            footer_text: '',
+        },
+    },
 }
 
 affiliate_first_order_includes = {

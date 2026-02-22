@@ -1063,11 +1063,7 @@ export class SkioPlanPickerComponent extends LitElement {
 
     this.treatmentQuantity = '6'; // Default value
 
-    // First Order Includes copy - from assets/in-house-tracking-constants.js
-    // Structure: { starter: { subscription: {...}, one_time: {...} }, deluxe: { ... } }
-    this.firstOrderIncludesConfig = (typeof affiliate_first_order_includes !== 'undefined' && affiliate_first_order_includes?.[this.affiliate_referrer]) 
-      ? affiliate_first_order_includes[this.affiliate_referrer] 
-      : (typeof base_first_order_includes !== 'undefined' ? base_first_order_includes : {})
+    this.firstOrderIncludesConfig = affiliate_first_order_includes[this.affiliate_referrer] ?? affiliate_first_order_includes['default']
     this.selectedBundle = 'sub'; // Default to first bundle
     this.prevSelectedBundle = '1'; // Default to first bundle
   }
@@ -1512,96 +1508,94 @@ export class SkioPlanPickerComponent extends LitElement {
           const kitKey = this.treatmentQuantity == '12' ? 'deluxe' : 'starter';
           const purchaseKey = this.selectedSellingPlanGroup != null ? 'subscription' : 'one_time';
           const foConfig = this.firstOrderIncludesConfig?.[kitKey]?.[purchaseKey] || {};
-          const sectionTitle = purchaseKey === 'one_time' ? 'YOUR ORDER ONLY INCLUDES' : (foConfig.section_title || 'FIRST ORDER INCLUDES');
-          const kitTitle = foConfig.kit_title || 'CUSTOM WHITENING KIT';
-          const treatmentSupply = foConfig.treatment_supply || (this.treatmentQuantity == '12' ? '12 TREATMENTS (4-MONTH SUPPLY)' : '6 TREATMENTS (2-MONTH SUPPLY)');
-          const guarantee = foConfig.guarantee || '30-DAY SATISFACTION GUARANTEE';
-          const penTitle = foConfig.pen_title || 'TO-GO WHITENING PEN';
-          const penImage = foConfig.pen_image || 'https://cdn.shopify.com/s/files/1/0066/4728/3782/files/og_small_26338a09-fa97-40d9-a133-2eb7374c16ea.png?v=1771274817';
-          const penBullet = foConfig.pen_bullet || 'SAME CUSTOM FORMULA';
-          const penPrevPrice = foConfig.pen_previous_price || '$30';
-          const penCurrPrice = foConfig.pen_current_price || 'FREE';
-          const shippingTitle = foConfig.shipping_title || 'SHIPPING';
-          const shippingPrevPrice = foConfig.shipping_previous_price || '$5';
-          const shippingCurrPrice = foConfig.shipping_current_price || 'FREE';
+          const sectionTitle = foConfig.section_title || 'FIRST ORDER INCLUDES';
+          const items = foConfig.items || [];
           const footerText = foConfig.footer_text || '';
+          const showTotal = foConfig.show_total !== false;
           const hasOptionPicker = this.subscription_enabled && this.one_time_enabled;
+
+          const renderDynamicPrice = () => {
+            const isSubscription = this.selectedSellingPlanGroup != null;
+            const strikePrice = isSubscription
+              ? (this.subscriptionPricingConfig['previous_price'] || '$70')
+              : (this.oneTimePricingConfig['first']['bundle_previous_price'] || '$76');
+            const currentPrice = isSubscription
+              ? html`$${ (() => {
+                  const group = this.availableSellingPlanGroups?.[0];
+                  if (group) {
+                    const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount || 0) + parseFloat(this.subscriptionPricingConfig['next_price'] || 0);
+                    return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
+                  }
+                  return '39';
+                })() }`
+              : this.oneTimePricingConfig['first']['bundle_current_price'];
+            return { strikePrice, currentPrice };
+          };
+
+          const computeTotalStrike = () => {
+            let total = 0;
+            for (const item of items) {
+              if (item.type !== 'item') continue;
+              if (item.dynamic_price) {
+                const isSubscription = this.selectedSellingPlanGroup != null;
+                const prev = isSubscription
+                  ? (this.subscriptionPricingConfig['previous_price'] || '$70')
+                  : (this.oneTimePricingConfig['first']['bundle_previous_price'] || '$76');
+                total += parseInt(prev.replace(/[^0-9]/g, '')) || 0;
+              } else if (item.previous_price) {
+                total += parseInt(item.previous_price.replace(/[^0-9]/g, '')) || 0;
+              }
+            }
+            return '$' + total;
+          };
+
           return html`
         <div class="skio-first-order-includes" style="${ !hasOptionPicker ? 'margin-top: 0; border-top: 1px solid #000;' : '' }">
           <div class="skio-first-order-includes__title">${ sectionTitle }</div>
-          <div class="skio-first-order-item">
-            <div class="skio-first-order-item__image">
-              <img src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/og_small_26338a09-fa97-40d9-a133-2eb7374c16ea.png?v=1771274817" alt="" width="50" height="50" />
-            </div>
-            <div class="skio-first-order-item__content">
-              <div class="skio-first-order-item__title">${ kitTitle }</div>
-              <p class="skio-first-order-item__bullets">• ${ treatmentSupply }<br>• ${ guarantee }</p>
-            </div>
-            <div class="skio-first-order-item__price">
-              <span class="price--strike">${ this.selectedSellingPlanGroup != null ? (this.subscriptionPricingConfig['previous_price'] || '$70') : (this.oneTimePricingConfig['first']['bundle_previous_price'] || '$76') }</span>
-              <span class="price--current">${ this.selectedSellingPlanGroup != null ? html`$${ (() => {
-                const group = this.availableSellingPlanGroups?.[0];
-                if (group) {
-                  const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount || 0) + parseFloat(this.subscriptionPricingConfig['next_price'] || 0);
-                  return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
-                }
-                return '39';
-              })() }` : this.oneTimePricingConfig['first']['bundle_current_price'] }</span>
-            </div>
-          </div>
-          ${ purchaseKey === 'one_time' && this.availableSellingPlanGroups?.length > 0 ? html`
-          <div class="skio-onetime-subscribe-disclaimer">
-            Save <strong>30%</strong> on your first order when subscribing and receive <strong>2 Free Gifts</strong> + <strong>Free Shipping</strong>.<br>
-            <a href="#" @click=${(e) => { e.preventDefault(); this.selectSellingPlanGroup(this.availableSellingPlanGroups[0]); }}>Switch to <strong>Subscribe &amp; Save</strong></a>
-          </div>
-          ` : '' }
-          ${ purchaseKey !== 'one_time' ? html`
-          <div class="skio-first-order-item">
-            <div class="skio-first-order-item__image">
-              <img src="${ penImage }" alt="" width="50" height="50" />
-            </div>
-            <div class="skio-first-order-item__content">
-              <div class="skio-first-order-item__title">${ penTitle }</div>
-              <p class="skio-first-order-item__bullets">• ${ penBullet }</p>
-            </div>
-            <div class="skio-first-order-item__price">
-              <span class="price--strike">${ penPrevPrice }</span>
-              <span class="price--current">${ penCurrPrice }</span>
-            </div>
-          </div>
-          <div class="skio-first-order-item skio-first-order-item--shipping">
-            <div class="skio-first-order-item__image"></div>
-            <div class="skio-first-order-item__content">
-              <div class="skio-first-order-item__title">${ shippingTitle }</div>
-            </div>
-            <div class="skio-first-order-item__price">
-              <span class="price--strike">${ shippingPrevPrice }</span>
-              <span class="price--current">${ shippingCurrPrice }</span>
-            </div>
-          </div>
-          ` : '' }
-          ${ purchaseKey !== 'one_time' ? html`
+          ${ items.map(item => {
+            if (item.type === 'disclaimer') {
+              return this.availableSellingPlanGroups?.length > 0 ? html`
+              <div class="skio-onetime-subscribe-disclaimer">
+                ${ unsafeHTML(item.text) }<br>
+                <a href="#" @click=${(e) => { e.preventDefault(); this.selectSellingPlanGroup(this.availableSellingPlanGroups[0]); }}>${ unsafeHTML(item.link_text) }</a>
+              </div>` : '';
+            }
+            if (item.is_shipping) {
+              return html`
+              <div class="skio-first-order-item skio-first-order-item--shipping">
+                <div class="skio-first-order-item__image"></div>
+                <div class="skio-first-order-item__content">
+                  <div class="skio-first-order-item__title">${ item.title }</div>
+                </div>
+                <div class="skio-first-order-item__price">
+                  <span class="price--strike">${ item.previous_price }</span>
+                  <span class="price--current">${ item.current_price }</span>
+                </div>
+              </div>`;
+            }
+            const prices = item.dynamic_price ? renderDynamicPrice() : { strikePrice: item.previous_price, currentPrice: item.current_price };
+            return html`
+            <div class="skio-first-order-item">
+              ${ item.image ? html`
+              <div class="skio-first-order-item__image">
+                <img src="${ item.image }" alt="" width="50" height="50" />
+              </div>` : '' }
+              <div class="skio-first-order-item__content">
+                <div class="skio-first-order-item__title">${ item.title }</div>
+                ${ item.bullets?.length ? html`<p class="skio-first-order-item__bullets">${ unsafeHTML(item.bullets.map(b => '• ' + b).join('<br>')) }</p>` : '' }
+              </div>
+              <div class="skio-first-order-item__price">
+                ${ prices.strikePrice ? html`<span class="price--strike">${ prices.strikePrice }</span>` : '' }
+                ${ prices.currentPrice ? html`<span class="price--current">${ prices.currentPrice }</span>` : '' }
+              </div>
+            </div>`;
+          }) }
+          ${ showTotal ? html`
           <div class="skio-total-row">
             <span class="skio-total-row__label">TOTAL</span>
             <div class="skio-total-row__price">
-              <span class="price--strike">${ (() => {
-                if (this.selectedSellingPlanGroup != null) {
-                  const prev = this.subscriptionPricingConfig['previous_price'] || '$70';
-                  const prevNum = parseInt(prev.replace(/[^0-9]/g, '')) || 70;
-                  return '$' + (prevNum + 30 + 5);
-                }
-                const prev = this.oneTimePricingConfig['first']['bundle_previous_price'] || '$76';
-                const prevNum = parseInt(prev.replace(/[^0-9]/g, '')) || 76;
-                return '$' + (prevNum + 30 + 5);
-              })() }</span>
-              <span class="price--current">${ this.selectedSellingPlanGroup != null ? html`$${ (() => {
-                const group = this.availableSellingPlanGroups?.[0];
-                if (group) {
-                  const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount || 0) + parseFloat(this.subscriptionPricingConfig['next_price'] || 0);
-                  return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
-                }
-                return '39';
-              })() }` : this.oneTimePricingConfig['first']['bundle_current_price'] }</span>
+              <span class="price--strike">${ computeTotalStrike() }</span>
+              <span class="price--current">${ renderDynamicPrice().currentPrice }</span>
             </div>
           </div>
           ` : '' }
