@@ -175,7 +175,7 @@ body.template-product #MainContent,
 }
 
 .product-info dt {
-  margin-bottom: 16px;
+  margin-bottom: 0;
   flex-basis: 100%;
 }
 
