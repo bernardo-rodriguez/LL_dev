@@ -122,36 +122,29 @@
   border-radius: 50%;
 }
 
-/* PDP Product Options - aligned kit and purchase pickers */
+/* PDP Product Options */
 .pdp-product-options {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  grid-template-rows: auto auto;
-  gap: 22px 12px;
   margin-top: 10px;
   margin-bottom: 0;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* No gap between product options and section below */
 .pdp-product-options + .product__details,
 .pdp-product-options + .product__how-to-use {
   margin-top: 0;
 }
 
-/* Row 1: Kit options - labels are direct grid children via display:contents */
+/* Kit options: 2-column grid for Starter / Deluxe cards */
 .treatment-quantity-selector {
-  grid-column: 1 / -1;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 12px
+  gap: 12px;
 }
 
-/* Row 2: Form/skio - spans full width, skio renders its 2-col grid inside */
+/* Form/skio row */
 .pdp-product-options__form-row {
-  grid-column: 1 / -1;
-  display: block;
+  margin-top: 22px;
   width: 100%;
   min-width: 0;
 }
@@ -184,7 +177,7 @@
 
 .pdp-kit-selector__title {
   color: #1a1a1a;
-  margin: 0 0 8px 0;
+  margin: 0;
 }
 
 .pdp-kit-selector.quantity-radio-group {
