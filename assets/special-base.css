@@ -266,8 +266,8 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 
 h4,
 .h4 {
-  font-size: 20px;
-  line-height: 28px;
+  font-size: 28px;
+  line-height: 32px;
   letter-spacing: -0.015em;
   text-transform: capitalize;
 }
@@ -275,13 +275,8 @@ h4,
 @media only screen and (max-width: 768px) {
   h4,
   .h4 {
-    font-size: 20px;
+    font-size: 22px;
     line-height: 28px;
-  }
-  .m-h4 {
-    font-size: 35px;
-    line-height: 38px;
-    font-weight: 500;
   }
 }
 

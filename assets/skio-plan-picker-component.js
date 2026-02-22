@@ -419,7 +419,7 @@ const skioStyles = css`
     background-color: #C4E9FF !important;
     color: #000 !important;
     border: 1px solid #000 !important;
-    font-family: jakarta, sans-serif !important;
+    font-family: manrope, sans-serif !important;
     font-size: 18px;
     font-weight: 700 !important;
     text-transform: uppercase;
@@ -516,7 +516,7 @@ const skioStyles = css`
   .skio-frequency {
     border: none !important;
     background: var(--blue-tint-40) !important;
-    font-family: jakarta !important;
+    font-family: manrope, sans-serif !important;
     font-size: 12px !important;
     line-height: 14px !important;
     border-radius: 40px !important;

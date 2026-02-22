@@ -55,7 +55,7 @@
       <div id="ProductInfo-{{ section.id }}" class="product__info-container">
         {% assign product_form_id = 'product-form-' | append: section.id %}
 
-        <h3 class="product__title m-h4">
+        <h3 class="product__title">
           {%- if section.settings.title != blank -%}
             {{ formatted_heading }}
           {%- else -%}

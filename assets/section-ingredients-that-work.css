@@ -62,10 +62,11 @@
   font-style: italic;
 }
 
-/* Intro, summary, key benefits: 16px on mobile */
 .ingredients-body-text {
+  font-family: manrope, sans-serif;
   font-size: 16px;
   line-height: 1.35;
+  font-weight: 500;
 }
 
 .ingredients-that-work__intro {
@@ -117,6 +118,7 @@
 .ingredients-that-work__ingredient-name {
   margin: 0 0 4px;
   color: var(--navy);
+  font-family: manrope, sans-serif;
   font-size: 24px;
   line-height: 1.2;
   letter-spacing: -0.015em;
@@ -141,10 +143,11 @@
   color: #0d2244;
 }
 
-/* Ingredient benefit text: 13px on mobile, larger on desktop */
 .ingredients-benefits-text {
+  font-family: manrope, sans-serif;
   font-size: 13px;
   line-height: 1.2;
+  font-weight: 500;
 }
 
 .ingredients-that-work__benefits-list li:last-child {
@@ -167,10 +170,11 @@
   list-style: none;
 }
 
-/* Key benefits below "With Laughland": 14px on mobile */
 .ingredients-key-benefit-text {
+  font-family: manrope, sans-serif;
   font-size: 14px;
   line-height: 1.35;
+  font-weight: 500;
 }
 
 .ingredients-that-work__key-benefit {

@@ -22,7 +22,7 @@
     <div class="benefit-cards__inner">
       <div class="benefit__header-column">
         {% if formatted_heading != blank %}
-          <h4 class="benefit__heading m-h4">{{ formatted_heading }}</h4>
+          <h4 class="benefit__heading">{{ formatted_heading }}</h4>
         {% endif %}
         {% if section.settings.text != blank %}
           <p class="body-lg benefit__paragraph">{{ section.settings.text }}</p>
@@ -41,7 +41,7 @@
                 %}
                 <div class="benefit__card">
                   {% if formatted_heading != blank %}
-                    <h4 class="benefit__card-heading m-h4">
+                    <h4 class="benefit__card-heading">
                       {{ formatted_card_heading }}
                       {% if block.settings.title %}
                         <br>

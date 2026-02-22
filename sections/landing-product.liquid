@@ -137,7 +137,7 @@
       <div id="ProductInfo-{{ section.id }}" class="product__info-container">
         {% assign product_form_id = 'product-form-' | append: section.id %}
 
-        <h3 class="product__title m-h4" id="product__title_id">
+        <h3 class="product__title" id="product__title_id">
           {{ product.metafields.custom.title | default: product.title }}
         </h3>
         

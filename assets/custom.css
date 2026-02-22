@@ -19,7 +19,7 @@
 .error-template .error-inr-template .h5 {
   margin-bottom: 20px;
   font-weight: 500;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
 }
 
 @media screen and (max-width: 768px) {
@@ -97,7 +97,7 @@ input::placeholder {
   font-size: 16px;
   line-height: 1.5;
   padding: 12px 0;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
 }
 
 .select .icon-caret, 
@@ -139,7 +139,7 @@ input::placeholder {
 .customer__container .customer__content .customer__address-container .addresses .address__title {
   font-size: 14px;
   font-weight: 500;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
 }
 
 .customer__container .customer__content .customer__address-container .addresses .address p,
@@ -152,7 +152,7 @@ input::placeholder {
 .adresses-page__container .addresses .address .address__links .address__link {
   font-size: 14px;
   font-weight: 500;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
 }
 
 .customer-gate__container a {
@@ -166,7 +166,7 @@ input::placeholder {
 .customer-gate .customer-gate__wrapper .customer-gate__container #rc_login h5 {
   font-size: 18px;
   line-height: 1.5;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   font-weight: 500;
 }
 
@@ -193,7 +193,7 @@ input::placeholder {
   font-weight: 500;
   text-underline-offset: 0.5em;
   line-height: normal;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   font-weight: 600;
   text-decoration: underline;
 }
@@ -231,7 +231,7 @@ input::placeholder {
 }
 
 #ReCharge .page__customers__request-invite .rc_form .rc_form__group #customer_email {
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   font-weight: 400;
   font-size: 16px !important;
   line-height: 24px;
@@ -247,7 +247,7 @@ input::placeholder {
 #ReCharge .page__customers__request-invite .rc_form a {
   text-underline-offset: 0.5em;
   line-height: normal;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   font-weight: 600;
   text-decoration: underline;
   font-size: 14px;
@@ -484,7 +484,7 @@ input::placeholder {
 
 .rte ol li, 
 .rte ul li {
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
@@ -502,7 +502,7 @@ input::placeholder {
   font-weight: 500;
   text-underline-offset: 0.5em;
   line-height: normal;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   text-decoration: underline;
 }
 
@@ -544,7 +544,7 @@ input::placeholder {
   font-size: 16px;
   margin: 10px 0;
   font-weight: 500;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
 }
 
 .template-cart .cart-container .cart__contents .cart__items table.cart-items .cart-item .cart-item__details .product-option p {
@@ -561,7 +561,7 @@ input::placeholder {
 
 .template-cart .cart-container .cart__contents .cart__items table.cart-items .cart-item .cart-item__quantity .quantity .quantity__input {
   font-weight: 500;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
 }
 
 .template-cart .cart-container .cart__contents .cart__items table.cart-items .cart-item .cart-item__quantity cart-remove-button .button {
@@ -571,7 +571,7 @@ input::placeholder {
 
 .template-cart .cart-container .cart__contents .cart__items table.cart-items .cart-item .cart-item__totals .cart-item__price-wrapper * {
   font-size: 16px !important;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   letter-spacing: 0;
   font-weight: 500;
 }
@@ -588,7 +588,7 @@ input::placeholder {
 
 .template-cart .cart__footer .tax-note {
   margin: 30px 0;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
 }
 
 .template-cart .cart__footer .cart__ctas {
@@ -601,14 +601,14 @@ input::placeholder {
 
 .template-cart .cart__footer .tax-note {
   margin: 30px 0;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   font-size: 14px;
   line-height: 1;
 }
 
 .template-cart .cart__footer #cart-errors {
   text-align: right;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   font-size: 14px;
   line-height: 1;
 }
@@ -729,7 +729,7 @@ input::placeholder {
   .Bottom_Menu .menu-drawer__menu-button {
     font-size: 18px;
     font-weight: 400;
-    font-family: Jakarta;
+    font-family: manrope, sans-serif;
     letter-spacing: -0.01em;
   }
 

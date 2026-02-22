@@ -26,7 +26,7 @@
   padding: 15px 14px;
   text-align: center;
   height: 60px;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   color: #3D4E69;
 }
 
@@ -134,7 +134,7 @@
   .Pricing_Section .Pricing_Inner_Section .Pricing_Table table thead tr th {
     font-size: 14px;
     height: 45px;
-    font-family: jakarta;
+    font-family: manrope, sans-serif;
     font-weight: 500;
   }
 
@@ -144,7 +144,7 @@
 
   .Pricing_Section .Pricing_Inner_Section .Pricing_Table table tbody tr td {
     padding: 11px 10px;
-    font-family: jakarta;
+    font-family: manrope, sans-serif;
   }
 }
 

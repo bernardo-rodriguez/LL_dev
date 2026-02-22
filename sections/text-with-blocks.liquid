@@ -8,7 +8,7 @@
 <section class="text-with-blocks">
   <div class="page-width">
     <div class="text-with-blocks__header">
-      <h2 class="text-with-blocks__title h4 m-h4">{{ formatted_heading }}</h2>
+      <h2 class="text-with-blocks__title">{{ formatted_heading }}</h2>
       <p class="text-with-blocks__text body-lg">{{ section.settings.text | newline_to_br }}</p>
     </div>
     <div class="text-with-blocks__blocks-wrapper no-scrollbar">
@@ -16,7 +16,7 @@
         {% for block in section.blocks %}
           <div class="text-with-blocks__item" {{ block.shopify_attributes }}>
             <div class="text-with-blocks__item-header">
-              <h3 class="text-with-blocks__item-title h4 m-h4 stylized">{{ block.settings.title }}</h3>
+              <h3 class="text-with-blocks__item-title stylized">{{ block.settings.title }}</h3>
               <h3 class="text-with-blocks__item-emoji h4">{{ block.settings.emoji }}</h3>
             </div>
             <p class="text-with-blocks__item-text body-sm">{{ block.settings.text }}</p>

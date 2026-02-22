@@ -184,12 +184,13 @@
 
 .pdp-kit-selector__title {
   grid-column: 1 / -1;
-  font-weight: 700;
-  font-size: 15px;
-  letter-spacing: 0.02em;
+  font-family: manrope, sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #1a1a1a;
-  line-height: 1.2;
+  line-height: 16px;
   margin: 0 0 2px 0;
 }
 
@@ -239,23 +240,26 @@
 }
 
 .pdp-kit-option .quantity-title {
-  font-size: 16px;
-  font-weight: 700;
+  font-family: manrope, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   color: #000;
   display: block;
-  line-height: 1.2;
+  line-height: 18px;
 }
 
 .pdp-kit-option .quantity-subtitle {
+  font-family: manrope, sans-serif;
   font-size: 12px;
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   color: #000;
   display: block;
   margin-top: 2px;
+  line-height: 16px;
 }
 
 .pdp-kit-badge {
@@ -265,11 +269,12 @@
   transform: translateY(-50%);
   background: #000;
   color: #fff;
+  font-family: manrope, sans-serif;
   font-size: 10px;
   font-weight: 700;
   padding: 4px 10px;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   border-radius: 0;
   text-align: center;
   display: inline-block;
