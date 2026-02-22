@@ -120,6 +120,7 @@
 .ingredients-that-work__ingredient-name {
   margin: 0 0 4px;
   color: var(--navy);
+  font-weight: 700;
 }
 
 .ingredients-that-work__benefits-list {
