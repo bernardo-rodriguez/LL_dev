@@ -1228,7 +1228,7 @@ export class SkioPlanPickerComponent extends LitElement {
         <input ${ this.formId !== null ? html`form="${ this.formId }"` : '' } name="properties[Discount]" type="hidden" value="${ this.subscription_enabled && this.selectedSellingPlan !== null ? this.discount(this.selectedSellingPlan).percent : '' }" 
           ?disabled="${ !this.subscription_enabled || this.selectedSellingPlan == null ? true : false }" />
         
-        <div class="skio-plan-picker__purchase-row">
+        <div class="skio-plan-picker__purchase-row" style="${ !this.subscription_enabled || !this.one_time_enabled ? 'display: none' : '' }">
          ${ this.one_time_enabled ? 
           html`
             <div class="skio-group-container skio-onetime-second
@@ -1525,8 +1525,9 @@ export class SkioPlanPickerComponent extends LitElement {
           const shippingPrevPrice = foConfig.shipping_previous_price || '$5';
           const shippingCurrPrice = foConfig.shipping_current_price || 'FREE';
           const footerText = foConfig.footer_text || '';
+          const hasOptionPicker = this.subscription_enabled && this.one_time_enabled;
           return html`
-        <div class="skio-first-order-includes">
+        <div class="skio-first-order-includes" style="${ !hasOptionPicker ? 'margin-top: 0; border-top: 1px solid #000;' : '' }">
           <div class="skio-first-order-includes__title">${ sectionTitle }</div>
           <div class="skio-first-order-item">
             <div class="skio-first-order-item__image">
