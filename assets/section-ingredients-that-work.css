@@ -51,7 +51,7 @@
 .ingredients-that-work__title {
   margin: 0 0 6px;
   color: var(--navy);
-  text-align: center;
+  text-align: left;
 }
 
 @media screen and (max-width: 768px) {
