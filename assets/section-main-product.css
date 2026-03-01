@@ -265,7 +265,7 @@ product-form:has(skio-plan-picker[data-has-includes-cta]) #main-clickable-button
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  padding: 19px 24px;
+  padding: 15px 24px;
   transition: all 0.2s ease;
 }
 
@@ -278,7 +278,7 @@ product-form:has(skio-plan-picker[data-has-includes-cta]) #main-clickable-button
 @media screen and (min-width: 769px) {
   #main-clickable-button {
     font-size: 20px;
-    padding: 21px 32px;
+    padding: 17px 32px;
   }
 }
 
