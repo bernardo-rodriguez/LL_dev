@@ -935,7 +935,7 @@ const skioStyles = css`
       font-weight: 700;
   }
 
-  .add-to-cart {
+  .add-to-cart:not(.skio-includes-cta) {
       width: 100%;
       background-color: #3b82f6;
       color: white;
@@ -949,7 +949,7 @@ const skioStyles = css`
       transition: background-color 0.2s ease;
   }
 
-  .add-to-cart:hover {
+  .add-to-cart:not(.skio-includes-cta):hover {
       background-color: #2563eb;
   }
 
