@@ -8,8 +8,19 @@
   margin-bottom: 70px;
 }
 
+/* Match "Results to Smile About" on desktop only; mobile keeps default h5 size */
 .ingredient-list__subhead {
   margin-bottom: 20px;
+  font-size: 50px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+@media screen and (max-width: 768px) {
+  .ingredient-list__subhead {
+    font-size: 18px;
+    line-height: var(--ds-line-height, 1.3);
+    letter-spacing: var(--ds-heading-ls-sm, -0.01em);
+  }
 }
 
 .ingredient-list__heading {
