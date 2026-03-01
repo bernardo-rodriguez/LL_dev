@@ -376,15 +376,15 @@ product-form:has(skio-plan-picker[data-has-includes-cta]) #main-clickable-button
 }
 
 /* Accordion content: sh3 sizing (16px desktop, 14px mobile) */
-.product__accordion .product__accordion--inner .sh3,
-.product__accordion .product__accordion--inner p.sh3 {
-  font-size: 14px;
+.product__accordion .product__accordion--inner,
+.product__accordion .product__accordion--inner * {
+  font-size: 14px !important;
 }
 
 @media screen and (min-width: 769px) {
-  .product__accordion .product__accordion--inner .sh3,
-  .product__accordion .product__accordion--inner p.sh3 {
-    font-size: 16px;
+  .product__accordion .product__accordion--inner,
+  .product__accordion .product__accordion--inner * {
+    font-size: 16px !important;
   }
 }
 
