@@ -23,7 +23,7 @@
             {% if benefit_blocks.size > 0 %}
               <ul class="ingredients-that-work__key-benefits">
                 {% for block in benefit_blocks %}
-                  <li class="ingredients-that-work__key-benefit sh3" {{ block.shopify_attributes }}>
+                  <li class="ingredients-that-work__key-benefit body-sm" {{ block.shopify_attributes }}>
                     <span class="ingredients-that-work__checkmark" aria-hidden="true">✓</span>
                     {{ block.settings.text }}
                   </li>
@@ -73,7 +73,7 @@
                       {% for line in benefits_lines %}
                         {% assign trimmed = line | strip %}
                         {% if trimmed != blank %}
-                          <li class="sh3">{{ trimmed }}</li>
+                          <li class="body-sm">{{ trimmed }}</li>
                         {% endif %}
                       {% endfor %}
                     </ul>
