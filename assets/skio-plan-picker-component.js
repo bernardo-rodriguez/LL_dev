@@ -457,10 +457,10 @@ const skioStyles = css`
     text-align: center;
     margin-top: 12px;
   }
-  /* Aligns to: .sh2 (18px, uppercase button) */
+  /* Aligns to: .sh2 (18px mobile, 20px desktop, uppercase button) */
   .skio-includes-cta {
     margin-top: 16px;
-    padding: 20px 24px;
+    padding: 21px 24px;
     width: 100%;
     display: flex !important;
     align-items: center;
@@ -471,13 +471,19 @@ const skioStyles = css`
     font-family: var(--ds-font-family, manrope, sans-serif) !important;
     font-size: 18px;
     line-height: var(--ds-line-height, 1.3);
-    font-weight: 600 !important;
+    font-weight: 700 !important;
     text-transform: uppercase;
-    letter-spacing: var(--ds-label-letter-spacing, 0.04em);
+    letter-spacing: 0.02em;
     border-radius: 0 !important;
   }
   .skio-includes-cta:hover {
     background-color: #b0dff8 !important;
+  }
+  @media (min-width: 769px) {
+    .skio-includes-cta {
+      font-size: 20px;
+      padding: 23px 32px;
+    }
   }
   /* Aligns to: .label-sm (10px mobile, 12px desktop) */
   .skio-modify-disclaimer {
@@ -489,7 +495,7 @@ const skioStyles = css`
     text-align: center;
     margin-top: 12px;
     margin-bottom: 0;
-    letter-spacing: var(--ds-label-letter-spacing, 0.04em);
+    letter-spacing: 0;
   }
   /* Aligns to: .body-xs (12px) */
   .skio-onetime-subscribe-disclaimer {
