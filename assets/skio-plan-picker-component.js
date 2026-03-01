@@ -369,10 +369,10 @@ const skioStyles = css`
     margin-bottom: 2px;
   }
   .skio-first-order-item__bullets {
-    font-family: manrope, sans-serif;
-    font-size: 12px;
-    line-height: 18px;
-    font-weight: 500;
+    font-family: var(--pdp-body-font, manrope, sans-serif);
+    font-size: var(--pdp-body-size, 12px);
+    line-height: var(--pdp-body-lh, 18px);
+    font-weight: var(--pdp-body-weight, 500);
     color: #333;
     margin: 0;
   }

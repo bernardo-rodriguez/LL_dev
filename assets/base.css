@@ -493,6 +493,20 @@ p,
   line-height: 18px;
 }
 
+:root {
+  --pdp-body-font: manrope, sans-serif;
+  --pdp-body-size: 12px;
+  --pdp-body-lh: 18px;
+  --pdp-body-weight: 500;
+}
+
+.pdp-body-text {
+  font-family: var(--pdp-body-font);
+  font-size: var(--pdp-body-size);
+  line-height: var(--pdp-body-lh);
+  font-weight: var(--pdp-body-weight);
+}
+
 .label {
   font-family: manrope, sans-serif;
   font-size: 14px;

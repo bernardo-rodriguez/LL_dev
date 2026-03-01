@@ -65,7 +65,7 @@ xhttp.send();
 
         {% if section.settings.offer_text != blank %}
           {% assign offer_parts = section.settings.offer_text | split: ':' %}
-          <div class="pdp-offer-banner">
+          <div class="pdp-offer-banner pdp-body-text">
             {% if offer_parts.size > 1 %}
               <strong>{{ offer_parts[0] | strip }}:</strong> {{ offer_parts[1] | strip }}
             {% else %}
