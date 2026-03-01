@@ -202,6 +202,7 @@
 .pdp-kit-option .pdp-kit-image {
   flex-shrink: 0;
   height: 60px;
+  max-width: 50px;
   width: fit-content;
   display: flex;
   align-items: center;
@@ -335,6 +336,7 @@
   }
   .pdp-kit-option .pdp-kit-image {
     height: 50px;
+    max-width: 50px;
   }
   .pdp-kit-option.quantity-option-1 .pdp-kit-image img {
     height: 40px;
@@ -347,6 +349,7 @@
   }
   .pdp-kit-option .pdp-kit-image {
     height: 50px;
+    max-width: 50px;
   }
   .pdp-kit-option.quantity-option-1 .pdp-kit-image img {
     height: 40px;
