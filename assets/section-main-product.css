@@ -344,16 +344,13 @@ product-form:has(skio-plan-picker[data-has-includes-cta]) #main-clickable-button
 /* PRODUCT ACCORDION */
 
 .product__accordion {
-  margin-top: 12px;
   padding-top: 14px;
-  border-bottom: 1px solid var(--navy);
   padding-bottom: 14px;
   border-top: 1px solid var(--navy);
 }
 
-/* No space between product details and How To Use */
-.product__details + .product__how-to-use.product__accordion {
-  margin-top: 0;
+.product__accordion:last-child {
+  border-bottom: 1px solid var(--navy);
 }
 
 .product__accordion .product__accordion-button {
