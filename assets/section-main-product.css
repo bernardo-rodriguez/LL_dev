@@ -200,6 +200,7 @@ body.template-product #MainContent,
   padding-top: 0;
   border-bottom: 1px solid var(--navy);
   padding-bottom: 8px;
+  text-align: left;
 }
 
 /* Avoid double line when Formula Picker follows */
@@ -216,6 +217,7 @@ body.template-product #MainContent,
 /* "Your Whitening Formula" heading only */
 .product-info:first-of-type dt {
   margin-bottom: 5px;
+  text-align: left;
 }
 
 .product-info dd {
