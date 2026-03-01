@@ -371,7 +371,7 @@ const skioStyles = css`
   .skio-first-order-item__bullets {
     font-family: var(--pdp-body-font, manrope, sans-serif);
     font-size: var(--pdp-body-size, 12px);
-    line-height: var(--pdp-body-lh, 1.2);
+    line-height: var(--pdp-body-lh, 1.3);
     font-weight: var(--pdp-body-weight, 500);
     color: #333;
     margin: 0;

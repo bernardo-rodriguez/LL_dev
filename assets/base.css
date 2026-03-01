@@ -250,7 +250,7 @@ h5,
 h1,
 .h1 {
   font-size: 64px;
-  line-height: 1.2;
+  line-height: 1.3;
   letter-spacing: -0.02em;
   text-transform: capitalize;
 }
@@ -265,7 +265,7 @@ h1,
 h2,
 .h2 {
   font-size: 48px;
-  line-height: 1.2;
+  line-height: 1.3;
   letter-spacing: -0.02em;
   text-transform: capitalize;
 }
@@ -280,7 +280,7 @@ h2,
 h3,
 .h3 {
   font-size: 36px;
-  line-height: 1.2;
+  line-height: 1.3;
   letter-spacing: -0.015em;
   text-transform: capitalize;
 }
@@ -295,7 +295,7 @@ h3,
 h4,
 .h4 {
   font-size: 28px;
-  line-height: 1.2;
+  line-height: 1.3;
   letter-spacing: -0.015em;
   text-transform: capitalize;
 }
@@ -310,7 +310,7 @@ h4,
 h5,
 .h5 {
   font-size: 22px;
-  line-height: 1.2;
+  line-height: 1.3;
   letter-spacing: -0.01em;
   text-transform: capitalize;
 }
@@ -326,7 +326,7 @@ h6,
 .h6 {
   font-family: manrope, sans-serif;
   font-size: 16px;
-  line-height: 1.2;
+  line-height: 1.3;
   font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -342,7 +342,7 @@ h6,
 .sh1 {
   font-family: manrope, sans-serif;
   font-size: 20px;
-  line-height: 1.2;
+  line-height: 1.3;
   font-weight: 600;
   letter-spacing: -0.015em;
 }
@@ -356,7 +356,7 @@ h6,
 .sh1-medium {
   font-family: manrope, sans-serif;
   font-size: 20px;
-  line-height: 1.2;
+  line-height: 1.3;
   font-weight: 500;
   letter-spacing: -0.015em;
 }
@@ -370,7 +370,7 @@ h6,
 .sh2 {
   font-family: manrope, sans-serif;
   font-size: 18px;
-  line-height: 1.2;
+  line-height: 1.3;
   font-weight: 500;
   letter-spacing: -0.01em;
 }
@@ -384,7 +384,7 @@ h6,
 .sh3 {
   font-family: manrope, sans-serif;
   font-size: 16px;
-  line-height: 1.2;
+  line-height: 1.3;
   font-weight: 500;
   letter-spacing: -0.01em;
 }
@@ -400,7 +400,7 @@ h6,
   font-family: manrope, sans-serif;
   font-weight: 500;
   font-size: 14px;
-  line-height: 1.2;
+  line-height: 1.3;
   margin: 0;
 }
 
@@ -464,7 +464,7 @@ p,
   font-family: manrope, sans-serif;
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.2;
+  line-height: 1.3;
   margin: 0;
 }
 
@@ -497,7 +497,7 @@ p,
 .label {
   font-family: manrope, sans-serif;
   font-size: 14px;
-  line-height: 1.2;
+  line-height: 1.3;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -506,7 +506,7 @@ p,
 .label-sm {
   font-family: manrope, sans-serif;
   font-size: 12px;
-  line-height: 1.2;
+  line-height: 1.3;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
