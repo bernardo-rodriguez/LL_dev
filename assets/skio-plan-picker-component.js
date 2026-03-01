@@ -460,7 +460,7 @@ const skioStyles = css`
   /* Aligns to: .sh2 (18px mobile, 20px desktop, uppercase button) */
   .skio-includes-cta {
     margin-top: 16px;
-    padding: 21px 24px;
+    padding: 19px 24px;
     width: 100%;
     display: flex !important;
     align-items: center;
@@ -482,7 +482,7 @@ const skioStyles = css`
   @media (min-width: 769px) {
     .skio-includes-cta {
       font-size: 20px;
-      padding: 23px 32px;
+      padding: 21px 32px;
     }
   }
   /* Aligns to: .label-sm (10px mobile, 12px desktop) */
