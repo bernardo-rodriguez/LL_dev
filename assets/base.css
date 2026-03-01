@@ -250,7 +250,7 @@ h5,
 h1,
 .h1 {
   font-size: 64px;
-  line-height: 68px;
+  line-height: 1.2;
   letter-spacing: -0.02em;
   text-transform: capitalize;
 }
@@ -259,14 +259,13 @@ h1,
   h1,
   .h1 {
     font-size: 40px;
-    line-height: 44px;
   }
 }
 
 h2,
 .h2 {
   font-size: 48px;
-  line-height: 52px;
+  line-height: 1.2;
   letter-spacing: -0.02em;
   text-transform: capitalize;
 }
@@ -275,14 +274,13 @@ h2,
   h2,
   .h2 {
     font-size: 34px;
-    line-height: 38px;
   }
 }
 
 h3,
 .h3 {
   font-size: 36px;
-  line-height: 40px;
+  line-height: 1.2;
   letter-spacing: -0.015em;
   text-transform: capitalize;
 }
@@ -291,14 +289,13 @@ h3,
   h3, 
   .h3 {
     font-size: 28px;
-    line-height: 32px;
   }
 }
 
 h4,
 .h4 {
   font-size: 28px;
-  line-height: 32px;
+  line-height: 1.2;
   letter-spacing: -0.015em;
   text-transform: capitalize;
 }
@@ -307,14 +304,13 @@ h4,
   h4,
   .h4 {
     font-size: 22px;
-    line-height: 28px;
   }
 }
 
 h5,
 .h5 {
   font-size: 22px;
-  line-height: 28px;
+  line-height: 1.2;
   letter-spacing: -0.01em;
   text-transform: capitalize;
 }
@@ -323,7 +319,6 @@ h5,
   h5,
   .h5 {
     font-size: 18px;
-    line-height: 24px;
   }
 }
 
@@ -331,7 +326,7 @@ h6,
 .h6 {
   font-family: manrope, sans-serif;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 1.2;
   font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -341,14 +336,13 @@ h6,
   h6,
   .h6 {
     font-size: 14px;
-    line-height: 18px;
   }
 }
 
 .sh1 {
   font-family: manrope, sans-serif;
   font-size: 20px;
-  line-height: 28px;
+  line-height: 1.2;
   font-weight: 600;
   letter-spacing: -0.015em;
 }
@@ -356,14 +350,13 @@ h6,
 @media only screen and (max-width: 768px) {
   .sh1 {
     font-size: 18px;
-    line-height: 26px;
   }
 }
 
 .sh1-medium {
   font-family: manrope, sans-serif;
   font-size: 20px;
-  line-height: 28px;
+  line-height: 1.2;
   font-weight: 500;
   letter-spacing: -0.015em;
 }
@@ -371,14 +364,13 @@ h6,
 @media only screen and (max-width: 768px) {
   .sh1-medium {
     font-size: 18px;
-    line-height: 26px;
   }
 }
 
 .sh2 {
   font-family: manrope, sans-serif;
   font-size: 18px;
-  line-height: 26px;
+  line-height: 1.2;
   font-weight: 500;
   letter-spacing: -0.01em;
 }
@@ -386,14 +378,13 @@ h6,
 @media only screen and (max-width: 768px) {
   .sh2 {
     font-size: 16px;
-    line-height: 24px;
   }
 }
 
 .sh3 {
   font-family: manrope, sans-serif;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 1.2;
   font-weight: 500;
   letter-spacing: -0.01em;
 }
@@ -401,7 +392,6 @@ h6,
 @media only screen and (max-width: 768px) {
   .sh3 {
     font-size: 14px;
-    line-height: 20px;
   }
 }
 
@@ -410,7 +400,7 @@ h6,
   font-family: manrope, sans-serif;
   font-weight: 500;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.2;
   margin: 0;
 }
 
@@ -474,29 +464,26 @@ p,
   font-family: manrope, sans-serif;
   font-weight: 500;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 1.2;
   margin: 0;
 }
 
 .body-lg {
   font-size: 18px;
-  line-height: 28px;
 }
 
 .body-sm {
   font-size: 14px;
-  line-height: 22px;
 }
 
 .body-xs {
   font-size: 12px;
-  line-height: 18px;
 }
 
 :root {
   --pdp-body-font: manrope, sans-serif;
   --pdp-body-size: 12px;
-  --pdp-body-lh: 18px;
+  --pdp-body-lh: 1.2;
   --pdp-body-weight: 500;
 }
 
@@ -510,7 +497,7 @@ p,
 .label {
   font-family: manrope, sans-serif;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 1.2;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -519,7 +506,7 @@ p,
 .label-sm {
   font-family: manrope, sans-serif;
   font-size: 12px;
-  line-height: 16px;
+  line-height: 1.2;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -528,7 +515,6 @@ p,
 @media screen and (max-width: 768px) {
   .m-body-xs {
     font-size: 12px;
-    line-height: 18px;
   }
 }
 

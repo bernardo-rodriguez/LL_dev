@@ -300,7 +300,7 @@ product-form:has(skio-plan-picker[data-has-includes-cta]) #main-clickable-button
   text-align: center;
   font-weight: 500;
   font-size: 14px;
-  line-height: 22px;
+  line-height: 1.2;
   font-family: manrope, sans-serif;
   max-width: 90px;
 }
@@ -312,7 +312,6 @@ product-form:has(skio-plan-picker[data-has-includes-cta]) #main-clickable-button
 @media screen and (max-width: 768px) {
   .below_button_guarantee {
     font-size: 12px;
-    line-height: 18px;
 
   }
   .product__details {
@@ -485,7 +484,7 @@ product-form:has(skio-plan-picker[data-has-includes-cta]) #main-clickable-button
     color: #46BDF0;
     font-size: 14px;
     margin-top: 10px;
-    line-height: 21px;
+    line-height: 1.2;
   }
 
   .discount--wrapper .discount-input--wrapper .discount-code, 
