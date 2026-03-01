@@ -479,7 +479,7 @@ const skioStyles = css`
   .skio-includes-cta:hover {
     background-color: #b0dff8 !important;
   }
-  /* Aligns to: .body-xs (12px) */
+  /* Aligns to: .label-sm (10px mobile, 12px desktop) */
   .skio-modify-disclaimer {
     font-family: var(--ds-font-family, manrope, sans-serif);
     font-size: 12px;
@@ -514,6 +514,9 @@ const skioStyles = css`
   }
 
   @media (max-width: 768px) {
+    .skio-modify-disclaimer {
+      font-size: 10px;
+    }
     .skio-first-order-includes {
       padding: 10px 12px;
       border-left: none;
