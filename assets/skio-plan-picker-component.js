@@ -133,6 +133,7 @@ const skioStyles = css`
     -webkit-tap-highlight-color: transparent;
   }
   
+  /* Aligns to: .sh3 (16px desktop / 14px mobile) */
   .skio-group-topline {
     display: flex;
     flex-wrap: nowrap;
@@ -178,6 +179,7 @@ const skioStyles = css`
     text-align: left;
   }
 
+  /* Aligns to: .body-sm (14px) */
   .skio-purchase-option-price .price--strike {
     text-decoration: line-through;
     color: #999;
@@ -192,6 +194,7 @@ const skioStyles = css`
     margin-right: 2px;
   }
 
+  /* Aligns to: p/.p (16px) */
   .skio-plan-picker__purchase-row .skio-purchase-option-price span:not(.price--strike) {
     font-size: 16px;
     line-height: var(--ds-line-height, 1.3);
@@ -271,10 +274,11 @@ const skioStyles = css`
     pointer-events: none;
   }
   
+  /* Aligns to: .sh2 (18px desktop / 16px mobile) */
   .skio-group-title {
     min-width: max-content;
     font-family: var(--ds-font-family, manrope, sans-serif);
-    font-weight: 600;
+    font-weight: 700;
     font-size: 18px;
     line-height: var(--ds-line-height, 1.3);
     text-transform: uppercase;
@@ -292,6 +296,7 @@ const skioStyles = css`
     transform: translateY(-50%);
     background: #000;
     color: #fff;
+    /* Aligns to: .label-sm (12px) but smaller at 10px for ribbon */
     font-family: var(--ds-font-family, manrope, sans-serif);
     font-size: 10px;
     font-weight: 700;
@@ -319,6 +324,7 @@ const skioStyles = css`
     padding: 12px;
     background: #fff;
   }
+  /* Aligns to: .label (14px, uppercase) */
   .skio-first-order-includes__title {
     font-family: var(--ds-font-family, manrope, sans-serif);
     font-size: 14px;
@@ -368,6 +374,7 @@ const skioStyles = css`
     flex: 1;
     min-width: 0;
   }
+  /* Aligns to: .label (14px, uppercase) */
   .skio-first-order-item__title {
     font-family: var(--ds-font-family, manrope, sans-serif);
     font-size: 14px;
@@ -378,6 +385,7 @@ const skioStyles = css`
     color: #000;
     margin-bottom: 2px;
   }
+  /* Aligns to: .pdp-body-text / .body-xs (12px) */
   .skio-first-order-item__bullets {
     font-family: var(--ds-font-family, manrope, sans-serif);
     font-size: var(--ds-body-sm-size, 12px);
@@ -386,6 +394,7 @@ const skioStyles = css`
     color: #333;
     margin: 0;
   }
+  /* Aligns to: .body-sm (14px) */
   .skio-first-order-item__price {
     text-align: right;
     flex-shrink: 0;
@@ -416,6 +425,7 @@ const skioStyles = css`
     min-width: 90px;
     text-align: right;
   }
+  /* Aligns to: .sh2 (18px) */
   .skio-total-row__label {
     font-family: var(--ds-font-family, manrope, sans-serif);
     font-size: 18px;
@@ -428,6 +438,7 @@ const skioStyles = css`
     color: #666;
     margin-right: 8px;
   }
+  /* Aligns to: .sh2 (18px) */
   .skio-total-row__price .price--current {
     font-family: var(--ds-font-family, manrope, sans-serif);
     font-size: 18px;
@@ -435,6 +446,7 @@ const skioStyles = css`
     font-weight: 600;
     color: #000;
   }
+  /* Aligns to: .body-xs (12px) */
   .skio-subscription-footer {
     font-family: var(--ds-font-family, manrope, sans-serif);
     font-size: 12px;
@@ -444,6 +456,7 @@ const skioStyles = css`
     text-align: center;
     margin-top: 12px;
   }
+  /* Aligns to: .sh2 (18px, uppercase button) */
   .skio-includes-cta {
     margin-top: 16px;
     padding: 20px 24px;
@@ -465,6 +478,7 @@ const skioStyles = css`
   .skio-includes-cta:hover {
     background-color: #b0dff8 !important;
   }
+  /* Aligns to: .body-xs (12px) */
   .skio-modify-disclaimer {
     font-family: var(--ds-font-family, manrope, sans-serif);
     font-size: 12px;
@@ -476,6 +490,7 @@ const skioStyles = css`
     margin-bottom: 0;
     letter-spacing: var(--ds-label-letter-spacing, 0.04em);
   }
+  /* Aligns to: .body-xs (12px) */
   .skio-onetime-subscribe-disclaimer {
     padding: 10px 12px;
     background-color: #fff9e6;
@@ -553,6 +568,7 @@ const skioStyles = css`
       background-color: var(--blue-tint-20) !important;
   }
   
+  /* Aligns to: .body-xs (12px) */
   .skio-frequency {
     border: none !important;
     background: var(--blue-tint-40) !important;
@@ -588,6 +604,7 @@ const skioStyles = css`
     font-weight: 600;
   }
 
+  /* Aligns to: .body-xs (12px) */
   .skio-price-shipping {
     font-family: var(--ds-font-family, manrope, sans-serif);
     font-weight: 500;
@@ -596,6 +613,7 @@ const skioStyles = css`
     color: #323232;
   }
 
+  /* Aligns to: p/.p (16px, uppercase button) */
   button.add-to-cart {
     justify-content: center;
     font-weight: 600;
@@ -827,6 +845,7 @@ const skioStyles = css`
       align-items: center;
   }
 
+  /* Aligns to: .sh3 (16px) */
   .bundle_offer_title {
       font-family: var(--ds-font-family, manrope, sans-serif);
       font-size: 16px;
@@ -835,6 +854,7 @@ const skioStyles = css`
       margin: 0;
   }
 
+  /* Aligns to: .body-sm (14px) */
   .bundle-description {
       color: #6b7280;
       font-family: var(--ds-font-family, manrope, sans-serif);
@@ -849,12 +869,14 @@ const skioStyles = css`
       font-family: var(--ds-font-family, manrope, sans-serif);
   }
 
+  /* Aligns to: .sh2 (18px) */
   .bundle_current_price {
       font-size: 18px;
       line-height: var(--ds-line-height, 1.3);
       font-weight: 600;
   }
 
+  /* Aligns to: p/.p (16px) */
   .bundle_previous_price {
     font-size: 16px;
     line-height: var(--ds-line-height, 1.3);
@@ -868,6 +890,7 @@ const skioStyles = css`
 
   }
 
+  /* Aligns to: .body-sm (14px) */
   .bundle_price_per_treatment {
       color: #22c55e;
       font-size: 14px;

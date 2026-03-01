@@ -367,6 +367,7 @@ h6,
   }
 }
 
+/* Mirrored in skio shadow DOM: .skio-group-title, .skio-total-row__label, .skio-total-row__price .price--current, .skio-includes-cta, .bundle_current_price */
 .sh2 {
   font-family: var(--ds-font-family);
   font-size: 18px;
@@ -381,6 +382,7 @@ h6,
   }
 }
 
+/* Mirrored in skio shadow DOM: .skio-group-topline, .bundle_offer_title, .bundle_previous_price */
 .sh3 {
   font-family: var(--ds-font-family);
   font-size: 16px;
@@ -459,6 +461,7 @@ li {
   }
 }
 
+/* Mirrored in skio shadow DOM: .skio-purchase-option-price span:not(.price--strike), button.add-to-cart */
 p,
 .p {
   font-family: var(--ds-font-family);
@@ -472,10 +475,12 @@ p,
   font-size: 18px;
 }
 
+/* Mirrored in skio shadow DOM: .price--strike, .skio-first-order-item__price, .bundle-description, .bundle_price_per_treatment */
 .body-sm {
   font-size: 14px;
 }
 
+/* Mirrored in skio shadow DOM: .skio-first-order-item__bullets, .skio-subscription-footer, .skio-modify-disclaimer, .skio-onetime-subscribe-disclaimer, .skio-frequency, .skio-price-shipping */
 .body-xs {
   font-size: 12px;
 }
@@ -516,6 +521,7 @@ p,
   font-weight: var(--ds-body-sm-weight);
 }
 
+/* Mirrored in skio shadow DOM: .skio-first-order-item__title, .skio-first-order-includes__title */
 .label {
   font-family: var(--ds-font-family);
   font-size: 14px;
