@@ -198,7 +198,7 @@ const skioStyles = css`
   .skio-plan-picker__purchase-row .skio-purchase-option-price span:not(.price--strike) {
     font-size: 16px;
     line-height: var(--ds-line-height, 1.3);
-    font-weight: 600;
+    font-weight: 700;
   }
 
   .skio-center-wrapper {
@@ -324,14 +324,13 @@ const skioStyles = css`
     padding: 12px;
     background: #fff;
   }
-  /* Aligns to: .label (14px, uppercase) */
+  /* Aligns to: .skio-first-order-item__bullets (12px, weight 500) - no custom letter-spacing */
   .skio-first-order-includes__title {
     font-family: var(--ds-font-family, manrope, sans-serif);
-    font-size: 14px;
+    font-size: var(--ds-body-sm-size, 12px);
     line-height: var(--ds-line-height, 1.3);
-    font-weight: 600;
+    font-weight: var(--ds-body-sm-weight, 500);
     text-transform: uppercase;
-    letter-spacing: var(--ds-label-letter-spacing, 0.04em);
     margin-bottom: 8px;
     color: #000;
   }

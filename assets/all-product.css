@@ -201,8 +201,8 @@
 
 .pdp-kit-option .pdp-kit-image {
   flex-shrink: 0;
-  width: 60px;
   height: 60px;
+  width: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -211,16 +211,16 @@
 }
 
 .pdp-kit-option .pdp-kit-image img {
-  width: 100%;
   height: 100%;
+  width: auto;
   object-fit: contain;
   object-position: center;
 }
 
-/* STARTER KIT: same container size as Deluxe, image 10px smaller and centered */
+/* STARTER KIT: image 10px smaller in height, width follows aspect ratio */
 .pdp-kit-option.quantity-option-1 .pdp-kit-image img {
-  width: 40px;
-  height: 40px;
+  height: 50px;
+  width: auto;
 }
 
 .pdp-kit-text {
@@ -334,8 +334,10 @@
     padding: 14px 18px;
   }
   .pdp-kit-option .pdp-kit-image {
-    width: 50px;
     height: 50px;
+  }
+  .pdp-kit-option.quantity-option-1 .pdp-kit-image img {
+    height: 40px;
   }
 }
 
@@ -344,8 +346,10 @@
     padding: 12px !important;
   }
   .pdp-kit-option .pdp-kit-image {
-    width: 50px;
     height: 50px;
+  }
+  .pdp-kit-option.quantity-option-1 .pdp-kit-image img {
+    height: 40px;
   }
 }
 
