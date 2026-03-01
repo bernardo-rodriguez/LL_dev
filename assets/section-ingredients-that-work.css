@@ -138,6 +138,8 @@
 .ingredients-that-work__benefits-list li {
   margin-bottom: 2px;
   color: #0d2244;
+  font-size: 12px;
+  line-height: 1.3;
 }
 
 .ingredients-benefits-text {
@@ -147,13 +149,15 @@
   margin-bottom: 0;
 }
 
+@media screen and (min-width: 769px) {
+  .ingredients-that-work__benefits-list li {
+    font-size: 14px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .ingredients-that-work__benefits-list {
     padding-left: 20px;
-  }
-  .ingredients-that-work__benefits-list li {
-    font-size: 13px;
-    line-height: 1.3;
   }
 }
 
