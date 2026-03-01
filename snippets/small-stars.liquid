@@ -1,9 +1,57 @@
-<div style = 'margin-top: 0'>
-    <span class = 'landing-stars landing-page-main'><span style = 'font-weight: 600; margin-right: 5px;'>4.7</span></span>
-    <span class="jdgm-star jdgm--on" style = 'padding: 0 !important'></span>
-    <span class="jdgm-star jdgm--on" style = 'padding: 0 !important'></span>
-    <span class="jdgm-star jdgm--on" style = 'padding: 0 !important'></span>
-    <span class="jdgm-star jdgm--on" style = 'padding: 0 !important'></span>
-    <span class="jdgm-star jdgm--half"></span>
-    <span class = 'landing-stars landing-page-main'><span style = 'font-weight: 600; margin-right: 5px;'>200,000+ Happy Customers</span></span>
-  </div>
+<style>
+  .small-stars-section .jdgm-star::before {
+    color: #000 !important;
+    font-size: 12px !important;
+  }
+  .small-stars-section .jdgm-star {
+    padding: 0 !important;
+  }
+  .small-stars-section {
+    font-family: manrope, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+</style>
+
+<div class="small-stars-section">
+  <span class="jdgm-star jdgm--on"></span>
+  <span class="jdgm-star jdgm--on"></span>
+  <span class="jdgm-star jdgm--on"></span>
+  <span class="jdgm-star jdgm--on"></span>
+  <span class="jdgm-star jdgm--half"></span>
+  <span class="small-stars-text">4.7/5</span>
+</div>
+
+<script>
+  (function() {
+    function updateSmallStarsReviewCount() {
+      var summaryText = document.querySelector('.jdgm-rev-widg__summary-text');
+      if (summaryText) {
+        var match = summaryText.textContent.match(/Based on (\d[\d,]*)\s*reviews?/i);
+        if (match) {
+          var rawCount = parseInt(match[1].replace(/,/g, ''));
+          var displayCount = rawCount < 1000 ? rawCount + 2000 : rawCount;
+          var el = document.querySelector('.small-stars-text');
+          if (el) el.textContent = '4.7/5 ' + displayCount.toLocaleString() + ' Reviews';
+          return true;
+        }
+      }
+      return false;
+    }
+
+    if (!updateSmallStarsReviewCount()) {
+      var obs = new MutationObserver(function(mutations, observer) {
+        if (updateSmallStarsReviewCount()) observer.disconnect();
+      });
+      obs.observe(document.body, { childList: true, subtree: true, characterData: true });
+      setTimeout(updateSmallStarsReviewCount, 2000);
+      setTimeout(updateSmallStarsReviewCount, 5000);
+      setTimeout(updateSmallStarsReviewCount, 10000);
+    }
+  })();
+</script>
