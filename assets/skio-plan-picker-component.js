@@ -380,7 +380,7 @@ const skioStyles = css`
     line-height: var(--ds-line-height, 1.3);
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: var(--ds-label-letter-spacing, 0.04em);
+    letter-spacing: 0;
     color: #000;
     margin-bottom: 2px;
   }
@@ -388,10 +388,12 @@ const skioStyles = css`
   .skio-first-order-item__bullets {
     font-family: var(--ds-font-family, manrope, sans-serif);
     font-size: var(--ds-body-sm-size, 12px);
-    line-height: var(--ds-line-height, 1.3);
+    line-height: 1.4;
     font-weight: var(--ds-body-sm-weight, 500);
     color: #333;
     margin: 0;
+    padding-left: 8px;
+    padding-right: 8px;
   }
   /* Aligns to: .body-sm (14px) */
   .skio-first-order-item__price {
