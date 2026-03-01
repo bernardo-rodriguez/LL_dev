@@ -227,7 +227,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: 0;
+  min-width: 92px;
   flex: 1;
 }
 
@@ -346,5 +346,15 @@
   .pdp-kit-option .pdp-kit-image {
     width: 50px;
     height: 50px;
+  }
+}
+
+/* Under 400px: tighter gaps so text (min-width 92px) fits */
+@media screen and (max-width: 399px) {
+  .treatment-quantity-selector {
+    gap: 8px;
+  }
+  .pdp-kit-selector .quantity-option {
+    gap: 8px;
   }
 }
