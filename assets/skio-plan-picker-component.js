@@ -275,10 +275,14 @@ const skioStyles = css`
     min-width: max-content;
     font-family: var(--ds-font-family, manrope, sans-serif);
     font-weight: 600;
-    font-size: 14px;
+    font-size: 18px;
     line-height: var(--ds-line-height, 1.3);
     text-transform: uppercase;
-    letter-spacing: var(--ds-label-letter-spacing, 0.04em);
+  }
+  @media (max-width: 768px) {
+    .skio-group-title {
+      font-size: 16px;
+    }
   }
   
   .skio-save-ribbon {
