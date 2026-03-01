@@ -17,6 +17,36 @@ body.template-product .page-width--product {
   }
 }
 
+/* ==============================================
+   PDP TYPOGRAPHY: letter-spacing overrides
+   Override global base.css letter-spacing values
+   for the product page. Search: "PDP TYPOGRAPHY"
+   ============================================== */
+body.template-product h1,
+body.template-product .h1,
+body.template-product h2,
+body.template-product .h2,
+body.template-product h3,
+body.template-product .h3,
+body.template-product h4,
+body.template-product .h4,
+body.template-product h5,
+body.template-product .h5,
+body.template-product h6,
+body.template-product .h6,
+body.template-product .sh1,
+body.template-product .sh1-medium,
+body.template-product .sh2,
+body.template-product .sh3,
+body.template-product .label,
+body.template-product .label-sm,
+body.template-product p,
+body.template-product .body-lg,
+body.template-product .body-sm,
+body.template-product .body-xs {
+  letter-spacing: 0;
+}
+
 /* Product page - white background */
 body.template-product,
 body.template-product #MainContent,
