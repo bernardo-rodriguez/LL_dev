@@ -217,6 +217,12 @@
   object-position: center;
 }
 
+/* STARTER KIT: same container size as Deluxe, image 10px smaller and centered */
+.pdp-kit-option.quantity-option-1 .pdp-kit-image img {
+  width: 40px;
+  height: 40px;
+}
+
 .pdp-kit-text {
   display: flex;
   flex-direction: column;
