@@ -563,3 +563,20 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.pdp-offer-banner {
+  background-color: #69BBEB;
+  color: #fff;
+  text-align: center;
+  padding: 10px 16px;
+  margin-top: 12px;
+  font-family: manrope, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.pdp-offer-banner strong {
+  font-weight: 800;
+}

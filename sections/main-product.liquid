@@ -63,6 +63,17 @@ xhttp.send();
         {% render 'small-stars' %}
         {% comment %} {% render 'estimated_arrival' %} {% endcomment %}
 
+        {% if section.settings.offer_text != blank %}
+          {% assign offer_parts = section.settings.offer_text | split: ':' %}
+          <div class="pdp-offer-banner">
+            {% if offer_parts.size > 1 %}
+              <strong>{{ offer_parts[0] | strip }}:</strong> {{ offer_parts[1] | strip }}
+            {% else %}
+              {{ section.settings.offer_text }}
+            {% endif %}
+          </div>
+        {% endif %}
+
         <dl class="product-info">
           <dt class="label"> 
             {% if product.metafields.custom.subheading_one %}
@@ -823,6 +834,12 @@ xhttp.send();
       "id": "why_subscribe",
       "label": "Why Subscribe",
       "info": "Content for the Why Subscribe expandable section below How To Use"
+    },
+    {
+      "type": "text",
+      "id": "offer_text",
+      "label": "Offer Banner Text",
+      "default": "LIMITED TIME OFFER: 30% OFF YOUR FIRST SUBSCRIPTION PLUS TWO FREE GIFTS"
     }
   ]
 }

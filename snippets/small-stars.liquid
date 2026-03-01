@@ -16,6 +16,9 @@
     align-items: center;
     gap: 4px;
   }
+  .small-stars-rating {
+    margin-right: 6px;
+  }
 </style>
 
 <div class="small-stars-section">
@@ -24,7 +27,8 @@
   <span class="jdgm-star jdgm--on"></span>
   <span class="jdgm-star jdgm--on"></span>
   <span class="jdgm-star jdgm--half"></span>
-  <span class="small-stars-text">4.7/5</span>
+  <span class="small-stars-rating">4.7/5</span>
+  <span class="small-stars-review-count"></span>
 </div>
 
 <script>
@@ -36,8 +40,8 @@
         if (match) {
           var rawCount = parseInt(match[1].replace(/,/g, ''));
           var displayCount = rawCount < 1000 ? rawCount + 2000 : rawCount;
-          var el = document.querySelector('.small-stars-text');
-          if (el) el.textContent = '4.7/5 ' + displayCount.toLocaleString() + ' Reviews';
+          var el = document.querySelector('.small-stars-review-count');
+          if (el) el.textContent = displayCount.toLocaleString() + ' Reviews';
           return true;
         }
       }
