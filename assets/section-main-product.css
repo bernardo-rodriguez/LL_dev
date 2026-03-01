@@ -569,7 +569,6 @@ input:checked + .slider:before {
   text-align: center;
   padding: 10px 16px;
   margin-top: 12px;
-  letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 
