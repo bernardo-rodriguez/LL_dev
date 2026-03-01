@@ -623,8 +623,8 @@ const skioStyles = css`
     color: #323232;
   }
 
-  /* Aligns to: p/.p (16px, uppercase button) */
-  button.add-to-cart {
+  /* Aligns to: p/.p (16px, uppercase button) - excludes .skio-includes-cta which has its own styling */
+  button.add-to-cart:not(.skio-includes-cta) {
     justify-content: center;
     font-weight: 600;
     text-transform: uppercase;
@@ -646,7 +646,7 @@ const skioStyles = css`
 
     border: solid 2px rgba(0,0,0,0);
   }
-  button.add-to-cart:hover {
+  button.add-to-cart:not(.skio-includes-cta):hover {
     background-color: rgba(0,0,0,0);
     color: #000;
     border-color: #000;
