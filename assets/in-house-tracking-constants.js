@@ -659,7 +659,7 @@ base_first_order_includes = {
             section_title: 'FIRST ORDER INCLUDES',
             items: [INCLUDE_KIT_STARTER, INCLUDE_PEN, INCLUDE_SHIPPING],
             show_total: true,
-            footer_text: 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS',
+            footer_text: 'CANCEL OR MODIFY ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS',
         },
         one_time: {
             section_title: 'ORDER INCLUDES',
@@ -673,7 +673,7 @@ base_first_order_includes = {
             section_title: 'FIRST ORDER INCLUDES',
             items: [INCLUDE_KIT_DELUXE, INCLUDE_PEN, INCLUDE_SHIPPING],
             show_total: true,
-            footer_text: 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS',
+            footer_text: 'CANCEL OR MODIFY ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS',
         },
         one_time: {
             section_title: 'ORDER INCLUDES',
@@ -690,7 +690,7 @@ cactus_order_includes = {
             section_title: 'FIRST ORDER INCLUDES',
             items: [INCLUDE_KIT_STARTER, INCLUDE_SHIPPING],
             show_total: false,
-            footer_text: 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS',
+            footer_text: 'CANCEL OR MODIFY ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS',
         }
     },
     deluxe: {
@@ -698,7 +698,7 @@ cactus_order_includes = {
             section_title: 'FIRST ORDER INCLUDES',
             items: [INCLUDE_KIT_DELUXE, INCLUDE_SHIPPING],
             show_total: false,
-            footer_text: 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS',
+            footer_text: 'CANCEL OR MODIFY ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS',
         }
     },
 }
