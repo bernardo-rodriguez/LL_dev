@@ -27,6 +27,12 @@ import { unsafeHTML } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.m
 
 
 const skioStyles = css`
+  /*
+    Typography values below use --ds-* custom properties defined in base.css :root.
+    CSS custom properties inherit into shadow DOM, keeping this component
+    in sync with the global design system. Do not hardcode font-family,
+    line-height, or letter-spacing — use the tokens instead.
+  */
   :host {
     display: block;
     width: 100%;
@@ -133,9 +139,9 @@ const skioStyles = css`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    font-family: manrope, sans-serif;
+    font-family: var(--ds-font-family, manrope, sans-serif);
     font-size: 16px;
-    line-height: 24px;
+    line-height: var(--ds-line-height, 1.3);
     font-weight: 500;
     gap: 12px;
   }
@@ -163,7 +169,7 @@ const skioStyles = css`
     flex-shrink: 0;
     min-width: 85px;
     text-align: right;
-    font-family: manrope, sans-serif;
+    font-family: var(--ds-font-family, manrope, sans-serif);
     font-weight: 600;
   }
 
@@ -177,7 +183,7 @@ const skioStyles = css`
     color: #999;
     font-weight: 500;
     font-size: 14px;
-    line-height: 22px;
+    line-height: var(--ds-line-height, 1.3);
     margin-right: 2px;
   }
 
@@ -188,7 +194,7 @@ const skioStyles = css`
 
   .skio-plan-picker__purchase-row .skio-purchase-option-price span:not(.price--strike) {
     font-size: 16px;
-    line-height: 24px;
+    line-height: var(--ds-line-height, 1.3);
     font-weight: 600;
   }
 
@@ -197,7 +203,7 @@ const skioStyles = css`
     flex: 1;
     justify-content: center;
     align-items: center;
-    font-family: manrope, sans-serif;
+    font-family: var(--ds-font-family, manrope, sans-serif);
     font-weight: 600;
   }
   
@@ -267,12 +273,12 @@ const skioStyles = css`
   
   .skio-group-title {
     min-width: max-content;
-    font-family: manrope, sans-serif;
+    font-family: var(--ds-font-family, manrope, sans-serif);
     font-weight: 600;
     font-size: 14px;
-    line-height: 18px;
+    line-height: var(--ds-line-height, 1.3);
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: var(--ds-label-letter-spacing, 0.04em);
   }
   
   .skio-save-ribbon {
@@ -282,12 +288,12 @@ const skioStyles = css`
     transform: translateY(-50%);
     background: #000;
     color: #fff;
-    font-family: manrope, sans-serif;
+    font-family: var(--ds-font-family, manrope, sans-serif);
     font-size: 10px;
     font-weight: 700;
     padding: 4px 10px;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: var(--ds-label-letter-spacing, 0.04em);
     border-radius: 0;
     text-align: center;
     display: inline-block;
@@ -310,12 +316,12 @@ const skioStyles = css`
     background: #fff;
   }
   .skio-first-order-includes__title {
-    font-family: manrope, sans-serif;
+    font-family: var(--ds-font-family, manrope, sans-serif);
     font-size: 14px;
-    line-height: 18px;
+    line-height: var(--ds-line-height, 1.3);
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: var(--ds-label-letter-spacing, 0.04em);
     margin-bottom: 8px;
     color: #000;
   }
@@ -359,29 +365,29 @@ const skioStyles = css`
     min-width: 0;
   }
   .skio-first-order-item__title {
-    font-family: manrope, sans-serif;
+    font-family: var(--ds-font-family, manrope, sans-serif);
     font-size: 14px;
-    line-height: 18px;
+    line-height: var(--ds-line-height, 1.3);
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: var(--ds-label-letter-spacing, 0.04em);
     color: #000;
     margin-bottom: 2px;
   }
   .skio-first-order-item__bullets {
-    font-family: var(--pdp-body-font, manrope, sans-serif);
-    font-size: var(--pdp-body-size, 12px);
-    line-height: var(--pdp-body-lh, 1.3);
-    font-weight: var(--pdp-body-weight, 500);
+    font-family: var(--ds-font-family, manrope, sans-serif);
+    font-size: var(--ds-body-sm-size, 12px);
+    line-height: var(--ds-line-height, 1.3);
+    font-weight: var(--ds-body-sm-weight, 500);
     color: #333;
     margin: 0;
   }
   .skio-first-order-item__price {
     text-align: right;
     flex-shrink: 0;
-    font-family: manrope, sans-serif;
+    font-family: var(--ds-font-family, manrope, sans-serif);
     font-size: 14px;
-    line-height: 22px;
+    line-height: var(--ds-line-height, 1.3);
     font-weight: 500;
     min-width: 90px;
   }
@@ -407,9 +413,9 @@ const skioStyles = css`
     text-align: right;
   }
   .skio-total-row__label {
-    font-family: manrope, sans-serif;
+    font-family: var(--ds-font-family, manrope, sans-serif);
     font-size: 18px;
-    line-height: 28px;
+    line-height: var(--ds-line-height, 1.3);
     font-weight: 600;
     color: #000;
   }
@@ -419,16 +425,16 @@ const skioStyles = css`
     margin-right: 8px;
   }
   .skio-total-row__price .price--current {
-    font-family: manrope, sans-serif;
+    font-family: var(--ds-font-family, manrope, sans-serif);
     font-size: 18px;
-    line-height: 28px;
+    line-height: var(--ds-line-height, 1.3);
     font-weight: 600;
     color: #000;
   }
   .skio-subscription-footer {
-    font-family: manrope, sans-serif;
+    font-family: var(--ds-font-family, manrope, sans-serif);
     font-size: 12px;
-    line-height: 18px;
+    line-height: var(--ds-line-height, 1.3);
     font-weight: 500;
     color: #000;
     text-align: center;
@@ -444,27 +450,27 @@ const skioStyles = css`
     background-color: #C4E9FF !important;
     color: #000 !important;
     border: 1px solid #000 !important;
-    font-family: manrope, sans-serif !important;
+    font-family: var(--ds-font-family, manrope, sans-serif) !important;
     font-size: 18px;
-    line-height: 28px;
+    line-height: var(--ds-line-height, 1.3);
     font-weight: 600 !important;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: var(--ds-label-letter-spacing, 0.04em);
     border-radius: 0 !important;
   }
   .skio-includes-cta:hover {
     background-color: #b0dff8 !important;
   }
   .skio-modify-disclaimer {
-    font-family: manrope, sans-serif;
+    font-family: var(--ds-font-family, manrope, sans-serif);
     font-size: 12px;
-    line-height: 18px;
+    line-height: var(--ds-line-height, 1.3);
     font-weight: 500;
     color: #000;
     text-align: center;
     margin-top: 12px;
     margin-bottom: 0;
-    letter-spacing: 0.04em;
+    letter-spacing: var(--ds-label-letter-spacing, 0.04em);
   }
   .skio-onetime-subscribe-disclaimer {
     padding: 10px 12px;
@@ -472,9 +478,9 @@ const skioStyles = css`
     border: 1px solid #000;
     border-radius: 0;
     margin: 8px 0 12px 0;
-    font-family: manrope, sans-serif;
+    font-family: var(--ds-font-family, manrope, sans-serif);
     font-size: 12px;
-    line-height: 18px;
+    line-height: var(--ds-line-height, 1.3);
     font-weight: 500;
   }
   .skio-onetime-subscribe-disclaimer a {
@@ -546,9 +552,9 @@ const skioStyles = css`
   .skio-frequency {
     border: none !important;
     background: var(--blue-tint-40) !important;
-    font-family: manrope, sans-serif !important;
+    font-family: var(--ds-font-family, manrope, sans-serif) !important;
     font-size: 12px !important;
-    line-height: 14px !important;
+    line-height: var(--ds-line-height, 1.3) !important;
     border-radius: 40px !important;
     padding: 4px 26px 4px 12px !important;
     -webkit-appearance: none !important;
@@ -579,10 +585,10 @@ const skioStyles = css`
   }
 
   .skio-price-shipping {
-    font-family: manrope, sans-serif;
+    font-family: var(--ds-font-family, manrope, sans-serif);
     font-weight: 500;
     font-size: 12px;
-    line-height: 18px;
+    line-height: var(--ds-line-height, 1.3);
     color: #323232;
   }
 
@@ -590,10 +596,10 @@ const skioStyles = css`
     justify-content: center;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: var(--ds-label-letter-spacing, 0.04em);
     font-style: normal;
     font-size: 16px;
-    line-height: 24px;
+    line-height: var(--ds-line-height, 1.3);
     text-decoration: none;
     box-shadow: 0 0 #0000004d inset;
     width: 100%;
@@ -603,7 +609,7 @@ const skioStyles = css`
     transition-duration: .3s;
     padding: 10px 32px;
     cursor: pointer;
-    font-family: manrope, sans-serif;
+    font-family: var(--ds-font-family, manrope, sans-serif);
     transition: border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease;
 
     border: solid 2px rgba(0,0,0,0);
@@ -759,7 +765,7 @@ const skioStyles = css`
   @media (max-width: 420px) {
     .skio-group-label {
       font-size: 14px;
-      line-height: 22px;
+      line-height: var(--ds-line-height, 1.3);
     }
     /* CSS that should be displayed if width is equal to or less than 800px goes here */
   }
@@ -807,7 +813,7 @@ const skioStyles = css`
 
   .bundle-details {
       flex-grow: 1;
-      font-family: manrope, sans-serif;
+      font-family: var(--ds-font-family, manrope, sans-serif);
       font-weight: 500;
   }
 
@@ -818,36 +824,36 @@ const skioStyles = css`
   }
 
   .bundle_offer_title {
-      font-family: manrope, sans-serif;
+      font-family: var(--ds-font-family, manrope, sans-serif);
       font-size: 16px;
-      line-height: 24px;
+      line-height: var(--ds-line-height, 1.3);
       font-weight: 600;
       margin: 0;
   }
 
   .bundle-description {
       color: #6b7280;
-      font-family: manrope, sans-serif;
+      font-family: var(--ds-font-family, manrope, sans-serif);
       font-size: 14px;
-      line-height: 22px;
+      line-height: var(--ds-line-height, 1.3);
       font-weight: 500;
       margin-top: 4px;
   }
 
   .bundle-pricing {
       text-align: center;
-      font-family: manrope, sans-serif;
+      font-family: var(--ds-font-family, manrope, sans-serif);
   }
 
   .bundle_current_price {
       font-size: 18px;
-      line-height: 28px;
+      line-height: var(--ds-line-height, 1.3);
       font-weight: 600;
   }
 
   .bundle_previous_price {
     font-size: 16px;
-    line-height: 24px;
+    line-height: var(--ds-line-height, 1.3);
     font-weight: 500;
     padding-right: 5px;
     text-decoration: line-through;
@@ -861,7 +867,7 @@ const skioStyles = css`
   .bundle_price_per_treatment {
       color: #22c55e;
       font-size: 14px;
-      line-height: 22px;
+      line-height: var(--ds-line-height, 1.3);
       font-weight: 600;
       padding-top: 5px;
   }
