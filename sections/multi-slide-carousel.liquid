@@ -7,7 +7,7 @@
   <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
     <div class="multi-slide-carousel__content-wrap">
     <div class="multi-slide-carousel__header">
-      <h3 class="multi-slide-carousel__heading">Used & Loved by Dentists</h3>
+      <h3 class="multi-slide-carousel__heading">Used & Loved by Dentists1</h3>
       {% comment %} <p class="multi-slide-carousel__subheading">Expert-backed whitening, developed by dentists for safe, stunning results without sensitivity.</p> {% endcomment %}
     </div>
     <div class="multi-slide-carousel__inner">
@@ -81,6 +81,7 @@
       const updateNavigationVisibility = (swiper) => {
         const currentSlidesPerView = swiper.params.slidesPerView;
         const shouldShowNavigation = blockCount > currentSlidesPerView;
+        const isDesktop = window.innerWidth >= 769;
         
         const prevButton = swiperElement.querySelector('.multi-slide-carousel__button-prev');
         const nextButton = swiperElement.querySelector('.multi-slide-carousel__button-next');
@@ -88,7 +89,7 @@
         
         if (prevButton) prevButton.style.display = shouldShowNavigation ? '' : 'none';
         if (nextButton) nextButton.style.display = shouldShowNavigation ? '' : 'none';
-        if (pagination) pagination.style.display = shouldShowNavigation ? '' : 'none';
+        if (pagination) pagination.style.display = (shouldShowNavigation && !isDesktop) ? '' : 'none';
       };
 
       const multiSlideCarousel = new Swiper(`#multiSlideCarousel-${sectionId}`, {
