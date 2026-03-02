@@ -115,7 +115,7 @@
   font-size: 24px;
   font-weight: 300;
   color: #000;
-  margin: 0;
+  margin: 10px 0 0;
   width: 100%;
   line-height: 1.3;
 }
@@ -124,7 +124,7 @@
   font-size: 14px;
   color: #3173A4;
   margin: 0;
-  padding-top: 10px;
+  padding-top: 20px;
   line-height: 1.4;
   width: 100%;
 }
@@ -146,7 +146,7 @@
   font-size: 12px;
   font-weight: 400;
   color: #000;
-  margin: 0;
+  margin: 10px 0 0;
   width: 100%;
   line-height: 1.5;
 }
