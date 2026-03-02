@@ -26,6 +26,10 @@
     margin-top: 30px;
   }
 
+  .multi-slide-carousel__pagination {
+    display: none !important;
+  }
+
   .multi-slide-carousel__dentist-name {
     font-size: 26px;
   }
