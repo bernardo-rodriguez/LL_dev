@@ -16,28 +16,30 @@
           {% for block in section.blocks %}
             <div class="swiper-slide" {{ block.shopify_attributes }}>
               <div class="multi-slide-carousel__slide">
-                {% if block.settings.image != blank %}
-                  <img
-                    srcset="
-                      {{ block.settings.image | image_url: width: 300 }} 300w,
-                      {{ block.settings.image | image_url: width: 400 }} 400w,
-                      {{ block.settings.image | image_url: width: 500 }} 500w"
-                    sizes="(min-width: 1200px) calc(16.66vw - 40px),
-                           (min-width: 990px) calc(25vw - 40px),
-                           (min-width: 768px) calc(33.33vw - 40px),
-                           calc(100vw - 40px)"
-                    src="{{ block.settings.image | image_url: width: 400 }}"
-                    alt="{{ block.settings.image.alt | escape }}"
-                    loading="lazy"
-                    width="400"
-                    height="400"
-                    class="multi-slide-carousel__image"
-                  >
-                {% else %}
-                  {{ 'image' | placeholder_svg_tag: 'multi-slide-carousel__image placeholder' }}
-                {% endif %}
+                <div class="multi-slide-carousel__image-divider-wrap">
+                  {% if block.settings.image != blank %}
+                    <img
+                      srcset="
+                        {{ block.settings.image | image_url: width: 300 }} 300w,
+                        {{ block.settings.image | image_url: width: 400 }} 400w,
+                        {{ block.settings.image | image_url: width: 500 }} 500w"
+                      sizes="(min-width: 1200px) calc(16.66vw - 40px),
+                             (min-width: 990px) calc(25vw - 40px),
+                             (min-width: 768px) calc(33.33vw - 40px),
+                             calc(100vw - 40px)"
+                      src="{{ block.settings.image | image_url: width: 400 }}"
+                      alt="{{ block.settings.image.alt | escape }}"
+                      loading="lazy"
+                      width="400"
+                      height="400"
+                      class="multi-slide-carousel__image"
+                    >
+                  {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'multi-slide-carousel__image placeholder' }}
+                  {% endif %}
 
-                <div class="multi-slide-carousel__divider"></div>
+                  <div class="multi-slide-carousel__divider"></div>
+                </div>
 
                 <div class="multi-slide-carousel__content">
                   {% if block.settings.dentist_name != blank %}
