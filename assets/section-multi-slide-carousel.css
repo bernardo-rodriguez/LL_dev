@@ -97,16 +97,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 .multi-slide-carousel__image {
   width: 100%;
   max-width: 250px;
   height: auto;
-  border-radius: 16px;
+  border-radius: 16px 16px 0 0;
   aspect-ratio: 1;
   object-fit: cover;
   display: block;
+  vertical-align: top;
 }
 
 .multi-slide-carousel__dentist-name {
@@ -132,9 +134,10 @@
 
 .multi-slide-carousel__divider {
   width: 100%;
+  max-width: 250px;
   height: 1px;
   background-color: #3173A4;
-  margin: 0 16px 20px 0;
+  margin: 0 auto 20px;
   display: block !important;
 }
 
@@ -186,6 +189,7 @@
   position: relative;
   bottom: 0;
   margin-top: 20px;
+  padding-top: 40px;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -240,8 +244,8 @@
   }
 
   .multi-slide-carousel__divider {
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .multi-slide-carousel__button-prev,
@@ -260,6 +264,7 @@
   }
 
   .multi-slide-carousel__pagination {
-    margin-top: 120px;
+    margin-top: 80px;
+    padding-top: 80px;
   }
 } 
