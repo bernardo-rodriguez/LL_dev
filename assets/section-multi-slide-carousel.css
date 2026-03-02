@@ -124,6 +124,7 @@
   font-size: 14px;
   color: #3173A4;
   margin: 0;
+  padding-top: 10px;
   line-height: 1.4;
   width: 100%;
 }
@@ -231,6 +232,10 @@
 
   .multi-slide-carousel-instance {
     padding: 0;
+  }
+
+  .multi-slide-carousel__slide {
+    padding-bottom: 20px;
   }
 
   .multi-slide-carousel__content {
