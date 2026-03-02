@@ -163,7 +163,7 @@
 
   .multi-slide-carousel__header {
     margin-bottom: 30px;
-    padding: 0 20px;
+    padding: 0;
   }
 
   .multi-slide-carousel__heading {
@@ -183,7 +183,7 @@
   } */
 
   .multi-slide-carousel-instance {
-    padding: 0 20px;
+    padding: 0;
   }
 
   .multi-slide-carousel__button-prev,

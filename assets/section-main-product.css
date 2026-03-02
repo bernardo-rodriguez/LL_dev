@@ -13,7 +13,7 @@ body.template-product .page-width--product {
 
 @media screen and (max-width: 768px) {
   body.template-product .page-width--product {
-    padding: 0 20px;
+    padding: 0 10px;
   }
 }
 

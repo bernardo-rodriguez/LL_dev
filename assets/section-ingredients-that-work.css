@@ -29,7 +29,7 @@
 /* Match product section: 10px horizontal padding on mobile */
 @media screen and (max-width: 768px) {
   .ingredients-that-work .page-width {
-    padding: 0 5px 0 10px;
+    padding: 0 10px;
   }
 }
 
@@ -87,7 +87,7 @@
 
 .ingredients-that-work__ingredient {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
 }
 
@@ -126,7 +126,7 @@
 .ingredients-that-work__ingredient-name {
   margin: 0 0 4px;
   color: var(--navy);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .ingredients-that-work__benefits-list {
@@ -246,7 +246,7 @@
     min-width: auto;
     max-width: none;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     gap: 16px;
   }
 
