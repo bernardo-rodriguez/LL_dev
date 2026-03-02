@@ -2,6 +2,19 @@
   margin: 0 0 60px;
 }
 
+.multi-slide-carousel__content {
+  background-color: #EEF9FF;
+  padding: 60px 50px;
+  border-radius: 12px;
+}
+
+@media screen and (max-width: 768px) {
+  .multi-slide-carousel__content {
+    padding: 30px 0;
+    border-radius: 0;
+  }
+}
+
 @media screen and (min-width: 769px) {
   .multi-slide-carousel {
     margin-top: 30px;
