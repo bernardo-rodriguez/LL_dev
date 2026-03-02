@@ -37,19 +37,19 @@
                   {{ 'image' | placeholder_svg_tag: 'multi-slide-carousel__image placeholder' }}
                 {% endif %}
 
+                <div class="multi-slide-carousel__divider"></div>
+
                 <div class="multi-slide-carousel__content">
                   {% if block.settings.dentist_name != blank %}
                     <p class="multi-slide-carousel__dentist-name">{{ block.settings.dentist_name }}</p>
                   {% endif %}
-                  
-                  {% if block.settings.credentials != blank %}
-                    <div class="multi-slide-carousel__credentials whats-in-the-box__text">{{ block.settings.credentials }}</div>
-                  {% endif %}
-
-                  <div class="multi-slide-carousel__divider"></div>
 
                   {% if block.settings.description != blank %}
                     <p class="multi-slide-carousel__description">{{ block.settings.description }}</p>
+                  {% endif %}
+                  
+                  {% if block.settings.credentials != blank %}
+                    <div class="multi-slide-carousel__credentials whats-in-the-box__text">{{ block.settings.credentials }}</div>
                   {% endif %}
                 </div>
               </div>
