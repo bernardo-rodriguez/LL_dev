@@ -1,4 +1,5 @@
 {{ 'section-transformational-results.css' | asset_url | stylesheet_tag }}
+{{ 'section-test-results.css' | asset_url | stylesheet_tag }}
 
 <section class="transformational-results" data-section-id="{{ section.id }}">
   <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
@@ -61,13 +62,15 @@
       </div>
 
       <div class="transformational-results__stats-column">
-        {% assign stat_blocks = section.blocks | where: 'type', 'stat' %}
-        {% for block in stat_blocks %}
-          <div class="transformational-results__stat" {{ block.shopify_attributes }}>
-            <span class="transformational-results__stat-percent stylized">{{ block.settings.percent }}</span>
-            <p class="transformational-results__stat-text">{{ block.settings.text }}</p>
-          </div>
-        {% endfor %}
+        <ul class="list-unstyled test-results__list">
+          {% assign stat_blocks = section.blocks | where: 'type', 'stat' %}
+          {% for block in stat_blocks %}
+            <li class="test-results__item" {{ block.shopify_attributes }}>
+              <h3 class="stylized test-results__item-percent">{{ block.settings.percent }}</h3>
+              <p class="body-sm test-results__item-details">{{ block.settings.text }}</p>
+            </li>
+          {% endfor %}
+        </ul>
       </div>
     </div>
   </div>
