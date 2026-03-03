@@ -115,12 +115,28 @@
       });
     }
 
+    var viewport = wrap && wrap.querySelector('.transformational-results__slider-viewport') ? wrap.querySelector('.transformational-results__slider-viewport') : wrap;
+
     function goToSlide(index) {
       if (totalSlides <= 1) return;
       currentIndex = (index + totalSlides) % totalSlides;
-      var offsetPercent = totalSlides > 0 ? (currentIndex * 100 / totalSlides) : 0;
-      if (currentIndex > 0) offsetPercent += 0.12;
-      track.style.transform = 'translate3d(-' + offsetPercent + '%, 0, 0)';
+      var w = viewport ? viewport.offsetWidth : 0;
+      if (w > 0) {
+        var offsetPx = currentIndex * w + (currentIndex > 0 ? 1 : 0);
+        track.style.transform = 'translate3d(-' + offsetPx + 'px, 0, 0)';
+      } else {
+        var offsetPercent = totalSlides > 0 ? (currentIndex * 100 / totalSlides) : 0;
+        if (currentIndex > 0) offsetPercent += 0.12;
+        track.style.transform = 'translate3d(-' + offsetPercent + '%, 0, 0)';
+      }
+    }
+
+    function onResize() {
+      if (totalSlides <= 1) return;
+      goToSlide(currentIndex);
+    }
+    if (viewport && totalSlides > 1) {
+      window.addEventListener('resize', onResize);
     }
 
     if (tabs.length) {
@@ -151,6 +167,7 @@
         s.style.width = slidePercent + '%';
         s.style.minWidth = slidePercent + '%';
       });
+      goToSlide(currentIndex);
     }
 
     updateAllAfterImages();
