@@ -265,6 +265,13 @@
     "transformational_results_ddRMfc": {
       "type": "transformational-results",
       "blocks": {
+        "profile_8JMmJK": {
+          "type": "profile",
+          "settings": {
+            "person_name": "BAILEY W.",
+            "image_month_0": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_7.png"
+          }
+        },
         "profile_bbgBRd": {
           "type": "profile",
           "settings": {
@@ -308,6 +315,7 @@
         }
       },
       "block_order": [
+        "profile_8JMmJK",
         "profile_bbgBRd",
         "profile_TyzdzQ",
         "stat_ETKGJE",
