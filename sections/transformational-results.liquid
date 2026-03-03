@@ -87,6 +87,9 @@
 
     const swiperEl = document.getElementById('transformationalResultsSwiper-' + sectionId);
     if (!swiperEl) return;
+    if (swiperEl.swiper) return;
+
+    const section = swiperEl.closest('.transformational-results');
 
     const tabs = document.querySelectorAll('.transformational-results__tab');
     let currentDuration = 6;
@@ -126,6 +129,9 @@
       slidesPerView: 1,
       spaceBetween: 20,
       loop: profileCount > 1,
+      zoom: false,
+      touchRatio: 1,
+      allowTouchMove: true,
       navigation: {
         nextEl: swiperEl.closest('.transformational-results__swiper-wrap').querySelector('.transformational-results__button-next'),
         prevEl: swiperEl.closest('.transformational-results__swiper-wrap').querySelector('.transformational-results__button-prev'),
