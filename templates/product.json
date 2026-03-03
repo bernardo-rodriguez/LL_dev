@@ -269,7 +269,9 @@
           "type": "profile",
           "settings": {
             "person_name": "BAILEY W.",
-            "image_month_0": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_7.png"
+            "image_month_0": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_7.png",
+            "image_month_2": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_8.png",
+            "image_month_4": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_7.png"
           }
         },
         "profile_bbgBRd": {
