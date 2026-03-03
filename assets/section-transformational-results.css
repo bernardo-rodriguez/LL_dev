@@ -108,7 +108,7 @@
 .transformational-results__images {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4px;
+  gap: 2px;
   width: 100%;
   max-width: 100%;
   min-width: 0;
