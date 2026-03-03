@@ -119,6 +119,7 @@
       if (totalSlides <= 1) return;
       currentIndex = (index + totalSlides) % totalSlides;
       var offsetPercent = totalSlides > 0 ? (currentIndex * 100 / totalSlides) : 0;
+      if (currentIndex > 0) offsetPercent += 0.12;
       track.style.transform = 'translate3d(-' + offsetPercent + '%, 0, 0)';
     }
 

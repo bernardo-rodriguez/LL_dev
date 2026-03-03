@@ -30,6 +30,7 @@
   display: flex;
   gap: 0;
   margin-bottom: 24px;
+  max-width: 380px;
 }
 
 .transformational-results__tab {
@@ -226,13 +227,17 @@
   }
 
   .transformational-results__tabs {
-    justify-content: center;
+    justify-content: stretch;
     margin-bottom: 20px;
+    width: 100%;
+    max-width: none;
   }
 
   .transformational-results__tab {
+    flex: 1;
     padding: 8px 12px;
     font-size: 11px;
+    text-align: center;
   }
 
   .transformational-results__tab:not(:last-child) {
