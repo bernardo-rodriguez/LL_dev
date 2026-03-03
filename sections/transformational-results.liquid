@@ -1,6 +1,4 @@
 {{ 'section-transformational-results.css' | asset_url | stylesheet_tag }}
-{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
-<script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
 
 <section class="transformational-results" data-section-id="{{ section.id }}">
   <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
@@ -14,56 +12,51 @@
           <button type="button" class="transformational-results__tab" data-duration="6" aria-selected="false">6 MONTHS</button>
         </div>
 
-        <div class="transformational-results__swiper-wrap">
-          <div class="transformational-results__swiper swiper" id="transformationalResultsSwiper-{{ section.id }}">
-            <div class="swiper-wrapper">
-              {% assign profile_blocks = section.blocks | where: 'type', 'profile' %}
-              {% for block in profile_blocks %}
-                <div class="swiper-slide transformational-results__slide" {{ block.shopify_attributes }}
-                  data-month-2="{{ block.settings.image_month_2 | image_url: width: 600 }}"
-                  data-month-4="{{ block.settings.image_month_4 | image_url: width: 600 }}"
-                  data-month-6="{{ block.settings.image_month_6 | image_url: width: 600 }}">
-                  <div class="transformational-results__images">
-                    <div class="transformational-results__image-wrap">
-                      {% if block.settings.image_month_0 != blank %}
-                        <img
-                          src="{{ block.settings.image_month_0 | image_url: width: 600 }}"
-                          alt="Month 0"
-                          class="transformational-results__image transformational-results__image--before"
-                          loading="lazy"
-                          width="300"
-                          height="300"
-                        >
-                      {% endif %}
-                      <span class="transformational-results__image-label">MONTH 0</span>
-                    </div>
-                    <div class="transformational-results__image-wrap">
-                      {% assign after_img = block.settings.image_month_6 | default: block.settings.image_month_4 | default: block.settings.image_month_2 %}
-                      {% if after_img != blank %}
-                        <img
-                          src="{{ after_img | image_url: width: 600 }}"
-                          alt="Month 6"
-                          class="transformational-results__image transformational-results__image--after"
-                          loading="lazy"
-                          width="300"
-                          height="300"
-                          data-src-2="{% if block.settings.image_month_2 != blank %}{{ block.settings.image_month_2 | image_url: width: 600 }}{% endif %}"
-                          data-src-4="{% if block.settings.image_month_4 != blank %}{{ block.settings.image_month_4 | image_url: width: 600 }}{% endif %}"
-                          data-src-6="{% if block.settings.image_month_6 != blank %}{{ block.settings.image_month_6 | image_url: width: 600 }}{% endif %}"
-                        >
-                      {% endif %}
-                      <span class="transformational-results__image-label transformational-results__image-label--after">MONTH <span class="transformational-results__month-num">6</span></span>
-                    </div>
+        <div class="transformational-results__slider-wrap">
+          <div class="transformational-results__slider-track" id="transformationalResultsTrack-{{ section.id }}">
+            {% assign profile_blocks = section.blocks | where: 'type', 'profile' %}
+            {% for block in profile_blocks %}
+              <div class="transformational-results__slide" {{ block.shopify_attributes }}>
+                <div class="transformational-results__images">
+                  <div class="transformational-results__image-wrap">
+                    {% if block.settings.image_month_0 != blank %}
+                      <img
+                        src="{{ block.settings.image_month_0 | image_url: width: 600 }}"
+                        alt="Month 0"
+                        class="transformational-results__image transformational-results__image--before"
+                        loading="lazy"
+                        width="300"
+                        height="300"
+                      >
+                    {% endif %}
+                    <span class="transformational-results__image-label">MONTH 0</span>
                   </div>
-                  {% if block.settings.person_name != blank %}
-                    <p class="transformational-results__name">{{ block.settings.person_name }}</p>
-                  {% endif %}
+                  <div class="transformational-results__image-wrap">
+                    {% assign after_img = block.settings.image_month_6 | default: block.settings.image_month_4 | default: block.settings.image_month_2 %}
+                    {% if after_img != blank %}
+                      <img
+                        src="{{ after_img | image_url: width: 600 }}"
+                        alt="Month 6"
+                        class="transformational-results__image transformational-results__image--after"
+                        loading="lazy"
+                        width="300"
+                        height="300"
+                        data-src-2="{% if block.settings.image_month_2 != blank %}{{ block.settings.image_month_2 | image_url: width: 600 }}{% endif %}"
+                        data-src-4="{% if block.settings.image_month_4 != blank %}{{ block.settings.image_month_4 | image_url: width: 600 }}{% endif %}"
+                        data-src-6="{% if block.settings.image_month_6 != blank %}{{ block.settings.image_month_6 | image_url: width: 600 }}{% endif %}"
+                      >
+                    {% endif %}
+                    <span class="transformational-results__image-label transformational-results__image-label--after">MONTH <span class="transformational-results__month-num">6</span></span>
+                  </div>
                 </div>
-              {% endfor %}
-            </div>
+                {% if block.settings.person_name != blank %}
+                  <p class="transformational-results__name">{{ block.settings.person_name }}</p>
+                {% endif %}
+              </div>
+            {% endfor %}
           </div>
-          <div class="swiper-button-prev transformational-results__button-prev"></div>
-          <div class="swiper-button-next transformational-results__button-next"></div>
+          <button type="button" class="transformational-results__button-prev" aria-label="Previous profile"></button>
+          <button type="button" class="transformational-results__button-next" aria-label="Next profile"></button>
         </div>
       </div>
 
@@ -85,14 +78,19 @@
     const sectionId = document.querySelector('.transformational-results')?.dataset?.sectionId;
     if (!sectionId) return;
 
-    const swiperEl = document.getElementById('transformationalResultsSwiper-' + sectionId);
-    if (!swiperEl) return;
-    if (swiperEl.swiper) return;
+    const track = document.getElementById('transformationalResultsTrack-' + sectionId);
+    if (!track) return;
 
-    const section = swiperEl.closest('.transformational-results');
+    const section = track.closest('.transformational-results');
+    const wrap = track.closest('.transformational-results__slider-wrap');
+    const slides = track.querySelectorAll('.transformational-results__slide');
+    const prevBtn = wrap?.querySelector('.transformational-results__button-prev');
+    const nextBtn = wrap?.querySelector('.transformational-results__button-next');
+    const tabs = section?.querySelectorAll('.transformational-results__tab') || [];
 
-    const tabs = document.querySelectorAll('.transformational-results__tab');
+    let currentIndex = 0;
     let currentDuration = 6;
+    const totalSlides = slides.length;
 
     function setAfterImage(slideEl, duration) {
       const afterImg = slideEl?.querySelector('.transformational-results__image--after');
@@ -107,49 +105,44 @@
     }
 
     function updateAllAfterImages() {
-      swiperEl.querySelectorAll('.transformational-results__slide').forEach(function(slide) {
+      slides.forEach(function(slide) {
         setAfterImage(slide, currentDuration);
       });
     }
 
-    tabs.forEach(function(tab) {
-      tab.addEventListener('click', function() {
-        const duration = parseInt(this.dataset.duration, 10);
-        currentDuration = duration;
-        tabs.forEach(function(t) {
-          t.classList.toggle('active', parseInt(t.dataset.duration, 10) === duration);
-          t.setAttribute('aria-selected', t.classList.contains('active'));
-        });
-        updateAllAfterImages();
-      });
-    });
+    function goToSlide(index) {
+      if (totalSlides <= 1) return;
+      currentIndex = (index + totalSlides) % totalSlides;
+      const slideWidth = track.offsetWidth / totalSlides;
+      track.style.transform = 'translate3d(-' + (currentIndex * 100) + '%, 0, 0)';
+    }
 
-    const profileCount = swiperEl.querySelectorAll('.swiper-slide').length;
-    const transformationalSwiper = new Swiper(swiperEl, {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      loop: profileCount > 1,
-      zoom: false,
-      touchRatio: 1,
-      allowTouchMove: true,
-      navigation: {
-        nextEl: swiperEl.closest('.transformational-results__swiper-wrap').querySelector('.transformational-results__button-next'),
-        prevEl: swiperEl.closest('.transformational-results__swiper-wrap').querySelector('.transformational-results__button-prev'),
-      },
-      on: {
-        init: function() {
+    if (tabs.length) {
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          const duration = parseInt(this.dataset.duration, 10);
+          currentDuration = duration;
+          tabs.forEach(function(t) {
+            t.classList.toggle('active', parseInt(t.dataset.duration, 10) === duration);
+            t.setAttribute('aria-selected', t.classList.contains('active'));
+          });
           updateAllAfterImages();
-        }
-      }
-    });
+        });
+      });
+    }
 
-    var wrap = swiperEl.closest('.transformational-results__swiper-wrap');
-    var prevBtn = wrap.querySelector('.transformational-results__button-prev');
-    var nextBtn = wrap.querySelector('.transformational-results__button-next');
-    if (profileCount <= 1) {
+    if (prevBtn) prevBtn.addEventListener('click', function() { goToSlide(currentIndex - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function() { goToSlide(currentIndex + 1); });
+
+    if (totalSlides <= 1) {
       if (prevBtn) prevBtn.style.display = 'none';
       if (nextBtn) nextBtn.style.display = 'none';
+    } else {
+      track.style.width = (totalSlides * 100) + '%';
+      slides.forEach(function(s) { s.style.flex = '0 0 ' + (100 / totalSlides) + '%'; s.style.width = (100 / totalSlides) + '%'; });
     }
+
+    updateAllAfterImages();
   });
 </script>
 
