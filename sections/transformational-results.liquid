@@ -116,8 +116,8 @@
     function goToSlide(index) {
       if (totalSlides <= 1) return;
       currentIndex = (index + totalSlides) % totalSlides;
-      const slideWidth = track.offsetWidth / totalSlides;
-      track.style.transform = 'translate3d(-' + (currentIndex * 100) + '%, 0, 0)';
+      var offsetPercent = totalSlides > 0 ? (currentIndex * 100 / totalSlides) : 0;
+      track.style.transform = 'translate3d(-' + offsetPercent + '%, 0, 0)';
     }
 
     if (tabs.length) {
