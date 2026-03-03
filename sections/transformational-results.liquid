@@ -115,39 +115,11 @@
       });
     }
 
-    var viewport = wrap && wrap.querySelector('.transformational-results__slider-viewport') ? wrap.querySelector('.transformational-results__slider-viewport') : wrap;
-    var SLIVER_NUDGE = 3;
-
-    function getViewportWidth() {
-      if (!viewport) return 0;
-      return viewport.getBoundingClientRect ? viewport.getBoundingClientRect().width : viewport.offsetWidth;
-    }
-
     function goToSlide(index) {
       if (totalSlides <= 1) return;
       currentIndex = (index + totalSlides) % totalSlides;
-      var w = Math.floor(getViewportWidth());
-      if (w > 0) {
-        var offsetPx = currentIndex * w + (currentIndex > 0 ? SLIVER_NUDGE : 0);
-        track.style.transform = 'translate3d(-' + offsetPx + 'px, 0, 0)';
-      } else {
-        var offsetPercent = totalSlides > 0 ? (currentIndex * 100 / totalSlides) : 0;
-        if (currentIndex > 0) offsetPercent += 0.15;
-        track.style.transform = 'translate3d(-' + offsetPercent + '%, 0, 0)';
-      }
-    }
-
-    function onResize() {
-      if (totalSlides <= 1) return;
-      var w = Math.floor(getViewportWidth());
-      if (w > 0) {
-        track.style.width = (totalSlides * w) + 'px';
-        slides.forEach(function(s) { s.style.flex = '0 0 ' + w + 'px'; s.style.width = w + 'px'; s.style.minWidth = w + 'px'; });
-      }
-      goToSlide(currentIndex);
-    }
-    if (viewport && totalSlides > 1) {
-      window.addEventListener('resize', onResize);
+      var offset = (currentIndex * 100) / totalSlides;
+      track.style.transform = 'translate3d(-' + offset + '%, 0, 0)';
     }
 
     if (tabs.length) {
@@ -171,33 +143,14 @@
       if (prevBtn) prevBtn.style.display = 'none';
       if (nextBtn) nextBtn.style.display = 'none';
     } else {
-      function initTrackWidth() {
-        var w = Math.floor(getViewportWidth());
-        if (w > 0) {
-          track.style.width = (totalSlides * w) + 'px';
-          slides.forEach(function(s) {
-            s.style.flex = '0 0 ' + w + 'px';
-            s.style.width = w + 'px';
-            s.style.minWidth = w + 'px';
-          });
-          goToSlide(currentIndex);
-        } else {
-          track.style.width = (totalSlides * 100) + '%';
-          var slidePercent = (100 / totalSlides) + 0.5;
-          slides.forEach(function(s) {
-            s.style.flex = '0 0 ' + slidePercent + '%';
-            s.style.width = slidePercent + '%';
-            s.style.minWidth = slidePercent + '%';
-          });
-          goToSlide(currentIndex);
-        }
-      }
-      requestAnimationFrame(function() {
-        requestAnimationFrame(function() {
-          initTrackWidth();
-          if (Math.floor(getViewportWidth()) === 0) setTimeout(initTrackWidth, 80);
-        });
+      track.style.width = (totalSlides * 100) + '%';
+      var slideWidthPercent = 100 / totalSlides;
+      slides.forEach(function(s) {
+        s.style.flex = '0 0 ' + slideWidthPercent + '%';
+        s.style.width = slideWidthPercent + '%';
+        s.style.minWidth = slideWidthPercent + '%';
       });
+      goToSlide(0);
     }
 
     updateAllAfterImages();
