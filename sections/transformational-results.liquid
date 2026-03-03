@@ -14,7 +14,8 @@
         </div>
 
         <div class="transformational-results__slider-wrap">
-          <div class="transformational-results__slider-track" id="transformationalResultsTrack-{{ section.id }}">
+          <div class="transformational-results__slider-viewport">
+            <div class="transformational-results__slider-track" id="transformationalResultsTrack-{{ section.id }}">
             {% assign profile_blocks = section.blocks | where: 'type', 'profile' %}
             {% for block in profile_blocks %}
               <div class="transformational-results__slide" {{ block.shopify_attributes }}>
@@ -55,6 +56,7 @@
                 {% endif %}
               </div>
             {% endfor %}
+            </div>
           </div>
           <button type="button" class="transformational-results__button-prev" aria-label="Previous profile"></button>
           <button type="button" class="transformational-results__button-next" aria-label="Next profile"></button>
@@ -142,8 +144,12 @@
       if (nextBtn) nextBtn.style.display = 'none';
     } else {
       track.style.width = (totalSlides * 100) + '%';
-      var slidePercent = (100 / totalSlides) + 0.02;
-      slides.forEach(function(s) { s.style.flex = '0 0 ' + slidePercent + '%'; s.style.width = slidePercent + '%'; });
+      var slidePercent = (100 / totalSlides) + 0.5;
+      slides.forEach(function(s) {
+        s.style.flex = '0 0 ' + slidePercent + '%';
+        s.style.width = slidePercent + '%';
+        s.style.minWidth = slidePercent + '%';
+      });
     }
 
     updateAllAfterImages();

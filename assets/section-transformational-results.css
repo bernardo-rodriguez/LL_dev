@@ -76,13 +76,18 @@
   position: relative;
   width: 100%;
   max-width: 100%;
-  overflow: hidden;
   padding: 0 36px;
+}
+
+.transformational-results__slider-viewport {
+  width: 100%;
+  overflow: hidden;
 }
 
 .transformational-results__slider-track {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   transition: transform 0.35s ease;
   will-change: transform;
 }
