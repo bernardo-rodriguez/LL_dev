@@ -28,13 +28,13 @@
   padding: 10px 16px;
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.05em;
   background: white;
   border: 1px solid #0D2244;
   color: #0D2244;
   cursor: pointer;
   font-family: inherit;
   transition: background 0.2s, border-color 0.2s, color 0.2s;
+  letter-spacing: normal;
 }
 
 .transformational-results__tab:not(:last-child) {
@@ -124,7 +124,6 @@
   font-weight: 600;
   color: white;
   text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-  letter-spacing: 0.05em;
 }
 
 .transformational-results__name {
@@ -133,7 +132,6 @@
   font-weight: 600;
   color: #0D2244;
   text-align: left;
-  letter-spacing: 0.02em;
 }
 
 .transformational-results__button-prev,
@@ -177,32 +175,43 @@
 .transformational-results__stats-column {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
 .transformational-results__stat {
   background: white;
   border-radius: 12px;
-  padding: 20px 24px;
+  padding: 0;
   display: grid;
-  grid-template-columns: 80px 1fr;
+  grid-template-columns: 100px 1fr;
   align-items: center;
-  gap: 20px;
+  min-height: 0;
   border: 1px solid rgba(49, 115, 164, 0.2);
+  overflow: hidden;
 }
 
 .transformational-results__stat-percent {
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 300;
   color: #0D2244;
   text-align: center;
+  padding: 20px 16px;
+  letter-spacing: normal;
+}
+
+.transformational-results__stat-percent.stylized {
+  font-family: canela, serif;
+  font-style: italic;
 }
 
 .transformational-results__stat-text {
   margin: 0;
-  font-size: 14px;
+  font-size: 20px;
   line-height: 1.5;
-  color: #333;
+  color: #0D2244;
+  padding: 20px 24px 20px 20px;
+  border-left: 1px solid var(--blue-tint-20, #e8f4fa);
+  letter-spacing: normal;
 }
 
 @media screen and (max-width: 768px) {
@@ -249,18 +258,19 @@
   }
 
   .transformational-results__stat {
-    grid-template-columns: 1fr;
-    text-align: center;
-    padding: 16px 20px;
+    grid-template-columns: 100px 1fr;
+    text-align: left;
   }
 
   .transformational-results__stat-percent {
     text-align: center;
     font-size: 24px;
+    padding: 16px 12px;
   }
 
   .transformational-results__stat-text {
-    font-size: 13px;
+    font-size: 18px;
+    padding: 16px 20px 16px 16px;
   }
 
   .transformational-results__name {

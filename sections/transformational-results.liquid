@@ -64,7 +64,7 @@
         {% assign stat_blocks = section.blocks | where: 'type', 'stat' %}
         {% for block in stat_blocks %}
           <div class="transformational-results__stat" {{ block.shopify_attributes }}>
-            <span class="transformational-results__stat-percent">{{ block.settings.percent }}</span>
+            <span class="transformational-results__stat-percent stylized">{{ block.settings.percent }}</span>
             <p class="transformational-results__stat-text">{{ block.settings.text }}</p>
           </div>
         {% endfor %}
