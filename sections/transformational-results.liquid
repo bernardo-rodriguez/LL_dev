@@ -142,7 +142,8 @@
       if (nextBtn) nextBtn.style.display = 'none';
     } else {
       track.style.width = (totalSlides * 100) + '%';
-      slides.forEach(function(s) { s.style.flex = '0 0 ' + (100 / totalSlides) + '%'; s.style.width = (100 / totalSlides) + '%'; });
+      var slidePercent = (100 / totalSlides) + 0.02;
+      slides.forEach(function(s) { s.style.flex = '0 0 ' + slidePercent + '%'; s.style.width = slidePercent + '%'; });
     }
 
     updateAllAfterImages();

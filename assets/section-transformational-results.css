@@ -43,6 +43,11 @@
   font-family: inherit;
   transition: background 0.2s, border-color 0.2s, color 0.2s;
   letter-spacing: normal;
+  margin-left: -1px;
+}
+
+.transformational-results__tab:first-child {
+  margin-left: 0;
 }
 
 .transformational-results__tab:not(:last-child) {
@@ -91,6 +96,7 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  overflow: hidden;
 }
 
 .transformational-results__images {
@@ -112,7 +118,7 @@
 }
 
 .transformational-results__slider-wrap .transformational-results__slide {
-  padding: 0 2px;
+  padding: 0;
 }
 
 .transformational-results__image {
