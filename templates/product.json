@@ -249,6 +249,7 @@
         "83b0fb1b-8e72-454e-ac9e-75ebdb17eaf8",
         "ea2bda35-88d0-42e1-b5a6-aee3275092ff"
       ],
+      "disabled": true,
       "custom_css": [
         ".testimonials__inner {background-color: #faf5f1;}"
       ],
@@ -274,6 +275,16 @@
             "image_month_6": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_6.png"
           }
         },
+        "profile_bbgBRd": {
+          "type": "profile",
+          "settings": {
+            "person_name": "NEELAM S.",
+            "image_month_0": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
+            "image_month_2": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png",
+            "image_month_4": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
+            "image_month_6": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png"
+          }
+        },
         "stat_ETKGJE": {
           "type": "stat",
           "settings": {
@@ -294,24 +305,14 @@
             "percent": "0%",
             "text": "0% of clinical participants reported an increase in sensitivity after whitening."
           }
-        },
-        "profile_bbgBRd": {
-          "type": "profile",
-          "settings": {
-            "person_name": "NEELAM S.",
-            "image_month_0": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
-            "image_month_2": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png",
-            "image_month_4": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
-            "image_month_6": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png"
-          }
         }
       },
       "block_order": [
         "profile_TyzdzQ",
+        "profile_bbgBRd",
         "stat_ETKGJE",
         "stat_WDyFBB",
-        "stat_jx3cyR",
-        "profile_bbgBRd"
+        "stat_jx3cyR"
       ],
       "name": "Transformational Results",
       "settings": {
