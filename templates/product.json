@@ -264,6 +264,12 @@
     "transformational_results_ddRMfc": {
       "type": "transformational-results",
       "blocks": {
+        "profile_TyzdzQ": {
+          "type": "profile",
+          "settings": {
+            "person_name": "Sophia T."
+          }
+        },
         "stat_ETKGJE": {
           "type": "stat",
           "settings": {
@@ -297,6 +303,7 @@
         }
       },
       "block_order": [
+        "profile_TyzdzQ",
         "stat_ETKGJE",
         "stat_WDyFBB",
         "stat_jx3cyR",
