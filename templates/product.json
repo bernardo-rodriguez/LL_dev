@@ -261,6 +261,52 @@
         "review_label": "Review"
       }
     },
+    "transformational_results_ddRMfc": {
+      "type": "transformational-results",
+      "blocks": {
+        "stat_ETKGJE": {
+          "type": "stat",
+          "settings": {
+            "percent": "100%",
+            "text": "100% of clinical participants reported whiter teeth after only 6 treatments."
+          }
+        },
+        "stat_WDyFBB": {
+          "type": "stat",
+          "settings": {
+            "percent": "74%",
+            "text": "Clinical participants reported, on average, a 74% increase in teeth brightness."
+          }
+        },
+        "stat_jx3cyR": {
+          "type": "stat",
+          "settings": {
+            "percent": "0%",
+            "text": "0% of clinical participants reported an increase in sensitivity after whitening."
+          }
+        },
+        "profile_bbgBRd": {
+          "type": "profile",
+          "settings": {
+            "person_name": "NEELAM S.",
+            "image_month_0": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
+            "image_month_2": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png",
+            "image_month_4": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
+            "image_month_6": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png"
+          }
+        }
+      },
+      "block_order": [
+        "stat_ETKGJE",
+        "stat_WDyFBB",
+        "stat_jx3cyR",
+        "profile_bbgBRd"
+      ],
+      "name": "Transformational Results",
+      "settings": {
+        "heading": "Transformational Results"
+      }
+    },
     "30a71a58-b5ad-472f-9d70-97379fc62b74": {
       "type": "benefit-cards",
       "blocks": {
@@ -462,48 +508,6 @@
       "settings": {
         "include_margins": true
       }
-    },
-    "transformational_results_ddRMfc": {
-      "type": "transformational-results",
-      "blocks": {
-        "stat_ETKGJE": {
-          "type": "stat",
-          "settings": {
-            "percent": "100%",
-            "text": "100% of clinical participants reported whiter teeth after only 6 treatments."
-          }
-        },
-        "stat_WDyFBB": {
-          "type": "stat",
-          "settings": {
-            "percent": "74%",
-            "text": "Clinical participants reported, on average, a 74% increase in teeth brightness."
-          }
-        },
-        "stat_jx3cyR": {
-          "type": "stat",
-          "settings": {
-            "percent": "0%",
-            "text": "0% of clinical participants reported an increase in sensitivity after whitening."
-          }
-        },
-        "profile_bbgBRd": {
-          "type": "profile",
-          "settings": {
-            "person_name": "NEELAM S."
-          }
-        }
-      },
-      "block_order": [
-        "stat_ETKGJE",
-        "stat_WDyFBB",
-        "stat_jx3cyR",
-        "profile_bbgBRd"
-      ],
-      "name": "Transformational Results",
-      "settings": {
-        "heading": "Transformational Results"
-      }
     }
   },
   "order": [
@@ -513,13 +517,13 @@
     "multi_slide_carousel_rc9KtU",
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
     "1c8af4c9-5992-4bfb-9d4a-a8e06e025318",
+    "transformational_results_ddRMfc",
     "30a71a58-b5ad-472f-9d70-97379fc62b74",
     "d7a83216-e232-4258-9705-5edf54558f0b",
     "a4ec3822-cf26-400b-a01b-564ae2a93dfc",
     "9a2e356e-af66-4e8f-99d8-12bc66bd56dd",
     "carousel_2_VmRAx9",
     "1674168377f629ea2c",
-    "17036014317451426f",
-    "transformational_results_ddRMfc"
+    "17036014317451426f"
   ]
 }
