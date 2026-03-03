@@ -239,7 +239,7 @@
   }
 
   .multi-slide-carousel__image {
-    max-width: 100%;
+    max-width: calc(100% - 24px);
     width: 100%;
   }
 
