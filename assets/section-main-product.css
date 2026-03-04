@@ -49,7 +49,7 @@ body.template-product .body-xs {
 
 .product__title {
   margin-bottom: 15px;
-  letter-spacing: -.015em
+  letter-spacing: -.015em !important;
 }
 
 /* Product page - white background */
