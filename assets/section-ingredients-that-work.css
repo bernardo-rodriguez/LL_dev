@@ -93,13 +93,13 @@
 
 .ingredients-that-work__ingredient-icon {
   flex-shrink: 0;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
 }
 
 .ingredients-that-work__ingredient-icon img {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   object-fit: cover;
 }
