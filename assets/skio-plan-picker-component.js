@@ -527,6 +527,7 @@ const skioStyles = css`
       padding: 10px 12px;
       border-left: none;
       border-right: none;
+      border-bottom: none;
     }
     .skio-first-order-includes__title {
       margin-bottom: 8px;
