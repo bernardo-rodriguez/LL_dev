@@ -295,7 +295,7 @@ affiliate_config = {
         },
         'landing_page_copy': {
             'hero_subtitle_1': ['margin-bottom', '50px !important'],
-            'hero_price': '9',
+            'hero_price': '5.95',
             // 'hero_subtitle_1': ['margin-bottom', '50px !important'],
             'hero_title': 'Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">Today</span>',
             // 'hero_title': 'Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit',
@@ -304,7 +304,7 @@ affiliate_config = {
         },
         'featured_product': {
             'subPrice': '0',
-            'subPrice': '9',
+            'subPrice': '5.95',
             'discount_name': 'SWEATCOIN_LIMITED',
             // 'discount_desc': '100% OFF',
             'discount_desc': '85% OFF',
