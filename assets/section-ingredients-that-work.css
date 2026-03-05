@@ -45,6 +45,18 @@
   .ingredients-that-work__inner {
     padding: 8px 0 0;
   }
+
+  /* Consistent 28px spacing between title, intro, ingredients, and footer on mobile */
+  .ingredients-that-work__header {
+    margin-bottom: 28px;
+  }
+  .ingredients-that-work__intro {
+    margin-bottom: 28px;
+    padding-bottom: 0;
+  }
+  .ingredients-that-work__footer {
+    padding-top: 28px;
+  }
 }
 
 .ingredients-that-work__header {
@@ -179,12 +191,6 @@
 /* Footer - summary + key benefits */
 .ingredients-that-work__footer {
   padding-top: 8px;
-}
-
-@media screen and (max-width: 768px) {
-  .ingredients-that-work__footer {
-    padding-top: 24px;
-  }
 }
 
 .ingredients-that-work__summary {

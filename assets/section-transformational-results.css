@@ -11,7 +11,7 @@
 .transformational-results__inner {
   background: #EEF9FF;
   border-radius: 12px;
-  padding: 60px 50px;
+  padding: 40px 50px 60px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
@@ -216,7 +216,7 @@
 
   .transformational-results__inner {
     grid-template-columns: 1fr;
-    padding: 40px 20px;
+    padding: 20px 20px 40px;
     border-radius: 0;
     gap: 32px;
     align-items: start;
