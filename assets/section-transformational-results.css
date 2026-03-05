@@ -2,6 +2,12 @@
   margin: 0 0 60px;
 }
 
+@media screen and (min-width: 769px) {
+  .transformational-results {
+    margin-top: -60px;
+  }
+}
+
 .transformational-results__inner {
   background: #EEF9FF;
   border-radius: 12px;
