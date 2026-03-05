@@ -711,7 +711,28 @@ cactus_order_includes = {
         }
     },
 }
+
+sweatcoin_order_includes = {
+    starter: {
+        subscription: {
+            section_title: 'FIRST ORDER INCLUDES',
+            items: [INCLUDE_KIT_STARTER, INCLUDE_SHIPPING],
+            show_total: false,
+            footer_text: 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS',
+        }
+    },
+    deluxe: {
+        subscription: {
+            section_title: 'FIRST ORDER INCLUDES',
+            items: [INCLUDE_KIT_DELUXE, INCLUDE_SHIPPING],
+            show_total: false,
+            footer_text: 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS',
+        }
+    },
+}
+
 affiliate_first_order_includes = {
     'default': base_first_order_includes,
     'redirect_ut': cactus_order_includes,
+    'sweatcoin': sweatcoin_order_includes,
 }
