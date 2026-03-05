@@ -50,6 +50,9 @@
   .ingredients-that-work__header {
     margin-bottom: 28px;
   }
+  .ingredients-that-work__title {
+    margin-bottom: 0;
+  }
   .ingredients-that-work__intro {
     margin-bottom: 28px;
     padding-bottom: 0;
