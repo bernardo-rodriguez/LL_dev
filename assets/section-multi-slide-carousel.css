@@ -16,8 +16,12 @@
   }
 
   .multi-slide-carousel__content-wrap {
-    padding: 40px 0;
+    padding: 40px 20px;
     border-radius: 0;
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+    box-sizing: border-box;
   }
 }
 

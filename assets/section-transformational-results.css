@@ -206,10 +206,14 @@
 @media screen and (max-width: 768px) {
   .transformational-results__inner {
     grid-template-columns: 1fr;
-    padding: 40px 0;
+    padding: 40px 20px;
     border-radius: 0;
     gap: 32px;
     align-items: start;
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+    box-sizing: border-box;
   }
 
   .transformational-results__heading {
