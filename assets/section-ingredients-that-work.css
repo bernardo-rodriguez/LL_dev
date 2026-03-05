@@ -26,8 +26,11 @@
   margin-bottom: 0;
 }
 
-/* Match product section: 10px horizontal padding on mobile */
+/* Product page: 20px horizontal padding from viewport on mobile */
 @media screen and (max-width: 768px) {
+  body.template-product .ingredients-that-work .page-width {
+    padding: 0 20px;
+  }
   .ingredients-that-work .page-width {
     padding: 0 10px;
   }

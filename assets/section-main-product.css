@@ -15,6 +15,13 @@ body.template-product .page-width--product {
   body.template-product .page-width--product {
     padding: 0 20px;
   }
+
+  /* Content under BUY NOW: 20px horizontal padding from viewport */
+  body.template-product .product-section .product {
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
 }
 
 /* ==============================================

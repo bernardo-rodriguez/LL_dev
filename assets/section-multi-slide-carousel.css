@@ -10,13 +10,13 @@
 
 @media screen and (max-width: 768px) {
   body.template-product .multi-slide-carousel .page-width--product,
-  .multi-slide-carousel .page-width {
-    padding-left: 0;
-    padding-right: 0;
+  body.template-product .multi-slide-carousel .page-width {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .multi-slide-carousel__content-wrap {
-    padding: 40px 10px;
+    padding: 40px 0;
     border-radius: 0;
   }
 }
