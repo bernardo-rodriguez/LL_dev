@@ -16,11 +16,17 @@ body.template-product .page-width--product {
     padding: 0 20px;
   }
 
-  /* Content under BUY NOW: 20px horizontal padding from viewport */
-  body.template-product .product-section .product {
-    padding-left: 20px;
-    padding-right: 20px;
-    box-sizing: border-box;
+  /* Judge.me review section: do not add extra 20px (keep its own padding only) */
+  body.template-product section:has(#judgeme_product_reviews) .page-width {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Details + accordions (Clean Ingredients, 7 Shades, How To Use, Why Subscribe): 10px extra = 20px total */
+  body.template-product .product__details,
+  body.template-product .product__accordion {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
