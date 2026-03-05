@@ -117,7 +117,7 @@
 
 @media screen and (max-width: 768px) {
   .ingredients-that-work__ingredient {
-    gap: 5px;
+    gap: 10px;
   }
 }
 
