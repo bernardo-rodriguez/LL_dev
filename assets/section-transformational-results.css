@@ -79,36 +79,9 @@
   background: #f5f5f5;
 }
 
-.transformational-results__slider-wrap {
-  position: relative;
+.transformational-results__images-wrap {
   width: 100%;
   max-width: 100%;
-  padding: 0 36px;
-}
-
-.transformational-results__slider-viewport {
-  width: 100%;
-  overflow: hidden;
-}
-
-.transformational-results__slider-track {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  transition: transform 0.35s ease;
-  will-change: transform;
-}
-
-.transformational-results__slide {
-  flex: 0 0 100%;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  overflow: hidden;
 }
 
 .transformational-results__images {
@@ -127,10 +100,6 @@
   background: #e0e0e0;
   touch-action: manipulation;
   min-width: 0;
-}
-
-.transformational-results__slider-wrap .transformational-results__slide {
-  padding: 0;
 }
 
 .transformational-results__image {
@@ -159,44 +128,6 @@
   font-weight: 600;
   color: #0D2244;
   text-align: left;
-}
-
-.transformational-results__button-prev,
-.transformational-results__button-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  cursor: pointer;
-  width: 28px;
-  height: 28px;
-  background: transparent !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #3173A4;
-}
-
-.transformational-results__button-prev::after {
-  content: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='15 18 9 12 15 6' stroke='%233173A4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
-}
-
-.transformational-results__button-next::after {
-  content: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='9 18 15 12 9 6' stroke='%233173A4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
-}
-
-.transformational-results__button-prev {
-  left: -12px;
-  border: 0;
-  padding: 0;
-}
-
-.transformational-results__button-next {
-  right: -12px;
-  border: 0;
-  padding: 0;
 }
 
 .transformational-results__stats-column {
@@ -236,10 +167,6 @@
     justify-content: flex-start;
   }
 
-  .transformational-results__slider-wrap {
-    padding: 0 32px;
-  }
-
   .transformational-results__tabs {
     justify-content: stretch;
     margin-bottom: 20px;
@@ -264,14 +191,6 @@
 
   .transformational-results__tab:last-child {
     border-radius: 0;
-  }
-
-  .transformational-results__button-prev {
-    left: 4px;
-  }
-
-  .transformational-results__button-next {
-    right: 4px;
   }
 
   .transformational-results__name {
