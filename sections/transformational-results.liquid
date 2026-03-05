@@ -13,15 +13,34 @@
           <button type="button" class="transformational-results__tab" data-duration="6" aria-selected="false">6 MONTHS</button>
         </div>
 
-        <div class="transformational-results__images-wrap" id="transformationalResultsImages-{{ section.id }}">
-          {% assign first_profile = section.blocks | where: 'type', 'profile' | first %}
-          {% if first_profile != blank %}
-            <div class="transformational-results__images" {{ first_profile.shopify_attributes }}>
+        <div class="transformational-results__images-wrap" id="transformationalResultsImages-{{ section.id }}"
+          {% assign profiles = section.blocks | where: 'type', 'profile' %}
+          {% assign profile_2 = profiles[0] %}
+          {% assign profile_4 = profiles[1] %}
+          {% assign profile_6 = profiles[2] %}
+          {% if profile_2 != blank %}
+            data-before-2="{% if profile_2.settings.image_before != blank %}{{ profile_2.settings.image_before | image_url: width: 600 }}{% endif %}"
+            data-after-2="{% if profile_2.settings.image_after != blank %}{{ profile_2.settings.image_after | image_url: width: 600 }}{% endif %}"
+            data-name-2="{{ profile_2.settings.person_name | escape }}"
+          {% endif %}
+          {% if profile_4 != blank %}
+            data-before-4="{% if profile_4.settings.image_before != blank %}{{ profile_4.settings.image_before | image_url: width: 600 }}{% endif %}"
+            data-after-4="{% if profile_4.settings.image_after != blank %}{{ profile_4.settings.image_after | image_url: width: 600 }}{% endif %}"
+            data-name-4="{{ profile_4.settings.person_name | escape }}"
+          {% endif %}
+          {% if profile_6 != blank %}
+            data-before-6="{% if profile_6.settings.image_before != blank %}{{ profile_6.settings.image_before | image_url: width: 600 }}{% endif %}"
+            data-after-6="{% if profile_6.settings.image_after != blank %}{{ profile_6.settings.image_after | image_url: width: 600 }}{% endif %}"
+            data-name-6="{{ profile_6.settings.person_name | escape }}"
+          {% endif %}
+        >
+          {% if profile_2 != blank %}
+            <div class="transformational-results__images">
               <div class="transformational-results__image-wrap">
-                {% if first_profile.settings.image_month_0 != blank %}
+                {% if profile_2.settings.image_before != blank %}
                   <img
-                    src="{{ first_profile.settings.image_month_0 | image_url: width: 600 }}"
-                    alt="Month 0"
+                    src="{{ profile_2.settings.image_before | image_url: width: 600 }}"
+                    alt="Before"
                     class="transformational-results__image transformational-results__image--before"
                     loading="lazy"
                     width="300"
@@ -31,26 +50,20 @@
                 <span class="transformational-results__image-label">MONTH 0</span>
               </div>
               <div class="transformational-results__image-wrap">
-                {% assign after_img = first_profile.settings.image_month_2 | default: first_profile.settings.image_month_4 | default: first_profile.settings.image_month_6 %}
-                {% if after_img != blank %}
+                {% if profile_2.settings.image_after != blank %}
                   <img
-                    src="{{ after_img | image_url: width: 600 }}"
-                    alt="Month 2"
+                    src="{{ profile_2.settings.image_after | image_url: width: 600 }}"
+                    alt="After 2 months"
                     class="transformational-results__image transformational-results__image--after"
                     loading="lazy"
                     width="300"
                     height="300"
-                    data-src-2="{% if first_profile.settings.image_month_2 != blank %}{{ first_profile.settings.image_month_2 | image_url: width: 600 }}{% endif %}"
-                    data-src-4="{% if first_profile.settings.image_month_4 != blank %}{{ first_profile.settings.image_month_4 | image_url: width: 600 }}{% endif %}"
-                    data-src-6="{% if first_profile.settings.image_month_6 != blank %}{{ first_profile.settings.image_month_6 | image_url: width: 600 }}{% endif %}"
                   >
                 {% endif %}
                 <span class="transformational-results__image-label transformational-results__image-label--after">MONTH <span class="transformational-results__month-num">2</span></span>
               </div>
             </div>
-            {% if first_profile.settings.person_name != blank %}
-              <p class="transformational-results__name">{{ first_profile.settings.person_name }}</p>
-            {% endif %}
+            <p class="transformational-results__name">{% if profile_2.settings.person_name != blank %}{{ profile_2.settings.person_name }}{% endif %}</p>
           {% endif %}
         </div>
       </div>
@@ -80,36 +93,40 @@
 
     const section = container.closest('.transformational-results');
     const tabs = section?.querySelectorAll('.transformational-results__tab') || [];
+    const beforeImg = container.querySelector('.transformational-results__image--before');
     const afterImg = container.querySelector('.transformational-results__image--after');
     const labelNum = container.querySelector('.transformational-results__month-num');
+    const nameEl = container.querySelector('.transformational-results__name');
 
-    let currentDuration = 2;
-
-    function setAfterImage(duration) {
-      if (!afterImg) return;
-      const src = afterImg.getAttribute('data-src-' + duration);
-      if (src) {
-        afterImg.src = src;
-        afterImg.alt = 'Month ' + duration;
+    function setPerson(duration) {
+      const beforeSrc = container.getAttribute('data-before-' + duration);
+      const afterSrc = container.getAttribute('data-after-' + duration);
+      const name = container.getAttribute('data-name-' + duration);
+      if (beforeSrc && beforeImg) {
+        beforeImg.src = beforeSrc;
+      }
+      if (afterSrc && afterImg) {
+        afterImg.src = afterSrc;
+        afterImg.alt = 'After ' + duration + ' months';
       }
       if (labelNum) labelNum.textContent = duration;
+      if (nameEl) nameEl.textContent = name || '';
     }
 
     if (tabs.length) {
       tabs.forEach(function(tab) {
         tab.addEventListener('click', function() {
           const duration = parseInt(this.dataset.duration, 10);
-          currentDuration = duration;
           tabs.forEach(function(t) {
             t.classList.toggle('active', parseInt(t.dataset.duration, 10) === duration);
             t.setAttribute('aria-selected', t.classList.contains('active'));
           });
-          setAfterImage(duration);
+          setPerson(duration);
         });
       });
     }
 
-    setAfterImage(currentDuration);
+    setPerson(2);
   });
 </script>
 
@@ -139,23 +156,13 @@
         },
         {
           "type": "image_picker",
-          "id": "image_month_0",
-          "label": "Image – Month 0 (before)"
+          "id": "image_before",
+          "label": "Image – Before (Month 0)"
         },
         {
           "type": "image_picker",
-          "id": "image_month_2",
-          "label": "Image – Month 2"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_month_4",
-          "label": "Image – Month 4"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_month_6",
-          "label": "Image – Month 6"
+          "id": "image_after",
+          "label": "Image – After (result at this duration)"
         }
       ]
     },
