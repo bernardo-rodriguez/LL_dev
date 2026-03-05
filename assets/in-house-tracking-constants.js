@@ -621,7 +621,7 @@ affiliate_upsell_subscription_price_copy = {
     },
     'redirect_sweatcoin': {
         'subscription_product_title': 'Whitening Kit (12 Treatments)',
-        'next_price': '11.5',
+        'next_price': '10.5',
         'price_per_treatment': '$1.32/Treatment',
         'previous_price': '89'
     }
