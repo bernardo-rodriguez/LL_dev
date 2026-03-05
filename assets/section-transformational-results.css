@@ -204,6 +204,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .transformational-results {
+    margin-top: -40px;
+  }
+
   .transformational-results__inner {
     grid-template-columns: 1fr;
     padding: 40px 20px;
