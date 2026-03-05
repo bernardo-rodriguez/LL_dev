@@ -734,5 +734,5 @@ sweatcoin_order_includes = {
 affiliate_first_order_includes = {
     'default': base_first_order_includes,
     'redirect_ut': cactus_order_includes,
-    'sweatcoin': sweatcoin_order_includes,
+    'redirect_sweatcoin': sweatcoin_order_includes,
 }
