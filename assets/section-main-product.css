@@ -326,8 +326,9 @@ product-form:has(skio-plan-picker[data-has-includes-cta]) #main-clickable-button
     font-size: 12px;
 
   }
-  .product__details {
-    margin-top: 40px;
+  .product__details,
+  .pdp-product-options + .product__details {
+    margin-top: -10px !important;
   }
 }
 
