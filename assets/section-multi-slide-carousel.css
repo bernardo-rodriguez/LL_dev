@@ -109,7 +109,7 @@
 }
 
 .multi-slide-carousel__image {
-  width: 100%;
+  width: 65%;
   max-width: 250px;
   height: auto;
   aspect-ratio: 1;
@@ -245,7 +245,7 @@
 
   .multi-slide-carousel__image {
     max-width: calc(100% - 24px);
-    width: 100%;
+    width: 65%;
   }
 
   .multi-slide-carousel__image-divider-wrap {
