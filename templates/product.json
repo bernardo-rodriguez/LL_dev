@@ -276,7 +276,9 @@
         "profile_bbgBRd": {
           "type": "profile",
           "settings": {
-            "person_name": "NEELAM S."
+            "person_name": "SOPHIA T.",
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_5.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_6.png"
           }
         },
         "profile_TyzdzQ": {
