@@ -53,6 +53,10 @@
   color: var(--navy);
 }
 
+body.template-product .multi-slide-carousel__heading {
+  letter-spacing: -0.01em !important;
+}
+
 .multi-slide-carousel__subheading {
   font-size: 16px;
   line-height: 1.5;
