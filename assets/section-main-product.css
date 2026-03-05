@@ -22,11 +22,13 @@ body.template-product .page-width--product {
     padding-right: 0;
   }
 
-  /* Details + accordions (Clean Ingredients, 7 Shades, How To Use, Why Subscribe): 10px extra = 20px total */
+  /* Details + accordions (Clean Ingredients, 7 Shades, How To Use, Why Subscribe): 10px extra = 20px total; use margin so horizontal borders are inset too */
   body.template-product .product__details,
   body.template-product .product__accordion {
-    padding-left: 10px;
-    padding-right: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
