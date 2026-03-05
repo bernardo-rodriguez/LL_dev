@@ -65,8 +65,10 @@
   }
 }
 
-.ingredients-that-work__header {
-  margin-bottom: 20px;
+@media screen and (min-width: 769px) {
+  .ingredients-that-work__header {
+    margin-bottom: 20px;
+  }
 }
 
 .ingredients-that-work__title {
