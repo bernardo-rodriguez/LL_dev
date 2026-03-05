@@ -58,13 +58,13 @@
     padding-bottom: 0;
   }
   .ingredients-that-work__footer {
-    padding-top: 20px;
+    padding-top: 30px;
   }
   .ingredients-that-work__summary {
     margin-top: 0;
   }
   .ingredients-that-work__ingredient-icon-wrap::after {
-    height: 20px;
+    height: 30px;
   }
 }
 
@@ -134,7 +134,7 @@
 
 @media screen and (max-width: 768px) {
   .ingredients-that-work__ingredient-icon-wrap::after {
-    height: 20px;
+    height: 30px;
   }
 }
 
