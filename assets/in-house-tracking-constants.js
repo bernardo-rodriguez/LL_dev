@@ -4,6 +4,12 @@ affiliate_config = {
         // 'general': {
         //     'announcement_bar': 'HOLIDAY SALE LIVE - 20% OFF ALL PRODUCTS',
         // },
+        'general': {
+            'product_banner': {
+                'bold': 'LIMITED TIME OFFER:',
+                'text': '{{bold}} 30% OFF YOUR FIRST SUBSCRIPTION PLUS TWO FREE GIFTS',
+            },
+        },
         'pricing': {
             'onetime': '59',
             'subscription': '29',
@@ -49,6 +55,7 @@ affiliate_config = {
         },
         'general': {
             'announcement_bar': 'Welcome NIFT Users! Your discount is auto-applied!',
+            // 'product_banner': { 'bold': 'LIMITED TIME OFFER:', 'text': '{{bold}} 30% OFF...' }, // optional; put {{bold}} in text where bold should appear; omit key to use default
         },
     },
     'nift_6': {
@@ -268,6 +275,8 @@ affiliate_config = {
         'pricing': {
             'one_time_enabled': false,
             'subscription_enabled': true,
+            'quantity_selector': true,
+            'show_kit_selector_on_affiliate_product': true,
         },
         'general': {
             'announcement_bar': 'Sweatcoin discounts auto applied at checkout!',

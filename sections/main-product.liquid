@@ -63,16 +63,16 @@ xhttp.send();
         {% render 'small-stars' %}
         {% comment %} {% render 'estimated_arrival' %} {% endcomment %}
 
-        {% if section.settings.offer_text != blank %}
-          {% assign offer_parts = section.settings.offer_text | split: ':' %}
-          <div class="pdp-offer-banner pdp-body-text">
+        <div id="product-offer-banner" class="pdp-offer-banner pdp-body-text">
+          {% if section.settings.offer_text != blank %}
+            {% assign offer_parts = section.settings.offer_text | split: ':' %}
             {% if offer_parts.size > 1 %}
               <strong>{{ offer_parts[0] | strip }}:</strong> {{ offer_parts[1] | strip }}
             {% else %}
               {{ section.settings.offer_text }}
             {% endif %}
-          </div>
-        {% endif %}
+          {% endif %}
+        </div>
 
         <dl class="product-info">
           <dt class="label"> 
@@ -561,10 +561,10 @@ xhttp.send();
   }
 
   let treatment_quantity_selector = (affiliate_config[aff_referrer] ?? {}).pricing?.quantity_selector ?? true;
-  console.log('treatment_quantity_selector', treatment_quantity_selector)
-  
+  let show_kit_selector_on_affiliate_product = (affiliate_config[aff_referrer] ?? {}).pricing?.show_kit_selector_on_affiliate_product ?? false;
   let product_id = document.querySelector('input[name="product_id"]').value;
-  if (!treatment_quantity_selector || ((product_id != window.ProductConfig.KIT_DEFAULT.product_id) && (product_id != window.ProductConfig.KIT_EMPTY_SPACE.product_id))) {
+  let product_is_kit_default_or_empty = (product_id == window.ProductConfig.KIT_DEFAULT.product_id || product_id == window.ProductConfig.KIT_EMPTY_SPACE.product_id);
+  if (!treatment_quantity_selector || (!product_is_kit_default_or_empty && !show_kit_selector_on_affiliate_product)) {
     $('#treatment-quantity-selector-id').hide()
   }
   // document.getElementById('main-clickable-button').addEventListener("click", upsellLogic);

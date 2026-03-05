@@ -41,6 +41,60 @@ function showAnnouncementBar(bar_text) {
     });
 }
 
+var PRODUCT_BANNER_PLACEHOLDER = '{{bold}}'
+
+function showProductBanner(bar_value) {
+  var el = document.getElementById('product-offer-banner')
+  if (!el) return
+  var text = ''
+  var boldPart = ''
+  if (typeof bar_value === 'object' && bar_value !== null && bar_value.text != null) {
+    text = (bar_value.text || '').trim()
+    boldPart = (bar_value.bold || '').trim()
+    var idx = text.indexOf(PRODUCT_BANNER_PLACEHOLDER)
+    if (idx !== -1 && boldPart) {
+      var before = text.slice(0, idx)
+      var after = text.slice(idx + PRODUCT_BANNER_PLACEHOLDER.length)
+      el.innerHTML = escapeHtml(before) + '<strong>' + escapeHtml(boldPart) + '</strong>' + escapeHtml(after)
+    } else {
+      el.textContent = text
+    }
+  } else if (typeof bar_value === 'string' && bar_value !== '') {
+    var parts = bar_value.split(':')
+    if (parts.length > 1) {
+      el.innerHTML = '<strong>' + escapeHtml(parts[0].trim()) + '</strong> ' + escapeHtml(parts.slice(1).join(':').trim())
+    } else {
+      el.textContent = bar_value
+    }
+  } else {
+    el.textContent = ''
+  }
+  el.style.display = ''
+}
+
+function escapeHtml(s) {
+  var div = document.createElement('div')
+  div.textContent = s
+  return div.innerHTML
+}
+
+function hideProductBanner() {
+  var el = document.getElementById('product-offer-banner')
+  if (el) el.style.display = 'none'
+}
+
+function getProductBannerText() {
+  var a_referrer = getCookie('affiliate_referrer')
+  var general = (affiliate_config[a_referrer] || {}).general
+  if (a_referrer in affiliate_config && general && 'product_banner' in general) {
+    return general.product_banner
+  }
+  var defaultGeneral = affiliate_config['default'] && affiliate_config['default']['general']
+  if (defaultGeneral && defaultGeneral.product_banner) {
+    return defaultGeneral.product_banner
+  }
+  return null
+}
 
 function cookie_actions() {
     let a_referrer = getCookie('affiliate_referrer')
@@ -49,8 +103,21 @@ function cookie_actions() {
       if ('announcement_bar' in general_actions && general_actions['announcement_bar']) {
         showAnnouncementBar(general_actions['announcement_bar'])
       }
-    } else if ('announcement_bar' in affiliate_config['default']['general']) {
+    } else if (affiliate_config['default']['general'] && 'announcement_bar' in affiliate_config['default']['general']) {
       showAnnouncementBar(affiliate_config['default']['general']['announcement_bar'])
+    }
+
+    if (document.getElementById('product-offer-banner')) {
+      var product_banner_value = getProductBannerText()
+      var hasBanner = product_banner_value != null && (
+        (typeof product_banner_value === 'string' && product_banner_value !== '') ||
+        (typeof product_banner_value === 'object' && product_banner_value !== null && product_banner_value.text)
+      )
+      if (hasBanner) {
+        showProductBanner(product_banner_value)
+      } else {
+        hideProductBanner()
+      }
     }
 
     if (a_referrer in affiliate_config && 'flow' in affiliate_config[a_referrer]) {
