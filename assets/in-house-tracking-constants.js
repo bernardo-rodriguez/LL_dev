@@ -286,7 +286,7 @@ affiliate_config = {
         },
         'flow': {
             'product_page': '/products/at-home-whitening-kit-affiliate-ft',
-            'discount_code': 'Pen-Addon',
+            'discount_code': 'pen-addon,UTM_SUB_12_TREATMENTS,UTM_SUB_12_TREATMENTS_STRONG',
             'cart_attribute': 'sweatcoin',
         },
         'landing_page_copy': {
@@ -598,12 +598,24 @@ affiliate_subscription_price_copy = {
         'next_price': '0',
         'price_per_treatment': '$2.98/Treatment',
         'previous_price': '$59'
+    },
+    'redirect_sweatcoin': {
+        'subscription_product_title': 'Whitening Kit (6 Treatments)',
+        'next_price': '0',
+        'price_per_treatment': '$2.98/Treatment',
+        'previous_price': '$59'
     }
 }
 
 affiliate_upsell_subscription_price_copy = {
     'default': base_upsell_subscription_price_copy,
     'redirect_ut': {
+        'subscription_product_title': 'Whitening Kit (12 Treatments)',
+        'next_price': '6.5',
+        'price_per_treatment': '$1.32/Treatment',
+        'previous_price': '89'
+    },
+    'redirect_sweatcoin': {
         'subscription_product_title': 'Whitening Kit (12 Treatments)',
         'next_price': '6.5',
         'price_per_treatment': '$1.32/Treatment',
