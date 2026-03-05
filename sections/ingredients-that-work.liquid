@@ -39,7 +39,7 @@
           <div class="ingredients-that-work__grid">
         {% for block in section.blocks %}
           {% if block.type == 'ingredient' %}
-              <div class="ingredients-that-work__ingredient" {{ block.shopify_attributes }}>
+              <div class="ingredients-that-work__ingredient" {% if forloop.first %}data-formula-active-ingredient="true"{% endif %} {{ block.shopify_attributes }}>
                 <div class="ingredients-that-work__ingredient-icon-wrap">
                   <div class="ingredients-that-work__ingredient-icon">
                   {% if block.settings.image != blank %}
@@ -90,6 +90,31 @@
     </div>
   </div>
 </section>
+
+<script>
+(function() {
+  function getStrengthCookie() {
+    if (typeof getCookie === 'function') return getCookie('strength');
+    var m = document.cookie.match(/strength=([^;]+)/);
+    return m ? m[1].trim() : null;
+  }
+  function updateFormulaIngredientCopy() {
+    var el = document.querySelector('[data-formula-active-ingredient="true"]');
+    if (!el || typeof formula_ingredient_by_strength === 'undefined') return;
+    var nameEl = el.querySelector('.ingredients-that-work__ingredient-name');
+    if (!nameEl) return;
+    var strength = getStrengthCookie() || 'strong';
+    var copy = formula_ingredient_by_strength[strength] || formula_ingredient_by_strength.strong;
+    nameEl.textContent = (copy.percentage ? copy.percentage + ' ' : '') + (copy.name || '');
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateFormulaIngredientCopy);
+  } else {
+    updateFormulaIngredientCopy();
+  }
+  window.updateFormulaIngredientCopy = updateFormulaIngredientCopy;
+})();
+</script>
 
 {% schema %}
 {

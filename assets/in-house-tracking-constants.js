@@ -7,7 +7,7 @@ affiliate_config = {
         'general': {
             'product_banner': {
                 'bold': 'LIMITED TIME OFFER:',
-                'text': '{{bold}} 30% OFF YOUR FIRST SUBSCRIPTION PLUS TWO FREE GIFTS',
+                'text': '{{bold}} 50% OFF YOUR FIRST SUBSCRIPTION PLUS FREE SHIPPING AND A GIFT',
             },
         },
         'pricing': {
@@ -280,6 +280,10 @@ affiliate_config = {
         },
         'general': {
             'announcement_bar': 'Sweatcoin discounts auto applied at checkout!',
+            'product_banner': {
+                'bold': 'SWEATCOIN SPECIAL:',
+                'text': '{{bold}} 90% OFF YOUR FIRST SUBSCRIPTION PLUS FREE SHIPPING',
+            },
         },
         'product_page_copy': {
             'bundle_offer_title': 'Sweatcoin Special',
@@ -748,4 +752,14 @@ affiliate_first_order_includes = {
     'redirect_ut': cactus_order_includes,
     'redirect_sweatcoin': sweatcoin_order_includes,
     'sweatcoin': sweatcoin_order_includes,
+}
+
+/**
+ * First-ingredient (active whitener) copy in "Your Formula" section, keyed by strength cookie.
+ * Used to update percentage and name when formula/strength changes.
+ */
+formula_ingredient_by_strength = {
+    strong: { percentage: '11%', name: 'Hydrogen Peroxide' },
+    medium: { percentage: '8%', name: 'Hydrogen Peroxide' },
+    sensitive: { percentage: '25%', name: 'Sodium Bicarbonate' }
 }

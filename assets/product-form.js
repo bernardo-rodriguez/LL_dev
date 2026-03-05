@@ -202,6 +202,7 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
           '🔥 Super Strength (ID: 8-17)': "strong"
         }
         setCookie('strength', selection_to_cookie[selection])
+        if (typeof window.updateFormulaIngredientCopy === 'function') window.updateFormulaIngredientCopy()
 
         let refill_formula_selector = this.querySelector(`variant-radios input[value="${selection}"]`);
         let refill_formula_new_dawn = document.querySelector(`variant-selects input[type="radio"][value="${selection}"]`);
