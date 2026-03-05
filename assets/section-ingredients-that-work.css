@@ -42,29 +42,29 @@
 }
 
 @media screen and (max-width: 768px) {
-  .ingredients-that-work__inner {
-    padding: 8px 0 0;
+  section.ingredients-that-work .ingredients-that-work__inner {
+    padding: 8px 0 0 !important;
   }
 
-  /* Consistent 20px spacing between title, intro, ingredients, and footer on mobile */
-  .ingredients-that-work__header {
-    margin-bottom: 20px;
+  /* Consistent 20px spacing between title, intro, ingredients, and footer on mobile - high specificity so these apply */
+  section.ingredients-that-work .ingredients-that-work__header {
+    margin-bottom: 20px !important;
   }
-  .ingredients-that-work__title {
-    margin-bottom: 0;
+  section.ingredients-that-work .ingredients-that-work__title {
+    margin-bottom: 0 !important;
   }
-  .ingredients-that-work__intro {
-    margin-bottom: 20px;
-    padding-bottom: 0;
+  section.ingredients-that-work .ingredients-that-work__intro {
+    margin-bottom: 20px !important;
+    padding-bottom: 0 !important;
   }
-  .ingredients-that-work__footer {
-    padding-top: 30px;
+  section.ingredients-that-work .ingredients-that-work__footer {
+    padding-top: 20px !important;
   }
-  .ingredients-that-work__summary {
-    margin-top: 0;
+  section.ingredients-that-work .ingredients-that-work__summary {
+    margin-top: 0 !important;
   }
-  .ingredients-that-work__ingredient-icon-wrap::after {
-    height: 30px;
+  section.ingredients-that-work .ingredients-that-work__ingredient-icon-wrap::after {
+    height: 20px !important;
   }
 }
 
@@ -133,8 +133,8 @@
 }
 
 @media screen and (max-width: 768px) {
-  .ingredients-that-work__ingredient-icon-wrap::after {
-    height: 30px;
+  section.ingredients-that-work .ingredients-that-work__ingredient-icon-wrap::after {
+    height: 20px !important;
   }
 }
 
