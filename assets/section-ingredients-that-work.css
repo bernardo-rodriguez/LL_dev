@@ -64,7 +64,7 @@
     margin-top: 0 !important;
   }
   section.ingredients-that-work .ingredients-that-work__ingredient-icon-wrap::after {
-    height: 30px !important;
+    height: 35px !important;
   }
 }
 
@@ -134,7 +134,7 @@
 
 @media screen and (max-width: 768px) {
   section.ingredients-that-work .ingredients-that-work__ingredient-icon-wrap::after {
-    height: 30px !important;
+    height: 35px !important;
   }
 }
 
