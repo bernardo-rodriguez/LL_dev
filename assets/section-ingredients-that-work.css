@@ -80,11 +80,11 @@
   color: var(--navy);
 }
 
-/* Ingredient grid - mobile: stacked vertically */
+/* Ingredient grid - stacked vertically; fixed spacing between entries (not gap) so it's even regardless of text length */
 .ingredients-that-work__grid {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 0;
   margin-bottom: 0;
 }
 
@@ -92,6 +92,11 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
+  margin-bottom: 28px;
+}
+
+.ingredients-that-work__ingredient:last-child {
+  margin-bottom: 0;
 }
 
 .ingredients-that-work__ingredient-icon {
@@ -238,7 +243,7 @@
 
   .ingredients-that-work__grid {
     flex-direction: column;
-    gap: 38px;
+    gap: 0;
     margin-top: 20px;
     margin-bottom: 0;
     justify-content: flex-start;
@@ -251,6 +256,11 @@
     flex-direction: row;
     align-items: flex-start;
     gap: 16px;
+    margin-bottom: 38px;
+  }
+
+  .ingredients-that-work__ingredient:last-child {
+    margin-bottom: 0;
   }
 
   .ingredients-that-work__ingredient-icon {
