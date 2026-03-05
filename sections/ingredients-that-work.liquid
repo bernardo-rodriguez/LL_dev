@@ -99,13 +99,20 @@
     return m ? m[1].trim() : null;
   }
   function updateFormulaIngredientCopy() {
-    var el = document.querySelector('[data-formula-active-ingredient="true"]');
-    if (!el || typeof formula_ingredient_by_strength === 'undefined') return;
-    var nameEl = el.querySelector('.ingredients-that-work__ingredient-name');
-    if (!nameEl) return;
     var strength = getStrengthCookie() || 'strong';
-    var copy = formula_ingredient_by_strength[strength] || formula_ingredient_by_strength.strong;
-    nameEl.textContent = (copy.percentage ? copy.percentage + ' ' : '') + (copy.name || '');
+    var el = document.querySelector('[data-formula-active-ingredient="true"]');
+    if (el && typeof formula_ingredient_by_strength !== 'undefined') {
+      var nameEl = el.querySelector('.ingredients-that-work__ingredient-name');
+      if (nameEl) {
+        var copy = formula_ingredient_by_strength[strength] || formula_ingredient_by_strength.strong;
+        nameEl.textContent = (copy.percentage ? copy.percentage + ' ' : '') + (copy.name || '');
+      }
+    }
+    var introEl = document.querySelector('.ingredients-that-work__intro');
+    if (introEl && typeof formula_intro_by_strength !== 'undefined') {
+      var introText = formula_intro_by_strength[strength] || formula_intro_by_strength.medium;
+      introEl.textContent = introText;
+    }
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', updateFormulaIngredientCopy);

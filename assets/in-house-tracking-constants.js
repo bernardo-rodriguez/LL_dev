@@ -761,5 +761,17 @@ affiliate_first_order_includes = {
 formula_ingredient_by_strength = {
     strong: { percentage: '11%', name: 'Hydrogen Peroxide' },
     medium: { percentage: '8%', name: 'Hydrogen Peroxide' },
-    sensitive: { percentage: '25%', name: 'Sodium Bicarbonate' }
+    sensitive: { percentage: '25%', name: 'Sodium Bicarbonate' },
+    gentle: { percentage: '25%', name: 'Sodium Bicarbonate' }
+}
+
+/**
+ * Intro line in "Your Formula" section ("Given your X, diet and current teeth shade, we prescribed:").
+ * Keyed by strength cookie.
+ */
+formula_intro_by_strength = {
+    strong: 'Given your low-sensitivity, diet and current teeth shade, we prescribed:',
+    medium: 'Given your medium-sensitivity, diet and current teeth shade, we prescribed:',
+    sensitive: 'Given your sensitive teeth, diet and current teeth shade, we prescribed:',
+    gentle: 'Given your sensitive teeth, diet and current teeth shade, we prescribed:',
 }
