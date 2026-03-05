@@ -269,29 +269,20 @@
           "type": "profile",
           "settings": {
             "person_name": "BAILEY W.",
-            "image_month_0": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_7.png",
-            "image_month_2": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_8.png",
-            "image_month_4": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_7.png"
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_7.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_8.png"
           }
         },
         "profile_bbgBRd": {
           "type": "profile",
           "settings": {
-            "person_name": "NEELAM S.",
-            "image_month_0": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
-            "image_month_2": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png",
-            "image_month_4": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
-            "image_month_6": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png"
+            "person_name": "NEELAM S."
           }
         },
         "profile_TyzdzQ": {
           "type": "profile",
           "settings": {
-            "person_name": "Sophia T.",
-            "image_month_0": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_5.png",
-            "image_month_2": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_6.png",
-            "image_month_4": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_5.png",
-            "image_month_6": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_6.png"
+            "person_name": "Sophia T."
           }
         },
         "stat_ETKGJE": {
