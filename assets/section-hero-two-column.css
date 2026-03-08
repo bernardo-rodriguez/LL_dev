@@ -148,7 +148,6 @@
   display: block;
   width: 100%;
   height: auto;
-  max-height: 320px;
   object-fit: contain;
   object-position: center;
 }
@@ -260,8 +259,7 @@
   .hero-two-column__image-card .hero-two-column__review-block--mobile {
     display: block;
     padding: 12px 8px 12px;
-    border: 1px solid #000;
-    border-top: none;
+    border: none;
     border-radius: 0;
   }
 
@@ -269,7 +267,6 @@
     width: 100%;
     max-width: 100%;
     height: auto;
-    max-height: 220px;
     object-fit: cover;
     display: block;
   }
