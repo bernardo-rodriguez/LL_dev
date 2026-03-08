@@ -34,7 +34,18 @@
         </div>
         <div class="why-personalization__right">
           {% if section.settings.intro_text != blank %}
-            <p class="why-personalization__intro sh2">{{ section.settings.intro_text }}</p>
+            {% capture newline %}
+            {% endcapture %}
+            {% assign double_newline = newline | append: newline %}
+            {% assign intro_paragraphs = section.settings.intro_text | split: double_newline %}
+            <div class="why-personalization__intro-wrap">
+              {% for para in intro_paragraphs %}
+                {% assign trimmed = para | strip %}
+                {% if trimmed != blank %}
+                  <p class="why-personalization__intro sh2">{{ trimmed }}</p>
+                {% endif %}
+              {% endfor %}
+            </div>
           {% endif %}
           <div class="why-personalization__image-wrap">
             {% if section.settings.image != blank %}
