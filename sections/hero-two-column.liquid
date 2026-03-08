@@ -107,11 +107,11 @@
       return match ? parseInt(match[1].replace(/,/g, ''), 10) : null;
     }
     function updateSmallStarsReviewCount() {
-      var summaryText = document.querySelector('.jdgm-rev-widg__summary-text');
       var allReviewsText = document.querySelector('.jdgm-all-reviews-text__text');
+      var summaryText = document.querySelector('.jdgm-rev-widg__summary-text');
       var rawCount = null;
-      if (summaryText) rawCount = getReviewCountFromElement(summaryText);
-      if (rawCount == null && allReviewsText) rawCount = getReviewCountFromElement(allReviewsText);
+      if (allReviewsText) rawCount = getReviewCountFromElement(allReviewsText);
+      if (rawCount == null && summaryText) rawCount = getReviewCountFromElement(summaryText);
       if (rawCount != null) {
         var displayCount = rawCount < 1000 ? rawCount + 2000 : rawCount;
         var text = displayCount.toLocaleString() + ' Reviews';

@@ -191,17 +191,17 @@
 @media screen and (max-width: 768px) {
   .hero-two-column {
     padding: 24px 0 40px;
-    padding-top: 48px;
+    padding-top: 58px;
   }
 
   .hero-two-column__inner {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .hero-two-column__flex {
     flex-direction: column;
-    gap: 24px;
+    gap: 12px;
     text-align: left;
   }
 
