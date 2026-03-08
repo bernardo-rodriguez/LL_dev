@@ -1,0 +1,145 @@
+/**
+ * Key Benefits List – same styling as Your Formula ingredients section.
+ * Each item: circular icon (or placeholder), title (sh2), description (body-sm) underneath.
+ * Uses global typography classes only.
+ */
+
+.key-benefits-list {
+  background: #fff;
+  color: var(--navy);
+}
+
+.key-benefits-list__inner {
+  max-width: 100%;
+  padding: 12px 24px 32px;
+}
+
+.key-benefits-list__title {
+  margin: 0 0 24px;
+  color: var(--navy);
+  text-align: left;
+}
+
+.key-benefits-list__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+}
+
+.key-benefits-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.key-benefits-list__item-icon-wrap {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 80px;
+}
+
+.key-benefits-list__item-icon-wrap::after {
+  content: '';
+  display: block;
+  height: 28px;
+  width: 100%;
+}
+
+.key-benefits-list__item:last-child .key-benefits-list__item-icon-wrap::after {
+  display: none;
+}
+
+.key-benefits-list__item-icon {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+}
+
+.key-benefits-list__item-icon img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.key-benefits-list__item-placeholder {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #cfe6f4;
+}
+
+.key-benefits-list__item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.key-benefits-list__item-title {
+  margin: 0 0 4px;
+  color: var(--navy);
+  font-weight: 500;
+}
+
+.key-benefits-list__item-description {
+  margin: 0;
+  color: var(--navy);
+  line-height: 1.4;
+}
+
+@media screen and (max-width: 768px) {
+  .key-benefits-list .page-width {
+    padding: 0 20px;
+  }
+
+  .key-benefits-list__inner {
+    padding: 8px 0 24px;
+  }
+
+  .key-benefits-list__title {
+    margin-bottom: 20px;
+  }
+
+  .key-benefits-list__item-icon-wrap::after {
+    height: 40px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .key-benefits-list__inner {
+    padding: 32px 48px 48px;
+  }
+
+  .key-benefits-list__title {
+    margin-bottom: 28px;
+  }
+
+  .key-benefits-list__item {
+    gap: 16px;
+  }
+
+  .key-benefits-list__item-icon-wrap {
+    width: 90px;
+  }
+
+  .key-benefits-list__item-icon-wrap::after {
+    height: 38px;
+  }
+
+  .key-benefits-list__item-icon {
+    width: 90px;
+    height: 90px;
+  }
+
+  .key-benefits-list__item-icon img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .key-benefits-list__item-placeholder {
+    width: 90px;
+    height: 90px;
+  }
+}

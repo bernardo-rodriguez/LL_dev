@@ -123,6 +123,50 @@
         "section_padding": true
       }
     },
+    "key_benefits_landing": {
+      "type": "key-benefits-list",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "title": "Stronger & Quicker Than Generic",
+            "description": "Insert description"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "title": "Long-Lasting Results",
+            "description": "Insert description"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "title": "Clinically Trialed. Zero Gimmicks",
+            "description": "Insert description"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "title": "Used By Dentists Themselves",
+            "description": "Insert description"
+          }
+        },
+        "item_5": {
+          "type": "item",
+          "settings": {
+            "title": "Professional Whitening At Drugstore Prices",
+            "description": "Insert description"
+          }
+        }
+      },
+      "block_order": ["item_1", "item_2", "item_3", "item_4", "item_5"],
+      "settings": {
+        "heading": ""
+      }
+    },
     "why_personalization_landing": {
       "type": "why-personalization",
       "blocks": {
@@ -670,6 +714,7 @@
     "36e4f7aa-dd9e-4e47-a123-81be1338efe2",
     "testimonials_BGjeX7",
     "8f55a32e-9355-4413-8e5d-a7d66bb39102",
+    "key_benefits_landing",
     "why_personalization_landing",
     "transformational_results_cRe3TQ",
     "240de530-a532-4dbd-b2a8-79f7e7c9b9fa",
