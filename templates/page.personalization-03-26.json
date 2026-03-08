@@ -284,6 +284,7 @@
     "first-order-includes-box": {
       "type": "first-order-includes",
       "settings": {
+        "product": "at-home-whitening-kit",
         "section_title": "FIRST ORDER INCLUDES",
         "kit_previous_price": "$70",
         "kit_current_price": "$39",
