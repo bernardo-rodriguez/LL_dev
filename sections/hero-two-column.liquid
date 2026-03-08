@@ -1,8 +1,12 @@
 {{ 'section-hero-two-column.css' | asset_url | stylesheet_tag }}
 
-{%- comment -%} Hidden Judge.me all-reviews text so JS can read review count on landing pages (no product widget) {%- endcomment -%}
+{%- comment -%} Judge.me: when a product is set, use that product's review count (hidden widget) so it matches product page; otherwise use shop-wide count {%- endcomment -%}
 <div class="hero-two-column__judgeme-source visually-hidden" aria-hidden="true">
-  {% render 'judgeme_widgets', widget_type: 'judgeme_all_reviews_text', concierge_install: true %}
+  {% if section.settings.review_product != blank %}
+    {% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: true, product: section.settings.review_product, auto_install: false %}
+  {% else %}
+    {% render 'judgeme_widgets', widget_type: 'judgeme_all_reviews_text', concierge_install: true %}
+  {% endif %}
 </div>
 
 {% assign formatted_headline = section.settings.headline
@@ -107,11 +111,11 @@
       return match ? parseInt(match[1].replace(/,/g, ''), 10) : null;
     }
     function updateSmallStarsReviewCount() {
-      var allReviewsText = document.querySelector('.jdgm-all-reviews-text__text');
       var summaryText = document.querySelector('.jdgm-rev-widg__summary-text');
+      var allReviewsText = document.querySelector('.jdgm-all-reviews-text__text');
       var rawCount = null;
-      if (allReviewsText) rawCount = getReviewCountFromElement(allReviewsText);
-      if (rawCount == null && summaryText) rawCount = getReviewCountFromElement(summaryText);
+      if (summaryText) rawCount = getReviewCountFromElement(summaryText);
+      if (rawCount == null && allReviewsText) rawCount = getReviewCountFromElement(allReviewsText);
       if (rawCount != null) {
         var displayCount = rawCount < 1000 ? rawCount + 2000 : rawCount;
         var text = displayCount.toLocaleString() + ' Reviews';
@@ -186,6 +190,12 @@
     {
       "type": "header",
       "content": "Customer Review Block"
+    },
+    {
+      "type": "product",
+      "id": "review_product",
+      "label": "Product for review count",
+      "info": "Select the product whose review count to show (e.g. your main kit). Leave blank to use shop-wide count."
     },
     {
       "type": "text",

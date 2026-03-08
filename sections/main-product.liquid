@@ -5,11 +5,6 @@
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
 {{ 'recharge-widget-styles.css' | asset_url | stylesheet_tag }}
 
-{%- comment -%} Hidden Judge.me shop review count so small-stars and landing hero use same number {%- endcomment -%}
-<div class="visually-hidden" aria-hidden="true">
-  {% render 'judgeme_widgets', widget_type: 'judgeme_all_reviews_text', concierge_install: true %}
-</div>
-
 {%- assign cfg = shop.metafields.custom.product_reference.value -%}
 <div style = 'display:none' id = 'main-product-handle-id'>{{product.handle}}</div>
 <script src="{{ 'selling-plans.js' | asset_url }}" defer="defer"></script>
