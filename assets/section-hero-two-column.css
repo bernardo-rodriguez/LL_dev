@@ -35,9 +35,6 @@
 }
 
 .hero-two-column__headline {
-  font-size: 48px;
-  line-height: 1.2;
-  letter-spacing: var(--ds-heading-ls-lg, -0.02em);
   color: var(--navy);
   margin: 0 0 24px;
   max-width: 100%;
@@ -46,8 +43,6 @@
 }
 
 .hero-two-column__description {
-  font-size: 18px;
-  line-height: 1.5;
   color: var(--navy);
   margin: 0 0 32px;
   max-width: 100%;
@@ -62,8 +57,6 @@
   color: var(--cream) !important;
   border: 1px solid #000 !important;
   border-radius: 0;
-  font-weight: 600;
-  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -91,14 +84,11 @@
   box-sizing: border-box;
 }
 
-/* Small-stars line: same as product page (14px, 600, black stars 12px) */
+/* Small-stars line: layout and star color only (size from .body-sm) */
 .hero-two-column__small-stars {
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 14px;
-  line-height: 1.3;
-  font-weight: 600;
   margin-bottom: 8px;
 }
 
@@ -121,15 +111,11 @@
 }
 
 .hero-two-column__review-author-line {
-  font-size: 14px;
-  font-weight: 500;
   color: var(--navy);
   margin-bottom: 8px;
 }
 
 .hero-two-column__testimonial {
-  font-size: 14px;
-  line-height: 1.5;
   color: var(--navy);
   margin: 0;
   padding-left: 0;
@@ -197,14 +183,6 @@
   .hero-two-column__flex {
     gap: 40px;
   }
-
-  .hero-two-column__headline {
-    font-size: 36px;
-  }
-
-  .hero-two-column__description {
-    font-size: 16px;
-  }
 }
 
 /* Mobile: CTA first, then image card (image + review); tighter padding */
@@ -230,12 +208,10 @@
   }
 
   .hero-two-column__headline {
-    font-size: 32px;
     text-align: center;
   }
 
   .hero-two-column__description {
-    font-size: 16px;
     text-align: center;
     max-width: 100%;
   }
@@ -299,8 +275,3 @@
   }
 }
 
-@media screen and (max-width: 480px) {
-  .hero-two-column__headline {
-    font-size: 28px;
-  }
-}

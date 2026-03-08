@@ -1,5 +1,10 @@
 {{ 'section-hero-two-column.css' | asset_url | stylesheet_tag }}
 
+{%- comment -%} Hidden Judge.me all-reviews text so JS can read review count on landing pages (no product widget) {%- endcomment -%}
+<div class="hero-two-column__judgeme-source visually-hidden" aria-hidden="true">
+  {% render 'judgeme_widgets', widget_type: 'judgeme_all_reviews_text', concierge_install: true %}
+</div>
+
 {% assign formatted_headline = section.settings.headline
   | replace: '{', "<span class='stylized'>"
   | replace: '}', '</span>'
@@ -33,7 +38,7 @@
         {% if section.settings.review_count != blank or section.settings.rating != blank or section.settings.testimonial_text != blank %}
           <div class="hero-two-column__review-block hero-two-column__review-block--desktop">
             {% if section.settings.rating != blank or section.settings.review_count != blank %}
-              <div class="hero-two-column__small-stars">
+              <div class="hero-two-column__small-stars body-sm">
                 <span class="hero-two-column__stars">{% render 'icon' icon: 'review-5-star' %}</span>
                 {% if section.settings.rating != blank %}
                   <span class="hero-two-column__small-stars-rating">{{ section.settings.rating }}</span>
@@ -42,7 +47,7 @@
               </div>
             {% endif %}
             {% if section.settings.review_author != blank %}
-              <div class="hero-two-column__review-author-line">— {{ section.settings.review_author }}</div>
+              <div class="hero-two-column__review-author-line sh2">— {{ section.settings.review_author }}</div>
             {% endif %}
             {% if section.settings.testimonial_text != blank %}
               <blockquote class="hero-two-column__testimonial body-sm">{{ section.settings.testimonial_text }}</blockquote>
@@ -72,7 +77,7 @@
           {% if section.settings.rating != blank or section.settings.review_count != blank or section.settings.testimonial_text != blank %}
             <div class="hero-two-column__review-block hero-two-column__review-block--mobile">
               {% if section.settings.rating != blank or section.settings.review_count != blank %}
-                <div class="hero-two-column__small-stars">
+                <div class="hero-two-column__small-stars body-sm">
                   <span class="hero-two-column__stars">{% render 'icon' icon: 'review-5-star' %}</span>
                   {% if section.settings.rating != blank %}
                     <span class="hero-two-column__small-stars-rating">{{ section.settings.rating }}</span>
@@ -81,7 +86,7 @@
                 </div>
               {% endif %}
               {% if section.settings.review_author != blank %}
-                <div class="hero-two-column__review-author-line">— {{ section.settings.review_author }}</div>
+                <div class="hero-two-column__review-author-line sh2">— {{ section.settings.review_author }}</div>
               {% endif %}
               {% if section.settings.testimonial_text != blank %}
                 <blockquote class="hero-two-column__testimonial body-sm">{{ section.settings.testimonial_text }}</blockquote>
@@ -96,18 +101,22 @@
 
 <script>
   (function() {
+    function getReviewCountFromElement(el) {
+      if (!el || !el.textContent) return null;
+      var match = el.textContent.match(/based on (\d[\d,]*)\s*reviews?/i);
+      return match ? parseInt(match[1].replace(/,/g, ''), 10) : null;
+    }
     function updateSmallStarsReviewCount() {
       var summaryText = document.querySelector('.jdgm-rev-widg__summary-text');
-      if (summaryText) {
-        var match = summaryText.textContent.match(/Based on (\d[\d,]*)\s*reviews?/i);
-        if (match) {
-          var rawCount = parseInt(match[1].replace(/,/g, ''));
-          var displayCount = rawCount < 1000 ? rawCount + 2000 : rawCount;
-          var text = displayCount.toLocaleString() + ' Reviews';
-          var els = document.querySelectorAll('.small-stars-review-count');
-          els.forEach(function(el) { el.textContent = text; });
-          return true;
-        }
+      var allReviewsText = document.querySelector('.jdgm-all-reviews-text__text');
+      var rawCount = null;
+      if (summaryText) rawCount = getReviewCountFromElement(summaryText);
+      if (rawCount == null && allReviewsText) rawCount = getReviewCountFromElement(allReviewsText);
+      if (rawCount != null) {
+        var displayCount = rawCount < 1000 ? rawCount + 2000 : rawCount;
+        var text = displayCount.toLocaleString() + ' Reviews';
+        document.querySelectorAll('.small-stars-review-count').forEach(function(el) { el.textContent = text; });
+        return true;
       }
       return false;
     }
