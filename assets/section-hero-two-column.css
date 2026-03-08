@@ -2,6 +2,7 @@
 
 .hero-two-column {
   padding: 60px 0 80px;
+  padding-top: 80px;
   background-color: #ffffff;
   direction: ltr;
 }
@@ -50,11 +51,12 @@
   word-wrap: break-word;
 }
 
+/* CTA: light blue like product page secondary, black border, black font */
 .hero-two-column__cta {
   margin-bottom: 40px;
   padding: 16.5px 40px 17.5px;
-  background: var(--navy) !important;
-  color: var(--cream) !important;
+  background: var(--blue-tint-20) !important;
+  color: #000 !important;
   border: 1px solid #000 !important;
   border-radius: 0;
   text-transform: uppercase;
@@ -62,9 +64,10 @@
 }
 
 .hero-two-column__cta:hover {
-  background: var(--navy) !important;
-  color: var(--cream) !important;
-  opacity: 0.9;
+  background: var(--blue-tint-40) !important;
+  color: #000 !important;
+  border-color: #000 !important;
+  opacity: 1;
 }
 
 /* Review block – same style as product page small-stars */
@@ -184,10 +187,11 @@
   }
 }
 
-/* Mobile: CTA first, then image card (image + review); tighter padding */
+/* Mobile: CTA first, then image card (image + review); left-aligned text; more top space */
 @media screen and (max-width: 768px) {
   .hero-two-column {
     padding: 24px 0 40px;
+    padding-top: 48px;
   }
 
   .hero-two-column__inner {
@@ -198,25 +202,25 @@
   .hero-two-column__flex {
     flex-direction: column;
     gap: 24px;
-    text-align: center;
+    text-align: left;
   }
 
   .hero-two-column__content {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .hero-two-column__headline {
-    text-align: center;
+    text-align: left;
   }
 
   .hero-two-column__description {
-    text-align: center;
+    text-align: left;
     max-width: 100%;
   }
 
   .hero-two-column__cta {
-    margin-left: auto;
+    margin-left: 0;
     margin-right: auto;
   }
 

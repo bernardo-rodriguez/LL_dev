@@ -16,7 +16,7 @@
       {%- comment -%} Left column: content {%- endcomment -%}
       <div class="hero-two-column__content">
         {% if section.settings.headline != blank %}
-          <h1 class="hero-two-column__headline h1">{{ formatted_headline | newline_to_br }}</h1>
+          <h2 class="hero-two-column__headline h2">{{ formatted_headline | newline_to_br }}</h2>
         {% endif %}
 
         {% if section.settings.description != blank %}
@@ -25,11 +25,11 @@
 
         {% if section.settings.button_label != blank %}
           {% if section.settings.button_link != blank %}
-            <a href="{{ section.settings.button_link }}" class="hero-two-column__cta button button--primary" {% if section.settings.button_action == "quiz" %}data-open-quiz{% endif %} {% if settings.discount_code != blank %}onclick="window.localStorage.setItem('landing_page_product_discount','{{ settings.discount_code }}')"{% endif %}>
+            <a href="{{ section.settings.button_link }}" class="hero-two-column__cta button button--secondary" {% if section.settings.button_action == "quiz" %}data-open-quiz{% endif %} {% if settings.discount_code != blank %}onclick="window.localStorage.setItem('landing_page_product_discount','{{ settings.discount_code }}')"{% endif %}>
               {{ section.settings.button_label }}
             </a>
           {% else %}
-            <button type="button" class="hero-two-column__cta button button--primary" {% if section.settings.button_action == "quiz" %}data-open-quiz{% endif %} {% if settings.discount_code != blank %}onclick="window.localStorage.setItem('landing_page_product_discount','{{ settings.discount_code }}')"{% endif %}>
+            <button type="button" class="hero-two-column__cta button button--secondary" {% if section.settings.button_action == "quiz" %}data-open-quiz{% endif %} {% if settings.discount_code != blank %}onclick="window.localStorage.setItem('landing_page_product_discount','{{ settings.discount_code }}')"{% endif %}>
               {{ section.settings.button_label }}
             </button>
           {% endif %}
