@@ -16,7 +16,7 @@
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 60px;
-  align-items: center;
+  align-items: start;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
@@ -134,31 +134,30 @@
   font-style: normal;
 }
 
-/* Right column: product image - contained within column, aligned to start */
+/* Right column: product image - contained within column, top-aligned */
 .hero-two-column__image-col {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   min-width: 0;
 }
 
 .hero-two-column__image-wrapper {
   width: 100%;
-  max-width: 320px;
-  max-height: 420px;
+  max-width: 280px;
   background: #ffffff;
   border: 1px solid rgba(13, 34, 68, 0.12);
   border-radius: 12px;
   overflow: hidden;
-  padding: 20px;
+  padding: 16px;
   box-sizing: border-box;
   flex-shrink: 0;
 }
 
-/* Override global aspect-ratio auto margins so image stays in its column */
+/* Aspect-ratio height comes from width (padding-bottom %). Constrain width so height is limited. */
 .hero-two-column__image-wrapper .aspect-ratio {
   width: 100%;
-  max-height: 360px;
+  max-width: 240px;
   margin-left: 0;
   margin-right: 0;
 }
@@ -248,14 +247,13 @@
   }
 
   .hero-two-column__image-wrapper {
-    max-width: 240px;
-    max-height: 360px;
+    max-width: 200px;
     margin: 0 auto;
-    padding: 16px;
+    padding: 12px;
   }
 
   .hero-two-column__image-wrapper .aspect-ratio {
-    max-height: 300px;
+    max-width: 176px;
   }
 }
 
