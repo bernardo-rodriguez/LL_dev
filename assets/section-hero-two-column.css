@@ -74,7 +74,7 @@
   opacity: 0.9;
 }
 
-/* Review block */
+/* Review block – same style as product page small-stars */
 .hero-two-column__review-block {
   width: 100%;
   max-width: 100%;
@@ -91,40 +91,40 @@
   box-sizing: border-box;
 }
 
-.hero-two-column__review-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.hero-two-column__stars {
+/* Small-stars line: same as product page (14px, 600, black stars 12px) */
+.hero-two-column__small-stars {
   display: flex;
   align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
-.hero-two-column__stars svg {
-  height: 18px;
+.hero-two-column__small-stars .hero-two-column__stars {
+  display: inline-flex;
+  align-items: center;
+}
+
+.hero-two-column__small-stars .hero-two-column__stars svg {
+  height: 12px;
   width: auto;
 }
 
-.hero-two-column__stars path {
-  fill: var(--navy);
+.hero-two-column__small-stars .hero-two-column__stars path {
+  fill: #000;
 }
 
-.hero-two-column__review-count {
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 1.3;
-  color: var(--navy);
+.hero-two-column__small-stars-rating {
+  margin-right: 6px;
 }
 
-.hero-two-column__review-author {
+.hero-two-column__review-author-line {
+  font-size: 14px;
   font-weight: 500;
-  font-size: 16px;
   color: var(--navy);
-  margin-left: auto;
+  margin-bottom: 8px;
 }
 
 .hero-two-column__testimonial {
@@ -252,15 +252,6 @@
 
   .hero-two-column__review-block {
     text-align: left;
-  }
-
-  .hero-two-column__review-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .hero-two-column__review-author {
-    margin-left: 0;
   }
 
   /* Image card below CTA (no order change): one card = image + review */

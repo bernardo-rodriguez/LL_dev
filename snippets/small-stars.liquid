@@ -40,8 +40,9 @@
         if (match) {
           var rawCount = parseInt(match[1].replace(/,/g, ''));
           var displayCount = rawCount < 1000 ? rawCount + 2000 : rawCount;
-          var el = document.querySelector('.small-stars-review-count');
-          if (el) el.textContent = displayCount.toLocaleString() + ' Reviews';
+          var text = displayCount.toLocaleString() + ' Reviews';
+          var els = document.querySelectorAll('.small-stars-review-count');
+          els.forEach(function(el) { el.textContent = text; });
           return true;
         }
       }

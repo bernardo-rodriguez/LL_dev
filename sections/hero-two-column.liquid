@@ -30,18 +30,19 @@
           {% endif %}
         {% endif %}
 
-        {% if section.settings.review_count != blank or section.settings.testimonial_text != blank %}
+        {% if section.settings.review_count != blank or section.settings.rating != blank or section.settings.testimonial_text != blank %}
           <div class="hero-two-column__review-block hero-two-column__review-block--desktop">
-            {% if section.settings.review_count != blank %}
-              <div class="hero-two-column__review-header">
-                <div class="hero-two-column__stars">
-                  {% render 'icon' icon: 'review-5-star' %}
-                </div>
-                <span class="hero-two-column__review-count sh1">{{ section.settings.review_count }}</span>
-                {% if section.settings.review_author != blank %}
-                  <span class="hero-two-column__review-author sh2">— {{ section.settings.review_author }}</span>
+            {% if section.settings.rating != blank or section.settings.review_count != blank %}
+              <div class="hero-two-column__small-stars">
+                <span class="hero-two-column__stars">{% render 'icon' icon: 'review-5-star' %}</span>
+                {% if section.settings.rating != blank %}
+                  <span class="hero-two-column__small-stars-rating">{{ section.settings.rating }}</span>
                 {% endif %}
+                <span class="small-stars-review-count">{% if section.settings.review_count != blank %}{{ section.settings.review_count }}{% endif %}</span>
               </div>
+            {% endif %}
+            {% if section.settings.review_author != blank %}
+              <div class="hero-two-column__review-author-line">— {{ section.settings.review_author }}</div>
             {% endif %}
             {% if section.settings.testimonial_text != blank %}
               <blockquote class="hero-two-column__testimonial body-sm">{{ section.settings.testimonial_text }}</blockquote>
@@ -68,18 +69,19 @@
             </div>
           {% endif %}
           {%- comment -%} Mobile-only: review as lower container on the image card {%- endcomment -%}
-          {% if section.settings.review_count != blank or section.settings.testimonial_text != blank %}
+          {% if section.settings.rating != blank or section.settings.review_count != blank or section.settings.testimonial_text != blank %}
             <div class="hero-two-column__review-block hero-two-column__review-block--mobile">
-              {% if section.settings.review_count != blank %}
-                <div class="hero-two-column__review-header">
-                  <div class="hero-two-column__stars">
-                    {% render 'icon' icon: 'review-5-star' %}
-                  </div>
-                  <span class="hero-two-column__review-count sh1">{{ section.settings.review_count }}</span>
-                  {% if section.settings.review_author != blank %}
-                    <span class="hero-two-column__review-author sh2">— {{ section.settings.review_author }}</span>
+              {% if section.settings.rating != blank or section.settings.review_count != blank %}
+                <div class="hero-two-column__small-stars">
+                  <span class="hero-two-column__stars">{% render 'icon' icon: 'review-5-star' %}</span>
+                  {% if section.settings.rating != blank %}
+                    <span class="hero-two-column__small-stars-rating">{{ section.settings.rating }}</span>
                   {% endif %}
+                  <span class="small-stars-review-count">{% if section.settings.review_count != blank %}{{ section.settings.review_count }}{% endif %}</span>
                 </div>
+              {% endif %}
+              {% if section.settings.review_author != blank %}
+                <div class="hero-two-column__review-author-line">— {{ section.settings.review_author }}</div>
               {% endif %}
               {% if section.settings.testimonial_text != blank %}
                 <blockquote class="hero-two-column__testimonial body-sm">{{ section.settings.testimonial_text }}</blockquote>
@@ -91,6 +93,35 @@
     </div>
   </div>
 </section>
+
+<script>
+  (function() {
+    function updateSmallStarsReviewCount() {
+      var summaryText = document.querySelector('.jdgm-rev-widg__summary-text');
+      if (summaryText) {
+        var match = summaryText.textContent.match(/Based on (\d[\d,]*)\s*reviews?/i);
+        if (match) {
+          var rawCount = parseInt(match[1].replace(/,/g, ''));
+          var displayCount = rawCount < 1000 ? rawCount + 2000 : rawCount;
+          var text = displayCount.toLocaleString() + ' Reviews';
+          var els = document.querySelectorAll('.small-stars-review-count');
+          els.forEach(function(el) { el.textContent = text; });
+          return true;
+        }
+      }
+      return false;
+    }
+    if (!updateSmallStarsReviewCount()) {
+      var obs = new MutationObserver(function(mutations, observer) {
+        if (updateSmallStarsReviewCount()) observer.disconnect();
+      });
+      obs.observe(document.body, { childList: true, subtree: true, characterData: true });
+      setTimeout(updateSmallStarsReviewCount, 2000);
+      setTimeout(updateSmallStarsReviewCount, 5000);
+      setTimeout(updateSmallStarsReviewCount, 10000);
+    }
+  })();
+</script>
 
 {% schema %}
 {
@@ -149,9 +180,15 @@
     },
     {
       "type": "text",
+      "id": "rating",
+      "label": "Rating",
+      "info": "e.g. 4.7/5 (same as product page small-stars)"
+    },
+    {
+      "type": "text",
       "id": "review_count",
       "label": "Review Count",
-      "info": "e.g. 20,000+ 5-STAR REVIEWS"
+      "info": "e.g. 80,000+ Reviews"
     },
     {
       "type": "text",
