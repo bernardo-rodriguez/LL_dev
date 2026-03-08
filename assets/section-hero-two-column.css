@@ -82,6 +82,15 @@
   word-wrap: break-word;
 }
 
+/* Desktop: review in its own container */
+.hero-two-column__review-block--desktop {
+  padding: 20px 24px;
+  background: #ffffff;
+  border: 1px solid rgba(13, 34, 68, 0.12);
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
 .hero-two-column__review-header {
   display: flex;
   flex-wrap: wrap;
@@ -137,7 +146,7 @@
   align-items: flex-start;
 }
 
-/* Simple box: fills column width, image contained inside */
+/* Image box: full space, no padding – image fills container */
 .hero-two-column__image-box {
   width: 100%;
   max-width: 100%;
@@ -145,7 +154,7 @@
   border: 1px solid rgba(13, 34, 68, 0.12);
   border-radius: 12px;
   overflow: hidden;
-  padding: 16px;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -274,7 +283,7 @@
   .hero-two-column__image-card .hero-two-column__image-box {
     max-width: 100%;
     margin: 0;
-    padding: 8px 8px 0;
+    padding: 0;
     border: none;
     border-radius: 0;
   }
