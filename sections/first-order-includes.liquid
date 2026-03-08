@@ -107,7 +107,7 @@
         <a href="{{ routes.root_url }}" class="first-order-includes-box__cta button label">{{ button_label }}</a>
       {% endif %}
 
-      {% if footer_text != blank %}
+      {% if section.settings.show_footer_text and footer_text != blank %}
         <p class="first-order-includes-box__footer body-xs">{{ footer_text }}</p>
       {% endif %}
       </div>
@@ -116,24 +116,31 @@
 </section>
 
 {% if slider_product != blank and slider_product.media.size > 0 %}
+  {% assign image_media_count = 0 %}
+  {% for media in slider_product.media %}
+    {% if media.media_type == 'image' %}
+      {% assign image_media_count = image_media_count | plus: 1 %}
+    {% endif %}
+  {% endfor %}
   <script>
-    (function() {
+    document.addEventListener('DOMContentLoaded', function() {
       const sliderEl = document.getElementById('first-order-includes-slider-{{ section.id }}');
       if (!sliderEl || typeof Swiper === 'undefined') return;
+      const slideCount = {{ image_media_count }};
       new Swiper(sliderEl, {
         slidesPerView: 1,
         spaceBetween: 0,
-        loop: true,
+        loop: slideCount > 1,
         pagination: {
           el: sliderEl.querySelector('.first-order-includes__slider-pagination'),
           clickable: true
         },
-        autoplay: {
+        autoplay: slideCount > 1 ? {
           delay: 4000,
           disableOnInteraction: false
-        }
+        } : false
       });
-    })();
+    });
   </script>
 {% endif %}
 
@@ -182,6 +189,13 @@
       "id": "footer_text",
       "label": "Footer text",
       "default": "MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_footer_text",
+      "label": "Show footer text",
+      "default": false,
+      "info": "Leave off for landing page; enable on product page if needed."
     },
     {
       "type": "header",
