@@ -52,7 +52,13 @@
 
       {%- comment -%} Right column: product image {%- endcomment -%}
       <div class="hero-two-column__image-col">
-        {% if section.settings.product_image != blank %}
+        {% if section.settings.product_image_url != blank %}
+          <div class="hero-two-column__image-wrapper">
+            <div class="aspect-ratio img-fill hero-two-column__img" style="--aspect-ratio: 1;">
+              <img src="{{ section.settings.product_image_url }}" alt="" loading="lazy" class="lazyload lazyload--fade">
+            </div>
+          </div>
+        {% elsif section.settings.product_image != blank %}
           <div class="hero-two-column__image-wrapper">
             {% if section.settings.mobile_image != blank %}
               {% render 'lazy-image', image: section.settings.product_image, fade: true, fill: true, classes: 'hero-two-column__img hide-mobile' %}
@@ -144,9 +150,16 @@
       "content": "Product Image"
     },
     {
+      "type": "text",
+      "id": "product_image_url",
+      "label": "Product Image URL",
+      "info": "Optional. CDN or direct image URL. When set, overrides the image picker below."
+    },
+    {
       "type": "image_picker",
       "id": "product_image",
-      "label": "Product Image"
+      "label": "Product Image",
+      "info": "Used when Product Image URL is blank."
     },
     {
       "type": "image_picker",
