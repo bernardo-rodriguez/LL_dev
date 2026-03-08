@@ -38,44 +38,6 @@
         "heading": "Not all Whitening is {created Equal}"
       }
     },
-    "multi_slide_carousel_M68Vqj": {
-      "type": "multi-slide-carousel",
-      "blocks": {
-        "slide_QUnJzW": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Dr_Hodgson_1.png",
-            "description": "\"It’s the next best thing to in office treatment and it’s how I keep my smile bright and shiny. Their obsession with quality won my trust.”",
-            "dentist_name": "Dr. Cara Hodgson DDS",
-            "credentials": "<p>UCLA School of Dentistry</p>"
-          }
-        },
-        "slide_CN4BYq": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Dr_Ron_Ayzin_1_c3c539fc-cc1f-446a-b6d5-1ebae997b5c7.png",
-            "description": "“When patients ask me what the best way to whiten at home is, my answer is Laughland. I wouldn’t recommend anything I wouldn’t use myself and I’ve noticed a visible difference since using Laughland”",
-            "dentist_name": "Dr. Ron Ayzin DDS",
-            "credentials": "<p>Faculty Instructor, UCLA School of Dentistry</p>"
-          }
-        },
-        "slide_qe7WUD": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Dr_Kyra_Jimenez.png",
-            "description": "“It’s important to find a system that works and keeps things simple. Laughland does exactly that.”",
-            "dentist_name": "Dr. Kyra Jimenez DDS",
-            "credentials": "<p>President, NSU Dental Cosmetic Society</p>"
-          }
-        }
-      },
-      "block_order": [
-        "slide_QUnJzW",
-        "slide_CN4BYq",
-        "slide_qe7WUD"
-      ],
-      "settings": {}
-    },
     "testimonials_BGjeX7": {
       "type": "testimonials",
       "blocks": {
@@ -270,9 +232,46 @@
       ],
       "settings": {}
     },
+    "multi_slide_carousel_M68Vqj": {
+      "type": "multi-slide-carousel",
+      "blocks": {
+        "slide_QUnJzW": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Hodgson_1.png",
+            "description": "\"It’s the next best thing to in office treatment and it’s how I keep my smile bright and shiny. Their obsession with quality won my trust.”",
+            "dentist_name": "Dr. Cara Hodgson DDS",
+            "credentials": "<p>UCLA School of Dentistry</p>"
+          }
+        },
+        "slide_CN4BYq": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Ron_Ayzin_1_c3c539fc-cc1f-446a-b6d5-1ebae997b5c7.png",
+            "description": "“When patients ask me what the best way to whiten at home is, my answer is Laughland. I wouldn’t recommend anything I wouldn’t use myself and I’ve noticed a visible difference since using Laughland”",
+            "dentist_name": "Dr. Ron Ayzin DDS",
+            "credentials": "<p>Faculty Instructor, UCLA School of Dentistry</p>"
+          }
+        },
+        "slide_qe7WUD": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Kyra_Jimenez.png",
+            "description": "“It’s important to find a system that works and keeps things simple. Laughland does exactly that.”",
+            "dentist_name": "Dr. Kyra Jimenez DDS",
+            "credentials": "<p>President, NSU Dental Cosmetic Society</p>"
+          }
+        }
+      },
+      "block_order": [
+        "slide_QUnJzW",
+        "slide_CN4BYq",
+        "slide_qe7WUD"
+      ],
+      "settings": {}
+    },
     "0bba9f22-7698-459e-80ea-c2869211daea": {
       "type": "featured-product",
-      "disabled": true,
       "settings": {
         "product": "at-home-whitening-kit",
         "title": "{Your Personalized}<br> Teeth Whitening Kit",
