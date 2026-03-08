@@ -16,11 +16,11 @@
       {%- comment -%} Left column: content {%- endcomment -%}
       <div class="hero-two-column__content">
         {% if section.settings.headline != blank %}
-          <h2 class="hero-two-column__headline h2">{{ formatted_headline | newline_to_br }}</h2>
+          <h3 class="hero-two-column__headline h3">{{ formatted_headline | newline_to_br }}</h3>
         {% endif %}
 
         {% if section.settings.description != blank %}
-          <p class="hero-two-column__description body-lg">{{ section.settings.description }}</p>
+          <p class="hero-two-column__description sh2">{{ section.settings.description }}</p>
         {% endif %}
 
         {% if section.settings.button_label != blank %}
