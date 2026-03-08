@@ -1,6 +1,6 @@
 {{ 'section-key-benefits-list.css' | asset_url | stylesheet_tag }}
 
-<section class="key-benefits-list">
+<section class="key-benefits-list" id="key-benefits-{{ section.id }}">
   <div class="page-width">
     <div class="key-benefits-list__inner">
       {% if section.settings.heading != blank %}
