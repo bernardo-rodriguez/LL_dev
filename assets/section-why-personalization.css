@@ -1,0 +1,192 @@
+/**
+ * Why Personalization – same layout as Your Formula (ingredients-that-work)
+ * but with a single bordered image instead of ingredient grid.
+ * Uses global typography classes only.
+ */
+
+.why-personalization {
+  background: #fff;
+  color: var(--navy);
+}
+
+.why-personalization__inner {
+  max-width: 100%;
+  padding: 12px 24px 0;
+}
+
+.why-personalization__columns {
+  display: flex;
+  flex-direction: column;
+}
+
+.why-personalization__left,
+.why-personalization__right {
+  display: contents;
+}
+
+.why-personalization__header { order: 1; }
+.why-personalization__intro { order: 2; }
+.why-personalization__image-wrap { order: 3; }
+.why-personalization__footer { order: 4; }
+
+.why-personalization__title {
+  margin: 0 0 6px;
+  color: var(--navy);
+  text-align: left;
+}
+
+.why-personalization__stylized {
+  font-style: italic;
+}
+
+.why-personalization__intro {
+  text-align: left;
+  margin: 0;
+  padding-bottom: 16px;
+  color: var(--navy);
+}
+
+.why-personalization__image-wrap {
+  border: 1px solid #000;
+  border-radius: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+.why-personalization__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  vertical-align: top;
+}
+
+.why-personalization__image-placeholder {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+}
+
+.why-personalization__image-placeholder .placeholder-svg {
+  width: 60%;
+  height: auto;
+}
+
+.why-personalization__footer {
+  padding-top: 8px;
+}
+
+.why-personalization__summary {
+  margin: 10px 0 20px;
+  color: var(--navy);
+}
+
+.why-personalization__key-benefits {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.why-personalization__key-benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 6px;
+  color: var(--navy);
+}
+
+.why-personalization__key-benefit:last-child {
+  margin-bottom: 0;
+}
+
+.why-personalization__checkmark {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.why-personalization__checkmark svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  .why-personalization .page-width {
+    padding: 0 20px;
+  }
+
+  .why-personalization__inner {
+    padding: 8px 0 0;
+  }
+
+  .why-personalization__header {
+    margin-bottom: 20px;
+  }
+
+  .why-personalization__title {
+    margin-bottom: 0;
+  }
+
+  .why-personalization__intro {
+    margin-bottom: 30px;
+    padding-bottom: 0;
+  }
+
+  .why-personalization__footer {
+    padding-top: 35px;
+  }
+
+  .why-personalization__summary {
+    margin-top: 0;
+  }
+}
+
+/* Desktop: two-column – left: title + summary + bullets, right: intro + image */
+@media screen and (min-width: 769px) {
+  .why-personalization__inner {
+    padding: 32px 48px 48px;
+  }
+
+  .why-personalization__columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 48px;
+    align-items: start;
+  }
+
+  .why-personalization__left,
+  .why-personalization__right {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .why-personalization__header,
+  .why-personalization__intro,
+  .why-personalization__image-wrap,
+  .why-personalization__footer {
+    order: unset;
+  }
+
+  .why-personalization__header {
+    margin-bottom: 24px;
+  }
+
+  .why-personalization__title {
+    text-align: left;
+  }
+
+  .why-personalization__image-wrap {
+    margin-top: 20px;
+  }
+
+  .why-personalization__summary {
+    margin-bottom: 24px;
+  }
+
+  .why-personalization__key-benefit {
+    margin-bottom: 8px;
+  }
+}

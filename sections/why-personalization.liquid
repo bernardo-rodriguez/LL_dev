@@ -1,0 +1,137 @@
+{{ 'section-why-personalization.css' | asset_url | stylesheet_tag }}
+
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='why-personalization__stylized'>"
+  | replace: '}', '</span>'
+%}
+
+<section class="why-personalization">
+  <div class="page-width">
+    <div class="why-personalization__inner">
+      <div class="why-personalization__columns">
+        <div class="why-personalization__left">
+          <div class="why-personalization__header">
+            {% if section.settings.heading != blank %}
+              <h3 class="why-personalization__title h3">{{ formatted_heading }}</h3>
+            {% endif %}
+          </div>
+          <div class="why-personalization__footer">
+            {% if section.settings.summary != blank %}
+              <p class="why-personalization__summary sh2">{{ section.settings.summary }}</p>
+            {% endif %}
+            {% assign benefit_blocks = section.blocks | where: 'type', 'benefit' %}
+            {% if benefit_blocks.size > 0 %}
+              <ul class="why-personalization__key-benefits list-unstyled">
+                {% for block in benefit_blocks %}
+                  <li class="why-personalization__key-benefit body-sm" {{ block.shopify_attributes }}>
+                    <span class="why-personalization__checkmark" aria-hidden="true">{% render 'icon', icon: 'checkmark' %}</span>
+                    {{ block.settings.text }}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+        <div class="why-personalization__right">
+          {% if section.settings.intro_text != blank %}
+            <p class="why-personalization__intro sh2">{{ section.settings.intro_text }}</p>
+          {% endif %}
+          <div class="why-personalization__image-wrap">
+            {% if section.settings.image != blank %}
+              <img
+                class="why-personalization__image"
+                src="{{ section.settings.image | image_url: width: 800 }}"
+                srcset="{{ section.settings.image | image_url: width: 400 }} 400w,
+                        {{ section.settings.image | image_url: width: 600 }} 600w,
+                        {{ section.settings.image | image_url: width: 800 }} 800w"
+                sizes="(min-width: 769px) 50vw, 100vw"
+                alt="{{ section.settings.image.alt | default: section.settings.heading | escape }}"
+                loading="lazy"
+                width="800"
+                height="{{ 800 | divided_by: section.settings.image.aspect_ratio | ceil }}"
+              >
+            {% else %}
+              <div class="why-personalization__image-placeholder">
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Why Personalization",
+  "tag": "section",
+  "class": "section-why-personalization",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Personalization Works Better Than Generic Strips",
+      "info": "Wrap emphasized text in {}"
+    },
+    {
+      "type": "textarea",
+      "id": "intro_text",
+      "label": "Intro text",
+      "default": "Generic whitening treats everyone the same – Sensitive smiles use the same formula as ice crunchers. The result?\n\nUnderwhelming results or overwhelming pain."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Displayed with a border; same layout as Your Formula section."
+    },
+    {
+      "type": "textarea",
+      "id": "summary",
+      "label": "Summary paragraph",
+      "default": "With Laughland, you're matched to the exact strength your goals and tolerance demands – Dramatic results without the drama."
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Key benefit",
+      "type": "benefit",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Benefit text",
+          "default": "As strong as your smile can comfortably handle."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Personalization",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "text": "As strong as your smile can comfortably handle."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "text": "Same methodology used by dentists for whitening"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "text": "Sensitivity-free guarantee"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
