@@ -3,10 +3,13 @@
 .hero-two-column {
   padding: 60px 0 80px;
   background-color: #ffffff;
+  direction: ltr;
 }
 
 .hero-two-column__inner {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .hero-two-column__grid {
@@ -15,15 +18,18 @@
   gap: 60px;
   align-items: center;
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
-/* Left column: content */
+/* Left column: content - min-width 0 so column can shrink and text wraps inside bounds */
 .hero-two-column__content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  min-width: 0;
 }
 
 .hero-two-column__headline {
@@ -35,6 +41,8 @@
   color: var(--navy);
   margin: 0 0 24px;
   max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .hero-two-column__description {
@@ -44,7 +52,9 @@
   font-weight: 400;
   color: var(--navy);
   margin: 0 0 32px;
-  max-width: 540px;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .hero-two-column__cta {
@@ -69,7 +79,9 @@
 /* Review block */
 .hero-two-column__review-block {
   width: 100%;
-  max-width: 540px;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .hero-two-column__review-header {
