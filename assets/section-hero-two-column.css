@@ -12,24 +12,26 @@
   box-sizing: border-box;
 }
 
-.hero-two-column__grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+/* Simple flex row: content grows, image column fixed width */
+.hero-two-column__flex {
+  display: flex;
+  flex-wrap: wrap;
   gap: 60px;
-  align-items: start;
+  align-items: flex-start;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
 }
 
-/* Left column: content - min-width 0 so column can shrink and text wraps inside bounds */
+/* Left column: takes remaining space, text wraps */
 .hero-two-column__content {
+  flex: 1 1 300px;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  min-width: 0;
 }
 
 .hero-two-column__headline {
@@ -134,15 +136,16 @@
   font-style: normal;
 }
 
-/* Right column: product image - contained within column, top-aligned */
+/* Right column: fixed width flex child - image cannot escape */
 .hero-two-column__image-col {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  min-width: 0;
+  flex: 0 0 280px;
+  width: 280px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
-.hero-two-column__image-wrapper {
+/* Simple box: contains the image, no aspect-ratio tricks */
+.hero-two-column__image-box {
   width: 100%;
   max-width: 280px;
   background: #ffffff;
@@ -151,29 +154,26 @@
   overflow: hidden;
   padding: 16px;
   box-sizing: border-box;
-  flex-shrink: 0;
 }
 
-/* Aspect-ratio height comes from width (padding-bottom %). Constrain width so height is limited. */
-.hero-two-column__image-wrapper .aspect-ratio {
-  width: 100%;
-  max-width: 240px;
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.hero-two-column__image-wrapper .img-fill,
-.hero-two-column__image-wrapper .aspect-ratio {
-  border-radius: 8px;
-}
-
-.hero-two-column__img {
+.hero-two-column__image-box img {
   display: block;
-}
-
-.hero-two-column__image-wrapper .aspect-ratio img {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
   object-fit: contain;
   object-position: center;
+}
+
+/* When lazy-image snippet is used (image_picker) */
+.hero-two-column__image-box .aspect-ratio {
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.hero-two-column__image-box .aspect-ratio img {
+  object-fit: contain;
 }
 
 /* Tablet */
@@ -182,7 +182,7 @@
     padding: 50px 0 60px;
   }
 
-  .hero-two-column__grid {
+  .hero-two-column__flex {
     gap: 40px;
   }
 
@@ -201,8 +201,8 @@
     padding: 40px 0 60px;
   }
 
-  .hero-two-column__grid {
-    grid-template-columns: 1fr;
+  .hero-two-column__flex {
+    flex-direction: column;
     gap: 40px;
     text-align: center;
   }
@@ -241,19 +241,23 @@
     margin-left: 0;
   }
 
-  /* Image first on mobile for better flow */
+  /* Image first on mobile */
   .hero-two-column__image-col {
     order: -1;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
   }
 
-  .hero-two-column__image-wrapper {
+  .hero-two-column__image-box {
     max-width: 200px;
     margin: 0 auto;
     padding: 12px;
   }
 
-  .hero-two-column__image-wrapper .aspect-ratio {
-    max-width: 176px;
+  .hero-two-column__image-box img {
+    max-height: 220px;
   }
 }
 

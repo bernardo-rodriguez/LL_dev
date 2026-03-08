@@ -7,7 +7,7 @@
 
 <section class="hero-two-column">
   <div class="page-width hero-two-column__inner">
-    <div class="hero-two-column__grid">
+    <div class="hero-two-column__flex">
       {%- comment -%} Left column: content {%- endcomment -%}
       <div class="hero-two-column__content">
         {% if section.settings.headline != blank %}
@@ -50,16 +50,14 @@
         {% endif %}
       </div>
 
-      {%- comment -%} Right column: product image {%- endcomment -%}
+      {%- comment -%} Right column: product image - simple flex div + img {%- endcomment -%}
       <div class="hero-two-column__image-col">
         {% if section.settings.product_image_url != blank %}
-          <div class="hero-two-column__image-wrapper">
-            <div class="aspect-ratio img-fill hero-two-column__img" style="--aspect-ratio: 1;">
-              <img src="{{ section.settings.product_image_url }}" alt="" loading="lazy" class="lazyload lazyload--fade">
-            </div>
+          <div class="hero-two-column__image-box">
+            <img src="{{ section.settings.product_image_url }}" alt="" loading="lazy" width="280" height="280">
           </div>
         {% elsif section.settings.product_image != blank %}
-          <div class="hero-two-column__image-wrapper">
+          <div class="hero-two-column__image-box">
             {% if section.settings.mobile_image != blank %}
               {% render 'lazy-image', image: section.settings.product_image, fade: true, fill: true, classes: 'hero-two-column__img hide-mobile' %}
               {% render 'lazy-image', image: section.settings.mobile_image, fade: true, fill: true, classes: 'hero-two-column__img hide-desktop' %}
