@@ -25,6 +25,7 @@
 }
 
 .why-personalization__header { order: 1; }
+.why-personalization__intro-wrap,
 .why-personalization__intro { order: 2; }
 .why-personalization__image-wrap { order: 3; }
 .why-personalization__footer { order: 4; }
