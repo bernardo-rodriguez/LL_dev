@@ -17,18 +17,18 @@
       }
     },
     "3a2908b4-cb46-4bba-ab1d-db530f856c49": {
-      "type": "hero-landing",
+      "type": "hero-two-column",
       "settings": {
-        "image": "shopify://shop_images/Hero_Image.jpg",
-        "mobile_image": "shopify://shop_images/mobile-landing_d3f79250-8f3f-4d6a-9703-f3022677a065.png",
-        "review": "4.7/5",
-        "title": "Take the first step <br>{to a better smile}",
-        "sub_title": "Get a customized whitening solution for just {<sup></sup>} today.",
-        "hero_badges": "shopify://shop_images/Women_sHealthBeautyAward_2022_Transparent_1.png",
-        "button_label": "Start Now",
+        "headline": "Take the first step {to a better smile}",
+        "description": "Get a customized whitening solution for your unique smile. Our personalized formulas deliver results in just 6 days.",
+        "button_label": "30% OFF + Start Now",
         "button_link": "#get-started",
-        "button_style": "primary",
-        "button_action": "quiz"
+        "button_action": "quiz",
+        "review_count": "4.7/5 from 80,000+ 5-STAR REVIEWS",
+        "review_author": "Lesley C.",
+        "testimonial_text": "\"I had to come here to say something. Normally I have excruciating pain with crest white strips and this other brand I got from the dentist. Both of which didn't whiten my teeth very much. So, I had low hopes for Laughland. I got the formula made for highest sensitivity, and I left it on for I think 12 minutes. Just after the first day my teeth look 2 shades whiter. I'm actually really shocked.\"",
+        "product_image": "shopify://shop_images/Hero_Image.jpg",
+        "mobile_image": "shopify://shop_images/mobile-landing_d3f79250-8f3f-4d6a-9703-f3022677a065.png"
       }
     },
     "36e4f7aa-dd9e-4e47-a123-81be1338efe2": {

@@ -1,0 +1,164 @@
+{{ 'section-hero-two-column.css' | asset_url | stylesheet_tag }}
+
+{% assign formatted_headline = section.settings.headline
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+
+<section class="hero-two-column">
+  <div class="page-width hero-two-column__inner">
+    <div class="hero-two-column__grid">
+      {%- comment -%} Left column: content {%- endcomment -%}
+      <div class="hero-two-column__content">
+        {% if section.settings.headline != blank %}
+          <h1 class="hero-two-column__headline h1">{{ formatted_headline | newline_to_br }}</h1>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <p class="hero-two-column__description body-lg">{{ section.settings.description }}</p>
+        {% endif %}
+
+        {% if section.settings.button_label != blank %}
+          {% if section.settings.button_link != blank %}
+            <a href="{{ section.settings.button_link }}" class="hero-two-column__cta button button--primary" {% if section.settings.button_action == "quiz" %}data-open-quiz{% endif %} {% if settings.discount_code != blank %}onclick="window.localStorage.setItem('landing_page_product_discount','{{ settings.discount_code }}')"{% endif %}>
+              {{ section.settings.button_label }}
+            </a>
+          {% else %}
+            <button type="button" class="hero-two-column__cta button button--primary" {% if section.settings.button_action == "quiz" %}data-open-quiz{% endif %} {% if settings.discount_code != blank %}onclick="window.localStorage.setItem('landing_page_product_discount','{{ settings.discount_code }}')"{% endif %}>
+              {{ section.settings.button_label }}
+            </button>
+          {% endif %}
+        {% endif %}
+
+        {% if section.settings.review_count != blank or section.settings.testimonial_text != blank %}
+          <div class="hero-two-column__review-block">
+            {% if section.settings.review_count != blank %}
+              <div class="hero-two-column__review-header">
+                <div class="hero-two-column__stars">
+                  {% render 'icon' icon: 'review-5-star' %}
+                </div>
+                <span class="hero-two-column__review-count sh1">{{ section.settings.review_count }}</span>
+                {% if section.settings.review_author != blank %}
+                  <span class="hero-two-column__review-author sh2">— {{ section.settings.review_author }}</span>
+                {% endif %}
+              </div>
+            {% endif %}
+            {% if section.settings.testimonial_text != blank %}
+              <blockquote class="hero-two-column__testimonial body-sm">{{ section.settings.testimonial_text }}</blockquote>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+
+      {%- comment -%} Right column: product image {%- endcomment -%}
+      <div class="hero-two-column__image-col">
+        {% if section.settings.product_image != blank %}
+          <div class="hero-two-column__image-wrapper">
+            {% if section.settings.mobile_image != blank %}
+              {% render 'lazy-image', image: section.settings.product_image, fade: true, fill: true, classes: 'hero-two-column__img hide-mobile' %}
+              {% render 'lazy-image', image: section.settings.mobile_image, fade: true, fill: true, classes: 'hero-two-column__img hide-desktop' %}
+            {% else %}
+              {% render 'lazy-image', image: section.settings.product_image, fade: true, fill: true, classes: 'hero-two-column__img' %}
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Two Column",
+  "tag": "section",
+  "class": "section-hero-two-column",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "textarea",
+      "id": "headline",
+      "label": "Headline",
+      "info": "Wrap italic/stylized text in {}"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "select",
+      "id": "button_action",
+      "label": "Button Action",
+      "options": [
+        {
+          "value": "url",
+          "label": "Redirect to URL"
+        },
+        {
+          "value": "quiz",
+          "label": "Open Quiz"
+        }
+      ],
+      "default": "quiz"
+    },
+    {
+      "type": "header",
+      "content": "Customer Review Block"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Review Count",
+      "info": "e.g. 20,000+ 5-STAR REVIEWS"
+    },
+    {
+      "type": "text",
+      "id": "review_author",
+      "label": "Review Author",
+      "info": "e.g. KEITH N."
+    },
+    {
+      "type": "textarea",
+      "id": "testimonial_text",
+      "label": "Testimonial Text"
+    },
+    {
+      "type": "header",
+      "content": "Product Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image",
+      "info": "Optional. Uses product image if blank."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Two Column"
+    }
+  ]
+}
+{% endschema %}
