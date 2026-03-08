@@ -24,6 +24,7 @@
         "button_label": "GET YOUR CUSTOM FORMULA",
         "button_link": "#get-started",
         "button_action": "quiz",
+        "review_product": "at-home-whitening-kit",
         "rating": "4.7/5",
         "review_count": "80,000+ Reviews",
         "review_author": "Lesley C.",
@@ -73,6 +74,7 @@
         "testimonial_iVETMD",
         "testimonial_tTq4VA"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Real {Smiles}, Real {Results}",
         "heading_refill": "",
@@ -115,9 +117,72 @@
         "2f0003b4-ab55-4c0c-81d0-320005cefc78",
         "3cf2bbea-42e8-4109-a516-ea7b1218cfe9"
       ],
+      "disabled": true,
       "settings": {
         "heading": "{Why} Laughland?",
         "section_padding": true
+      }
+    },
+    "transformational_results_cRe3TQ": {
+      "type": "transformational-results",
+      "blocks": {
+        "profile_eCkzQw": {
+          "type": "profile",
+          "settings": {
+            "person_name": "BAILEY W.",
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_7.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_8.png"
+          }
+        },
+        "profile_CyUnza": {
+          "type": "profile",
+          "settings": {
+            "person_name": "SOPHIA T.",
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_5.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_6.png"
+          }
+        },
+        "profile_DPRMBi": {
+          "type": "profile",
+          "settings": {
+            "person_name": "NEELAM S.",
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png"
+          }
+        },
+        "stat_FWRqP3": {
+          "type": "stat",
+          "settings": {
+            "percent": "100%",
+            "text": "100% of clinical participants reported whiter teeth after only 6 treatments."
+          }
+        },
+        "stat_r8wQ3U": {
+          "type": "stat",
+          "settings": {
+            "percent": "74%",
+            "text": "Clinical participants reported, on average, a 74% increase in teeth brightness."
+          }
+        },
+        "stat_kxhiTG": {
+          "type": "stat",
+          "settings": {
+            "percent": "0%",
+            "text": "0% of clinical participants reported an increase in sensitivity after whitening."
+          }
+        }
+      },
+      "block_order": [
+        "profile_eCkzQw",
+        "profile_CyUnza",
+        "profile_DPRMBi",
+        "stat_FWRqP3",
+        "stat_r8wQ3U",
+        "stat_kxhiTG"
+      ],
+      "name": "Transformational Results",
+      "settings": {
+        "heading": "Transformational Results"
       }
     },
     "240de530-a532-4dbd-b2a8-79f7e7c9b9fa": {
@@ -164,6 +229,44 @@
       ],
       "custom_css": [
         ".Reviews_Section .Reviews_Inr_Section {background-color: #faf5f1;}"
+      ],
+      "settings": {}
+    },
+    "multi_slide_carousel_M68Vqj": {
+      "type": "multi-slide-carousel",
+      "blocks": {
+        "slide_QUnJzW": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Hodgson_1.png",
+            "description": "\"It’s the next best thing to in office treatment and it’s how I keep my smile bright and shiny. Their obsession with quality won my trust.”",
+            "dentist_name": "Dr. Cara Hodgson DDS",
+            "credentials": "<p>UCLA School of Dentistry</p>"
+          }
+        },
+        "slide_CN4BYq": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Ron_Ayzin_1_c3c539fc-cc1f-446a-b6d5-1ebae997b5c7.png",
+            "description": "“When patients ask me what the best way to whiten at home is, my answer is Laughland. I wouldn’t recommend anything I wouldn’t use myself and I’ve noticed a visible difference since using Laughland”",
+            "dentist_name": "Dr. Ron Ayzin DDS",
+            "credentials": "<p>Faculty Instructor, UCLA School of Dentistry</p>"
+          }
+        },
+        "slide_qe7WUD": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Kyra_Jimenez.png",
+            "description": "“It’s important to find a system that works and keeps things simple. Laughland does exactly that.”",
+            "dentist_name": "Dr. Kyra Jimenez DDS",
+            "credentials": "<p>President, NSU Dental Cosmetic Society</p>"
+          }
+        }
+      },
+      "block_order": [
+        "slide_QUnJzW",
+        "slide_CN4BYq",
+        "slide_qe7WUD"
       ],
       "settings": {}
     },
@@ -224,6 +327,7 @@
         "53d00897-c847-438a-b54e-0eb7c0141dc3",
         "294cf63d-37cf-4308-8466-ebcc8997623d"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Getting Started is simple",
         "button_label": "Start Now",
@@ -328,6 +432,7 @@
         "0cea6716-7667-417c-8f1a-c44d1a72559a",
         "a94da3c4-b056-41d3-ae5f-de5ccdeae0ee"
       ],
+      "disabled": true,
       "settings": {
         "section_heading": "Not all whitening is {Created Equal}",
         "section_sub_heading": "",
@@ -400,6 +505,7 @@
         "c727961b-a7cf-4471-87fb-fa8302009ec1",
         "2c52ec03-04aa-4e36-bb46-206b519f147f"
       ],
+      "disabled": true,
       "custom_css": [
         ".Reviews_Section .Reviews_Inr_Section {background-color: #faf5f1;}"
       ],
@@ -466,6 +572,7 @@
         "3f5fff35-bec5-4563-b68f-af7d8b7b045f",
         "4e2a5fd9-e9b2-4712-ae48-1344c2cf3148"
       ],
+      "disabled": true,
       "settings": {
         "section_heading": "Still have questions?",
         "section_sub_heading": ""
@@ -512,6 +619,7 @@
         "9a1df953-43c6-42b5-962e-43f443c50f37",
         "50a6c1e4-9a59-408b-acab-f53140308478"
       ],
+      "disabled": true,
       "settings": {
         "section_heading": "Join the movement",
         "section_sub_heading": "@mylaughland",
@@ -525,7 +633,9 @@
     "36e4f7aa-dd9e-4e47-a123-81be1338efe2",
     "testimonials_BGjeX7",
     "8f55a32e-9355-4413-8e5d-a7d66bb39102",
+    "transformational_results_cRe3TQ",
     "240de530-a532-4dbd-b2a8-79f7e7c9b9fa",
+    "multi_slide_carousel_M68Vqj",
     "0bba9f22-7698-459e-80ea-c2869211daea",
     "first-order-includes-box",
     "adc7667a-6bb9-4319-878c-b709f2259336",
