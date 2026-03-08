@@ -124,45 +124,45 @@
       }
     },
     "key_benefits_landing": {
-      "type": "key-benefits-list",
+      "type": "benefits-icons",
       "blocks": {
-        "item_1": {
-          "type": "item",
+        "benefit_1": {
+          "type": "benefit_item",
           "settings": {
             "title": "Stronger & Quicker Than Generic",
             "description": "Insert description"
           }
         },
-        "item_2": {
-          "type": "item",
+        "benefit_2": {
+          "type": "benefit_item",
           "settings": {
             "title": "Long-Lasting Results",
             "description": "Insert description"
           }
         },
-        "item_3": {
-          "type": "item",
+        "benefit_3": {
+          "type": "benefit_item",
           "settings": {
             "title": "Clinically Trialed. Zero Gimmicks",
             "description": "Insert description"
           }
         },
-        "item_4": {
-          "type": "item",
+        "benefit_4": {
+          "type": "benefit_item",
           "settings": {
             "title": "Used By Dentists Themselves",
             "description": "Insert description"
           }
         },
-        "item_5": {
-          "type": "item",
+        "benefit_5": {
+          "type": "benefit_item",
           "settings": {
             "title": "Professional Whitening At Drugstore Prices",
             "description": "Insert description"
           }
         }
       },
-      "block_order": ["item_1", "item_2", "item_3", "item_4", "item_5"],
+      "block_order": ["benefit_1", "benefit_2", "benefit_3", "benefit_4", "benefit_5"],
       "settings": {
         "heading": ""
       }
