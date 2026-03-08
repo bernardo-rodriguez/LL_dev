@@ -2,8 +2,9 @@
   margin: 0 0 60px;
 }
 
+/* Negative margin only on product page (overlap with section above) */
 @media screen and (min-width: 769px) {
-  .transformational-results {
+  body.template-product .transformational-results {
     margin-top: -60px;
   }
 }
@@ -141,7 +142,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .transformational-results {
+  body.template-product .transformational-results {
     margin-top: -40px;
   }
 

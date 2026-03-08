@@ -1,3 +1,12 @@
+/*========== PERSONALIZATION LANDING PAGE ==========*/
+/* White background (override theme cream/beige) */
+body[class*="personalization-03-26"],
+body[class*="personalization_03_26"],
+body[class*="personalization-03-26"] #MainContent,
+body[class*="personalization_03_26"] #MainContent {
+  background-color: #fff !important;
+}
+
 /*========== 404 PAGE START ==========*/
 
 .error-template {
