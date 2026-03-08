@@ -1,71 +1,121 @@
 {{ 'section-benefit-cards.css' | asset_url | stylesheet_tag }}
+{% if section.settings.layout == 'list' %}
+  {{ 'section-key-benefits-list.css' | asset_url | stylesheet_tag }}
+{% endif %}
 
 {% assign formatted_heading = section.settings.heading
   | replace: '{', "<span class='stylized'>"
   | replace: '}', '</span>'
 %}
 
-{% liquid
-  capture show_ingredients
-    for ingredient in product.selected_or_first_available_variant.metafields.custom.ingredients.value
-      echo ingredient | downcase
-      unless forloop.last
-        echo ','
-      endunless
-    endfor
-  endcapture
-  assign ingredient_list = show_ingredients | split: ','
-%}
-
-<section class="benefit-cards {% if section.settings.margin_bottom %}with-spacing{% endif %}">
-  <div class="page-width">
-    <div class="benefit-cards__inner">
-      <div class="benefit__header-column">
-        {% if formatted_heading != blank %}
-          <h4 class="benefit__heading">{{ formatted_heading }}</h4>
+{% if section.settings.layout == 'list' %}
+  {% comment %} List layout: icon + title + description (Key Benefits style) {% endcomment %}
+  <section class="key-benefits-list benefit-cards benefit-cards--list">
+    <div class="page-width">
+      <div class="key-benefits-list__inner">
+        {% if section.settings.heading != blank %}
+          <h3 class="key-benefits-list__title h3">{{ formatted_heading }}</h3>
         {% endif %}
-        {% if section.settings.text != blank %}
-          <p class="body-lg benefit__paragraph">{{ section.settings.text }}</p>
-        {% endif %}
-      </div>
-
-      <div class="benefit__cards-column">
-        <div class="benefit__card-carousel swiper">
-          <div class="swiper-wrapper">
-            {% for block in section.blocks %}
-              {% assign ingredient_name = block.settings.heading | downcase %}
-              <div class="swiper-slide {% unless ingredient_list contains ingredient_name %}hidden{% endunless %}" data-ingredient="{{ ingredient_name }}">
-                {% assign formatted_card_heading = block.settings.heading
-                  | replace: '{', "<span class='stylized'>"
-                  | replace: '}', '</span>'
-                %}
-                <div class="benefit__card">
-                  {% if formatted_heading != blank %}
-                    <h4 class="benefit__card-heading">
-                      {{ formatted_card_heading }}
-                      {% if block.settings.title %}
-                        <br>
-                        <span class="stylized">{{ block.settings.title }}</span>
-                      {% endif %}
-                    </h4>
+        <div class="key-benefits-list__grid">
+          {% for block in section.blocks %}
+            {% if block.type == 'list_item' %}
+              <div class="key-benefits-list__item" {{ block.shopify_attributes }}>
+                <div class="key-benefits-list__item-icon-wrap">
+                  <div class="key-benefits-list__item-icon">
+                    {% if block.settings.image != blank %}
+                      <img
+                        src="{{ block.settings.image | image_url: width: 160 }}"
+                        alt="{{ block.settings.title | escape }}"
+                        width="80"
+                        height="80"
+                        loading="lazy"
+                      >
+                    {% else %}
+                      <span class="key-benefits-list__item-placeholder" aria-hidden="true"></span>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="key-benefits-list__item-content">
+                  {% if block.settings.title != blank %}
+                    <p class="key-benefits-list__item-title sh2">{{ block.settings.title }}</p>
                   {% endif %}
-                  {% if block.settings.text != blank %}
-                    <p class="body benefit__card-paragraph">{{ block.settings.text }}</p>
+                  {% if block.settings.description != blank %}
+                    <div class="key-benefits-list__item-description body-sm">{{ block.settings.description | newline_to_br }}</div>
                   {% endif %}
                 </div>
               </div>
-            {% endfor %}
-          </div>
-        </div>
-        <div class="benefit__navigation-wrapper">
-          <div class="swiper-button-prev benefit-prev"></div>
-          <div class="swiper-button-next benefit-next"></div>
+            {% endif %}
+          {% endfor %}
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+{% else %}
+  {% liquid
+    capture show_ingredients
+      for ingredient in product.selected_or_first_available_variant.metafields.custom.ingredients.value
+        echo ingredient | downcase
+        unless forloop.last
+          echo ','
+        endunless
+      endfor
+    endcapture
+    assign ingredient_list = show_ingredients | split: ','
+  %}
 
+  <section class="benefit-cards {% if section.settings.margin_bottom %}with-spacing{% endif %}">
+    <div class="page-width">
+      <div class="benefit-cards__inner">
+        <div class="benefit__header-column">
+          {% if formatted_heading != blank %}
+            <h4 class="benefit__heading">{{ formatted_heading }}</h4>
+          {% endif %}
+          {% if section.settings.text != blank %}
+            <p class="body-lg benefit__paragraph">{{ section.settings.text }}</p>
+          {% endif %}
+        </div>
+
+        <div class="benefit__cards-column">
+          <div class="benefit__card-carousel swiper">
+            <div class="swiper-wrapper">
+              {% for block in section.blocks %}
+                {% if block.type == 'card' %}
+                  {% assign ingredient_name = block.settings.heading | downcase %}
+                  <div class="swiper-slide {% unless ingredient_list contains ingredient_name %}hidden{% endunless %}" data-ingredient="{{ ingredient_name }}">
+                    {% assign formatted_card_heading = block.settings.heading
+                      | replace: '{', "<span class='stylized'>"
+                      | replace: '}', '</span>'
+                    %}
+                    <div class="benefit__card">
+                      {% if formatted_heading != blank %}
+                        <h4 class="benefit__card-heading">
+                          {{ formatted_card_heading }}
+                          {% if block.settings.title %}
+                            <br>
+                            <span class="stylized">{{ block.settings.title }}</span>
+                          {% endif %}
+                        </h4>
+                      {% endif %}
+                      {% if block.settings.text != blank %}
+                        <p class="body benefit__card-paragraph">{{ block.settings.text }}</p>
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+          <div class="benefit__navigation-wrapper">
+            <div class="swiper-button-prev benefit-prev"></div>
+            <div class="swiper-button-next benefit-next"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% if section.settings.layout != 'list' %}
 {% javascript %}
   const benefitsSwiper = new Swiper('.benefit__card-carousel', {
     slidesPerView: 1.25,
@@ -88,11 +138,23 @@
     }
   });
 {% endjavascript %}
+{% endif %}
 
 {% schema %}
 {
   "name": "Benefits Cards",
   "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        { "value": "carousel", "label": "Carousel (cards)" },
+        { "value": "list", "label": "List (icon + title + description)" }
+      ],
+      "default": "carousel",
+      "info": "Use “List” for the Key Benefits style above Why Personalization."
+    },
     {
       "type": "textarea",
       "id": "heading",
@@ -102,7 +164,8 @@
     {
       "type": "textarea",
       "id": "text",
-      "label": "Text"
+      "label": "Text",
+      "info": "Only used in Carousel layout"
     },
     {
       "type": "checkbox",
@@ -133,11 +196,79 @@
           "label": "Text"
         }
       ]
+    },
+    {
+      "name": "List item",
+      "type": "list_item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon / Image",
+          "info": "Leave empty for light blue circle"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Benefit title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Insert description"
+        }
+      ]
     }
   ],
   "presets": [
     {
       "name": "Benefits Cards"
+    },
+    {
+      "name": "Key Benefits (list)",
+      "settings": {
+        "layout": "list",
+        "heading": ""
+      },
+      "blocks": [
+        {
+          "type": "list_item",
+          "settings": {
+            "title": "Stronger & Quicker Than Generic",
+            "description": "Insert description"
+          }
+        },
+        {
+          "type": "list_item",
+          "settings": {
+            "title": "Long-Lasting Results",
+            "description": "Insert description"
+          }
+        },
+        {
+          "type": "list_item",
+          "settings": {
+            "title": "Clinically Trialed. Zero Gimmicks",
+            "description": "Insert description"
+          }
+        },
+        {
+          "type": "list_item",
+          "settings": {
+            "title": "Used By Dentists Themselves",
+            "description": "Insert description"
+          }
+        },
+        {
+          "type": "list_item",
+          "settings": {
+            "title": "Professional Whitening At Drugstore Prices",
+            "description": "Insert description"
+          }
+        }
+      ]
     }
   ]
 }
