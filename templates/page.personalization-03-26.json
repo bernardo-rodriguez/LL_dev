@@ -551,6 +551,68 @@
         "section_sub_heading": "@mylaughland",
         "sub_heading_link": "https://www.instagram.com/"
       }
+    },
+    "transformational_results_cRe3TQ": {
+      "type": "transformational-results",
+      "blocks": {
+        "profile_eCkzQw": {
+          "type": "profile",
+          "settings": {
+            "person_name": "BAILEY W.",
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_7.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_8.png"
+          }
+        },
+        "profile_CyUnza": {
+          "type": "profile",
+          "settings": {
+            "person_name": "SOPHIA T.",
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_5.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_6.png"
+          }
+        },
+        "profile_DPRMBi": {
+          "type": "profile",
+          "settings": {
+            "person_name": "NEELAM S.",
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png"
+          }
+        },
+        "stat_FWRqP3": {
+          "type": "stat",
+          "settings": {
+            "percent": "100%",
+            "text": "100% of clinical participants reported whiter teeth after only 6 treatments."
+          }
+        },
+        "stat_r8wQ3U": {
+          "type": "stat",
+          "settings": {
+            "percent": "74%",
+            "text": "Clinical participants reported, on average, a 74% increase in teeth brightness."
+          }
+        },
+        "stat_kxhiTG": {
+          "type": "stat",
+          "settings": {
+            "percent": "0%",
+            "text": "0% of clinical participants reported an increase in sensitivity after whitening."
+          }
+        }
+      },
+      "block_order": [
+        "profile_eCkzQw",
+        "profile_CyUnza",
+        "profile_DPRMBi",
+        "stat_FWRqP3",
+        "stat_r8wQ3U",
+        "stat_kxhiTG"
+      ],
+      "name": "Transformational Results",
+      "settings": {
+        "heading": "Transformational Results"
+      }
     }
   },
   "order": [
@@ -566,6 +628,7 @@
     "d3414607-66d0-46b2-a396-e6a4263c1ca4",
     "a4c5d03d-76b9-4c42-a509-36657ba4b556",
     "49f3d9ac-7509-4919-89f3-3c6825a727c8",
-    "b60d8150-a8c1-4d20-a017-a4952d382660"
+    "b60d8150-a8c1-4d20-a017-a4952d382660",
+    "transformational_results_cRe3TQ"
   ]
 }
