@@ -15,6 +15,11 @@
               <h3 class="why-personalization__title h3">{{ formatted_heading }}</h3>
             {% endif %}
           </div>
+          {% if section.settings.intro_text != blank %}
+            <div class="why-personalization__intro-wrap">
+              <p class="why-personalization__intro sh2">{{ section.settings.intro_text | newline_to_br }}</p>
+            </div>
+          {% endif %}
           <div class="why-personalization__footer">
             {% if section.settings.summary != blank %}
               <p class="why-personalization__summary sh2">{{ section.settings.summary }}</p>
@@ -33,11 +38,6 @@
           </div>
         </div>
         <div class="why-personalization__right">
-          {% if section.settings.intro_text != blank %}
-            <div class="why-personalization__intro-wrap">
-              <p class="why-personalization__intro sh2">{{ section.settings.intro_text | newline_to_br }}</p>
-            </div>
-          {% endif %}
           <div class="why-personalization__image-wrap">
             {% if section.settings.image != blank %}
               <img

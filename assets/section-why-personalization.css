@@ -183,12 +183,16 @@
     margin-bottom: 24px;
   }
 
+  .why-personalization__intro-wrap {
+    margin-bottom: 24px;
+  }
+
   .why-personalization__title {
     text-align: left;
   }
 
   .why-personalization__image-wrap {
-    margin-top: 20px;
+    margin-top: 0;
   }
 
   .why-personalization__summary {
