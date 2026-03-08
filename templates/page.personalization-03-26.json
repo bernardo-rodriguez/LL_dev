@@ -84,6 +84,15 @@
         "review_label": "Review"
       }
     },
+    "benefit_cards_XErwHq": {
+      "type": "benefit-cards",
+      "name": "Benefits Cards",
+      "settings": {
+        "heading": "",
+        "text": "",
+        "margin_bottom": true
+      }
+    },
     "8f55a32e-9355-4413-8e5d-a7d66bb39102": {
       "type": "icon-text-columns",
       "blocks": {
@@ -121,52 +130,6 @@
       "settings": {
         "heading": "{Why} Laughland?",
         "section_padding": true
-      }
-    },
-    "key_benefits_landing": {
-      "type": "benefit-cards",
-      "blocks": {
-        "benefit_1": {
-          "type": "list_item",
-          "settings": {
-            "title": "Stronger & Quicker Than Generic",
-            "description": "Insert description"
-          }
-        },
-        "benefit_2": {
-          "type": "list_item",
-          "settings": {
-            "title": "Long-Lasting Results",
-            "description": "Insert description"
-          }
-        },
-        "benefit_3": {
-          "type": "list_item",
-          "settings": {
-            "title": "Clinically Trialed. Zero Gimmicks",
-            "description": "Insert description"
-          }
-        },
-        "benefit_4": {
-          "type": "list_item",
-          "settings": {
-            "title": "Used By Dentists Themselves",
-            "description": "Insert description"
-          }
-        },
-        "benefit_5": {
-          "type": "list_item",
-          "settings": {
-            "title": "Professional Whitening At Drugstore Prices",
-            "description": "Insert description"
-          }
-        }
-      },
-      "block_order": ["benefit_1", "benefit_2", "benefit_3", "benefit_4", "benefit_5"],
-      "settings": {
-        "layout": "list",
-        "heading": "Key Benefits",
-        "margin_bottom": true
       }
     },
     "why_personalization_landing": {
@@ -715,8 +678,8 @@
     "3a2908b4-cb46-4bba-ab1d-db530f856c49",
     "36e4f7aa-dd9e-4e47-a123-81be1338efe2",
     "testimonials_BGjeX7",
+    "benefit_cards_XErwHq",
     "8f55a32e-9355-4413-8e5d-a7d66bb39102",
-    "key_benefits_landing",
     "why_personalization_landing",
     "transformational_results_cRe3TQ",
     "240de530-a532-4dbd-b2a8-79f7e7c9b9fa",
