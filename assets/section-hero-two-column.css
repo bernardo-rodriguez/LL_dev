@@ -35,8 +35,6 @@
 }
 
 .hero-two-column__headline {
-  font-family: manrope, sans-serif;
-  font-weight: 500;
   font-size: 48px;
   line-height: 1.2;
   letter-spacing: var(--ds-heading-ls-lg, -0.02em);
@@ -48,10 +46,8 @@
 }
 
 .hero-two-column__description {
-  font-family: manrope, sans-serif;
   font-size: 18px;
   line-height: 1.5;
-  font-weight: 400;
   color: var(--navy);
   margin: 0 0 32px;
   max-width: 100%;
@@ -109,7 +105,6 @@
 }
 
 .hero-two-column__review-count {
-  font-family: manrope, sans-serif;
   font-weight: 600;
   font-size: 18px;
   line-height: 1.3;
@@ -117,7 +112,6 @@
 }
 
 .hero-two-column__review-author {
-  font-family: manrope, sans-serif;
   font-weight: 500;
   font-size: 16px;
   color: var(--navy);
@@ -125,15 +119,12 @@
 }
 
 .hero-two-column__testimonial {
-  font-family: manrope, sans-serif;
   font-size: 14px;
   line-height: 1.5;
-  font-weight: 400;
   color: var(--navy);
   margin: 0;
   padding-left: 0;
   border-left: none;
-  font-style: normal;
 }
 
 /* Right column: half the space (equal to left) */
@@ -207,15 +198,20 @@
   }
 }
 
-/* Mobile: stack columns; review moves into image card */
+/* Mobile: CTA first, then image card (image + review); tighter padding */
 @media screen and (max-width: 768px) {
   .hero-two-column {
-    padding: 40px 0 60px;
+    padding: 24px 0 40px;
+  }
+
+  .hero-two-column__inner {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .hero-two-column__flex {
     flex-direction: column;
-    gap: 40px;
+    gap: 24px;
     text-align: center;
   }
 
@@ -258,13 +254,12 @@
     margin-left: 0;
   }
 
-  /* Image first on mobile: one card = image + review at bottom */
+  /* Image card below CTA (no order change): one card = image + review */
   .hero-two-column__image-col {
-    order: -1;
     flex: 0 0 auto;
     width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
   }
 
   .hero-two-column__image-card {
@@ -279,14 +274,14 @@
   .hero-two-column__image-card .hero-two-column__image-box {
     max-width: 100%;
     margin: 0;
-    padding: 12px 12px 0;
+    padding: 8px 8px 0;
     border: none;
     border-radius: 0;
   }
 
   .hero-two-column__image-card .hero-two-column__review-block--mobile {
     display: block;
-    padding: 16px 12px 16px;
+    padding: 12px 8px 12px;
     border-top: 1px solid rgba(13, 34, 68, 0.08);
   }
 
