@@ -31,7 +31,7 @@
         {% endif %}
 
         {% if section.settings.review_count != blank or section.settings.testimonial_text != blank %}
-          <div class="hero-two-column__review-block">
+          <div class="hero-two-column__review-block hero-two-column__review-block--desktop">
             {% if section.settings.review_count != blank %}
               <div class="hero-two-column__review-header">
                 <div class="hero-two-column__stars">
@@ -50,22 +50,43 @@
         {% endif %}
       </div>
 
-      {%- comment -%} Right column: product image - simple flex div + img {%- endcomment -%}
+      {%- comment -%} Right column: product image; on mobile this becomes a card with image + review {%- endcomment -%}
       <div class="hero-two-column__image-col">
-        {% if section.settings.product_image_url != blank %}
-          <div class="hero-two-column__image-box">
-            <img src="{{ section.settings.product_image_url }}" alt="" loading="lazy" width="280" height="280">
-          </div>
-        {% elsif section.settings.product_image != blank %}
-          <div class="hero-two-column__image-box">
-            {% if section.settings.mobile_image != blank %}
-              {% render 'lazy-image', image: section.settings.product_image, fade: true, fill: true, classes: 'hero-two-column__img hide-mobile' %}
-              {% render 'lazy-image', image: section.settings.mobile_image, fade: true, fill: true, classes: 'hero-two-column__img hide-desktop' %}
-            {% else %}
-              {% render 'lazy-image', image: section.settings.product_image, fade: true, fill: true, classes: 'hero-two-column__img' %}
-            {% endif %}
-          </div>
-        {% endif %}
+        <div class="hero-two-column__image-card">
+          {% if section.settings.product_image_url != blank %}
+            <div class="hero-two-column__image-box">
+              <img src="{{ section.settings.product_image_url }}" alt="" loading="lazy" width="280" height="280">
+            </div>
+          {% elsif section.settings.product_image != blank %}
+            <div class="hero-two-column__image-box">
+              {% if section.settings.mobile_image != blank %}
+                {% render 'lazy-image', image: section.settings.product_image, fade: true, fill: true, classes: 'hero-two-column__img hide-mobile' %}
+                {% render 'lazy-image', image: section.settings.mobile_image, fade: true, fill: true, classes: 'hero-two-column__img hide-desktop' %}
+              {% else %}
+                {% render 'lazy-image', image: section.settings.product_image, fade: true, fill: true, classes: 'hero-two-column__img' %}
+              {% endif %}
+            </div>
+          {% endif %}
+          {%- comment -%} Mobile-only: review as lower container on the image card {%- endcomment -%}
+          {% if section.settings.review_count != blank or section.settings.testimonial_text != blank %}
+            <div class="hero-two-column__review-block hero-two-column__review-block--mobile">
+              {% if section.settings.review_count != blank %}
+                <div class="hero-two-column__review-header">
+                  <div class="hero-two-column__stars">
+                    {% render 'icon' icon: 'review-5-star' %}
+                  </div>
+                  <span class="hero-two-column__review-count sh1">{{ section.settings.review_count }}</span>
+                  {% if section.settings.review_author != blank %}
+                    <span class="hero-two-column__review-author sh2">— {{ section.settings.review_author }}</span>
+                  {% endif %}
+                </div>
+              {% endif %}
+              {% if section.settings.testimonial_text != blank %}
+                <blockquote class="hero-two-column__testimonial body-sm">{{ section.settings.testimonial_text }}</blockquote>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>

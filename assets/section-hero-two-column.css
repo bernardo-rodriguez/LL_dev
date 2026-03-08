@@ -178,6 +178,16 @@
   object-fit: contain;
 }
 
+/* Desktop: show review in content column only; hide mobile review */
+.hero-two-column__review-block--mobile {
+  display: none;
+}
+
+/* Image card wrapper: no visual change on desktop */
+.hero-two-column__image-card {
+  width: 100%;
+}
+
 /* Tablet */
 @media screen and (max-width: 991px) {
   .hero-two-column {
@@ -197,7 +207,7 @@
   }
 }
 
-/* Mobile: stack columns */
+/* Mobile: stack columns; review moves into image card */
 @media screen and (max-width: 768px) {
   .hero-two-column {
     padding: 40px 0 60px;
@@ -230,6 +240,11 @@
     margin-right: auto;
   }
 
+  /* Hide review in content column on mobile; it lives in the image card */
+  .hero-two-column__review-block--desktop {
+    display: none !important;
+  }
+
   .hero-two-column__review-block {
     text-align: left;
   }
@@ -243,19 +258,36 @@
     margin-left: 0;
   }
 
-  /* Image first on mobile */
+  /* Image first on mobile: one card = image + review at bottom */
   .hero-two-column__image-col {
     order: -1;
     flex: 0 0 auto;
     width: 100%;
-    max-width: 200px;
+    max-width: 320px;
     margin: 0 auto;
   }
 
-  .hero-two-column__image-box {
-    max-width: 200px;
-    margin: 0 auto;
-    padding: 12px;
+  .hero-two-column__image-card {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid rgba(13, 34, 68, 0.12);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .hero-two-column__image-card .hero-two-column__image-box {
+    max-width: 100%;
+    margin: 0;
+    padding: 12px 12px 0;
+    border: none;
+    border-radius: 0;
+  }
+
+  .hero-two-column__image-card .hero-two-column__review-block--mobile {
+    display: block;
+    padding: 16px 12px 16px;
+    border-top: 1px solid rgba(13, 34, 68, 0.08);
   }
 
   .hero-two-column__image-box img {
