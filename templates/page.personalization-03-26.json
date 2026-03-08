@@ -178,6 +178,19 @@
         "button_action": "quiz"
       }
     },
+    "first-order-includes-box": {
+      "type": "first-order-includes",
+      "settings": {
+        "section_title": "FIRST ORDER INCLUDES",
+        "kit_previous_price": "$70",
+        "kit_current_price": "$39",
+        "total_previous_price": "$115",
+        "total_current_price": "$39",
+        "footer_text": "MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS",
+        "button_label": "UNLOCK OFFER",
+        "button_link": "#get-started"
+      }
+    },
     "adc7667a-6bb9-4319-878c-b709f2259336": {
       "type": "icon-with-text",
       "blocks": {
@@ -514,6 +527,7 @@
     "8f55a32e-9355-4413-8e5d-a7d66bb39102",
     "240de530-a532-4dbd-b2a8-79f7e7c9b9fa",
     "0bba9f22-7698-459e-80ea-c2869211daea",
+    "first-order-includes-box",
     "adc7667a-6bb9-4319-878c-b709f2259336",
     "d3414607-66d0-46b2-a396-e6a4263c1ca4",
     "a4c5d03d-76b9-4c42-a509-36657ba4b556",
