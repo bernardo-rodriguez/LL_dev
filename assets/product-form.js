@@ -586,18 +586,21 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   getSectionsToRender() {
-    return [
-      {
+    const cartDrawerEl = document.getElementById('cart-drawer__content');
+    const sections = [];
+    if (cartDrawerEl && cartDrawerEl.dataset && cartDrawerEl.dataset.id) {
+      sections.push({
         id: 'cart-drawer__content',
-        section: document.getElementById('cart-drawer__content').dataset.id,
+        section: cartDrawerEl.dataset.id,
         selector: '.cart-drawer__content',
-      },
-      {
-        id: 'cart-icon-bubble',
-        section: 'cart-icon-bubble',
-        selector: '.shopify-section'
-      }
-    ];
+      });
+    }
+    sections.push({
+      id: 'cart-icon-bubble',
+      section: 'cart-icon-bubble',
+      selector: '.shopify-section'
+    });
+    return sections;
   }
 
   getSectionInnerHTML(html, selector) {
