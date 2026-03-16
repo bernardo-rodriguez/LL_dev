@@ -499,23 +499,23 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       }
     }
 
-    var referrer = this.getCookie('affiliate_referrer') || 'default';
-    var flow = (typeof affiliate_config !== 'undefined' && affiliate_config[referrer] && affiliate_config[referrer].flow) ? affiliate_config[referrer].flow : (affiliate_config && affiliate_config['default'] && affiliate_config['default'].flow) || {};
-    var addPenWithKitEnabled = flow.add_pen_with_kit === true;
-    if (addPenWithKitEnabled && product_form.product_id == window.ProductConfig.KIT_ONE_MONTH_SUPPLY.product_id) {
-      add_pen_cookie()
-      // setCookie('productDiscountCode', 'ADD_PEN')
+    // Add pen when main kit (current_products_ref.KIT_DEFAULT) and subscription checkout; or when user chose pen in upsell (add_pen cookie)
+    var kitProductIdForPen = (typeof current_products_ref !== 'undefined' && current_products_ref.KIT_DEFAULT) ? current_products_ref.KIT_DEFAULT.product_id : (window.ProductConfig && window.ProductConfig.KIT_DEFAULT && window.ProductConfig.KIT_DEFAULT.product_id) || 7503162605793;
+    var isSubscription = !!(product_form.selling_plan || (skio && skio.selectedSellingPlan && skio.selectedSellingPlan.id));
+    var addPenForKitSubscription = (product_form.product_id == kitProductIdForPen && isSubscription);
+    if (addPenForKitSubscription) {
+      add_pen_cookie();
     }
 
-    let pen = this.getCookie('add_pen')
-    var shouldAddPen = (pen && pen != 'false') || (addPenWithKitEnabled && product_form.product_id == window.ProductConfig.KIT_ONE_MONTH_SUPPLY.product_id);
+    let pen = this.getCookie('add_pen');
+    var shouldAddPen = (pen && pen != 'false') || addPenForKitSubscription;
     if (shouldAddPen) {
       var penVariantId = (pen && pen != 'false') ? pen : this.getCookie('add_pen');
       if (penVariantId && penVariantId != 'false') {
         itemsList.push({
           id: penVariantId,
           quantity: 1
-        })
+        });
       }
     }
 
