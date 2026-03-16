@@ -23,7 +23,7 @@ affiliate_config = {
             'skip_quiz': false,
             'discount_code': null,
             'cart_attribute': null,
-            'add_pen_with_kit': true,  // when true, automatically add To-Go Whitening Pen when customer adds main kit (1-month) to cart; set false to disable per affiliate
+            'add_pen_with_kit': false,  // when true, automatically add To-Go Whitening Pen when customer adds main kit (1-month) to cart; set false to disable per affiliate
         },
         'product_page_copy': {
             'bundle_offer_title': 'Buy Now',
