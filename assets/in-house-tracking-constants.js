@@ -67,7 +67,8 @@ affiliate_config = {
         'flow': {
             'product_page': '/products/6-serving-of-whitening-gels-free-starter-kit',
             'cart_attribute': 'nift_6',
-            'discount_code': 'NIFT_AUTOMATIC,NIFT_AUTO,ADD_PEN'
+            'discount_code': 'NIFT_AUTOMATIC,NIFT_AUTO,ADD_PEN',
+            'add_pen_with_kit': false, 
         },
         'landing_page_copy': {
             'hero_subtitle_1': ['margin-bottom', '50px !important'],
@@ -94,7 +95,8 @@ affiliate_config = {
         'flow': {
             'product_page': '/products/starter-whitening-kit-6-treatments-free-pen',
             'cart_attribute': 'nift_bundle',
-            'discount_code': 'NIFT_AUTOMATIC,NIFT_AUTO,ADD_PEN'
+            'discount_code': 'NIFT_AUTOMATIC,NIFT_AUTO,ADD_PEN',
+            'add_pen_with_kit': false, 
         },
         'landing_page_copy': {
             'hero_subtitle_1': ['margin-bottom', '50px !important'],
@@ -129,6 +131,9 @@ affiliate_config = {
             'discount_name': 'Starter Kit',
             'discount_desc': '22% OFF',
             'regular_item_price': null
+        },
+        'flow': {
+            'add_pen_with_kit': false, 
         }
     },
     'lo1_offer': {
@@ -147,22 +152,32 @@ affiliate_config = {
             'discount_name': 'Starter Kit',
             'discount_desc': '22% OFF',
             'regular_item_price': null
+        },
+        'flow': {
+            'add_pen_with_kit': false, 
         }
     },
     'ls1_offer': {
         'pricing': {
             'one_time_enabled': false,
             'subscription_enabled': true,
+        },
+        'flow': {
+            'add_pen_with_kit': false, 
         }
     },
     'cpgap_home': {
         'pricing': {
             'one_time_enabled': true,
             'subscription_enabled': true,
+        },
+        'flow': {
+            'add_pen_with_kit': false, 
         }
     },
     'redirect_cpgap': {
         'flow': {
+            'add_pen_with_kit': false, 
             'discount_code': 'CPGAP_STARTER',
             'cart_attribute': 'redirect_cpgap',
             'bundle_discount': {'1':'CPGAP_STARTER', '2':'CPGAP_STARTER_2', '3': 'CPGAP_STARTER_3'}
@@ -189,6 +204,7 @@ affiliate_config = {
             'announcement_bar': 'Discount auto applied at checkout!',
         },
         'flow': {
+            'add_pen_with_kit': false, 
             'discount_code': 'CPGAP_SUB',
             'cart_attribute': 'redirect_cpgap_gen',
         },
@@ -214,6 +230,7 @@ affiliate_config = {
             'announcement_bar': 'Discount auto applied at checkout!',
         },
         'flow': {
+            'add_pen_with_kit': false, 
             'discount_code': 'TJM_OFFER_1Q',
             'cart_attribute': 'jam_media',
             'bundle_discount': {'1':'TJM_OFFER_1Q', '2':'TJM_OFFER_2W', '3': 'TJM_OFFER_3E'}
@@ -240,6 +257,7 @@ affiliate_config = {
             'announcement_bar': 'Discount auto applied at checkout!',
         },
         'flow': {
+            'add_pen_with_kit': false, 
             'discount_code': 'TJM_OFFER_1Q',
             'cart_attribute': 'jam_media',
         },
@@ -262,6 +280,7 @@ affiliate_config = {
     },
     'redirect_paceline': {
         'flow': {
+            'add_pen_with_kit': false, 
             'discount_code': 'PACELINE_AUTOMATIC',
             'cart_attribute': 'paceline',
         },
@@ -290,6 +309,7 @@ affiliate_config = {
             'bundle_offer_title': 'Sweatcoin Special',
         },
         'flow': {
+            'add_pen_with_kit': false, 
             'product_page': '/products/at-home-whitening-kit-affiliate-ft',
             'discount_code': 'pen-addon,UTM_SUB_12_TREATMENTS_S,UTM_SUB_12_TREATMENTS_STRONG_S',
             'cart_attribute': 'sweatcoin',
@@ -326,6 +346,7 @@ affiliate_config = {
     //         'bundle_offer_title': 'Starter Kit',
     //     },
     //     'flow': {
+    //         'add_pen_with_kit': false, 
     //         'product_page': '/products/at-home-whitening-kit-affiliate-ut',
     //         'cart_attribute': 'cactus_media',
     //         'show_upsell': true,
@@ -361,6 +382,7 @@ affiliate_config = {
 
         },
         'flow': {
+            'add_pen_with_kit': false, 
             'product_page': '/products/at-home-whitening-kit-affiliate-ut',
             'cart_attribute': 'cactus_media',
             // 'show_upsell': true,
@@ -392,6 +414,7 @@ affiliate_config = {
     //         'announcement_bar': 'Discount auto applied at checkout!',
     //     },
     //     'flow': {
+    //         'add_pen_with_kit': false, 
     //         'product_page': '/products/at-home-whitening-kit-affiliate-ut',
     //         'discount_code': 'Pen-Addon',
     //         'cart_attribute': 'cactus_media',
@@ -429,6 +452,7 @@ affiliate_config = {
             'bundle_offer_title': 'Starter Kit',
         },
         'flow': {
+            'add_pen_with_kit': false, 
             'product_page': '/products/at-home-whitening-kit-affiliate-ut',
             'cart_attribute': 'cactus_media',
             'show_upsell': true,
@@ -458,6 +482,7 @@ affiliate_config = {
     },
     'redirect_miles': {
         'flow': {
+            'add_pen_with_kit': false, 
             'discount_code': 'MILES_AUTOMATIC',
             'cart_attribute': 'miles',
         },
@@ -476,12 +501,14 @@ affiliate_config = {
             'announcement_bar': '👋 Skimm reader, discount auto-applied at checkout!',
         },
         'flow': {
+            'add_pen_with_kit': false, 
             'discount_code': 'SKIMM25',
             'cart_attribute': 'skimm',
         },
     },
     'redirect_pinterest': {
         'flow': {
+            'add_pen_with_kit': false, 
             'discount_code': 'PINTEREST25',
             'cart_attribute': 'pinterest',
         }
@@ -492,6 +519,9 @@ affiliate_config = {
         },
         'featured_product': {
             'subPrice': '9'
+        },
+        'flow': {
+            'add_pen_with_kit': false, 
         }
     },
     'redirect_inspire': {
@@ -503,6 +533,9 @@ affiliate_config = {
             'discount_name': 'Subscribe & Save',
             'discount_desc': '80% OFF',
             'regular_item_price': '$59'
+        },
+        'flow': {
+            'add_pen_with_kit': false, 
         }
     }
 }
