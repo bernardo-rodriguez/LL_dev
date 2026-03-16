@@ -499,17 +499,24 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       }
     }
 
-    if (product_form.product_id == window.ProductConfig.KIT_ONE_MONTH_SUPPLY.product_id) {
+    var referrer = this.getCookie('affiliate_referrer') || 'default';
+    var flow = (typeof affiliate_config !== 'undefined' && affiliate_config[referrer] && affiliate_config[referrer].flow) ? affiliate_config[referrer].flow : (affiliate_config && affiliate_config['default'] && affiliate_config['default'].flow) || {};
+    var addPenWithKitEnabled = flow.add_pen_with_kit === true;
+    if (addPenWithKitEnabled && product_form.product_id == window.ProductConfig.KIT_ONE_MONTH_SUPPLY.product_id) {
       add_pen_cookie()
       // setCookie('productDiscountCode', 'ADD_PEN')
     }
 
     let pen = this.getCookie('add_pen')
-    if ((pen && pen != 'false') || (product_form.product_id == window.ProductConfig.KIT_ONE_MONTH_SUPPLY.product_id)) {
-      itemsList.push({
-        id: pen,
-        quantity: 1
-      })
+    var shouldAddPen = (pen && pen != 'false') || (addPenWithKitEnabled && product_form.product_id == window.ProductConfig.KIT_ONE_MONTH_SUPPLY.product_id);
+    if (shouldAddPen) {
+      var penVariantId = (pen && pen != 'false') ? pen : this.getCookie('add_pen');
+      if (penVariantId && penVariantId != 'false') {
+        itemsList.push({
+          id: penVariantId,
+          quantity: 1
+        })
+      }
     }
 
     if ($('#package_protection').prop('checked')) {

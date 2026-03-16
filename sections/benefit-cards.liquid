@@ -44,6 +44,23 @@
                   {% endif %}
                 </div>
               </div>
+            {% elsif block.type == 'card' %}
+              {% comment %} Show card blocks in list layout too (heading = title, text = description) {% endcomment %}
+              <div class="key-benefits-list__item" {{ block.shopify_attributes }}>
+                <div class="key-benefits-list__item-icon-wrap">
+                  <div class="key-benefits-list__item-icon">
+                    <span class="key-benefits-list__item-placeholder" aria-hidden="true"></span>
+                  </div>
+                </div>
+                <div class="key-benefits-list__item-content">
+                  {% if block.settings.heading != blank %}
+                    <p class="key-benefits-list__item-title sh2">{{ block.settings.heading }}</p>
+                  {% endif %}
+                  {% if block.settings.text != blank %}
+                    <div class="key-benefits-list__item-description body-sm">{{ block.settings.text | newline_to_br }}</div>
+                  {% endif %}
+                </div>
+              </div>
             {% endif %}
           {% endfor %}
         </div>
@@ -52,15 +69,18 @@
   </section>
 {% else %}
   {% liquid
-    capture show_ingredients
-      for ingredient in product.selected_or_first_available_variant.metafields.custom.ingredients.value
-        echo ingredient | downcase
-        unless forloop.last
-          echo ','
-        endunless
-      endfor
-    endcapture
-    assign ingredient_list = show_ingredients | split: ','
+    assign ingredient_list = ''
+    if product != blank and product.selected_or_first_available_variant.metafields.custom.ingredients.value != blank
+      capture show_ingredients
+        for ingredient in product.selected_or_first_available_variant.metafields.custom.ingredients.value
+          echo ingredient | downcase
+          unless forloop.last
+            echo ','
+          endunless
+        endfor
+      endcapture
+      assign ingredient_list = show_ingredients | split: ','
+    endif
   %}
 
   <section class="benefit-cards {% if section.settings.margin_bottom %}with-spacing{% endif %}">
@@ -81,7 +101,13 @@
               {% for block in section.blocks %}
                 {% if block.type == 'card' %}
                   {% assign ingredient_name = block.settings.heading | downcase %}
-                  <div class="swiper-slide {% unless ingredient_list contains ingredient_name %}hidden{% endunless %}" data-ingredient="{{ ingredient_name }}">
+                  {% assign is_hidden = false %}
+                  {% if ingredient_list != empty %}
+                    {% unless ingredient_list contains ingredient_name %}
+                      {% assign is_hidden = true %}
+                    {% endunless %}
+                  {% endif %}
+                  <div class="swiper-slide {% if is_hidden %}hidden{% endif %}" data-ingredient="{{ ingredient_name }}">
                     {% assign formatted_card_heading = block.settings.heading
                       | replace: '{', "<span class='stylized'>"
                       | replace: '}', '</span>'
@@ -224,13 +250,27 @@
   ],
   "presets": [
     {
-      "name": "Benefits Cards"
+      "name": "Benefits Cards",
+      "settings": {
+        "heading": "Benefits",
+        "text": "Add cards below."
+      },
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "heading": "Sample benefit",
+            "title": "Benefit title",
+            "text": "Add more cards in the theme editor."
+          }
+        }
+      ]
     },
     {
       "name": "Key Benefits (list)",
       "settings": {
         "layout": "list",
-        "heading": ""
+        "heading": "Key Benefits"
       },
       "blocks": [
         {

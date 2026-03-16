@@ -23,6 +23,7 @@ affiliate_config = {
             'skip_quiz': false,
             'discount_code': null,
             'cart_attribute': null,
+            'add_pen_with_kit': true,  // when true, automatically add To-Go Whitening Pen when customer adds main kit (1-month) to cart; set false to disable per affiliate
         },
         'product_page_copy': {
             'bundle_offer_title': 'Buy Now',
@@ -667,9 +668,10 @@ const INCLUDE_SHIPPING = {
     current_price: 'FREE',
 };
 
+// Matches default affiliate_config.general.product_banner: "LIMITED TIME OFFER: 50% OFF YOUR FIRST SUBSCRIPTION PLUS FREE SHIPPING AND A GIFT"
 const INCLUDE_SUBSCRIBE_DISCLAIMER = {
     type: 'disclaimer',
-    text: 'Save <strong>30%</strong> on your first order when subscribing and receive <strong>2 Free Gifts</strong> + <strong>Free Shipping</strong>.',
+    text: '<strong>LIMITED TIME OFFER:</strong> 50% OFF YOUR FIRST SUBSCRIPTION PLUS FREE SHIPPING AND A GIFT.',
     link_text: 'Switch to <strong>Subscribe &amp; Save</strong>',
 };
 
