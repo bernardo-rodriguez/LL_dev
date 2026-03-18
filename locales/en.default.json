@@ -597,6 +597,9 @@
           "other": "Shipping Speed"
         }
       }
+    },
+    "subscriptions": {
+      "buyer_consent_cart": "Your satisfaction is our priority. If you wish to make any edits to your order, switch your formula, or have any questions about your treatment plan, please email team@mylaughland.com"
     }
   }
 }
