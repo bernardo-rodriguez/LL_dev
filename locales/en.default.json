@@ -599,8 +599,8 @@
       }
     },
     "subscriptions": {
-      "buyer_consent_cart": "Your satisfaction is our priority. If you wish to make any edits to your order, switch your formula, or have any questions about your treatment plan, Please email team@mylaughland.com",
-      "buyer_consent_product": "Your satisfaction is our priority. If you wish to make any edits to your order, switch your formula, or have any questions about your treatment plan, Please email team@mylaughland.com"
+      "buyer_consent_cart": "If you wish to make any edits to your order, switch your formula, or have any questions about your treatment plan, Please email team@mylaughland.com",
+      "buyer_consent_product": "If you wish to make any edits to your order, switch your formula, or have any questions about your treatment plan, Please email team@mylaughland.com"
     }
   }
 }
