@@ -599,7 +599,7 @@
       },
       "subscriptions": {
         "recurring_totals_with_policies": {
-          "following_cycles": "."
+          "following_cycles": ", then"
         }
       }
     },
