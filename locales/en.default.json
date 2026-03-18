@@ -596,6 +596,11 @@
         "shipping_method_recurring_shipments_group_title": {
           "other": "Shipping Speed"
         }
+      },
+      "subscriptions": {
+        "recurring_totals_with_policies": {
+          "following_cycles": "."
+        }
       }
     },
     "subscriptions": {
