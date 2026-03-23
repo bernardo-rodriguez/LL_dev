@@ -364,6 +364,9 @@ const skioStyles = css`
     border: 1px solid #000;
     box-sizing: border-box;
   }
+  .skio-first-order-includes--refill .skio-first-order-item__image {
+    border-radius: 0;
+  }
   .skio-first-order-item__image img {
     width: 100%;
     height: 100%;
@@ -479,6 +482,12 @@ const skioStyles = css`
   .skio-includes-cta:hover {
     background-color: #b0dff8 !important;
   }
+  .skio-first-order-includes--refill .skio-includes-cta {
+    background-color: #e8e8e8 !important;
+  }
+  .skio-first-order-includes--refill .skio-includes-cta:hover {
+    background-color: #ddd !important;
+  }
   @media (min-width: 769px) {
     .skio-includes-cta {
       font-size: 20px;
@@ -508,6 +517,9 @@ const skioStyles = css`
     font-size: 12px;
     line-height: var(--ds-line-height, 1.3);
     font-weight: 500;
+  }
+  .skio-first-order-includes--refill .skio-onetime-subscribe-disclaimer {
+    background-color: #f0f0f0;
   }
   .skio-onetime-subscribe-disclaimer a {
     color: #000;
@@ -564,38 +576,39 @@ const skioStyles = css`
   }
 
   .skio-custom-content {
-    border-radius: 20px;
-    // padding: 15px;
+    border-radius: 0;
   }
 
   .skio-custom-content-refill {
-    border-radius: 20px;
-    padding: 15px;
+    border-radius: 0;
+    padding: 12px;
     margin-top: 6px;
+    border: 1px solid #000;
+    background: #f5f5f5;
   }
-
 
   .skio-custom-content-background-color {
-      background-color: var(--blue-tint-20) !important;
+      background-color: #f0f0f0 !important;
   }
   
-  /* Aligns to: .body-xs (12px) */
+  /* Neutral, square — used if frequency UI is shown again */
   .skio-frequency {
-    border: none !important;
-    background: var(--blue-tint-40) !important;
+    border: 1px solid #000 !important;
+    background: #fff !important;
+    color: #000 !important;
     font-family: var(--ds-font-family, manrope, sans-serif) !important;
     font-size: 12px !important;
     line-height: var(--ds-line-height, 1.3) !important;
-    border-radius: 40px !important;
-    padding: 4px 26px 4px 12px !important;
+    border-radius: 0 !important;
+    padding: 8px 28px 8px 10px !important;
     -webkit-appearance: none !important;
     appearance: none !important;
     position: relative !important;
     white-space: nowrap;
     text-overflow: ellipsis;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7' /%3E%3C/svg%3E") !important;
-    background-position: right 10px top 50% !important;
-    background-size: 15px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23000' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7' /%3E%3C/svg%3E") !important;
+    background-position: right 8px top 50% !important;
+    background-size: 14px !important;
     background-repeat: no-repeat !important;
   }
   // .skio-frequency.skio-frequency--one {
@@ -1438,16 +1451,8 @@ export class SkioPlanPickerComponent extends LitElement {
                           </div>
                         </div>
                       </div>
-                      <div class="skio-center-wrapper" style="${ (this.product.id == window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id || this.product.id == window.ProductConfig.KIT_EMPTY_SPACE.product_id || this.product.id == window.ProductConfig.KIT_DEFAULT.product_id) ? 'display: none;' : '' }">
-                      <span class = 'skio-price-shipping'> ${ (() => {
-                        // if (this.product.id == 7503162605793 && this.discount(group.selected_selling_plan).percent !== '0%') {
-                        //   return `(Save ${ this.discount(group.selected_selling_plan).percent })`;
-                        // } else 
-                         if (this.product.id == window.ProductConfig.REFILL_DEFAULT.product_id) {
-                          return '(+ Free Shipping!)';
-                        }
-                        return '';
-                      })() }</span>
+                      <div class="skio-center-wrapper" style="${ (this.product.id == window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id || this.product.id == window.ProductConfig.KIT_EMPTY_SPACE.product_id || this.product.id == window.ProductConfig.KIT_DEFAULT.product_id || this.product.id == window.ProductConfig.REFILL_DEFAULT.product_id) ? 'display: none;' : '' }">
+                      <span class = 'skio-price-shipping'> ${ '' }</span>
                       </div>
 
                       ${ this.product.id != window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id 
@@ -1598,32 +1603,9 @@ export class SkioPlanPickerComponent extends LitElement {
             return '$' + total;
           };
 
-          const refillGroup = isRefillProduct && this.selectedSellingPlanGroup != null
-            ? this.selectedSellingPlanGroup
-            : null;
-
           return html`
-        <div class="skio-first-order-includes" style="${ !hasOptionPicker ? 'margin-top: 0; border-top: 1px solid #000;' : '' }">
+        <div class="skio-first-order-includes${ isRefillProduct ? ' skio-first-order-includes--refill' : '' }" style="${ !hasOptionPicker ? 'margin-top: 0; border-top: 1px solid #000;' : '' }">
           <div class="skio-first-order-includes__title">${ sectionTitle }</div>
-          ${ isRefillProduct && refillGroup ? html`
-          <div class="skio-refill-frequency-wrap" style="margin-bottom: 16px;">
-            <div class="skio-custom-content-refill skio-custom-content-background-color">
-              <div class="skio-container">
-                <div class="skio-refill-frequency-label">Delivery frequency</div>
-                <select skio-selling-plans="${ refillGroup.id }" class="skio-frequency${ refillGroup.selling_plans.length == 1 ? ' skio-frequency--one' : '' }"
-                  @change=${ (e) => this.selectSellingPlan(e.target, refillGroup) }>
-                  ${ refillGroup.selling_plans.map((selling_plan) =>
-                    html`
-                  <option value="${ selling_plan.id }" ?selected=${ refillGroup.selected_selling_plan == selling_plan }>
-                    ${ refillGroup.name == 'Subscription' ? `Delivery ${ selling_plan.name.toLowerCase() }` : `${ selling_plan.name }` }
-                  </option>
-                  `
-                  )}
-                </select>
-              </div>
-            </div>
-          </div>
-          ` : '' }
           ${ items.map(item => {
             if (item.type === 'disclaimer') {
               return this.availableSellingPlanGroups?.length > 0 ? html`
