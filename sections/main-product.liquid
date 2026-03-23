@@ -120,17 +120,25 @@ xhttp.send();
             {% if product.id != cfg.REFILL_DEFAULT.product_id %} 
               style = 'display: none' 
             {% endif %}>
-          <dt class="h6">Formula Picker</dt>
+          <dt class="pdp-kit-selector__title label">FORMULA PICKER:</dt>
+          <dd class="refill-formula-dd">
             <div class="refill-formula-radio-group">
               <input type="radio" id="sensitive" name="refill-strength" value="🍃 Gentle (ID: 19-2)">
-              <label for="sensitive">Sensitive</label>
+              <label for="sensitive" class="quantity-option quantity-option-1 pdp-kit-option refill-formula-option">
+                <span class="quantity-title label">Sensitive</span>
+              </label>
 
               <input type="radio" id="medium" name="refill-strength" value="✨ Everyday (ID: 8-16)"> 
-              <label for="medium">Standard</label>
+              <label for="medium" class="quantity-option quantity-option-2 pdp-kit-option refill-formula-option">
+                <span class="quantity-title label">Standard</span>
+              </label>
 
               <input type="radio" id="strong" name="refill-strength" value="🔥 Super Strength (ID: 8-17)">
-              <label for="strong">Extra Strength</label>
+              <label for="strong" class="quantity-option quantity-option-3 pdp-kit-option refill-formula-option">
+                <span class="quantity-title label">Extra Strength</span>
+              </label>
             </div>
+          </dd>
         </dl>
 
         {% unless product.id == cfg.REFILL_DEFAULT.product_id %}

@@ -1,18 +1,18 @@
-/* Refill formula picker — align with PDP / Skio: Manrope, square corners, neutral + black borders */
+/* Refill formula picker — reuses .pdp-kit-selector__title.label + .quantity-title.label like SELECT KIT */
 
-#formula-picker-direct .h6,
-#formula-picker-direct dt.h6 {
-  font-family: var(--ds-font-family, manrope, sans-serif);
-  font-size: var(--ds-body-sm-size, 12px);
-  font-weight: var(--ds-body-sm-weight, 600);
-  line-height: var(--ds-line-height, 1.3);
-  text-transform: uppercase;
-  letter-spacing: var(--ds-label-letter-spacing, 0.04em);
-  color: #000;
-  margin-bottom: 8px;
+/* Match SELECT KIT: .pdp-kit-selector__title then .pdp-product-options { margin-top: 10px } */
+#formula-picker-direct .pdp-kit-selector__title.label {
+  margin: 0;
+  color: #1a1a1a;
 }
 
-/* Match SELECT KIT grid: equal columns; radios display:none are omitted from grid so only labels fill cells */
+#formula-picker-direct .refill-formula-dd {
+  margin: 10px 0 0 0;
+  padding: 0;
+  margin-inline-start: 0;
+}
+
+/* Grid: equal columns; radios display:none are omitted from grid so only labels fill cells */
 .refill-formula-radio-group {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -26,34 +26,39 @@
   display: none;
 }
 
-/* Typography matches kit cards (.quantity-title.label) */
-.refill-formula-radio-group label {
-  position: relative;
-  display: flex;
+/* Same card shell as kit .pdp-kit-selector .quantity-option — layout only; type comes from .quantity-title.label */
+.refill-formula-radio-group .pdp-kit-option.refill-formula-option {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   padding: 10px 10px;
   min-height: 52px;
-  min-width: 0;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: #ffffff;
-  border: 1px solid #000;
-  border-radius: 0;
-  color: #000;
+  position: static;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-  user-select: none;
-  font-family: var(--ds-font-family, manrope, sans-serif);
-  font-size: 14px;
-  line-height: var(--ds-line-height, 1.3);
-  font-weight: 700;
-  letter-spacing: var(--ds-label-letter-spacing, 0.04em);
-  text-transform: uppercase;
-  text-align: center;
-  word-break: break-word;
-  hyphens: auto;
+}
+
+.refill-formula-radio-group .pdp-kit-option .quantity-title {
+  margin: 0;
+}
+
+.refill-formula-radio-group .pdp-kit-option:hover {
+  background-color: #f7f7f7;
+}
+
+.refill-formula-radio-group input[type="radio"]:checked + .pdp-kit-option {
+  background: #c4e9ff !important;
+  border-color: #000 !important;
+  box-shadow: none !important;
+}
+
+.refill-formula-radio-group input[type="radio"]:not(:checked) + .pdp-kit-option {
+  background: #ffffff !important;
+}
+
+.refill-formula-radio-group input[type="radio"]:focus-visible + .pdp-kit-option {
+  outline: 2px solid #000;
+  outline-offset: 2px;
 }
 
 .price-difference {
@@ -69,30 +74,13 @@
   color: #000;
 }
 
-.refill-formula-radio-group label:hover {
-  background-color: #f7f7f7;
-}
-
-.refill-formula-radio-group input[type="radio"]:checked + label {
-  background-color: #c4e9ff !important;
-  color: #000 !important;
-  border-color: #000 !important;
-  box-shadow: none !important;
-}
-
-.refill-formula-radio-group input[type="radio"]:focus-visible + label {
-  outline: 2px solid #000;
-  outline-offset: 2px;
-}
-
 @media screen and (max-width: 450px) {
   .refill-formula-radio-group {
     gap: 8px;
   }
-  .refill-formula-radio-group label {
+  .refill-formula-radio-group .pdp-kit-option.refill-formula-option {
     padding: 8px 6px;
     min-height: 48px;
-    font-size: 12px;
   }
   .refill-formula-radio-group .price-difference {
     font-size: 10px;
