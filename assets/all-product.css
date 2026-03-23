@@ -12,59 +12,72 @@
   margin-bottom: 8px;
 }
 
+/* Match SELECT KIT grid: equal columns; radios display:none are omitted from grid so only labels fill cells */
 .refill-formula-radio-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
   padding: 0;
-  justify-content: flex-start;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .refill-formula-radio-group input[type="radio"] {
   display: none;
 }
 
+/* Typography matches kit cards (.quantity-title.label) */
 .refill-formula-radio-group label {
   position: relative;
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 12px 16px;
-  min-height: 44px;
+  padding: 16px 10px;
+  min-height: 72px;
+  min-width: 0;
+  width: 100%;
   box-sizing: border-box;
-  background-color: #e5e5e5;
+  background-color: #ffffff;
   border: 1px solid #000;
   border-radius: 0;
   color: #000;
   cursor: pointer;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition: background-color 0.2s ease;
   user-select: none;
   font-family: var(--ds-font-family, manrope, sans-serif);
   font-size: 14px;
-  font-weight: 600;
   line-height: var(--ds-line-height, 1.3);
+  font-weight: 700;
+  letter-spacing: var(--ds-label-letter-spacing, 0.04em);
+  text-transform: uppercase;
+  text-align: center;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .price-difference {
-  display: inline-block;
-  font-size: 11px;
+  display: block;
+  margin-top: 4px;
+  margin-left: 0;
+  font-family: var(--ds-font-family, manrope, sans-serif);
+  font-size: 12px;
+  line-height: var(--ds-line-height, 1.3);
   font-weight: 600;
-  margin-left: 4px;
-  color: #333;
-  vertical-align: super;
-  line-height: 1;
+  letter-spacing: var(--ds-label-letter-spacing, 0.04em);
+  text-transform: uppercase;
+  color: #000;
 }
 
 .refill-formula-radio-group label:hover {
-  background-color: #d8d8d8;
+  background-color: #f7f7f7;
 }
 
 .refill-formula-radio-group input[type="radio"]:checked + label {
-  background-color: #fff !important;
+  background-color: #c4e9ff !important;
   color: #000 !important;
   border-color: #000 !important;
-  font-weight: 700;
-  box-shadow: inset 0 0 0 1px #000;
+  box-shadow: none !important;
 }
 
 .refill-formula-radio-group input[type="radio"]:focus-visible + label {
@@ -74,19 +87,15 @@
 
 @media screen and (max-width: 450px) {
   .refill-formula-radio-group {
-    padding: 0;
+    gap: 8px;
   }
-}
-
-@media screen and (max-width: 415px) {
-  .refill-formula-radio-group {
-    font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 383px) {
-  .refill-formula-radio-group {
+  .refill-formula-radio-group label {
+    padding: 12px 6px;
+    min-height: 64px;
     font-size: 12px;
+  }
+  .refill-formula-radio-group .price-difference {
+    font-size: 10px;
   }
 }
 
