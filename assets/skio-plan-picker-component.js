@@ -28,6 +28,15 @@ import { unsafeHTML } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.m
 /** Refill subscription disclaimer: days derived from Skio selling plan name (e.g. "2 months" → 60). */
 function getRefillSubscriptionShipFooter(planName) {
   const n = (planName || '').toLowerCase();
+  // "Delivery every month", "monthly", etc. (no digit — treat as 1 month / 30 days)
+  if (
+    /\bmonthly\b/.test(n) ||
+    /\b(every|each|per)\s+month\b/.test(n) ||
+    /\bone\s+month\b/.test(n) ||
+    /\ba\s+month\b/.test(n)
+  ) {
+    return 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 30 DAYS';
+  }
   const monthsMatch = n.match(/(\d+)\s*months?/);
   if (monthsMatch) {
     const months = parseInt(monthsMatch[1], 10);
