@@ -721,10 +721,10 @@ const INCLUDE_REFILL_GELS = {
 refill_one_time_display_price = '30';
 
 /**
- * Refill Subscribe & Save strike/compare (digits or '$59'). '' = hide strike on refill sub tab + sub includes.
- * If omitted from this file, Skio falls back to affiliate subscription copy previous_price.
+ * Refill Subscribe & Save strike/compare — standalone one-time refill price (same as refill_one_time_display_price).
+ * '' = hide strike. Defaults to refill_one_time_display_price in Skio if unset.
  */
-refill_subscription_compare_price = '59';
+refill_subscription_compare_price = '30';
 
 /**
  * Refill one-time line strike in ORDER INCLUDES. '' = no strikethrough (only refill_one_time_display_price).

@@ -69,16 +69,17 @@ function formatRefillMoney(val) {
   return s.startsWith('$') ? s : '$' + s.replace(/^\$/, '');
 }
 
-/** Refill sub tab + subscription includes strike; '' hides strike. */
+/** Refill sub tab + subscription includes strike — always standalone refill retail ($30), never kit previous_price ($59). */
 function getRefillSubscriptionStrike(component) {
   if (typeof refill_subscription_compare_price !== 'undefined') {
     if (refill_subscription_compare_price === '' || refill_subscription_compare_price === null) return '';
     const t = String(refill_subscription_compare_price).trim();
     if (t !== '') return formatRefillMoney(refill_subscription_compare_price);
   }
-  const p = component.subscriptionPricingConfig?.previous_price;
-  if (p && String(p).trim() !== '') return String(p).startsWith('$') ? p : '$' + String(p).replace(/^\$/, '');
-  return '';
+  const stand = typeof refill_one_time_display_price !== 'undefined' && refill_one_time_display_price !== ''
+    ? String(refill_one_time_display_price).replace(/^\$/, '')
+    : '30';
+  return formatRefillMoney(stand);
 }
 
 /** Refill one-time includes line strike; '' = hide (no hardcoded $59). */
