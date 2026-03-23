@@ -135,6 +135,7 @@ xhttp.send();
             </div>
         </dl>
 
+        {% unless product.id == cfg.REFILL_DEFAULT.product_id %}
         <div class="pdp-kit-selector__title label">SELECT KIT:</div>
         <div class="pdp-product-options">
         <div class="pdp-product-options__row treatment-quantity-selector" id = 'treatment-quantity-selector-id'>
@@ -163,6 +164,9 @@ xhttp.send();
             </label>
           </div>
         </div>
+        {% else %}
+        <div class="pdp-product-options">
+        {% endunless %}
 
         <div class="pdp-product-options__row pdp-product-options__form-row">
         <div>

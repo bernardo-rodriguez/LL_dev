@@ -1258,7 +1258,8 @@ export class SkioPlanPickerComponent extends LitElement {
     
     const hasIncludesCta = this.product.id == window.ProductConfig?.KIT_DOUBLE_LIGHTNING?.product_id
       || this.product.id == window.ProductConfig?.KIT_EMPTY_SPACE?.product_id
-      || this.product.id == window.ProductConfig?.KIT_DEFAULT?.product_id;
+      || this.product.id == window.ProductConfig?.KIT_DEFAULT?.product_id
+      || this.product.id == window.ProductConfig?.REFILL_DEFAULT?.product_id;
     if (hasIncludesCta) this.setAttribute('data-has-includes-cta', 'true');
     else this.removeAttribute('data-has-includes-cta');
     
@@ -1406,7 +1407,7 @@ export class SkioPlanPickerComponent extends LitElement {
                 html`
                   <div class="skio-group-container skio-group-container--available ${ this.subscription_enabled && this.selectedSellingPlanGroup == group ? 'skio-group-container--selected' : '' }" skio-group-container
                     @click=${() => this.selectSellingPlanGroup(group) }>
-                    ${ this.discount(group.selected_selling_plan).percent !== '0%' && this.product.id != window.ProductConfig.REFILL_DEFAULT.product_id ? 
+                    ${ this.discount(group.selected_selling_plan).percent !== '0%' ?
                       html`<span class="skio-save-ribbon">SAVE ${ this.discount(group.selected_selling_plan).percent }</span>` : '' }
                     <input id="skio-selling-plan-group-${ index }-${ this.key }" class="skio-group-input" name="skio-group-${ this.key }"
                       type="radio" value="${ group.id }" skio-selling-plan-group="${ group.id }" ?checked=${ 
@@ -1421,10 +1422,7 @@ export class SkioPlanPickerComponent extends LitElement {
                         </div>
                         <div class="skio-center-wrapper" style="justify-content: space-between; width: 100%;">
                           <div class="skio-group-title" id = 'skio-group-title-sub'>
-                            ${ (this.product.id == window.ProductConfig.REFILL_DEFAULT.product_id) ? 
-                              'Refill Kit' 
-                            : 
-                              'SUBSCRIBE & SAVE'}
+                            SUBSCRIBE & SAVE
                           </div>
                           <div class="skio-purchase-option-price skio-price">
                             ${ this.subscriptionPricingConfig['previous_price'] ? 
@@ -1456,29 +1454,8 @@ export class SkioPlanPickerComponent extends LitElement {
                       && this.product.id != window.ProductConfig.KIT_EMPTY_SPACE.product_id 
                       && this.product.id != window.ProductConfig.KIT_DEFAULT.product_id ?
 
-                        (this.product.id == window.ProductConfig.REFILL_DEFAULT.product_id) ?      
-                        html`<div class="skio-group-content">
-                          <div class="skio-custom-content-refill skio-custom-content-background-color">
-                            <div class="skio-container">
-                              <div>Refills for $30</div>
-                              <select skio-selling-plans="${ group.id }" class="skio-frequency
-                              ${ group.selling_plans.length == 1 ? 
-                               ' skio-frequency--one' 
-                               : 
-                               ''
-                              }
-                                @change=${ (e) => this.selectSellingPlan(e.target, group) }>
-                                ${ group ? group.selling_plans.map((selling_plan) => 
-                                  html`
-                                  <option value="${ selling_plan.id }" ?selected=${group.selected_selling_plan == selling_plan }>
-                                    ${ group.name == 'Subscription' ? `Delivery ${ selling_plan.name.toLowerCase() }` : `${ selling_plan.name }` }
-                                  </option>
-                                  `
-                                ): ''}
-                              </select>
-                            </div>
-                          </div>
-                        </div>`
+                        (this.product.id == window.ProductConfig.REFILL_DEFAULT.product_id) ?
+                        html`<div class="skio-group-content skio-group-content--refill-tab-placeholder" style="margin-top:0;padding:0;border:none;background:transparent;min-height:0;"></div>`
                         :
                         html`
                         <div class="skio-group-content ${this.selectedBundle === 'sub' ? 'skio-custom-content-background-color' : ''}" style= "border-radius: 8px; margin-top: 10px;">
@@ -1546,12 +1523,21 @@ export class SkioPlanPickerComponent extends LitElement {
         : ''}
         </div>
 
-        ${ (this.product.id == window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id || 
-            this.product.id == window.ProductConfig.KIT_EMPTY_SPACE.product_id || 
-            this.product.id == window.ProductConfig.KIT_DEFAULT.product_id) ? (() => {
-          const kitKey = this.treatmentQuantity == '12' ? 'deluxe' : 'starter';
+        ${ (() => {
+          const isKitProduct = this.product.id == window.ProductConfig.KIT_DOUBLE_LIGHTNING.product_id
+            || this.product.id == window.ProductConfig.KIT_EMPTY_SPACE.product_id
+            || this.product.id == window.ProductConfig.KIT_DEFAULT.product_id;
+          const isRefillProduct = this.product.id == window.ProductConfig.REFILL_DEFAULT.product_id;
+          if (!isKitProduct && !isRefillProduct) return '';
+
           const purchaseKey = this.selectedSellingPlanGroup != null ? 'subscription' : 'one_time';
-          const foConfig = this.firstOrderIncludesConfig?.[kitKey]?.[purchaseKey] || {};
+          let foConfig = {};
+          if (isRefillProduct) {
+            foConfig = (typeof refill_first_order_includes !== 'undefined' && refill_first_order_includes[purchaseKey]) || {};
+          } else {
+            const kitKey = this.treatmentQuantity == '12' ? 'deluxe' : 'starter';
+            foConfig = this.firstOrderIncludesConfig?.[kitKey]?.[purchaseKey] || {};
+          }
           const sectionTitle = foConfig.section_title || 'FIRST ORDER INCLUDES';
           const items = foConfig.items || [];
           const footerText = foConfig.footer_text || '';
@@ -1560,6 +1546,23 @@ export class SkioPlanPickerComponent extends LitElement {
 
           const renderDynamicPrice = () => {
             const isSubscription = this.selectedSellingPlanGroup != null;
+            if (isRefillProduct) {
+              const strikePrice = this.subscriptionPricingConfig['previous_price'] || '$59';
+              if (isSubscription) {
+                const currentPrice = html`$${ (() => {
+                  const group = this.availableSellingPlanGroups?.[0];
+                  if (group) {
+                    const price = (this.price(group.selected_selling_plan, false) / 100) - parseInt(this.subscription_discount || 0) + parseFloat(this.subscriptionPricingConfig['next_price'] || 0);
+                    return price % 1 === 0 ? price.toFixed(0) : price.toFixed(2);
+                  }
+                  return '25';
+                })() }`;
+                return { strikePrice, currentPrice };
+              }
+              const v = (this.selectedVariant.price / 100);
+              const currentPrice = '$' + (v % 1 === 0 ? v.toFixed(0) : v.toFixed(2));
+              return { strikePrice, currentPrice };
+            }
             const strikePrice = isSubscription
               ? (this.subscriptionPricingConfig['previous_price'] || '$70')
               : (this.oneTimePricingConfig['first']['bundle_previous_price'] || '$76');
@@ -1582,9 +1585,11 @@ export class SkioPlanPickerComponent extends LitElement {
               if (item.type !== 'item') continue;
               if (item.dynamic_price) {
                 const isSubscription = this.selectedSellingPlanGroup != null;
-                const prev = isSubscription
-                  ? (this.subscriptionPricingConfig['previous_price'] || '$70')
-                  : (this.oneTimePricingConfig['first']['bundle_previous_price'] || '$76');
+                const prev = isRefillProduct
+                  ? (this.subscriptionPricingConfig['previous_price'] || '$59')
+                  : (isSubscription
+                    ? (this.subscriptionPricingConfig['previous_price'] || '$70')
+                    : (this.oneTimePricingConfig['first']['bundle_previous_price'] || '$76'));
                 total += parseInt(prev.replace(/[^0-9]/g, '')) || 0;
               } else if (item.previous_price) {
                 total += parseInt(item.previous_price.replace(/[^0-9]/g, '')) || 0;
@@ -1593,9 +1598,32 @@ export class SkioPlanPickerComponent extends LitElement {
             return '$' + total;
           };
 
+          const refillGroup = isRefillProduct && this.selectedSellingPlanGroup != null
+            ? this.selectedSellingPlanGroup
+            : null;
+
           return html`
         <div class="skio-first-order-includes" style="${ !hasOptionPicker ? 'margin-top: 0; border-top: 1px solid #000;' : '' }">
           <div class="skio-first-order-includes__title">${ sectionTitle }</div>
+          ${ isRefillProduct && refillGroup ? html`
+          <div class="skio-refill-frequency-wrap" style="margin-bottom: 16px;">
+            <div class="skio-custom-content-refill skio-custom-content-background-color">
+              <div class="skio-container">
+                <div class="skio-refill-frequency-label">Delivery frequency</div>
+                <select skio-selling-plans="${ refillGroup.id }" class="skio-frequency${ refillGroup.selling_plans.length == 1 ? ' skio-frequency--one' : '' }"
+                  @change=${ (e) => this.selectSellingPlan(e.target, refillGroup) }>
+                  ${ refillGroup.selling_plans.map((selling_plan) =>
+                    html`
+                  <option value="${ selling_plan.id }" ?selected=${ refillGroup.selected_selling_plan == selling_plan }>
+                    ${ refillGroup.name == 'Subscription' ? `Delivery ${ selling_plan.name.toLowerCase() }` : `${ selling_plan.name }` }
+                  </option>
+                  `
+                  )}
+                </select>
+              </div>
+            </div>
+          </div>
+          ` : '' }
           ${ items.map(item => {
             if (item.type === 'disclaimer') {
               return this.availableSellingPlanGroups?.length > 0 ? html`
@@ -1647,7 +1675,7 @@ export class SkioPlanPickerComponent extends LitElement {
           ${ footerText ? html`<p class="skio-modify-disclaimer">${ footerText }</p>` : '' }
         </div>
         `;
-        })() : '' }
+        })() }
 
             <!-- skio-details "How do subscriptions work?" - hidden via style for potential future use -->
             <details class="skio-details" @mouseover=${ (e) => this.detailsMouseover() } @mouseleave=${ (e) => this.detailsMouseleave() } style="display: none">

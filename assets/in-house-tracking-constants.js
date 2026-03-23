@@ -708,6 +708,34 @@ const INCLUDE_SUBSCRIBE_DISCLAIMER = {
     link_text: 'Switch to <strong>Subscribe &amp; Save</strong>',
 };
 
+/** Refill PDP: same “first order includes” pattern as kits (no pen row). */
+const INCLUDE_REFILL_GELS = {
+    type: 'item',
+    title: 'CUSTOM FORMULA REFILL GELS',
+    image: 'https://cdn.shopify.com/s/files/1/0066/4728/3782/files/og_small_26338a09-fa97-40d9-a133-2eb7374c16ea.png?v=1771274817',
+    bullets: ['6 REFILL TREATMENTS (2-MONTH SUPPLY)', 'SAME FORMULA AS YOUR KIT'],
+    dynamic_price: true,
+};
+
+/**
+ * Refill product only — keyed by purchase type (not starter/deluxe).
+ * Shown below Subscribe / One-time tabs like kit PDPs.
+ */
+refill_first_order_includes = {
+    subscription: {
+        section_title: 'FIRST ORDER INCLUDES',
+        items: [INCLUDE_REFILL_GELS, INCLUDE_SHIPPING],
+        show_total: true,
+        footer_text: 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS',
+    },
+    one_time: {
+        section_title: 'ORDER INCLUDES',
+        items: [INCLUDE_REFILL_GELS, INCLUDE_SUBSCRIBE_DISCLAIMER],
+        show_total: false,
+        footer_text: '',
+    },
+};
+
 /**
  * First Order Includes config.
  * Keyed by: kit (starter/deluxe) x purchase type (subscription/one_time).
