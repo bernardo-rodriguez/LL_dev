@@ -713,7 +713,7 @@ const INCLUDE_REFILL_GELS = {
     type: 'item',
     title: 'CUSTOM FORMULA REFILL GELS',
     image: 'https://cdn.shopify.com/s/files/1/0066/4728/3782/files/og_small_26338a09-fa97-40d9-a133-2eb7374c16ea.png?v=1771274817',
-    bullets: ['6 REFILL TREATMENTS (2-MONTH SUPPLY)', 'SAME FORMULA AS YOUR KIT'],
+    bullets: ['6 REFILL TREATMENTS (2-MONTH SUPPLY)', '30-DAY SATISFACTION GUARANTEE'],
     dynamic_price: true,
 };
 
