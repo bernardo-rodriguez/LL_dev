@@ -63,6 +63,7 @@ xhttp.send();
         {% render 'small-stars' %}
         {% comment %} {% render 'estimated_arrival' %} {% endcomment %}
 
+        {% unless product.id == cfg.REFILL_DEFAULT.product_id %}
         <div id="product-offer-banner" class="pdp-offer-banner pdp-body-text">
           {% if section.settings.offer_text != blank %}
             {% assign offer_parts = section.settings.offer_text | split: ':' %}
@@ -73,6 +74,7 @@ xhttp.send();
             {% endif %}
           {% endif %}
         </div>
+        {% endunless %}
 
         <dl class="product-info">
           <dt class="label"> 

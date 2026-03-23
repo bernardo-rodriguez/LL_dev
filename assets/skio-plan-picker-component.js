@@ -576,6 +576,10 @@ const skioStyles = css`
   .skio-refill-frequency-wrap {
     margin-bottom: 12px;
   }
+  .skio-refill-frequency-wrap--after-total {
+    margin-top: 12px;
+    margin-bottom: 0;
+  }
   .skio-refill-frequency-wrap .skio-custom-content-refill {
     margin-top: 0;
   }
@@ -1624,25 +1628,6 @@ export class SkioPlanPickerComponent extends LitElement {
 
           return html`
         <div class="skio-first-order-includes${ isRefillProduct ? ' skio-first-order-includes--refill' : '' }" style="${ !hasOptionPicker ? 'margin-top: 0; border-top: 1px solid #000;' : '' }">
-          ${ isRefillProduct && refillGroup ? html`
-          <div class="skio-refill-frequency-wrap">
-            <div class="skio-custom-content-refill skio-custom-content-background-color">
-              <div class="skio-container skio-refill-frequency-row">
-                <div class="skio-refill-frequency-label">Delivery frequency</div>
-                <select skio-selling-plans="${ refillGroup.id }" class="skio-frequency${ refillGroup.selling_plans.length == 1 ? ' skio-frequency--one' : '' }"
-                  @change=${ (e) => this.selectSellingPlan(e.target, refillGroup) }>
-                  ${ refillGroup.selling_plans.map((selling_plan) =>
-                    html`
-                  <option value="${ selling_plan.id }" ?selected=${ refillGroup.selected_selling_plan == selling_plan }>
-                    ${ refillGroup.name == 'Subscription' ? `Delivery ${ selling_plan.name.toLowerCase() }` : `${ selling_plan.name }` }
-                  </option>
-                  `
-                  )}
-                </select>
-              </div>
-            </div>
-          </div>
-          ` : '' }
           <div class="skio-first-order-includes__title">${ sectionTitle }</div>
           ${ items.map(item => {
             if (item.type === 'disclaimer') {
@@ -1688,6 +1673,25 @@ export class SkioPlanPickerComponent extends LitElement {
             <div class="skio-total-row__price">
               <span class="price--strike">${ computeTotalStrike() }</span>
               <span class="price--current">${ renderDynamicPrice().currentPrice }</span>
+            </div>
+          </div>
+          ` : '' }
+          ${ isRefillProduct && refillGroup ? html`
+          <div class="skio-refill-frequency-wrap skio-refill-frequency-wrap--after-total">
+            <div class="skio-custom-content-refill skio-custom-content-background-color">
+              <div class="skio-container skio-refill-frequency-row">
+                <div class="skio-refill-frequency-label">Delivery frequency</div>
+                <select skio-selling-plans="${ refillGroup.id }" class="skio-frequency${ refillGroup.selling_plans.length == 1 ? ' skio-frequency--one' : '' }"
+                  @change=${ (e) => this.selectSellingPlan(e.target, refillGroup) }>
+                  ${ refillGroup.selling_plans.map((selling_plan) =>
+                    html`
+                  <option value="${ selling_plan.id }" ?selected=${ refillGroup.selected_selling_plan == selling_plan }>
+                    ${ refillGroup.name == 'Subscription' ? `Delivery ${ selling_plan.name.toLowerCase() }` : `${ selling_plan.name }` }
+                  </option>
+                  `
+                  )}
+                </select>
+              </div>
             </div>
           </div>
           ` : '' }

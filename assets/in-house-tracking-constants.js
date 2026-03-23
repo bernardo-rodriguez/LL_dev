@@ -730,7 +730,7 @@ refill_first_order_includes = {
     },
     one_time: {
         section_title: 'ORDER INCLUDES',
-        items: [INCLUDE_REFILL_GELS, INCLUDE_SUBSCRIBE_DISCLAIMER],
+        items: [INCLUDE_REFILL_GELS],
         show_total: false,
         footer_text: '',
     },

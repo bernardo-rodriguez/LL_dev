@@ -107,16 +107,25 @@ function cookie_actions() {
       showAnnouncementBar(affiliate_config['default']['general']['announcement_bar'])
     }
 
-    if (document.getElementById('product-offer-banner')) {
-      var product_banner_value = getProductBannerText()
-      var hasBanner = product_banner_value != null && (
-        (typeof product_banner_value === 'string' && product_banner_value !== '') ||
-        (typeof product_banner_value === 'object' && product_banner_value !== null && product_banner_value.text)
-      )
-      if (hasBanner) {
-        showProductBanner(product_banner_value)
-      } else {
+    var productOfferBannerEl = document.getElementById('product-offer-banner')
+    if (productOfferBannerEl) {
+      var refillProductId = window.ProductConfig && window.ProductConfig.REFILL_DEFAULT && window.ProductConfig.REFILL_DEFAULT.product_id
+      var pageProductIdInput = document.querySelector('input[name="product_id"]')
+      var pageProductId = pageProductIdInput && pageProductIdInput.value
+      var isRefillPdp = refillProductId != null && String(pageProductId) === String(refillProductId)
+      if (isRefillPdp) {
         hideProductBanner()
+      } else {
+        var product_banner_value = getProductBannerText()
+        var hasBanner = product_banner_value != null && (
+          (typeof product_banner_value === 'string' && product_banner_value !== '') ||
+          (typeof product_banner_value === 'object' && product_banner_value !== null && product_banner_value.text)
+        )
+        if (hasBanner) {
+          showProductBanner(product_banner_value)
+        } else {
+          hideProductBanner()
+        }
       }
     }
 
