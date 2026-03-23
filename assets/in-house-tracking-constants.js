@@ -854,3 +854,13 @@ formula_intro_by_strength = {
     sensitive: 'Given your sensitive teeth, diet and current teeth shade, we prescribed:',
     gentle: 'Given your sensitive teeth, diet and current teeth shade, we prescribed:',
 }
+
+/**
+ * Refill PDP only — copy implies formula was already chosen (Formula Picker / cookie).
+ * Keys: sensitive, medium, strong (matches `strength` cookie from refill picker).
+ */
+formula_intro_refill_by_strength = {
+    sensitive: 'Based on your sensitive teeth, our optimized formula contains:',
+    medium: 'Based on your medium-sensitivity, our optimized formula contains:',
+    strong: 'Based on your low-sensitivity, our optimized formula contains:',
+}
