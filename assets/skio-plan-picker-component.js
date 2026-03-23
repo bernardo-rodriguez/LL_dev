@@ -25,6 +25,34 @@ The following web component can be dropped into any standard Shopify theme (i.e.
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
 import { unsafeHTML } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
 
+/** Refill subscription disclaimer: days derived from Skio selling plan name (e.g. "2 months" → 60). */
+function getRefillSubscriptionShipFooter(planName) {
+  const n = (planName || '').toLowerCase();
+  const monthsMatch = n.match(/(\d+)\s*months?/);
+  if (monthsMatch) {
+    const months = parseInt(monthsMatch[1], 10);
+    if (!Number.isNaN(months) && months > 0) {
+      const days = months * 30;
+      return `MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY ${days} DAYS`;
+    }
+  }
+  if (n.includes('quarter') || /\b90\b/.test(n)) {
+    return 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 90 DAYS';
+  }
+  if (n.includes('biannual') || n.includes('semi-annual') || n.includes('6 month')) {
+    return 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 180 DAYS';
+  }
+  if (n.includes('week')) {
+    const w = n.match(/(\d+)\s*weeks?/);
+    if (w) {
+      const weeks = parseInt(w[1], 10);
+      if (!Number.isNaN(weeks) && weeks > 0) {
+        return `MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY ${weeks * 7} DAYS`;
+      }
+    }
+  }
+  return 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS';
+}
 
 const skioStyles = css`
   /*
@@ -1340,7 +1368,11 @@ export class SkioPlanPickerComponent extends LitElement {
                           }
                         </span>
                         ` :  html`
-                        <span id = 'skio-onetime-price-set' skio-onetime-price>$${ (this.selectedVariant.price / 100).toFixed(0) }</span>
+                        <span id = 'skio-onetime-price-set' skio-onetime-price>$${ this.product.id == window.ProductConfig.REFILL_DEFAULT.product_id
+                          ? (typeof refill_one_time_display_price !== 'undefined' && refill_one_time_display_price !== ''
+                            ? String(refill_one_time_display_price).replace(/^\$/, '')
+                            : '30')
+                          : (this.selectedVariant.price / 100).toFixed(0) }</span>
                         ` }
                     </div>
                   </div>
@@ -1565,6 +1597,15 @@ export class SkioPlanPickerComponent extends LitElement {
           const sectionTitle = foConfig.section_title || 'FIRST ORDER INCLUDES';
           const items = foConfig.items || [];
           const footerText = foConfig.footer_text || '';
+          const planForFooter = isRefillProduct && this.selectedSellingPlanGroup != null
+            ? (this.selectedSellingPlanGroup.selected_selling_plan || this.selectedSellingPlan)
+            : null;
+          const refillSubscriptionFooter = isRefillProduct && this.selectedSellingPlanGroup != null
+            ? getRefillSubscriptionShipFooter(planForFooter?.name || this.lastSellingPlanName)
+            : '';
+          const includesFooterText = isRefillProduct && this.selectedSellingPlanGroup != null
+            ? refillSubscriptionFooter
+            : footerText;
           const showTotal = foConfig.show_total !== false;
           const hasOptionPicker = this.subscription_enabled && this.one_time_enabled;
 
@@ -1583,8 +1624,10 @@ export class SkioPlanPickerComponent extends LitElement {
                 })() }`;
                 return { strikePrice, currentPrice };
               }
-              const v = (this.selectedVariant.price / 100);
-              const currentPrice = '$' + (v % 1 === 0 ? v.toFixed(0) : v.toFixed(2));
+              const display = (typeof refill_one_time_display_price !== 'undefined' && refill_one_time_display_price !== '')
+                ? String(refill_one_time_display_price).replace(/^\$/, '')
+                : '30';
+              const currentPrice = '$' + display;
               return { strikePrice, currentPrice };
             }
             const strikePrice = isSubscription
@@ -1696,7 +1739,7 @@ export class SkioPlanPickerComponent extends LitElement {
           </div>
           ` : '' }
           <button type="button" class="add-to-cart skio-includes-cta" @click=${() => document.getElementById('main-clickable-button')?.click()}>BUY NOW</button>
-          ${ footerText ? html`<p class="skio-modify-disclaimer">${ footerText }</p>` : '' }
+          ${ includesFooterText ? html`<p class="skio-modify-disclaimer">${ includesFooterText }</p>` : '' }
         </div>
         `;
         })() }
@@ -2019,6 +2062,7 @@ export class SkioPlanPickerComponent extends LitElement {
     console.log('selectedBundle', this.selectedBundle)
     //update the form that was passed, if any
     this.updateForm();
+    this.requestUpdate();
   }
 
   // Update selected selling plan; called on change of skio-frequency select element
@@ -2029,6 +2073,8 @@ export class SkioPlanPickerComponent extends LitElement {
       this.selectedSellingPlanGroup = group;
       this.selectedSellingPlan = selling_plan;
       this.lastSellingPlanName = this.selectedSellingPlan.name;
+      this.updateForm();
+      this.requestUpdate();
     } else {  
       this.log("Error: couldn't find selling plan with id " + element.value + " for variant " + this.selectedVariant.id + " from product " + this.product.id + " : " + this.product.handle);
     }
@@ -2042,6 +2088,8 @@ export class SkioPlanPickerComponent extends LitElement {
       this.selectedSellingPlanGroup = group;
       this.selectedSellingPlan = selling_plan;
       this.lastSellingPlanName = this.selectedSellingPlan.name;
+      this.updateForm();
+      this.requestUpdate();
     }
     else this.log("Error: couldn't find selling plan with id " + element.value + " for variant " + this.selectedVariant.id + " from product " + this.product.id + " : " + this.product.handle);
   }

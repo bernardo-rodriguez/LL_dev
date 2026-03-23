@@ -717,16 +717,20 @@ const INCLUDE_REFILL_GELS = {
     dynamic_price: true,
 };
 
+/** PDP display price for refill one-time (may differ from variant cents for merchandising). */
+refill_one_time_display_price = '30';
+
 /**
  * Refill product only — keyed by purchase type (not starter/deluxe).
  * Shown below Subscribe / One-time tabs like kit PDPs.
+ * Subscription footer copy is built in Skio from the selected selling plan name (frequency).
  */
 refill_first_order_includes = {
     subscription: {
         section_title: 'FIRST ORDER INCLUDES',
         items: [INCLUDE_REFILL_GELS, INCLUDE_SHIPPING],
         show_total: true,
-        footer_text: 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS',
+        footer_text: '',
     },
     one_time: {
         section_title: 'ORDER INCLUDES',
