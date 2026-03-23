@@ -721,6 +721,18 @@ const INCLUDE_REFILL_GELS = {
 refill_one_time_display_price = '30';
 
 /**
+ * Refill Subscribe & Save strike/compare (digits or '$59'). '' = hide strike on refill sub tab + sub includes.
+ * If omitted from this file, Skio falls back to affiliate subscription copy previous_price.
+ */
+refill_subscription_compare_price = '59';
+
+/**
+ * Refill one-time line strike in ORDER INCLUDES. '' = no strikethrough (only refill_one_time_display_price).
+ * Set to '59' (or '$59') if you want a compare-at next to the one-time price.
+ */
+refill_one_time_compare_price = '';
+
+/**
  * Refill product only — keyed by purchase type (not starter/deluxe).
  * Shown below Subscribe / One-time tabs like kit PDPs.
  * Subscription footer copy is built in Skio from the selected selling plan name (frequency).

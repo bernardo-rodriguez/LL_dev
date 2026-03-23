@@ -63,6 +63,34 @@ function getRefillSubscriptionShipFooter(planName) {
   return 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS';
 }
 
+function formatRefillMoney(val) {
+  const s = String(val == null ? '' : val).trim();
+  if (!s) return '';
+  return s.startsWith('$') ? s : '$' + s.replace(/^\$/, '');
+}
+
+/** Refill sub tab + subscription includes strike; '' hides strike. */
+function getRefillSubscriptionStrike(component) {
+  if (typeof refill_subscription_compare_price !== 'undefined') {
+    if (refill_subscription_compare_price === '' || refill_subscription_compare_price === null) return '';
+    const t = String(refill_subscription_compare_price).trim();
+    if (t !== '') return formatRefillMoney(refill_subscription_compare_price);
+  }
+  const p = component.subscriptionPricingConfig?.previous_price;
+  if (p && String(p).trim() !== '') return String(p).startsWith('$') ? p : '$' + String(p).replace(/^\$/, '');
+  return '';
+}
+
+/** Refill one-time includes line strike; '' = hide (no hardcoded $59). */
+function getRefillOneTimeStrike() {
+  if (typeof refill_one_time_compare_price !== 'undefined') {
+    if (refill_one_time_compare_price === '' || refill_one_time_compare_price === null) return '';
+    const t = String(refill_one_time_compare_price).trim();
+    if (t !== '') return formatRefillMoney(refill_one_time_compare_price);
+  }
+  return '';
+}
+
 const skioStyles = css`
   /*
     Typography values below use --ds-* custom properties defined in base.css :root.
@@ -1498,8 +1526,15 @@ export class SkioPlanPickerComponent extends LitElement {
                             SUBSCRIBE & SAVE
                           </div>
                           <div class="skio-purchase-option-price skio-price">
-                            ${ this.subscriptionPricingConfig['previous_price'] ? 
-                              html`<span class="price--strike">${ this.subscriptionPricingConfig['previous_price'] }</span>` : '' }
+                            ${ (() => {
+                              if (this.product.id == window.ProductConfig.REFILL_DEFAULT.product_id) {
+                                const strike = getRefillSubscriptionStrike(this);
+                                return strike ? html`<span class="price--strike">${ strike }</span>` : '';
+                              }
+                              return this.subscriptionPricingConfig['previous_price']
+                                ? html`<span class="price--strike">${ this.subscriptionPricingConfig['previous_price'] }</span>`
+                                : '';
+                            })() }
                             <span skio-subscription-price> 
                             ${
                               (() => {
@@ -1621,8 +1656,8 @@ export class SkioPlanPickerComponent extends LitElement {
           const renderDynamicPrice = () => {
             const isSubscription = this.selectedSellingPlanGroup != null;
             if (isRefillProduct) {
-              const strikePrice = this.subscriptionPricingConfig['previous_price'] || '$59';
               if (isSubscription) {
+                const strikePrice = getRefillSubscriptionStrike(this);
                 const currentPrice = html`$${ (() => {
                   const group = this.availableSellingPlanGroups?.[0];
                   if (group) {
@@ -1637,6 +1672,7 @@ export class SkioPlanPickerComponent extends LitElement {
                 ? String(refill_one_time_display_price).replace(/^\$/, '')
                 : '30';
               const currentPrice = '$' + display;
+              const strikePrice = getRefillOneTimeStrike();
               return { strikePrice, currentPrice };
             }
             const strikePrice = isSubscription
@@ -1661,12 +1697,15 @@ export class SkioPlanPickerComponent extends LitElement {
               if (item.type !== 'item') continue;
               if (item.dynamic_price) {
                 const isSubscription = this.selectedSellingPlanGroup != null;
-                const prev = isRefillProduct
-                  ? (this.subscriptionPricingConfig['previous_price'] || '$59')
-                  : (isSubscription
+                let prev = '';
+                if (isRefillProduct) {
+                  prev = isSubscription ? getRefillSubscriptionStrike(this) : getRefillOneTimeStrike();
+                } else {
+                  prev = isSubscription
                     ? (this.subscriptionPricingConfig['previous_price'] || '$70')
-                    : (this.oneTimePricingConfig['first']['bundle_previous_price'] || '$76'));
-                total += parseInt(prev.replace(/[^0-9]/g, '')) || 0;
+                    : (this.oneTimePricingConfig['first']['bundle_previous_price'] || '$76');
+                }
+                total += parseInt((prev || '').replace(/[^0-9]/g, '')) || 0;
               } else if (item.previous_price) {
                 total += parseInt(item.previous_price.replace(/[^0-9]/g, '')) || 0;
               }
