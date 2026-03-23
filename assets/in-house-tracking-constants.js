@@ -711,7 +711,7 @@ const INCLUDE_SUBSCRIBE_DISCLAIMER = {
 /** Refill PDP: same “first order includes” pattern as kits (no pen row). */
 const INCLUDE_REFILL_GELS = {
     type: 'item',
-    title: 'CUSTOM FORMULA REFILL GELS',
+    title: 'FORMULA REFILL GELS',
     image: 'https://cdn.shopify.com/s/files/1/0066/4728/3782/files/og_small_26338a09-fa97-40d9-a133-2eb7374c16ea.png?v=1771274817',
     bullets: ['6 REFILL TREATMENTS (2-MONTH SUPPLY)', '30-DAY SATISFACTION GUARANTEE'],
     dynamic_price: true,

@@ -15,12 +15,17 @@
   padding: 40px 50px 60px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: end;
+  /* Row 1: heading + tabs full width; row 2: image column | stats — same start height */
+  gap: 24px 60px;
+  align-items: start;
+}
+
+.transformational-results__header-row {
+  grid-column: 1 / -1;
 }
 
 .transformational-results__slider-column {
-  align-self: start;
+  min-width: 0;
 }
 
 .transformational-results__heading {
@@ -36,7 +41,7 @@
 .transformational-results__tabs {
   display: flex;
   gap: 0;
-  margin-bottom: 24px;
+  margin-bottom: 0;
   max-width: 380px;
 }
 
@@ -134,7 +139,8 @@
 .transformational-results__stats-column {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  align-self: start;
 }
 
 .transformational-results__stats-column .test-results__list {
