@@ -31,9 +31,8 @@
 }
 
 /*
- * Formula options are NOT inside .pdp-kit-selector, so they do not inherit
- * .pdp-kit-selector .quantity-option (border, flex, etc.) — restate the full card here.
- * Fixed height: no vertical growth when text wraps; content stays centered.
+ * Formula options are NOT inside .pdp-kit-selector — full card styles here.
+ * Height grows with 2-line labels; min-height keeps a sensible single-line floor.
  */
 .refill-formula-radio-group .pdp-kit-option.refill-formula-option {
   display: flex;
@@ -44,10 +43,9 @@
   box-sizing: border-box;
   width: 100%;
   min-width: 0;
-  height: 56px;
-  min-height: 56px;
-  max-height: 56px;
-  padding: 0 8px;
+  min-height: 48px;
+  height: auto;
+  padding: 10px 8px;
   margin: 0;
   position: static;
   cursor: pointer;
@@ -55,19 +53,15 @@
   border: 1px solid #000;
   border-radius: 0;
   transition: background-color 0.2s ease;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .refill-formula-radio-group .pdp-kit-option.refill-formula-option .quantity-title {
   margin: 0;
   max-width: 100%;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
+  display: block;
   word-break: break-word;
-  line-height: 1.2;
-  /* keep .label typography; clamp handles overflow */
+  line-height: 1.25;
 }
 
 .refill-formula-radio-group .pdp-kit-option.refill-formula-option:hover {
@@ -106,15 +100,20 @@
   color: #000;
 }
 
+@media screen and (max-width: 768px) {
+  .refill-formula-radio-group .pdp-kit-option.refill-formula-option {
+    padding: 6px 6px;
+    min-height: 44px;
+  }
+}
+
 @media screen and (max-width: 450px) {
   .refill-formula-radio-group {
     gap: 8px;
   }
   .refill-formula-radio-group .pdp-kit-option.refill-formula-option {
-    height: 52px;
-    min-height: 52px;
-    max-height: 52px;
-    padding: 0 6px;
+    padding: 4px 5px;
+    min-height: 40px;
   }
   .refill-formula-radio-group .price-difference {
     font-size: 10px;
