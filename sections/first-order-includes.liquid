@@ -101,10 +101,18 @@
         </div>
       </div>
 
-      {% if section.settings.button_link != blank %}
-        <a href="{{ section.settings.button_link }}" class="first-order-includes-box__cta button label">{{ button_label }}</a>
+      {% assign cta_classes = 'first-order-includes-box__cta button label' %}
+      {% if section.settings.button_action == 'quiz' %}
+        <button
+          type="button"
+          class="{{ cta_classes }}"
+          data-open-quiz
+          {% if settings.discount_code != blank %}onclick="window.localStorage.setItem('landing_page_product_discount','{{ settings.discount_code }}')"{% endif %}
+        >{{ button_label }}</button>
+      {% elsif section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="{{ cta_classes }}">{{ button_label }}</a>
       {% else %}
-        <a href="{{ routes.root_url }}" class="first-order-includes-box__cta button label">{{ button_label }}</a>
+        <a href="{{ routes.root_url }}" class="{{ cta_classes }}">{{ button_label }}</a>
       {% endif %}
 
       {% if section.settings.show_footer_text and footer_text != blank %}
@@ -208,9 +216,21 @@
       "default": "UNLOCK OFFER"
     },
     {
+      "type": "select",
+      "id": "button_action",
+      "label": "Button action",
+      "options": [
+        { "value": "link", "label": "Link to URL" },
+        { "value": "quiz", "label": "Open quiz" }
+      ],
+      "default": "quiz",
+      "info": "\"Open quiz\" launches the quiz overlay. \"Link to URL\" uses the link below."
+    },
+    {
       "type": "url",
       "id": "button_link",
-      "label": "Button link"
+      "label": "Button link",
+      "info": "Used only when Button action is set to \"Link to URL\"."
     },
     {
       "type": "header",

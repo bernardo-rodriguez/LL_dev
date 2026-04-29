@@ -328,6 +328,7 @@
         "footer_text": "MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS",
         "show_footer_text": false,
         "button_label": "UNLOCK OFFER",
+        "button_action": "quiz",
         "button_link": "#get-started",
         "product": "at-home-whitening-kit"
       }
