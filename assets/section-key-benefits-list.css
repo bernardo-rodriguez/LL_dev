@@ -74,9 +74,9 @@
 }
 
 .key-benefits-list__item-title {
-  margin: 0 0 6px;
+  margin: 0 0 12px;
   color: var(--navy);
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .key-benefits-list__item-description {
