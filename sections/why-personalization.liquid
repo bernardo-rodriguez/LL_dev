@@ -17,7 +17,12 @@
           </div>
           <div class="why-personalization__footer">
             {% if section.settings.summary != blank %}
-              <p class="why-personalization__summary sh2">{{ section.settings.summary }}</p>
+              {%- assign summary_inline = section.settings.summary
+                | replace: '</p><p>', '<br><br>'
+                | remove: '<p>'
+                | remove: '</p>'
+              -%}
+              <p class="why-personalization__summary sh2">{{ summary_inline }}</p>
             {% endif %}
             {% assign benefit_blocks = section.blocks | where: 'type', 'benefit' %}
             {% if benefit_blocks.size > 0 %}
@@ -90,10 +95,11 @@
       "info": "Displayed with a border; same layout as Your Formula section."
     },
     {
-      "type": "textarea",
+      "type": "richtext",
       "id": "summary",
       "label": "Summary paragraph",
-      "default": "With Laughland, you're matched to the exact strength your goals and tolerance demands – Dramatic results without the drama."
+      "info": "Supports inline bold/italic via the rich-text editor.",
+      "default": "<p>With Laughland, you're matched to the exact strength your goals and tolerance demands – Dramatic results without the drama.</p>"
     }
   ],
   "blocks": [
