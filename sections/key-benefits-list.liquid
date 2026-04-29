@@ -32,7 +32,12 @@
                   <p class="key-benefits-list__item-title sh1">{{ block.settings.title }}</p>
                 {% endif %}
                 {% if block.settings.description != blank %}
-                  <div class="key-benefits-list__item-description sh2">{{ block.settings.description }}</div>
+                  {%- assign description_inline = block.settings.description
+                    | replace: '</p><p>', '<br><br>'
+                    | remove: '<p>'
+                    | remove: '</p>'
+                  -%}
+                  <p class="key-benefits-list__item-description sh2">{{ description_inline }}</p>
                 {% endif %}
               </div>
             </div>
