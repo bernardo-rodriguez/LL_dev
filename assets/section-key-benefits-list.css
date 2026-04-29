@@ -80,7 +80,12 @@
 .key-benefits-list__item-title {
   margin: 0 0 6px;
   color: var(--navy);
-  font-weight: 500;
+}
+
+@media screen and (min-width: 769px) {
+  .key-benefits-list__item-title {
+    font-size: 22px;
+  }
 }
 
 .key-benefits-list__item-description,
