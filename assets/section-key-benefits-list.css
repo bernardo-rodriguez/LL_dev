@@ -1,7 +1,8 @@
 /**
- * Key Benefits List – same styling as Your Formula ingredients section.
- * Each item: circular icon (or placeholder), title (sh2), description (body-sm) underneath.
- * Uses global typography classes only.
+ * Key Benefits List
+ * Numbered circle on the left (first item highlighted navy with the number),
+ * title and rich-text description on the right.
+ * Uses global typography classes (h3, sh2, body-sm).
  */
 
 .key-benefits-list {
@@ -23,53 +24,52 @@
 .key-benefits-list__grid {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 28px;
   margin: 0;
 }
 
 .key-benefits-list__item {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 16px;
 }
 
 .key-benefits-list__item-icon-wrap {
-  display: flex;
-  flex-direction: column;
   flex-shrink: 0;
-  width: 80px;
-}
-
-.key-benefits-list__item-icon-wrap::after {
-  content: '';
-  display: block;
-  height: 28px;
-  width: 100%;
-}
-
-.key-benefits-list__item:last-child .key-benefits-list__item-icon-wrap::after {
-  display: none;
+  width: 36px;
+  display: flex;
+  justify-content: center;
 }
 
 .key-benefits-list__item-icon {
-  flex-shrink: 0;
-  width: 80px;
-  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #cfe6f4;
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1;
+  margin-top: 6px;
+}
+
+.key-benefits-list__item-icon--active {
+  background-color: var(--navy);
 }
 
 .key-benefits-list__item-icon img {
-  width: 80px;
-  height: 80px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.key-benefits-list__item-placeholder {
-  display: block;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: #cfe6f4;
+.key-benefits-list__item-number {
+  display: inline-block;
+  line-height: 1;
 }
 
 .key-benefits-list__item-content {
@@ -78,15 +78,20 @@
 }
 
 .key-benefits-list__item-title {
-  margin: 0 0 4px;
+  margin: 0 0 6px;
   color: var(--navy);
   font-weight: 500;
 }
 
-.key-benefits-list__item-description {
+.key-benefits-list__item-description,
+.key-benefits-list__item-description p {
   margin: 0;
   color: var(--navy);
-  line-height: 1.4;
+  line-height: 1.5;
+}
+
+.key-benefits-list__item-description strong {
+  font-weight: 600;
 }
 
 @media screen and (max-width: 768px) {
@@ -102,8 +107,8 @@
     margin-bottom: 20px;
   }
 
-  .key-benefits-list__item-icon-wrap::after {
-    height: 40px;
+  .key-benefits-list__grid {
+    gap: 24px;
   }
 }
 
@@ -116,30 +121,21 @@
     margin-bottom: 28px;
   }
 
+  .key-benefits-list__grid {
+    gap: 32px;
+  }
+
   .key-benefits-list__item {
-    gap: 16px;
+    gap: 20px;
   }
 
   .key-benefits-list__item-icon-wrap {
-    width: 90px;
-  }
-
-  .key-benefits-list__item-icon-wrap::after {
-    height: 38px;
+    width: 40px;
   }
 
   .key-benefits-list__item-icon {
-    width: 90px;
-    height: 90px;
-  }
-
-  .key-benefits-list__item-icon img {
-    width: 90px;
-    height: 90px;
-  }
-
-  .key-benefits-list__item-placeholder {
-    width: 90px;
-    height: 90px;
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
   }
 }

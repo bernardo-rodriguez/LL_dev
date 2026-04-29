@@ -7,11 +7,13 @@
         <h3 class="key-benefits-list__title h3">{{ section.settings.heading }}</h3>
       {% endif %}
       <div class="key-benefits-list__grid">
+        {% assign item_index = 0 %}
         {% for block in section.blocks %}
           {% if block.type == 'item' %}
+            {% assign item_index = item_index | plus: 1 %}
             <div class="key-benefits-list__item" {{ block.shopify_attributes }}>
               <div class="key-benefits-list__item-icon-wrap">
-                <div class="key-benefits-list__item-icon">
+                <div class="key-benefits-list__item-icon{% if forloop.first %} key-benefits-list__item-icon--active{% endif %}">
                   {% if block.settings.image != blank %}
                     <img
                       src="{{ block.settings.image | image_url: width: 160 }}"
@@ -21,7 +23,7 @@
                       loading="lazy"
                     >
                   {% else %}
-                    <span class="key-benefits-list__item-placeholder" aria-hidden="true"></span>
+                    <span class="key-benefits-list__item-number" aria-hidden="true">{% if forloop.first %}{{ item_index }}{% endif %}</span>
                   {% endif %}
                 </div>
               </div>
@@ -30,7 +32,7 @@
                   <p class="key-benefits-list__item-title sh2">{{ block.settings.title }}</p>
                 {% endif %}
                 {% if block.settings.description != blank %}
-                  <div class="key-benefits-list__item-description body-sm">{{ block.settings.description | newline_to_br }}</div>
+                  <div class="key-benefits-list__item-description body-sm">{{ block.settings.description }}</div>
                 {% endif %}
               </div>
             </div>
@@ -62,7 +64,7 @@
           "type": "image_picker",
           "id": "image",
           "label": "Icon / Image",
-          "info": "Leave empty for light blue circle placeholder"
+          "info": "Optional. Leave empty to use the numbered circle."
         },
         {
           "type": "text",
@@ -71,10 +73,10 @@
           "default": "Benefit title"
         },
         {
-          "type": "textarea",
+          "type": "richtext",
           "id": "description",
           "label": "Description",
-          "default": "Insert description"
+          "default": "<p>Insert description</p>"
         }
       ]
     }
@@ -86,36 +88,36 @@
         {
           "type": "item",
           "settings": {
-            "title": "Stronger & Quicker Than Generic",
-            "description": "Insert description"
+            "title": "Double The Strength.",
+            "description": "<p>Generic whitening is largely limited to <strong>7%</strong> hydrogen peroxide. Our personalized formulas reach <strong>14%</strong> hydrogen peroxide — <strong>Double the strength, Double the Results.</strong></p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Bigger And Faster Results.",
+            "description": "<p><strong>Higher Strength = Better Whitening, Faster.</strong> Prescription strength whitening is able to break down the deepest stains. Notice a difference in just one week.</p>"
           }
         },
         {
           "type": "item",
           "settings": {
             "title": "Long-Lasting Results",
-            "description": "Insert description"
+            "description": "<p>Our formulas don\u2019t just lift surface stains\u2014they change the intrinsic color of your teeth for results that last. Deeper whitening that lasts over a year.</p>"
           }
         },
         {
           "type": "item",
           "settings": {
-            "title": "Clinically Trialed. Zero Gimmicks",
-            "description": "Insert description"
+            "title": "Pain-Free Guarantee",
+            "description": "<p>With our quiz, we calculate how much sensitivity our formula could cause you, then increase the amount of sensitivity blockers to prevent any pain. <strong>Zero Sensitivity.</strong></p>"
           }
         },
         {
           "type": "item",
           "settings": {
-            "title": "Used By Dentists Themselves",
-            "description": "Insert description"
-          }
-        },
-        {
-          "type": "item",
-          "settings": {
-            "title": "Professional Whitening At Drugstore Prices",
-            "description": "Insert description"
+            "title": "Made & Used By Dentists",
+            "description": "<p>Laughland is clinically trialed and recommended by dentists \u2014 because it\u2019s how they\u2019d do it. Professional-grade strength, customized to you, without the office visit.</p>"
           }
         }
       ]

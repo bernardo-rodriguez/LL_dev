@@ -669,36 +669,36 @@
         "item_VwJPjE": {
           "type": "item",
           "settings": {
-            "title": "Stronger & Quicker Than Generic",
-            "description": "Insert description"
+            "title": "Double The Strength.",
+            "description": "<p>Generic whitening is largely limited to <strong>7%</strong> hydrogen peroxide. Our personalized formulas reach <strong>14%</strong> hydrogen peroxide \u2014 <strong>Double the strength, Double the Results.</strong></p>"
           }
         },
         "item_EhWXXa": {
           "type": "item",
           "settings": {
-            "title": "Long-Lasting Results",
-            "description": "Insert description"
+            "title": "Bigger And Faster Results.",
+            "description": "<p><strong>Higher Strength = Better Whitening, Faster.</strong> Prescription strength whitening is able to break down the deepest stains. Notice a difference in just one week.</p>"
           }
         },
         "item_NYpQ43": {
           "type": "item",
           "settings": {
-            "title": "Clinically Trialed. Zero Gimmicks",
-            "description": "Insert description"
+            "title": "Long-Lasting Results",
+            "description": "<p>Our formulas don\u2019t just lift surface stains\u2014they change the intrinsic color of your teeth for results that last. Deeper whitening that lasts over a year.</p>"
           }
         },
         "item_NNtaNA": {
           "type": "item",
           "settings": {
-            "title": "Used By Dentists Themselves",
-            "description": "Insert description"
+            "title": "Pain-Free Guarantee",
+            "description": "<p>With our quiz, we calculate how much sensitivity our formula could cause you, then increase the amount of sensitivity blockers to prevent any pain. <strong>Zero Sensitivity.</strong></p>"
           }
         },
         "item_RK7GtM": {
           "type": "item",
           "settings": {
-            "title": "Professional Whitening At Drugstore Prices",
-            "description": "Insert description"
+            "title": "Made & Used By Dentists",
+            "description": "<p>Laughland is clinically trialed and recommended by dentists \u2014 because it\u2019s how they\u2019d do it. Professional-grade strength, customized to you, without the office visit.</p>"
           }
         }
       },
