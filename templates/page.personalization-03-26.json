@@ -32,12 +32,6 @@
         "product_image_url": "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/BOX_MELTING.png?v=1772993951"
       }
     },
-    "36e4f7aa-dd9e-4e47-a123-81be1338efe2": {
-      "type": "marquee-section",
-      "settings": {
-        "heading": "Not all Whitening is {created Equal}"
-      }
-    },
     "testimonials_BGjeX7": {
       "type": "testimonials",
       "blocks": {
@@ -172,6 +166,12 @@
       "name": "Key Benefits List",
       "settings": {
         "heading": ""
+      }
+    },
+    "36e4f7aa-dd9e-4e47-a123-81be1338efe2": {
+      "type": "marquee-section",
+      "settings": {
+        "heading": "Not all Whitening is {created Equal}"
       }
     },
     "why_personalization_landing": {
@@ -719,10 +719,10 @@
   "order": [
     "main",
     "3a2908b4-cb46-4bba-ab1d-db530f856c49",
-    "36e4f7aa-dd9e-4e47-a123-81be1338efe2",
     "testimonials_BGjeX7",
     "8f55a32e-9355-4413-8e5d-a7d66bb39102",
     "key_benefits_list_tKyQWA",
+    "36e4f7aa-dd9e-4e47-a123-81be1338efe2",
     "why_personalization_landing",
     "transformational_results_cRe3TQ",
     "240de530-a532-4dbd-b2a8-79f7e7c9b9fa",
