@@ -123,6 +123,57 @@
         "section_padding": true
       }
     },
+    "key_benefits_list_tKyQWA": {
+      "type": "key-benefits-list",
+      "blocks": {
+        "item_VwJPjE": {
+          "type": "item",
+          "settings": {
+            "title": "Double The Strength.",
+            "description": "<p>Generic whitening is largely limited to <strong>7%</strong> hydrogen peroxide. Our personalized formulas reach <strong>14%</strong> hydrogen peroxide — <strong>Double the strength, Double the Results.</strong></p>"
+          }
+        },
+        "item_EhWXXa": {
+          "type": "item",
+          "settings": {
+            "title": "Bigger And Faster Results.",
+            "description": "<p><strong>Higher Strength = Better Whitening, Faster.</strong> Prescription strength whitening is able to break down the deepest stains. Notice a difference in just one week.</p>"
+          }
+        },
+        "item_NYpQ43": {
+          "type": "item",
+          "settings": {
+            "title": "Long-Lasting Results",
+            "description": "<p>Our formulas don’t just lift surface stains—they change the intrinsic color of your teeth for results that last. Deeper whitening that lasts over a year.</p>"
+          }
+        },
+        "item_NNtaNA": {
+          "type": "item",
+          "settings": {
+            "title": "Pain-Free Guarantee",
+            "description": "<p>With our quiz, we calculate how much sensitivity our formula could cause you, then increase the amount of sensitivity blockers to prevent any pain. <strong>Zero Sensitivity.</strong></p>"
+          }
+        },
+        "item_RK7GtM": {
+          "type": "item",
+          "settings": {
+            "title": "Made & Used By Dentists",
+            "description": "<p>Laughland is clinically trialed and recommended by dentists — because it’s how they’d do it. Professional-grade strength, customized to you, without the office visit.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_VwJPjE",
+        "item_EhWXXa",
+        "item_NYpQ43",
+        "item_NNtaNA",
+        "item_RK7GtM"
+      ],
+      "name": "Key Benefits List",
+      "settings": {
+        "heading": ""
+      }
+    },
     "why_personalization_landing": {
       "type": "why-personalization",
       "blocks": {
@@ -152,9 +203,9 @@
       ],
       "settings": {
         "heading": "Why Personalization Works Better Than Generic Strips",
-        "intro_text": "Generic whitening treats everyone the same – Sensitive smiles use the same formula as ice crunchers. The result?\n\nUnderwhelming results or overwhelming pain.",
+        "intro_text": "Drugstore whitening solve sensitivity by keeping the formula weak — at the cost of results.  \n\nWe don't dilute. We calculate exactly which sensitivity blockers you need and how much, then build them into your formula — so you can whiten at full strength.",
         "image": "shopify://shop_images/BOX_MELTING.png",
-        "summary": "With Laughland, you're matched to the exact strength your goals and tolerance demands – Dramatic results without the drama."
+        "summary": "The result? Bigger, faster whitening — without the pain."
       }
     },
     "transformational_results_cRe3TQ": {
@@ -661,57 +712,6 @@
         "section_heading": "Join the movement",
         "section_sub_heading": "@mylaughland",
         "sub_heading_link": "https://www.instagram.com/"
-      }
-    },
-    "key_benefits_list_tKyQWA": {
-      "type": "key-benefits-list",
-      "blocks": {
-        "item_VwJPjE": {
-          "type": "item",
-          "settings": {
-            "title": "Double The Strength.",
-            "description": "<p>Generic whitening is largely limited to <strong>7%</strong> hydrogen peroxide. Our personalized formulas reach <strong>14%</strong> hydrogen peroxide \u2014 <strong>Double the strength, Double the Results.</strong></p>"
-          }
-        },
-        "item_EhWXXa": {
-          "type": "item",
-          "settings": {
-            "title": "Bigger And Faster Results.",
-            "description": "<p><strong>Higher Strength = Better Whitening, Faster.</strong> Prescription strength whitening is able to break down the deepest stains. Notice a difference in just one week.</p>"
-          }
-        },
-        "item_NYpQ43": {
-          "type": "item",
-          "settings": {
-            "title": "Long-Lasting Results",
-            "description": "<p>Our formulas don\u2019t just lift surface stains\u2014they change the intrinsic color of your teeth for results that last. Deeper whitening that lasts over a year.</p>"
-          }
-        },
-        "item_NNtaNA": {
-          "type": "item",
-          "settings": {
-            "title": "Pain-Free Guarantee",
-            "description": "<p>With our quiz, we calculate how much sensitivity our formula could cause you, then increase the amount of sensitivity blockers to prevent any pain. <strong>Zero Sensitivity.</strong></p>"
-          }
-        },
-        "item_RK7GtM": {
-          "type": "item",
-          "settings": {
-            "title": "Made & Used By Dentists",
-            "description": "<p>Laughland is clinically trialed and recommended by dentists \u2014 because it\u2019s how they\u2019d do it. Professional-grade strength, customized to you, without the office visit.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "item_VwJPjE",
-        "item_EhWXXa",
-        "item_NYpQ43",
-        "item_NNtaNA",
-        "item_RK7GtM"
-      ],
-      "name": "Key Benefits List",
-      "settings": {
-        "heading": ""
       }
     }
   },
