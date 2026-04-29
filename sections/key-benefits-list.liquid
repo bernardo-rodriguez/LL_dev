@@ -13,7 +13,7 @@
             {% assign item_index = item_index | plus: 1 %}
             <div class="key-benefits-list__item" {{ block.shopify_attributes }}>
               <div class="key-benefits-list__item-icon-wrap">
-                <div class="key-benefits-list__item-icon{% if forloop.first %} key-benefits-list__item-icon--active{% endif %}">
+                <div class="key-benefits-list__item-icon">
                   {% if block.settings.image != blank %}
                     <img
                       src="{{ block.settings.image | image_url: width: 160 }}"
