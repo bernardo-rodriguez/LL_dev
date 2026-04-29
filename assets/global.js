@@ -792,7 +792,6 @@ customElements.define('add-to-cart', AddToCart);
         if(heroLogo){
           header.querySelector(".header__svg-logo").classList.toggle("show", !entry.isIntersecting)
         }
-        header.classList.toggle("scrolled", !entry.isIntersecting)
         stickyFooter?.classList.toggle("scrolled", !entry.isIntersecting)
 
       })

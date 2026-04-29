@@ -1318,29 +1318,12 @@ deferred-media {
 /*================ Header Group ================*/
 .outer-header-wrapper {
   width: 100%;
-  /* position: sticky; */
-  position: fixed;
-  top: 0;
+  position: relative;
   z-index: 5;
   font-family: manrope;
   font-weight: 700;
-  /* color: white; */
   color: var(--navy);
-  transition: all .3s ease;
-}
-
-.outer-header-wrapper.scrolled {
-  color: var(--navy);
-  background: var(--cream);
-}
-
-/* New */
-.homepage-hero .outer-header-wrapper {
-  color: white;
-}
-
-.homepage-hero .outer-header-wrapper.scrolled {
-  color: var(--navy);
+  background: var(--blue-tint-20);
 }
 
 /*================ Announcement Bar ================*/
@@ -1577,19 +1560,12 @@ deferred-media {
   position: relative;
 }
 
-.homepage-hero .outer-header-wrapper {
-  position: fixed;
-}
-
 .homepage-hero #shopify-section-homepage-hero {
   /* position: relative;
   top: calc(var(--simple-header-height) * -1); */
 }
 
 .homepage-hero .header__svg-logo {
-  opacity: 0;
-}
-.homepage-hero .header__svg-logo.show {
   opacity: 1;
 }
 

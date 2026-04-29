@@ -28,17 +28,7 @@ function setCookie(key, value) {
 
 function showAnnouncementBar(bar_text) {
     $('#announcement-bar').css('display', 'block')
-    $(".outer-header-wrapper").css('top', '24px')
     $(".announcement-bar p").html(bar_text)
-    $(window).scroll(function(){
-      height = $(window).scrollTop()
-      if (height > 24) {
-        $(".outer-header-wrapper").css('top', '0')
-      } else {
-        diff = 24 - height
-        $(".outer-header-wrapper").css('top', diff + 'px')
-      }
-    });
 }
 
 var PRODUCT_BANNER_PLACEHOLDER = '{{bold}}'
