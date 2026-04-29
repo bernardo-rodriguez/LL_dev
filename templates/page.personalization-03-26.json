@@ -84,15 +84,6 @@
         "review_label": "Review"
       }
     },
-    "benefit_cards_XErwHq": {
-      "type": "benefit-cards",
-      "name": "Benefits Cards",
-      "settings": {
-        "heading": "",
-        "text": "",
-        "margin_bottom": true
-      }
-    },
     "8f55a32e-9355-4413-8e5d-a7d66bb39102": {
       "type": "icon-text-columns",
       "blocks": {
@@ -671,6 +662,57 @@
         "section_sub_heading": "@mylaughland",
         "sub_heading_link": "https://www.instagram.com/"
       }
+    },
+    "key_benefits_list_tKyQWA": {
+      "type": "key-benefits-list",
+      "blocks": {
+        "item_VwJPjE": {
+          "type": "item",
+          "settings": {
+            "title": "Stronger & Quicker Than Generic",
+            "description": "Insert description"
+          }
+        },
+        "item_EhWXXa": {
+          "type": "item",
+          "settings": {
+            "title": "Long-Lasting Results",
+            "description": "Insert description"
+          }
+        },
+        "item_NYpQ43": {
+          "type": "item",
+          "settings": {
+            "title": "Clinically Trialed. Zero Gimmicks",
+            "description": "Insert description"
+          }
+        },
+        "item_NNtaNA": {
+          "type": "item",
+          "settings": {
+            "title": "Used By Dentists Themselves",
+            "description": "Insert description"
+          }
+        },
+        "item_RK7GtM": {
+          "type": "item",
+          "settings": {
+            "title": "Professional Whitening At Drugstore Prices",
+            "description": "Insert description"
+          }
+        }
+      },
+      "block_order": [
+        "item_VwJPjE",
+        "item_EhWXXa",
+        "item_NYpQ43",
+        "item_NNtaNA",
+        "item_RK7GtM"
+      ],
+      "name": "Key Benefits List",
+      "settings": {
+        "heading": ""
+      }
     }
   },
   "order": [
@@ -678,8 +720,8 @@
     "3a2908b4-cb46-4bba-ab1d-db530f856c49",
     "36e4f7aa-dd9e-4e47-a123-81be1338efe2",
     "testimonials_BGjeX7",
-    "benefit_cards_XErwHq",
     "8f55a32e-9355-4413-8e5d-a7d66bb39102",
+    "key_benefits_list_tKyQWA",
     "why_personalization_landing",
     "transformational_results_cRe3TQ",
     "240de530-a532-4dbd-b2a8-79f7e7c9b9fa",
