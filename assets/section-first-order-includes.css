@@ -239,6 +239,16 @@
   border-top: 1px solid #000;
 }
 
+/* Match Skio total label/price: 18px, weight 600, no extra letter-spacing */
+.first-order-includes-box__total-label,
+.first-order-includes-box__total-price .price--current {
+  font-size: 18px;
+  line-height: var(--ds-line-height);
+  font-weight: 600;
+  letter-spacing: 0;
+  color: #000;
+}
+
 .first-order-includes-box__total-price {
   min-width: 90px;
   text-align: right;
@@ -247,8 +257,12 @@
 .first-order-includes-box__total-price .price--strike {
   text-decoration: line-through;
   margin-right: 8px;
+  color: #666;
+  font-weight: 500;
 }
 
+/* Match Skio CTA: 18px mobile / 20px desktop, weight 700, 0.02em letter-spacing.
+   Color is intentionally different (uses --blue-tint-20 instead of #C4E9FF). */
 .first-order-includes-box__cta {
   margin-top: 16px;
   padding: 15px 24px;
@@ -262,6 +276,12 @@
   border-radius: 0 !important;
   text-decoration: none;
   box-sizing: border-box;
+  font-family: var(--ds-font-family) !important;
+  font-size: 18px !important;
+  line-height: var(--ds-line-height);
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .first-order-includes-box__cta:hover {
@@ -309,5 +329,6 @@
 @media (min-width: 769px) {
   .first-order-includes-box__cta {
     padding: 17px 32px;
+    font-size: 20px !important;
   }
 }
