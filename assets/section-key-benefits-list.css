@@ -89,10 +89,26 @@
 }
 
 .key-benefits-list__item-description,
-.key-benefits-list__item-description p {
+.key-benefits-list__item-description p,
+.key-benefits-list__item-description ul,
+.key-benefits-list__item-description ol {
   margin: 0;
   color: var(--navy);
-  line-height: 1.5;
+}
+
+/* Force sh2 sizing on the <p> tags Shopify wraps richtext content in,
+   since the global "p { font-size: 16px }" rule beats inheritance from
+   the .sh2 class on the parent div. */
+.key-benefits-list__item-description p {
+  font-family: var(--ds-font-family);
+  font-size: 18px;
+  line-height: var(--ds-line-height);
+  font-weight: 500;
+  letter-spacing: var(--ds-heading-ls-sm);
+}
+
+.key-benefits-list__item-description p + p {
+  margin-top: 8px;
 }
 
 .key-benefits-list__item-description strong {
