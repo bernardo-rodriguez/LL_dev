@@ -81,7 +81,7 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-areas: "headline card";
   column-gap: 66px;
-  padding-top: 10vh;
+  padding-top: 0;
   padding-bottom: 10vh;
   overflow-y: visible;
 }
@@ -89,7 +89,7 @@
 @media screen and (max-width: 768px) {
   .quiz__content {
     display: block;
-    padding-top: 50px;
+    padding-top: 0;
     padding-bottom: 50px;
     min-height: 100vh;
   }
