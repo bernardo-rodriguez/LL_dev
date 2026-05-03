@@ -3,6 +3,10 @@
   top: 0;
   left: 0;
   height: 100%;
+  /* Use the dynamic viewport height on mobile so the background extends behind
+     the iOS status bar at the top and the home-indicator/URL-bar area at the
+     bottom (paired with viewport-fit=cover in the layout meta tag). */
+  height: 100dvh;
   width: 100%;
   z-index: -3334;
   opacity: 0;
@@ -33,6 +37,7 @@
       "content"
       "footer";
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 @media screen and (max-width: 768px) {
@@ -47,7 +52,8 @@
   grid-template-columns: 50px 1fr 50px;
   grid-template-areas: 'empty logo close';
   text-align: right;
-  padding: 15px 15px 0;
+  /* Push down past the iOS notch / status bar so the close button isn't hidden */
+  padding: max(15px, env(safe-area-inset-top)) 15px 0;
 }
 
 .quiz__logo {
@@ -276,7 +282,8 @@
 }
 
 .quiz__footer {
-  padding: 0 32px 17px;
+  /* Lift the bottom past the iOS home indicator / Safari URL bar */
+  padding: 0 32px max(17px, env(safe-area-inset-bottom));
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
