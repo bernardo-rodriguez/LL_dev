@@ -52,13 +52,13 @@
   font-family: manrope, sans-serif;
   font-weight: 500;
   font-size: 36px;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  line-height: var(--ds-line-height);
+  letter-spacing: -0.015em;
   color: var(--navy);
 }
 
 body.template-product .multi-slide-carousel__heading {
-  letter-spacing: -0.01em !important;
+  letter-spacing: -0.015em !important;
 }
 
 .multi-slide-carousel__subheading {

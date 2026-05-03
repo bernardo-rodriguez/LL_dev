@@ -78,6 +78,8 @@
   margin: 0 0 6px;
   color: var(--navy);
   text-align: left;
+  line-height: var(--ds-line-height);
+  letter-spacing: -0.015em !important;
 }
 
 @media screen and (max-width: 768px) {
