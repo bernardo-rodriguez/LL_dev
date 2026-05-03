@@ -165,6 +165,11 @@
   line-height: 1;
 }
 
+/* Hide the final label (it sits at the right edge of the bar and looks awkward) */
+.quiz__progress-label:last-child {
+  display: none;
+}
+
 /* Mobile: a touch tighter */
 @media screen and (max-width: 768px) {
   .quiz__progress {
