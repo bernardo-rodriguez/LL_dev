@@ -1,12 +1,20 @@
 {% comment %}
   Loading info block – shown above the email field on the final quiz step.
-  Currently uses placeholder messages; later we'll wire up message selection
-  to a decision tree based on the user's prior quiz answers.
+  Spinner shows real progress over LOAD_DURATION_MS (7s). During that time we
+  cycle through informational messages. When loading completes, the loading
+  block fades out and the email field fades in. PLACEHOLDER messages will be
+  replaced by a decision tree based on the user's prior quiz answers.
 {% endcomment %}
 <div class="quiz-loading-info" data-quiz-loading-info>
   <div class="quiz-loading-info__spinner" aria-hidden="true">
+    {%- comment -%}
+      Two stacked SVG circles: a faint background ring and a foreground ring
+      whose stroke-dasharray is animated by JS to fill from 0% to 100% over
+      LOAD_DURATION_MS. r=20 → circumference ≈ 125.66.
+    {%- endcomment -%}
     <svg viewBox="0 0 50 50" class="quiz-loading-info__spinner-svg">
-      <circle class="quiz-loading-info__spinner-circle" cx="25" cy="25" r="20" fill="none" stroke-width="4"></circle>
+      <circle class="quiz-loading-info__spinner-track" cx="25" cy="25" r="20" fill="none" stroke-width="4"></circle>
+      <circle class="quiz-loading-info__spinner-fill" cx="25" cy="25" r="20" fill="none" stroke-width="4" data-quiz-loading-fill></circle>
     </svg>
   </div>
   <p class="quiz-loading-info__message body-sm" data-quiz-loading-message aria-live="polite">
@@ -14,19 +22,21 @@
   </p>
 </div>
 
-<label class="h5" for="ourformbutforklaviyo">Enter your email to unlock your results</label>
-<div class="quiz__input-group">
-  <input
-    class="for_email_klaviyo"
-    type="email"
-    name="contact[email]"
-    style="color: #3a5ca5"
-    id="ourformbutforklaviyo"
-    placeholder="Email"
-    required
-  >
-  <input class="for_email_klaviyo" type="hidden" name="contact[tags]" value="newsletter">
-  <p class="form-error-message body-xs hidden">This field is required</p>
+<div class="quiz-loading-email" data-quiz-loading-email>
+  <label class="h5" for="ourformbutforklaviyo">Enter your email to unlock your results</label>
+  <div class="quiz__input-group">
+    <input
+      class="for_email_klaviyo"
+      type="email"
+      name="contact[email]"
+      style="color: #3a5ca5"
+      id="ourformbutforklaviyo"
+      placeholder="Email"
+      required
+    >
+    <input class="for_email_klaviyo" type="hidden" name="contact[tags]" value="newsletter">
+    <p class="form-error-message body-xs hidden">This field is required</p>
+  </div>
 </div>
 
 <script>
@@ -34,7 +44,10 @@
     var container = document.querySelector('[data-quiz-loading-info]');
     if (!container) return;
     var msgEl = container.querySelector('[data-quiz-loading-message]');
-    if (!msgEl) return;
+    var fillEl = container.querySelector('[data-quiz-loading-fill]');
+    var emailWrap = document.querySelector('[data-quiz-loading-email]');
+    var stepWrapper = container.closest('.form__step-wrapper');
+    if (!msgEl || !fillEl || !stepWrapper) return;
 
     // PLACEHOLDER messages – to be replaced with decision-tree logic
     // that picks messages based on the user's earlier quiz answers.
@@ -46,10 +59,20 @@
       'Almost there…'
     ];
 
-    var currentIndex = 0;
+    var LOAD_DURATION_MS = 7000;
+    var FADE_MS = 250;
+    // Time each message is shown; spread evenly across the loading window.
+    var MESSAGE_INTERVAL_MS = Math.floor(LOAD_DURATION_MS / messages.length);
+
+    // Circle geometry for r=20 (matches SVG above).
+    var CIRCUMFERENCE = 2 * Math.PI * 20;
+    fillEl.style.strokeDasharray = CIRCUMFERENCE + ' ' + CIRCUMFERENCE;
+    fillEl.style.strokeDashoffset = CIRCUMFERENCE;
+
     var rotationTimer = null;
-    var ROTATION_MS = 2500;
-    var FADE_MS = 200;
+    var rafId = null;
+    var completionTimer = null;
+    var loadStart = 0;
 
     function showMessage(index) {
       msgEl.style.opacity = '0';
@@ -59,37 +82,70 @@
       }, FADE_MS);
     }
 
-    function startRotation() {
-      currentIndex = 0;
-      showMessage(currentIndex);
-      if (rotationTimer) clearInterval(rotationTimer);
-      rotationTimer = setInterval(function() {
-        currentIndex = (currentIndex + 1) % messages.length;
-        showMessage(currentIndex);
-      }, ROTATION_MS);
-    }
-
-    function stopRotation() {
-      if (rotationTimer) {
-        clearInterval(rotationTimer);
-        rotationTimer = null;
+    function tickProgress() {
+      var elapsed = performance.now() - loadStart;
+      var progress = Math.max(0, Math.min(1, elapsed / LOAD_DURATION_MS));
+      fillEl.style.strokeDashoffset = CIRCUMFERENCE * (1 - progress);
+      if (progress < 1) {
+        rafId = requestAnimationFrame(tickProgress);
       }
     }
 
-    var stepWrapper = container.closest('.form__step-wrapper');
-    if (!stepWrapper) return;
+    function revealEmail() {
+      if (!emailWrap) return;
+      container.classList.add('quiz-loading-info--done');
+      emailWrap.classList.add('quiz-loading-email--visible');
+      // Recompute next-button validity now that the email input is visible.
+      try {
+        var quizEl = stepWrapper.closest('formula-quiz');
+        if (quizEl && typeof quizEl.setInputs === 'function') {
+          quizEl.setInputs(stepWrapper.dataset.step);
+        }
+      } catch (e) { /* no-op */ }
+    }
+
+    function startLoading() {
+      stopLoading();
+      // Reset visuals
+      fillEl.style.strokeDashoffset = CIRCUMFERENCE;
+      container.classList.remove('quiz-loading-info--done');
+      if (emailWrap) emailWrap.classList.remove('quiz-loading-email--visible');
+
+      loadStart = performance.now();
+      rafId = requestAnimationFrame(tickProgress);
+
+      var msgIndex = 0;
+      showMessage(msgIndex);
+      rotationTimer = setInterval(function() {
+        msgIndex = msgIndex + 1;
+        if (msgIndex >= messages.length) {
+          clearInterval(rotationTimer);
+          rotationTimer = null;
+          return;
+        }
+        showMessage(msgIndex);
+      }, MESSAGE_INTERVAL_MS);
+
+      completionTimer = setTimeout(revealEmail, LOAD_DURATION_MS);
+    }
+
+    function stopLoading() {
+      if (rotationTimer) { clearInterval(rotationTimer); rotationTimer = null; }
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      if (completionTimer) { clearTimeout(completionTimer); completionTimer = null; }
+    }
 
     if (stepWrapper.classList.contains('active')) {
-      startRotation();
+      startLoading();
     }
 
     var observer = new MutationObserver(function(mutations) {
       mutations.forEach(function(mut) {
         if (mut.attributeName === 'class') {
           if (stepWrapper.classList.contains('active')) {
-            startRotation();
+            startLoading();
           } else {
-            stopRotation();
+            stopLoading();
           }
         }
       });
@@ -104,46 +160,66 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-bottom: 24px;
-    padding: 12px 0 16px;
-    border-bottom: 1px solid var(--blue-tint-20);
+    padding: 8px 0 16px;
+    transition: opacity 0.4s ease, max-height 0.5s ease, padding 0.5s ease, margin 0.5s ease;
+    overflow: hidden;
+    max-height: 240px;
+    margin-bottom: 8px;
+  }
+
+  /* When loading is complete, collapse the loading block to make room for email */
+  .quiz-loading-info--done {
+    opacity: 0;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    pointer-events: none;
   }
 
   .quiz-loading-info__spinner {
-    width: 32px;
-    height: 32px;
-    margin-bottom: 12px;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 14px;
   }
 
   .quiz-loading-info__spinner-svg {
     width: 100%;
     height: 100%;
-    animation: quiz-loading-info-spin 1s linear infinite;
+    /* Rotate so progress fill starts from 12 o'clock and moves clockwise */
+    transform: rotate(-90deg);
   }
 
-  .quiz-loading-info__spinner-circle {
-    stroke: var(--blue);
+  .quiz-loading-info__spinner-track {
+    stroke: var(--blue-tint-20);
+  }
+
+  .quiz-loading-info__spinner-fill {
+    stroke: var(--navy);
     stroke-linecap: round;
-    stroke-dasharray: 90, 150;
-    stroke-dashoffset: 0;
-    animation: quiz-loading-info-dash 1.4s ease-in-out infinite;
-  }
-
-  @keyframes quiz-loading-info-spin {
-    100% { transform: rotate(360deg); }
-  }
-
-  @keyframes quiz-loading-info-dash {
-    0%   { stroke-dasharray: 1, 150; stroke-dashoffset: 0; }
-    50%  { stroke-dasharray: 90, 150; stroke-dashoffset: -35; }
-    100% { stroke-dasharray: 90, 150; stroke-dashoffset: -125; }
+    transition: stroke-dashoffset 0.05s linear;
   }
 
   .quiz-loading-info__message {
     margin: 0;
     color: var(--navy);
     min-height: 1.4em;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.25s ease;
     max-width: 320px;
+  }
+
+  /* Email block: hidden until loading finishes, then fades in */
+  .quiz-loading-email {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: opacity 0.4s ease 0.1s, max-height 0.5s ease;
+  }
+
+  .quiz-loading-email--visible {
+    opacity: 1;
+    max-height: 400px;
+    pointer-events: auto;
   }
 </style>
