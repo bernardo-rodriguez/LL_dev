@@ -105,6 +105,79 @@
   }
 }
 
+/* ----------------------------------------------------------------
+   Hide the legacy "X Steps Closer to Your Personalized Formula"
+   headlines. The headline elements + .quiz__headline.active swap
+   logic remain in place so this can be re-enabled by removing this
+   single rule (or toggling the parent's visibility).
+   ---------------------------------------------------------------- */
+.quiz__content-headline {
+  display: none;
+}
+
+/* ----------------------------------------------------------------
+   Quiz progress slider (shown above the form on every step).
+   Driven by JS: width of .quiz__progress-fill is updated to
+   (currentStep / totalSteps) * 100% on each step change.
+   ---------------------------------------------------------------- */
+.quiz__progress {
+  width: 100%;
+  max-width: 640px;
+  margin: 16px auto 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.quiz__progress-track {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  background: var(--blue-tint-20);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.quiz__progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--navy);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.quiz__progress-labels {
+  position: relative;
+  width: 100%;
+  height: 22px;
+  margin-top: 8px;
+}
+
+.quiz__progress-label {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  font-family: var(--ds-font-family, inherit);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1;
+}
+
+/* Mobile: a touch tighter */
+@media screen and (max-width: 768px) {
+  .quiz__progress {
+    max-width: none;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .quiz__progress-label {
+    font-size: 12px;
+  }
+}
+
 .quiz__content-card {
   max-width: 433px;
   height: 100%;

@@ -38,7 +38,30 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
       }.bind(this))
     })
 
+    this.progressEl = this.querySelector('[data-quiz-progress]')
+    this.progressFillEl = this.querySelector('[data-quiz-progress-fill]')
+    this.progressTotalSteps = this.progressEl ? parseInt(this.progressEl.dataset.totalSteps, 10) : 0
+    this.positionProgressLabels()
+    this.updateProgressBar(this.currentStep)
+
     this.bindEvents();
+  }
+
+  positionProgressLabels() {
+    if (!this.progressEl || !this.progressTotalSteps) return
+    var labels = this.progressEl.querySelectorAll('.quiz__progress-label')
+    labels.forEach(function(label, idx) {
+      var stepNumber = idx + 1
+      var percent = (stepNumber / this.progressTotalSteps) * 100
+      label.style.left = percent + '%'
+    }.bind(this))
+  }
+
+  updateProgressBar(step) {
+    if (!this.progressFillEl || !this.progressTotalSteps) return
+    var s = parseInt(step, 10) || 0
+    var percent = Math.max(0, Math.min(100, (s / this.progressTotalSteps) * 100))
+    this.progressFillEl.style.width = percent + '%'
   }
 
   bindEvents() {
@@ -77,6 +100,8 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
 
       this.querySelector(`.form__step-wrapper[data-step="${ oldValue }"`).classList.remove('active')
       this.querySelector(`.form__step-wrapper[data-step="${ newValue }"`).classList.add('active')
+
+      this.updateProgressBar(newValue)
 
       if( newValue == 6 ){
         this.next.classList.toggle('hidden')

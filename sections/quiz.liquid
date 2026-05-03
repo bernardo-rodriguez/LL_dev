@@ -34,6 +34,19 @@
           </svg>
         </button>
       </div>
+
+      {%- assign quiz_total_steps = 6 -%}
+      <div class="quiz__progress page-width" data-quiz-progress data-total-steps="{{ quiz_total_steps }}">
+        <div class="quiz__progress-track">
+          <div class="quiz__progress-fill" data-quiz-progress-fill style="width: 0%;"></div>
+        </div>
+        <div class="quiz__progress-labels">
+          {%- for i in (1..quiz_total_steps) -%}
+            <span class="quiz__progress-label" data-step="{{ i }}">{{ i }}</span>
+          {%- endfor -%}
+        </div>
+      </div>
+
       <div class="quiz__content page-width">
         <div class="quiz__content-headline">
           <h2 class="quiz__headline active" data-step="1">{{ formatted_heading_1 }}</h2>
