@@ -33,12 +33,18 @@
 @media (min-width: 769px) {
   .first-order-includes-layout {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 0;
+  }
+
+  .first-order-includes-section__wrapper--with-side-image .first-order-includes-box {
+    border-left: none;
   }
 }
 
-/* Optional side image (left) – box hugs the image's natural aspect ratio */
+/* Optional side image (left). Mobile: box hugs the image's natural aspect ratio.
+   Desktop: image-wrap stretches to match the box height; the square image stays
+   centered inside without distortion. */
 .first-order-includes__side-image-wrap {
   flex-shrink: 0;
   width: 100%;
@@ -49,6 +55,8 @@
   .first-order-includes__side-image-wrap {
     width: 280px;
     min-width: 280px;
+    align-self: stretch;
+    display: flex;
   }
 }
 
@@ -60,10 +68,29 @@
   position: relative;
 }
 
+@media (min-width: 769px) {
+  .first-order-includes__side-image {
+    flex: 1;
+    border-right: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .first-order-includes__side-image img {
   width: 100%;
   height: auto;
   display: block;
+}
+
+@media (min-width: 769px) {
+  .first-order-includes__side-image img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+  }
 }
 
 .first-order-includes-box {
