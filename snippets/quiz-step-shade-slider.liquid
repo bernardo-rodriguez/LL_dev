@@ -6,7 +6,7 @@
 
 <p class="h5">What is your current teeth shade?</p>
 <div style="padding: 20px 0 10px" class="quiz__input-group">
-  <fieldset class="fieldset-row fieldset-condensed">
+  <fieldset class="quiz-shade-slider__fieldset">
     <div class="quiz-shade-slider__container">
       <label style="text-align: center; margin-bottom: 30px;" class="quiz-shade-slider__tooth-wrap">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3000 3000" class="quiz-shade-slider__tooth-svg">
@@ -25,7 +25,7 @@
 
 <p class="h5" style="margin-top: 24px;">What's closest to your end goal?</p>
 <div style="padding: 20px 0 10px" class="quiz__input-group">
-  <fieldset class="fieldset-row fieldset-condensed">
+  <fieldset class="quiz-shade-slider__fieldset">
     <div class="quiz-shade-slider__container">
       <label style="text-align: center; margin-bottom: 30px;" class="quiz-shade-slider__tooth-wrap">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3000 3000" class="quiz-shade-slider__tooth-svg">
@@ -64,6 +64,12 @@
 </script>
 
 <style>
+  /* Full-width column (avoid fieldset-row / condensed used for radio grids — it narrows center content) */
+  .quiz-shade-slider__fieldset {
+    width: 100%;
+    align-items: stretch;
+  }
+
   .quiz-shade-slider__container {
     width: 100%;
     text-align: center;
@@ -90,7 +96,9 @@
   .quiz-shade-slider__slider {
     -webkit-appearance: none;
     appearance: none;
-    width: 95%;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     height: 6px;
     border-radius: 5px;
     background: #d3d3d3;

@@ -99,7 +99,27 @@
   display: none;
 }
 
+/* Step titles use <h3>: mobile = h3 typography; desktop = h2-sized (48px) */
+.quiz .quiz__headline {
+  text-transform: capitalize;
+  margin-top: 0;
+}
+
+@media screen and (min-width: 769px) {
+  .quiz .quiz__headline {
+    font-size: 48px;
+    line-height: var(--ds-line-height);
+    letter-spacing: var(--ds-heading-ls-lg);
+  }
+}
+
 @media screen and (max-width: 768px) {
+  .quiz .quiz__headline {
+    font-size: 28px;
+    line-height: var(--ds-line-height);
+    letter-spacing: var(--ds-heading-ls-md);
+  }
+
   .quiz__headline {
     max-width: 293px;
   }
