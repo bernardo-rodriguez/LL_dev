@@ -329,7 +329,8 @@
         "show_footer_text": false,
         "button_label": "UNLOCK OFFER",
         "button_action": "quiz",
-        "button_link": "#get-started"
+        "button_link": "#get-started",
+        "side_image": "shopify://shop_images/2026_03_18_Laughland_Ad_1b_1_2_258ff711-c742-4ee6-a577-5557e0ecc266.jpg"
       }
     },
     "multi_slide_carousel_M68Vqj": {
