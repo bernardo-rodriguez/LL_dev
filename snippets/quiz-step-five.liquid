@@ -1,3 +1,19 @@
+{% comment %}
+  Loading info block – shown above the email field on the final quiz step.
+  Currently uses placeholder messages; later we'll wire up message selection
+  to a decision tree based on the user's prior quiz answers.
+{% endcomment %}
+<div class="quiz-loading-info" data-quiz-loading-info>
+  <div class="quiz-loading-info__spinner" aria-hidden="true">
+    <svg viewBox="0 0 50 50" class="quiz-loading-info__spinner-svg">
+      <circle class="quiz-loading-info__spinner-circle" cx="25" cy="25" r="20" fill="none" stroke-width="4"></circle>
+    </svg>
+  </div>
+  <p class="quiz-loading-info__message body-sm" data-quiz-loading-message aria-live="polite">
+    Analyzing your sensitivity profile…
+  </p>
+</div>
+
 <label class="h5" for="ourformbutforklaviyo">Enter your email to unlock your results</label>
 <div class="quiz__input-group">
   <input
@@ -12,3 +28,122 @@
   <input class="for_email_klaviyo" type="hidden" name="contact[tags]" value="newsletter">
   <p class="form-error-message body-xs hidden">This field is required</p>
 </div>
+
+<script>
+  (function() {
+    var container = document.querySelector('[data-quiz-loading-info]');
+    if (!container) return;
+    var msgEl = container.querySelector('[data-quiz-loading-message]');
+    if (!msgEl) return;
+
+    // PLACEHOLDER messages – to be replaced with decision-tree logic
+    // that picks messages based on the user's earlier quiz answers.
+    var messages = [
+      'Analyzing your sensitivity profile…',
+      'Calibrating your custom whitening formula…',
+      'Cross-referencing dental research…',
+      'Matching your goal shade to a recommended treatment…',
+      'Almost there…'
+    ];
+
+    var currentIndex = 0;
+    var rotationTimer = null;
+    var ROTATION_MS = 2500;
+    var FADE_MS = 200;
+
+    function showMessage(index) {
+      msgEl.style.opacity = '0';
+      setTimeout(function() {
+        msgEl.textContent = messages[index];
+        msgEl.style.opacity = '1';
+      }, FADE_MS);
+    }
+
+    function startRotation() {
+      currentIndex = 0;
+      showMessage(currentIndex);
+      if (rotationTimer) clearInterval(rotationTimer);
+      rotationTimer = setInterval(function() {
+        currentIndex = (currentIndex + 1) % messages.length;
+        showMessage(currentIndex);
+      }, ROTATION_MS);
+    }
+
+    function stopRotation() {
+      if (rotationTimer) {
+        clearInterval(rotationTimer);
+        rotationTimer = null;
+      }
+    }
+
+    var stepWrapper = container.closest('.form__step-wrapper');
+    if (!stepWrapper) return;
+
+    if (stepWrapper.classList.contains('active')) {
+      startRotation();
+    }
+
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mut) {
+        if (mut.attributeName === 'class') {
+          if (stepWrapper.classList.contains('active')) {
+            startRotation();
+          } else {
+            stopRotation();
+          }
+        }
+      });
+    });
+    observer.observe(stepWrapper, { attributes: true, attributeFilter: ['class'] });
+  })();
+</script>
+
+<style>
+  .quiz-loading-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 12px 0 16px;
+    border-bottom: 1px solid var(--blue-tint-20);
+  }
+
+  .quiz-loading-info__spinner {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 12px;
+  }
+
+  .quiz-loading-info__spinner-svg {
+    width: 100%;
+    height: 100%;
+    animation: quiz-loading-info-spin 1s linear infinite;
+  }
+
+  .quiz-loading-info__spinner-circle {
+    stroke: var(--blue);
+    stroke-linecap: round;
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: 0;
+    animation: quiz-loading-info-dash 1.4s ease-in-out infinite;
+  }
+
+  @keyframes quiz-loading-info-spin {
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes quiz-loading-info-dash {
+    0%   { stroke-dasharray: 1, 150; stroke-dashoffset: 0; }
+    50%  { stroke-dasharray: 90, 150; stroke-dashoffset: -35; }
+    100% { stroke-dasharray: 90, 150; stroke-dashoffset: -125; }
+  }
+
+  .quiz-loading-info__message {
+    margin: 0;
+    color: var(--navy);
+    min-height: 1.4em;
+    transition: opacity 0.2s ease;
+    max-width: 320px;
+  }
+</style>
