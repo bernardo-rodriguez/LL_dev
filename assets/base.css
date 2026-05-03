@@ -382,6 +382,21 @@ h6,
   }
 }
 
+/* Sized between .sh2 (18/16px) and .sh3 (16/14px) */
+.sh2-5 {
+  font-family: var(--ds-font-family);
+  font-size: 17px;
+  line-height: var(--ds-line-height);
+  font-weight: 500;
+  letter-spacing: var(--ds-heading-ls-sm);
+}
+
+@media only screen and (max-width: 768px) {
+  .sh2-5 {
+    font-size: 15px;
+  }
+}
+
 /* Mirrored in skio shadow DOM: .skio-group-topline, .bundle_offer_title, .bundle_previous_price */
 .sh3 {
   font-family: var(--ds-font-family);

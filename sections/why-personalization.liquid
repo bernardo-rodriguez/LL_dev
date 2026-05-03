@@ -22,7 +22,7 @@
                 | remove: '<p>'
                 | remove: '</p>'
               -%}
-              <p class="why-personalization__summary sh2">{{ summary_inline }}</p>
+              <p class="why-personalization__summary sh2-5">{{ summary_inline }}</p>
             {% endif %}
             {% assign benefit_blocks = section.blocks | where: 'type', 'benefit' %}
             {% if benefit_blocks.size > 0 %}
@@ -40,7 +40,7 @@
         <div class="why-personalization__right">
           {% if section.settings.intro_text != blank %}
             <div class="why-personalization__intro-wrap">
-              <p class="why-personalization__intro sh2">{{ section.settings.intro_text | newline_to_br }}</p>
+              <p class="why-personalization__intro sh2-5">{{ section.settings.intro_text | newline_to_br }}</p>
             </div>
           {% endif %}
           <div class="why-personalization__image-wrap">

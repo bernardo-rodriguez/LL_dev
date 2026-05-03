@@ -12,7 +12,7 @@
 
 .key-benefits-list__inner {
   max-width: 100%;
-  padding: 42px 24px 32px;
+  padding: 0 24px 32px;
 }
 
 .key-benefits-list__title {
@@ -95,7 +95,7 @@
   }
 
   .key-benefits-list__inner {
-    padding: 38px 0 24px;
+    padding: 0 0 24px;
   }
 
   .key-benefits-list__title {
@@ -109,7 +109,7 @@
 
 @media screen and (min-width: 769px) {
   .key-benefits-list__inner {
-    padding: 62px 48px 48px;
+    padding: 0 48px 48px;
   }
 
   .key-benefits-list__title {
