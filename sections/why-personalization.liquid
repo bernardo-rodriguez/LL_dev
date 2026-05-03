@@ -15,34 +15,24 @@
               <h3 class="why-personalization__title h3">{{ formatted_heading }}</h3>
             {% endif %}
           </div>
-          <div class="why-personalization__footer">
-            {% if section.settings.summary != blank %}
-              {%- assign summary_inline = section.settings.summary
-                | replace: '</p><p>', '<br><br>'
-                | remove: '<p>'
-                | remove: '</p>'
-              -%}
-              <p class="why-personalization__summary sh2-5">{{ summary_inline }}</p>
-            {% endif %}
-            {% assign benefit_blocks = section.blocks | where: 'type', 'benefit' %}
-            {% if benefit_blocks.size > 0 %}
-              <ul class="why-personalization__key-benefits list-unstyled">
-                {% for block in benefit_blocks %}
-                  <li class="why-personalization__key-benefit body-sm" {{ block.shopify_attributes }}>
-                    <span class="why-personalization__checkmark" aria-hidden="true">{% render 'icon', icon: 'checkmark' %}</span>
-                    {{ block.settings.text }}
-                  </li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </div>
-        </div>
-        <div class="why-personalization__right">
           {% if section.settings.intro_text != blank %}
             <div class="why-personalization__intro-wrap">
               <p class="why-personalization__intro sh2-5">{{ section.settings.intro_text | newline_to_br }}</p>
             </div>
           {% endif %}
+          {% assign benefit_blocks = section.blocks | where: 'type', 'benefit' %}
+          {% if benefit_blocks.size > 0 %}
+            <ul class="why-personalization__key-benefits list-unstyled">
+              {% for block in benefit_blocks %}
+                <li class="why-personalization__key-benefit body-sm" {{ block.shopify_attributes }}>
+                  <span class="why-personalization__checkmark" aria-hidden="true">{% render 'icon', icon: 'checkmark' %}</span>
+                  {{ block.settings.text }}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+        <div class="why-personalization__right">
           <div class="why-personalization__image-wrap">
             {% if section.settings.image != blank %}
               <img
@@ -63,6 +53,14 @@
               </div>
             {% endif %}
           </div>
+          {% if section.settings.summary != blank %}
+            {%- assign summary_inline = section.settings.summary
+              | replace: '</p><p>', '<br><br>'
+              | remove: '<p>'
+              | remove: '</p>'
+            -%}
+            <p class="why-personalization__summary sh2-5">{{ summary_inline }}</p>
+          {% endif %}
         </div>
       </div>
     </div>

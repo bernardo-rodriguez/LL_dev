@@ -19,6 +19,7 @@
   flex-direction: column;
 }
 
+/* Mobile: dissolve column wrappers so children flow as one column with explicit order */
 .why-personalization__left,
 .why-personalization__right {
   display: contents;
@@ -28,7 +29,8 @@
 .why-personalization__intro-wrap,
 .why-personalization__intro { order: 2; }
 .why-personalization__image-wrap { order: 3; }
-.why-personalization__footer { order: 4; }
+.why-personalization__summary { order: 4; }
+.why-personalization__key-benefits { order: 5; }
 
 .why-personalization__title {
   margin: 0 0 6px;
@@ -83,13 +85,10 @@
   height: auto;
 }
 
-.why-personalization__footer {
-  padding-top: 8px;
-}
-
 .why-personalization__summary {
   margin: 10px 0 20px;
   color: var(--navy);
+  padding-top: 8px;
 }
 
 .why-personalization__key-benefits {
@@ -144,69 +143,67 @@
     padding-bottom: 0;
   }
 
-  .why-personalization__footer {
-    padding-top: 35px;
-  }
-
   .why-personalization__summary {
     margin-top: 0;
+    padding-top: 35px;
   }
 }
 
-/* Desktop: two-column – left: title + intro + bullets, right: image + summary */
+/* Desktop: two real columns, each an independent vertical stack.
+   Left: title + intro + bullets. Right: image + summary.
+   No shared grid rows, so short items don't get stretched by the image. */
 @media screen and (min-width: 769px) {
   .why-personalization__inner {
     padding: 32px 48px 48px;
   }
 
   .why-personalization__columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "header   image"
-      "intro    image"
-      "bullets  summary";
-    column-gap: 48px;
-    row-gap: 20px;
-    align-items: start;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 48px;
   }
 
-  /* Pull nested wrappers out so the inner elements participate in the grid. */
   .why-personalization__left,
-  .why-personalization__right,
-  .why-personalization__footer {
-    display: contents;
+  .why-personalization__right {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+    min-width: 0;
   }
 
   .why-personalization__header,
+  .why-personalization__intro-wrap,
   .why-personalization__intro,
   .why-personalization__image-wrap,
-  .why-personalization__footer {
+  .why-personalization__summary,
+  .why-personalization__key-benefits {
     order: unset;
   }
 
   .why-personalization__header {
-    grid-area: header;
-    margin-bottom: 0;
+    margin-bottom: 16px;
   }
 
   .why-personalization__intro-wrap {
-    grid-area: intro;
-    margin-bottom: 0;
-    padding-bottom: 0;
+    margin: 0;
+    padding-bottom: 16px;
   }
 
-  .why-personalization__key-benefits {
-    grid-area: bullets;
-  }
-
-  .why-personalization__summary {
-    grid-area: summary;
+  .why-personalization__intro {
     margin: 0;
   }
 
+  .why-personalization__key-benefits {
+    margin-top: 4px;
+  }
+
+  .why-personalization__summary {
+    margin: 0;
+    padding-top: 16px;
+  }
+
   .why-personalization__image-wrap {
-    grid-area: image;
     margin-top: 0;
   }
 
