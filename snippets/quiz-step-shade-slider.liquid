@@ -1,0 +1,122 @@
+{% comment %}
+  New step: two sliders for current teeth shade and end-goal shade.
+  Adapted from quiz-step-six-2.liquid (quiz 2) but rebranded to the original quiz styling
+  and given unique element IDs/names so the two quiz versions can coexist on a page.
+{% endcomment %}
+
+<p class="h5">What is your current teeth shade?</p>
+<div style="padding: 20px 0 10px" class="quiz__input-group">
+  <fieldset class="fieldset-row fieldset-condensed">
+    <div class="quiz-shade-slider__container">
+      <label style="text-align: center; margin-bottom: 30px;" class="quiz-shade-slider__tooth-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3000 3000" class="quiz-shade-slider__tooth-svg">
+          <g style="isolation:isolate;">
+            <g>
+              <image transform="scale(2.92969)" xlink:href="https://www.mylaughland.com/cdn/shop/t/128/assets/tooth.png?v=103019178649524242541693533373"/>
+              <path id="quiz_shade_slider_start_path" d="M1611.70436,423.05238s-220.26773-60.52402-302.62008-65.485-330.4016-36.71129-552.65372,132.9544c0,0-221.25993,0-365.12849,195.46281s-146.84515,387.94902-148.82955,546.70054,72.43038,563.56789,112.11826,676.67834,219.937,683.95445,542.73175,776.55951c108.4802,29.10444,190.50182-78.05283,218.28334-154.78273,0,0,174.62667,125.67828,305.59667-103.18849,0,0,101.86556,306.9196,277.81516,306.9196,120.38657,0,191.82475-96.57384,228.86677-138.90758,0,0,84.66748,46.30253,178.59546-7.93758s210.34576-174.62667,293.69031-342.63869,193.14768-415.3998,236.80435-658.8188,74.08404-469.63991,43.65667-666.75637-154.78273-370.42021-255.32536-431.27496-283.10687-96.57384-425.98324-78.05283c-85.99041,7.93758-171.98081,56.88596-248.71071,43.65667s-138.90758-31.08884-138.90758-31.08884Z" style="fill:hsl(43,40%,80%); mix-blend-mode:multiply;"/>
+            </g>
+          </g>
+        </svg>
+      </label>
+      <input type="range" min="1" max="100" value="50" name="starting_shade" id="quiz_shade_slider_start" class="quiz-shade-slider__slider">
+    </div>
+  </fieldset>
+</div>
+
+<p class="h5" style="margin-top: 24px;">What's closest to your end goal?</p>
+<div style="padding: 20px 0 10px" class="quiz__input-group">
+  <fieldset class="fieldset-row fieldset-condensed">
+    <div class="quiz-shade-slider__container">
+      <label style="text-align: center; margin-bottom: 30px;" class="quiz-shade-slider__tooth-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3000 3000" class="quiz-shade-slider__tooth-svg">
+          <g style="isolation:isolate;">
+            <g>
+              <image transform="scale(2.92969)" xlink:href="https://www.mylaughland.com/cdn/shop/t/128/assets/tooth.png?v=103019178649524242541693533373"/>
+              <path id="quiz_shade_slider_end_path" d="M1611.70436,423.05238s-220.26773-60.52402-302.62008-65.485-330.4016-36.71129-552.65372,132.9544c0,0-221.25993,0-365.12849,195.46281s-146.84515,387.94902-148.82955,546.70054,72.43038,563.56789,112.11826,676.67834,219.937,683.95445,542.73175,776.55951c108.4802,29.10444,190.50182-78.05283,218.28334-154.78273,0,0,174.62667,125.67828,305.59667-103.18849,0,0,101.86556,306.9196,277.81516,306.9196,120.38657,0,191.82475-96.57384,228.86677-138.90758,0,0,84.66748,46.30253,178.59546-7.93758s210.34576-174.62667,293.69031-342.63869,193.14768-415.3998,236.80435-658.8188,74.08404-469.63991,43.65667-666.75637-154.78273-370.42021-255.32536-431.27496-283.10687-96.57384-425.98324-78.05283c-85.99041,7.93758-171.98081,56.88596-248.71071,43.65667s-138.90758-31.08884-138.90758-31.08884Z" style="fill:hsl(43,40%,80%); mix-blend-mode:multiply;"/>
+            </g>
+          </g>
+        </svg>
+      </label>
+      <input type="range" min="1" max="100" value="50" name="ending_shade" id="quiz_shade_slider_end" class="quiz-shade-slider__slider">
+    </div>
+  </fieldset>
+</div>
+
+<script>
+  (function() {
+    var startSlider = document.getElementById('quiz_shade_slider_start');
+    var endSlider = document.getElementById('quiz_shade_slider_end');
+    var startPath = document.getElementById('quiz_shade_slider_start_path');
+    var endPath = document.getElementById('quiz_shade_slider_end_path');
+
+    function setShade(path, value) {
+      var lightness = Math.min((value / 3) + 70, 100);
+      path.setAttribute('style', 'fill: hsl(43,40%,' + lightness + '%); mix-blend-mode:multiply;');
+    }
+
+    if (startSlider && startPath) {
+      startSlider.addEventListener('input', function() { setShade(startPath, this.value); });
+    }
+    if (endSlider && endPath) {
+      endSlider.addEventListener('input', function() { setShade(endPath, this.value); });
+    }
+  })();
+</script>
+
+<style>
+  .quiz-shade-slider__container {
+    width: 100%;
+    text-align: center;
+  }
+
+  .quiz-shade-slider__tooth-wrap {
+    display: block;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .quiz-shade-slider__tooth-svg {
+    width: 110px;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .quiz-shade-slider__slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 95%;
+    height: 6px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.85;
+    -webkit-transition: opacity .2s;
+    transition: opacity .2s;
+  }
+
+  .quiz-shade-slider__slider:hover {
+    opacity: 1;
+  }
+
+  .quiz-shade-slider__slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--blue) !important;
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+
+  .quiz-shade-slider__slider::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--blue) !important;
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+</style>

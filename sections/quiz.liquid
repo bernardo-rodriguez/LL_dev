@@ -11,6 +11,8 @@
   assign formatted_heading_4 = section.settings.step4 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
 
   assign formatted_heading_5 = section.settings.step5 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
+
+  assign formatted_heading_6 = section.settings.step6 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
 %}
 
 <formula-quiz data-state="1">
@@ -43,6 +45,8 @@
           <h2 class="quiz__headline" data-step="4">{{ formatted_heading_4 }}</h2>
 
           <h2 class="quiz__headline" data-step="5">{{ formatted_heading_5 }}</h2>
+
+          <h2 class="quiz__headline" data-step="6">{{ formatted_heading_6 }}</h2>
         </div>
         <div class="quiz__content-card">
           <div class="quiz__form">
@@ -56,14 +60,18 @@
               </div>
 
               <div class="form__step-wrapper" data-step="3">
-                {% render 'quiz-step-three' %}
+                {% render 'quiz-step-shade-slider' %}
               </div>
 
               <div class="form__step-wrapper" data-step="4">
-                {% render 'quiz-step-four' %}
+                {% render 'quiz-step-three' %}
               </div>
 
               <div class="form__step-wrapper" data-step="5">
+                {% render 'quiz-step-four' %}
+              </div>
+
+              <div class="form__step-wrapper" data-step="6">
                 {% render 'quiz-step-five' %}
               </div>
             {% endform %}
@@ -247,6 +255,12 @@
       "type": "textarea",
       "id": "step5",
       "label": "Step 5 Heading",
+      "info": "Wrap stylized text in {}"
+    },
+    {
+      "type": "textarea",
+      "id": "step6",
+      "label": "Step 6 Heading",
       "info": "Wrap stylized text in {}"
     }
   ]

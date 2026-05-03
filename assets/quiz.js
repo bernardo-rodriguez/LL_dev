@@ -78,11 +78,11 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
       this.querySelector(`.form__step-wrapper[data-step="${ oldValue }"`).classList.remove('active')
       this.querySelector(`.form__step-wrapper[data-step="${ newValue }"`).classList.add('active')
 
-      if( newValue == 5 ){
+      if( newValue == 6 ){
         this.next.classList.toggle('hidden')
         this.submit.classList.remove('hidden')
       }
-      if ( newValue == 4 && oldValue == 5 ){
+      if ( newValue == 5 && oldValue == 6 ){
         this.next.classList.toggle('hidden')
         this.submit.classList.add('hidden')
       }
@@ -105,7 +105,7 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
     console.log('current step is ' + x)
     let currentState = this.dataset.state
     let newState = currentState
-    if ( x === 1  && currentState < 5 ){
+    if ( x === 1  && currentState < 6 ){
       newState = ++currentState
     } else if ( x === -1 && currentState > 1) {
       newState = --currentState
@@ -181,7 +181,11 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
       klaviyoForm.querySelector("#klaviyo_form_goals").value = goals
       klaviyoForm.querySelector("#klaviyo_form_brush_times").value = this.querySelector("[name='brushtimes']:checked")?.value || ""
       klaviyoForm.querySelector("#klaviyo_form_cavities").value = this.querySelector("[name='cavities']:checked")?.value || ""
-      klaviyoForm.querySelector("#klaviyo_form_shade").value = this.querySelector("[name='shade']:checked")?.value || ""
+
+      let starting_shade = document.getElementById('quiz_shade_slider_start')?.value || ""
+      let ending_shade = document.getElementById('quiz_shade_slider_end')?.value || ""
+      klaviyoForm.querySelector("#klaviyo_form_shade").value = starting_shade
+
       klaviyoForm.querySelector("#klaviyo_form_stain").value = this.querySelector("[name='stain']:checked")?.value || ""
       klaviyoForm.querySelector("#klaviyo_form_previous_use").value = this.querySelector("[name='previous_use']:checked")?.value || ""
 
@@ -200,6 +204,8 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
       document.cookie =  "strength=" + formula_translate[sensitivity] + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
       document.cookie = "firstname=" + document.querySelector('#first_name').value + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
       document.cookie = "lastname=" + document.querySelector('#last_name').value + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
+      document.cookie = "starting_shade=" + starting_shade + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
+      document.cookie = "ending_shade=" + ending_shade + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
 
       setTimeout(function(){
         console.log(document.cookie)
