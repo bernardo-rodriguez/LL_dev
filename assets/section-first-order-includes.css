@@ -14,7 +14,7 @@
 }
 
 .first-order-includes-section__wrapper--with-side-image {
-  max-width: 800px;
+  max-width: 880px;
 }
 
 .first-order-includes-layout {
@@ -43,8 +43,8 @@
 }
 
 /* Optional side image (left). Mobile: box hugs the image's natural aspect ratio.
-   Desktop: image-wrap stretches to match the box height; the square image stays
-   centered inside without distortion. */
+   Desktop: image-wrap stretches to match the box height, and its width derives
+   from that height via aspect-ratio so the square image fills the box edge-to-edge. */
 .first-order-includes__side-image-wrap {
   flex-shrink: 0;
   width: 100%;
@@ -53,9 +53,10 @@
 
 @media (min-width: 769px) {
   .first-order-includes__side-image-wrap {
-    width: 280px;
-    min-width: 280px;
+    width: auto;
+    flex: 0 0 auto;
     align-self: stretch;
+    aspect-ratio: 1;
     display: flex;
   }
 }
@@ -72,9 +73,6 @@
   .first-order-includes__side-image {
     flex: 1;
     border-right: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 }
 
@@ -87,9 +85,8 @@
 @media (min-width: 769px) {
   .first-order-includes__side-image img {
     width: 100%;
-    height: auto;
-    max-height: 100%;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
