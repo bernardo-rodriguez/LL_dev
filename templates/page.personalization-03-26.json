@@ -329,8 +329,7 @@
         "show_footer_text": false,
         "button_label": "UNLOCK OFFER",
         "button_action": "quiz",
-        "button_link": "#get-started",
-        "product": "at-home-whitening-kit"
+        "button_link": "#get-started"
       }
     },
     "multi_slide_carousel_M68Vqj": {

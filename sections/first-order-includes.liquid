@@ -11,7 +11,7 @@
 {% assign footer_text = section.settings.footer_text | default: 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS' %}
 {% assign kit_image = section.settings.kit_image %}
 {% assign pen_image = section.settings.pen_image %}
-{% assign slider_product = section.settings.product %}
+{% assign side_image = section.settings.side_image %}
 {% if kit_image != blank %}
   {% assign kit_image_url = kit_image | image_url: width: 100 %}
 {% else %}
@@ -24,30 +24,21 @@
 {% endif %}
 
 <section class="first-order-includes-section">
-  <div class="first-order-includes-section__wrapper{% if slider_product != blank and slider_product.media.size > 0 %} first-order-includes-section__wrapper--with-slider{% endif %}">
+  <div class="first-order-includes-section__wrapper{% if side_image != blank %} first-order-includes-section__wrapper--with-side-image{% endif %}">
     <div class="first-order-includes-layout">
-      {% if slider_product != blank and slider_product.media.size > 0 %}
-        <div class="first-order-includes__slider-wrap">
-          <div class="first-order-includes__slider swiper" id="first-order-includes-slider-{{ section.id }}">
-            <div class="swiper-wrapper">
-              {% for media in slider_product.media %}
-                {% if media.media_type == 'image' %}
-                  <div class="swiper-slide">
-                    <img
-                      src="{{ media.preview_image | image_url: width: 600 }}"
-                      srcset="{{ media.preview_image | image_url: width: 400 }} 400w,
-                              {{ media.preview_image | image_url: width: 600 }} 600w"
-                      sizes="(min-width: 769px) 280px, 100vw"
-                      alt="{{ media.alt | escape }}"
-                      loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
-                      width="600"
-                      height="{{ 600 | divided_by: media.preview_image.aspect_ratio | ceil }}"
-                    >
-                  </div>
-                {% endif %}
-              {% endfor %}
-            </div>
-            <div class="first-order-includes__slider-pagination swiper-pagination"></div>
+      {% if side_image != blank %}
+        <div class="first-order-includes__side-image-wrap">
+          <div class="first-order-includes__side-image">
+            <img
+              src="{{ side_image | image_url: width: 600 }}"
+              srcset="{{ side_image | image_url: width: 400 }} 400w,
+                      {{ side_image | image_url: width: 600 }} 600w"
+              sizes="(min-width: 769px) 280px, 100vw"
+              alt="{{ side_image.alt | default: section_title | escape }}"
+              loading="lazy"
+              width="600"
+              height="{{ 600 | divided_by: side_image.aspect_ratio | ceil }}"
+            >
           </div>
         </div>
       {% endif %}
@@ -122,35 +113,6 @@
     </div>
   </div>
 </section>
-
-{% if slider_product != blank and slider_product.media.size > 0 %}
-  {% assign image_media_count = 0 %}
-  {% for media in slider_product.media %}
-    {% if media.media_type == 'image' %}
-      {% assign image_media_count = image_media_count | plus: 1 %}
-    {% endif %}
-  {% endfor %}
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const sliderEl = document.getElementById('first-order-includes-slider-{{ section.id }}');
-      if (!sliderEl || typeof Swiper === 'undefined') return;
-      const slideCount = {{ image_media_count }};
-      new Swiper(sliderEl, {
-        slidesPerView: 1,
-        spaceBetween: 0,
-        loop: slideCount > 1,
-        pagination: {
-          el: sliderEl.querySelector('.first-order-includes__slider-pagination'),
-          clickable: true
-        },
-        autoplay: slideCount > 1 ? {
-          delay: 4000,
-          disableOnInteraction: false
-        } : false
-      });
-    });
-  </script>
-{% endif %}
 
 {% schema %}
 {
@@ -234,17 +196,17 @@
     },
     {
       "type": "header",
-      "content": "Product slider"
+      "content": "Side image (optional)"
     },
     {
-      "type": "product",
-      "id": "product",
-      "label": "Product for slider",
-      "info": "Product images shown in the slider on the left of the box."
+      "type": "image_picker",
+      "id": "side_image",
+      "label": "Side image",
+      "info": "Optional. When set, displays alongside the box (left on desktop, above on mobile)."
     },
     {
       "type": "header",
-      "content": "Images (optional)"
+      "content": "Item images (optional)"
     },
     {
       "type": "image_picker",
