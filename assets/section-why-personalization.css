@@ -153,7 +153,7 @@
   }
 }
 
-/* Desktop: two-column – left: title + summary + bullets, right: intro + image */
+/* Desktop: two-column – left: title + intro + bullets, right: summary + image */
 @media screen and (min-width: 769px) {
   .why-personalization__inner {
     padding: 32px 48px 48px;
@@ -162,14 +162,20 @@
   .why-personalization__columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px 48px;
+    grid-template-areas:
+      "header   summary"
+      "intro    image"
+      "bullets  image";
+    column-gap: 48px;
+    row-gap: 20px;
     align-items: start;
   }
 
+  /* Pull nested wrappers out so the inner elements participate in the grid. */
   .why-personalization__left,
-  .why-personalization__right {
-    display: flex;
-    flex-direction: column;
+  .why-personalization__right,
+  .why-personalization__footer {
+    display: contents;
   }
 
   .why-personalization__header,
@@ -180,23 +186,32 @@
   }
 
   .why-personalization__header {
-    margin-bottom: 24px;
+    grid-area: header;
+    margin-bottom: 0;
   }
 
   .why-personalization__intro-wrap {
-    margin-bottom: 20px;
+    grid-area: intro;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .why-personalization__key-benefits {
+    grid-area: bullets;
+  }
+
+  .why-personalization__summary {
+    grid-area: summary;
+    margin: 0;
+  }
+
+  .why-personalization__image-wrap {
+    grid-area: image;
+    margin-top: 0;
   }
 
   .why-personalization__title {
     text-align: left;
-  }
-
-  .why-personalization__image-wrap {
-    margin-top: 0;
-  }
-
-  .why-personalization__summary {
-    margin-bottom: 24px;
   }
 
   .why-personalization__key-benefit {
