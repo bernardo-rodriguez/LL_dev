@@ -11,7 +11,7 @@
 
 .why-personalization__inner {
   max-width: 100%;
-  padding: 12px 24px 0;
+  padding: 32px 24px 20px;
 }
 
 .why-personalization__columns {
@@ -127,7 +127,7 @@
   }
 
   .why-personalization__inner {
-    padding: 8px 0 20px;
+    padding: 28px 0 40px;
   }
 
   .why-personalization__header {
@@ -154,7 +154,7 @@
    No shared grid rows, so short items don't get stretched by the image. */
 @media screen and (min-width: 769px) {
   .why-personalization__inner {
-    padding: 32px 48px 48px;
+    padding: 52px 48px 68px;
   }
 
   .why-personalization__columns {
