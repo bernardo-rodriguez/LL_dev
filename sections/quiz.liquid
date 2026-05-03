@@ -35,17 +35,25 @@
         </button>
       </div>
 
-      {%- assign quiz_total_steps = 6 -%}
-      <div class="quiz__progress page-width" data-quiz-progress data-total-steps="{{ quiz_total_steps }}">
-        <div class="quiz__progress-track">
-          <div class="quiz__progress-fill" data-quiz-progress-fill style="width: 0%;"></div>
+      {% comment %}
+        --- Optional top progress slider (keep for easy restore) ---
+        Uncomment this block, then in assets/section-quiz.css remove only the
+        `display: none;` line inside `.quiz__progress { ... }`. Optionally add
+        `.quiz__content-headline { display: none; }` to hide step titles while
+        using the slider. quiz.js already wires [data-quiz-progress] when present.
+
+        {%- assign quiz_total_steps = 6 -%}
+        <div class="quiz__progress page-width" data-quiz-progress data-total-steps="{{ quiz_total_steps }}">
+          <div class="quiz__progress-track">
+            <div class="quiz__progress-fill" data-quiz-progress-fill style="width: 0%;"></div>
+          </div>
+          <div class="quiz__progress-labels">
+            {%- for i in (1..quiz_total_steps) -%}
+              <span class="quiz__progress-label" data-step="{{ i }}">{{ i }}</span>
+            {%- endfor -%}
+          </div>
         </div>
-        <div class="quiz__progress-labels">
-          {%- for i in (1..quiz_total_steps) -%}
-            <span class="quiz__progress-label" data-step="{{ i }}">{{ i }}</span>
-          {%- endfor -%}
-        </div>
-      </div>
+      {% endcomment %}
 
       <div class="quiz__content page-width">
         <div class="quiz__content-headline">

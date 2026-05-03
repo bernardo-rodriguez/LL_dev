@@ -3,10 +3,6 @@
   top: 0;
   left: 0;
   height: 100%;
-  /* Use the dynamic viewport height on mobile so the background extends behind
-     the iOS status bar at the top and the home-indicator/URL-bar area at the
-     bottom (paired with viewport-fit=cover in the layout meta tag). */
-  height: 100dvh;
   width: 100%;
   z-index: -3334;
   opacity: 0;
@@ -37,7 +33,6 @@
       "content"
       "footer";
   min-height: 100vh;
-  min-height: 100dvh;
 }
 
 @media screen and (max-width: 768px) {
@@ -52,8 +47,7 @@
   grid-template-columns: 50px 1fr 50px;
   grid-template-areas: 'empty logo close';
   text-align: right;
-  /* Push down past the iOS notch / status bar so the close button isn't hidden */
-  padding: max(15px, env(safe-area-inset-top)) 15px 0;
+  padding: 15px 15px 0;
 }
 
 .quiz__logo {
@@ -87,7 +81,7 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-areas: "headline card";
   column-gap: 66px;
-  padding-top: 0;
+  padding-top: 10vh;
   padding-bottom: 10vh;
   overflow-y: visible;
 }
@@ -95,7 +89,7 @@
 @media screen and (max-width: 768px) {
   .quiz__content {
     display: block;
-    padding-top: 0;
+    padding-top: 50px;
     padding-bottom: 50px;
     min-height: 100vh;
   }
@@ -112,21 +106,15 @@
 }
 
 /* ----------------------------------------------------------------
-   Hide the legacy "X Steps Closer to Your Personalized Formula"
-   headlines. The headline elements + .quiz__headline.active swap
-   logic remain in place so this can be re-enabled by removing this
-   single rule (or toggling the parent's visibility).
-   ---------------------------------------------------------------- */
-.quiz__content-headline {
-  display: none;
-}
-
-/* ----------------------------------------------------------------
-   Quiz progress slider (shown above the form on every step).
-   Driven by JS: width of .quiz__progress-fill is updated to
-   (currentStep / totalSteps) * 100% on each step change.
+   Step headlines ("X Steps Closer…") are visible by default.
+   Quiz progress slider HTML is commented out in sections/quiz.liquid.
+   When you uncomment it, remove ONLY `display: none` below so the slider
+   shows again — and optionally add `.quiz__content-headline { display: none; }`
+   to hide the step titles (see Liquid comment beside the slider block).
    ---------------------------------------------------------------- */
 .quiz__progress {
+  display: none;
+
   width: 100%;
   max-width: 640px;
   margin: 16px auto 8px;
@@ -282,8 +270,7 @@
 }
 
 .quiz__footer {
-  /* Lift the bottom past the iOS home indicator / Safari URL bar */
-  padding: 0 32px max(17px, env(safe-area-inset-bottom));
+  padding: 0 32px 17px;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
