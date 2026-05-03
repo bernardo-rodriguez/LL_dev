@@ -176,7 +176,7 @@
 
   .transformational-results__tabs {
     justify-content: stretch;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     width: 100%;
     max-width: none;
   }
