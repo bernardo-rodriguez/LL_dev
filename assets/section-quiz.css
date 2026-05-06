@@ -106,8 +106,11 @@ formula-quiz {
 
   /* Use more of the viewport than default .page-width (20px) sides */
   .quiz .quiz__content.page-width {
-    padding-left: 12px;
-    padding-right: 12px;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 }
 
@@ -231,13 +234,10 @@ formula-quiz {
     margin-top: 24px;
     max-width: none;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    /* Don’t inherit desktop height:100% — that filled the viewport and inflated .quiz__form */
+    /* Block layout: column flex + flex:none let some browsers size the card to max-content of the *current* step (narrow on sliders, wide on fieldset-row steps). */
+    display: block;
     height: auto;
     min-height: 0;
-    align-self: stretch;
   }
 }
 
@@ -254,17 +254,14 @@ formula-quiz {
 }
 
 @media screen and (max-width: 768px) {
-  .quiz__form {
-    padding: 30px 20px 20px;
+  /* Block, not flex: avoids shrink-to-fit width tracking the active step’s max-content (slider step is much narrower than fieldset-row steps). */
+  section.quiz .quiz__form {
+    display: block;
+    padding: 30px 16px 20px;
     width: 100%;
     max-width: none;
-    min-width: 0;
-    align-self: stretch;
+    min-width: 100%;
     box-sizing: border-box;
-    /* Hug content; space-between + flex-grow was forcing a tall empty column */
-    flex: none;
-    justify-content: flex-start;
-    min-height: 0;
   }
 
   .quiz__form form {
