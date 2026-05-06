@@ -251,12 +251,18 @@ formula-quiz {
   width: 100%;
   box-sizing: border-box;
   padding: 40px 20px 20px;
+  min-height: 450px;
 }
 
 @media screen and (max-width: 768px) {
-  /* Block, not flex: avoids shrink-to-fit width tracking the active step’s max-content (slider step is much narrower than fieldset-row steps). */
+  /*
+    Flex column + min-width:100% keeps full width (no per-step shrink).
+    margin-top:auto on .quiz__content-buttons pins actions to the bottom of min-height box.
+  */
   section.quiz .quiz__form {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     padding: 30px 16px 20px;
     width: 100%;
     max-width: none;
@@ -265,6 +271,7 @@ formula-quiz {
   }
 
   .quiz__form form {
+    flex: 0 0 auto;
     width: 100%;
     max-width: none;
     min-width: 0;
@@ -341,7 +348,9 @@ formula-quiz {
 
 @media screen and (max-width: 768px){
   .quiz__content-buttons {
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
+    flex-shrink: 0;
   }
 }
 
