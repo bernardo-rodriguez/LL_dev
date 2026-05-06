@@ -220,6 +220,7 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
       klaviyoForm.querySelector("#klaviyo_form_goals").value = goals
       klaviyoForm.querySelector("#klaviyo_form_brush_times").value = this.querySelector("[name='brushtimes']:checked")?.value || ""
       klaviyoForm.querySelector("#klaviyo_form_cavities").value = this.querySelector("[name='cavities']:checked")?.value || ""
+      klaviyoForm.querySelector("#klaviyo_form_plaque_concern").value = this.querySelector("[name='plaque_concern']:checked")?.value || ""
 
       let starting_shade = document.getElementById('quiz_shade_slider_start')?.value || ""
       let ending_shade = document.getElementById('quiz_shade_slider_end')?.value || ""
