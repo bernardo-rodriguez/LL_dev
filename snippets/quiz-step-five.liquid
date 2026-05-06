@@ -1,20 +1,41 @@
 {% comment %}
-  Final step: report card with 3 selling points that appear one at a time while a
-  spinner sits above them on the white card (see .quiz__final-loading-overlay in quiz.liquid).
-  When the sequence finishes, the overlay hides and the email field is shown below the report.
+  Final step: personalized “report card” driven by quiz answers (plaque concern,
+  sensitivity, shades, stain habits). Spinner + “Building your formula” in overlay
+  (quiz.liquid). Email reveals after stagger animation.
 {% endcomment %}
 <div class="quiz-final-step" data-quiz-final-step>
   <div class="quiz-report-card" data-quiz-report-card>
-    <p class="quiz-report-card__title h5">Your personalized snapshot</p>
+    <p class="quiz-report-card__title h5">Your formula report</p>
     <ul class="quiz-report-card__list list-unstyled" role="list">
       <li class="quiz-report-card__item" data-quiz-report-item>
-        Whitening strength tuned to your sensitivity — so you can brighten comfortably, not painfully.
+        <div class="quiz-report-card__row">
+          <div class="quiz-report-card__icon-wrap" aria-hidden="true">
+            <svg class="quiz-report-card__svg-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="24" cy="40" rx="14" ry="6" fill="var(--blue-tint-20)"/>
+              <path d="M24 8c-6 0-11 5-11 12 0 7 4 14 11 22 7-8 11-15 11-22 0-7-5-12-11-12z" fill="#f4e6c8" stroke="var(--navy)" stroke-width="1.2"/>
+              <path d="M19 18c2 3 6 3 10 1" stroke="var(--navy)" stroke-width="1" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="quiz-report-card__copy" data-quiz-report-block="1"></div>
+        </div>
       </li>
       <li class="quiz-report-card__item" data-quiz-report-item>
-        A formula direction matched to your goals and habits — fewer compromises, clearer expectations.
+        <div class="quiz-report-card__row">
+          <div class="quiz-report-card__icon-wrap" aria-hidden="true">
+            <svg class="quiz-report-card__svg-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 32c4-8 6-14 8-20 1.5 6 3 12 6 18" stroke="var(--blue)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+              <path d="M28 12c2 6 4 12 6 20" stroke="var(--navy-tint-40)" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.7"/>
+              <ellipse cx="20" cy="34" rx="3" ry="4" fill="#9fd4a3" transform="rotate(-15 20 34)"/>
+            </svg>
+          </div>
+          <div class="quiz-report-card__copy" data-quiz-report-block="2"></div>
+        </div>
       </li>
       <li class="quiz-report-card__item" data-quiz-report-item>
-        Professional-grade care you can stick with — built around how you brush, eat, and whiten today.
+        <div class="quiz-report-card__row">
+          <div class="quiz-report-card__icon-wrap quiz-report-card__icon-wrap--swatch" data-quiz-report-icon-swatch aria-hidden="true"></div>
+          <div class="quiz-report-card__copy" data-quiz-report-block="3"></div>
+        </div>
       </li>
     </ul>
   </div>
@@ -57,6 +78,82 @@
     var timers = [];
     var totalDurationMs = STAGGER_MS * items.length + PAD_AFTER_LAST_MS;
 
+    function shadeLightness(sliderVal) {
+      var v = parseInt(sliderVal, 10);
+      if (isNaN(v)) v = 50;
+      return Math.min((v / 3) + 70, 100);
+    }
+
+    function hpPercent(startVal, endVal) {
+      var s = parseInt(startVal, 10);
+      var e = parseInt(endVal, 10);
+      if (isNaN(s)) s = 50;
+      if (isNaN(e)) e = 50;
+      var delta = Math.max(0, e - s);
+      if (delta <= 10) return 9;
+      if (delta <= 24) return 11;
+      if (delta <= 40) return 14;
+      return 16;
+    }
+
+    function stainHabitPhrase(stainRaw) {
+      var s = stainRaw || '';
+      if (s.indexOf('Multiple') !== -1) return 'your frequent staining habits';
+      if (s.indexOf('Once Per Day') !== -1) return 'your daily staining habits';
+      if (s.indexOf('Once Per Week') !== -1) return 'your occasional staining habits';
+      return 'your staining habits';
+    }
+
+    function buildReportBlocks() {
+      var quizRoot = stepWrapper.closest('formula-quiz') || document;
+      var plaque = quizRoot.querySelector('[name="plaque_concern"]:checked');
+      var pv = plaque ? plaque.value : 'not_sure';
+      var removePlaque = pv === 'yes_main_concern' || pv === 'somewhat';
+
+      var b1Title = 'Adding coconut oil';
+      var b1Body = removePlaque
+        ? 'Adding coconut oil to <strong>remove</strong> plaque buildup.'
+        : 'Adding coconut oil to <strong>prevent</strong> plaque buildup.';
+
+      var sens = quizRoot.querySelector('[name="sensitivity"]:checked');
+      var sv = sens ? sens.value : 'medium';
+      var b2Title = '2× glycerin + aloe vera';
+      var b2Body = sv === 'mild'
+        ? '2× glycerin and aloe vera to <strong>handle a high-strength formula</strong> comfortably.'
+        : '2× glycerin and aloe vera to <strong>combat your sensitivity</strong> while you whiten.';
+
+      var startEl = document.getElementById('quiz_shade_slider_start');
+      var endEl = document.getElementById('quiz_shade_slider_end');
+      var startV = startEl ? startEl.value : '50';
+      var endV = endEl ? endEl.value : '50';
+      var L = shadeLightness(endV);
+      var hp = hpPercent(startV, endV);
+      var stainEl = quizRoot.querySelector('[name="stain"]:checked');
+      var habit = stainHabitPhrase(stainEl ? stainEl.value : '');
+
+      var swatchHost = stepWrapper.querySelector('[data-quiz-report-icon-swatch]');
+      if (swatchHost) {
+        swatchHost.innerHTML = '<div class="quiz-report-card__swatch" style="background:hsl(43, 40%, ' + L + '%);"></div>';
+      }
+
+      var b3Title = 'Your desired shade';
+      var b3Body = 'Given <strong>' + habit + '</strong> and your <strong>desired shade</strong> (swatch beside this card), we\'re prescribing a <strong>prescription-strength ' + hp + '% HP formula</strong>—tough enough to lift stains and reach that shade.';
+
+      return [
+        '<p class="quiz-report-card__block-title">' + b1Title + '</p><p class="quiz-report-card__block-body">' + b1Body + '</p>',
+        '<p class="quiz-report-card__block-title">' + b2Title + '</p><p class="quiz-report-card__block-body">' + b2Body + '</p>',
+        '<p class="quiz-report-card__block-title">' + b3Title + '</p><p class="quiz-report-card__block-body">' + b3Body + '</p>'
+      ];
+    }
+
+    function applyReportCopy() {
+      var parts = buildReportBlocks();
+      var blocks = stepWrapper.querySelectorAll('[data-quiz-report-block]');
+      blocks.forEach(function(el, i) {
+        if (parts[i]) el.innerHTML = parts[i];
+      });
+    }
+
     function setSubmitDisabled(disabled) {
       if (!submitBtn) return;
       if (disabled) {
@@ -71,11 +168,17 @@
     function showOverlay() {
       overlay.classList.add('is-visible');
       overlay.setAttribute('aria-hidden', 'false');
+      if (card) {
+        card.classList.add('is-final-loading');
+      }
     }
 
     function hideOverlay() {
       overlay.classList.remove('is-visible');
       overlay.setAttribute('aria-hidden', 'true');
+      if (card) {
+        card.classList.remove('is-final-loading');
+      }
     }
 
     function resetItems() {
@@ -119,6 +222,7 @@
     function startSequence() {
       clearTimers();
       resetItems();
+      applyReportCopy();
       showOverlay();
       setSubmitDisabled(true);
 

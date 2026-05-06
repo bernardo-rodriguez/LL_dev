@@ -519,7 +519,19 @@ formula-quiz {
   }
 }
 
-/* Final step: floating spinner on card + report list + email reveal */
+/* Final step: reserve vertical space so the absolute spinner doesn’t cover the report title.
+   Child combinator + section scope beats `section.quiz .quiz__form { padding: … }` shorthand. */
+section.quiz .quiz__content-card.is-final-loading > .quiz__form {
+  padding: 208px 20px 20px;
+  transition: padding 0.35s ease;
+}
+
+@media screen and (max-width: 768px) {
+  section.quiz .quiz__content-card.is-final-loading > .quiz__form {
+    padding: 198px 16px 20px;
+  }
+}
+
 .quiz__final-loading-overlay {
   position: absolute;
   left: 0;
@@ -527,8 +539,9 @@ formula-quiz {
   top: 0;
   z-index: 5;
   display: flex;
-  justify-content: center;
-  padding-top: 24px;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
@@ -538,6 +551,22 @@ formula-quiz {
 .quiz__final-loading-overlay.is-visible {
   opacity: 1;
   visibility: visible;
+}
+
+.quiz__final-loading-overlay__stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.quiz__final-loading-overlay__caption {
+  margin: 0;
+  font-family: var(--ds-font-family, manrope, sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.02em;
 }
 
 .quiz__final-loading-overlay__spinner {
@@ -588,15 +617,72 @@ formula-quiz {
   padding: 0;
 }
 
+.quiz-report-card__row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.quiz-report-card__icon-wrap {
+  flex: 0 0 48px;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quiz-report-card__icon-wrap--swatch {
+  align-items: flex-start;
+  padding-top: 2px;
+}
+
+.quiz-report-card__svg-icon {
+  width: 44px;
+  height: 44px;
+  display: block;
+}
+
+.quiz-report-card__swatch {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 2px solid rgba(13, 34, 68, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+
+.quiz-report-card__copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.quiz-report-card__block-title {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.quiz-report-card__block-body {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--navy);
+}
+
+.quiz-report-card__block-body strong {
+  font-weight: 600;
+  color: var(--navy);
+}
+
 .quiz-report-card__item {
   position: relative;
-  padding: 14px 16px 14px 44px;
+  padding: 14px 16px;
   margin-bottom: 10px;
   background: var(--cream-tint-50, #f7f4ee);
   border-radius: 10px;
-  color: var(--navy);
-  font-size: 15px;
-  line-height: 1.45;
   opacity: 0;
   transform: translateY(8px);
   transition: opacity 0.45s ease, transform 0.45s ease;
@@ -606,27 +692,9 @@ formula-quiz {
   margin-bottom: 0;
 }
 
-.quiz-report-card__item::before {
-  content: "";
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  border: 2px solid var(--blue-tint-20);
-  box-sizing: border-box;
-}
-
 .quiz-report-card__item--visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-.quiz-report-card__item--visible::before {
-  border-color: var(--blue);
-  background: var(--blue);
 }
 
 .quiz-loading-email {
