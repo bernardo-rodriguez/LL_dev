@@ -338,6 +338,117 @@ formula-quiz {
   }
 }
 
+/* Shade sliders (quiz-step-shade-slider) */
+.quiz-shade-slider__fieldset {
+  width: 100%;
+  align-items: stretch;
+}
+
+.quiz-shade-slider__container {
+  width: 100%;
+  text-align: center;
+}
+
+.quiz-shade-slider__tooth-wrap {
+  display: block;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.quiz-shade-slider__tooth-svg {
+  width: 110px;
+  height: auto;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .quiz-shade-slider__tooth-svg {
+    width: 78px;
+  }
+}
+
+.quiz-shade-slider__slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  height: 6px;
+  border-radius: 5px;
+  background: transparent;
+  outline: none;
+  opacity: 0.85;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+
+.quiz-shade-slider__slider:hover {
+  opacity: 1;
+}
+
+.quiz-shade-slider__slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  margin-top: -8px;
+  border-radius: 50%;
+  background: var(--blue) !important;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.quiz-shade-slider__slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--blue) !important;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.quiz-shade-slider__slider::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 5px;
+  background: #d3d3d3;
+}
+
+.quiz-shade-slider__slider::-moz-range-track {
+  height: 6px;
+  border-radius: 5px;
+  background: #d3d3d3;
+}
+
+@media screen and (max-width: 768px) {
+  .quiz-shade-slider__slider {
+    height: 44px;
+    background: transparent;
+  }
+
+  .quiz-shade-slider__slider::-webkit-slider-runnable-track {
+    height: 8px;
+  }
+
+  .quiz-shade-slider__slider::-webkit-slider-thumb {
+    width: 36px;
+    height: 36px;
+    margin-top: -14px;
+    border: 3px solid #fff;
+  }
+
+  .quiz-shade-slider__slider::-moz-range-track {
+    height: 8px;
+  }
+
+  .quiz-shade-slider__slider::-moz-range-thumb {
+    width: 36px;
+    height: 36px;
+    border: 3px solid #fff;
+  }
+}
+
 /* State */
 
 formula-quiz[data-state='1'] [data-form-back] {
