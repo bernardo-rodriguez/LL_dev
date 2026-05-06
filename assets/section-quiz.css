@@ -222,6 +222,8 @@ formula-quiz {
 @media screen and (max-width: 768px) {
   .quiz__content-card {
     margin-top: 24px;
+    max-width: none;
+    width: 100%;
   }
 }
 
@@ -240,6 +242,20 @@ formula-quiz {
 @media screen and (max-width: 768px) {
   .quiz__form {
     min-height: 235px;
+    padding: 30px 20px 20px;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+
+  .quiz__form form {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+  }
+
+  .quiz__form fieldset {
+    min-width: 0;
   }
 }
 
