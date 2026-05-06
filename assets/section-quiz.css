@@ -224,6 +224,9 @@ formula-quiz {
     margin-top: 24px;
     max-width: none;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
   }
 }
 
@@ -245,6 +248,9 @@ formula-quiz {
     padding: 30px 20px 20px;
     width: 100%;
     max-width: none;
+    min-width: 0;
+    flex: 1 1 auto;
+    align-self: stretch;
     box-sizing: border-box;
   }
 
@@ -252,10 +258,20 @@ formula-quiz {
     width: 100%;
     max-width: none;
     min-width: 0;
+    display: block;
   }
 
+  .quiz__form .form__step-wrapper {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  /* base.css fieldset { align-items: flex-start } shrink-wraps column children — full width for quiz */
   .quiz__form fieldset {
     min-width: 0;
+    align-items: stretch;
   }
 }
 
@@ -354,10 +370,26 @@ formula-quiz {
   }
 }
 
-/* Shade sliders (quiz-step-shade-slider) */
-.quiz-shade-slider__fieldset {
+/* Second shade slider only: tighten space before Continue row */
+.quiz__input-group--shade-end {
+  margin-bottom: 0;
+}
+
+/* Shade sliders (quiz-step-shade-slider); override base fieldset align-items: flex-start */
+.quiz fieldset.quiz-shade-slider__fieldset {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   align-items: stretch;
+}
+
+.quiz .quiz-shade-slider__container {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .quiz-shade-slider__container {
