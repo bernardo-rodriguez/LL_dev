@@ -103,6 +103,12 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
 
       this.updateProgressBar(newValue)
 
+      var oldN = parseInt(oldValue, 10)
+      var newN = parseInt(newValue, 10)
+      if (!isNaN(oldN) && !isNaN(newN) && newN > oldN) {
+        this.scrollQuizToTop()
+      }
+
       if( newValue == 6 ){
         this.next.classList.toggle('hidden')
         this.submit.classList.remove('hidden')
@@ -112,6 +118,14 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
         this.submit.classList.add('hidden')
       }
     }
+  }
+
+  scrollQuizToTop() {
+    var quizEl = this.querySelector('.quiz')
+    if (quizEl) {
+      quizEl.scrollTop = 0
+    }
+    window.scrollTo(0, 0)
   }
 
   closeQuiz() {

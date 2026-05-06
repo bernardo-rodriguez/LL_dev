@@ -98,7 +98,7 @@ formula-quiz {
 @media screen and (max-width: 768px) {
   .quiz__content {
     display: block;
-    padding-top: 50px;
+    padding-top: 30px;
     padding-bottom: 50px;
     min-height: 100vh;
   }
@@ -299,7 +299,7 @@ formula-quiz {
 
 @media screen and (max-width: 768px){
   .quiz__content-buttons {
-    margin-top: 40px;
+    margin-top: 20px;
   }
 }
 
