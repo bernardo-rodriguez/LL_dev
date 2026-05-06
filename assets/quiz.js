@@ -112,6 +112,7 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
       if( newValue == 6 ){
         this.next.classList.toggle('hidden')
         this.submit.classList.remove('hidden')
+        this.submit.setAttribute('disabled', 'true')
       }
       if ( newValue == 5 && oldValue == 6 ){
         this.next.classList.toggle('hidden')

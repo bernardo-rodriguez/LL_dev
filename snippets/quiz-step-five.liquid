@@ -1,151 +1,169 @@
 {% comment %}
-  Loading info block – shown above the email field on the final quiz step.
-  Spinner shows real progress over LOAD_DURATION_MS (7s). During that time we
-  cycle through informational messages. When loading completes, the loading
-  block fades out and the email field fades in. PLACEHOLDER messages will be
-  replaced by a decision tree based on the user's prior quiz answers.
+  Final step: report card with 3 selling points that appear one at a time while a
+  spinner sits above them on the white card (see .quiz__final-loading-overlay in quiz.liquid).
+  When the sequence finishes, the overlay hides and the email field is shown below the report.
 {% endcomment %}
-<div class="quiz-loading-info" data-quiz-loading-info>
-  <div class="quiz-loading-info__spinner" aria-hidden="true">
-    {%- comment -%}
-      Two stacked SVG circles: a faint background ring and a foreground ring
-      whose stroke-dasharray is animated by JS to fill from 0% to 100% over
-      LOAD_DURATION_MS. r=20 → circumference ≈ 125.66.
-    {%- endcomment -%}
-    <svg viewBox="0 0 50 50" class="quiz-loading-info__spinner-svg">
-      <circle class="quiz-loading-info__spinner-track" cx="25" cy="25" r="20" fill="none" stroke-width="4"></circle>
-      <circle class="quiz-loading-info__spinner-fill" cx="25" cy="25" r="20" fill="none" stroke-width="4" data-quiz-loading-fill></circle>
-    </svg>
+<div class="quiz-final-step" data-quiz-final-step>
+  <div class="quiz-report-card" data-quiz-report-card>
+    <p class="quiz-report-card__title h5">Your personalized snapshot</p>
+    <ul class="quiz-report-card__list list-unstyled" role="list">
+      <li class="quiz-report-card__item" data-quiz-report-item>
+        Whitening strength tuned to your sensitivity — so you can brighten comfortably, not painfully.
+      </li>
+      <li class="quiz-report-card__item" data-quiz-report-item>
+        A formula direction matched to your goals and habits — fewer compromises, clearer expectations.
+      </li>
+      <li class="quiz-report-card__item" data-quiz-report-item>
+        Professional-grade care you can stick with — built around how you brush, eat, and whiten today.
+      </li>
+    </ul>
   </div>
-  <p class="quiz-loading-info__message body-sm" data-quiz-loading-message aria-live="polite">
-    Analyzing your sensitivity profile…
-  </p>
-</div>
 
-<div class="quiz-loading-email" data-quiz-loading-email>
-  <label class="h5" for="ourformbutforklaviyo">Enter your email to unlock your results</label>
-  <div class="quiz__input-group">
-    <input
-      class="for_email_klaviyo"
-      type="email"
-      name="contact[email]"
-      style="color: #3a5ca5"
-      id="ourformbutforklaviyo"
-      placeholder="Email"
-      required
-    >
-    <input class="for_email_klaviyo" type="hidden" name="contact[tags]" value="newsletter">
-    <p class="form-error-message body-xs hidden">This field is required</p>
+  <div class="quiz-loading-email" data-quiz-loading-email>
+    <label class="h5" for="ourformbutforklaviyo">Enter your email to unlock your results</label>
+    <div class="quiz__input-group">
+      <input
+        class="for_email_klaviyo"
+        type="email"
+        name="contact[email]"
+        style="color: #3a5ca5"
+        id="ourformbutforklaviyo"
+        placeholder="Email"
+        required
+      >
+      <input class="for_email_klaviyo" type="hidden" name="contact[tags]" value="newsletter">
+      <p class="form-error-message body-xs hidden">This field is required</p>
+    </div>
   </div>
 </div>
 
 <script>
   (function() {
-    var container = document.querySelector('[data-quiz-loading-info]');
-    if (!container) return;
-    var msgEl = container.querySelector('[data-quiz-loading-message]');
-    var fillEl = container.querySelector('[data-quiz-loading-fill]');
+    var stepWrapper = document.querySelector('.form__step-wrapper[data-step="6"]');
+    var card = document.querySelector('.quiz__content-card');
+    var overlay = document.querySelector('[data-quiz-final-overlay]');
+    var fillEl = document.querySelector('[data-quiz-final-spinner-fill]');
+    var items = document.querySelectorAll('[data-quiz-report-item]');
     var emailWrap = document.querySelector('[data-quiz-loading-email]');
-    var stepWrapper = container.closest('.form__step-wrapper');
-    if (!msgEl || !fillEl || !stepWrapper) return;
+    var submitBtn = document.querySelector('[data-form-submit]');
+    if (!stepWrapper || !overlay || !fillEl || items.length === 0) return;
 
-    // PLACEHOLDER messages – to be replaced with decision-tree logic
-    // that picks messages based on the user's earlier quiz answers.
-    var messages = [
-      'Analyzing your sensitivity profile…',
-      'Calibrating your custom whitening formula…',
-      'Cross-referencing dental research…',
-      'Matching your goal shade to a recommended treatment…',
-      'Almost there…'
-    ];
+    var STAGGER_MS = 1500;
+    var PAD_AFTER_LAST_MS = 700;
 
-    var LOAD_DURATION_MS = 7000;
-    var FADE_MS = 250;
-    // Time each message is shown; spread evenly across the loading window.
-    var MESSAGE_INTERVAL_MS = Math.floor(LOAD_DURATION_MS / messages.length);
-
-    // Circle geometry for r=20 (matches SVG above).
     var CIRCUMFERENCE = 2 * Math.PI * 20;
-    fillEl.style.strokeDasharray = CIRCUMFERENCE + ' ' + CIRCUMFERENCE;
-    fillEl.style.strokeDashoffset = CIRCUMFERENCE;
-
-    var rotationTimer = null;
-    var rafId = null;
-    var completionTimer = null;
     var loadStart = 0;
+    var rafId = null;
+    var timers = [];
+    var totalDurationMs = STAGGER_MS * items.length + PAD_AFTER_LAST_MS;
 
-    function showMessage(index) {
-      msgEl.style.opacity = '0';
-      setTimeout(function() {
-        msgEl.textContent = messages[index];
-        msgEl.style.opacity = '1';
-      }, FADE_MS);
+    function setSubmitDisabled(disabled) {
+      if (!submitBtn) return;
+      if (disabled) {
+        submitBtn.setAttribute('disabled', 'true');
+        submitBtn.setAttribute('aria-disabled', 'true');
+      } else {
+        submitBtn.removeAttribute('disabled');
+        submitBtn.removeAttribute('aria-disabled');
+      }
+    }
+
+    function showOverlay() {
+      overlay.classList.add('is-visible');
+      overlay.setAttribute('aria-hidden', 'false');
+    }
+
+    function hideOverlay() {
+      overlay.classList.remove('is-visible');
+      overlay.setAttribute('aria-hidden', 'true');
+    }
+
+    function resetItems() {
+      items.forEach(function(li) {
+        li.classList.remove('quiz-report-card__item--visible');
+      });
     }
 
     function tickProgress() {
       var elapsed = performance.now() - loadStart;
-      var progress = Math.max(0, Math.min(1, elapsed / LOAD_DURATION_MS));
-      fillEl.style.strokeDashoffset = CIRCUMFERENCE * (1 - progress);
-      if (progress < 1) {
+      var p = Math.max(0, Math.min(1, elapsed / totalDurationMs));
+      fillEl.style.strokeDashoffset = CIRCUMFERENCE * (1 - p);
+      if (p < 1) {
         rafId = requestAnimationFrame(tickProgress);
       }
     }
 
+    function clearTimers() {
+      timers.forEach(function(t) { clearTimeout(t); });
+      timers = [];
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    }
+
     function revealEmail() {
-      if (!emailWrap) return;
-      container.classList.add('quiz-loading-info--done');
-      emailWrap.classList.add('quiz-loading-email--visible');
-      // Recompute next-button validity now that the email input is visible.
+      if (emailWrap) {
+        emailWrap.classList.add('quiz-loading-email--visible');
+      }
+      hideOverlay();
+      setSubmitDisabled(false);
       try {
         var quizEl = stepWrapper.closest('formula-quiz');
-        if (quizEl && typeof quizEl.setInputs === 'function') {
-          quizEl.setInputs(stepWrapper.dataset.step);
+        if (quizEl && quizEl.setInputs) {
+          quizEl.setInputs('6');
         }
       } catch (e) { /* no-op */ }
     }
 
-    function startLoading() {
-      stopLoading();
-      // Reset visuals
-      fillEl.style.strokeDashoffset = CIRCUMFERENCE;
-      container.classList.remove('quiz-loading-info--done');
-      if (emailWrap) emailWrap.classList.remove('quiz-loading-email--visible');
+    function startSequence() {
+      clearTimers();
+      resetItems();
+      showOverlay();
+      setSubmitDisabled(true);
 
+      if (emailWrap) {
+        emailWrap.classList.remove('quiz-loading-email--visible');
+      }
+
+      fillEl.style.strokeDasharray = CIRCUMFERENCE + ' ' + CIRCUMFERENCE;
+      fillEl.style.strokeDashoffset = CIRCUMFERENCE;
       loadStart = performance.now();
       rafId = requestAnimationFrame(tickProgress);
 
-      var msgIndex = 0;
-      showMessage(msgIndex);
-      rotationTimer = setInterval(function() {
-        msgIndex = msgIndex + 1;
-        if (msgIndex >= messages.length) {
-          clearInterval(rotationTimer);
-          rotationTimer = null;
-          return;
-        }
-        showMessage(msgIndex);
-      }, MESSAGE_INTERVAL_MS);
+      items.forEach(function(li, i) {
+        timers.push(setTimeout(function() {
+          li.classList.add('quiz-report-card__item--visible');
+        }, STAGGER_MS * i));
+      });
 
-      completionTimer = setTimeout(revealEmail, LOAD_DURATION_MS);
+      timers.push(setTimeout(revealEmail, totalDurationMs));
     }
 
-    function stopLoading() {
-      if (rotationTimer) { clearInterval(rotationTimer); rotationTimer = null; }
-      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
-      if (completionTimer) { clearTimeout(completionTimer); completionTimer = null; }
+    function stopSequence() {
+      clearTimers();
+      hideOverlay();
+      fillEl.style.strokeDashoffset = CIRCUMFERENCE;
     }
+
+    fillEl.style.strokeDasharray = CIRCUMFERENCE + ' ' + CIRCUMFERENCE;
+    fillEl.style.strokeDashoffset = CIRCUMFERENCE;
 
     if (stepWrapper.classList.contains('active')) {
-      startLoading();
+      startSequence();
     }
 
     var observer = new MutationObserver(function(mutations) {
       mutations.forEach(function(mut) {
         if (mut.attributeName === 'class') {
           if (stepWrapper.classList.contains('active')) {
-            startLoading();
+            startSequence();
           } else {
-            stopLoading();
+            stopSequence();
+            if (emailWrap) {
+              emailWrap.classList.remove('quiz-loading-email--visible');
+            }
+            setSubmitDisabled(false);
           }
         }
       });
@@ -153,73 +171,3 @@
     observer.observe(stepWrapper, { attributes: true, attributeFilter: ['class'] });
   })();
 </script>
-
-<style>
-  .quiz-loading-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 8px 0 16px;
-    transition: opacity 0.4s ease, max-height 0.5s ease, padding 0.5s ease, margin 0.5s ease;
-    overflow: hidden;
-    max-height: 240px;
-    margin-bottom: 8px;
-  }
-
-  /* When loading is complete, collapse the loading block to make room for email */
-  .quiz-loading-info--done {
-    opacity: 0;
-    max-height: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    margin-bottom: 0;
-    pointer-events: none;
-  }
-
-  .quiz-loading-info__spinner {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 14px;
-  }
-
-  .quiz-loading-info__spinner-svg {
-    width: 100%;
-    height: 100%;
-    /* Rotate so progress fill starts from 12 o'clock and moves clockwise */
-    transform: rotate(-90deg);
-  }
-
-  .quiz-loading-info__spinner-track {
-    stroke: var(--blue-tint-20);
-  }
-
-  .quiz-loading-info__spinner-fill {
-    stroke: var(--navy);
-    stroke-linecap: round;
-    transition: stroke-dashoffset 0.05s linear;
-  }
-
-  .quiz-loading-info__message {
-    margin: 0;
-    color: var(--navy);
-    min-height: 1.4em;
-    transition: opacity 0.25s ease;
-    max-width: 320px;
-  }
-
-  /* Email block: hidden until loading finishes, then fades in */
-  .quiz-loading-email {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    pointer-events: none;
-    transition: opacity 0.4s ease 0.1s, max-height 0.5s ease;
-  }
-
-  .quiz-loading-email--visible {
-    opacity: 1;
-    max-height: 400px;
-    pointer-events: auto;
-  }
-</style>

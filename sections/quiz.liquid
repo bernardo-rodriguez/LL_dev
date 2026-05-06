@@ -70,6 +70,26 @@
           <h3 class="quiz__headline" data-step="6">{{ formatted_heading_6 }}</h3>
         </div>
         <div class="quiz__content-card">
+          <div
+            class="quiz__final-loading-overlay"
+            data-quiz-final-overlay
+            aria-hidden="true"
+          >
+            <div class="quiz__final-loading-overlay__spinner" aria-hidden="true">
+              <svg viewBox="0 0 50 50" class="quiz__final-loading-overlay__svg">
+                <circle class="quiz__final-loading-overlay__track" cx="25" cy="25" r="20" fill="none" stroke-width="4"></circle>
+                <circle
+                  class="quiz__final-loading-overlay__fill"
+                  cx="25"
+                  cy="25"
+                  r="20"
+                  fill="none"
+                  stroke-width="4"
+                  data-quiz-final-spinner-fill
+                ></circle>
+              </svg>
+            </div>
+          </div>
           <div class="quiz__form">
             {% form 'customer' %}
               <div class="form__step-wrapper active" data-step="1">
