@@ -1,11 +1,22 @@
 {% comment %}
-  Final step: personalized “report card” driven by quiz answers (plaque concern,
-  sensitivity, shades, stain habits). Spinner + “Building your formula” in overlay
-  (quiz.liquid). Email reveals after stagger animation.
+  Final step: personalized “report card” (plaque, sensitivity, shade + stain habits).
+  Loading UI: spinner + “Building your formula” live in `sections/quiz.liquid`, styled in
+  `assets/section-quiz.css` (`.quiz__final-loading-overlay*`).
+
+  --- Where to edit copy ---
+  • Final-step block titles + bodies: `buildReportBlocks()` in the <script> below (vars b1Title, b1Body, etc.).
+  • Loading caption: `sections/quiz.liquid` → `.quiz__final-loading-overlay__caption`.
+  • Email CTA + placeholder: this file → `.quiz-loading-email`.
+  • Step headlines (including step 6): Theme editor → Quiz section settings, or `sections/quiz.liquid` schema defaults.
+  • Earlier quiz questions: `snippets/quiz-step-*.liquid` files.
+
+  --- Icons ---
+  Blocks 1–2 use small inline SVGs in this file (custom / not from an icon pack).
+  Block 3 uses the same tooth base + mask path as `snippets/quiz-step-shade-slider.liquid`; shade fill is synced in JS from `#quiz_shade_slider_end`.
 {% endcomment %}
+{% assign quiz_report_tooth_src = 'tooth.png' | asset_url %}
 <div class="quiz-final-step" data-quiz-final-step>
   <div class="quiz-report-card" data-quiz-report-card>
-    <p class="quiz-report-card__title h5">Your formula report</p>
     <ul class="quiz-report-card__list list-unstyled" role="list">
       <li class="quiz-report-card__item" data-quiz-report-item>
         <div class="quiz-report-card__row">
@@ -33,7 +44,16 @@
       </li>
       <li class="quiz-report-card__item" data-quiz-report-item>
         <div class="quiz-report-card__row">
-          <div class="quiz-report-card__icon-wrap quiz-report-card__icon-wrap--swatch" data-quiz-report-icon-swatch aria-hidden="true"></div>
+          <div class="quiz-report-card__icon-wrap quiz-report-card__icon-wrap--tooth" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3000 3000" class="quiz-report-card__tooth-svg">
+              <g style="isolation:isolate;">
+                <g>
+                  <image transform="scale(2.92969)" href="{{ quiz_report_tooth_src }}" xlink:href="{{ quiz_report_tooth_src }}"/>
+                  <path id="quiz_report_tooth_path" d="M1611.70436,423.05238s-220.26773-60.52402-302.62008-65.485-330.4016-36.71129-552.65372,132.9544c0,0-221.25993,0-365.12849,195.46281s-146.84515,387.94902-148.82955,546.70054,72.43038,563.56789,112.11826,676.67834,219.937,683.95445,542.73175,776.55951c108.4802,29.10444,190.50182-78.05283,218.28334-154.78273,0,0,174.62667,125.67828,305.59667-103.18849,0,0,101.86556,306.9196,277.81516,306.9196,120.38657,0,191.82475-96.57384,228.86677-138.90758,0,0,84.66748,46.30253,178.59546-7.93758s210.34576-174.62667,293.69031-342.63869,193.14768-415.3998,236.80435-658.8188,74.08404-469.63991,43.65667-666.75637-154.78273-370.42021-255.32536-431.27496-283.10687-96.57384-425.98324-78.05283c-85.99041,7.93758-171.98081,56.88596-248.71071,43.65667s-138.90758-31.08884-138.90758-31.08884Z" style="fill:hsl(43,40%,80%); mix-blend-mode:multiply;"/>
+                </g>
+              </g>
+            </svg>
+          </div>
           <div class="quiz-report-card__copy" data-quiz-report-block="3"></div>
         </div>
       </li>
@@ -61,7 +81,6 @@
 <script>
   (function() {
     var stepWrapper = document.querySelector('.form__step-wrapper[data-step="6"]');
-    var card = document.querySelector('.quiz__content-card');
     var overlay = document.querySelector('[data-quiz-final-overlay]');
     var fillEl = document.querySelector('[data-quiz-final-spinner-fill]');
     var items = document.querySelectorAll('[data-quiz-report-item]');
@@ -131,13 +150,16 @@
       var stainEl = quizRoot.querySelector('[name="stain"]:checked');
       var habit = stainHabitPhrase(stainEl ? stainEl.value : '');
 
-      var swatchHost = stepWrapper.querySelector('[data-quiz-report-icon-swatch]');
-      if (swatchHost) {
-        swatchHost.innerHTML = '<div class="quiz-report-card__swatch" style="background:hsl(43, 40%, ' + L + '%);"></div>';
+      var toothPath = document.getElementById('quiz_report_tooth_path');
+      if (toothPath) {
+        toothPath.setAttribute(
+          'style',
+          'fill: hsl(43,40%,' + L + '%); mix-blend-mode:multiply;'
+        );
       }
 
       var b3Title = 'Your desired shade';
-      var b3Body = 'Given <strong>' + habit + '</strong> and your <strong>desired shade</strong> (swatch beside this card), we\'re prescribing a <strong>prescription-strength ' + hp + '% HP formula</strong>—tough enough to lift stains and reach that shade.';
+      var b3Body = 'Given <strong>' + habit + '</strong> and your <strong>desired shade</strong>, we\'re prescribing a <strong>prescription-strength ' + hp + '% HP formula</strong>—tough enough to lift stains and reach that shade.';
 
       return [
         '<p class="quiz-report-card__block-title">' + b1Title + '</p><p class="quiz-report-card__block-body">' + b1Body + '</p>',
@@ -168,17 +190,11 @@
     function showOverlay() {
       overlay.classList.add('is-visible');
       overlay.setAttribute('aria-hidden', 'false');
-      if (card) {
-        card.classList.add('is-final-loading');
-      }
     }
 
     function hideOverlay() {
       overlay.classList.remove('is-visible');
       overlay.setAttribute('aria-hidden', 'true');
-      if (card) {
-        card.classList.remove('is-final-loading');
-      }
     }
 
     function resetItems() {
