@@ -11,7 +11,7 @@
   • Earlier quiz questions: `snippets/quiz-step-*.liquid` files.
 
   --- Icons ---
-  Blocks 1–2 use small inline SVGs in this file (custom / not from an icon pack).
+  Blocks 1–2: `assets/coconut-svgrepo-com.svg`, `assets/aloe-vera-svgrepo-com.svg`.
   Block 3 uses the same tooth base + mask path as `snippets/quiz-step-shade-slider.liquid`; shade fill is synced in JS from `#quiz_shade_slider_end`.
 {% endcomment %}
 {% assign quiz_report_tooth_src = 'tooth.png' | asset_url %}
@@ -21,11 +21,14 @@
       <li class="quiz-report-card__item" data-quiz-report-item>
         <div class="quiz-report-card__row">
           <div class="quiz-report-card__icon-wrap" aria-hidden="true">
-            <svg class="quiz-report-card__svg-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="24" cy="40" rx="14" ry="6" fill="var(--blue-tint-20)"/>
-              <path d="M24 8c-6 0-11 5-11 12 0 7 4 14 11 22 7-8 11-15 11-22 0-7-5-12-11-12z" fill="#f4e6c8" stroke="var(--navy)" stroke-width="1.2"/>
-              <path d="M19 18c2 3 6 3 10 1" stroke="var(--navy)" stroke-width="1" fill="none" stroke-linecap="round"/>
-            </svg>
+            <img
+              class="quiz-report-card__svg-icon"
+              src="{{ 'coconut-svgrepo-com.svg' | asset_url }}"
+              width="44"
+              height="44"
+              alt=""
+              loading="lazy"
+            >
           </div>
           <div class="quiz-report-card__copy" data-quiz-report-block="1"></div>
         </div>
@@ -33,11 +36,14 @@
       <li class="quiz-report-card__item" data-quiz-report-item>
         <div class="quiz-report-card__row">
           <div class="quiz-report-card__icon-wrap" aria-hidden="true">
-            <svg class="quiz-report-card__svg-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14 32c4-8 6-14 8-20 1.5 6 3 12 6 18" stroke="var(--blue)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-              <path d="M28 12c2 6 4 12 6 20" stroke="var(--navy-tint-40)" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.7"/>
-              <ellipse cx="20" cy="34" rx="3" ry="4" fill="#9fd4a3" transform="rotate(-15 20 34)"/>
-            </svg>
+            <img
+              class="quiz-report-card__svg-icon"
+              src="{{ 'aloe-vera-svgrepo-com.svg' | asset_url }}"
+              width="44"
+              height="44"
+              alt=""
+              loading="lazy"
+            >
           </div>
           <div class="quiz-report-card__copy" data-quiz-report-block="2"></div>
         </div>
@@ -85,7 +91,7 @@
     var fillEl = document.querySelector('[data-quiz-final-spinner-fill]');
     var items = document.querySelectorAll('[data-quiz-report-item]');
     var emailWrap = document.querySelector('[data-quiz-loading-email]');
-    var submitBtn = document.querySelector('[data-form-submit]');
+    /* [data-form-submit] lives in .quiz__content-buttons after this script in the DOM — never cache at parse time. */
     if (!stepWrapper || !overlay || !fillEl || items.length === 0) return;
 
     var STAGGER_MS = 1500;
@@ -177,13 +183,14 @@
     }
 
     function setSubmitDisabled(disabled) {
-      if (!submitBtn) return;
+      var btn = document.querySelector('[data-form-submit]');
+      if (!btn) return;
       if (disabled) {
-        submitBtn.setAttribute('disabled', 'true');
-        submitBtn.setAttribute('aria-disabled', 'true');
+        btn.setAttribute('disabled', 'true');
+        btn.setAttribute('aria-disabled', 'true');
       } else {
-        submitBtn.removeAttribute('disabled');
-        submitBtn.removeAttribute('aria-disabled');
+        btn.removeAttribute('disabled');
+        btn.removeAttribute('aria-disabled');
       }
     }
 

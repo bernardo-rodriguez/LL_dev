@@ -636,6 +636,8 @@ formula-quiz {
   width: 44px;
   height: 44px;
   display: block;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .quiz-report-card__tooth-svg {
@@ -672,10 +674,8 @@ formula-quiz {
 
 .quiz-report-card__item {
   position: relative;
-  padding: 14px 16px;
+  padding: 14px 0;
   margin-bottom: 10px;
-  background: var(--cream-tint-50, #f7f4ee);
-  border-radius: 10px;
   opacity: 0;
   transform: translateY(8px);
   transition: opacity 0.45s ease, transform 0.45s ease;
