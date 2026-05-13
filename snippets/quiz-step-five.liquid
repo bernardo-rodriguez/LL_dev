@@ -109,15 +109,10 @@
       return Math.min((v / 3) + 70, 100);
     }
 
-    function hpPercent(startVal, endVal) {
-      var s = parseInt(startVal, 10);
-      var e = parseInt(endVal, 10);
-      if (isNaN(s)) s = 50;
-      if (isNaN(e)) e = 50;
-      var delta = Math.max(0, e - s);
-      if (delta <= 10) return 9;
-      if (delta <= 24) return 11;
-      if (delta <= 40) return 14;
+    function hpPercent(sensitivity) {
+      if (sensitivity <= 10) return 9;
+      if (sensitivity <= 24) return 11;
+      if (sensitivity <= 40) return 14;
       return 16;
     }
 
@@ -152,7 +147,7 @@
       var startV = startEl ? startEl.value : '50';
       var endV = endEl ? endEl.value : '50';
       var L = shadeLightness(endV);
-      var hp = hpPercent(startV, endV);
+      var hp = hpPercent(sens.value);
       var stainEl = quizRoot.querySelector('[name="stain"]:checked');
       var habit = stainHabitPhrase(stainEl ? stainEl.value : '');
 
