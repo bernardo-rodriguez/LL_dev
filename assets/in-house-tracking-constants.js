@@ -838,8 +838,8 @@ affiliate_first_order_includes = {
  * Used to update percentage and name when formula/strength changes.
  */
 formula_ingredient_by_strength = {
-    strong: { percentage: '11%', name: 'Hydrogen Peroxide' },
-    medium: { percentage: '8%', name: 'Hydrogen Peroxide' },
+    strong: { percentage: '14%', name: 'Hydrogen Peroxide' },
+    medium: { percentage: '11%', name: 'Hydrogen Peroxide' },
     sensitive: { percentage: '25%', name: 'Sodium Bicarbonate' },
     gentle: { percentage: '25%', name: 'Sodium Bicarbonate' }
 }
