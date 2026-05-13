@@ -262,7 +262,7 @@ body.template-product .multi-slide-carousel__heading {
   }
 
   .multi-slide-carousel__slide {
-    padding-bottom: 20px;
+    padding-bottom: 0;
   }
 
   .multi-slide-carousel__content {
