@@ -7,12 +7,12 @@ affiliate_config = {
         'general': {
             'product_banner': {
                 'bold': 'LIMITED TIME OFFER:',
-                'text': '{{bold}} 50% OFF YOUR FIRST SUBSCRIPTION PLUS FREE SHIPPING AND A GIFT',
+                'text': '{{bold}} 40% OFF YOUR FIRST SUBSCRIPTION PLUS FREE SHIPPING AND A GIFT',
             },
         },
         'pricing': {
-            'onetime': '59',
-            'subscription': '29',
+            'onetime': '65',
+            'subscription': '39',
             'one_time_enabled': true,
             'subscription_enabled': true,
             'bundle_enabled': true,
@@ -32,13 +32,13 @@ affiliate_config = {
             'hero_subtitle_1': null,
             'hero_title': null,
             'Hero_Subtitle': null,
-            'hero_price': '29',
-            'pricing_table_us_data': '59',
+            'hero_price': '39',
+            'pricing_table_us_data': '65',
         },
         'featured_product': {
-            'subPrice': '29',
+            'subPrice': '39',
             'discount_name': 'SUB-N-SAVE',
-            'discount_desc': '75% OFF',
+            'discount_desc': '40% OFF',
             'regular_item_price': null
         }
     },
@@ -84,7 +84,7 @@ affiliate_config = {
             'subPrice': '17',
             'discount_name': 'NIFT_AUTOMATIC',
             'discount_desc': '72% OFF',
-            'regular_item_price': '$59'
+            'regular_item_price': '$65'
         }
     },
     'nift_bundle': {
@@ -124,12 +124,12 @@ affiliate_config = {
             'hero_subtitle_1': null,
             'hero_title': null,
             'Hero_Subtitle': null,
-            'hero_price': '59',
+            'hero_price': '39',
         },
         'featured_product': {
-            'subPrice': '59',
+            'subPrice': '39',
             'discount_name': 'Starter Kit',
-            'discount_desc': '22% OFF',
+            'discount_desc': '40% OFF',
             'regular_item_price': null
         },
         'flow': {
@@ -145,10 +145,10 @@ affiliate_config = {
             'hero_subtitle_1': null,
             'hero_title': null,
             'Hero_Subtitle': null,
-            'hero_price': '59',
+            'hero_price': '65',
         },
         'featured_product': {
-            'subPrice': '59',
+            'subPrice': '65',
             'discount_name': 'Starter Kit',
             'discount_desc': '22% OFF',
             'regular_item_price': null
@@ -196,7 +196,7 @@ affiliate_config = {
             'subPrice': '49',
             'discount_name': 'CPGAP_STARTER',
             'discount_desc': '35% OFF',
-            'regular_item_price': '$76'
+            'regular_item_price': '$84'
         }
     },
     'redirect_cpgap_gen': {
@@ -222,7 +222,7 @@ affiliate_config = {
             'subPrice': '19',
             'discount_name': 'CPGAP_SUB',
             'discount_desc': '75% OFF',
-            'regular_item_price': '$76'
+            'regular_item_price': '$84'
         }
     },
     'jam_media': {
@@ -249,7 +249,7 @@ affiliate_config = {
             'subPrice': '49',
             'discount_name': 'TJM_OFFER_1Q',
             'discount_desc': '35% OFF',
-            'regular_item_price': '$76'
+            'regular_item_price': '$84'
         }
     },
     'jam_media_gen': {
@@ -275,7 +275,7 @@ affiliate_config = {
             'subPrice': '19',
             'discount_name': 'TJM_OFFER_1Q',
             'discount_desc': '75% OFF',
-            'regular_item_price': '$76'
+            'regular_item_price': '$84'
         }
     },
     'redirect_paceline': {
@@ -285,10 +285,10 @@ affiliate_config = {
             'cart_attribute': 'paceline',
         },
         'landing_page_copy': {
-            'hero_price': '29',
+            'hero_price': '39',
         },
         'featured_product': {
-            'subPrice': '29'
+            'subPrice': '39'
         }
     },
     'redirect_sweatcoin': {
@@ -329,7 +329,7 @@ affiliate_config = {
             'discount_name': 'SWEATCOIN_LIMITED',
             // 'discount_desc': '100% OFF',
             'discount_desc': '85% OFF',
-            'regular_item_price': '$59'
+            'regular_item_price': '$65'
         }
     },
     // 'redirect_ut': {
@@ -402,7 +402,7 @@ affiliate_config = {
             // 'discount_name': 'FREE_TRIAL_SPECIAL',
             'discount_name': 'STARTER_SPECIAL',
             'discount_desc': '85% OFF',
-            'regular_item_price': '$59'
+            'regular_item_price': '$65'
         }
     },
     // 'redirect_ut_trial': {
@@ -472,7 +472,7 @@ affiliate_config = {
             // 'discount_name': 'FREE_TRIAL_SPECIAL',
             'discount_name': 'STARTER_SPECIAL',
             'discount_desc': '85% OFF',
-            'regular_item_price': '$59'
+            'regular_item_price': '$65'
         }
     },
     'redirect_ut_direct': {
@@ -493,7 +493,7 @@ affiliate_config = {
             'subPrice': '9',
             'discount_name': 'MILES_AUTOMATIC',
             'discount_desc': '88% OFF',
-            'regular_item_price': '$59'
+            'regular_item_price': '$65'
         }
     },
     'redirect_skimm': {
@@ -532,7 +532,7 @@ affiliate_config = {
             'subPrice': '13.5',
             'discount_name': 'Subscribe & Save',
             'discount_desc': '80% OFF',
-            'regular_item_price': '$59'
+            'regular_item_price': '$65'
         },
         'flow': {
             'add_pen_with_kit': false, 
@@ -543,48 +543,48 @@ affiliate_config = {
 base_one_time_price_copy = {
     'first': {
         'bundle_offer_title': 'Buy 1 - Save 25%',
-        'bundle_current_price': '$59',
-        'bundle_previous_price': '$76',
+        'bundle_current_price': '$65',
+        'bundle_previous_price': '$84',
         'bundle_percent_off': '22% OFF',
-        'bundle_price_per_treatment': '$9.83/Treatment'
+        'bundle_price_per_treatment': '$10.83/Treatment'
     },
     'second': {
         'bundle_offer_title': 'Buy 2, Get 1 FREE',
-        'bundle_current_price': '$118',
-        'bundle_previous_price': '$228',
+        'bundle_current_price': '$130',
+        'bundle_previous_price': '$195',
         'bundle_percent_off': '33% OFF',
-        'bundle_price_per_treatment': '$6.55/Treatment'
+        'bundle_price_per_treatment': '$7.22/Treatment'
     },
     'third': {
         'bundle_offer_title': 'Buy 3, Get 2 FREE',
-        'bundle_current_price': '$177',
-        'bundle_previous_price': '$295',
+        'bundle_current_price': '$195',
+        'bundle_previous_price': '$325',
         'bundle_percent_off': '40% OFF',
-        'bundle_price_per_treatment': '$5.9/Treatment'
+        'bundle_price_per_treatment': '$6.50/Treatment'
     }
 }
 
 base_upsell_one_time_price_copy = {
     'first': {
         'bundle_offer_title': 'Buy 1 - Save 25%',
-        'bundle_current_price': '$89',
-        'bundle_previous_price': '$118',
+        'bundle_current_price': '$95',
+        'bundle_previous_price': '$126',
         'bundle_percent_off': '25% OFF',
-        'bundle_price_per_treatment': '$7.42/Treatment'
+        'bundle_price_per_treatment': '$7.92/Treatment'
     },
     'second': {
         'bundle_offer_title': 'Buy 2, Get 1 FREE',
-        'bundle_current_price': '$178',
-        'bundle_previous_price': '$267',
+        'bundle_current_price': '$190',
+        'bundle_previous_price': '$285',
         'bundle_percent_off': '33% OFF',
-        'bundle_price_per_treatment': '$4.94/Treatment'
+        'bundle_price_per_treatment': '$5.28/Treatment'
     },
     'third': {
         'bundle_offer_title': 'Buy 3, Get 2 FREE',
-        'bundle_current_price': '$267',
-        'bundle_previous_price': '$445',
+        'bundle_current_price': '$285',
+        'bundle_previous_price': '$475',
         'bundle_percent_off': '40% OFF',
-        'bundle_price_per_treatment': '$4.45/Treatment'
+        'bundle_price_per_treatment': '$4.75/Treatment'
     }
 }
 
@@ -618,15 +618,15 @@ affiliate_upsell_one_time_price_copy = {
 base_subscription_price_copy = {
     'subscription_product_title': 'Whitening Kit (6 Treatments)',
     'next_price': '0',
-    'price_per_treatment': '$4.83/Treatment',
-    'previous_price': '$59'
+    'price_per_treatment': '$6.50/Treatment',
+    'previous_price': '$65'
 }
 
 base_upsell_subscription_price_copy = {
     'subscription_product_title': 'Whitening Kit (12 Treatments)',
-    'next_price': '16',
-    'price_per_treatment': '$3.75/Treatment',
-    'previous_price': '$89'
+    'next_price': '20',
+    'price_per_treatment': '$4.92/Treatment',
+    'previous_price': '$95'
 }
 
 affiliate_subscription_price_copy = {
@@ -635,13 +635,13 @@ affiliate_subscription_price_copy = {
         'subscription_product_title': 'Whitening Kit (6 Treatments)',
         'next_price': '0',
         'price_per_treatment': '$2.98/Treatment',
-        'previous_price': '$59'
+        'previous_price': '$65'
     },
     'redirect_sweatcoin': {
         'subscription_product_title': 'Whitening Kit (6 Treatments)',
         'next_price': '0',
         'price_per_treatment': '$2.98/Treatment',
-        'previous_price': '$59'
+        'previous_price': '$65'
     }
 }
 
@@ -651,13 +651,13 @@ affiliate_upsell_subscription_price_copy = {
         'subscription_product_title': 'Whitening Kit (12 Treatments)',
         'next_price': '6.5',
         'price_per_treatment': '$1.32/Treatment',
-        'previous_price': '$89'
+        'previous_price': '$95'
     },
     'redirect_sweatcoin': {
         'subscription_product_title': 'Whitening Kit (12 Treatments)',
         'next_price': '10',
         'price_per_treatment': '$1.32/Treatment',
-        'previous_price': '$89'
+        'previous_price': '$95'
     }
 }
 
@@ -701,10 +701,10 @@ const INCLUDE_SHIPPING = {
     current_price: 'FREE',
 };
 
-// Matches default affiliate_config.general.product_banner: "LIMITED TIME OFFER: 50% OFF YOUR FIRST SUBSCRIPTION PLUS FREE SHIPPING AND A GIFT"
+// Matches default affiliate_config.general.product_banner: "LIMITED TIME OFFER: 40% OFF YOUR FIRST SUBSCRIPTION PLUS FREE SHIPPING AND A GIFT"
 const INCLUDE_SUBSCRIBE_DISCLAIMER = {
     type: 'disclaimer',
-    text: '<strong>LIMITED TIME OFFER:</strong> 50% OFF YOUR FIRST SUBSCRIPTION PLUS FREE SHIPPING AND A GIFT.',
+    text: '<strong>LIMITED TIME OFFER:</strong> 40% OFF YOUR FIRST SUBSCRIPTION PLUS FREE SHIPPING AND A GIFT.',
     link_text: 'Switch to <strong>Subscribe &amp; Save</strong>',
 };
 
@@ -728,7 +728,7 @@ refill_subscription_compare_price = '30';
 
 /**
  * Refill one-time line strike in ORDER INCLUDES. '' = no strikethrough (only refill_one_time_display_price).
- * Set to '59' (or '$59') if you want a compare-at next to the one-time price.
+ * Set to '65' (or '$65') if you want a compare-at next to the one-time price.
  */
 refill_one_time_compare_price = '';
 

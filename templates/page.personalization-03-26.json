@@ -321,9 +321,9 @@
       "type": "first-order-includes",
       "settings": {
         "section_title": "FIRST ORDER INCLUDES",
-        "kit_previous_price": "$70",
+        "kit_previous_price": "$65",
         "kit_current_price": "$39",
-        "total_previous_price": "$115",
+        "total_previous_price": "$100",
         "total_current_price": "$39",
         "footer_text": "MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS",
         "show_footer_text": false,
@@ -507,7 +507,7 @@
             "diy_data_icon": "true",
             "dentist_data": "$250~1.5k",
             "dentist_data_icon": "true",
-            "us_data": "$59",
+            "us_data": "$65",
             "us_data_icon": "true"
           }
         }

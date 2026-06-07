@@ -69,7 +69,7 @@ function formatRefillMoney(val) {
   return s.startsWith('$') ? s : '$' + s.replace(/^\$/, '');
 }
 
-/** Refill sub tab + subscription includes strike — always standalone refill retail ($30), never kit previous_price ($59). */
+/** Refill sub tab + subscription includes strike — always standalone refill retail ($30), never kit previous_price ($65). */
 function getRefillSubscriptionStrike(component) {
   if (typeof refill_subscription_compare_price !== 'undefined') {
     if (refill_subscription_compare_price === '' || refill_subscription_compare_price === null) return '';
@@ -82,7 +82,7 @@ function getRefillSubscriptionStrike(component) {
   return formatRefillMoney(stand);
 }
 
-/** Refill one-time includes line strike; '' = hide (no hardcoded $59). */
+/** Refill one-time includes line strike; '' = hide (no hardcoded $65). */
 function getRefillOneTimeStrike() {
   if (typeof refill_one_time_compare_price !== 'undefined') {
     if (refill_one_time_compare_price === '' || refill_one_time_compare_price === null) return '';
@@ -1677,8 +1677,8 @@ export class SkioPlanPickerComponent extends LitElement {
               return { strikePrice, currentPrice };
             }
             const strikePrice = isSubscription
-              ? (this.subscriptionPricingConfig['previous_price'] || '$70')
-              : (this.oneTimePricingConfig['first']['bundle_previous_price'] || '$76');
+              ? (this.subscriptionPricingConfig['previous_price'] || '$65')
+              : (this.oneTimePricingConfig['first']['bundle_previous_price'] || '$84');
             const currentPrice = isSubscription
               ? html`$${ (() => {
                   const group = this.availableSellingPlanGroups?.[0];
@@ -1703,8 +1703,8 @@ export class SkioPlanPickerComponent extends LitElement {
                   prev = isSubscription ? getRefillSubscriptionStrike(this) : getRefillOneTimeStrike();
                 } else {
                   prev = isSubscription
-                    ? (this.subscriptionPricingConfig['previous_price'] || '$70')
-                    : (this.oneTimePricingConfig['first']['bundle_previous_price'] || '$76');
+                    ? (this.subscriptionPricingConfig['previous_price'] || '$65')
+                    : (this.oneTimePricingConfig['first']['bundle_previous_price'] || '$84');
                 }
                 total += parseInt((prev || '').replace(/[^0-9]/g, '')) || 0;
               } else if (item.previous_price) {
