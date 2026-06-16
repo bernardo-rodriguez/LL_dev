@@ -136,40 +136,6 @@
       ],
       "settings": {}
     },
-    "health_and_safety": {
-      "type": "health-and-safety",
-      "blocks": {
-        "row_safe_manufacturing": {
-          "type": "row",
-          "settings": {
-            "heading": "Safe Manufacturing",
-            "text": "Our products are manufactured in an FDA-registered facility and follow strict safety protocols."
-          }
-        },
-        "row_pharmaceutical_grade": {
-          "type": "row",
-          "settings": {
-            "heading": "Pharmaceutical Grade",
-            "text": "We use pharmaceutical-grade ingredients for the highest level of quality and effectiveness."
-          }
-        },
-        "row_gentle": {
-          "type": "row",
-          "settings": {
-            "heading": "Gentle & Non-Irritating",
-            "text": "Formulated to be gentle on enamel and gums while delivering noticeable results."
-          }
-        }
-      },
-      "block_order": [
-        "row_safe_manufacturing",
-        "row_pharmaceutical_grade",
-        "row_gentle"
-      ],
-      "settings": {
-        "heading": "Health & Safety"
-      }
-    },
     "6916709c-578f-4b73-afd1-d8e53aa1db15": {
       "type": "carousel",
       "blocks": {
@@ -356,6 +322,41 @@
       "name": "Transformational Results",
       "settings": {
         "heading": "Transformational Results"
+      }
+    },
+    "health_and_safety_7jXKQb": {
+      "type": "health-and-safety",
+      "blocks": {
+        "row_MrnGXP": {
+          "type": "row",
+          "settings": {
+            "heading": "Row heading",
+            "text": "Row description"
+          }
+        },
+        "row_Ynhf9w": {
+          "type": "row",
+          "settings": {
+            "heading": "Pharmaceutical Grade",
+            "text": "We only use pharmaceutical grade ingredients held to the highest of purity standards"
+          }
+        },
+        "row_mUkW8M": {
+          "type": "row",
+          "settings": {
+            "heading": "Safe. Tested. Trusted",
+            "text": "Every Laughland product is extensively tested for safety and efficacy, so you can whiten worry-free."
+          }
+        }
+      },
+      "block_order": [
+        "row_MrnGXP",
+        "row_Ynhf9w",
+        "row_mUkW8M"
+      ],
+      "name": "Health and Safety",
+      "settings": {
+        "heading": "Health & Safety"
       }
     },
     "30a71a58-b5ad-472f-9d70-97379fc62b74": {
@@ -567,10 +568,10 @@
     "product-recommendations",
     "ingredients_that_work_N67RbP",
     "multi_slide_carousel_rc9KtU",
-    "health_and_safety",
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
     "1c8af4c9-5992-4bfb-9d4a-a8e06e025318",
     "transformational_results_ddRMfc",
+    "health_and_safety_7jXKQb",
     "30a71a58-b5ad-472f-9d70-97379fc62b74",
     "d7a83216-e232-4258-9705-5edf54558f0b",
     "a4ec3822-cf26-400b-a01b-564ae2a93dfc",
