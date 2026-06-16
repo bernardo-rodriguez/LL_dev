@@ -138,6 +138,34 @@
     },
     "health_and_safety": {
       "type": "health-and-safety",
+      "blocks": {
+        "row_safe_manufacturing": {
+          "type": "row",
+          "settings": {
+            "heading": "Safe Manufacturing",
+            "text": "Our products are manufactured in an FDA-registered facility and follow strict safety protocols."
+          }
+        },
+        "row_pharmaceutical_grade": {
+          "type": "row",
+          "settings": {
+            "heading": "Pharmaceutical Grade",
+            "text": "We use pharmaceutical-grade ingredients for the highest level of quality and effectiveness."
+          }
+        },
+        "row_gentle": {
+          "type": "row",
+          "settings": {
+            "heading": "Gentle & Non-Irritating",
+            "text": "Formulated to be gentle on enamel and gums while delivering noticeable results."
+          }
+        }
+      },
+      "block_order": [
+        "row_safe_manufacturing",
+        "row_pharmaceutical_grade",
+        "row_gentle"
+      ],
       "settings": {
         "heading": "Health & Safety"
       }

@@ -7,6 +7,60 @@
         <h3 class="health-and-safety__heading">{{ section.settings.heading }}</h3>
       </div>
     {% endif %}
+
+    <div class="health-and-safety__columns">
+      <div class="health-and-safety__left">
+        {% if section.blocks.size > 0 %}
+          <div class="health-and-safety__rows">
+            {% for block in section.blocks %}
+              {% if block.type == 'row' %}
+                <div class="health-and-safety__row" {{ block.shopify_attributes }}>
+                  <div class="health-and-safety__row-icon" aria-hidden="true">
+                    {% if block.settings.icon != blank %}
+                      <img
+                        src="{{ block.settings.icon | image_url: width: 80 }}"
+                        alt=""
+                        width="40"
+                        height="40"
+                        loading="lazy"
+                      >
+                    {% endif %}
+                  </div>
+                  <div class="health-and-safety__row-content">
+                    {% if block.settings.heading != blank %}
+                      <p class="health-and-safety__row-heading sh2">{{ block.settings.heading }}</p>
+                    {% endif %}
+                    {% if block.settings.text != blank %}
+                      <p class="health-and-safety__row-text body-sm">{{ block.settings.text }}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="health-and-safety__right">
+        {% if section.settings.image != blank %}
+          <div class="health-and-safety__media">
+            <img
+              src="{{ section.settings.image | image_url: width: 1200 }}"
+              srcset="
+                {{ section.settings.image | image_url: width: 600 }} 600w,
+                {{ section.settings.image | image_url: width: 900 }} 900w,
+                {{ section.settings.image | image_url: width: 1200 }} 1200w"
+              sizes="(min-width: 769px) 50vw, 100vw"
+              alt="{{ section.settings.image.alt | escape }}"
+              class="health-and-safety__image"
+              loading="lazy"
+              width="{{ section.settings.image.width }}"
+              height="{{ section.settings.image.height }}"
+            >
+          </div>
+        {% endif %}
+      </div>
+    </div>
   </div>
 </section>
 
@@ -21,11 +75,64 @@
       "id": "heading",
       "label": "Heading",
       "default": "Health & Safety"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Right column image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Row",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Row heading"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Row description"
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "Health and Safety"
+      "name": "Health and Safety",
+      "blocks": [
+        {
+          "type": "row",
+          "settings": {
+            "heading": "Safe Manufacturing",
+            "text": "Our products are manufactured in an FDA-registered facility and follow strict safety protocols."
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "heading": "Pharmaceutical Grade",
+            "text": "We use pharmaceutical-grade ingredients for the highest level of quality and effectiveness."
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "heading": "Gentle & Non-Irritating",
+            "text": "Formulated to be gentle on enamel and gums while delivering noticeable results."
+          }
+        }
+      ]
     }
   ]
 }

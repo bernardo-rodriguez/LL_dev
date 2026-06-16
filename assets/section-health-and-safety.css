@@ -10,6 +10,7 @@
 
 .health-and-safety__header {
   text-align: center;
+  margin-bottom: 40px;
 }
 
 .health-and-safety__heading {
@@ -26,9 +27,101 @@ body.template-product .health-and-safety__heading {
   letter-spacing: -0.015em !important;
 }
 
+.health-and-safety__columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.health-and-safety__rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.health-and-safety__row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.health-and-safety__row:first-child {
+  padding-top: 0;
+}
+
+.health-and-safety__row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.health-and-safety__row-icon {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #E3EDF7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.health-and-safety__row-icon img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
+}
+
+.health-and-safety__row-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.health-and-safety__row-heading {
+  margin: 0 0 8px;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.health-and-safety__row-text {
+  margin: 0;
+  color: rgba(13, 34, 68, 0.75);
+}
+
+.health-and-safety__media {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.health-and-safety__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 769px) {
+  .health-and-safety__columns {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+
+  .health-and-safety__row {
+    gap: 28px;
+    padding: 28px 0;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .health-and-safety {
     margin: 40px 0;
+  }
+
+  .health-and-safety__header {
+    margin-bottom: 30px;
   }
 
   .health-and-safety__heading {
