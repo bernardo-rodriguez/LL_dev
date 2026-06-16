@@ -356,7 +356,11 @@
       ],
       "name": "Health and Safety",
       "settings": {
-        "heading": "Health & Safety"
+        "heading": "Health & Safety",
+        "panel_1_heading": "Aloe Vera",
+        "panel_1_text": "Known for its soothing properties, aloe vera helps calm and hydrate gums while supporting comfort.",
+        "panel_2_heading": "Hydroxyapatite",
+        "panel_2_text": "A naturally occurring mineral that helps support enamel and reduce sensitivity."
       }
     },
     "30a71a58-b5ad-472f-9d70-97379fc62b74": {

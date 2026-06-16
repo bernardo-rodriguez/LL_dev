@@ -42,23 +42,61 @@
       </div>
 
       <div class="health-and-safety__right">
-        {% if section.settings.image != blank %}
-          <div class="health-and-safety__media">
-            <img
-              src="{{ section.settings.image | image_url: width: 1200 }}"
-              srcset="
-                {{ section.settings.image | image_url: width: 600 }} 600w,
-                {{ section.settings.image | image_url: width: 900 }} 900w,
-                {{ section.settings.image | image_url: width: 1200 }} 1200w"
-              sizes="(min-width: 769px) 50vw, 100vw"
-              alt="{{ section.settings.image.alt | escape }}"
-              class="health-and-safety__image"
-              loading="lazy"
-              width="{{ section.settings.image.width }}"
-              height="{{ section.settings.image.height }}"
-            >
+        <div class="health-and-safety__panels">
+          <div class="health-and-safety__panel">
+            {% if section.settings.panel_1_image != blank %}
+              <div class="health-and-safety__panel-image-wrap">
+                <img
+                  src="{{ section.settings.panel_1_image | image_url: width: 600 }}"
+                  srcset="
+                    {{ section.settings.panel_1_image | image_url: width: 300 }} 300w,
+                    {{ section.settings.panel_1_image | image_url: width: 450 }} 450w,
+                    {{ section.settings.panel_1_image | image_url: width: 600 }} 600w"
+                  sizes="(min-width: 769px) 25vw, 50vw"
+                  alt="{{ section.settings.panel_1_heading | escape }}"
+                  class="health-and-safety__panel-image"
+                  loading="lazy"
+                  width="{{ section.settings.panel_1_image.width }}"
+                  height="{{ section.settings.panel_1_image.height }}"
+                >
+              </div>
+            {% endif %}
+            {% if section.settings.panel_1_heading != blank %}
+              <p class="health-and-safety__panel-heading sh2">{{ section.settings.panel_1_heading }}</p>
+            {% endif %}
+            {% if section.settings.panel_1_text != blank %}
+              <p class="health-and-safety__panel-text body-sm">{{ section.settings.panel_1_text }}</p>
+            {% endif %}
           </div>
-        {% endif %}
+
+          <div class="health-and-safety__panel-divider" aria-hidden="true"></div>
+
+          <div class="health-and-safety__panel">
+            {% if section.settings.panel_2_image != blank %}
+              <div class="health-and-safety__panel-image-wrap">
+                <img
+                  src="{{ section.settings.panel_2_image | image_url: width: 600 }}"
+                  srcset="
+                    {{ section.settings.panel_2_image | image_url: width: 300 }} 300w,
+                    {{ section.settings.panel_2_image | image_url: width: 450 }} 450w,
+                    {{ section.settings.panel_2_image | image_url: width: 600 }} 600w"
+                  sizes="(min-width: 769px) 25vw, 50vw"
+                  alt="{{ section.settings.panel_2_heading | escape }}"
+                  class="health-and-safety__panel-image"
+                  loading="lazy"
+                  width="{{ section.settings.panel_2_image.width }}"
+                  height="{{ section.settings.panel_2_image.height }}"
+                >
+              </div>
+            {% endif %}
+            {% if section.settings.panel_2_heading != blank %}
+              <p class="health-and-safety__panel-heading sh2">{{ section.settings.panel_2_heading }}</p>
+            {% endif %}
+            {% if section.settings.panel_2_text != blank %}
+              <p class="health-and-safety__panel-text body-sm">{{ section.settings.panel_2_text }}</p>
+            {% endif %}
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -77,9 +115,46 @@
       "default": "Health & Safety"
     },
     {
+      "type": "header",
+      "content": "Right column — left panel"
+    },
+    {
       "type": "image_picker",
-      "id": "image",
-      "label": "Right column image"
+      "id": "panel_1_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "panel_1_heading",
+      "label": "Title",
+      "default": "Aloe Vera"
+    },
+    {
+      "type": "textarea",
+      "id": "panel_1_text",
+      "label": "Description",
+      "default": "Known for its soothing properties, aloe vera helps calm and hydrate gums while supporting comfort."
+    },
+    {
+      "type": "header",
+      "content": "Right column — right panel"
+    },
+    {
+      "type": "image_picker",
+      "id": "panel_2_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "panel_2_heading",
+      "label": "Title",
+      "default": "Hydroxyapatite"
+    },
+    {
+      "type": "textarea",
+      "id": "panel_2_text",
+      "label": "Description",
+      "default": "A naturally occurring mineral that helps support enamel and reduce sensitivity."
     }
   ],
   "blocks": [
