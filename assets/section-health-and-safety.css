@@ -1,0 +1,38 @@
+.health-and-safety {
+  margin: 0 0 60px;
+}
+
+@media screen and (min-width: 769px) {
+  .health-and-safety {
+    margin-top: 30px;
+  }
+}
+
+.health-and-safety__header {
+  text-align: center;
+}
+
+.health-and-safety__heading {
+  font-family: manrope, sans-serif;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: var(--ds-line-height);
+  letter-spacing: -0.015em;
+  color: var(--navy);
+  margin: 0;
+}
+
+body.template-product .health-and-safety__heading {
+  letter-spacing: -0.015em !important;
+}
+
+@media screen and (max-width: 768px) {
+  .health-and-safety {
+    margin: 40px 0;
+  }
+
+  .health-and-safety__heading {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+}

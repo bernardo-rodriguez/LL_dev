@@ -136,6 +136,12 @@
       ],
       "settings": {}
     },
+    "health_and_safety": {
+      "type": "health-and-safety",
+      "settings": {
+        "heading": "Health & Safety"
+      }
+    },
     "6916709c-578f-4b73-afd1-d8e53aa1db15": {
       "type": "carousel",
       "blocks": {
@@ -533,6 +539,7 @@
     "product-recommendations",
     "ingredients_that_work_N67RbP",
     "multi_slide_carousel_rc9KtU",
+    "health_and_safety",
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
     "1c8af4c9-5992-4bfb-9d4a-a8e06e025318",
     "transformational_results_ddRMfc",
