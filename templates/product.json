@@ -357,8 +357,10 @@
       "name": "Health and Safety",
       "settings": {
         "heading": "Health & Safety",
+        "panel_1_image": "shopify://shop_images/stack-aloe-vera-sliced-gel-600nw-2161312827.webp",
         "panel_1_heading": "Aloe Vera",
         "panel_1_text": "Known for its soothing properties, aloe vera helps calm and hydrate gums while supporting comfort.",
+        "panel_2_image": "shopify://shop_images/hydroxipetite.webp",
         "panel_2_heading": "Hydroxyapatite",
         "panel_2_text": "A naturally occurring mineral that helps support enamel and reduce sensitivity."
       }
