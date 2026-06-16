@@ -327,13 +327,6 @@
     "health_and_safety_7jXKQb": {
       "type": "health-and-safety",
       "blocks": {
-        "row_MrnGXP": {
-          "type": "row",
-          "settings": {
-            "heading": "Row heading",
-            "text": "Row description"
-          }
-        },
         "row_Ynhf9w": {
           "type": "row",
           "settings": {
@@ -347,12 +340,19 @@
             "heading": "Safe. Tested. Trusted",
             "text": "Every Laughland product is extensively tested for safety and efficacy, so you can whiten worry-free."
           }
+        },
+        "row_MrnGXP": {
+          "type": "row",
+          "settings": {
+            "heading": "Manufacturing Excellence",
+            "text": "Our products are manufactured in FDA approved facilities and follow strict safety protocols."
+          }
         }
       },
       "block_order": [
-        "row_MrnGXP",
         "row_Ynhf9w",
-        "row_mUkW8M"
+        "row_mUkW8M",
+        "row_MrnGXP"
       ],
       "name": "Health and Safety",
       "settings": {
