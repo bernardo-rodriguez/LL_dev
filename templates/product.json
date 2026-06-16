@@ -330,6 +330,7 @@
         "row_Ynhf9w": {
           "type": "row",
           "settings": {
+            "icon": "shopify://shop_images/shield-badge.png",
             "heading": "Pharmaceutical Grade",
             "text": "We only use pharmaceutical grade ingredients held to the highest of purity standards"
           }
