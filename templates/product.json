@@ -330,7 +330,7 @@
         "row_Ynhf9w": {
           "type": "row",
           "settings": {
-            "icon": "shopify://shop_images/shield-badge.png",
+            "icon": "shopify://shop_images/hospital.png",
             "heading": "Pharmaceutical Grade",
             "text": "We only use pharmaceutical grade ingredients held to the highest of purity standards"
           }
@@ -338,6 +338,7 @@
         "row_mUkW8M": {
           "type": "row",
           "settings": {
+            "icon": "shopify://shop_images/shield-badge_e7f697d1-ffb3-4b64-95c9-b5dff9def905.png",
             "heading": "Safe. Tested. Trusted",
             "text": "Every Laughland product is extensively tested for safety and efficacy, so you can whiten worry-free."
           }
