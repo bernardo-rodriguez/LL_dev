@@ -136,12 +136,6 @@
       ],
       "settings": {}
     },
-    "health_and_safety": {
-      "type": "health-and-safety",
-      "settings": {
-        "heading": "Health & Safety"
-      }
-    },
     "6916709c-578f-4b73-afd1-d8e53aa1db15": {
       "type": "carousel",
       "blocks": {
@@ -328,6 +322,14 @@
       "name": "Transformational Results",
       "settings": {
         "heading": "Transformational Results"
+      }
+    },
+    "health_and_safety_7jXKQb": {
+      "type": "health-and-safety",
+      "disabled": true,
+      "name": "Health and Safety",
+      "settings": {
+        "heading": "Health & Safety"
       }
     },
     "30a71a58-b5ad-472f-9d70-97379fc62b74": {
@@ -539,10 +541,10 @@
     "product-recommendations",
     "ingredients_that_work_N67RbP",
     "multi_slide_carousel_rc9KtU",
-    "health_and_safety",
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
     "1c8af4c9-5992-4bfb-9d4a-a8e06e025318",
     "transformational_results_ddRMfc",
+    "health_and_safety_7jXKQb",
     "30a71a58-b5ad-472f-9d70-97379fc62b74",
     "d7a83216-e232-4258-9705-5edf54558f0b",
     "a4ec3822-cf26-400b-a01b-564ae2a93dfc",
