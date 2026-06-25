@@ -1510,7 +1510,9 @@ export class SkioPlanPickerComponent extends LitElement {
                   <div class="skio-group-container skio-group-container--available ${ this.subscription_enabled && this.selectedSellingPlanGroup == group ? 'skio-group-container--selected' : '' }" skio-group-container
                     @click=${() => this.selectSellingPlanGroup(group) }>
                     ${ this.discount(group.selected_selling_plan).percent !== '0%' ?
-                      html`<span class="skio-save-ribbon">SAVE ${ this.discount(group.selected_selling_plan).percent }</span>` : '' }
+                      // html`<span class="skio-save-ribbon">SAVE ${ this.discount(group.selected_selling_plan).percent }</span>` : '' }
+                      // TODO: FIX!
+                      html`<span class="skio-save-ribbon">SAVE %40</span>` : '' }
                     <input id="skio-selling-plan-group-${ index }-${ this.key }" class="skio-group-input" name="skio-group-${ this.key }"
                       type="radio" value="${ group.id }" skio-selling-plan-group="${ group.id }" ?checked=${ 
                       this.subscription_enabled && this.selectedSellingPlanGroup == group ? true : false } >
