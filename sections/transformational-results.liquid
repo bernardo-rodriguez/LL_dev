@@ -1,0 +1,225 @@
+{{ 'section-transformational-results.css' | asset_url | stylesheet_tag }}
+{{ 'section-test-results.css' | asset_url | stylesheet_tag }}
+
+<section class="transformational-results" data-section-id="{{ section.id }}">
+  <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
+    <div class="transformational-results__inner">
+      <div class="transformational-results__header-row">
+        <h3 class="transformational-results__heading">{{ section.settings.heading | default: 'Transformational Results' }}</h3>
+
+        <div class="transformational-results__tabs" role="tablist">
+          <button type="button" class="transformational-results__tab active" data-duration="2" aria-selected="true">2 MONTHS</button>
+          <button type="button" class="transformational-results__tab" data-duration="4" aria-selected="false">4 MONTHS</button>
+          <button type="button" class="transformational-results__tab" data-duration="6" aria-selected="false">6 MONTHS</button>
+        </div>
+      </div>
+
+      <div class="transformational-results__slider-column">
+        <div class="transformational-results__images-wrap" id="transformationalResultsImages-{{ section.id }}"
+          {% assign profiles = section.blocks | where: 'type', 'profile' %}
+          {% assign profile_2 = profiles[0] %}
+          {% assign profile_4 = profiles[1] %}
+          {% assign profile_6 = profiles[2] %}
+          {% if profile_2 != blank %}
+            data-before-2="{% if profile_2.settings.image_before != blank %}{{ profile_2.settings.image_before | image_url: width: 600 }}{% endif %}"
+            data-after-2="{% if profile_2.settings.image_after != blank %}{{ profile_2.settings.image_after | image_url: width: 600 }}{% endif %}"
+            data-name-2="{{ profile_2.settings.person_name | escape }}"
+          {% endif %}
+          {% if profile_4 != blank %}
+            data-before-4="{% if profile_4.settings.image_before != blank %}{{ profile_4.settings.image_before | image_url: width: 600 }}{% endif %}"
+            data-after-4="{% if profile_4.settings.image_after != blank %}{{ profile_4.settings.image_after | image_url: width: 600 }}{% endif %}"
+            data-name-4="{{ profile_4.settings.person_name | escape }}"
+          {% endif %}
+          {% if profile_6 != blank %}
+            data-before-6="{% if profile_6.settings.image_before != blank %}{{ profile_6.settings.image_before | image_url: width: 600 }}{% endif %}"
+            data-after-6="{% if profile_6.settings.image_after != blank %}{{ profile_6.settings.image_after | image_url: width: 600 }}{% endif %}"
+            data-name-6="{{ profile_6.settings.person_name | escape }}"
+          {% endif %}
+        >
+          {% if profile_2 != blank %}
+            <div class="transformational-results__images">
+              <div class="transformational-results__image-wrap">
+                {% if profile_2.settings.image_before != blank %}
+                  <img
+                    src="{{ profile_2.settings.image_before | image_url: width: 600 }}"
+                    alt="Before"
+                    class="transformational-results__image transformational-results__image--before"
+                    loading="lazy"
+                    width="300"
+                    height="300"
+                  >
+                {% endif %}
+                <span class="transformational-results__image-label">MONTH 0</span>
+              </div>
+              <div class="transformational-results__image-wrap">
+                {% if profile_2.settings.image_after != blank %}
+                  <img
+                    src="{{ profile_2.settings.image_after | image_url: width: 600 }}"
+                    alt="After 2 months"
+                    class="transformational-results__image transformational-results__image--after"
+                    loading="lazy"
+                    width="300"
+                    height="300"
+                  >
+                {% endif %}
+                <span class="transformational-results__image-label transformational-results__image-label--after">MONTH <span class="transformational-results__month-num">2</span></span>
+              </div>
+            </div>
+            <p class="transformational-results__name">{% if profile_2.settings.person_name != blank %}{{ profile_2.settings.person_name }}{% endif %}</p>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="transformational-results__stats-column">
+        <ul class="list-unstyled test-results__list">
+          {% assign stat_blocks = section.blocks | where: 'type', 'stat' %}
+          {% for block in stat_blocks %}
+            <li class="test-results__item" {{ block.shopify_attributes }}>
+              <h3 class="stylized test-results__item-percent">{{ block.settings.percent }}</h3>
+              <p class="body-sm test-results__item-details">{{ block.settings.text }}</p>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const sectionId = document.querySelector('.transformational-results')?.dataset?.sectionId;
+    if (!sectionId) return;
+
+    const container = document.getElementById('transformationalResultsImages-' + sectionId);
+    if (!container) return;
+
+    const section = container.closest('.transformational-results');
+    const tabs = section?.querySelectorAll('.transformational-results__tab') || [];
+    const beforeImg = container.querySelector('.transformational-results__image--before');
+    const afterImg = container.querySelector('.transformational-results__image--after');
+    const labelNum = container.querySelector('.transformational-results__month-num');
+    const nameEl = container.querySelector('.transformational-results__name');
+
+    function setPerson(duration) {
+      const beforeSrc = container.getAttribute('data-before-' + duration);
+      const afterSrc = container.getAttribute('data-after-' + duration);
+      const name = container.getAttribute('data-name-' + duration);
+      if (beforeSrc && beforeImg) {
+        beforeImg.src = beforeSrc;
+      }
+      if (afterSrc && afterImg) {
+        afterImg.src = afterSrc;
+        afterImg.alt = 'After ' + duration + ' months';
+      }
+      if (labelNum) labelNum.textContent = duration;
+      if (nameEl) nameEl.textContent = name || '';
+    }
+
+    if (tabs.length) {
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          const duration = parseInt(this.dataset.duration, 10);
+          tabs.forEach(function(t) {
+            t.classList.toggle('active', parseInt(t.dataset.duration, 10) === duration);
+            t.setAttribute('aria-selected', t.classList.contains('active'));
+          });
+          setPerson(duration);
+        });
+      });
+    }
+
+    setPerson(2);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Transformational Results",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Transformational Results"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "profile",
+      "name": "Person profile",
+      "settings": [
+        {
+          "type": "text",
+          "id": "person_name",
+          "label": "Name",
+          "default": "NEELAM S."
+        },
+        {
+          "type": "image_picker",
+          "id": "image_before",
+          "label": "Image – Before (Month 0)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_after",
+          "label": "Image – After (result at this duration)"
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "name": "Statistic",
+      "settings": [
+        {
+          "type": "text",
+          "id": "percent",
+          "label": "Percentage",
+          "default": "100%"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "100% of clinical participants reported whiter teeth after only 6 treatments."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Transformational Results",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "percent": "100%",
+            "text": "100% of clinical participants reported whiter teeth after only 6 treatments."
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "percent": "74%",
+            "text": "Clinical participants reported, on average, a 74% increase in teeth brightness."
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "percent": "0%",
+            "text": "0% of clinical participants reported an increase in sensitivity after whitening."
+          }
+        },
+        {
+          "type": "profile",
+          "settings": {
+            "person_name": "NEELAM S."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

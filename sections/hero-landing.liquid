@@ -27,7 +27,7 @@
         <h5 id = 'hero_subtitle_1' style = 'margin-bottom: 20px; max-width: 600px;' class="Hero_Subtitle h5">{{- formatted_sub_title -}}</h5>
       {% endif %}
       {% comment %} <h5 style = 'display: none; color: #46BDF0;' id = 'landing-hero-discounted' class="Hero_Subtitle h5">75% OFF</h5> {% endcomment %}
-      <h5 style = 'display: none;' id = 'landing-hero-discounted' class="Hero_Subtitle h5">75% OFF</h5>
+      <h5 style = 'display: none;' id = 'landing-hero-discounted' class="Hero_Subtitle h5">40% OFF</h5>
 
       {% if section.settings.button_link != blank %}
         <a href="{{ section.settings.button_link }}"  {% if section.settings.button_action == "quiz" %}data-open-quiz{% endif %}  {% if settings.discount_code != blank %}onclick="window.localStorage.setItem('landing_page_product_discount','{{ settings.discount_code }}')" {% endif %} class="button {% if section.settings.button_style == 'secondary' %}button--secondary{% else %}button--primary{% endif %}">
@@ -66,101 +66,38 @@
     return null;
   }
 
-  function getSubPriceLanding() {
-      const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans']
-  
-      let subscriptionCookie = cookies.filter( cookieName => getCookie(cookieName) != null )
-      let subPrice = ''
-  
-      switch(subscriptionCookie[0]) {
-        case 'redirect_sweatcoin':
-          {% comment %} $('#landing-hero-discounted').html('Free Whitening Pen Included With Purchase')
-          $('#landing-hero-discounted').css('display', 'block')
-          setTimeout(function(){
-            document.getElementsByClassName('discount-code')[0].innerHTML = 'ADD_PEN'
-            document.getElementsByClassName('discount-text')[0].innerHTML = 'free pen included with purchase'
-          }, 100);
-          subPrice = '19' {% endcomment %}
-          $('#hero_subtitle_1').css('margin-bottom', '50px !important')
+  function getSubPriceLanding() {  
+      console.log('getSubPriceLanding')
+      let landing_page_copy_defaults = affiliate_config['default']['landing_page_copy']
+      let subPrice = landing_page_copy_defaults['hero_price']
 
-          $('#hero_title').html('Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>') 
-          
-          {% comment %} document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px' {% endcomment %}
-          $('.Hero_Subtitle').first().html("See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.")
-          subPrice = '0'
-          break
-        case 'redirect_ut':
-          {% comment %} $('#landing-hero-discounted').css('display', 'block') {% endcomment %}
-          {% comment %} $('#landing-hero-discounted').html('Free Whitening Pen Included With Purchase')
-          $('#landing-hero-discounted').css('display', 'block') {% endcomment %}
-          $('#hero_subtitle_1').css('margin-bottom', '50px !important')
+      a_referrer = getCookie('affiliate_referrer')
+      if (a_referrer in affiliate_config && 'landing_page_copy' in affiliate_config[a_referrer]) {
+        landing_page_copy = affiliate_config[a_referrer]['landing_page_copy']
 
-          $('#hero_title').html('Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>') 
-          {% comment %} $('#hero_title').html('Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit')  {% endcomment %}
-          
-          document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
-          $('.Hero_Subtitle').first().html("See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.")
-          subPrice = '0'
-          break;
-        case 'redirect_ut_direct':
-          subPrice = '9'
-          break
-        case 'redirect_paceline':
-          subPrice = '29'
-          break
-        case 'redirect_miles':
-          subPrice = '9'
-          break
-        case 'redirect_studentbeans':
-          subPrice = '9'
-          break
-        case 'redirect_inspire':
-          subPrice = '9'
-          break
-        default:
-          subPrice = '19'
-          break
+        if ('hero_price' in landing_page_copy && landing_page_copy['hero_price']) {
+          subPrice = landing_page_copy['hero_price']
+        }
+
+        if ('hero_subtitle_1' in landing_page_copy && landing_page_copy['hero_subtitle_1']) {
+          $('#hero_subtitle_1').css(landing_page_copy['hero_subtitle_1'][0], landing_page_copy['hero_subtitle_1'][1])
+        }
+
+        if ('hero_title' in landing_page_copy && landing_page_copy['hero_title']) {
+          $('#hero_title').html(landing_page_copy['hero_title'])
+        }
+
+        if ('Hero_Subtitle' in landing_page_copy && landing_page_copy['Hero_Subtitle']) {
+          $('.Hero_Subtitle').first().html(landing_page_copy['Hero_Subtitle'])
+        }
       }
   
+      if (subPrice != '') {
+        $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>"+subPrice+"")
+      }
+
       return subPrice
   }
-
-  try {
-    subPrice = getSubPriceLanding()
-    console.log(subPrice)
-    
-    setTimeout(function(){
-      if (subPrice != '') {
-        $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>"+subPrice+"")
-      }
-    }, 100);
-  } catch (error) {
-    console.log('not ready yet');
-  }
-
-
-  setTimeout(function(){
-    try {
-      subPrice = getSubPriceLanding()
-      if (subPrice != '') {
-        $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>"+subPrice+"")
-      }
-    } catch (error) {
-      console.log('not ready yet');
-    }
-
-  }, 1500);
-
-  setTimeout(function(){
-    try {
-      subPrice = getSubPriceLanding()
-      if (subPrice != '') {
-        $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>"+subPrice+"")
-      }
-    } catch (error) { 
-      console.log('not ready yet')
-    }
-  }, 5000);
   
 </script>
 

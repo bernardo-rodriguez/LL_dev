@@ -6,7 +6,7 @@
       <div class="comparison__grid">
         {% for block in section.blocks %}
           <div class="comparison__item{% if block.settings.highlight %} active{% endif %}" {{ block.shopify_attributes }}>
-            <h3 class="comparison__title m-h5">{{ block.settings.title }}</h3>
+            <h3 class="comparison__title">{{ block.settings.title }}</h3>
             <div class="comparison__bullets">
               {% if block.settings.bullet_1 != blank %}
                 <p class="comparison__bullet body-sm">{{ block.settings.bullet_1 }}</p>

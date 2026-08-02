@@ -1,3 +1,34 @@
+function add_pen_cookie() {
+  const strength_cookie = getCookie('strength')
+  kit_formula_dict = {
+    'medium': 42250643833057,
+    'strong': 42250643865825,
+    'sensitive': 42250643898593
+  }
+  
+  pen_formula_dict = {
+    'medium': 42210600812769,
+    'strong': 42210600845537,
+    'sensitive': 42210600878305
+  }
+
+  pen_selling_plan_dict = {
+    3449880801: 3450175713,
+    3449913569: 3450208481,
+    3449946337: 3450241249
+  }
+
+  if (strength_cookie in pen_formula_dict) {
+    formula_id = pen_formula_dict[strength_cookie]
+  } else {
+    formula_id = pen_formula_dict['medium']
+  }
+
+  setCookie('add_pen', formula_id)
+}
+
+setCookie('add_pen', 'false')
+
 customElements.define('product-form', class ProductForm extends HTMLElement {
   constructor() {
     super();   
@@ -8,19 +39,52 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     this.container = this.closest(".product__info-wrapper")
     this.productId = this.dataset.productId
 
+    this.mostRecentSellingPlan = ''
+    this.sellingPlans = null; // Initialize selling plans attribute
+
     this.stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
 
     this.setName();
-    this.setVariant();
 
     this.createSubscriptionWidget();
-   }
+    
+    // Initialize selling plans
+    this.initializeSellingPlans();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // 'this' here refers to the original outer context
+      this.bundleStickyBar();
+    });
+
+  }
+
+  async initializeSellingPlans() {
+    try {
+      if (this.productId) {
+        this.sellingPlans = await fetchPlansByProductIds([this.productId, window.ProductConfig.REFILL_DEFAULT.product_id]);
+        // this.sellingPlans = await fetchPlansByProductIds([window.ProductConfig.REFILL_DEFAULT.product_id]);
+
+        console.log('Selling plans loaded:', this.sellingPlans);
+        this.indexPlans(this.sellingPlans);
+      }
+    } catch (error) {
+      console.error('Error fetching selling plans:', error);
+      this.sellingPlans = null;
+    }
+  }
+
+  indexPlans(sellingPlans) {
+    this.sellingPlansByVariant = indexPlansByVariant(sellingPlans, this.productId);
+    console.log('sellingPlansByVariant')
+    console.log(this.sellingPlansByVariant)
+
+    this.currentProductSellingPlan = indexPlansCurrentProduct(sellingPlans, this.productId);
+    console.log('currentProductSellingPlan')
+    console.log(this.currentProductSellingPlan)
+  }
 
   getCookie(cname) {
-    // const value = `; ${document.cookie}`;
-    // const parts = value.split(`; ${name}=`);
-    // if (parts.length === 2) return parts.pop().split(';').shift();
-
+    // Get cookie by cookie name
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
@@ -37,11 +101,17 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
   }
 
   setName() {
+    // Set name of customer in product page header.
+    // Retrieves first name from the quiz cookies.
     const first_name = getCookie('firstname') || ""
     const last_name = getCookie('lastname') || ""
     const storedProductName = this.container?.querySelector('#product__title_id')?.innerHTML
 
-    const name = `${first_name}${ last_name != "" ? ' ' + last_name : ''}`
+    let name = `${first_name}${ last_name != "" ? ' ' + last_name : ''}`
+
+    if (first_name != '') {
+      name = first_name
+    }
 
     if (window.location.href.includes('at-home-whitening-kit')) { 
       if ( name != "" && !storedProductName?.toLowerCase().includes("to go pen") && window.location.pathname != '/pages/landing-page') {
@@ -52,9 +122,13 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     }
   }
 
-  setVariant() {
+  // skio-plan-picker
+  // input[name='id']
+  setVariant(selection='✨ Everyday (ID: 8-16)', picked = false) {
+    // Select the product variant chosen in the quiz in the product page selection
+    // Set the product variant formula in the sticky checkout
+    // Set the ingredients correpoding to the picked formula, in the product page
     let strength = getCookie('strength')
-    console.log(strength)
     let inputValue
     switch (strength){
       case 'sensitive':
@@ -87,382 +161,379 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
         break;
     }
 
-    if (window.location.href.includes('at-home-whitening-kit')) {
-      this.querySelector(`input[value="${inputValue}"]`).click()
+    if ((window.location.href.includes('at-home-whitening-kit') || window.location.href.includes('at-home-whitening-kit-ft')) && !picked) {
+      // If product is kit, try to set the required formula strength
+      try {
+        this.querySelector(`input[value="${inputValue}"]`).click()
 
-      if(document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`)){
-        document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`).classList.remove("hidden")
-        if(document.querySelector(`[data-sticky-formula]`)) document.querySelector(`[data-sticky-formula]`).innerHTML = document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`).innerHTML.split(":")[0]
-      }
-  
-      if(window.variantIngredients){
-        let variantIngredientList = window.variantIngredients.find((v) => v.id == inputValue)
-  
-        let ingredientCards = document.querySelectorAll("[data-ingredient]")
-        ingredientCards.forEach((ingredient, i) => {
-          if( variantIngredientList.ingredients.includes(ingredient.dataset.ingredient)) {
-            ingredient.classList.remove("hidden")
-          } else {
-            ingredient.classList.add("hidden")
-          }
-          if( i == ingredientCards.length - 1) {
-            ingredient.closest('.swiper').classList.add('update')
-          }
-        })
-      }
-    } 
-    // else if (window.location.href.includes('landing-page-product-main')) {
-    //   let variantIngredientList = window.variantIngredients.find((v) => v.id == inputValue)
-    //   console.log(variantIngredientList)
+        if(document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`)){
+          document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`).classList.remove("hidden")
 
-    //   let stylized_title = variantIngredientList.title.replace('{', "<span class='stylized canela'>").replace("}", "</span>")
-    //   $('#product__title_id').html(stylized_title)
-    //   $('#formula-header-text').html(variantIngredientList.formula_header_text)
-    //   $('#selling_point_landing').html(variantIngredientList.selling_point_landing)
-    // }
+          // Set sticky checkout formula
+          if(document.querySelector(`[data-sticky-formula]`)) document.querySelector(`[data-sticky-formula]`).innerHTML = document.querySelector(`[data-formula-type] [data-variant-title="${inputValue}"]`).innerHTML.split(":")[0]
+        }
+    
+        // Set ingredients based on metafields
+        if(window.variantIngredients){
+          let variantIngredientList = window.variantIngredients.find((v) => v.id == inputValue)
+    
+          let ingredientCards = document.querySelectorAll("[data-ingredient]")
+          ingredientCards.forEach((ingredient, i) => {
+            if( variantIngredientList.ingredients.includes(ingredient.dataset.ingredient)) {
+              ingredient.classList.remove("hidden")
+            } else {
+              ingredient.classList.add("hidden")
+            }
+            if( i == ingredientCards.length - 1) {
+              ingredient.closest('.swiper').classList.add('update')
+            }
+          })
+        }
+      } catch (e) {
+        console.log("Error: failure in setVariant() for product-form.js")
+        console.log(e)
+      }
+    } else {
+      // try {
+        let all_strengths = ['🍃 Gentle (ID: 19-2)', '✨ Everyday (ID: 8-16)', '🔥 Super Strength (ID: 8-17)']
+        let selection_to_cookie = {
+          '🍃 Gentle (ID: 19-2)': "sensitive",
+          '✨ Everyday (ID: 8-16)': "medium",
+          '🔥 Super Strength (ID: 8-17)': "strong"
+        }
+        setCookie('strength', selection_to_cookie[selection])
+        if (typeof window.updateFormulaIngredientCopy === 'function') window.updateFormulaIngredientCopy()
+
+        let refill_formula_selector = this.querySelector(`variant-radios input[value="${selection}"]`);
+        let refill_formula_new_dawn = document.querySelector(`variant-selects input[type="radio"][value="${selection}"]`);
+
+        if (refill_formula_selector) {
+          refill_formula_selector.click();
+        } else if (refill_formula_new_dawn) {
+          refill_formula_new_dawn.click();
+        } else {
+          console.warn(`No radio input found for value: ${selection}`);
+        }
+        
+        all_strengths.forEach(element => {
+          if(document.querySelector(`[data-formula-type] [data-variant-title="${element}"]`)){
+            document.querySelector(`[data-formula-type] [data-variant-title="${element}"]`).classList.add("hidden")  
+          }
+        });
+        
+        if(document.querySelector(`[data-formula-type] [data-variant-title="${selection}"]`)){
+          document.querySelector(`[data-formula-type] [data-variant-title="${selection}"]`).classList.remove("hidden")
+
+          // Set sticky checkout formula
+          if(document.querySelector(`[data-sticky-formula]`)) document.querySelector(`[data-sticky-formula]`).innerHTML = selection
+        }
+    
+        // Set ingredients based on metafields
+        // if(window.variantIngredients){
+        //   let variantIngredientList = window.variantIngredients.find((v) => v.id == inputValue)
+    
+        //   let ingredientCards = document.querySelectorAll("[data-ingredient]")
+        //   ingredientCards.forEach((ingredient, i) => {
+        //     if( variantIngredientList.ingredients.includes(ingredient.dataset.ingredient)) {
+        //       ingredient.classList.remove("hidden")
+        //     } else {
+        //       ingredient.classList.add("hidden")
+        //     }
+        //     if( i == ingredientCards.length - 1) {
+        //       ingredient.closest('.swiper').classList.add('update')
+        //     }
+        //   })
+        // }
+      // } 
+      // catch (e) {
+      //   console.log("Error: failure in setVariant() for product-form.js")
+      //   console.log(e)
+      // }
+    }
+  }
+
+  waitForSkio(selector) {
+    // Wait for skio-plan-picker to be available on the site
+    return new Promise(resolve => {
+        if (document.querySelector(selector)) {
+            return resolve(document.querySelector(selector));
+        }
+
+        const observer = new MutationObserver(mutations => {
+            if (document.querySelector(selector)) {
+                resolve(document.querySelector(selector));
+                observer.disconnect();
+            }
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+
+        let timeout = setTimeout(() => {
+          observer.disconnect();
+          resolve('Nothing happened ?');
+        }, 5 * 1000);
+    });
   }
 
   createSubscriptionWidget() {
-    this.waitForRecharge('.rc-widget-injection-parent [data-widget]').then(() => {
-      console.log('recharge ready')
-      this.modifySubscriptionWidget('.rc-widget-injection-parent .rc-widget');
-
-      // this.updateStickyBar(document.querySelector(".rc_widget__option__input:checked").value, document.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".updated-price").innerHTML || document.querySelector(".rc_widget__option__input:checked").nextElementSibling.querySelector(".rc-option__price").innerHTML)
-
-      //remove loading circle when ready
-      this.container.querySelector(".rc-widget-injection-parent .loading-overlay__spinner").classList.add("hidden")
-      this.container.querySelector(".rc-widget-injection-parent product-form.visually-hidden").classList.remove("visually-hidden")
-      this.stickyBar.querySelector("[data-sticky-atc]").removeAttribute('disabled')
-
-      // observe input selection to update sticky bar
-      this.rechargeOptions = document.querySelector(".rc-template");
-      console.log(this.rechargeOptions)
-      const observer = new MutationObserver(this.observeForm.bind(this))
-      observer.observe(this.rechargeOptions, {attributes: true, childList: true, subtree: true})
-
-      // this.setToOneMonth()
-    })
+    // Remove loading bars and show Skio UI once its available
+    // sticky checkout to observe any updates to selling plan and reflect accordingly
+    try {
+       this.waitForSkio('skio-plan-picker').then(() => {  
+        try {
+          this.container.querySelector(".loading-overlay__spinner").classList.add("hidden")
+          this.container.querySelector("product-form.visually-hidden").classList.remove("visually-hidden")
+          this.stickyBar.querySelector("[data-sticky-atc]").removeAttribute('disabled')
+        } catch (e) {
+          //fails on special product
+        }
+        
+        let selling_plan_input = document.querySelector('input[name="selling_plan"]')
+        this.observeForm(selling_plan_input)
+        this.setVariant();
+        this.observeFormulaPicker('input[name="refill-strength"]')
+      })
+    } catch (e) {
+        console.log("Error: failure in createSubcriptionWidget() for product-form.js")
+        console.log(e)
+    }
   }
 
-  updateStickyBar(selection, price) {
-    if( selection == 'onetime' ){
-      this.stickyBar.querySelector('[data-sticky-onetime]').classList.add('selected')
-      this.stickyBar.querySelector('[data-sticky-subsave]').classList.remove('selected')
-    } else if ( selection == 'subsave' ) {
+  updateStickyBar(event) {
+    // Update selection option for selling plan in sticky checkout
+    let subscriptionSelected = !!event.detail.sellingPlan
+    let price
+    let skio = document.querySelector('skio-plan-picker').shadowRoot
+
+    if (subscriptionSelected) {
       this.stickyBar.querySelector('[data-sticky-subsave]').classList.add('selected')
       this.stickyBar.querySelector('[data-sticky-onetime]').classList.remove('selected')
+
+      price = skio.querySelector(`[skio-subscription-price]`)?.innerText
+    }
+    else {
+      this.stickyBar.querySelector('[data-sticky-onetime]').classList.add('selected')
+      this.stickyBar.querySelector('[data-sticky-subsave]').classList.remove('selected')
+
+      price = skio.querySelector(`[skio-onetime-price]`)?.innerText
     }
 
     this.stickyBar.querySelector(".sticky__price").innerHTML = price
   }
 
-  updateStickySellingPlans(e) {
-    const controller = this.stickyBar.querySelector(`select#${e.target.id}_sticky `)
-    controller.value = e.target.value
-  }
-
-  observeForm(mutationList, observer) {
-    mutationList.forEach((mutation) => {
-      if( mutation.type == 'attributes' && mutation.attributeName == 'class' && mutation.target.classList.contains('rc-option--active')) {
-        
-        let productSelection = mutation.target.querySelector("input").value
-        let selectionPrice = mutation.target.querySelector(".updated-price")?.innerHTML || mutation.target.querySelector(".rc-option__price").innerHTML
-
-        this.updateStickyBar(productSelection, selectionPrice)
-      }
-    })
-  }
-
-  waitForRecharge(selector) {
-    return new Promise(resolve => {
-      if (document.querySelector(selector)) {
-          return resolve(document.querySelector(selector));
-      }
-
-      const observer = new MutationObserver(mutations => {
-          if (document.querySelector(selector)) {
-              resolve(document.querySelector(selector));
-              observer.disconnect();
-          }
-      });
-
-      observer.observe(document.body, {
-          childList: true,
-          subtree: true
-      });
-  });
-  }
-
-  modifySubscriptionWidget(widgetSelector){
-    const widget = document.querySelector(widgetSelector)
-    const subOffer = this.getSubPrice()
-    var subOfferPrice = subOffer[0] 
-    const subOfferText = subOffer[1]
-    const kitOfferText = subOffer[2]
-    const kitOfferPrice = subOffer[3]
-    //HOTFIX
-    setTimeout(function () {
-
-      if (window.location.href.includes('whitening-kit-affiliate-ft')) {
-        console.log('here')
-        // subOfferPrice = '$0'
-      }
-      
-      const widgetOptions = widget.querySelectorAll(".rc_widget__option");
-      console.log(widgetOptions)
-
-      widgetOptions.forEach((option) => {
-
-        // Global widget changes
-        const customEl = document.createElement("div")
-        customEl.setAttribute('class', 'rc-custom-radio-button')
-        option.querySelector(".rc_widget__option__selector label").appendChild(customEl)
-
-        const textEl = document.createElement("span")
-        textEl.innerHTML = "&#8212;"
-        option.querySelector(".rc_widget__option__selector label").insertBefore(textEl, option.querySelector(".rc_widget__option__selector label > span:nth-of-type(2)"))
-
-        // Subscription option only changes
-        // Exit if this is the One Time option
-        if (option.getAttribute("data-option-onetime") != null) {
-          return
-        }
-
-        option.querySelector(".rc-selling-plans__label")?.classList.remove("visually-hidden");
-
-        console.log('selling plans')
-        console.log(option.querySelector(".rc-selling-plans"))
-        if( option.querySelector(".rc-selling-plans") ) {
-          // grab from page then inject subscription details
-          // HOTFIX!!!
-          // const cloneSubDetails = this.container.querySelector(".subscription-details").cloneNode(true)
-          const cloneSubDetails = document.querySelector(".subscription-details").cloneNode(true)
-          const firstEl = cloneSubDetails.querySelectorAll("dl")[0]
-          const secondEl = cloneSubDetails.querySelectorAll("dl")[1]
-
-          option.insertBefore(firstEl, option.querySelector(".rc-selling-plans"))
-          option.appendChild(secondEl)
-
-          const newSubPrice = document.createElement("span")
-          newSubPrice.setAttribute('class', 'updated-price')
-          newSubPrice.innerHTML = subOfferPrice
-    
-          option.querySelector("[data-price-subsave]").classList.add('visually-hidden')
-          option.querySelector(".rc_widget__option__selector label").appendChild(newSubPrice)
-        }
-      })
-      const sub_and_save_text = $(".rc-option__subsave .rc_widget__option__selector label .rc-option__text")
-      if (sub_and_save_text.length == 1) {
-        sub_and_save_text.html(subOfferText)
-      }
-
-      const one_time_text = $(".rc-option__onetime .rc_widget__option__selector label .rc-option__text")
-      if (one_time_text.length == 1) {
-        if (kitOfferText.length > 1) {
-          one_time_text.html(kitOfferText)
-        }
-        if (kitOfferPrice.length > 1) {
-          const newSubPrice = document.createElement("span")
-          newSubPrice.setAttribute('class', 'updated-price')
-          newSubPrice.innerHTML = kitOfferPrice
-
-          var one_time_label = document.querySelector("[data-selector-onetime]")
-          one_time_label.querySelector("[data-price-onetime]").classList.add('visually-hidden')
-          one_time_label.querySelector(".rc_widget__option__selector label").appendChild(newSubPrice)
-        }
-      }
-      
+    bundleStickyBar() {
+    if (!document.querySelector('.price-section')) {
       try {
-        const stickyBar = document.querySelector(`sticky-product-bar[data-id="${ this.productId }"]`)
-        stickyBar.querySelector(".sticky__price").innerHTML = subOfferPrice
-      } catch (error) {
-        console.log('sticky bar update error')
-      }
-
-      var selector = document.querySelector("select[name='selling_plan']")
-      console.log(selector)
-
-      if(document.querySelector("select[name='selling_plan']")){
-        let value = Array.from(document.querySelector("select[name='selling_plan']").options).filter(option =>{
-          return (option.dataset.planOption == "Every 1 Month")
-        })[0].value;
-        if(value) document.querySelector("select[name='selling_plan']").value = value;
-        const dropdownCopy = document.querySelector("select[name='selling_plan']").cloneNode(true);
-        if(value) dropdownCopy.value = value;
-        dropdownCopy.setAttribute("data-control-id", dropdownCopy.id)
-        dropdownCopy.id = dropdownCopy.id + "_sticky"
-        dropdownCopy.setAttribute('name', dropdownCopy.getAttribute("name") + "_sticky")
-        // HOTFIX
-        // stickyBar.querySelector("[data-sticky-subsave").appendChild(dropdownCopy)
-
-        document.querySelector("select[name='selling_plan']").addEventListener("change", function(e){
-          this.updateStickySellingPlans(e)
-        }.bind(this))
-      }
-  
-    }, 500);
-    // END HOTFIX
-
-  }
-
-  setToOneMonth() {
-    try {
-      const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'shareasaleShopifySSCID', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans']
-      let subscriptionCookie = cookies.filter( cookieName => this.getCookie(cookieName) != null )
-      if (["redirect_ut"].includes(subscriptionCookie[0])) {
-        const elements = document.querySelectorAll('.rc-selling-plans__dropdown');
-        Array.from(elements).forEach((element, index) => {
-          element.value = 3450700001
-          // element.setAttribute("disabled", "disabled");
-        }); 
-      }
-      if (["redirect_sweatcoin"].includes(subscriptionCookie[0])) {
-        const elements = document.querySelectorAll('.rc-selling-plans__dropdown');
-        Array.from(elements).forEach((element, index) => {
-          element.value = 3449880801
-          // element.setAttribute("disabled", "disabled");
+        let skio_plan_picker = document.querySelector('skio-plan-picker')
+        skio_plan_picker.addEventListener('click', (e) => {
+          try {
+            if (document.querySelector('[data-sticky-onetime]')) {
+              let customPrice = document.querySelector('skio-plan-picker').shadowRoot.querySelector('input[name="onetime_bundle"]:checked').dataset.customPrice
+              document.querySelector(".sticky__price").innerHTML = customPrice
+            }
+          } catch (e) {
+            console.log(e)
+          }
         });
-        // $('.rc-option__subsave').first().find( "dd").first().html('1 Months Supply')
+      } catch (e) {
+        console.log(e)
       }
-    } catch (error) {
-      console.error(error);
-      // Expected output: ReferenceError: nonExistentFunction is not defined
-      // (Note: the exact output may be browser-dependent)
+      return 
+    } else {
+      return
     }
   }
-  
-  getSubPrice() {
-    const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm']
 
-    let subscriptionCookie = cookies.filter( cookieName => this.getCookie(cookieName) != null )
-    let subPrice = ''
-    let subText = ''
-    let oneTimeText = ''
-    let oneTimePrice = ''
+  observeForm(selling_plan_input) {
+      // Watch selling_plan changes and make updates to sticky bar in case of any changes.
+      if (!document.querySelector('.price-section')) { // dont give the option for special ones
+        try {
+            let skio = document.querySelector('skio-plan-picker')
 
-    switch(subscriptionCookie[0]) {
-       // case 'redirect_skimm':
-       //  subPrice = '$19'
-       //  subText = 'Subscribe & Save'
-       //  oneTimeText = 'Skimm One-Time'
-       //  oneTimePrice = '$57'
-       //  break
-       case 'redirect_sweatcoin':
-        subPrice = '$0'
-        subText = 'SWEATCOIN SPECIAL'
-        this.setToOneMonth()
-        break
-      case 'redirect_ut':
-        // add_pen()
-        // subPrice = '$9'
-        // subText = 'STARTER SPECIAL'
-        subPrice = '$0'
-        subText = 'FREE TRIAL SPECIAL'
-        // subPrice = '$19'
-        // subText = 'STARTER SPECIAL'
-        this.setToOneMonth()
-        break;
-      case 'redirect_ut_direct':
-        subPrice = '$9'
-        subText = 'Starter Special'
-        // subPrice = '$0'
-        // subText = 'FREE TRIAL SPECIAL'
-        break
-      case 'redirect_paceline':
-        subPrice = '$29'
-        subText = 'Subscribe & Save'
-        break
-      case 'redirect_miles':
-        subPrice = '$9'
-        subText = 'Subscribe & Save'
-        break
-      case 'redirect_studentbeans':
-        subPrice = '$9'
-        subText = 'Subscribe & Save'
-        break
-      case 'redirect_inspire':
-        subPrice = '$13.5'
-        subText = 'Subscribe & Save'
-        break
-      default:
-        subPrice = '$19'
-        subText = 'Subscribe & Save'
-        break
+            skio.addEventListener('skio::update-selling-plan', (e) => {
+            
+            let sub_price = document.querySelector('skio-plan-picker').shadowRoot.querySelector(`[skio-subscription-price]`)?.innerText
+
+            $('span.price-item.price-item--regular').html(sub_price + '.00 USD');
+
+            if (this.stickyBar) {
+              this.updateStickyBar(e)
+            }
+            
+            this.mostRecentSellingPlan = e.detail.sellingPlan ? e.detail.sellingPlan.id : this.mostRecentSellingPlan
+            console.log(this.mostRecentSellingPlan)
+          })        
+        } catch (e) {
+            console.log("Error: failure in observeForm() for product-form.js")
+            console.log(e)
+        }
     }
-
-    return [subPrice, subText, oneTimeText, oneTimePrice]
   }
 
-  addPenSometimes() {
-    const sweatcoin_automatic = getCookie('redirect_sweatcoin');
+  observeFormulaPicker(refill_strength_input) {
+    try {
+        let refill_strength = document.querySelectorAll(refill_strength_input)
+        let skio = document.querySelector('skio-plan-picker')
 
-    if (sweatcoin_automatic == 'true') {
-      if (true) {
-        add_pen()
-      }
-      
+        // Add change event listener to each radio button
+        refill_strength.forEach(radio => {
+          radio.addEventListener('change', (e) => {
+            // Example of triggering different actions based on selection
+            console.log(e.target.value)
+            this.setVariant(e.target.value, true)
+            
+            if (document.querySelector('.price-section')) {
+              updatePrices(e.target.value === '🔥 Super Strength (ID: 8-17)');
+            }
+          });
+        });
+
+        // initial setting
+        let strength = getCookie('strength')
+        if (!strength) {
+          strength = 'medium';
+        }
+        let id = '#' + strength
+        $(id).prop('checked', true).trigger('change');
+
+    } catch (e) {
+        console.log("refill strength picker not found")
     }
   }
 
   onSubmitHandler(evt) {
-    evt.preventDefault();
-    
+    evt.preventDefault();    
+    console.log('onSubmitHandler');
     document.cookie = "directcheckout=true;path=/";
 
-    if(window.localStorage.getItem('landing_page_product_discount')){
-      document.cookie = `landing_page_product_discount=${window.localStorage.getItem('landing_page_product_discount')};path=/`
-      window.localStorage.removeItem('landing_page_product_discount');
-    }
+    let p_referrer = getCookie('affiliate_referrer')
 
     const submitButton = this.querySelector('[type="submit"]');
 
     submitButton.setAttribute('disabled', true);
     submitButton.classList.add('loading');
 
-    let body =  JSON.stringify({
-      ...JSON.parse(serializeForm(this.form)),
-      sections: this.getSectionsToRender().map((section) => section.section),
-      sections_url: window.location.pathname
-    });
+    let skio = document.querySelector('skio-plan-picker')
+    let product_form = JSON.parse(serializeForm(this.form))
 
-    if(submitButton.dataset.dsicountCode){
-      console.log(submitButton.dataset.dsicountCode)
-      var date = new Date();
-      date.setTime(date.getTime()+(3600*24*1000));
-      var expires = "; expires="+date.toUTCString();
-      if(submitButton.dataset.dsicountCode != "") document.cookie = `productDiscountCode=${submitButton.dataset.dsicountCode} ${expires};path=/; `;
+    console.log(product_form)
+
+    let quantity_setter = 1
+
+    let itemsList;
+
+    let bundle_value = null
+    let bundle_quantities = {'1':1, '2':3, '3': 5}
+
+    const treatmentQuantity = document.querySelector('input[name="treatment-quantity"]:checked')?.value;
+
+    if (product_form.product_id == window.ProductConfig.KIT_DEFAULT.product_id
+      && treatmentQuantity == '12'
+      && 'selling_plan' in product_form
+    ) {
+      setCookie('manual_discount', 'SUB_12_TREATMENTS')
+    } else {
+      setCookie('manual_discount', '')
     }
 
-    if (window.location.href.includes('at-home-whitening-kit')) { 
-      if (window.location.href.includes('at-home-whitening-kit-affiliate-ft') || window.location.href.includes('at-home-whitening-kit-affiliate-ut')) {
-        // console.log(body)
-        // if (parseInt(body['quantity']) > 2) {
-        //   throw new Error('Cannot purchase more than 2 products with this promotion');
-        // }
-        body = JSON.parse(body)
-        body['quantity'] = '1'
-        body = JSON.stringify(body)
-        // commented to remove addition of pen
-        // let strength = getCookie('strength')
-        // let pen_id_dict = {
-        //   "sensitive": 42210600878305,
-        //   "medium": 42210600812769,
-        //   "strong": 42210600845537
-        // }
-        // let json_body = JSON.parse(body)
-        // let addedPenBody = {
-        //   'items': [
-        //     json_body,
-        //     {
-        //       'id': pen_id_dict[strength],
-        //       'quantity': 1
-        //     }
-        //   ]
-        // }
-        // body = JSON.stringify(addedPenBody)
-        // console.log(body)
+    // not subscription and bundle is not explicitly disabled: use onetime bundle quantity and set bundle_discount
+    if (!('selling_plan' in product_form) && 
+    !(ConfigUtils.equals(affiliate_config, `${p_referrer}.flow.bundle_enabled`, false))
+    && product_form.product_id == window.ProductConfig.KIT_DEFAULT.product_id) {
+      bundle_value = document.querySelector('skio-plan-picker').shadowRoot.querySelector('input[name="onetime_bundle"]:checked').value
+
+      if (ConfigUtils.exists(affiliate_config, `${p_referrer}.flow.bundle_discount.${bundle_value}`)) {
+        setCookie('bundle_discount', ConfigUtils.getValue(affiliate_config, `${p_referrer}.flow.bundle_discount.${bundle_value}`))
+      } else {
+        setCookie('bundle_discount', '')
       }
-    } else if (window.location.href.includes('landing-page-product-main')) {
+
+      itemsList = [{
+        id: product_form.id, // this is variant id
+        quantity: bundle_quantities[bundle_value],
+        selling_plan: product_form.selling_plan? skio.selectedSellingPlan.id: '' //product_form.selling_plan // or can also do 
+      }]
+    } 
+    else {
+      setCookie('bundle_discount', '')
+      itemsList = [{
+        id: product_form.id, // this is variant id
+        quantity: quantity_setter,
+        selling_plan: product_form.selling_plan? skio.selectedSellingPlan.id: '' // product_form.selling_plan // or can also do 
+      }]
+    }
+
+    if (treatmentQuantity === '6') {
+      console.log('6 treatments selected');
+    } else if (treatmentQuantity === '12') {
+      const strength_cookie = getCookie('strength') || 'medium'
+      let translate = {
+        'medium': 'everyday',
+        'strong': 'super',
+        'sensitive': 'gentle'
+      }
+      let addOnProductId = window.ProductConfig.REFILL_DEFAULT.product_id
+      let addOnVariantId = window.ProductConfig.REFILL_DEFAULT.variants[translate[strength_cookie]]
+
+      if (product_form.selling_plan) {
+        let cadenceKey = this.currentProductSellingPlan[skio.selectedSellingPlan.id]
+        let addOnSellingPlanId = this.sellingPlansByVariant[addOnProductId][addOnVariantId][cadenceKey]
+
+        itemsList.push({
+          id: addOnVariantId,
+          quantity: 1,
+          selling_plan: addOnSellingPlanId
+        })
+      } else {
+        if (bundle_value) {
+          quantity_setter = bundle_quantities[bundle_value]
+        }
+
+        itemsList.push({
+          id: addOnVariantId,
+          quantity: quantity_setter
+        })
+      }
+    }
+
+    // Add pen when main kit (current_products_ref.KIT_DEFAULT) and subscription checkout; or when user chose pen in upsell (add_pen cookie)
+    var kitProductIdForPen = (typeof current_products_ref !== 'undefined' && current_products_ref.KIT_DEFAULT) ? current_products_ref.KIT_DEFAULT.product_id : (window.ProductConfig && window.ProductConfig.KIT_DEFAULT && window.ProductConfig.KIT_DEFAULT.product_id) || 7503162605793;
+    var isSubscription = !!(product_form.selling_plan || (skio && skio.selectedSellingPlan && skio.selectedSellingPlan.id));
+    var addPenForKitSubscription = (product_form.product_id == kitProductIdForPen && isSubscription);
+    if (addPenForKitSubscription) {
+      add_pen_cookie();
+    }
+
+    let pen = this.getCookie('add_pen');
+    var shouldAddPen = (pen && pen != 'false') || addPenForKitSubscription;
+    if (shouldAddPen) {
+      var penVariantId = (pen && pen != 'false') ? pen : this.getCookie('add_pen');
+      if (penVariantId && penVariantId != 'false') {
+        itemsList.push({
+          id: penVariantId,
+          quantity: 1
+        });
+      }
+    }
+
+    if ($('#package_protection').prop('checked')) {
+      itemsList.push({
+          id: 39775917605037,
+          quantity: 1
+        })
+      }
+
+    let formData = {
+      'items': itemsList
+    }
+
+    let body = JSON.stringify(formData)
+
+
+    if (window.location.href.includes('landing-page-product-main')) {
       let json_body = JSON.parse(body)
       let id_dict = {
         "1_month": {
@@ -489,53 +560,47 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
       }
       let supply_type = $('input[name="supply_type"]:checked').val()
       let strength = getCookie('strength')
-      console.log(supply_type)
-      console.log(strength)
       json_body['id'] = id_dict[supply_type][strength]
       json_body['product-id'] = product_dict[supply_type]
       body = JSON.stringify(json_body)
-      console.log(body)
     }
-
     
     fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
       .then((response) => response.json())
-      .then((parsedState) => {
+      // .then(data => {
+      //   let cactus = this.getCookie('redirect_ut')
 
-        this.getSectionsToRender().forEach((section => {
-          const elementToReplace =
-            document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
-
-          elementToReplace.innerHTML =
-            this.getSectionInnerHTML(parsedState.sections[section.section], section.selector);
-
-        }));
-      })
+      //   if (cactus == true) {
+      //     console.log('cactus')
+      //   }
+      // })
       .catch((e) => {
-        console.error(e);
+        console.log(e)
       })
       .finally(() => {
         submitButton.classList.remove('loading');
         submitButton.removeAttribute('disabled');
-        // this.cartDrawer.open();
         document.querySelector('.page-transition').classList.toggle('visible');
         window.location = '/cart'
       });
   }
 
   getSectionsToRender() {
-    return [
-      {
+    const cartDrawerEl = document.getElementById('cart-drawer__content');
+    const sections = [];
+    if (cartDrawerEl && cartDrawerEl.dataset && cartDrawerEl.dataset.id) {
+      sections.push({
         id: 'cart-drawer__content',
-        section: document.getElementById('cart-drawer__content').dataset.id,
+        section: cartDrawerEl.dataset.id,
         selector: '.cart-drawer__content',
-      },
-      {
-        id: 'cart-icon-bubble',
-        section: 'cart-icon-bubble',
-        selector: '.shopify-section'
-      }
-    ];
+      });
+    }
+    sections.push({
+      id: 'cart-icon-bubble',
+      section: 'cart-icon-bubble',
+      selector: '.shopify-section'
+    });
+    return sections;
   }
 
   getSectionInnerHTML(html, selector) {
@@ -569,8 +634,9 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
     this.open = this.container.querySelector("[data-sticky-open]")
     this.close = this.container.querySelector("[data-sticky-close]")
 
-    this.waitForEl("sticky-product-bar [data-plans-dropdown").then(() => {
-      this.sellingPlans = this.querySelector("[data-plans-dropdown]")
+    this.waitForEl("sticky-product-bar [data-plans-dropdown]").then(() => {
+      this.sellingPlans = this.querySelector("input[name='selling_plan']")
+      console.log(this.sellingPlans)
       this.sellingPlans.addEventListener("change", function(e){
         this.updateSellingPlans(e)
       }.bind(this))
@@ -580,14 +646,19 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
   }
 
   bindEvents() {
+
+    let skio = document.querySelector('skio-plan-picker')
+
     this.open.addEventListener("click", this.openStickyBar.bind(this))
     this.close.addEventListener("click", this.closeStickyBar.bind(this))
     this.onetime.addEventListener('click', function(e){
-      document.querySelector(`[data-label-onetime]`).click()
+      skio.selectedSellingPlanGroup = null
+      skio.selectedSellingPlan = null
     }.bind(this))
 
     this.subsave.addEventListener('click', function(e){
-      document.querySelector(`[data-label-subsave]`).click()
+      skio.selectedSellingPlanGroup = skio.availableSellingPlanGroups[0]
+      skio.selectedSellingPlan = skio.availableSellingPlanGroups[0].selling_plans.find(plan => plan.id == this.mainForm.mostRecentSellingPlan)
     }.bind(this))
 
     this.atc.addEventListener('click', function(e){
@@ -595,11 +666,20 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
       this.atc.setAttribute("disabled", "true")
       document.querySelector(`button[type="submit"]`).click()
     }.bind(this))
+
+
+    let referrer = getCookie('affiliate_referrer')
+    let one_time_pricing_e = (affiliate_config[referrer] ?? {}).pricing?.one_time_enabled ?? true;
+    let sub_pricing_e = (affiliate_config[referrer] ?? {}).pricing?.subscription_enabled ?? true;
+    if (!(one_time_pricing_e && sub_pricing_e)) {
+      $('#shopify-section-sticky-product-bar').css('display', 'none')
+    }
+    $('#shopify-section-sticky-product-bar').css('display', 'none')
   }
 
   openStickyBar() {
-    slideDown(this.parentElement)
-    this.open.setAttribute("aria-hidden", "true")
+      slideDown(this.parentElement)
+      this.open.setAttribute("aria-hidden", "true")
   }
 
   closeStickyBar() {
@@ -632,3 +712,14 @@ customElements.define('sticky-product-bar', class StickyProductBar extends HTMLE
   });
   }
 })
+
+
+// Commented out to fix treatment quantity radio button state restoration issue
+// window.addEventListener('pageshow', function(event) {
+//   if (event.persisted) {
+//     console.log('loaded from cache')
+//     // The page was loaded from bfcache (back-forward cache) or a similar mechanism.
+//     // You can force a reload or reinitialize any state here.
+//    window.location.reload();
+//   }
+// });

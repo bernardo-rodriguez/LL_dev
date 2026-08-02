@@ -1,14 +1,295 @@
-<label class="h5" for="ourformbutforklaviyo">Enter your email to unlock your results</label>
-<div class="quiz__input-group">
-  <input
-    class="for_email_klaviyo"
-    type="email"
-    name="contact[email]"
-    style="color: #3a5ca5"
-    id="ourformbutforklaviyo"
-    placeholder="Email"
-    required
-  >
-  <input class="for_email_klaviyo" type="hidden" name="contact[tags]" value="newsletter">
-  <p class="form-error-message body-xs hidden">This field is required</p>
+{% comment %}
+  Final step: personalized “report card” (plaque, sensitivity, shade + stain habits).
+  Loading UI: spinner + “Building your formula” live in `sections/quiz.liquid`, styled in
+  `assets/section-quiz.css` (`.quiz__final-loading-overlay*`).
+
+  --- Where to edit copy ---
+  • Final-step block titles + bodies: `buildReportBlocks()` in the <script> below (vars b1Title, b1Body, etc.).
+  • Loading caption: `sections/quiz.liquid` → `.quiz__final-loading-overlay__caption`.
+  • Email CTA + placeholder: this file → `.quiz-loading-email`.
+  • Step headlines (including step 6): Theme editor → Quiz section settings, or `sections/quiz.liquid` schema defaults.
+  • Earlier quiz questions: `snippets/quiz-step-*.liquid` files.
+
+  --- Icons ---
+  Blocks 1–2: `assets/coconut-svgrepo-com.svg`, `assets/aloe-vera-svgrepo-com.svg`.
+  Block 3 uses the same tooth base + mask path as `snippets/quiz-step-shade-slider.liquid`; shade fill is synced in JS from `#quiz_shade_slider_end`.
+{% endcomment %}
+{% assign quiz_report_tooth_src = 'tooth.png' | asset_url %}
+<div class="quiz-final-step" data-quiz-final-step>
+  <div class="quiz-report-card" data-quiz-report-card>
+    <ul class="quiz-report-card__list list-unstyled" role="list">
+      <li class="quiz-report-card__item" data-quiz-report-item>
+        <div class="quiz-report-card__row">
+          <div class="quiz-report-card__icon-wrap" aria-hidden="true">
+            <img
+              class="quiz-report-card__svg-icon"
+              src="{{ 'coconut-svgrepo-com.svg' | asset_url }}"
+              width="44"
+              height="44"
+              alt=""
+              loading="lazy"
+            >
+          </div>
+          <div class="quiz-report-card__copy" data-quiz-report-block="1"></div>
+        </div>
+      </li>
+      <li class="quiz-report-card__item" data-quiz-report-item>
+        <div class="quiz-report-card__row">
+          <div class="quiz-report-card__icon-wrap" aria-hidden="true">
+            <img
+              class="quiz-report-card__svg-icon"
+              src="{{ 'aloe-vera-svgrepo-com.svg' | asset_url }}"
+              width="44"
+              height="44"
+              alt=""
+              loading="lazy"
+            >
+          </div>
+          <div class="quiz-report-card__copy" data-quiz-report-block="2"></div>
+        </div>
+      </li>
+      <li class="quiz-report-card__item" data-quiz-report-item>
+        <div class="quiz-report-card__row">
+          <div class="quiz-report-card__icon-wrap quiz-report-card__icon-wrap--tooth" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3000 3000" class="quiz-report-card__tooth-svg">
+              <g style="isolation:isolate;">
+                <g>
+                  <image transform="scale(2.92969)" href="{{ quiz_report_tooth_src }}" xlink:href="{{ quiz_report_tooth_src }}"/>
+                  <path id="quiz_report_tooth_path" d="M1611.70436,423.05238s-220.26773-60.52402-302.62008-65.485-330.4016-36.71129-552.65372,132.9544c0,0-221.25993,0-365.12849,195.46281s-146.84515,387.94902-148.82955,546.70054,72.43038,563.56789,112.11826,676.67834,219.937,683.95445,542.73175,776.55951c108.4802,29.10444,190.50182-78.05283,218.28334-154.78273,0,0,174.62667,125.67828,305.59667-103.18849,0,0,101.86556,306.9196,277.81516,306.9196,120.38657,0,191.82475-96.57384,228.86677-138.90758,0,0,84.66748,46.30253,178.59546-7.93758s210.34576-174.62667,293.69031-342.63869,193.14768-415.3998,236.80435-658.8188,74.08404-469.63991,43.65667-666.75637-154.78273-370.42021-255.32536-431.27496-283.10687-96.57384-425.98324-78.05283c-85.99041,7.93758-171.98081,56.88596-248.71071,43.65667s-138.90758-31.08884-138.90758-31.08884Z" style="fill:hsl(43,40%,80%); mix-blend-mode:multiply;"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <div class="quiz-report-card__copy" data-quiz-report-block="3"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="quiz-loading-email" data-quiz-loading-email>
+    <label class="h5" for="ourformbutforklaviyo">Enter your email to unlock your results</label>
+    <div class="quiz__input-group">
+      <input
+        class="for_email_klaviyo"
+        type="email"
+        name="contact[email]"
+        style="color: #3a5ca5"
+        id="ourformbutforklaviyo"
+        placeholder="Email"
+        required
+      >
+      <input class="for_email_klaviyo" type="hidden" name="contact[tags]" value="newsletter">
+      <p class="form-error-message body-xs hidden">This field is required</p>
+    </div>
+  </div>
 </div>
+
+<script>
+  (function() {
+    var stepWrapper = document.querySelector('.form__step-wrapper[data-step="6"]');
+    var overlay = document.querySelector('[data-quiz-final-overlay]');
+    var fillEl = document.querySelector('[data-quiz-final-spinner-fill]');
+    var items = document.querySelectorAll('[data-quiz-report-item]');
+    var emailWrap = document.querySelector('[data-quiz-loading-email]');
+    /* [data-form-submit] lives in .quiz__content-buttons after this script in the DOM — never cache at parse time. */
+    if (!stepWrapper || !overlay || !fillEl || items.length === 0) return;
+
+    var STAGGER_MS = 1500;
+    var PAD_AFTER_LAST_MS = 700;
+
+    var CIRCUMFERENCE = 2 * Math.PI * 20;
+    var loadStart = 0;
+    var rafId = null;
+    var timers = [];
+    var totalDurationMs = STAGGER_MS * items.length + PAD_AFTER_LAST_MS;
+
+    function shadeLightness(sliderVal) {
+      var v = parseInt(sliderVal, 10);
+      if (isNaN(v)) v = 50;
+      return Math.min((v / 3) + 70, 100);
+    }
+
+    function hpPercent(sensitivity) {
+      if (sensitivity == 'mild') return '14% HP';
+      if (sensitivity == 'medium') return '11% HP';
+      if (sensitivity == 'strong') return '25% SB';
+      return '11% HP';
+    }
+
+    function stainHabitPhrase(stainRaw) {
+      var s = stainRaw || '';
+      if (s.indexOf('Multiple') !== -1) return 'your frequent staining habits';
+      if (s.indexOf('Once Per Day') !== -1) return 'your daily staining habits';
+      if (s.indexOf('Once Per Week') !== -1) return 'your occasional staining habits';
+      return 'your staining habits';
+    }
+
+    function buildReportBlocks() {
+      var quizRoot = stepWrapper.closest('formula-quiz') || document;
+      var plaque = quizRoot.querySelector('[name="plaque_concern"]:checked');
+      var pv = plaque ? plaque.value : 'not_sure';
+      var removePlaque = pv === 'yes_main_concern' || pv === 'somewhat';
+
+      var b1Title = 'Adding coconut oil';
+      var b1Body = removePlaque
+        ? 'Adding coconut oil to <strong>remove</strong> plaque buildup.'
+        : 'Adding coconut oil to <strong>prevent</strong> plaque buildup.';
+
+      var sens = quizRoot.querySelector('[name="sensitivity"]:checked');
+      var sv = sens ? sens.value : 'medium';
+      var b2Title = 'Adding sensitivity blockers';
+      var b2Body = sv === 'mild'
+        ? 'Xylitol, glycerin and aloe vera to <strong>handle a high-strength formula</strong> comfortably.'
+        : 'Xylitol, glycerin and aloe vera to <strong>combat your sensitivity</strong> while you whiten.';
+
+      var startEl = document.getElementById('quiz_shade_slider_start');
+      var endEl = document.getElementById('quiz_shade_slider_end');
+      var startV = startEl ? startEl.value : '50';
+      var endV = endEl ? endEl.value : '50';
+      var L = shadeLightness(endV);
+      var hp = hpPercent(sens.value);
+      var stainEl = quizRoot.querySelector('[name="stain"]:checked');
+      var habit = stainHabitPhrase(stainEl ? stainEl.value : '');
+
+      var toothPath = document.getElementById('quiz_report_tooth_path');
+      if (toothPath) {
+        toothPath.setAttribute(
+          'style',
+          'fill: hsl(43,40%,' + L + '%); mix-blend-mode:multiply;'
+        );
+      }
+
+      var b3Title = 'Your desired shade';
+      var b3Body = 'Given your current stain level and <strong>' + habit + '</strong>, we\'re prescribing a <strong>' + hp + ' formula</strong> to get to your desired shade.';
+
+      return [
+        '<p class="quiz-report-card__block-title">' + b1Title + '</p><p class="quiz-report-card__block-body">' + b1Body + '</p>',
+        '<p class="quiz-report-card__block-title">' + b2Title + '</p><p class="quiz-report-card__block-body">' + b2Body + '</p>',
+        '<p class="quiz-report-card__block-title">' + b3Title + '</p><p class="quiz-report-card__block-body">' + b3Body + '</p>'
+      ];
+    }
+
+    function applyReportCopy() {
+      var parts = buildReportBlocks();
+      var blocks = stepWrapper.querySelectorAll('[data-quiz-report-block]');
+      blocks.forEach(function(el, i) {
+        if (parts[i]) el.innerHTML = parts[i];
+      });
+    }
+
+    function setSubmitDisabled(disabled) {
+      var btn = document.querySelector('[data-form-submit]');
+      if (!btn) return;
+      if (disabled) {
+        btn.setAttribute('disabled', 'true');
+        btn.setAttribute('aria-disabled', 'true');
+      } else {
+        btn.removeAttribute('disabled');
+        btn.removeAttribute('aria-disabled');
+      }
+    }
+
+    function showOverlay() {
+      overlay.classList.add('is-visible');
+      overlay.setAttribute('aria-hidden', 'false');
+    }
+
+    function hideOverlay() {
+      overlay.classList.remove('is-visible');
+      overlay.setAttribute('aria-hidden', 'true');
+    }
+
+    function resetItems() {
+      items.forEach(function(li) {
+        li.classList.remove('quiz-report-card__item--visible');
+      });
+    }
+
+    function tickProgress() {
+      var elapsed = performance.now() - loadStart;
+      var p = Math.max(0, Math.min(1, elapsed / totalDurationMs));
+      fillEl.style.strokeDashoffset = CIRCUMFERENCE * (1 - p);
+      if (p < 1) {
+        rafId = requestAnimationFrame(tickProgress);
+      }
+    }
+
+    function clearTimers() {
+      timers.forEach(function(t) { clearTimeout(t); });
+      timers = [];
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    }
+
+    function revealEmail() {
+      if (emailWrap) {
+        emailWrap.classList.add('quiz-loading-email--visible');
+      }
+      hideOverlay();
+      setSubmitDisabled(false);
+      try {
+        var quizEl = stepWrapper.closest('formula-quiz');
+        if (quizEl && quizEl.setInputs) {
+          quizEl.setInputs('6');
+        }
+      } catch (e) { /* no-op */ }
+    }
+
+    function startSequence() {
+      clearTimers();
+      resetItems();
+      applyReportCopy();
+      showOverlay();
+      setSubmitDisabled(true);
+
+      if (emailWrap) {
+        emailWrap.classList.remove('quiz-loading-email--visible');
+      }
+
+      fillEl.style.strokeDasharray = CIRCUMFERENCE + ' ' + CIRCUMFERENCE;
+      fillEl.style.strokeDashoffset = CIRCUMFERENCE;
+      loadStart = performance.now();
+      rafId = requestAnimationFrame(tickProgress);
+
+      items.forEach(function(li, i) {
+        timers.push(setTimeout(function() {
+          li.classList.add('quiz-report-card__item--visible');
+        }, STAGGER_MS * i));
+      });
+
+      timers.push(setTimeout(revealEmail, totalDurationMs));
+    }
+
+    function stopSequence() {
+      clearTimers();
+      hideOverlay();
+      fillEl.style.strokeDashoffset = CIRCUMFERENCE;
+    }
+
+    fillEl.style.strokeDasharray = CIRCUMFERENCE + ' ' + CIRCUMFERENCE;
+    fillEl.style.strokeDashoffset = CIRCUMFERENCE;
+
+    if (stepWrapper.classList.contains('active')) {
+      startSequence();
+    }
+
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mut) {
+        if (mut.attributeName === 'class') {
+          if (stepWrapper.classList.contains('active')) {
+            startSequence();
+          } else {
+            stopSequence();
+            if (emailWrap) {
+              emailWrap.classList.remove('quiz-loading-email--visible');
+            }
+            setSubmitDisabled(false);
+          }
+        }
+      });
+    });
+    observer.observe(stepWrapper, { attributes: true, attributeFilter: ['class'] });
+  })();
+</script>

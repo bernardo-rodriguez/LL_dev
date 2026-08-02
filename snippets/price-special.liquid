@@ -1,0 +1,100 @@
+  <div class="price-section">
+    <div class="price-info">
+      <span class="original-price" id="originalPrice"></span>
+      <span class="sale-price" id="salePrice"></span>
+      <span class="discount-badge" id="discountBadge"></span>
+    </div>
+    <div class="per-dose" id="perDose">Only $0.90 Per Dose</div>
+  </div>
+
+  <script>
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+      return null;
+    }
+
+    function updatePrices(strong = false) {
+      const url = window.location.href;
+      const affiliateReferrer = getCookie('affiliate_referrer');
+      const isNiftAffiliate = affiliateReferrer && affiliateReferrer.includes('nift');
+      
+      let originalPrice, salePrice, perDoseText;
+
+      if (url.includes("6-serving-of-whitening-gels-free-starter-kit")) {
+        originalPrice = strong ? 75 : 65;
+        
+        if (isNiftAffiliate) {
+          salePrice = strong ? 27 : 17;
+        } else {
+          salePrice = strong ? 29 : 19;
+        }
+        
+        perDoseText = `Only $${(salePrice / 6).toFixed(2)} Per Whitening Session`;
+      } else {
+        originalPrice = strong ? 105 : 95;
+        
+        if (isNiftAffiliate) {
+          salePrice = strong ? 35 : 25;
+        } else {
+          salePrice = strong ? 59 : 39;
+        }
+        
+        perDoseText = `Only $${(salePrice / 6).toFixed(2)} Per Dose`;
+      }
+
+      // Calculate discount percentage
+      //const discountPercentage = Math.round((1 - (salePrice / originalPrice)) * 100);
+      const discountPercentage = originalPrice - salePrice;
+
+      // Update DOM elements
+      document.getElementById("originalPrice").textContent = `$${originalPrice}`;
+      document.getElementById("salePrice").textContent = `$${salePrice}`;
+      document.getElementById("discountBadge").textContent = `SAVE $${discountPercentage} TODAY`;
+      document.getElementById("perDose").textContent = perDoseText;
+    }
+
+    // Make updatePrices globally available for the tracking script
+    window.updatePrices = updatePrices;
+
+    // Initialize prices
+    updatePrices();
+  </script>
+
+  <style>
+    .price-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .original-price {
+      text-decoration: line-through;
+      color: gray;
+      font-size: 1.3rem;
+    }
+
+    .sale-price {
+      font-weight: 700;
+      color: #46BDF0;
+      font-size: 1.5rem;
+    }
+
+    .discount-badge {
+      background-color: var(--purple);
+      color: white;
+      font-weight: bold;
+      border-radius: 12px;
+      padding: 6px 12px;
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+
+    .per-dose {
+      color: #46BDF0;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  </style>

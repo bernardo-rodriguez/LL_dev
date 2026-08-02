@@ -1,7 +1,8 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
-  <head>
-{% include 'replo-head.liquid' %}
+  <head>{% render 'skio-head' %}
+    {% render 'temp-block-recharge' %}
+
     {% render 'replo-head' %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,13 +16,94 @@
     <script src='https://www.dwin1.com/19038.js' type='text/javascript' defer='defer'></script>
     
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ED2C9KNXNY"></script>
+    {% comment %} <script async src="https://www.googletagmanager.com/gtag/js?id=G-ED2C9KNXNY"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-ED2C9KNXNY');
+    </script> {% endcomment %}
+    {%- assign cfg = shop.metafields.custom.product_reference.value -%}
+    <script id="product-config" type="application/json">
+      {{ cfg | json }}
     </script>
+
+    <script>
+      window.ProductConfig = JSON.parse(document.getElementById('product-config').textContent);
+      {% comment %} const everydayVariantId = window.ProductConfig.KIT_DEFAULT?.variants?.everyday; {% endcomment %}
+    </script>
+
+    <script>
+      // Utility function for safe object navigation and conditional checks
+      window.ConfigUtils = {
+        // Check if a nested path exists in an object
+        hasPath: function(obj, path) {
+          if (!obj || typeof obj !== 'object') return false;
+          
+          const keys = path.split('.');
+          let current = obj;
+          
+          for (let key of keys) {
+            if (current === null || current === undefined || !(key in current)) {
+              return false;
+            }
+            current = current[key];
+          }
+          return true;
+        },
+        
+        // Get a value from a nested path with optional default
+        getValue: function(obj, path, defaultValue = null) {
+          if (!obj || typeof obj !== 'object') return defaultValue;
+          
+          const keys = path.split('.');
+          let current = obj;
+          
+          for (let key of keys) {
+            if (current === null || current === undefined || !(key in current)) {
+              return defaultValue;
+            }
+            current = current[key];
+          }
+          return current;
+        },
+        
+        // Check if a nested property equals a specific value
+        equals: function(obj, path, value) {
+          return this.getValue(obj, path) === value;
+        },
+        
+        // Check if a nested property is truthy
+        isTruthy: function(obj, path) {
+          return !!this.getValue(obj, path);
+        },
+        
+        // Check if a nested property is falsy
+        isFalsy: function(obj, path) {
+          return !this.getValue(obj, path);
+        },
+        
+        // Check if a nested property is false (strictly)
+        isFalse: function(obj, path) {
+          return this.getValue(obj, path) === false;
+        },
+        
+        // Check if a nested property is true (strictly)
+        isTrue: function(obj, path) {
+          return this.getValue(obj, path) === true;
+        },
+        
+        // Check if a nested property exists and is not null/undefined
+        exists: function(obj, path) {
+          const value = this.getValue(obj, path, undefined);
+          return value !== undefined && value !== null;
+        }
+      };
+    </script>
+
+
+    <script src="{{ 'in-house-constants.js' | asset_url }}"></script>
+    <script src="{{ 'in-house-tracking-constants.js' | asset_url }}"></script>
 
     <script src="{{ 'in-house-tracking.js' | asset_url }}" defer='defer'></script>
     
@@ -43,6 +125,10 @@
     {% render 'meta-tags' %}
 
     {% comment %} <script src="{{ 'quiz_2.js' | asset_url }}" defer></script> {% endcomment %}
+    <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
+    
     <script src="{{ 'slick.min.js' | asset_url }}" defer></script>
     <script src="{{ 'gsap.min.js' | asset_url }}" defer></script>
     <script src="{{ 'scroll-trigger.min.js' | asset_url }}" defer></script>
@@ -52,6 +138,9 @@
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     
     {% comment %} <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script> {% endcomment %}
+    {% comment %} <script>
+      gtag('set', 'user_properties',{'test': 'true'});
+      </script> {% endcomment %}
     {{ content_for_header }}
 
     {% comment %} <link rel="preload" as="image" href="important.png">
@@ -70,12 +159,28 @@
 
     <script src="{{ 'cookie-specific-actions.js' | asset_url }}" defer='defer'></script>
     {% render 'judgeme_core' %}
-</head>
+
+<!-- CPG EF CLick pixel -->
+    <script type="text/javascript"
+    src="https://www.bc86mdtrk.com/scripts/sdk/everflow.js"></script>
+
+<script type="text/javascript">
+EF.click({
+    offer_id: EF.urlParameter('oid'),
+    affiliate_id: EF.urlParameter('affid'),
+    sub1: EF.urlParameter('sub1'),
+    sub2: EF.urlParameter('sub2'),
+    sub3: EF.urlParameter('sub3'),
+    sub4: EF.urlParameter('sub4'),
+    sub5: EF.urlParameter('sub5'),
+    uid: EF.urlParameter('uid'),
+    source_id: EF.urlParameter('source_id'),
+    transaction_id: EF.urlParameter('_ef_transaction_id'),
+});
+</script>
+{% include 'pagefly-app-header' %}</head>
 
   <body class="template-{{ template }}">
-    <div style = 'display:none' id = 'tracking_v1'>{{settings.tracking_v1}}</div>
-    <div style = 'display:none' id = 'tracking_v2'>{{settings.tracking_v2}}</div>
-    <div style = 'display:none' id = 'tracking_v3'>{{settings.tracking_v3}}</div>
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -137,6 +242,10 @@
       role="main"
       tabindex="-1"
     >
+
+        {% if request.path contains '/a/account' %}
+          <div id = 'skio_topper_div' style = 'height: 30px;'></div>
+        {% endif %}
       {{ content_for_layout }}
     </main>
 
@@ -179,6 +288,12 @@
 
       window.accessibilityStrings = {
         shareSuccess: `{{ 'general.share.success_message' | t }}`,
+        imageAvailable: `{{ 'products.product.media.image_available' | t: index: '[index]' }}`,
+        pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
+        playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
+        recipientFormExpanded: `{{ 'recipient.form.expanded' | t }}`,
+        recipientFormCollapsed: `{{ 'recipient.form.collapsed' | t }}`,
+        countrySelectorSearchCount: `{{ 'localization.country_results_count' | t: count: '[count]' }}`,
       };
     </script>
   </body>
@@ -222,3 +337,22 @@
   }
 </script>
 {% endif %}
+
+{% comment %} 
+// Check if a path exists
+ConfigUtils.hasPath(affiliate_config, 'p_referrer.flow.bundle_enabled')
+
+// Get a value with fallback
+const bundleEnabled = ConfigUtils.getValue(affiliate_config, 'p_referrer.flow.bundle_enabled', true)
+
+// Check if a value equals something specific
+ConfigUtils.equals(affiliate_config, 'p_referrer.flow.bundle_enabled', false)
+
+// Check if a value is truthy
+ConfigUtils.isTruthy(affiliate_config, 'p_referrer.flow.discount_code')
+
+// Check if a value is falsy
+ConfigUtils.isFalsy(affiliate_config, 'p_referrer.flow.show_upsell')
+
+// Check if a value exists (not null/undefined)
+ConfigUtils.exists(affiliate_config, 'p_referrer.flow.cart_attribute') {% endcomment %}

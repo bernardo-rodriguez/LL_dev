@@ -20,7 +20,8 @@
 
 @media screen and (max-width: 768px) {
   .quiz {
-    overflow: scroll;
+    overflow-y: scroll;
+    /* overflow-x: TODO */
   }
 }
 
@@ -75,6 +76,15 @@
   margin-left: auto;
 }
 
+formula-quiz {
+  display: block;
+  width: 100%;
+}
+
+.quiz__content-headline {
+  grid-area: headline;
+}
+
 .quiz__content {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -88,9 +98,19 @@
 @media screen and (max-width: 768px) {
   .quiz__content {
     display: block;
-    padding-top: 50px;
+    padding-top: 30px;
     padding-bottom: 50px;
-    min-height: 100vh;
+    /* Let height follow content; min-height 100vh + height:100% on card stretched the white panel */
+    min-height: 0;
+  }
+
+  /* Use more of the viewport than default .page-width (20px) sides */
+  .quiz .quiz__content.page-width {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
@@ -98,15 +118,114 @@
   display: none;
 }
 
+/* Step titles use <h3>: mobile = h3 typography; desktop = h2-sized (48px) */
+.quiz .quiz__headline {
+  text-transform: capitalize;
+  margin-top: 0;
+}
+
+@media screen and (min-width: 769px) {
+  .quiz .quiz__headline {
+    font-size: 48px;
+    line-height: var(--ds-line-height);
+    letter-spacing: var(--ds-heading-ls-lg);
+  }
+}
+
 @media screen and (max-width: 768px) {
+  .quiz .quiz__headline {
+    font-size: 28px;
+    line-height: var(--ds-line-height);
+    letter-spacing: var(--ds-heading-ls-md);
+  }
+
   .quiz__headline {
     max-width: 293px;
   }
 }
 
-.quiz__content-card {
-  max-width: 433px;
+/* ----------------------------------------------------------------
+   Step headlines ("X Steps Closer…") are visible by default.
+   Quiz progress slider HTML is commented out in sections/quiz.liquid.
+   When you uncomment it, remove ONLY `display: none` below so the slider
+   shows again — and optionally add `.quiz__content-headline { display: none; }`
+   to hide the step titles (see Liquid comment beside the slider block).
+   ---------------------------------------------------------------- */
+.quiz__progress {
+  display: none;
+
+  width: 100%;
+  max-width: 640px;
+  margin: 16px auto 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.quiz__progress-track {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  background: var(--blue-tint-20);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.quiz__progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 100%;
+  background: var(--navy);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.quiz__progress-labels {
+  position: relative;
+  width: 100%;
+  height: 22px;
+  margin-top: 8px;
+}
+
+.quiz__progress-label {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  font-family: var(--ds-font-family, inherit);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1;
+}
+
+/* Hide the final label (it sits at the right edge of the bar and looks awkward) */
+.quiz__progress-label:last-child {
+  display: none;
+}
+
+/* Mobile: a touch tighter */
+@media screen and (max-width: 768px) {
+  .quiz__progress {
+    max-width: none;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .quiz__progress-label {
+    font-size: 12px;
+  }
+}
+
+.quiz__content-card {
+  grid-area: card;
+  position: relative;
+  width: 100%;
+  max-width: 433px;
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   /* overflow: hidden; */
 }
 
@@ -117,6 +236,12 @@
 @media screen and (max-width: 768px) {
   .quiz__content-card {
     margin-top: 24px;
+    max-width: none;
+    width: 100%;
+    /* Block layout: column flex + flex:none let some browsers size the card to max-content of the *current* step (narrow on sliders, wide on fieldset-row steps). */
+    display: block;
+    height: auto;
+    min-height: 0;
   }
 }
 
@@ -126,13 +251,49 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: stretch;
+  width: 100%;
+  box-sizing: border-box;
   padding: 40px 20px 20px;
+  min-height: 450px;
+  flex: 1 1 auto;
 }
 
 @media screen and (max-width: 768px) {
-  .quiz__form {
-    min-height: 235px;
+  /*
+    Flex column + min-width:100% keeps full width (no per-step shrink).
+    margin-top:auto on .quiz__content-buttons pins actions to the bottom of min-height box.
+  */
+  section.quiz .quiz__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 30px 16px 20px;
+    width: 100%;
+    max-width: none;
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .quiz__form form {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    display: block;
+  }
+
+  .quiz__form .form__step-wrapper {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  /* base.css fieldset { align-items: flex-start } shrink-wraps column children — full width for quiz */
+  .quiz__form fieldset {
+    min-width: 0;
+    align-items: stretch;
   }
 }
 
@@ -146,7 +307,7 @@
 
 .quiz__input-group {
   margin-top: 14px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   width: 100%;
 }
 
@@ -192,7 +353,9 @@
 
 @media screen and (max-width: 768px){
   .quiz__content-buttons {
-    margin-top: 40px;
+    margin-top: auto;
+    padding-top: 20px;
+    flex-shrink: 0;
   }
 }
 
@@ -229,6 +392,317 @@
   .quiz__footer-copyright {
     margin-top: 40px;
   }
+}
+
+/* Second shade slider only: tighten space before Continue row */
+.quiz__input-group--shade-end {
+  margin-bottom: 0;
+}
+
+/* Shade sliders (quiz-step-shade-slider); override base fieldset align-items: flex-start */
+.quiz fieldset.quiz-shade-slider__fieldset {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.quiz .quiz-shade-slider__container {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.quiz-shade-slider__container {
+  width: 100%;
+  text-align: center;
+}
+
+.quiz-shade-slider__tooth-wrap {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+  /* base.css fieldset label { padding-left: 28px } is for radio circles — not these */
+  padding-left: 0;
+}
+
+.quiz-shade-slider__tooth-svg {
+  width: 110px;
+  height: auto;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .quiz-shade-slider__tooth-svg {
+    width: 78px;
+  }
+}
+
+.quiz-shade-slider__slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  height: 6px;
+  border-radius: 5px;
+  background: transparent;
+  outline: none;
+  opacity: 0.85;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+
+.quiz-shade-slider__slider:hover {
+  opacity: 1;
+}
+
+.quiz-shade-slider__slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  margin-top: -8px;
+  border-radius: 50%;
+  background: var(--blue) !important;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.quiz-shade-slider__slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--blue) !important;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.quiz-shade-slider__slider::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 5px;
+  background: #d3d3d3;
+}
+
+.quiz-shade-slider__slider::-moz-range-track {
+  height: 6px;
+  border-radius: 5px;
+  background: #d3d3d3;
+}
+
+@media screen and (max-width: 768px) {
+  .quiz-shade-slider__slider {
+    height: 44px;
+    background: transparent;
+  }
+
+  .quiz-shade-slider__slider::-webkit-slider-runnable-track {
+    height: 8px;
+  }
+
+  .quiz-shade-slider__slider::-webkit-slider-thumb {
+    width: 29px;
+    height: 29px;
+    margin-top: -11px;
+    border: 2px solid #fff;
+  }
+
+  .quiz-shade-slider__slider::-moz-range-track {
+    height: 8px;
+  }
+
+  .quiz-shade-slider__slider::-moz-range-thumb {
+    width: 29px;
+    height: 29px;
+    border: 2px solid #fff;
+  }
+}
+
+/* Final step loading: sits above the white `.quiz__form` panel so spinner + caption stay on blue bg */
+.quiz__final-loading-overlay {
+  box-sizing: border-box;
+  width: 100%;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease,
+    max-height 0.45s ease,
+    padding 0.35s ease;
+}
+
+.quiz__final-loading-overlay.is-visible {
+  max-height: 160px;
+  opacity: 1;
+  visibility: visible;
+  padding: 0 0 16px;
+}
+
+.quiz__final-loading-overlay__stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.quiz__final-loading-overlay__caption {
+  margin: 0;
+  font-family: var(--ds-font-family, manrope, sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.02em;
+}
+
+.quiz__final-loading-overlay__spinner {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(13, 34, 68, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.quiz__final-loading-overlay__svg {
+  width: 36px;
+  height: 36px;
+  transform: rotate(-90deg);
+}
+
+.quiz__final-loading-overlay__track {
+  stroke: var(--blue-tint-20);
+}
+
+.quiz__final-loading-overlay__fill {
+  stroke: var(--navy);
+  stroke-linecap: round;
+}
+
+.quiz-final-step {
+  width: 100%;
+}
+
+.quiz-report-card {
+  width: 100%;
+  text-align: left;
+  padding-bottom: 8px;
+}
+
+.quiz-report-card__list {
+  margin: 0;
+  padding: 0;
+}
+
+.quiz-report-card__row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.quiz-report-card__icon-wrap {
+  flex: 0 0 48px;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quiz-report-card__icon-wrap--tooth {
+  align-items: flex-start;
+  padding-top: 2px;
+}
+
+.quiz-report-card__svg-icon {
+  width: 44px;
+  height: 44px;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.quiz-report-card__tooth-svg {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+
+.quiz-report-card__copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.quiz-report-card__block-title {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.quiz-report-card__block-body {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--navy);
+}
+
+.quiz-report-card__block-body strong {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.quiz-report-card__item {
+  position: relative;
+  padding: 14px 0;
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.quiz-report-card__item:last-child {
+  margin-bottom: 0;
+}
+
+.quiz-report-card__item--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quiz-loading-email {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition: opacity 0.45s ease 0.08s, max-height 0.55s ease;
+}
+
+.quiz-loading-email--visible {
+  opacity: 1;
+  max-height: 400px;
+  pointer-events: auto;
+  margin-top: 8px;
 }
 
 /* State */

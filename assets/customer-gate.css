@@ -102,7 +102,7 @@
 }
 
 .customer-gate__container input, p, label, a {
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -112,7 +112,7 @@
 .customer-gate__container a {
   text-underline-offset: 0.5em;
   line-height: normal;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   font-weight: 600;
   text-decoration: underline;
   font-size: 14px;
@@ -125,7 +125,7 @@
 .customer__alt-link {
   text-underline-offset: 0.5em;
   line-height: normal;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   font-weight: 600;
   text-decoration: underline;
   font-size: 14px;
@@ -133,7 +133,7 @@
 
 .customer-gate__recover-container p, input, label,
 .register .customer-gate__container p, input, label {
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -151,7 +151,7 @@
 #rc_login a {
   text-underline-offset: 0.5em;
   line-height: normal;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   font-weight: 600;
   text-decoration: underline;
 }
@@ -169,7 +169,7 @@
 
 .form__message {
   margin-bottom: 10px;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
 }
 
 .form__message svg {

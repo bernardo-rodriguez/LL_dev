@@ -1,0 +1,278 @@
+/* Hero Two Column - Two-column layout: content left, product image right */
+
+.hero-two-column {
+  padding: 60px 0 80px;
+  padding-top: 80px;
+  background-color: #ffffff;
+  direction: ltr;
+}
+
+.hero-two-column__inner {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Simple flex row: both columns take equal space (50/50) */
+.hero-two-column__flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  align-items: flex-start;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Left column: half the space */
+.hero-two-column__content {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.hero-two-column__headline {
+  color: var(--navy);
+  margin: 0 0 24px;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.hero-two-column__description {
+  color: var(--navy);
+  margin: 0 0 32px;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* CTA: light blue like product page secondary, black border, black font */
+.hero-two-column__cta {
+  margin-bottom: 40px;
+  padding: 16.5px 40px 17.5px;
+  background: var(--blue-tint-20) !important;
+  color: #000 !important;
+  border: 1px solid #000 !important;
+  border-radius: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.hero-two-column__cta:hover {
+  background: var(--blue-tint-40) !important;
+  color: #000 !important;
+  border-color: #000 !important;
+  opacity: 1;
+}
+
+/* Review block – same style as product page small-stars */
+.hero-two-column__review-block {
+  width: 100%;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Desktop: review in its own container */
+.hero-two-column__review-block--desktop {
+  padding: 20px 24px;
+  background: #ffffff;
+  border: 1px solid #000;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+/* Small-stars line: layout and star color only (size from .body-sm) */
+.hero-two-column__small-stars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.hero-two-column__small-stars .hero-two-column__stars {
+  display: inline-flex;
+  align-items: center;
+}
+
+.hero-two-column__small-stars .hero-two-column__stars svg {
+  height: 12px;
+  width: auto;
+}
+
+.hero-two-column__small-stars .hero-two-column__stars path {
+  fill: #000;
+}
+
+.hero-two-column__small-stars-rating {
+  margin-right: 6px;
+}
+
+.hero-two-column__review-author-line {
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.hero-two-column__testimonial {
+  color: var(--navy);
+  margin: 0;
+  padding-left: 0;
+  border-left: none;
+}
+
+/* Right column: half the space (equal to left) */
+.hero-two-column__image-col {
+  flex: 1 1 0;
+  min-width: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Image box: full space, no padding – image fills container */
+.hero-two-column__image-box {
+  width: 100%;
+  max-width: 100%;
+  background: #ffffff;
+  border: 1px solid #000;
+  border-radius: 0;
+  overflow: hidden;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero-two-column__image-box img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* When lazy-image snippet is used (image_picker) */
+.hero-two-column__image-box .aspect-ratio {
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.hero-two-column__image-box .aspect-ratio img {
+  object-fit: contain;
+}
+
+/* Desktop: show review in content column only; hide mobile review */
+.hero-two-column__review-block--mobile {
+  display: none;
+}
+
+/* Image card wrapper: no visual change on desktop */
+.hero-two-column__image-card {
+  width: 100%;
+}
+
+/* Tablet */
+@media screen and (max-width: 991px) {
+  .hero-two-column {
+    padding: 50px 0 60px;
+  }
+
+  .hero-two-column__flex {
+    gap: 40px;
+  }
+}
+
+/* Mobile: CTA first, then image card (image + review); left-aligned text; more top space */
+@media screen and (max-width: 768px) {
+  .hero-two-column {
+    padding: 24px 0 40px;
+    padding-top: 28px;
+  }
+
+  .hero-two-column__inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero-two-column__flex {
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+  }
+
+  .hero-two-column__content {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .hero-two-column__headline {
+    text-align: left;
+  }
+
+  .hero-two-column__description {
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .hero-two-column__cta {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  /* Hide review in content column on mobile; it lives in the image card */
+  .hero-two-column__review-block--desktop {
+    display: none !important;
+  }
+
+  .hero-two-column__review-block {
+    text-align: left;
+  }
+
+  /* Image card below CTA (no order change): one card = image + review */
+  .hero-two-column__image-col {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .hero-two-column__image-card {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid #000;
+    border-radius: 0;
+    overflow: hidden;
+  }
+
+  .hero-two-column__image-card .hero-two-column__image-box {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #000;
+  }
+
+  .hero-two-column__image-card .hero-two-column__review-block--mobile {
+    display: block;
+    padding: 12px 8px 12px;
+    border: none;
+    border-radius: 0;
+  }
+
+  .hero-two-column__image-box img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+}
+

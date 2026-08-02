@@ -20,136 +20,119 @@ function getCookie(cname) {
 
 function setCookie(key, value) {
   var date = new Date();
-  date.setDate(date.getDate() + 1)
+  date.setTime(date.getTime() + 2 * 3600 * 1000);
   var expires = date.toUTCString();
+  console.log(expires)
   document.cookie = `${key}=${value}; expires=${expires}; path=/`;
 }
 
 function showAnnouncementBar(bar_text) {
     $('#announcement-bar').css('display', 'block')
-    $(".outer-header-wrapper").css('top', '24px')
     $(".announcement-bar p").html(bar_text)
-    $(window).scroll(function(){
-      height = $(window).scrollTop()
-      if (height > 24) {
-        $(".outer-header-wrapper").css('top', '0')
-      } else {
-        diff = 24 - height
-        $(".outer-header-wrapper").css('top', diff + 'px')
-      }
-    });
 }
 
+var PRODUCT_BANNER_PLACEHOLDER = '{{bold}}'
+
+function showProductBanner(bar_value) {
+  var el = document.getElementById('product-offer-banner')
+  if (!el) return
+  var text = ''
+  var boldPart = ''
+  if (typeof bar_value === 'object' && bar_value !== null && bar_value.text != null) {
+    text = (bar_value.text || '').trim()
+    boldPart = (bar_value.bold || '').trim()
+    var idx = text.indexOf(PRODUCT_BANNER_PLACEHOLDER)
+    if (idx !== -1 && boldPart) {
+      var before = text.slice(0, idx)
+      var after = text.slice(idx + PRODUCT_BANNER_PLACEHOLDER.length)
+      el.innerHTML = escapeHtml(before) + '<strong>' + escapeHtml(boldPart) + '</strong>' + escapeHtml(after)
+    } else {
+      el.textContent = text
+    }
+  } else if (typeof bar_value === 'string' && bar_value !== '') {
+    var parts = bar_value.split(':')
+    if (parts.length > 1) {
+      el.innerHTML = '<strong>' + escapeHtml(parts[0].trim()) + '</strong> ' + escapeHtml(parts.slice(1).join(':').trim())
+    } else {
+      el.textContent = bar_value
+    }
+  } else {
+    el.textContent = ''
+  }
+  el.style.display = ''
+}
+
+function escapeHtml(s) {
+  var div = document.createElement('div')
+  div.textContent = s
+  return div.innerHTML
+}
+
+function hideProductBanner() {
+  var el = document.getElementById('product-offer-banner')
+  if (el) el.style.display = 'none'
+}
+
+function getProductBannerText() {
+  var a_referrer = getCookie('affiliate_referrer')
+  var general = (affiliate_config[a_referrer] || {}).general
+  if (a_referrer in affiliate_config && general && 'product_banner' in general) {
+    return general.product_banner
+  }
+  var defaultGeneral = affiliate_config['default'] && affiliate_config['default']['general']
+  if (defaultGeneral && defaultGeneral.product_banner) {
+    return defaultGeneral.product_banner
+  }
+  return null
+}
 
 function cookie_actions() {
-    const cookies = ['redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm']
+    let a_referrer = getCookie('affiliate_referrer')
+    if (a_referrer in affiliate_config && 'general' in affiliate_config[a_referrer]) {
+      let general_actions = affiliate_config[a_referrer]['general']
+      if ('announcement_bar' in general_actions && general_actions['announcement_bar']) {
+        showAnnouncementBar(general_actions['announcement_bar'])
+      }
+    } else if (affiliate_config['default']['general'] && 'announcement_bar' in affiliate_config['default']['general']) {
+      showAnnouncementBar(affiliate_config['default']['general']['announcement_bar'])
+    }
 
-    let subscriptionCookie = cookies.filter( cookieName => getCookie(cookieName) != null )
+    var productOfferBannerEl = document.getElementById('product-offer-banner')
+    if (productOfferBannerEl) {
+      var refillProductId = window.ProductConfig && window.ProductConfig.REFILL_DEFAULT && window.ProductConfig.REFILL_DEFAULT.product_id
+      var pageProductIdInput = document.querySelector('input[name="product_id"]')
+      var pageProductId = pageProductIdInput && pageProductIdInput.value
+      var isRefillPdp = refillProductId != null && String(pageProductId) === String(refillProductId)
+      if (isRefillPdp) {
+        hideProductBanner()
+      } else {
+        var product_banner_value = getProductBannerText()
+        var hasBanner = product_banner_value != null && (
+          (typeof product_banner_value === 'string' && product_banner_value !== '') ||
+          (typeof product_banner_value === 'object' && product_banner_value !== null && product_banner_value.text)
+        )
+        if (hasBanner) {
+          showProductBanner(product_banner_value)
+        } else {
+          hideProductBanner()
+        }
+      }
+    }
 
-    switch(subscriptionCookie[0]) {
-      case 'redirect_sweatcoin': //sweatcoin annoucnement text 
-        showAnnouncementBar('Sweatcoin discounts auto applied at checkout!')
+    if (a_referrer in affiliate_config && 'flow' in affiliate_config[a_referrer]) {
+      let redirect_flow = affiliate_config[a_referrer]['flow']
+
+      if ('product_page' in redirect_flow && redirect_flow['product_page']) {
         path = window.location.pathname
         if (path == '/products/at-home-whitening-kit') {
-          window.location = '/products/at-home-whitening-kit-affiliate-ft'
+          window.location = redirect_flow['product_page']
         }
-        break
-      case 'redirect_ut': //cactus annoucnement text 
-        showAnnouncementBar('Discount auto applied at checkout!')
-        // showAnnouncementBar('Discount & Free Pen Automatically Applied')
-        path = window.location.pathname
-        if (path == '/products/at-home-whitening-kit') {
-          window.location = '/products/at-home-whitening-kit-affiliate-ft'
-        }
-        break
-      case 'redirect_inspire': // redirect inspire annoucnement text 
-        showAnnouncementBar('InspireMore readers, Discount is Automatically Applied at Checkout!')
-        break
-      case 'redirect_skimm':
-        showAnnouncementBar('👋 Skimm reader, discount auto-applied at checkout!')
-        break
-      default:
-        showAnnouncementBar('Start Whitening Today for just $19!')
-        break;
-    }
-
-
-    upsell_test = getCookie('upsell_test')
-    if (upsell_test == null) {
-      var d = Math.random();
-      console.log('upsell_test:')
-      console.log(d)
-      if (d <= .5) {
-          setCookie('upsell_test', 'true')
-          gtag('set', 'user_properties', {
-            upsell_test: "true"
-          });
-      } else {
-          setCookie('upsell_test', 'false')
-          gtag('set', 'user_properties', {
-            upsell_test: "false"
-          });
-      }
-    } else {
-      if (upsell_test == 'true') {
-          gtag('set', 'user_properties', {
-            upsell_test: "true"
-          });
-      } else if (upsell_test == 'false') {
-          gtag('set', 'user_properties', {
-            upsell_test: "false"
-          });
       }
     }
-
-    upsell_test_2 = getCookie('upsell_test_2')
-    if (upsell_test_2 == null) {
-      var d = Math.random();
-      console.log('upsell_test_2:')
-      console.log(d)
-      if (d <= .5) {
-          setCookie('upsell_test_2', 'true')
-          gtag('set', 'user_properties', {
-            upsell_test_2: "true"
-          });
-      } else {
-          setCookie('upsell_test_2', 'false')
-          gtag('set', 'user_properties', {
-            upsell_test_2: "false"
-          });
-      }
-    }
-
-
-    // quiz_version = getCookie('quiz_version')
-    // if (quiz_version == null) {
-    //   var d = Math.random();
-    //   console.log('quiz_version:')
-    //   console.log(d)
-    //   if (d <= 1) {
-    //       setCookie('quiz_version', 'long')
-    //       gtag('set', 'user_properties', {
-    //         quiz_version: "long"
-    //       });
-    //   } else {
-    //       setCookie('quiz_version', 'short')
-    //       gtag('set', 'user_properties', {
-    //         quiz_version: "short"
-    //       });
-    //   }
-    // } else {
-    //   if (quiz_version == 'long') {
-    //       gtag('set', 'user_properties', {
-    //         quiz_version: "long"
-    //       });
-    //   } else if (quiz_version == 'short') {
-    //       gtag('set', 'user_properties', {
-    //         quiz_version: "short"
-    //       });
-    //   }
-    // }
 }
 
+ // Make cookie-actions globally available for the tracking script
+ window.cookie_actions = cookie_actions;
 
-cookie_actions()
+ cookie_actions()
 

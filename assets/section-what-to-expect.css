@@ -1,0 +1,222 @@
+.what-to-expect .box-container {
+  display: flex;
+  flex-wrap: wrap;
+  background: white;
+  overflow: hidden;
+  margin: auto;
+  padding-bottom: 50px;
+  padding-top: 20px;
+}
+
+.what-to-expect .box-image {
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.what-to-expect .box-content {
+  flex: 0 0 50%;
+  padding: 40px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.what-to-expect .box-content h2 {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.what-to-expect .box-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.what-to-expect .box-feature:last-of-type {
+  margin-bottom: 0;
+}
+
+.what-to-expect .box-feature-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.what-to-expect .box-feature-content strong {
+  font-size: 16px;
+  display: block;
+}
+
+.what-to-expect .box-feature-content span {
+  font-size: calc(16 * var(--font-body-scale))px;
+  /* color: #444; */
+}
+
+.what-to-expect .box-expect {
+  margin-top: 30px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.what-to-expect .box-expect-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.what-to-expect .box-expect-content {
+  font-size: 14px;
+  color: #333;
+}
+
+.what-to-expect .box-expect-content strong {
+  color: #123087;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Carousel Styles */
+.what-to-expect .carousel {
+  width: 100%;
+  margin: 0;
+}
+
+.what-to-expect .carousel__inner {
+  display: grid;
+  grid-template-columns: 50px minmax(0, 1fr) 50px;
+  position: relative;
+}
+
+.what-to-expect .carousel-instance {
+  grid-column: 2/3;
+  width: 100%;
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.what-to-expect .carousel__slide-content {
+  text-align: center;
+}
+
+.what-to-expect .carousel__slide-text {
+  padding: 40px 0;
+  max-width: 660px;
+  margin: auto;
+}
+
+.what-to-expect .carousel-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  min-height: 400px;
+  border-radius: 30px;
+}
+
+.what-to-expect .carousel-image img {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  object-fit: contain;
+  border-radius: 20px;
+}
+
+.what-to-expect .carousel-prev {
+  grid-column: 1/2;
+}
+
+.what-to-expect .carousel-next {
+  grid-column: 3/4;
+}
+
+.what-to-expect .swiper-button-prev,
+.what-to-expect .swiper-button-next {
+  color: var(--navy);
+}
+
+.what-to-expect .swiper-pagination {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+}
+
+.what-to-expect .swiper-pagination-bullet {
+  background-color: #CFD3DA;
+  width: 9px;
+  height: 9px;
+  opacity: 1;
+  margin: 0 5px;
+}
+
+.what-to-expect .swiper-pagination-bullet-active {
+  background-color: var(--navy);
+  opacity: 1;
+}
+
+@media screen and (max-width: 991px) {
+  .what-to-expect .box-image,
+  .what-to-expect .box-content {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .what-to-expect .box-image {
+    border-radius: 0;
+    border-bundle_offer_title-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+  .what-to-expect .box-content {
+    border-radius: 0;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+
+  .what-to-expect .carousel__slide-text {
+    font-size: 30px;
+    padding: 40px 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .what-to-expect .carousel__inner {
+    grid-template-columns: 20px minmax(0, 1fr) 20px;
+  }
+
+  .what-to-expect .carousel__slide-text {
+    font-size: 20px;
+    padding: 35px 20px;
+  }
+
+  .what-to-expect .carousel {
+    margin: 30px 0;
+  }
+
+  .what-to-expect .carousel-image {
+    min-height: 300px;
+    border-radius: 20px;
+  }
+
+  .what-to-expect .carousel-image img {
+    border-radius: 15px;
+  }
+} 

@@ -1,8 +1,105 @@
+/* Product page - 1400px page-width (only affects product template) */
+body.template-product .page-width--product {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+@media screen and (max-width: 1050px) {
+  body.template-product .page-width--product {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body.template-product .page-width--product {
+    padding: 0 20px;
+  }
+
+  /* Judge.me review section: do not add extra 20px (keep its own padding only) */
+  body.template-product section:has(#judgeme_product_reviews) .page-width {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Details + accordions (Clean Ingredients, 7 Shades, How To Use, Why Subscribe): 10px extra = 20px total; use margin so horizontal borders are inset too */
+  body.template-product .product__details,
+  body.template-product .product__accordion {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* ==============================================
+   PDP TYPOGRAPHY: letter-spacing overrides
+   Override global base.css letter-spacing values
+   for the product page. Search: "PDP TYPOGRAPHY"
+   ============================================== */
+body.template-product h1,
+body.template-product .h1,
+body.template-product h2,
+body.template-product .h2,
+body.template-product h3,
+body.template-product .h3,
+body.template-product h4,
+body.template-product .h4,
+body.template-product h5,
+body.template-product .h5,
+body.template-product h6,
+body.template-product .h6,
+body.template-product .sh1,
+body.template-product .sh1-medium,
+body.template-product .sh2,
+body.template-product .sh3,
+body.template-product .label,
+body.template-product .label-sm,
+body.template-product p,
+body.template-product .body-lg,
+body.template-product .body-sm,
+body.template-product .body-xs {
+  letter-spacing: 0;
+}
+
+.product__title {
+  margin-bottom: 15px;
+  letter-spacing: -.015em !important;
+}
+
+/* Product page - white background */
+body.template-product,
+body.template-product #MainContent,
+.product-section,
+.product-section .product {
+  background-color: #ffffff;
+}
+
+/* Product section: media extends to left edge, info aligns with 1600px content width */
+@media screen and (min-width: 769px) {
+  body.template-product .product-section {
+    padding-left: 0;
+    padding-right: max(50px, calc((100vw - 1600px) / 2));
+  }
+}
+
 .product {
   display: grid;
   grid-template-columns: minmax(0, .5fr) minmax(0, .5fr);
   gap: 50px;
-  margin-bottom: 120px;
+  margin-bottom: 20px;
+  align-items: start;
+}
+
+@media screen and (min-width: 769px) {
+  .product {
+    gap: 50px;
+  }
+
+  .product__info-wrapper {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -10,15 +107,16 @@
   .product {
     gap: 0;
     display: block;
-    margin-bottom: 70px;
+    margin-bottom: 20px;
   }
   
 }
 
 /*================ Media ================*/
 .product__media-wrapper {
-  min-height: 390px;
+  /* min-height: 390px; */
   aspect-ratio: .85/1;
+  aspect-ratio: 1;
   border-radius: 0px 0px 12px 0px;
   overflow: hidden;
 }
@@ -27,9 +125,9 @@
   .product__media-wrapper {
     height: 100vh;
     min-height: 600px;
+    aspect-ratio: unset;
     position: sticky;
     top: 0;
-    aspect-ratio: unset;
   }
 }
 
@@ -78,7 +176,7 @@
   /* max-width: calc( 1440px / 2 ); */
   max-width: 600px;
   margin-right: 50px;
-  padding: 100px 0;
+  padding: 60px 0 0;
   margin-left: 50px; /* looks better on wider formats */
 }
 
@@ -90,8 +188,14 @@
 
 @media screen and (max-width: 768px) {
   .product__info-wrapper {
-    padding: 40px 20px;
+    padding: 20px 10px 0;
     margin-right: 0;
+  }
+  /* Full-bleed purchase options + includes only (kit picker keeps padding) */
+  .pdp-product-options__form-row {
+    margin-left: -10px;
+    margin-right: -10px;
+    width: calc(100% + 20px);
   }
 }
 
@@ -106,9 +210,30 @@
   flex-wrap: wrap;
 }
 
+/* No separator above "Your Whitening Formula", but keep separator below it */
+.product-info:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  border-bottom: 1px solid var(--navy);
+  padding-bottom: 8px;
+  text-align: left;
+}
+
+/* Avoid double line when Formula Picker follows */
+.product-info:first-of-type + .product-info {
+  border-top: none;
+  padding-top: 0;
+}
+
 .product-info dt {
-  margin-bottom: 16px;
+  margin-bottom: 0;
   flex-basis: 100%;
+}
+
+/* "Your Whitening Formula" heading only */
+.product-info:first-of-type dt {
+  margin-bottom: 5px;
+  text-align: left;
 }
 
 .product-info dd {
@@ -141,6 +266,40 @@
   align-items: center;
 }
 
+/* Hide main button when BUY NOW is inside includes section */
+product-form:has(skio-plan-picker[data-has-includes-cta]) #main-clickable-button {
+  display: none !important;
+}
+
+/* PDP Buy Now button - new design */
+#main-clickable-button {
+  width: 100%;
+  max-width: 100%;
+  background: #69BBEB !important;
+  color: #000 !important;
+  border: 1px solid #000 !important;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 15px 24px;
+  transition: all 0.2s ease;
+}
+
+#main-clickable-button:hover:not(:disabled) {
+  background: #5aa8d9 !important;
+  border-color: #000 !important;
+  color: #000 !important;
+}
+
+@media screen and (min-width: 769px) {
+  #main-clickable-button {
+    font-size: 20px;
+    padding: 17px 32px;
+  }
+}
+
 .dropdown-quantity_selector {
   border-radius: 20px;
   background-color: #faf5f1;
@@ -166,10 +325,10 @@
 
 .below_button_guarantee {
   text-align: center;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 14px;
-  line-height: 21px;
-  font-family: Jakarta;
+  line-height: 1.3;
+  font-family: manrope, sans-serif;
   max-width: 90px;
 }
 
@@ -180,11 +339,11 @@
 @media screen and (max-width: 768px) {
   .below_button_guarantee {
     font-size: 12px;
-    line-height: 18px;
 
   }
-  .product__details {
-    margin-top: 40px;
+  .product__details,
+  .pdp-product-options + .product__details {
+    margin-top: -10px !important;
   }
 }
 
@@ -204,11 +363,13 @@
 /* PRODUCT ACCORDION */
 
 .product__accordion {
-  margin-top: 16px;
-  padding-top: 18px;
-  border-bottom: 1px solid var(--navy);
-  padding-bottom: 18px;
+  padding-top: 14px;
+  padding-bottom: 14px;
   border-top: 1px solid var(--navy);
+}
+
+.product__accordion:last-child {
+  border-bottom: 1px solid var(--navy);
 }
 
 .product__accordion .product__accordion-button {
@@ -233,7 +394,20 @@
   padding-top: 10px;
 }
 
-.product__details-inner {
+/* Accordion content: sh3 sizing (16px desktop, 14px mobile) */
+.product__accordion .product__accordion--inner,
+.product__accordion .product__accordion--inner * {
+  font-size: 14px !important;
+}
+
+@media screen and (min-width: 769px) {
+  .product__accordion .product__accordion--inner,
+  .product__accordion .product__accordion--inner * {
+    font-size: 16px !important;
+  }
+}
+
+/* .product__details-inner {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr))
 }
@@ -262,7 +436,7 @@
 .product__detail-item .emoji {
   font-size: 25px;
   margin-right: 5px;
-}
+} */
 
 .discount--wrapper {
   display: flex;
@@ -348,7 +522,7 @@
     color: #46BDF0;
     font-size: 14px;
     margin-top: 10px;
-    line-height: 21px;
+    line-height: 1.3;
   }
 
   .discount--wrapper .discount-input--wrapper .discount-code, 
@@ -361,3 +535,81 @@
   }
 }
 
+
+/* ---------------------- PACKAGE PROTECTION -----------------------------*/
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 11px;
+  width: 11px;
+  left: 2px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(15px);
+  -ms-transform: translateX(15px);
+  transform: translateX(15px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.pdp-offer-banner {
+  background-color: #C4E9FF;
+  color: #000;
+  text-align: center;
+  padding: 10px 16px;
+  margin-top: 12px;
+  text-transform: uppercase;
+}
+
+.pdp-offer-banner strong {
+  font-weight: 800;
+}

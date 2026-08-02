@@ -1,0 +1,230 @@
+{{ 'section-first-order-includes.css' | asset_url | stylesheet_tag }}
+
+{% comment %}
+  First Order Includes box – matches product page Skio "First Order Includes" style.
+  Shows base/default: Standard Kit (starter) + cheapest subscription pricing.
+  Constrained width (does not take full screen).
+{% endcomment %}
+
+{% assign section_title = section.settings.section_title | default: 'FIRST ORDER INCLUDES' %}
+{% assign button_label = section.settings.button_label | default: 'UNLOCK OFFER' %}
+{% assign footer_text = section.settings.footer_text | default: 'MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS' %}
+{% assign kit_image = section.settings.kit_image %}
+{% assign pen_image = section.settings.pen_image %}
+{% assign side_image = section.settings.side_image %}
+{% if kit_image != blank %}
+  {% assign kit_image_url = kit_image | image_url: width: 100 %}
+{% else %}
+  {% assign kit_image_url = 'https://cdn.shopify.com/s/files/1/0066/4728/3782/files/og_small_26338a09-fa97-40d9-a133-2eb7374c16ea.png?v=1771274817' %}
+{% endif %}
+{% if pen_image != blank %}
+  {% assign pen_image_url = pen_image | image_url: width: 100 %}
+{% else %}
+  {% assign pen_image_url = 'https://cdn.shopify.com/s/files/1/0066/4728/3782/files/Generated_with_Kive.ai_-_Create_a_product_shot_of_this_with_a_white_background_behind_it._It_should_just_have_the_product_and_the_packaging.png?v=1771286740' %}
+{% endif %}
+
+<section class="first-order-includes-section">
+  <div class="first-order-includes-section__wrapper{% if side_image != blank %} first-order-includes-section__wrapper--with-side-image{% endif %}">
+    <div class="first-order-includes-layout">
+      {% if side_image != blank %}
+        <div class="first-order-includes__side-image-wrap">
+          <div class="first-order-includes__side-image">
+            <img
+              src="{{ side_image | image_url: width: 600 }}"
+              srcset="{{ side_image | image_url: width: 400 }} 400w,
+                      {{ side_image | image_url: width: 600 }} 600w"
+              sizes="(min-width: 769px) 280px, 100vw"
+              alt="{{ side_image.alt | default: section_title | escape }}"
+              loading="lazy"
+              width="600"
+              height="{{ 600 | divided_by: side_image.aspect_ratio | ceil }}"
+            >
+          </div>
+        </div>
+      {% endif %}
+      <div class="first-order-includes-box">
+      <div class="first-order-includes-box__title label-sm">{{ section_title }}</div>
+
+      <div class="first-order-includes-box__item">
+        <div class="first-order-includes-box__item-image">
+          <img src="{{ kit_image_url }}" alt="" width="50" height="50" loading="lazy">
+        </div>
+        <div class="first-order-includes-box__item-content">
+          <div class="first-order-includes-box__item-title label">CUSTOM WHITENING KIT</div>
+          <p class="first-order-includes-box__item-bullets pdp-body-text">• 6 TREATMENTS (2-MONTH SUPPLY)<br>• 30-DAY SATISFACTION GUARANTEE</p>
+        </div>
+        <div class="first-order-includes-box__item-price body-sm">
+          <span class="price--strike">{{ section.settings.kit_previous_price | default: '$65' }}</span>
+          <span class="price--current">{{ section.settings.kit_current_price | default: '$39' }}</span>
+        </div>
+      </div>
+
+      <div class="first-order-includes-box__item">
+        <div class="first-order-includes-box__item-image">
+          <img src="{{ pen_image_url }}" alt="" width="50" height="50" loading="lazy">
+        </div>
+        <div class="first-order-includes-box__item-content">
+          <div class="first-order-includes-box__item-title label">TO-GO WHITENING PEN</div>
+          <p class="first-order-includes-box__item-bullets pdp-body-text">• SAME CUSTOM FORMULA</p>
+        </div>
+        <div class="first-order-includes-box__item-price body-sm">
+          <span class="price--strike">$30</span>
+          <span class="price--current">FREE</span>
+        </div>
+      </div>
+
+      <div class="first-order-includes-box__item first-order-includes-box__item--shipping">
+        <div class="first-order-includes-box__item-image"></div>
+        <div class="first-order-includes-box__item-content">
+          <div class="first-order-includes-box__item-title label">SHIPPING</div>
+        </div>
+        <div class="first-order-includes-box__item-price body-sm">
+          <span class="price--strike">$5</span>
+          <span class="price--current">FREE</span>
+        </div>
+      </div>
+
+      <div class="first-order-includes-box__total">
+        <span class="first-order-includes-box__total-label sh2">TOTAL</span>
+        <div class="first-order-includes-box__total-price sh2">
+          <span class="price--strike">{{ section.settings.total_previous_price | default: '$100' }}</span>
+          <span class="price--current">{{ section.settings.total_current_price | default: '$39' }}</span>
+        </div>
+      </div>
+
+      {% assign cta_classes = 'first-order-includes-box__cta button label' %}
+      {% if section.settings.button_action == 'quiz' %}
+        <button
+          type="button"
+          class="{{ cta_classes }}"
+          data-open-quiz
+          {% if settings.discount_code != blank %}onclick="window.localStorage.setItem('landing_page_product_discount','{{ settings.discount_code }}')"{% endif %}
+        >{{ button_label }}</button>
+      {% elsif section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="{{ cta_classes }}">{{ button_label }}</a>
+      {% else %}
+        <a href="{{ routes.root_url }}" class="{{ cta_classes }}">{{ button_label }}</a>
+      {% endif %}
+
+      {% if section.settings.show_footer_text and footer_text != blank %}
+        <p class="first-order-includes-box__footer body-xs">{{ footer_text }}</p>
+      {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "First Order Includes",
+  "tag": "section",
+  "class": "section-first-order-includes",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section title",
+      "default": "FIRST ORDER INCLUDES"
+    },
+    {
+      "type": "text",
+      "id": "kit_previous_price",
+      "label": "Kit previous price",
+      "default": "$65"
+    },
+    {
+      "type": "text",
+      "id": "kit_current_price",
+      "label": "Kit current price (subscription)",
+      "default": "$39"
+    },
+    {
+      "type": "text",
+      "id": "total_previous_price",
+      "label": "Total previous price",
+      "default": "$100"
+    },
+    {
+      "type": "text",
+      "id": "total_current_price",
+      "label": "Total current price",
+      "default": "$39"
+    },
+    {
+      "type": "textarea",
+      "id": "footer_text",
+      "label": "Footer text",
+      "default": "MODIFY OR CANCEL ANYTIME. YOUR SUBSCRIPTION SHIPS EVERY 60 DAYS"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_footer_text",
+      "label": "Show footer text",
+      "default": false,
+      "info": "Leave off for landing page; enable on product page if needed."
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "UNLOCK OFFER"
+    },
+    {
+      "type": "select",
+      "id": "button_action",
+      "label": "Button action",
+      "options": [
+        { "value": "link", "label": "Link to URL" },
+        { "value": "quiz", "label": "Open quiz" }
+      ],
+      "default": "quiz",
+      "info": "\"Open quiz\" launches the quiz overlay. \"Link to URL\" uses the link below."
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link",
+      "info": "Used only when Button action is set to \"Link to URL\"."
+    },
+    {
+      "type": "header",
+      "content": "Side image (optional)"
+    },
+    {
+      "type": "image_picker",
+      "id": "side_image",
+      "label": "Side image",
+      "info": "Optional. When set, displays alongside the box (left on desktop, above on mobile)."
+    },
+    {
+      "type": "header",
+      "content": "Item images (optional)"
+    },
+    {
+      "type": "image_picker",
+      "id": "kit_image",
+      "label": "Kit image",
+      "info": "Optional. Defaults to standard kit image."
+    },
+    {
+      "type": "image_picker",
+      "id": "pen_image",
+      "label": "Pen image",
+      "info": "Optional. Defaults to pen image."
+    }
+  ],
+  "presets": [
+    {
+      "name": "First Order Includes"
+    }
+  ]
+}
+{% endschema %}

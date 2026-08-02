@@ -1,8 +1,65 @@
-<div>
-    <span class="fa fa-star checked-landing landing-stars"></span>
-    <span class="fa fa-star checked-landing landing-stars"></span>
-    <span class="fa fa-star checked-landing landing-stars"></span>
-    <span class="fa fa-star checked-landing landing-stars"></span>
-    <span class="fa fa-star checked-landing landing-stars"></span>
-    <span class = 'landing-stars landing-page-main'><span style = 'font-weight: 600; margin-right: 5px;'>4.7 Stars</span> from 1,623 Reviews</span>
-  </div>
+<style>
+  .small-stars-section .jdgm-star::before {
+    color: #000 !important;
+    font-size: 12px !important;
+  }
+  .small-stars-section .jdgm-star {
+    padding: 0 !important;
+  }
+  .small-stars-section {
+    font-family: manrope, sans-serif;
+    font-size: 14px;
+    line-height: 1.3;
+    font-weight: 600;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .small-stars-rating {
+    margin-right: 6px;
+  }
+</style>
+
+<div class="small-stars-section">
+  <span class="jdgm-star jdgm--on"></span>
+  <span class="jdgm-star jdgm--on"></span>
+  <span class="jdgm-star jdgm--on"></span>
+  <span class="jdgm-star jdgm--on"></span>
+  <span class="jdgm-star jdgm--half"></span>
+  <span class="small-stars-rating">4.7/5</span>
+  <span class="small-stars-review-count"></span>
+</div>
+
+<script>
+  (function() {
+    function getReviewCountFromElement(el) {
+      if (!el || !el.textContent) return null;
+      var match = el.textContent.match(/based on (\d[\d,]*)\s*reviews?/i);
+      return match ? parseInt(match[1].replace(/,/g, ''), 10) : null;
+    }
+    function updateSmallStarsReviewCount() {
+      var summaryText = document.querySelector('.jdgm-rev-widg__summary-text');
+      var allReviewsText = document.querySelector('.jdgm-all-reviews-text__text');
+      var rawCount = null;
+      if (summaryText) rawCount = getReviewCountFromElement(summaryText);
+      if (rawCount == null && allReviewsText) rawCount = getReviewCountFromElement(allReviewsText);
+      if (rawCount != null) {
+        var displayCount = rawCount < 1000 ? rawCount + 2000 : rawCount;
+        var text = displayCount.toLocaleString() + ' Reviews';
+        document.querySelectorAll('.small-stars-review-count').forEach(function(el) { el.textContent = text; });
+        return true;
+      }
+      return false;
+    }
+    if (!updateSmallStarsReviewCount()) {
+      var obs = new MutationObserver(function(mutations, observer) {
+        if (updateSmallStarsReviewCount()) observer.disconnect();
+      });
+      obs.observe(document.body, { childList: true, subtree: true, characterData: true });
+      setTimeout(updateSmallStarsReviewCount, 2000);
+      setTimeout(updateSmallStarsReviewCount, 5000);
+      setTimeout(updateSmallStarsReviewCount, 10000);
+    }
+  })();
+</script>

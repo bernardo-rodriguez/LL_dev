@@ -1,0 +1,207 @@
+.transformational-results {
+  margin: 0 0 60px;
+}
+
+/* Negative margin only on product page (overlap with section above) */
+@media screen and (min-width: 769px) {
+  body.template-product .transformational-results {
+    margin-top: -60px;
+  }
+}
+
+.transformational-results__inner {
+  background: #EEF9FF;
+  border-radius: 12px;
+  padding: 40px 50px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* Row 1: heading + tabs full width; row 2: image column | stats — same start height */
+  gap: 24px 60px;
+  align-items: start;
+}
+
+.transformational-results__header-row {
+  grid-column: 1 / -1;
+}
+
+.transformational-results__slider-column {
+  min-width: 0;
+}
+
+.transformational-results__heading {
+  font-family: manrope, sans-serif;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: var(--ds-line-height);
+  letter-spacing: -0.015em !important;
+  margin: 0 0 28px;
+  color: var(--navy);
+  text-align: left;
+}
+
+.transformational-results__tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 0;
+  max-width: 380px;
+}
+
+.transformational-results__tab {
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  background: white;
+  border: 1px solid #0D2244;
+  color: #0D2244;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  letter-spacing: normal;
+  margin-left: -1px;
+}
+
+.transformational-results__tab:first-child {
+  margin-left: 0;
+}
+
+.transformational-results__tab:not(:last-child) {
+  border-right-width: 0;
+}
+
+.transformational-results__tab:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.transformational-results__tab:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+.transformational-results__tab.active {
+  background: #EEF9FF;
+  border-color: #3173A4;
+  color: #0D2244;
+}
+
+.transformational-results__tab:hover:not(.active) {
+  background: #f5f5f5;
+}
+
+.transformational-results__images-wrap {
+  width: 100%;
+  max-width: 100%;
+}
+
+.transformational-results__images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.transformational-results__image-wrap {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #e0e0e0;
+  touch-action: manipulation;
+  min-width: 0;
+}
+
+.transformational-results__image {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.transformational-results__image-label {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.transformational-results__name {
+  margin: 16px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0D2244;
+  text-align: left;
+}
+
+.transformational-results__stats-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: start;
+}
+
+.transformational-results__stats-column .test-results__list {
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  body.template-product .transformational-results {
+    margin-top: -40px;
+  }
+
+  .transformational-results__inner {
+    grid-template-columns: 1fr;
+    padding: 20px 20px 40px;
+    border-radius: 0;
+    gap: 32px;
+    align-items: start;
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+    box-sizing: border-box;
+  }
+
+  .transformational-results__heading {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .transformational-results__stats-column {
+    justify-content: flex-start;
+  }
+
+  .transformational-results__tabs {
+    justify-content: stretch;
+    margin-bottom: 0;
+    width: 100%;
+    max-width: none;
+  }
+
+  .transformational-results__tab {
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 11px;
+    text-align: center;
+  }
+
+  .transformational-results__tab:not(:last-child) {
+    border-right-width: 1px;
+  }
+
+  .transformational-results__tab:first-child {
+    border-radius: 0;
+  }
+
+  .transformational-results__tab:last-child {
+    border-radius: 0;
+  }
+
+  .transformational-results__name {
+    text-align: center;
+  }
+}

@@ -1,0 +1,228 @@
+{{ 'section-multi-slide-carousel.css' | asset_url | stylesheet_tag }}
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+
+<section class="multi-slide-carousel" data-section-id="{{ section.id }}" data-block-count="{{ section.blocks.size }}">
+  <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
+    <div class="multi-slide-carousel__content-wrap">
+    <div class="multi-slide-carousel__header">
+      <h3 class="multi-slide-carousel__heading">Used & Loved by Dentists</h3>
+      {% comment %} <p class="multi-slide-carousel__subheading">Expert-backed whitening, developed by dentists for safe, stunning results without sensitivity.</p> {% endcomment %}
+    </div>
+    <div class="multi-slide-carousel__inner">
+      <div class="multi-slide-carousel-instance swiper" id="multiSlideCarousel-{{ section.id }}">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="swiper-slide" {{ block.shopify_attributes }}>
+              <div class="multi-slide-carousel__slide">
+                <div class="multi-slide-carousel__image-divider-wrap">
+                  {% if block.settings.image != blank %}
+                    <img
+                      srcset="
+                        {{ block.settings.image | image_url: width: 300 }} 300w,
+                        {{ block.settings.image | image_url: width: 400 }} 400w,
+                        {{ block.settings.image | image_url: width: 500 }} 500w"
+                    sizes="(min-width: 1200px) calc(16.66vw - 40px),
+                           (min-width: 990px) calc(25vw - 40px),
+                           (min-width: 768px) calc(33.33vw - 40px),
+                           100vw"
+                      src="{{ block.settings.image | image_url: width: 400 }}"
+                      alt="{{ block.settings.image.alt | escape }}"
+                      loading="lazy"
+                      width="400"
+                      height="400"
+                      class="multi-slide-carousel__image"
+                    >
+                  {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'multi-slide-carousel__image placeholder' }}
+                  {% endif %}
+
+                  <div class="multi-slide-carousel__divider"></div>
+                </div>
+
+                <div class="multi-slide-carousel__content">
+                  {% if block.settings.dentist_name != blank %}
+                    <p class="multi-slide-carousel__dentist-name">{{ block.settings.dentist_name }}</p>
+                  {% endif %}
+
+                  {% if block.settings.description != blank %}
+                    <p class="multi-slide-carousel__description">{{ block.settings.description }}</p>
+                  {% endif %}
+                  
+                  {% if block.settings.credentials != blank %}
+                    <div class="multi-slide-carousel__credentials whats-in-the-box__text">{{ block.settings.credentials }}</div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        {% comment %} <div class="multi-slide-carousel__pagination-wrap">
+          <div class="swiper-pagination multi-slide-carousel__pagination"></div>
+        </div> {% endcomment %}
+        <div class="swiper-button-prev multi-slide-carousel__button-prev"></div>
+        <div class="swiper-button-next multi-slide-carousel__button-next"></div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const initializeSwiper = function(sectionId) {
+      const swiperElement = document.querySelector(`#multiSlideCarousel-${sectionId}`);
+      if (!swiperElement) return;
+
+      const section = swiperElement.closest('.multi-slide-carousel');
+      const blockCount = parseInt(section.dataset.blockCount) || 1;
+
+      // Function to update navigation visibility
+      const updateNavigationVisibility = (swiper) => {
+        const currentSlidesPerView = swiper.params.slidesPerView;
+        const shouldShowNavigation = blockCount > currentSlidesPerView;
+        const isDesktop = window.innerWidth >= 769;
+        
+        const prevButton = swiperElement.querySelector('.multi-slide-carousel__button-prev');
+        const nextButton = swiperElement.querySelector('.multi-slide-carousel__button-next');
+        const pagination = swiperElement.querySelector('.multi-slide-carousel__pagination');
+        
+        if (prevButton) prevButton.style.display = shouldShowNavigation ? '' : 'none';
+        if (nextButton) nextButton.style.display = shouldShowNavigation ? '' : 'none';
+        if (pagination) pagination.style.display = (shouldShowNavigation && !isDesktop) ? '' : 'none';
+      };
+
+      const multiSlideCarousel = new Swiper(`#multiSlideCarousel-${sectionId}`, {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: blockCount > 1,
+        navigation: {
+          nextEl: '.multi-slide-carousel__button-next',
+          prevEl: '.multi-slide-carousel__button-prev',
+        },
+        pagination: {
+          el: '.multi-slide-carousel__pagination',
+          type: 'bullets',
+          clickable: true
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: Math.min(1, blockCount),
+            spaceBetween: 20
+          },
+          768: {
+            slidesPerView: Math.min(3, blockCount),
+            spaceBetween: 30
+          },
+          990: {
+            slidesPerView: Math.min(4, blockCount),
+            spaceBetween: 30
+          },
+          1200: {
+            slidesPerView: Math.min(6, blockCount),
+            spaceBetween: 40
+          }
+        },
+        on: {
+          init: function() {
+            updateNavigationVisibility(this);
+          },
+          breakpoint: function() {
+            updateNavigationVisibility(this);
+          }
+        }
+      });
+
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        updateNavigationVisibility(multiSlideCarousel);
+      });
+    };
+
+    // Initialize all multi-slide carousels on the page
+    document.querySelectorAll('.multi-slide-carousel').forEach(section => {
+      const sectionId = section.dataset.sectionId;
+      if (sectionId) {
+        initializeSwiper(sectionId);
+      }
+    });
+
+    // Re-initialize when section is reloaded by Shopify editor
+    if (Shopify.designMode) {
+      document.addEventListener('shopify:section:load', function(event) {
+        initializeSwiper(event.detail.sectionId);
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Multi-slide Carousel",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Carousel Settings"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Add a description for this image"
+        },
+        {
+          "type": "text",
+          "id": "dentist_name",
+          "label": "Dentist Name"
+        },
+        {
+          "type": "richtext",
+          "id": "credentials",
+          "label": "Credentials & Education",
+          "info": "Add professional title, school, and other credentials"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Multi-slide Carousel",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %} 

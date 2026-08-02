@@ -1,0 +1,280 @@
+{{ 'section-ingredients-that-work.css' | asset_url | stylesheet_tag }}
+
+{% assign cfg = shop.metafields.custom.product_reference.value %}
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='ingredients-that-work__stylized'>"
+  | replace: '}', '</span>'
+%}
+
+<section class="ingredients-that-work {% if section.settings.margin_bottom %}ingredients-that-work--with-spacing{% endif %}">
+  <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
+    <div class="ingredients-that-work__inner">
+      <div class="ingredients-that-work__columns">
+        <div class="ingredients-that-work__left">
+          <div class="ingredients-that-work__header">
+            {% if section.settings.heading != blank %}
+              <h3 class="ingredients-that-work__title">{{ formatted_heading }}</h3>
+            {% endif %}
+          </div>
+          <div class="ingredients-that-work__footer">
+            {% if section.settings.summary != blank %}
+              <p class="ingredients-that-work__summary sh2">{{ section.settings.summary }}</p>
+            {% endif %}
+            {% assign benefit_blocks = section.blocks | where: 'type', 'benefit' %}
+            {% if benefit_blocks.size > 0 %}
+              <ul class="ingredients-that-work__key-benefits">
+                {% for block in benefit_blocks %}
+                  <li class="ingredients-that-work__key-benefit body-sm" {{ block.shopify_attributes }}>
+                    <span class="ingredients-that-work__checkmark" aria-hidden="true">✓</span>
+                    {{ block.settings.text }}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+        <div class="ingredients-that-work__right">
+          {% if product and cfg and cfg.REFILL_DEFAULT and product.id == cfg.REFILL_DEFAULT.product_id %}
+            {% assign sc = request.cookies.strength | default: 'medium' %}
+            {% if sc == 'gentle' %}
+              {% assign sc = 'sensitive' %}
+            {% endif %}
+            {% if sc == 'sensitive' %}
+              <p class="ingredients-that-work__intro sh2">Based on your sensitive teeth, our optimized formula contains:</p>
+            {% elsif sc == 'strong' %}
+              <p class="ingredients-that-work__intro sh2">Based on your low-sensitivity, our optimized formula contains:</p>
+            {% else %}
+              <p class="ingredients-that-work__intro sh2">Based on your medium-sensitivity, our optimized formula contains:</p>
+            {% endif %}
+          {% elsif section.settings.intro_text != blank %}
+            <p class="ingredients-that-work__intro sh2">{{ section.settings.intro_text }}</p>
+          {% endif %}
+          <div class="ingredients-that-work__grid">
+        {% for block in section.blocks %}
+          {% if block.type == 'ingredient' %}
+              <div class="ingredients-that-work__ingredient" {% if forloop.first %}data-formula-active-ingredient="true"{% endif %} {{ block.shopify_attributes }}>
+                <div class="ingredients-that-work__ingredient-icon-wrap">
+                  <div class="ingredients-that-work__ingredient-icon">
+                  {% if block.settings.image != blank %}
+                    <img
+                      src="{{ block.settings.image | image_url: width: 80 }}"
+                      alt="{{ block.settings.name | escape }}"
+                      width="48"
+                      height="48"
+                      loading="lazy"
+                    >
+                  {% elsif block.settings.image_url != blank %}
+                    <img
+                      src="{{ block.settings.image_url }}"
+                      alt="{{ block.settings.name | escape }}"
+                      width="48"
+                      height="48"
+                      loading="lazy"
+                    >
+                  {% else %}
+                    <span class="ingredients-that-work__ingredient-placeholder" aria-hidden="true"></span>
+                  {% endif %}
+                  </div>
+                </div>
+                <div class="ingredients-that-work__ingredient-content">
+                  {% assign ingredient_name = block.settings.name | default: block.settings.heading %}
+                  <p class="ingredients-that-work__ingredient-name sh2">
+                    {% if block.settings.percentage != blank %}{{ block.settings.percentage }} {% endif %}{{ ingredient_name }}
+                  </p>
+                  {% assign benefits_text = block.settings.benefits | default: block.settings.text %}
+                  {% if benefits_text != blank %}
+                    <ul class="ingredients-that-work__benefits-list">
+                      {% assign benefits_lines = benefits_text | newline_to_br | split: '<br />' %}
+                      {% for line in benefits_lines %}
+                        {% assign trimmed = line | strip %}
+                        {% if trimmed != blank %}
+                          <li class="body-sm">{{ trimmed }}</li>
+                        {% endif %}
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                </div>
+              </div>
+          {% endif %}
+        {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  function getStrengthCookie() {
+    if (typeof getCookie === 'function') return getCookie('strength');
+    var m = document.cookie.match(/strength=([^;]+)/);
+    return m ? m[1].trim() : null;
+  }
+  function updateFormulaIngredientCopy() {
+    var refillPid = typeof window.ProductConfig !== 'undefined' && window.ProductConfig.REFILL_DEFAULT && window.ProductConfig.REFILL_DEFAULT.product_id;
+    var pagePid = document.querySelector('input[name="product_id"]');
+    var pagePidVal = pagePid && pagePid.value;
+    var isRefillPdp = refillPid != null && pagePidVal != null && String(pagePidVal) === String(refillPid);
+    var strength = getStrengthCookie() || (isRefillPdp ? 'medium' : 'strong');
+    if (strength === 'gentle') strength = 'sensitive';
+    var el = document.querySelector('[data-formula-active-ingredient="true"]');
+    if (el && typeof formula_ingredient_by_strength !== 'undefined') {
+      var nameEl = el.querySelector('.ingredients-that-work__ingredient-name');
+      if (nameEl) {
+        var copy = formula_ingredient_by_strength[strength] || formula_ingredient_by_strength.strong;
+        nameEl.textContent = (copy.percentage ? copy.percentage + ' ' : '') + (copy.name || '');
+      }
+    }
+    var introEl = document.querySelector('.ingredients-that-work__intro');
+    if (introEl) {
+      if (isRefillPdp && typeof formula_intro_refill_by_strength !== 'undefined') {
+        var refillIntro = formula_intro_refill_by_strength[strength] || formula_intro_refill_by_strength.medium;
+        introEl.textContent = refillIntro;
+      } else if (typeof formula_intro_by_strength !== 'undefined') {
+        var introText = formula_intro_by_strength[strength] || formula_intro_by_strength.medium;
+        introEl.textContent = introText;
+      }
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateFormulaIngredientCopy);
+  } else {
+    updateFormulaIngredientCopy();
+  }
+  window.updateFormulaIngredientCopy = updateFormulaIngredientCopy;
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Ingredients",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Your Formula",
+      "info": "Wrap emphasized text in {}"
+    },
+    {
+      "type": "textarea",
+      "id": "intro_text",
+      "label": "Intro text",
+      "default": "Given your medium-sensitivity, diet and current teeth shade, we prescribed:",
+      "info": "Quiz-based kit PDPs. Refill PDP intro is hardcoded per formula (see in-house-tracking-constants.js formula_intro_refill_by_strength)."
+    },
+    {
+      "type": "textarea",
+      "id": "summary",
+      "label": "Summary paragraph",
+      "default": "With Laughland, you're matched to the exact strength your goals and tolerance demands — Dramatic results without the drama."
+    },
+    {
+      "type": "checkbox",
+      "id": "margin_bottom",
+      "label": "Margin bottom",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Ingredient",
+      "type": "ingredient",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon/Image",
+          "info": "Leave empty for light blue placeholder until you add images"
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Image URL (alternative)",
+          "info": "Use full CDN URL if image not set via picker"
+        },
+        {
+          "type": "text",
+          "id": "percentage",
+          "label": "Percentage",
+          "default": "11%"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Ingredient name",
+          "default": "Hydrogen Peroxide"
+        },
+        {
+          "type": "textarea",
+          "id": "benefits",
+          "label": "Benefits (one per line)",
+          "default": "Whitens teeth by oxidizing dark chromogens\n2.2 times stronger than Colgate's Whitening Pen\n25% stronger than Crest Gentle Routine Strips"
+        }
+      ]
+    },
+    {
+      "name": "Key benefit",
+      "type": "benefit",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Benefit text",
+          "default": "As strong as your smile can comfortably handle."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients",
+      "blocks": [
+        {
+          "type": "ingredient",
+          "settings": {
+            "percentage": "11%",
+            "name": "Hydrogen Peroxide",
+            "benefits": "Whitens teeth by oxidizing dark chromogens\n2.2 times stronger than Colgate's Whitening Pen and\n25% stronger than Crest Gentle Routine Strips"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "percentage": "27%",
+            "name": "Glycerin",
+            "benefits": "Hydrates enamel → Deeper Peroxide penetration\nCreates barrier around enamel to prevent sensitivity"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "percentage": "7%",
+            "name": "Xylitol",
+            "benefits": "Reduces plaque and oral acidity for long-lasting results\nStrengthens enamel"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "text": "As strong as your smile can comfortably handle."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "text": "Same methodology used by dentists for whitening"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "text": "Sensitivity-free guarantee"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

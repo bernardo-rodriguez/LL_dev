@@ -1,0 +1,161 @@
+<div class = 'dpk_body'>
+    <div class="dpk_container">
+        <div class="dpk_square_wrapper">
+            <label class="dpk_label">
+                <input type="radio" name="dpk_chooser" value="one_kit" checked="checked"/>
+                <div class="dpk_square" id="dpk_square1" onclick="dpk_chosen('one_kit');">
+                    <img width = 'auto' height= '100px' src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/1_kit_big.png?v=1727195166" alt="Image 1">
+                    <p class = 'dpk_heading'>1 Kit</p>
+                    <p class = 'dpk_sub_heading'>Free Trial</p>
+                </div>
+            </label>
+        </div>
+        <div class="dpk_square_wrapper">
+            <label class="dpk_label">
+                <input type="radio" name="dpk_chooser" value="two_kits" />
+                <div class="dpk_square" id="dpk_square2" onclick="dpk_chosen('two_kits');">
+                    <img width = 'auto' height= '100px' src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/2_kits_big.png?v=1727195738" alt="Image 2">
+                    <p class = 'dpk_heading'>2 Kits</p>
+                    <p class = 'dpk_sub_heading'>+$8.99</p>
+                </div>
+            </label>
+            <div class = 'dpk_square_banner'>
+                <p class = 'banner_explainer'>Two for just $8.99</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function dpk_chosen(chosen) {
+    try {
+        let skio_title = document.querySelector('skio-plan-picker').shadowRoot.querySelectorAll('.skio-center-wrapper')[1]
+
+        let innerHTML = {
+            'one_kit': `<div class="skio-group-title">
+                        <!--?lit$111593023$-->Sweatcoin Special
+                        <!--?lit$111593023$--> 
+                            <span style="display: none;" class="skio-save">Save <span skio-discount=""><!--?lit$111593023$-->88%</span></span>
+                        
+                        </div>
+                        <div class="skio-price skio-subscribe-price">
+                        —<!--?lit$111593023$--><!--?-->
+                        <span skio-subscription-price="">$<!--?lit$111593023$-->0</span>
+                        </div>`,
+            'two_kits': `<div class="skio-group-title">
+                        <!--?lit$111593023$-->Two Kit Special
+                        <!--?lit$111593023$--> 
+                            <span style="display: none;" class="skio-save">Save <span skio-discount=""><!--?lit$111593023$-->88%</span></span>
+                        
+                        </div>
+                        <div class="skio-price skio-subscribe-price">
+                        —<!--?lit$111593023$--><!--?-->
+                        <span skio-subscription-price="">$<!--?lit$111593023$-->9</span>
+                        </div>`
+        }
+
+        skio_title.innerHTML = innerHTML[chosen]
+    } catch(e) {
+        console.log('except at dpk_chose')
+        console.log(e)
+    }
+}
+</script>
+
+<style>
+.dpk_body {
+    {% comment %} display: flex; {% endcomment %}
+    {% comment %} justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding-bottom: 20px; {% endcomment %}
+    display: none;
+}
+
+.dpk_container {
+    display: none;
+    flex-direction: row;
+    gap: 20px;
+    max-width: 100%;
+}
+
+.dpk_square_wrapper {
+    width: 160px;
+    text-align: center;
+    max-width: 100%;
+}
+
+.dpk_square_banner {
+    background-color: #37A20D;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.dpk_square {
+    width: 100%;
+    height: 170px;
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.dpk_square img {
+    height: 100px;
+    border-radius: 5px;
+}
+
+.dpk_square h3 {
+    margin-top: 10px;
+}
+
+.dpk_square.selected {
+    border-color: var(--blue);
+    box-shadow: 0 4px 12px rgba(0, 128, 0, 0.3);
+}
+
+.dpk_label > input { /* HIDE RADIO */
+    visibility: hidden; /* Makes input not-clickable */
+    position: absolute; /* Remove input from document flow */
+}
+
+.dpk_label > input:checked + div {
+    border-color: var(--blue);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+{% comment %} .dpk_square:hover {
+    border-color: var(--blue);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+} {% endcomment %}
+
+.dpk_sub_heading {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.dpk_heading {
+    font-size: 24px;
+}
+
+.banner_explainer {
+    font-size: 14px;
+}
+
+@media screen and (max-width: 750px) {
+    .dpk_sub_heading {
+        font-size: 12px;
+    }
+    .dpk_heading {
+        font-weight: bold;
+        font-size: 18px;
+    }
+    .banner_explainer {
+        font-size: 12px;
+    }
+}
+</style>

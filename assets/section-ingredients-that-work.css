@@ -1,0 +1,337 @@
+/* Ingredients That Work For You - Mobile first, split layout on desktop */
+
+/* Mobile: use display:contents + order to keep original flow (title, intro, ingredients, summary, bullets) */
+.ingredients-that-work__columns {
+  display: flex;
+  flex-direction: column;
+}
+
+.ingredients-that-work__left,
+.ingredients-that-work__right {
+  display: contents;
+}
+
+.ingredients-that-work__header { order: 1; }
+.ingredients-that-work__intro { order: 2; }
+.ingredients-that-work__grid { order: 3; }
+.ingredients-that-work__footer { order: 4; }
+
+.ingredients-that-work {
+  background: #ffffff;
+  color: var(--navy);
+  margin-bottom: -24px;
+}
+
+.ingredients-that-work--with-spacing {
+  margin-bottom: 0;
+}
+
+/* Product page: 20px horizontal padding from viewport on mobile */
+@media screen and (max-width: 768px) {
+  body.template-product .ingredients-that-work .page-width {
+    padding: 0 20px;
+  }
+  .ingredients-that-work .page-width {
+    padding: 0 10px;
+  }
+}
+
+.ingredients-that-work__inner {
+  max-width: 100%;
+  padding: 12px 24px 0;
+}
+
+@media screen and (max-width: 768px) {
+  section.ingredients-that-work .ingredients-that-work__inner {
+    padding: 8px 0 0 !important;
+  }
+
+  /* 20px under title; 30px elsewhere (intro, before footer); 35px between ingredient rows - mobile only, high specificity */
+  section.ingredients-that-work .ingredients-that-work__header {
+    margin-bottom: 20px !important;
+  }
+  section.ingredients-that-work .ingredients-that-work__title {
+    margin-bottom: 0 !important;
+  }
+  section.ingredients-that-work .ingredients-that-work__intro {
+    margin-bottom: 30px !important;
+    padding-bottom: 0 !important;
+  }
+  section.ingredients-that-work .ingredients-that-work__footer {
+    padding-top: 35px !important;
+  }
+  section.ingredients-that-work .ingredients-that-work__summary {
+    margin-top: 0 !important;
+  }
+  section.ingredients-that-work .ingredients-that-work__ingredient-icon-wrap::after {
+    height: 40px !important;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .ingredients-that-work__header {
+    margin-bottom: 20px;
+  }
+}
+
+.ingredients-that-work__title {
+  margin: 0 0 6px;
+  color: var(--navy);
+  text-align: left;
+  line-height: var(--ds-line-height);
+  letter-spacing: -0.015em !important;
+}
+
+@media screen and (max-width: 768px) {
+  .ingredients-that-work__title {
+    margin-bottom: 2px;
+  }
+}
+
+.ingredients-that-work__intro {
+  text-align: left;
+}
+
+.ingredients-that-work__stylized {
+  font-style: italic;
+}
+
+.ingredients-body-text {
+}
+
+.ingredients-that-work__intro {
+  margin: 0;
+  padding-bottom: 16px;
+  color: var(--navy);
+}
+
+/* Ingredient grid - stacked vertically */
+.ingredients-that-work__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 0;
+}
+
+.ingredients-that-work__ingredient {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* Icon + fixed spacer column so gap always starts 28px below the image (same for every entry) */
+.ingredients-that-work__ingredient-icon-wrap {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 80px;
+}
+
+.ingredients-that-work__ingredient-icon-wrap::after {
+  content: '';
+  display: block;
+  height: 28px;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  section.ingredients-that-work .ingredients-that-work__ingredient-icon-wrap::after {
+    height: 40px !important;
+  }
+}
+
+.ingredients-that-work__ingredient:last-child .ingredients-that-work__ingredient-icon-wrap::after {
+  display: none;
+}
+
+.ingredients-that-work__ingredient-icon {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+}
+
+.ingredients-that-work__ingredient-icon img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.ingredients-that-work__ingredient-placeholder {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #cfe6f4;
+}
+
+@media screen and (max-width: 768px) {
+  .ingredients-that-work__ingredient {
+    gap: 10px;
+  }
+}
+
+.ingredients-that-work__ingredient-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.ingredients-that-work__ingredient-name {
+  margin: 0 0 4px;
+  color: var(--navy);
+  font-weight: 500;
+}
+
+.ingredients-that-work__benefits-list {
+  margin: 0;
+  padding-left: 24px;
+  list-style: disc;
+}
+
+.ingredients-that-work__benefits-list li {
+  margin-bottom: 2px;
+  color: #0d2244;
+  line-height: 1.3;
+}
+
+.ingredients-benefits-text {
+}
+
+.ingredients-that-work__benefits-list li:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .ingredients-that-work__benefits-list {
+    padding-left: 20px;
+  }
+}
+
+/* Footer - summary + key benefits */
+.ingredients-that-work__footer {
+  padding-top: 8px;
+}
+
+.ingredients-that-work__summary {
+  margin: 10px 0 20px;
+  color: #0d2244;
+}
+
+.ingredients-that-work__key-benefits {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ingredients-key-benefit-text {
+}
+
+.ingredients-that-work__key-benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 6px;
+  color: #0d2244;
+}
+
+.ingredients-that-work__key-benefit:last-child {
+  margin-bottom: 0;
+}
+
+.ingredients-that-work__checkmark {
+  flex-shrink: 0;
+  font-weight: 700;
+  color: #0d2244;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+/* Desktop: two-column split - left: title + summary + bullets, right: intro + ingredients stacked */
+@media screen and (min-width: 769px) {
+  .ingredients-that-work__inner {
+    padding: 32px 48px 48px;
+  }
+
+  .ingredients-that-work__columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 48px;
+    align-items: start;
+  }
+
+  .ingredients-that-work__left,
+  .ingredients-that-work__right {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ingredients-that-work__header,
+  .ingredients-that-work__intro,
+  .ingredients-that-work__grid,
+  .ingredients-that-work__footer {
+    order: unset;
+  }
+
+  .ingredients-that-work__header {
+    margin-bottom: 24px;
+  }
+
+  .ingredients-that-work__title {
+    text-align: left;
+  }
+
+  .ingredients-that-work__grid {
+    flex-direction: column;
+    gap: 0;
+    margin-top: 20px;
+    margin-bottom: 0;
+    justify-content: flex-start;
+  }
+
+  .ingredients-that-work__ingredient {
+    flex: none;
+    min-width: auto;
+    max-width: none;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .ingredients-that-work__ingredient-icon-wrap {
+    width: 90px;
+  }
+
+  .ingredients-that-work__ingredient-icon-wrap::after {
+    height: 38px;
+  }
+
+  .ingredients-that-work__ingredient-icon {
+    flex-shrink: 0;
+    margin-bottom: 0;
+    width: 90px;
+    height: 90px;
+  }
+
+  .ingredients-that-work__ingredient-icon img,
+  .ingredients-that-work__ingredient-placeholder {
+    width: 90px;
+    height: 90px;
+  }
+
+  .ingredients-that-work__summary {
+    margin-bottom: 24px;
+  }
+
+  .ingredients-benefits-text {
+  }
+
+  .ingredients-body-text {
+  }
+
+  .ingredients-key-benefit-text {
+  }
+
+  .ingredients-that-work__key-benefit {
+    margin-bottom: 8px;
+  }
+}

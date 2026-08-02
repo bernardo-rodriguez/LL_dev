@@ -101,7 +101,7 @@
 .rc-widget-injection-parent .rc-selling-plans__dropdown {
   border: none!important;
   background: var(--blue-tint-40)!important;
-  font-family: jakarta!important;
+  font-family: manrope, sans-serif !important;
   font-size: 12px!important;
   line-height: 14px!important;
   border-radius: 40px!important;

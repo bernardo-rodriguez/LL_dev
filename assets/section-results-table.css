@@ -71,9 +71,9 @@
   border-right: none;
 }
 
-/* top-left border-radius */
+/* bundle_offer_title border-radius */
 .results-table__tr:first-child .results-table__th:first-child {
-  border-top-left-radius: 6px;
+  border-bundle_offer_title-radius: 6px;
 }
 
 /* top-right border-radius */

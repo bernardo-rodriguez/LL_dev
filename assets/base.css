@@ -238,172 +238,186 @@ h5,
 }
  
 .h-medium {
-  font-family: manrope, san-serif;
+  font-family: manrope, sans-serif;
   font-weight: 500;
 }
 
 .h-bold {
-  font-family: manrope-bold, san-serif;
+  font-family: manrope, sans-serif;
   font-weight: 700;
 }
 
 h1,
 .h1 {
-  font-size: 120px;
-  line-height: 130px;
-  letter-spacing: -0.02em;
+  font-size: 64px;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-heading-ls-lg);
   text-transform: capitalize;
 }
 
 @media only screen and (max-width: 768px) {
   h1,
   .h1 {
-    font-size: 55px;
-    line-height: 58px;
+    font-size: 40px;
   }
 }
 
 h2,
 .h2 {
-  font-size: 55px;
-  line-height: 58px;
-  letter-spacing: -0.02em;
+  font-size: 48px;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-heading-ls-lg);
   text-transform: capitalize;
 }
 
 @media only screen and (max-width: 768px) {
   h2,
   .h2 {
-    font-size: 35px;
-    line-height: 38px;
+    font-size: 34px;
   }
 }
 
 h3,
 .h3 {
-  font-size: 45px;
-  line-height: 52px;
-  letter-spacing: -0.02em;
+  font-size: 36px;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-heading-ls-md);
   text-transform: capitalize;
 }
 
 @media only screen and (max-width: 768px) {
   h3, 
   .h3 {
-    font-size: 35px;
-    line-height: 38px;
+    font-size: 28px;
   }
 }
 
 h4,
 .h4 {
-  font-size: 35px;
-  line-height: 38px;
-  letter-spacing: -0.015em;
+  font-size: 28px;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-heading-ls-md);
   text-transform: capitalize;
 }
 
 @media only screen and (max-width: 768px) {
   h4,
   .h4 {
-    font-size: 20px;
-    line-height: 28px;
-  }
-  .m-h4 {
-    font-size: 35px;
-    line-height: 38px;
-    font-weight: 500;
+    font-size: 22px;
   }
 }
 
 h5,
 .h5 {
-  font-size: 20px;
-  line-height: 28px;
-  letter-spacing: -0.015em;
+  font-size: 22px;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-heading-ls-sm);
   text-transform: capitalize;
 }
 
 @media only screen and (max-width: 768px) {
   h5,
   .h5 {
-    font-size: 16px;
-    line-height: 24px
-  }
-
-  .m-h5 {
-    font-size: 20px;
-    line-height: 28px;
+    font-size: 18px;
   }
 }
 
 h6,
 .h6 {
-  font-family: manrope;
-  font-size: 12px;
-  line-height: 14px;
-  font-weight: 400;
-  letter-spacing: 0.02em;
+  font-family: var(--ds-font-family);
+  font-size: 16px;
+  line-height: var(--ds-line-height);
+  font-weight: 600;
+  letter-spacing: var(--ds-heading-ls-h6);
   text-transform: uppercase;
 }
 
 @media only screen and (max-width: 768px) {
   h6,
   .h6 {
+    font-size: 14px;
   }
 }
 
 .sh1 {
+  font-family: var(--ds-font-family);
   font-size: 20px;
-  line-height: 28px;
+  line-height: var(--ds-line-height);
   font-weight: 600;
-  letter-spacing: -0.015em;
-  font-family: manrope;
-}
-
-.sh1-medium {
-  font-size: 20px;
-  line-height: 28px;
-  font-weight: 500;
-  letter-spacing: -0.015em;
-  font-family: manrope;
-}
-
-.sh2 {
-  font-size: 18px;
-  line-height: 27px;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-}
-
-.sh3 {
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--ds-heading-ls-md);
 }
 
 @media only screen and (max-width: 768px) {
+  .sh1 {
+    font-size: 18px;
+  }
+}
 
+.sh1-medium {
+  font-family: var(--ds-font-family);
+  font-size: 20px;
+  line-height: var(--ds-line-height);
+  font-weight: 500;
+  letter-spacing: var(--ds-heading-ls-md);
+}
+
+@media only screen and (max-width: 768px) {
+  .sh1-medium {
+    font-size: 18px;
+  }
+}
+
+/* Mirrored in skio shadow DOM: .skio-group-title, .skio-total-row__label, .skio-total-row__price .price--current, .skio-includes-cta, .bundle_current_price */
+.sh2 {
+  font-family: var(--ds-font-family);
+  font-size: 18px;
+  line-height: var(--ds-line-height);
+  font-weight: 500;
+  letter-spacing: var(--ds-heading-ls-sm);
+}
+
+@media only screen and (max-width: 768px) {
   .sh2 {
-    font-size: 14px;
-    line-height: 21px;
-    font-weight: 400;
+    font-size: 16px;
   }
+}
 
-  .sh3 {
-    font-size: 12px;
-    line-height: 18px;
+/* Sized between .sh2 (18/16px) and .sh3 (16/14px) */
+.sh2-5 {
+  font-family: var(--ds-font-family);
+  font-size: 17px;
+  line-height: var(--ds-line-height);
+  font-weight: 500;
+  letter-spacing: var(--ds-heading-ls-sm);
+}
+
+@media only screen and (max-width: 768px) {
+  .sh2-5 {
+    font-size: 15px;
   }
-  
+}
+
+/* Mirrored in skio shadow DOM: .skio-group-topline, .bundle_offer_title, .bundle_previous_price */
+.sh3 {
+  font-family: var(--ds-font-family);
+  font-size: 16px;
+  line-height: var(--ds-line-height);
+  font-weight: 500;
+  letter-spacing: var(--ds-heading-ls-sm);
+}
+
+@media only screen and (max-width: 768px) {
+  .sh3 {
+    font-size: 14px;
+  }
 }
 
 .body-2, 
 .body-2 p {
-  font-family: jakarta;
+  font-family: var(--ds-font-family);
   font-weight: 500;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: var(--ds-line-height);
   margin: 0;
 }
 
@@ -462,49 +476,109 @@ li {
   }
 }
 
+/* Mirrored in skio shadow DOM: .skio-purchase-option-price span:not(.price--strike), button.add-to-cart */
 p,
 .p {
-  font-family: manrope; /*TODO: did changed this*/
+  font-family: var(--ds-font-family);
   font-weight: 500;
   font-size: 16px;
-  line-height: 24px;
+  line-height: var(--ds-line-height);
   margin: 0;
 }
 
 .body-lg {
   font-size: 18px;
-  line-height: 26px;
 }
 
+/* Mirrored in skio shadow DOM: .price--strike, .skio-first-order-item__price, .bundle-description, .bundle_price_per_treatment */
 .body-sm {
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 12px;
 }
 
+@media screen and (min-width: 769px) {
+  .body-sm {
+    font-size: 14px;
+  }
+}
+
+/* Mirrored in skio shadow DOM: .skio-first-order-item__bullets, .skio-subscription-footer, .skio-modify-disclaimer, .skio-onetime-subscribe-disclaimer, .skio-frequency, .skio-price-shipping */
 .body-xs {
   font-size: 12px;
-  line-height: 20px;
+}
+
+/*
+  Design system tokens.
+  These CSS custom properties are the single source of truth for shared typography values.
+  They inherit into shadow DOM (e.g. skio-plan-picker), so any component — light DOM
+  or shadow DOM — can reference them and stay in sync.
+
+  If you change a value here, it updates everywhere automatically.
+  Grep for the variable name to find all usages.
+
+  Naming: --ds-<category>-<property>
+*/
+:root {
+  --ds-font-family: manrope, sans-serif;
+  --ds-line-height: 1.3;
+
+  /* Label style: uppercase UI labels, titles, badges */
+  --ds-label-letter-spacing: 0.04em;
+
+  /* Heading letter-spacing tiers */
+  --ds-heading-ls-lg: -0.02em;   /* h1, h2 */
+  --ds-heading-ls-md: -0.015em;  /* h3, h4, sh1 */
+  --ds-heading-ls-sm: -0.01em;   /* h5, sh2, sh3 */
+  --ds-heading-ls-h6: 0.02em;    /* h6 */
+
+  /* PDP body text (small descriptive text, e.g. skio bullets, offer banner) */
+  --ds-body-sm-size: 12px;
+  --ds-body-sm-weight: 500;
+}
+
+.pdp-body-text {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-body-sm-size);
+  line-height: var(--ds-line-height);
+  font-weight: var(--ds-body-sm-weight);
+}
+
+/* Mirrored in skio shadow DOM: .skio-first-order-item__title, .skio-first-order-includes__title */
+.label {
+  font-family: var(--ds-font-family);
+  font-size: 14px;
+  line-height: var(--ds-line-height);
+  font-weight: 700;
+  letter-spacing: var(--ds-label-letter-spacing);
+  text-transform: uppercase;
+}
+
+.label-sm {
+  font-family: var(--ds-font-family);
+  font-size: 12px;
+  line-height: var(--ds-line-height);
+  font-weight: 600;
+  letter-spacing: var(--ds-label-letter-spacing);
+  text-transform: uppercase;
 }
 
 @media screen and (max-width: 768px) {
   .m-body-xs {
     font-size: 12px;
-    line-height: 20px;
   }
 }
 
 .body-regular-weight {
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   font-weight: 400;
 }
 
 .body-medium-weight {
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   font-weight: 500;
 }
 
 .body-bold-weight {
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   font-weight: 600;
 }
 
@@ -538,7 +612,7 @@ blockquote {
   color: var(--cream);
   text-align: center;
   cursor: pointer;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
@@ -547,6 +621,10 @@ blockquote {
   transition: all .5s ease;
   display: inline-block;
   position: relative;
+}
+
+a.jdgm-write-rev-link {
+  background: var(--blue) !important;
 }
 
 .button.large-btn {
@@ -648,7 +726,7 @@ blockquote {
   text-decoration: underline;
   text-underline-offset: 4px;
   line-height: normal;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   font-weight: 600;
 }
 
@@ -700,7 +778,7 @@ input[type='email']::placeholder {
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
 }
 
 fieldset {
@@ -745,7 +823,7 @@ form label {
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
 }
 
 .custom-radio-button {
@@ -772,13 +850,17 @@ form label {
   background: transparent;
   content: "";
   border: 1px solid transparent;
-  z-index: -1;
+  /* z-index: -1; */
+  z-index: 1;
+  transform: scale(1);
 }
 
-input[type='radio']:checked ~ .custom-radio-button:after,
-input[type='checkbox']:checked ~ .custom-radio-button:after {
-  background: var(--blue);
-  border-color: var(--blue);
+input[type='radio']:checked + .custom-radio-button:after,
+input[type='checkbox']:checked + .custom-radio-button:after {
+  background-color: #3db5ee;
+  border-color: #3db5ee;
+  /* background: var(--blue);
+  border-color: var(--blue); */
 }
 
 /*================ Select ================*/
@@ -1251,29 +1333,12 @@ deferred-media {
 /*================ Header Group ================*/
 .outer-header-wrapper {
   width: 100%;
-  /* position: sticky; */
-  position: fixed;
-  top: 0;
+  position: relative;
   z-index: 5;
   font-family: manrope;
   font-weight: 700;
-  /* color: white; */
   color: var(--navy);
-  transition: all .3s ease;
-}
-
-.outer-header-wrapper.scrolled {
-  color: var(--navy);
-  background: var(--cream);
-}
-
-/* New */
-.homepage-hero .outer-header-wrapper {
-  color: white;
-}
-
-.homepage-hero .outer-header-wrapper.scrolled {
-  color: var(--navy);
+  background: var(--blue-tint-20);
 }
 
 /*================ Announcement Bar ================*/
@@ -1510,19 +1575,12 @@ deferred-media {
   position: relative;
 }
 
-.homepage-hero .outer-header-wrapper {
-  position: fixed;
-}
-
 .homepage-hero #shopify-section-homepage-hero {
   /* position: relative;
   top: calc(var(--simple-header-height) * -1); */
 }
 
 .homepage-hero .header__svg-logo {
-  opacity: 0;
-}
-.homepage-hero .header__svg-logo.show {
   opacity: 1;
 }
 
@@ -1784,7 +1842,7 @@ deferred-media {
 
 .jdgm-widget {
   margin-bottom: 100px;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
 }
 
 .jdgm-rev-widg__summary-stars {
@@ -1862,7 +1920,7 @@ deferred-media {
   font-size: 14px;
   line-height: 21px;
   margin-top: 10px;
-  font-family: jakarta;
+  font-family: manrope, sans-serif;
   font-weight: 400;
 }
 
@@ -1904,7 +1962,7 @@ deferred-media {
 }
 
 .jdgm-rev-widg__summary {
-  display: none !important;
+  /* display: none !important; */
 }
 /*============================================================================
   Footer
@@ -2370,6 +2428,12 @@ section.with-spacing {
   content: url("data:image/svg+xml,%3Csvg width='35' height='25' viewBox='0 0 35 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.419 0L15.0101 1.10969C15.0101 1.10969 20.9502 8.4162 24.66 11.3455H0V13.652H24.66C20.9502 16.5812 15.0101 23.8877 15.0101 23.8877L16.419 24.9974C16.419 24.9974 25.2268 16.0097 35 12.4987C25.2268 8.9877 16.419 0 16.419 0Z' fill='%230D2244'/%3E%3C/svg%3E%0A");;
 }
 
+.swiper-button-next, .swiper-button-prev {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
 .swiper-pagination-bullet-active {
   background: var(--navy);
 }
@@ -2434,7 +2498,7 @@ section.with-spacing {
 .recharge-te ol,
 .recharge-te li,
 .recharge-te strong {
-  font-family: jakarta !important;
+  font-family: manrope, sans-serif !important;
   font-weight: 500 !important;
   color: #0d2244 !important;
 }
@@ -2476,7 +2540,7 @@ section.with-spacing {
 .recharge-te .rct_button--secondary {
   border-radius: 40px !important;
   transition: all .5s ease !important;
-  font-family: jakarta !important;
+  font-family: manrope, sans-serif !important;
   font-weight: 600 !important;
   cursor: pointer !important;
   line-height: 0.7 !important;
@@ -2502,7 +2566,7 @@ section.with-spacing {
 .rct_sidebar ol,
 .rct_sidebar li,
 .rct_sidebar strong {
-  font-family: jakarta !important;
+  font-family: manrope, sans-serif !important;
   font-weight: 500 !important;
   color: #0d2244 !important;
 }

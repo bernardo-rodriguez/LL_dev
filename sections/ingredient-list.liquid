@@ -16,7 +16,7 @@
         {% for ingredient in section.blocks %}
           <div class="ingredient-list__block {% if forloop.first %}active{% endif%}">
             <button
-              class="ingredient-list__button h4 m-h5"
+              class="ingredient-list__button h5"
               data-controls="ingredient-{{ forloop.index }}-{{ ingredient.settings.heading | handleize }}"
             >
               {{ ingredient.settings.heading }}

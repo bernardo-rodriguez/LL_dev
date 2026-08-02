@@ -1,0 +1,420 @@
+/* Refill formula picker — reuses .pdp-kit-selector__title.label + .quantity-title.label like SELECT KIT */
+
+/* .product-info dd is inline-block in section-main-product.css — full-width block so the 3-col grid + borders lay out */
+#formula-picker-direct .refill-formula-dd {
+  display: block !important;
+  width: 100%;
+  max-width: 100%;
+  margin: 10px 0 0 0;
+  padding: 0;
+  margin-inline-start: 0;
+}
+
+/* Match SELECT KIT: .pdp-kit-selector__title then .pdp-product-options { margin-top: 10px } */
+#formula-picker-direct .pdp-kit-selector__title.label {
+  margin: 0;
+  color: #1a1a1a;
+}
+
+/* Grid: equal columns; radios display:none are omitted from grid so only labels fill cells */
+.refill-formula-radio-group {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.refill-formula-radio-group input[type="radio"] {
+  display: none;
+}
+
+/*
+ * Formula options are NOT inside .pdp-kit-selector — full card styles here.
+ * Height grows with 2-line labels; min-height keeps a sensible single-line floor.
+ */
+.refill-formula-radio-group .pdp-kit-option.refill-formula-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  height: auto;
+  padding: 10px 8px;
+  margin: 0;
+  position: static;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid #000;
+  border-radius: 0;
+  transition: background-color 0.2s ease;
+  overflow: visible;
+}
+
+.refill-formula-radio-group .pdp-kit-option.refill-formula-option .quantity-title {
+  margin: 0;
+  max-width: 100%;
+  display: block;
+  word-break: break-word;
+  line-height: 1.25;
+}
+
+.refill-formula-radio-group .pdp-kit-option.refill-formula-option:hover {
+  background-color: #f7f7f7;
+}
+
+.refill-formula-radio-group input[type="radio"]:checked + .pdp-kit-option {
+  background: #c4e9ff !important;
+  border-color: #000 !important;
+  box-shadow: none !important;
+}
+
+.refill-formula-radio-group input[type="radio"]:checked + .pdp-kit-option.refill-formula-option:hover {
+  background: #c4e9ff !important;
+}
+
+.refill-formula-radio-group input[type="radio"]:not(:checked) + .pdp-kit-option {
+  background: #ffffff !important;
+}
+
+.refill-formula-radio-group input[type="radio"]:focus-visible + .pdp-kit-option {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+.price-difference {
+  display: block;
+  margin-top: 4px;
+  margin-left: 0;
+  font-family: var(--ds-font-family, manrope, sans-serif);
+  font-size: 12px;
+  line-height: var(--ds-line-height, 1.3);
+  font-weight: 600;
+  letter-spacing: var(--ds-label-letter-spacing, 0.04em);
+  text-transform: uppercase;
+  color: #000;
+}
+
+@media screen and (max-width: 768px) {
+  .refill-formula-radio-group .pdp-kit-option.refill-formula-option {
+    padding: 6px 6px;
+    min-height: 44px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .refill-formula-radio-group {
+    gap: 8px;
+  }
+  .refill-formula-radio-group .pdp-kit-option.refill-formula-option {
+    padding: 4px 5px;
+    min-height: 40px;
+  }
+  .refill-formula-radio-group .price-difference {
+    font-size: 10px;
+  }
+}
+
+/* product details */
+
+.product__details {
+  margin-top: 60px;
+}
+
+@media screen and (max-width: 768px) {
+  .product__details {
+    margin-top: 40px;
+  }
+}
+
+.product__details-inner {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr))
+}
+
+.product__detail-item {
+  width: 100%;
+  padding: 18px 0;
+  border-bottom: 1px solid #CFD3DA;
+  display: flex;
+  align-items: center;
+}
+
+.product__detail-item:last-of-type,
+.product__detail-item:nth-last-of-type(2){
+  border-bottom: 1px solid transparent;
+}
+
+.product__detail-item:nth-of-type(odd) {
+  padding-right: 18px;
+  border-right: 1px solid #CFD3DA;
+}
+
+.product__detail-item:nth-of-type(even) {
+  padding-left: 18px;
+  border-left: 1px solid #CFD3DA;
+}
+
+.product__detail-item .emoji {
+  font-size: 25px;
+  margin-right: 5px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* treatment quantity selector */
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* PDP Product Options */
+.pdp-product-options {
+  margin-top: 10px;
+  margin-bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pdp-product-options + .product__details,
+.pdp-product-options + .product__how-to-use {
+  margin-top: 0;
+}
+
+/* Kit options: 2-column grid for Starter / Deluxe cards */
+.treatment-quantity-selector {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+}
+
+/* Form/skio row */
+.pdp-product-options__form-row {
+  margin-top: 22px;
+  width: 100%;
+  min-width: 0;
+}
+
+.pdp-product-options__form-row > div {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Ensure form and product-form don't constrain width */
+.pdp-product-options__form-row > div,
+.pdp-product-options__form-row product-form,
+.pdp-product-options__form-row product-form .form {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+.pdp-product-options__form-row product-form .form {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+/* Treatment Quantity Selector - New PDP Kit UI */
+.treatment-quantity-selector {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.pdp-kit-selector__title {
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.pdp-kit-selector.quantity-radio-group {
+  display: contents;
+}
+
+.pdp-kit-selector .quantity-option {
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  background: #ffffff;
+  border: 1px solid #000;
+  border-radius: 0;
+  transition: all 0.2s ease;
+  min-width: 0;
+  overflow: visible;
+}
+
+.pdp-kit-option .pdp-kit-image {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.pdp-kit-option .pdp-kit-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* STARTER KIT: same container size as Deluxe, image 10px smaller and centered */
+.pdp-kit-option.quantity-option-1 .pdp-kit-image img {
+  width: 40px;
+  height: 40px;
+}
+
+.pdp-kit-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 92px;
+  flex: 1;
+}
+
+.pdp-kit-option.quantity-option-1 .pdp-kit-text {
+  margin-left: -5px;
+}
+
+.pdp-kit-option .quantity-title {
+  color: #000;
+  display: block;
+}
+
+.pdp-kit-option .quantity-subtitle {
+  color: #000;
+  display: block;
+  margin-top: 2px;
+}
+
+.pdp-kit-badge {
+  position: absolute;
+  top: 0;
+  left: -1px;
+  transform: translateY(-50%);
+  background: #000;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 0;
+  text-align: center;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.pdp-kit-selector .quantity-option-1 {
+  border-radius: 0;
+}
+
+.pdp-kit-selector .quantity-option-2 {
+  border-radius: 0;
+  position: relative;
+}
+
+.quantity-radio-group input[type="radio"] {
+  display: none;
+}
+
+.quantity-radio-group input[type="radio"]:checked + .pdp-kit-option {
+  background: #C4E9FF !important;
+  border-color: #000 !important;
+  box-shadow: none !important;
+}
+
+.quantity-radio-group input[type="radio"]:not(:checked) + .pdp-kit-option {
+  background: #ffffff !important;
+  box-shadow: none !important;
+}
+
+/* Legacy quantity-option styles for non-PDP contexts */
+.quantity-radio-group:not(.pdp-kit-selector) {
+  display: flex;
+  background: #ffffff;
+  border-radius: 12px;
+  position: relative;
+  border: 1px solid black;
+  transition: all 0.3s ease;
+}
+
+.quantity-radio-group:not(.pdp-kit-selector) .quantity-option {
+  flex: 1;
+  text-align: center;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.quantity-option-1:not(.pdp-kit-option) {
+  border-radius: 12px 0 0 12px;
+}
+
+.quantity-option-2:not(.pdp-kit-option) {
+  border-radius: 0 12px 12px 0;
+}
+
+.quantity-option .quantity-title:not(.pdp-kit-option .quantity-title) {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  color: black;
+}
+
+.quantity-radio-group:not(.pdp-kit-selector) input[type="radio"]:checked + .quantity-option {
+  background: #69BBEB !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.best-value-badge {
+  display: none;
+}
+
+@media screen and (min-width: 769px) {
+  .pdp-kit-selector .quantity-option {
+    padding: 14px 18px;
+  }
+  .pdp-kit-option .pdp-kit-image {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .pdp-kit-option {
+    padding: 12px !important;
+  }
+  .pdp-kit-option .pdp-kit-image {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Under 400px: tighter gaps so text (min-width 92px) fits */
+@media screen and (max-width: 399px) {
+  .treatment-quantity-selector {
+    gap: 8px;
+  }
+  .pdp-kit-selector .quantity-option {
+    gap: 8px;
+  }
+}

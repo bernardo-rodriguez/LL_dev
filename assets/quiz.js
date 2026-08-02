@@ -38,25 +38,59 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
       }.bind(this))
     })
 
+    this.progressEl = this.querySelector('[data-quiz-progress]')
+    this.progressFillEl = this.querySelector('[data-quiz-progress-fill]')
+    this.progressTotalSteps = this.progressEl ? parseInt(this.progressEl.dataset.totalSteps, 10) : 0
+    this.positionProgressLabels()
+    this.updateProgressBar(this.currentStep)
+
     this.bindEvents();
   }
 
-  bindEvents() {
-    this.open.forEach((button) => {
-      button.addEventListener("click", function(e){
-        e.preventDefault();
-        if(document.querySelector("body").classList.contains("Menu_Open")) {
-          document.querySelector("menu-drawer").closeMenuDrawer()
-        }
-        document.querySelector('.sticky-footer__button')?.click()
-      } )
-    })
-    this.back.addEventListener('click', this.changeFormStep.bind(this, -1))
-    this.next.addEventListener('click', this.changeFormStep.bind(this, 1))
-    this.close.addEventListener('click', this.closeQuiz.bind(this))
-    this.submit.addEventListener('click', function(e){
-      this.submitForm(e)
+  positionProgressLabels() {
+    if (!this.progressEl || !this.progressTotalSteps) return
+    var labels = this.progressEl.querySelectorAll('.quiz__progress-label')
+    labels.forEach(function(label, idx) {
+      var stepNumber = idx + 1
+      var percent = (stepNumber / this.progressTotalSteps) * 100
+      label.style.left = percent + '%'
     }.bind(this))
+  }
+
+  updateProgressBar(step) {
+    if (!this.progressFillEl || !this.progressTotalSteps) return
+    var s = parseInt(step, 10) || 0
+    var percent = Math.max(0, Math.min(100, (s / this.progressTotalSteps) * 100))
+    this.progressFillEl.style.width = percent + '%'
+  }
+
+  bindEvents() {
+    if (getCookie('affiliate_referrer') == 'redirect_sweatcoin1' && window.location.href.includes('pages/landing-page')) {
+      this.open.forEach((button) => {
+        button.addEventListener("click", function(e){
+          e.preventDefault();
+          console.log(window.location.pathname)
+          window.location = '/products/at-home-whitening-kit-affiliate-ft'
+        } )
+      })
+    } else {
+      this.open.forEach((button) => {
+        button.addEventListener("click", function(e){
+          e.preventDefault();
+          console.log(window.location.pathname)
+          if(document.querySelector("body").classList.contains("Menu_Open")) {
+            document.querySelector("menu-drawer").closeMenuDrawer()
+          }
+          document.querySelector('.sticky-footer__button')?.click()
+        } )
+      })
+      this.back.addEventListener('click', this.changeFormStep.bind(this, -1))
+      this.next.addEventListener('click', this.changeFormStep.bind(this, 1))
+      this.close.addEventListener('click', this.closeQuiz.bind(this))
+      this.submit.addEventListener('click', function(e){
+        this.submitForm(e)
+      }.bind(this))
+    }
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -67,15 +101,32 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
       this.querySelector(`.form__step-wrapper[data-step="${ oldValue }"`).classList.remove('active')
       this.querySelector(`.form__step-wrapper[data-step="${ newValue }"`).classList.add('active')
 
-      if( newValue == 5 ){
+      this.updateProgressBar(newValue)
+
+      var oldN = parseInt(oldValue, 10)
+      var newN = parseInt(newValue, 10)
+      if (!isNaN(oldN) && !isNaN(newN) && newN > oldN) {
+        this.scrollQuizToTop()
+      }
+
+      if( newValue == 6 ){
         this.next.classList.toggle('hidden')
         this.submit.classList.remove('hidden')
+        this.submit.setAttribute('disabled', 'true')
       }
-      if ( newValue == 4 && oldValue == 5 ){
+      if ( newValue == 5 && oldValue == 6 ){
         this.next.classList.toggle('hidden')
         this.submit.classList.add('hidden')
       }
     }
+  }
+
+  scrollQuizToTop() {
+    var quizEl = this.querySelector('.quiz')
+    if (quizEl) {
+      quizEl.scrollTop = 0
+    }
+    window.scrollTo(0, 0)
   }
 
   closeQuiz() {
@@ -94,7 +145,7 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
     console.log('current step is ' + x)
     let currentState = this.dataset.state
     let newState = currentState
-    if ( x === 1  && currentState < 5 ){
+    if ( x === 1  && currentState < 6 ){
       newState = ++currentState
     } else if ( x === -1 && currentState > 1) {
       newState = --currentState
@@ -170,7 +221,12 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
       klaviyoForm.querySelector("#klaviyo_form_goals").value = goals
       klaviyoForm.querySelector("#klaviyo_form_brush_times").value = this.querySelector("[name='brushtimes']:checked")?.value || ""
       klaviyoForm.querySelector("#klaviyo_form_cavities").value = this.querySelector("[name='cavities']:checked")?.value || ""
-      klaviyoForm.querySelector("#klaviyo_form_shade").value = this.querySelector("[name='shade']:checked")?.value || ""
+      klaviyoForm.querySelector("#klaviyo_form_plaque_concern").value = this.querySelector("[name='plaque_concern']:checked")?.value || ""
+
+      let starting_shade = document.getElementById('quiz_shade_slider_start')?.value || ""
+      let ending_shade = document.getElementById('quiz_shade_slider_end')?.value || ""
+      klaviyoForm.querySelector("#klaviyo_form_shade").value = starting_shade
+
       klaviyoForm.querySelector("#klaviyo_form_stain").value = this.querySelector("[name='stain']:checked")?.value || ""
       klaviyoForm.querySelector("#klaviyo_form_previous_use").value = this.querySelector("[name='previous_use']:checked")?.value || ""
 
@@ -183,24 +239,28 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
       klaviyoForm.querySelector(".klaviyo_submit_button").click()
 
       // handle redirect
+      console.log('strength is the following')
+      console.log(formula_translate[sensitivity])
 
       document.cookie =  "strength=" + formula_translate[sensitivity] + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
       document.cookie = "firstname=" + document.querySelector('#first_name').value + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
       document.cookie = "lastname=" + document.querySelector('#last_name').value + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
-
-      let ut = getCookie('redirect_ut')
-      let ut_direct = getCookie('redirect_ut_direct')
-      let sweatcoin = getCookie('redirect_sweatcoin')
+      document.cookie = "starting_shade=" + starting_shade + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
+      document.cookie = "ending_shade=" + ending_shade + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
 
       setTimeout(function(){
         console.log(document.cookie)
   
-        if (ut == 'true' && ut_direct != 'true') {
-          window.location = '/products/at-home-whitening-kit-affiliate-ft'
+        if (getCookie('affiliate_referrer') == 'ut' && getCookie('affiliate_referrer') != 'ut_direct') {
+          window.location = '/products/at-home-whitening-kit-affiliate-ut'
           // window.location = '/products/at-home-whitening-kit'
           // console.log('not 2')
-        } else if (sweatcoin == 'true') {
+        } else if (getCookie('affiliate_referrer') == 'redirect_sweatcoin' || getCookie('affiliate_referrer') == 'cpgap_gen') {
           window.location = '/products/at-home-whitening-kit-affiliate-ft'
+        } else if (getCookie('affiliate_referrer') == 'nift_6') {
+          window.location = '/products/6-serving-of-whitening-gels-free-starter-kit'
+        } else if (getCookie('affiliate_referrer') == 'nift_bundle') {
+          window.location = '/products/starter-whitening-kit-6-treatments-free-pen'
         } else {
           window.location = '/products/at-home-whitening-kit'
         }

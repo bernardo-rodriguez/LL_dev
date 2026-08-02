@@ -1,33 +1,125 @@
-affiliate_cookie_options = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_pinterest']
-affiliate_cookie_options_2 = ['redirect__inspire', 'redirect__ut', 'redirect__ut__direct', 'redirect__paceline', 'redirect__sweatcoin', 'redirect__miles', 'redirect__studentbeans', 'redirect__skimm', 'redirect__pinterest', 'shareasaleShopifySSCID']
+affiliate_cookie_options = ['nift_6', 'nift_bundle', 'nift', 'url_redirect', 'affiliate_referrer', 'redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_ut_trial', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans', 'redirect_skimm', 'redirect_pinterest', 'cpgap', 'cpgap_gen', 'add_pen', 'productDiscountCode']
 
-
-function LandingPopulateCactus() {
-  // Populate landing page text for cactus media
-  $('#hero_subtitle_1').css('margin-bottom', '50px !important')
-  // $('#hero_title').html('Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>') 
-  // $('#hero_title').html('Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit') 
-
-  // document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
-
-  // $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>0")
-  $('.Hero_Subtitle').first().text("See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.")
+// legacy redirects
+supported_affiliates = {
+  'sweatcoin': 'redirect_sweatcoin',
+  'product-direct': 'redirect_ut_direct',
+  'paceline': 'redirect_paceline',
+  'miles': 'redirect_miles',
+  'utm_partner': 'utm_partner',
+  'utm_gen_direct': 'utm_gen_direct',
+  'cactus_media': 'redirect_ut',
+  'cactus_media_trial': 'redirect_ut_trial',
+  'redirect_inspire': 'redirect_inspire',
+  'redirect_pinterest': 'redirect_pinterest',
+  'skimm': 'redirect_skimm',
+  'cpgap': 'redirect_cpgap',
+  'cpgap_gen': 'redirect_cpgap_gen',
+  'jam_media': 'jam_media',
+  'jam_media_gen': 'jam_media_gen',
+  'onetime': 'onetime',
+  'cpgap_home': 'cpgap_home',
+  'lo1_offer': 'lo1_offer',
+  'ls1_offer': 'ls1_offer',
+  'pe1_offer': 'pe1_offer',
+  'nift': 'nift',
+  'nift_6': 'nift_6',
+  'nift_bundle': 'nift_bundle'
 }
 
-function LandingPopulateSweatcoin() {
-  // Populate landing page text for cactus media
-  $('#hero_subtitle_1').css('margin-bottom', '50px !important')
-  $('#hero_title').html('Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>') 
+A_B_testing_campaigns = {
+  active: {
+    google_tag: "UT_04_14_UPSELL_STATUS",
+    active_name: 'active',
+    inactive_name: 'inactive',
+    affiliate_tested: supported_affiliates['cactus_media'],
+    active_split: '70',
+    page_and_functions: [
+      {
+        page: 'at-home-whitening-kit-affiliate-ft',
+        function: 'sweatcoin_09_24_upselling_test'
+      }
+    ]
+  },
+  cactus_media_2024_08: {
+
+  }
+}
+
+function gtagLoaded(gtag_payload) {
+  gtag('set', 'user_properties', gtag_payload);
+}
+
+function send_gtag_properties(gtag_payload) {
+  console.log('setting gtag properties ' + JSON.stringify(gtag_payload))
+  if (typeof gtag === 'function') {
+    gtagLoaded(gtag_payload); // gtag is already loaded
+  } else {
+    window.addEventListener('load', function() {
+      if (typeof gtag === 'function') {
+        gtagLoaded(gtag_payload); // gtag loaded after the page finished loading
+      } else {
+        console.log("gtag.js failed to load");
+      }
+    });
+  }
+}
+
+function sweatcoin_09_24_upselling_test() {
+  console.log('running test show upsell')
+  setCookie('test_show_upsell', 'true')
+  // $('.dpk_body').hide()
+}
+
+function run_active_campaign() {
+  // run function if we are on their executable page from page_and_functions in active campaigns dict
+  try {
+    let campaign_functions = A_B_testing_campaigns['active']['page_and_functions']
+
+    campaign_functions.forEach((campaign_func) => {
+      // if (window.location.href.indexOf(campaign_func['page']) > -1) {
+        window[campaign_func['function']](); 
+      // }
+    });
+  } catch (e) {
+    console.log('error caught')
+    console.log(e)
+  }
+}
+
+function should_run_active_campaign() {
+  // if cookie that is the google tag name is currently set, that means we should run the active campaign
+  let campaign_google_tag = A_B_testing_campaigns['active']['google_tag']
+  if (getCookie(campaign_google_tag) == 'true') {
+    return true
+  }
+  return false
+}
+
+// function LandingPopulateCactus() {
+//   // Populate landing page text for cactus media
+//   $('#hero_subtitle_1').css('margin-bottom', '50px !important')
+//   // $('#hero_title').html('Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>') 
+//   $('#hero_title').html('Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit') 
+
+//   // document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
+
+//   // $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>0")
+//   $('.Hero_Subtitle').first().text("See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.")
+// }
+
+// function LandingPopulateSweatcoin() {
+//   // Populate landing page text for cactus media
+//   $('#hero_subtitle_1').css('margin-bottom', '50px !important')
+//   $('#hero_title').html('Try Dentist-Made <br> Teeth Whitening <br> <span class = "stylized">For Free Today</span>') 
+//   // $('#hero_title').html('Get A <span class = "stylized">Free Whitening Pen</span> <br> With Your Kit') 
+
   
-  // document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
+//   // document.getElementsByClassName('Hero_Subtitle')[0].querySelector('span').style.fontSize = '22px'
 
-  // $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>0")
-  $('.Hero_Subtitle').first().text("See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.")
-}
-
-// if user arrives at mylaughland.com?utm_affiliatgit e_specific=cactus_media
-// set cookie to cactus media, and google referral tag to cactus media
-// if first time, set redirect to whatever it is.
+//   // $('.Hero_Subtitle').first().find('.stylized').first().html("<sup>$</sup>0")
+//   $('.Hero_Subtitle').first().text("See A Noticeable Difference In Just One Week With A Customized Whitening Solution Today.")
+// }
 
 function getCookie(cname) {
   // const value = `; ${document.cookie}`;
@@ -49,321 +141,182 @@ function getCookie(cname) {
   return null;
 }
 
-
 function setCookie(key, value) {
   var date = new Date();
-  date.setDate(date.getDate() + 1)
+  date.setTime(date.getTime() + 2 * 3600 * 1000);
   var expires = date.toUTCString();
-  document.cookie = `${key}=${value}; expires=${expires}; path=/`;
+  cookie_string = `${key}=${value}; expires=${expires}; path=/`
+  document.cookie = cookie_string;
 }
-
 
 function removeCookie(key) {
   document.cookie = `${key}=true;expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;`
 }
 
-
 function clearAllAffiliateCookies(){
   affiliate_cookie_options.forEach((affiliate, index) => removeCookie(affiliate));
   removeCookie('upsell_test')
+  removeCookie('cookie_hasnt_been_set')
 }
 
-function setCookieIfFirstTime() {
+
+function ifTestApplies() {
+  let active_test = A_B_testing_campaigns['active']
+  let affiliate_tested = active_test['affiliate_tested']
+  const affiliates_tested_list = affiliate_tested.split(","); // Split by comma
+
+  console.log(affiliates_tested_list)
+
+  let isCookieSet = affiliates_tested_list.some( cookieName => getCookie(cookieName) != null ) // are any of them set?
+
+  console.log(isCookieSet)
+  if (affiliate_tested == 'all' || isCookieSet) { // TODO: verify isCookieSet set is working
+    return true
+  } 
+  return false
+}
+
+function setABCookies(d) {
+  // ran on page visit if it hasnt been ran before
+  let active_test = A_B_testing_campaigns['active']
+  let test_split = parseInt(active_test['active_split']) / 100
+  console.log("experiment should be aplied to " + test_split + " of users")
+  console.log("rand produced is " + d)
+  let google_tag = active_test['google_tag']
+  let gtag_payload = {}
+
+  gtag_payload['SET_ONETIME_TRACKED'] = 'user_properties_tracked' // cookie and gtag initial setter ran
+
+  if (ifTestApplies()) {
+    console.log('test applies')
+    gtag_payload['AB_TEST_APPLIES'] = 'user_properties_tracked' // if affiliate to which ab test applies is currently active
+    if (test_split >= d) {
+      console.log("apply test")
+      setCookie(google_tag, 'true')
+      gtag_payload[google_tag] = active_test['active_name']
+      run_active_campaign()
+    } else {
+      console.log("dont apply test")
+      setCookie(google_tag, 'false')
+      gtag_payload[google_tag] = active_test['inactive_name']
+    }
+  } else {
+    console.log("excluded from active test")
+  }
+
+  send_gtag_properties(gtag_payload)
+}
+
+function setCookieIfFirstTime(utm_affiliate) {
+  let gtag_payload = {}
+  // ran on every page visited
   if (getCookie("cookie_hasnt_been_set") != 'true') {
-      tracking_1 = parseInt(document.getElementById('tracking_v1').innerHTML) / 100
-      tracking_2 = parseInt(document.getElementById('tracking_v2').innerHTML) / 100
-      tracking_3 = parseInt(document.getElementById('tracking_v3').innerHTML) / 100
-      
-      var d = Math.random();
-      console.log(d)
-      var mc = getCookie('redirect_ut')
-      var mm = getCookie('redirect_skimm')
-      var ss = getCookie('redirect_sweatcoin')
-      if (mc == 'true') {
-        if (d > tracking_1) {
-          setCookie('test_order', 'true')
-        }
-      } else if (ss == 'true') {
-        if (d > tracking_2) {
-          setCookie('test_order', 'true')
-        }
-      } else if (mm == 'true') {
-        if (d > tracking_3) {
-          setCookie('test_order', 'true')
-        }
-      }
-      setCookie('cookie_hasnt_been_set', 'true')
+      // set test order and ab cookies if this hasnt ran before
+    var d = Math.random();
 
-      if (d < .5) {
-        gtag('set', 'user_properties', {
-          test_random: "1"
-        });
-      } else {
-        gtag('set', 'user_properties', {
-          test_random: "2"
-        });
-      }
-  }
-}
-
-
-function redirectToLandingIfFirstTime2(cookie, p) {
-  var d = Math.random();
-  if (d <= 0) {
-    setGoogleLanding('homepage')
-  } else {
-      console.log('rand' + d)
-      console.log('set' + p)
-      if (d <= p) {
-        console.log('flow 1')
-        setCookie('flow_ga_tracking_v1', 'true')
-      } else {
-        console.log('flow 2')
-        setCookie('flow__ga_tracking_v2', 'true')
-      }
-
-    setCookie('cookie_tracked', 'true')
-    if (getCookie("in_house_already_redirected") != 'true') {
-      setCookie('in_house_already_redirected', 'true')
+    if (utm_affiliate in supported_affiliates) {
+      gtag_payload['AFFILIATE_REFERRER'] = utm_affiliate
+    } else {
+      gtag_payload['AFFILIATE_REFERRER'] = 'NONE'
     }
+
+    setABCookies(d)
+    setCookie('cookie_hasnt_been_set', 'true')
   }
+
+  // send gtag properties every time
+  gtag_payload['CUSTOM_DIMENSION_TRACKED'] = 'user_properties_tracked'
+  send_gtag_properties(gtag_payload)
 }
 
 
-function redirectToLandingIfFirstTime(cookie, from_landing=false) {
-  // If I haven't redirected, redirect to random page and set landing page cookie.
-  // Mark redirect in cookies so we don't redirect again if a user somehow goes back with the same utm params.
-  // if (getCookie("in_house_already_redirected") != 'true') {
-  //   setCookie('in_house_already_redirected', 'true')
-              
-  var d = Math.random();
-  if (d <= 0) {
-    setGoogleLanding('homepage')
-    // window.location.href = 'https://www.mylaughland.com'
-  } else {
-      tracking_1 = parseInt(document.getElementById('tracking_v1').innerHTML) / 100
-      if (d <= tracking_1) {
-        console.log('flow 1')
-        setCookie('flow_ga_tracking_v1', 'true')
-      } else {
-        console.log('flow 2')
-        setCookie('flow__ga_tracking_v2', 'true')
-      }
-
-    setCookie('cookie_tracked', 'true')
-    if (getCookie("in_house_already_redirected") != 'true' && from_landing != true) {
-      setCookie('in_house_already_redirected', 'true')
-
-      setGoogleLanding('landing-page')
-      // setTimeout(function(){
-      //    window.location.href = 'https://www.mylaughland.com/pages/landing-page'
-      // }, 200);
-    }
-  }
-  // }
-}
-
-
-function setInHouseTracked() {
-  gtag('set', 'user_properties', {
-    in_house_tracked: "true"
-  });
-}
-
-
-function setInHouseTracked2() {
-  gtag('set', 'user_properties', {
-    in_house_tracked_2: "true"
-  });
-}
-
-
-function setLandingPageFlag(flag_value) {
-  gtag('set', 'user_properties', {
-    landing_page_flag: flag_value
-  });
-}
-
-
-function setGoogleSourceDev2(affiliate_source_dev) {
-  gtag('set', 'user_properties', {
-    affiliate_source_dev_2: affiliate_source_dev
-  });
-}
-
-
-function setGoogleSourceDev(affiliate_source_dev) {
-  gtag('set', 'user_properties', {
-    affiliate_source_dev: affiliate_source_dev
-  });
-}
-
-
-function setGoogleSource(affiliate_source) {
-  gtag('set', 'user_properties', {
-    affiliate_source: affiliate_source
-  });
-}
-
-
-function setGoogleLanding(effective_landing_page) {
-  gtag('set', 'user_properties', {
-    effective_landing_page: effective_landing_page
-  });
-}
-
-
-function setCookieAffiliate(cookie, affiliate) {
-  console.log("swetcookieaffiliate")
-  setGoogleSource(affiliate)
+function setCookieAffiliate(cookie) {
   setCookie(cookie, 'true')
+  setCookie('affiliate_referrer', cookie)
 
   // remove all other affiliate cookies except for the one I'm setting
-  console.log('removing old cookies')
   for (let i = 0; i < affiliate_cookie_options.length; i++) {
     cookie_option = affiliate_cookie_options[i]
-    if (cookie_option != cookie) {
-      console.log(cookie_option)
+    if (cookie_option != cookie && cookie_option != 'affiliate_referrer') {
       removeCookie(cookie_option)
     }
   }
-}
 
-
-function setFirstTimeGtags(affiliate) {
-  setInHouseTracked2() // set in_house_tracked_2
-  setGoogleSourceDev2(affiliate) // set affiliate_source_dev_2
-  setCookie('in_house_tracked', 'true')
-  if (getCookie("in_house_tracked") != 'true') {
-    setInHouseTracked()
-    setGoogleSourceDev(affiliate)
+  // After setting the affiliate_referrer cookie
+  if (typeof window.updatePrices === 'function') {
+    window.updatePrices();
+  }
+  // After setting the affiliate_referrer cookie
+  if (typeof window.cookie_actions === 'function') {
+    window.cookie_actions();
   }
 }
-
 
 function landingPageAction(current_page, query_params) {
   // This gets callled on every page visited (script type defer)
   // curent_page: page without query parameters (',', 'pages/landing-page')
   // query_params: dictionary of all query parameters (null if not found)
-  if (query_params.quiz_version == 'base_v1') {
-    setCookie('quiz_version', 'base_v1')
-    gtag('set', 'user_properties', {
-      quiz_version: "base_v1"
-    });
-  } else if (query_params.quiz_version == 'interactive_v1') {
-    setCookie('quiz_version', 'interactive_v1')
-    gtag('set', 'user_properties', {
-      quiz_version: "interactive_v1"
-    });
-  }
-  console.log("tracker:")
-  console.log(current_page)
+  let utm_affiliate = query_params.utm_affiliate_specific
+  let redirect = query_params.redirect
+  let offer = query_params.offer
+  let auto_discount = query_params.auto_discount
+
   if (current_page == '/') {
-    switch(query_params.utm_affiliate_specific) {
-      case 'sweatcoin':
-        setCookieAffiliate('redirect_sweatcoin', 'Sweatcoin')
-        setFirstTimeGtags('Sweatcoin')
-        redirectToLandingIfFirstTime('redirect_sweatcoin')
+    // If i'm at site roots url, set affiliate cookies based on affiliate query params and redirect to landing page coookies
+    // https://stackoverflow.com/questions/8100515/how-to-check-if-the-user-is-visiting-the-sites-root-url
+    if (utm_affiliate in supported_affiliates) {
+        setCookieAffiliate(supported_affiliates[utm_affiliate])
+    }
+  } else if (current_page == '/pages/landing-page' || current_page == '/pages/landing-page/' || current_page.includes('landing-page')) {
+      if (utm_affiliate in supported_affiliates) {
+          setCookieAffiliate(supported_affiliates[utm_affiliate])
+      }
+
+      getSubPriceLanding()
+      getPricingTableUSData()
+  } else if (current_page == '/pages/clear-affiliate-cookies' || current_page == '/pages/clear-affiliate-cookies/' || current_page.includes('clear-affiliate-cookies')) {
+    clearAllAffiliateCookies()
+  } else {
+    if (utm_affiliate in supported_affiliates) {
+      setCookieAffiliate(supported_affiliates[utm_affiliate])
+    }
+  }
+  setDefaultStrength(query_params)
+  setCookieIfFirstTime(utm_affiliate)
+
+  if (redirect == 'pdp') {
+    setCookie('url_redirect', 'pdp')
+  }
+
+  if (offer == 'everyday') {
+    setCookie('offer', 'everyday')
+  }
+
+  if (auto_discount) {
+    setCookie('productDiscountCode', auto_discount)
+  }
+
+  if (should_run_active_campaign()) {
+    console.log('campaign should run')
+    run_active_campaign()
+  }
+}
+
+function setDefaultStrength(query_params) {
+  setTimeout(function() {
+
+    switch(query_params.default_strength) {
+      case 'sensitive':
+        setCookie('strength', 'sensitive')
+        location.reload();
         break;
-      case 'product-direct':
-        setCookieAffiliate('redirect_ut_direct', 'Direct To Product (misc)')
-        setFirstTimeGtags('Direct To Product (misc)')
-        redirectToLandingIfFirstTime('redirect_ut_direct')
-        break;
-      case 'paceline':
-        setCookieAffiliate('redirect_paceline', 'Paceline')
-        setFirstTimeGtags('Paceline')
-        redirectToLandingIfFirstTime('redirect_paceline')
-        break;
-      case 'miles':
-        setCookieAffiliate('redirect_miles', 'Miles')
-        setFirstTimeGtags('Miles')
-        redirectToLandingIfFirstTime('redirect_miles')
-        break;
-      case 'utm_partner':
-        setCookieAffiliate('utm_partner', 'UTM Partner')
-        setFirstTimeGtags('UTM Partner')
-        redirectToLandingIfFirstTime('utm_partner')
-        break;
-      case 'utm_gen_direct':
-        setCookieAffiliate('utm_gen_direct', 'UTM Gen Direct')
-        setFirstTimeGtags('UTM Gen Direct')
-        redirectToLandingIfFirstTime('utm_gen_direct')
-        break;
-      case 'cactus_media':
-        setCookieAffiliate('redirect_ut', 'Cactus Media')
-        setFirstTimeGtags('Cactus Media')
-        redirectToLandingIfFirstTime('redirect_ut')
-        break;
-      case 'redirect_inspire':
-        setCookieAffiliate('redirect_inspire', 'Inspire More')
-        setFirstTimeGtags('Inspire More')
-        redirectToLandingIfFirstTime('redirect_inspire')
-        break;
-      case 'redirect_pinterest':
-        setCookieAffiliate('redirect_pinterest', 'Pinterest')
-        setFirstTimeGtags('Pinterest')
-        redirectToLandingIfFirstTime2('redirect_pinterest', .5)
-        break;
-      case 'skimm':
-        setCookieAffiliate('redirect_skimm', 'Skimm')
-        setFirstTimeGtags('Skimm')
-        redirectToLandingIfFirstTime2('redirect_skimm', .25)
-        break;
-      default:
-        // setCookie('redirect_sweatcoin', 'true')
-        setFirstTimeGtags('NA')
-        setCookie('in_house_already_redirected', 'true')
-        redirectToLandingIfFirstTime('none')
-        // setCookieAffiliate('redirect_sweatcoin', 'Sweatcoin')
-        // setFirstTimeGtags('Sweatcoin')
-        // redirectToLandingIfFirstTime('redirect_sweatcoin')
+      case 'strong':
+        setCookie('strength', 'strong')
+        location.reload();
         break;
     } 
-  } else if (current_page == '/pages/clear-affiliate-cookies') {
-      clearAllAffiliateCookies()
-      removeCookie('in_house_tracked')
-  } else if (current_page == '/pages/landing-page' || current_page == '/pages/landing-page/' || current_page.includes('landing-page')) {
-      console.log("tracker_landing_page")
-      setLandingPageFlag('true')
-      setFirstTimeGtags('landing-page')
-      setGoogleLanding('landing-page')
-      setCookie('in_house_already_redirected', 'true')
-      if (query_params.utm_affiliate_specific == 'sweatcoin') {
-        LandingPopulateSweatcoin()
-        setCookieAffiliate('redirect_sweatcoin', 'Sweatcoin')
-        setCookie('cookie_tracked', 'true')
-      }
-      else if (query_params.utm_affiliate_specific == 'skimm') {
-        setCookieAffiliate('redirect_skimm', 'Skimm')
-        setCookie('cookie_tracked', 'true')
-      } else if (query_params.utm_affiliate_specific == 'cactus_media') {
-        LandingPopulateCactus()
-        setCookieAffiliate('redirect_ut', 'Cactus Media')
-        redirectToLandingIfFirstTime('redirect_ut', true)
-      } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
-        setCookieAffiliate('redirect_pinterest', 'Pinterest')
-        setCookie('cookie_tracked', 'true')
-      }
-  } else {
-      setCookie('in_house_already_redirected', 'true')
-      setFirstTimeGtags(current_page)
-      if (query_params.utm_affiliate_specific == 'sweatcoin') {
-        setCookieAffiliate('redirect_sweatcoin', 'Sweatcoin')
-        setCookie('cookie_tracked', 'true')
-      } else if (query_params.utm_affiliate_specific == 'skimm') {
-        setCookieAffiliate('redirect_skimm', 'Skimm')
-        setFirstTimeGtags('Skimm')
-        setCookie('cookie_tracked', 'true')
-      } else if (query_params.utm_affiliate_specific == 'redirect_pinterest') {
-        setCookieAffiliate('redirect_pinterest', 'Pinterest')
-        setFirstTimeGtags('Pinterest')
-        setCookie('cookie_tracked', 'true')
-      } else if (query_params.utm_affiliate_specific == 'cactus_media') {
-        setCookieAffiliate('redirect_ut', 'Cactus Media')
-      }
-  }
-  setCookieIfFirstTime()
+}, 2000);
+
 }
 
 var current_page = window.location.pathname // last page in URL before query parameters

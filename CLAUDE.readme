@@ -1,0 +1,116 @@
+# Typography & Global Fonts
+
+This document is the single reference for which fonts and typography classes to use across the Laughland codebase.
+
+---
+
+## Font families
+
+| Font | Use case |
+|------|----------|
+| **Manrope** (`manrope, sans-serif`) | Default for almost all UI: headings, body, labels, buttons. Set globally via `--ds-font-family` and `html { font-family: manrope }`. |
+| **Canela** (`canela`) | Italic / stylized emphasis only. Use the `.stylized` class so emphasis text (e.g. “*Your Formula*”, prices, pull quotes) uses Canela. |
+
+**Rule:** Prefer Manrope everywhere unless the design explicitly calls for the italic “stylized” look; then use Canela via `.stylized`.
+
+---
+
+## Design system variables (`base.css`)
+
+These are the source of truth. Prefer using them (or the classes that use them) instead of hardcoding font or letter-spacing.
+
+| Variable | Value | Use |
+|----------|--------|-----|
+| `--ds-font-family` | `manrope, sans-serif` | Body and headings |
+| `--ds-line-height` | `1.3` | Line height for type |
+| `--ds-body-sm-size` | `12px` | Small body (mobile); use with `--ds-body-sm-weight` |
+| `--ds-body-sm-weight` | `500` | Weight for small body |
+| `--ds-label-letter-spacing` | `0.04em` | Uppercase labels |
+| `--ds-heading-ls-lg` | `-0.02em` | h1, h2 |
+| `--ds-heading-ls-md` | `-0.015em` | h3, h4, sh1 |
+| `--ds-heading-ls-sm` | `-0.01em` | h5, sh2, sh3 |
+| `--ds-heading-ls-h6` | `0.02em` | h6 |
+
+---
+
+## When to use which class
+
+### Headings (Manrope, use semantic level or class)
+
+| Element / class | Desktop | Mobile | Weight | Letter-spacing |
+|------------------|---------|--------|--------|----------------|
+| `h1`, `.h1` | 64px | 40px | 500 | `--ds-heading-ls-lg` |
+| `h2`, `.h2` | 48px | 34px | 500 | `--ds-heading-ls-lg` |
+| `h3`, `.h3` | 36px | 28px | 500 | `--ds-heading-ls-md` |
+| `h4`, `.h4` | 28px | 22px | 500 | `--ds-heading-ls-md` |
+| `h5`, `.h5` | 22px | 18px | 500 | `--ds-heading-ls-sm` |
+| `h6`, `.h6` | 16px | 14px | 600 | `--ds-heading-ls-h6` (uppercase) |
+
+**Product page section headings** (e.g. “Your Formula:”, “Used & Loved by Dentists”, “Transformational Results”): use **Manrope**, **font-weight 500**, **36px desktop / 28px mobile**, **line-height 1.2**. On the product template, most text has `letter-spacing: 0`; for these section titles, use **letter-spacing: -0.01em** only where the design spec says so (e.g. multi-slide-carousel heading).
+
+### Subheadings (Manrope)
+
+| Class | Desktop | Mobile | Weight | Use |
+|-------|---------|--------|--------|-----|
+| `.sh1` | 20px | 18px | 600 | Strong subhead |
+| `.sh1-medium` | 20px | 18px | 500 | Medium subhead |
+| `.sh2` | 18px | 16px | 500 | e.g. ingredient names, “BUY NOW” line, doctor name |
+| `.sh3` | 16px | 14px | 500 | Smaller subhead / topline |
+
+### Body text
+
+| Class | Desktop | Mobile | Use |
+|-------|---------|--------|-----|
+| `p`, `.p` | 16px | 16px | Default paragraph |
+| `.body-lg` | 18px | — | Larger body |
+| `.body-sm` | 14px | 12px | Small body, ingredient bullets, quotes, descriptions |
+| `.body-xs` | 12px | 12px | Smallest body |
+| `.pdp-body-text` | Uses `--ds-body-sm-size` (12px) and `--ds-body-sm-weight` (500) | PDP small text (offer banner, skio bullets, etc.) |
+
+### Labels (uppercase UI)
+
+| Class | Size | Weight | Use |
+|-------|------|--------|-----|
+| `.label` | 14px | 700 | Uppercase labels, badges |
+| `.label-sm` | 12px | 600 | Smaller uppercase labels |
+
+### Stylized / italic (Canela)
+
+| Class | Use |
+|-------|-----|
+| `.stylized` | Canela, 300, italic. Use for: emphasized words inside a sentence, stylized numbers/prices, “Your Formula” curly emphasis. Wrap only the emphasized fragment in `<span class="stylized">`. |
+
+---
+
+## Product page (`template-product`) specifics
+
+- **Letter-spacing:** Most headings and body copy on the product page use **letter-spacing: 0** (overrides design-system letter-spacing). See `section-main-product.css` (e.g. `body.template-product .sh2, .body-sm, … { letter-spacing: 0 }`).
+- **Exceptions:** Section headings that should keep a slight tightening use **letter-spacing: -0.01em** (e.g. “Used & Loved by Dentists”); apply via a specific selector (e.g. `.multi-slide-carousel__heading`) and `!important` if a global product rule forces `letter-spacing: 0`.
+- **Do not** add custom letter-spacing elsewhere on the product page unless the design explicitly calls for it; rely on the global product rules and the few documented exceptions.
+
+---
+
+## Quick reference by context
+
+| Context | Font | Class / notes |
+|--------|------|----------------|
+| Page/section title | Manrope | `h2` / `h3` or section-specific heading class; product: 36px / 28px, weight 500 |
+| “Your Formula” title | Manrope | Same as section title; optional `<span class="stylized">` for curly part |
+| Ingredient name (e.g. “11% Hydrogen Peroxide”) | Manrope | `.sh2` |
+| Ingredient bullets / small copy | Manrope | `.body-sm` (12px mobile, 14px desktop) |
+| Doctor quote | Manrope | Same size as ingredient descriptions: 12px mobile, 14px desktop |
+| Doctor name / title | Manrope | Name: same as TOTAL / BUY NOW (18px mobile, equivalent desktop); title: 24px mobile, weight 300 |
+| Stats (e.g. “74%”) | Percentage: Canela italic; right-side text: global 18px mobile / 20px desktop |
+| Offer banner (“LIMITED TIME OFFER…”) | Manrope | `.pdp-body-text` or equivalent small body |
+| Uppercase labels (“SELECT KIT”, “MONTH 0”) | Manrope | `.label` or `.label-sm` |
+| Emphasized word or price in sentence | Canela | `<span class="stylized">` |
+
+---
+
+## Files to check
+
+- **Global tokens and base typography:** `assets/base.css` (`:root` and heading/body/label/.stylized)
+- **Product page overrides:** `assets/section-main-product.css` (letter-spacing 0, product title)
+- **Product section headings:** `assets/section-multi-slide-carousel.css`, `assets/section-transformational-results.css`, `assets/section-ingredients-that-work.css`
+
+When adding or changing type, use the classes and variables above and avoid one-off font or letter-spacing values unless they match this readme.

@@ -11,6 +11,8 @@
   assign formatted_heading_4 = section.settings.step4 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
 
   assign formatted_heading_5 = section.settings.step5 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
+
+  assign formatted_heading_6 = section.settings.step6 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
 %}
 
 <formula-quiz data-state="1">
@@ -32,19 +34,65 @@
           </svg>
         </button>
       </div>
+
+      {% comment %}
+        --- Optional top progress slider (keep for easy restore) ---
+        Uncomment this block, then in assets/section-quiz.css remove only the
+        `display: none;` line inside `.quiz__progress { ... }`. Optionally add
+        `.quiz__content-headline { display: none; }` to hide step titles while
+        using the slider. quiz.js already wires [data-quiz-progress] when present.
+
+        {%- assign quiz_total_steps = 6 -%}
+        <div class="quiz__progress page-width" data-quiz-progress data-total-steps="{{ quiz_total_steps }}">
+          <div class="quiz__progress-track">
+            <div class="quiz__progress-fill" data-quiz-progress-fill style="width: 0%;"></div>
+          </div>
+          <div class="quiz__progress-labels">
+            {%- for i in (1..quiz_total_steps) -%}
+              <span class="quiz__progress-label" data-step="{{ i }}">{{ i }}</span>
+            {%- endfor -%}
+          </div>
+        </div>
+      {% endcomment %}
+
       <div class="quiz__content page-width">
         <div class="quiz__content-headline">
-          <h2 class="quiz__headline active" data-step="1">{{ formatted_heading_1 }}</h2>
+          <h3 class="quiz__headline active" data-step="1">{{ formatted_heading_1 }}</h3>
 
-          <h2 class="quiz__headline" data-step="2">{{ formatted_heading_2 }}</h2>
+          <h3 class="quiz__headline" data-step="2">{{ formatted_heading_2 }}</h3>
 
-          <h2 class="quiz__headline" data-step="3">{{ formatted_heading_3 }}</h2>
+          <h3 class="quiz__headline" data-step="3">{{ formatted_heading_3 }}</h3>
 
-          <h2 class="quiz__headline" data-step="4">{{ formatted_heading_4 }}</h2>
+          <h3 class="quiz__headline" data-step="4">{{ formatted_heading_4 }}</h3>
 
-          <h2 class="quiz__headline" data-step="5">{{ formatted_heading_5 }}</h2>
+          <h3 class="quiz__headline" data-step="5">{{ formatted_heading_5 }}</h3>
+
+          <h3 class="quiz__headline" data-step="6">{{ formatted_heading_6 }}</h3>
         </div>
         <div class="quiz__content-card">
+          <div
+            class="quiz__final-loading-overlay"
+            data-quiz-final-overlay
+            aria-hidden="true"
+          >
+            <div class="quiz__final-loading-overlay__stack">
+              <div class="quiz__final-loading-overlay__spinner" aria-hidden="true">
+                <svg viewBox="0 0 50 50" class="quiz__final-loading-overlay__svg">
+                  <circle class="quiz__final-loading-overlay__track" cx="25" cy="25" r="20" fill="none" stroke-width="4"></circle>
+                  <circle
+                    class="quiz__final-loading-overlay__fill"
+                    cx="25"
+                    cy="25"
+                    r="20"
+                    fill="none"
+                    stroke-width="4"
+                    data-quiz-final-spinner-fill
+                  ></circle>
+                </svg>
+              </div>
+              <p class="quiz__final-loading-overlay__caption">Building your formula</p>
+            </div>
+          </div>
           <div class="quiz__form">
             {% form 'customer' %}
               <div class="form__step-wrapper active" data-step="1">
@@ -56,14 +104,18 @@
               </div>
 
               <div class="form__step-wrapper" data-step="3">
-                {% render 'quiz-step-three' %}
+                {% render 'quiz-step-shade-slider' %}
               </div>
 
               <div class="form__step-wrapper" data-step="4">
-                {% render 'quiz-step-four' %}
+                {% render 'quiz-step-three' %}
               </div>
 
               <div class="form__step-wrapper" data-step="5">
+                {% render 'quiz-step-four' %}
+              </div>
+
+              <div class="form__step-wrapper" data-step="6">
                 {% render 'quiz-step-five' %}
               </div>
             {% endform %}
@@ -134,12 +186,12 @@
   <input
     type="hidden"
     name="$fields"
-    value="$consent,$sensitivity,$first_name,$last_name,$goals,$brush_times,$cavities,$shade,$stain,$previous_use"
+    value="$consent,$sensitivity,$first_name,$last_name,$goals,$brush_times,$cavities,$plaque_concern,$shade,$stain,$previous_use"
   >
   <input
     type="hidden"
     name="$list_fields"
-    value="$consent, sensitivity, $first_name, $last_name, goals, brush_times, cavities, shade, stain, previous_use"
+    value="$consent, sensitivity, $first_name, $last_name, goals, brush_times, cavities, plaque_concern, shade, stain, previous_use"
   >
   <div class="klaviyo_field_group">
     <label for="k_id_email">Newsletter Sign Up</label>
@@ -160,6 +212,9 @@
 
     <label class="klaviyo_form_actions" for="klaviyo_form_cavities">cavities:</label>
     <input class="klaviyo_form_actions" id="klaviyo_form_cavities" type="text" name="$cavities" value="">
+
+    <label class="klaviyo_form_actions" for="klaviyo_form_plaque_concern">plaque concern:</label>
+    <input class="klaviyo_form_actions" id="klaviyo_form_plaque_concern" type="text" name="$plaque_concern" value="">
 
     <label class="klaviyo_form_actions" for="klaviyo_form_shade">shade:</label>
     <input class="klaviyo_form_actions" id="klaviyo_form_shade" type="text" name="$shade" value="">
@@ -247,6 +302,12 @@
       "type": "textarea",
       "id": "step5",
       "label": "Step 5 Heading",
+      "info": "Wrap stylized text in {}"
+    },
+    {
+      "type": "textarea",
+      "id": "step6",
+      "label": "Step 6 Heading",
       "info": "Wrap stylized text in {}"
     }
   ]

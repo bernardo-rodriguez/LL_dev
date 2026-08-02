@@ -1,0 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "pf-8f67c66f": {
+      "type": "pf-8f67c66f",
+      "settings": {}
+    },
+    "transformational_results_gxChMi": {
+      "type": "transformational-results",
+      "blocks": {
+        "stat_qAgdzq": {
+          "type": "stat",
+          "settings": {
+            "percent": "100%",
+            "text": "100% of clinical participants reported whiter teeth after only 6 treatments."
+          }
+        },
+        "stat_RNQjhL": {
+          "type": "stat",
+          "settings": {
+            "percent": "74%",
+            "text": "Clinical participants reported, on average, a 74% increase in teeth brightness."
+          }
+        },
+        "stat_rJPXmD": {
+          "type": "stat",
+          "settings": {
+            "percent": "0%",
+            "text": "0% of clinical participants reported an increase in sensitivity after whitening."
+          }
+        },
+        "profile_zEQymq": {
+          "type": "profile",
+          "settings": {
+            "person_name": "NEELAM S."
+          }
+        }
+      },
+      "block_order": [
+        "stat_qAgdzq",
+        "stat_RNQjhL",
+        "stat_rJPXmD",
+        "profile_zEQymq"
+      ],
+      "name": "Transformational Results",
+      "settings": {
+        "heading": "Transformational Results"
+      }
+    }
+  },
+  "order": [
+    "pf-8f67c66f",
+    "transformational_results_gxChMi"
+  ]
+}

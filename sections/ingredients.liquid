@@ -1,0 +1,213 @@
+{% schema %}
+{
+  "name": "Ingredient Cards",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        { "id": "image", "type": "image_picker", "label": "Image" },
+        { "id": "title", "type": "text", "label": "Title" },
+        { "id": "description", "type": "textarea", "label": "Description" }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [{ "name": "Ingredient Cards", "category": "Custom" }]
+}
+{% endschema %}
+
+<div class="ingredient-section">
+    <div class = 'page-width'>
+        <h3 class="heading" style = 'text-align: center;'>Key Ingredients</h3>
+        <div class="ingredient-cards">
+            {% for block in section.blocks %}
+            <div class="ingredient-card" tabindex="0">
+                {% if block.settings.image %}
+                <div class="ingredient-image">
+                    <img src="{{ block.settings.image | img_url: '600x600' }}" alt="{{ block.settings.title }}" width="600" height="600">
+                </div>
+                {% endif %}
+                <div class="ingredient-info">
+                    <h4>{{ block.settings.title }} <span class="toggle-icon"></span></h4>
+                    <p class="ingredient-description">{{ block.settings.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<style>
+.ingredient-section {
+  width: 100%;
+  padding-top: 60px;
+  padding-bottom: 30px;
+}
+
+.page-wdith {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ingredient-cards {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 10px;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.ingredient-card {
+  flex: 0 0 90%;
+  width: 90%;
+  max-width: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ingredient-image {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.ingredient-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.ingredient-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1rem;
+  transform: translateY(calc(100% - 3.5rem));
+  transition: transform 0.3s ease;
+  color: #000;
+  border-top: 1px solid #000;
+}
+
+.ingredient-info h4 {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-icon {
+  width: 24px;
+  height: 24px;
+  background-color: #d7d7d7;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+}
+
+.toggle-icon::before,
+.toggle-icon::after {
+  content: '';
+  position: absolute;
+  background: #000;
+  transition: transform 0.3s ease;
+}
+
+.toggle-icon::before {
+  width: 12px;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.toggle-icon::after {
+  width: 2px;
+  height: 12px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+}
+
+.ingredient-card.open .toggle-icon::after {
+  transform: translate(-50%, -50%) scaleY(0);
+}
+
+.ingredient-description {
+  font-size: 14px;
+  margin-top: 0.5rem;
+  color: #000;
+}
+
+.ingredient-card:hover .ingredient-info,
+.ingredient-card.open .ingredient-info {
+  transform: translateY(0);
+}
+
+@media screen and (min-width: 768px) {
+  .ingredient-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    overflow-x: visible;
+  }
+  
+  .ingredient-card {
+    flex: none;
+    width: 100%;
+  }
+
+  .ingredient-image {
+    height: 300px;
+  }
+
+  .ingredient-card:hover .ingredient-info {
+    transform: translateY(0);
+  }
+  
+  .ingredient-card:hover .toggle-icon::after {
+    transform: translate(-50%, -50%) scaleY(0);
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const cards = document.querySelectorAll(".ingredient-card");
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+  if (isMobile) {
+    cards.forEach(card => {
+      const info = card.querySelector(".ingredient-info");
+      
+      // Set initial state
+      info.style.transform = "translateY(calc(100% - 3.5rem))";
+      card.classList.remove('open');
+      
+      card.addEventListener("click", () => {
+        // Remove open class first
+        if (card.classList.contains("open")) {
+          card.classList.remove("open");
+          info.style.transform = "translateY(calc(100% - 3.5rem))";
+        } else {
+          card.classList.add("open");
+          info.style.transform = "translateY(0)";
+        }
+      });
+    });
+  }
+});
+</script>

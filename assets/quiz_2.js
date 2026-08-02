@@ -399,11 +399,12 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
 
     let ut = getCookie('redirect_ut')
     let ut_direct = getCookie('redirect_ut_direct')
+    let ut_trial = getCookie('redirect_ut_trial')
 
     setTimeout(function(){
       console.log(document.cookie)
 
-      if (ut == 'true' && ut_direct != 'true') {
+      if (ut == 'true' && ut_direct != 'true' && ut_trial != 'true') {
         window.location = '/products/landing-page-product-main'
       } else {
         window.location = '/products/landing-page-product-main'

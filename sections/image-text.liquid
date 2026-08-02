@@ -1,9 +1,16 @@
 {{ 'section-image-text.css' | asset_url | stylesheet_tag }}
 
-{% assign formatted_heading = section.settings.heading
-  | replace: '{', "<span class='stylized'>"
-  | replace: '}', '</span>'
-%}
+{% if product.id != 7498061906145 %}
+  {% assign formatted_heading = section.settings.heading
+    | replace: '{', "<span class='stylized'>"
+    | replace: '}', '</span>'
+  %}
+{% else %}
+  {% assign formatted_heading = section.settings.heading-refill
+    | replace: '{', "<span class='stylized'>"
+    | replace: '}', '</span>'
+  %}
+{% endif %}
 
 {% assign imageBlocks = section.blocks | where: 'type', 'image' %}
 {% assign bulletBlocks = section.blocks | where: 'type', 'bullet' %}
@@ -67,10 +74,14 @@
         "
       >
         {% if formatted_heading != blank %}
-          <h2 class="image-text__heading m-h4">{{ formatted_heading }}</h2>
+          <h2 class="image-text__heading">{{ formatted_heading }}</h2>
         {% endif %}
         {% if section.settings.text != blank %}
-          <p class="body image-text__paragraph">{{ section.settings.text | newline_to_br }}</p>
+          {% if product.id != 7498061906145 %}
+            <p class="body image-text__paragraph">{{ section.settings.text | newline_to_br }}</p>
+          {% else %}
+            <p class="body image-text__paragraph">{{ section.settings.text-refill | newline_to_br }}</p>
+          {% endif %}
         {% endif %}
         {% if bulletBlocks.size != 0 %}
           <ul class="image-text__bullet-list list-unstyled">
@@ -169,6 +180,17 @@
     {
       "type": "inline_richtext",
       "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "textarea",
+      "id": "heading-refill",
+      "label": "Heading refill",
+      "info": "Wrap italized text in {}"
+    },
+    {
+      "type": "richtext",
+      "id": "text-refill",
       "label": "Text"
     },
     {

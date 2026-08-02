@@ -64,7 +64,7 @@
 <script>window.variantIngredients = {{variant_ingredients }}</script>
 <script src="{{ 'product-landing-populate.js' | asset_url }}"></script>
 
-
+<script src="{{ 'selling-plans.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
 <script>
@@ -137,7 +137,7 @@
       <div id="ProductInfo-{{ section.id }}" class="product__info-container">
         {% assign product_form_id = 'product-form-' | append: section.id %}
 
-        <h3 class="product__title m-h4" id="product__title_id">
+        <h3 class="product__title" id="product__title_id">
           {{ product.metafields.custom.title | default: product.title }}
         </h3>
         
@@ -159,8 +159,6 @@
         {% render 'eclipse-section' %}
 
         {% render 'product-radio-section-images' %}
-        {% comment %} {% render 'product-radio-section-small' %}
-        {% render 'product-radio-section-big' %} {% endcomment %}
 
         <div>
           <product-form class="product-form" data-product-id="{{ product.id }}">
@@ -292,7 +290,7 @@
                       {{ 'products.product.quantity.label' | t }}
                     </label>
                   {% endcomment %}
-                  <quantity-input class="quantity">
+                  {% comment %} <quantity-input class="quantity">
                     <button class="quantity__button no-js-hidden" name="minus" type="button">
                       <span class="visually-hidden">
                         {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
@@ -315,7 +313,7 @@
                       </span>
                       {% render 'icon', icon: 'plus' %}
                     </button>
-                  </quantity-input>
+                  </quantity-input> {% endcomment %}
                 </div>
                 <button type="submit" id="real-submit-button" style="display: none">checkout</button>
                 <button
@@ -382,7 +380,7 @@
                 </dl>
                 <dl class="m-body-xs">
                   <dt>Recurring Cost</dt>
-                  <dd>$19.00</dd>
+                  <dd>$39.00</dd>
                 </dl>
               </div>
             </div>
@@ -428,6 +426,7 @@
 {% javascript %}
   document.getElementById('main-clickable-button').addEventListener('click', upsellLogic);
 
+  // TODO: remove?
   async function setCartAttributes(upsell) {
     let cart = await fetch('/cart/update.js', {
       method: 'POST',

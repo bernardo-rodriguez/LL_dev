@@ -11,6 +11,7 @@
   | newline_to_br
 %}
 
+<script src="{{ 'selling-plans.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
 {% assign product = section.settings.product %}
@@ -54,7 +55,7 @@
       <div id="ProductInfo-{{ section.id }}" class="product__info-container">
         {% assign product_form_id = 'product-form-' | append: section.id %}
 
-        <h3 class="product__title m-h4">
+        <h3 class="product__title">
           {%- if section.settings.title != blank -%}
             {{ formatted_heading }}
           {%- else -%}
@@ -117,7 +118,7 @@
                 </dd>
               {% endfor %}
             </dl>
-                  
+            
             {% form 'product',
               product,
               id: product_form_id,
@@ -229,7 +230,7 @@
                 </div>
               </noscript>
 
-              <div class="product-form__input product-form__quantity visually-hidden">
+              {% comment %} <div class="product-form__input product-form__quantity visually-hidden">
                 <label class="form__label" for="Quantity-{{ section.id }}">
                   {{ 'products.product.quantity.label' | t }}
                 </label>
@@ -256,7 +257,7 @@
                     {% render 'icon', icon: 'plus' %}
                   </button>
                 </quantity-input>
-              </div>
+              </div> {% endcomment %}
 
               {% if settings.discount_code != blank and settings.discount_text != blank %}
                 <div class="discount--wrapper">
@@ -307,7 +308,7 @@
                 </dl>
                 <dl class="m-body-xs">
                   <dt>Recurring Cost</dt>
-                  <dd>$19.00</dd>
+                  <dd>$39.00</dd>
                 </dl>
               </div>
             </div>
@@ -427,77 +428,43 @@
     return null;
   }
 
-  function getSubPrice() {
-      const cookies = ['redirect_inspire', 'redirect_ut', 'redirect_ut_direct', 'redirect_paceline', 'redirect_sweatcoin', 'redirect_miles', 'redirect_studentbeans']
-  
-      let subscriptionCookie = cookies.filter( cookieName => getCookie(cookieName) != null )
-      let subPrice = ''
-  
-      switch(subscriptionCookie[0]) {
-        case 'redirect_ut':
-          subPrice = '0'
-          discount_name = 'FREE_TRIAL_SPECIAL'
-          discount_desc = '100% OFF'
-          {% comment %} subPrice = '9'
-          discount_name = 'STARTER_SPECIAL'
-          discount_desc = '90% OFF' {% endcomment %}
-          document.getElementsByClassName('price-item--regular')[0].innerHTML = '$76'
-          document.getElementsByClassName('price-item--regular')[1].innerHTML = '$76'
-          break;
-        case 'redirect_ut_direct':
-          subPrice = '9'
-          discount_name = ''
-          discount_desc = ''
-          break
-        case 'redirect_paceline':
-          subPrice = '29'
-          discount_name = ''
-          discount_desc = ''
-          break
-        case 'redirect_sweatcoin':
-          subPrice = '0'
-          discount_name = 'SWEATCOIN_LIMITED'
-          discount_desc = '100% OFF'
-          {% comment %} subPrice = '9'
-          discount_name = 'SWEATCOIN_LIMITED'
-          discount_desc = '90% OFF' {% endcomment %}
-          {% comment %} discount_desc = 'free pen included with purchase' {% endcomment %}
-          break
-        case 'redirect_miles':
-          subPrice = '9'
-          discount_name = 'MILES_AUTOMATIC'
-          discount_desc = '88% OFF'
-          break
-        case 'redirect_studentbeans':
-          subPrice = '9'
-          discount_name = ''
-          discount_desc = ''
-          break
-        case 'redirect_inspire':
-          subPrice = '$13.5'
-          discount_name = 'Subscribe & Save'
-          discount_desc = '80% OFF'
-          break
-        default:
-          subPrice = '19'
-          discount_name = 'SUB-N-SAVE'
-          discount_desc = '75% OFF'
-          break
+  function getSubPrice() {  
+      let feature_product_defaults = affiliate_config['default']['featured_product']
+
+      let subPrice = feature_product_defaults['subPrice']
+      let discount_name = feature_product_defaults['discount_name']
+      let discount_desc = feature_product_defaults['discount_desc']
+
+      a_referrer = getCookie('affiliate_referrer')
+
+      if (a_referrer in affiliate_config && 'featured_product' in affiliate_config[a_referrer]) {
+        featured_product = affiliate_config[a_referrer]['featured_product']
+
+        if ('subPrice' in featured_product && featured_product['subPrice']) {
+          subPrice = featured_product['subPrice']
+        }
+
+        if ('discount_name' in featured_product && featured_product['discount_name']) {
+          discount_name = featured_product['discount_name']
+        }
+        
+        if ('discount_desc' in featured_product && featured_product['discount_desc']) {
+          discount_desc = featured_product['discount_desc']
+        }
+
+        if ('regular_item_price' in featured_product && featured_product['regular_item_price']) {
+          document.getElementsByClassName('price-item--regular')[0].innerHTML = featured_product['regular_item_price']
+          document.getElementsByClassName('price-item--regular')[1].innerHTML = featured_product['regular_item_price']
+        }
       }
   
       return [subPrice, discount_name, discount_desc]
   }
+
+
   sub_specs = getSubPrice()
   console.log(sub_specs)
   
-  {% comment %} setTimeout(function(){
-    console.log('sup3')
-    document.getElementsByClassName('price-item--sale')[0].innerHTML = "$" + sub_specs[0]
-    document.getElementsByClassName('button--full')[0].querySelector('span').innerHTML = 'Start Now — $'+sub_specs[0]+''
-    document.getElementsByClassName('discount-code')[0].innerHTML = sub_specs[1]
-    document.getElementsByClassName('discount-text')[0].innerHTML = sub_specs[2]
-    console.log('sup4')
-  }, 100); {% endcomment %}
 
   setTimeout(function(){
     try {

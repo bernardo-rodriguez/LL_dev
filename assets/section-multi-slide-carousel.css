@@ -1,0 +1,296 @@
+.multi-slide-carousel {
+  margin: 0 0 60px;
+}
+
+.multi-slide-carousel__content-wrap {
+  background-color: #EEF9FF;
+  padding: 80px 50px;
+  border-radius: 12px;
+}
+
+@media screen and (max-width: 768px) {
+  body.template-product .multi-slide-carousel .page-width--product,
+  body.template-product .multi-slide-carousel .page-width {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .multi-slide-carousel__content-wrap {
+    padding: 40px 20px 0px 20px;
+    border-radius: 0;
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .multi-slide-carousel {
+    margin-top: 30px;
+  }
+
+  .multi-slide-carousel__pagination-wrap {
+    display: none !important;
+  }
+
+  .multi-slide-carousel__dentist-name {
+    font-size: 26px;
+  }
+
+  .multi-slide-carousel__description {
+    font-size: 14px;
+  }
+}
+
+.multi-slide-carousel__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.multi-slide-carousel__heading {
+  font-family: manrope, sans-serif;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: var(--ds-line-height);
+  letter-spacing: -0.015em;
+  color: var(--navy);
+}
+
+body.template-product .multi-slide-carousel__heading {
+  letter-spacing: -0.015em !important;
+}
+
+.multi-slide-carousel__subheading {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--color-base-text-opacity-85);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.multi-slide-carousel__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.multi-slide-carousel-instance {
+  width: 100%;
+  position: relative;
+  padding: 0 30px 50px;
+}
+
+.multi-slide-carousel__slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  height: 100%;
+}
+
+.multi-slide-carousel__content {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 0 16px 8px;
+  box-sizing: border-box;
+}
+
+.swiper-slide {
+  height: auto;
+}
+
+.multi-slide-carousel__image-divider-wrap {
+  line-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.multi-slide-carousel__image {
+  width: 65%;
+  max-width: 250px;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  vertical-align: top;
+}
+
+.multi-slide-carousel__dentist-name {
+  font-size: 24px;
+  font-weight: 300;
+  color: #000;
+  margin: 10px 0 0;
+  width: 100%;
+  line-height: 1.3;
+}
+
+.multi-slide-carousel__credentials {
+  font-size: 14px;
+  color: #3173A4;
+  margin: 0;
+  padding-top: 20px;
+  line-height: 1.4;
+  width: 100%;
+}
+
+.multi-slide-carousel__credentials p {
+  margin: 0;
+}
+
+.multi-slide-carousel__divider {
+  width: 100%;
+  height: 1px;
+  background-color: #3173A4;
+  margin: 0 16px 20px 0;
+  display: block !important;
+}
+
+.multi-slide-carousel__description {
+  text-align: left;
+  font-size: 12px;
+  font-weight: 400;
+  color: #000;
+  margin: 10px 0 0;
+  width: 100%;
+  line-height: 1.5;
+}
+
+.multi-slide-carousel__button-prev,
+.multi-slide-carousel__button-next {
+  color: var(--navy);
+  position: absolute;
+  top: 18%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.multi-slide-carousel__button-prev::after {
+  content: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='15 18 9 12 15 6' stroke='%233173A4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+.multi-slide-carousel__button-next::after {
+  content: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='9 18 15 12 9 6' stroke='%233173A4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+.multi-slide-carousel__button-prev {
+  left: 0;
+}
+
+.multi-slide-carousel__button-next {
+  right: 0;
+}
+
+.multi-slide-carousel__pagination {
+  display: flex !important;
+  justify-content: center;
+  width: 100%;
+}
+
+.multi-slide-carousel__pagination .swiper-pagination-bullet {
+  background-color: #CFD3DA;
+  width: 9px;
+  height: 9px;
+  opacity: 1;
+  margin: 0 5px;
+}
+
+.multi-slide-carousel__pagination .swiper-pagination-bullet-active {
+  background-color: var(--navy);
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .multi-slide-carousel {
+    margin: 40px 0;
+  }
+
+  .multi-slide-carousel__header {
+    margin-bottom: 30px;
+    padding: 0;
+  }
+
+  .multi-slide-carousel__heading {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .multi-slide-carousel__subheading {
+    font-size: 14px;
+  }
+  
+  .multi-slide-carousel__inner {
+    padding: 0;
+  }
+  
+  /* .multi-slide-carousel__description {
+    font-size: 13px;
+  } */
+
+  .multi-slide-carousel-instance {
+    padding: 0;
+  }
+
+  .multi-slide-carousel__image {
+    max-width: calc(100% - 24px);
+    width: 65%;
+  }
+
+  .multi-slide-carousel__image-divider-wrap {
+    width: 100%;
+  }
+
+  .multi-slide-carousel__slide {
+    padding-bottom: 0;
+  }
+
+  .multi-slide-carousel__content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .multi-slide-carousel__divider {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .multi-slide-carousel__button-prev,
+  .multi-slide-carousel__button-next {
+    width: 25px;
+    height: 25px;
+    top: 15%;
+  }
+
+  .multi-slide-carousel__button-prev::after {
+    content: url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='15 18 9 12 15 6' stroke='%233173A4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  }
+
+  .multi-slide-carousel__button-next::after {
+    content: url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='9 18 15 12 9 6' stroke='%233173A4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  }
+
+  .multi-slide-carousel-instance {
+    padding-bottom: 60px;
+  }
+} 
