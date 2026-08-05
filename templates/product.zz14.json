@@ -1,0 +1,69 @@
+{
+  "sections": {
+    "transformational_results_ddRMfc": {
+      "type": "transformational-results",
+      "blocks": {
+        "profile_8JMmJK": {
+          "type": "profile",
+          "settings": {
+            "person_name": "BAILEY W.",
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_7.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_8.png"
+          }
+        },
+        "profile_bbgBRd": {
+          "type": "profile",
+          "settings": {
+            "person_name": "SOPHIA T.",
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_5.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_6.png"
+          }
+        },
+        "profile_TyzdzQ": {
+          "type": "profile",
+          "settings": {
+            "person_name": "NEELAM S.",
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png"
+          }
+        },
+        "stat_ETKGJE": {
+          "type": "stat",
+          "settings": {
+            "percent": "100%",
+            "text": "100% of clinical participants reported whiter teeth after only 6 treatments."
+          }
+        },
+        "stat_WDyFBB": {
+          "type": "stat",
+          "settings": {
+            "percent": "74%",
+            "text": "Clinical participants reported, on average, a 74% increase in teeth brightness."
+          }
+        },
+        "stat_jx3cyR": {
+          "type": "stat",
+          "settings": {
+            "percent": "0%",
+            "text": "0% of clinical participants reported an increase in sensitivity after whitening."
+          }
+        }
+      },
+      "block_order": [
+        "profile_8JMmJK",
+        "profile_bbgBRd",
+        "profile_TyzdzQ",
+        "stat_ETKGJE",
+        "stat_WDyFBB",
+        "stat_jx3cyR"
+      ],
+      "name": "Transformational Results",
+      "settings": {
+        "heading": "Transformational Results"
+      }
+    }
+  },
+  "order": [
+    "transformational_results_ddRMfc"
+  ]
+}
