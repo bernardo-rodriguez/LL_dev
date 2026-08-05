@@ -141,30 +141,33 @@
   </section>
 {% endif %}
 
-{% if section.settings.layout != 'list' %}
+{%- comment -%}
+  The javascript tag must stay at the top level of a section file — wrapping it
+  in a conditional makes Shopify reject the whole file with "Unknown tag".
+  The carousel only exists in the non-list layout, so guard on the element instead.
+{%- endcomment -%}
 {% javascript %}
-  const benefitsSwiper = new Swiper('.benefit__card-carousel', {
-    slidesPerView: 1.25,
-    spaceBetween: 12,
-    observer: true,
-    navigation: {
-      nextEl: '.benefit-next',
-      prevEl: '.benefit-prev',
-    },
-    breakpoints: {
-      768: {
-        slidesPerView: 1.75,
-        spaceBetween: 20,
+  (function () {
+    var carousel = document.querySelector('.benefit__card-carousel');
+    if (!carousel || typeof Swiper === 'undefined') return;
+
+    new Swiper(carousel, {
+      slidesPerView: 1.25,
+      spaceBetween: 12,
+      observer: true,
+      navigation: {
+        nextEl: '.benefit-next',
+        prevEl: '.benefit-prev',
       },
-    },
-    on: {
-      observerUpdate: function(){
-        console.log('update')
-      }
-    }
-  });
+      breakpoints: {
+        768: {
+          slidesPerView: 1.75,
+          spaceBetween: 20,
+        },
+      },
+    });
+  })();
 {% endjavascript %}
-{% endif %}
 
 {% schema %}
 {
