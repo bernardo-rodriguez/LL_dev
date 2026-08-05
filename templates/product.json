@@ -20,6 +20,85 @@
         "offer_text": "LIMITED TIME OFFER: 30% OFF YOUR FIRST SUBSCRIPTION PLUS TWO FREE GIFTS"
       }
     },
+    "formula_blends_E38KV6": {
+      "type": "formula-blends",
+      "blocks": {
+        "blend_9mDc8T": {
+          "type": "blend",
+          "settings": {
+            "name": "Sensitivity Protection Blend",
+            "summary": "Keeps dentist-grade strength comfortable",
+            "ingredients": "Glycerin | hydration barrier\nHydroxyapatite | enamel shield\nAloe Vera | soothes gums"
+          }
+        },
+        "blend_wgMWR7": {
+          "type": "blend",
+          "settings": {
+            "name": "Brightness Blend",
+            "summary": "Rebuilds enamel so light reflects evenly",
+            "ingredients": "Hydroxyapatite | densifies enamel\nHydrogen Peroxide | lifts discoloration"
+          }
+        },
+        "blend_dj7YaT": {
+          "type": "blend",
+          "settings": {
+            "name": "Oral Microbiome Support Blend",
+            "summary": "Balances the bacteria that cause staining",
+            "ingredients": "Xylitol | starves bad bacteria\nPomegranate Extract | antioxidant defense\nCoconut Oil | balances the mouth"
+          }
+        },
+        "blend_pQpqnp": {
+          "type": "blend",
+          "settings": {
+            "name": "Stain Removing Blend",
+            "summary": "Lifts surface and deep-set discoloration",
+            "ingredients": "Hydrogen Peroxide | oxidizes deep stains\nCoconut Oil | sweeps surface stains"
+          }
+        },
+        "trust_DNktbM": {
+          "type": "trust",
+          "settings": {
+            "title": "Clinically Tested",
+            "text": "74% increase in brightness over 14 days"
+          }
+        },
+        "trust_faDAmR": {
+          "type": "trust",
+          "settings": {
+            "title": "Designed By Dentists",
+            "text": "Dentist-grade formulas, prescribed for you"
+          }
+        },
+        "trust_RQL98X": {
+          "type": "trust",
+          "settings": {
+            "title": "FDA-Registered Facilities",
+            "text": "Made in the USA, batch-tested for purity"
+          }
+        }
+      },
+      "block_order": [
+        "blend_9mDc8T",
+        "blend_wgMWR7",
+        "blend_dj7YaT",
+        "blend_pQpqnp",
+        "trust_DNktbM",
+        "trust_faDAmR",
+        "trust_RQL98X"
+      ],
+      "name": "Formula Blends",
+      "settings": {
+        "eyebrow": "What's Inside",
+        "heading": "An 11-ingredient formula for {your smile transformation*}",
+        "intro": "Four blends, each doing a specific job — and every formula is uniquely built to target your smile's needs.",
+        "image": "shopify://shop_images/Laughland_80136_1_1.png",
+        "show_image_mobile": false,
+        "footnote": "*Based on a clinical test of 34 participants using the kit 10 minutes daily, measured at 6 and 14 days.",
+        "first_open": true,
+        "close_others": true,
+        "margin_bottom": true
+      }
+    },
     "product-recommendations": {
       "type": "product-recommendations",
       "disabled": true,
@@ -31,6 +110,57 @@
         "show_image_outline": true,
         "show_vendor": false,
         "show_rating": false
+      }
+    },
+    "strength_comparison_gNykFW": {
+      "type": "strength-comparison",
+      "blocks": {
+        "stat_JTKMLC": {
+          "type": "stat",
+          "settings": {
+            "value": "2.2x",
+            "label": "Stronger formula"
+          }
+        },
+        "stat_KqiDyr": {
+          "type": "stat",
+          "settings": {
+            "value": "7+",
+            "label": "Shades in 6 days"
+          }
+        },
+        "stat_NB8QYg": {
+          "type": "stat",
+          "settings": {
+            "value": "10 min",
+            "label": "Daily routine"
+          }
+        }
+      },
+      "block_order": [
+        "stat_JTKMLC",
+        "stat_KqiDyr",
+        "stat_NB8QYg"
+      ],
+      "name": "Strength Comparison",
+      "settings": {
+        "eyebrow": "Why It Works Faster",
+        "heading": "2x stronger than {anything over the counter.}",
+        "body": "OTC whitening isn't strong enough for a meaningful difference. Your formula is prescribed at 14% hydrogen peroxide — the same strength professional whitening uses — so stains lift faster, and results go further.",
+        "footnote": "*Maximum prescribed concentration. SmileAI sets your strength based on sensitivity, cavity history and diet — as strong as your smile can comfortably handle.",
+        "chart_label": "Active whitening strength",
+        "chart_badge": "2.2× stronger",
+        "compare_label": "Avg. strips",
+        "compare_value": "6.5",
+        "ours_label": "Laughland",
+        "ours_value": "14",
+        "axis_suffix": "%",
+        "axis_max": "16",
+        "axis_step": "4",
+        "threshold_value": "10",
+        "threshold_label": "Dentist strength 10%+",
+        "chart_footnote": "Dentist-grade strength, prescribed to your sensitivity — with hydroxyapatite, coconut oil and aloe to keep it comfortable.",
+        "margin_bottom": true
       }
     },
     "ingredients_that_work_N67RbP": {
@@ -90,6 +220,7 @@
         "benefit_BxCKhA",
         "benefit_BLGLmP"
       ],
+      "disabled": true,
       "name": "Ingredients",
       "settings": {
         "heading": "Your Formula:",
@@ -262,6 +393,51 @@
         "review_label": "Review"
       }
     },
+    "science_effects_yCEdFb": {
+      "type": "science-effects",
+      "blocks": {
+        "effect_VrtFyb": {
+          "type": "effect",
+          "settings": {
+            "ingredient": "Hydroxyapatite",
+            "effect_short": "to boost brightness",
+            "effect_title": "Boosts brightness",
+            "science": "Hydroxyapatite is the same mineral your enamel is made of. It rebuilds and densifies the enamel surface — and denser enamel reflects light more evenly, so your teeth read visibly brighter."
+          }
+        },
+        "effect_UBdVbd": {
+          "type": "effect",
+          "settings": {
+            "ingredient": "Coconut Oil",
+            "effect_short": "for a porcelain finish",
+            "effect_title": "A porcelain finish",
+            "science": "Coconut oil binds to plaque biofilm and lifts it away from the enamel surface — polishing off the rough film that dulls teeth and leaving a smooth, glass-like porcelain finish."
+          }
+        },
+        "effect_c9FihQ": {
+          "type": "effect",
+          "settings": {
+            "ingredient": "Hydrogen Peroxide",
+            "effect_short": "for deep whitening",
+            "effect_title": "Deep whitening",
+            "science": "Hydrogen peroxide penetrates porous enamel and oxidizes stain molecules, breaking the bonds that hold their color — lifting the deepest coffee, wine and tobacco stains from the inside out."
+          }
+        }
+      },
+      "block_order": [
+        "effect_VrtFyb",
+        "effect_UBdVbd",
+        "effect_c9FihQ"
+      ],
+      "name": "Science Effects",
+      "settings": {
+        "eyebrow": "The Science",
+        "heading": "More than {\"whitening\"}",
+        "intro": "Generic whitening stops at whitening. Yours is built to brighten, polish and whiten at once. Select an ingredient to see the science.",
+        "panel_label": "The Science",
+        "margin_bottom": true
+      }
+    },
     "transformational_results_ddRMfc": {
       "type": "transformational-results",
       "blocks": {
@@ -403,6 +579,7 @@
       ],
       "disabled": true,
       "settings": {
+        "layout": "carousel",
         "heading": "Ingredients That Work {For You}",
         "text": "Clinically tested ingredients backed by science.",
         "margin_bottom": true
@@ -574,12 +751,15 @@
   },
   "order": [
     "main",
+    "formula_blends_E38KV6",
     "product-recommendations",
+    "strength_comparison_gNykFW",
     "ingredients_that_work_N67RbP",
     "multi_slide_carousel_rc9KtU",
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
     "1c8af4c9-5992-4bfb-9d4a-a8e06e025318",
     "transformational_results_ddRMfc",
+    "science_effects_yCEdFb",
     "health_and_safety_7jXKQb",
     "30a71a58-b5ad-472f-9d70-97379fc62b74",
     "d7a83216-e232-4258-9705-5edf54558f0b",
