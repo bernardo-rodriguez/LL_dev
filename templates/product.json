@@ -6,6 +6,10 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
+ *
+ * Touched to force a Shopify GitHub re-sync: this template was
+ * absent from the LL_dev/claude-pdp theme, so every product on
+ * the default template returned a 404.
  */
 {
   "sections": {
