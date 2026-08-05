@@ -1,0 +1,319 @@
+{{ 'section-strength-comparison.css' | asset_url | stylesheet_tag }}
+
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+
+{%- liquid
+  assign axis_max = section.settings.axis_max | plus: 0
+  if axis_max <= 0
+    assign axis_max = 16
+  endif
+  assign axis_step = section.settings.axis_step | plus: 0
+  if axis_step <= 0
+    assign axis_step = 4
+  endif
+
+  assign compare_value = section.settings.compare_value | plus: 0.0
+  assign ours_value = section.settings.ours_value | plus: 0.0
+  assign threshold_value = section.settings.threshold_value | plus: 0.0
+
+  assign compare_pct = compare_value | times: 100.0 | divided_by: axis_max
+  assign ours_pct = ours_value | times: 100.0 | divided_by: axis_max
+  assign threshold_pct = threshold_value | times: 100.0 | divided_by: axis_max
+
+  assign tick_count = axis_max | divided_by: axis_step
+  assign stat_blocks = section.blocks | where: 'type', 'stat'
+-%}
+
+<section
+  class="strength-comparison {% if section.settings.margin_bottom %}strength-comparison--with-spacing{% endif %}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
+    <div class="strength-comparison__inner">
+      <div class="strength-comparison__columns">
+        {%- comment -%} Left column: eyebrow, heading, body, stats, footnote {%- endcomment -%}
+        <div class="strength-comparison__content">
+          {% if section.settings.eyebrow != blank %}
+            <p class="strength-comparison__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+          {% endif %}
+
+          {% if section.settings.heading != blank %}
+            <h3 class="strength-comparison__heading">{{ formatted_heading }}</h3>
+          {% endif %}
+
+          {% if section.settings.body != blank %}
+            <p class="strength-comparison__body sh2">{{ section.settings.body }}</p>
+          {% endif %}
+
+          {% if stat_blocks.size > 0 %}
+            <div class="strength-comparison__stats">
+              {% for block in stat_blocks %}
+                <div class="strength-comparison__stat" {{ block.shopify_attributes }}>
+                  {% if block.settings.value != blank %}
+                    <span class="strength-comparison__stat-value stylized">{{ block.settings.value }}</span>
+                  {% endif %}
+                  {% if block.settings.label != blank %}
+                    <span class="strength-comparison__stat-label label-sm">{{ block.settings.label }}</span>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          {% if section.settings.footnote != blank %}
+            <p class="strength-comparison__footnote body-xs">{{ section.settings.footnote }}</p>
+          {% endif %}
+        </div>
+
+        {%- comment -%} Right column: comparison chart {%- endcomment -%}
+        <div class="strength-comparison__chart-card">
+          <div class="strength-comparison__chart-header">
+            <div class="strength-comparison__chart-title-group">
+              {% if section.settings.chart_label != blank %}
+                <span class="strength-comparison__chart-label label-sm">{{ section.settings.chart_label }}</span>
+              {% endif %}
+              {% if section.settings.chart_badge != blank %}
+                <span class="strength-comparison__chart-badge">{{ section.settings.chart_badge }}</span>
+              {% endif %}
+            </div>
+            <div class="strength-comparison__legend">
+              <span class="strength-comparison__legend-item body-sm">
+                <span class="strength-comparison__legend-swatch strength-comparison__legend-swatch--compare"></span>
+                {{ section.settings.compare_label }}
+              </span>
+              <span class="strength-comparison__legend-item body-sm">
+                <span class="strength-comparison__legend-swatch strength-comparison__legend-swatch--ours"></span>
+                {{ section.settings.ours_label }}
+              </span>
+            </div>
+          </div>
+
+          <div class="strength-comparison__chart">
+            <div class="strength-comparison__plot">
+              {%- comment -%} Gridlines + axis labels, generated from the axis range {%- endcomment -%}
+              {% for i in (0..tick_count) %}
+                {% assign tick_value = i | times: axis_step %}
+                {% assign tick_pct = tick_value | times: 100.0 | divided_by: axis_max %}
+                <div
+                  class="strength-comparison__gridline {% if i == 0 %}strength-comparison__gridline--base{% elsif i == tick_count %}strength-comparison__gridline--top{% endif %}"
+                  style="bottom: {{ tick_pct }}%;"
+                >
+                  <span class="strength-comparison__axis-label">{{ tick_value }}{{ section.settings.axis_suffix }}</span>
+                </div>
+              {% endfor %}
+
+              {% if threshold_value > 0 %}
+                <div class="strength-comparison__threshold" style="bottom: {{ threshold_pct }}%;">
+                  {% if section.settings.threshold_label != blank %}
+                    <span class="strength-comparison__threshold-label">{{ section.settings.threshold_label }}</span>
+                  {% endif %}
+                </div>
+              {% endif %}
+
+              <div class="strength-comparison__bars">
+                <div class="strength-comparison__bar-col">
+                  <div
+                    class="strength-comparison__bar strength-comparison__bar--compare"
+                    style="height: {{ compare_pct }}%;"
+                  >
+                    <span class="strength-comparison__bar-value">{{ section.settings.compare_value }}{{ section.settings.axis_suffix }}</span>
+                  </div>
+                  <span class="strength-comparison__bar-caption body-sm">{{ section.settings.compare_label }}</span>
+                </div>
+                <div class="strength-comparison__bar-col">
+                  <div
+                    class="strength-comparison__bar strength-comparison__bar--ours"
+                    style="height: {{ ours_pct }}%;"
+                  >
+                    <span class="strength-comparison__bar-value">{{ section.settings.ours_value }}{{ section.settings.axis_suffix }}</span>
+                  </div>
+                  <span class="strength-comparison__bar-caption strength-comparison__bar-caption--ours body-sm">{{ section.settings.ours_label }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {% if section.settings.chart_footnote != blank %}
+            <p class="strength-comparison__chart-footnote body-xs">{{ section.settings.chart_footnote }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Strength Comparison",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Why It Works Faster"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "2x stronger than {anything over the counter.}",
+      "info": "Wrap emphasized text in {} for the italic Canela style"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body paragraph",
+      "default": "OTC whitening isn't strong enough for a meaningful difference. Your formula is prescribed at 14% hydrogen peroxide — the same strength professional whitening uses — so stains lift faster, and results go further."
+    },
+    {
+      "type": "textarea",
+      "id": "footnote",
+      "label": "Footnote",
+      "default": "*Maximum prescribed concentration. SmileAI sets your strength based on sensitivity, cavity history and diet — as strong as your smile can comfortably handle."
+    },
+    {
+      "type": "header",
+      "content": "Comparison chart"
+    },
+    {
+      "type": "text",
+      "id": "chart_label",
+      "label": "Chart label",
+      "default": "Active whitening strength"
+    },
+    {
+      "type": "text",
+      "id": "chart_badge",
+      "label": "Chart badge",
+      "default": "2.2× stronger",
+      "info": "Leave blank to hide"
+    },
+    {
+      "type": "text",
+      "id": "compare_label",
+      "label": "Comparison bar label",
+      "default": "Avg. strips"
+    },
+    {
+      "type": "text",
+      "id": "compare_value",
+      "label": "Comparison bar value",
+      "default": "6.5"
+    },
+    {
+      "type": "text",
+      "id": "ours_label",
+      "label": "Laughland bar label",
+      "default": "Laughland"
+    },
+    {
+      "type": "text",
+      "id": "ours_value",
+      "label": "Laughland bar value",
+      "default": "14"
+    },
+    {
+      "type": "text",
+      "id": "axis_suffix",
+      "label": "Value suffix",
+      "default": "%"
+    },
+    {
+      "type": "text",
+      "id": "axis_max",
+      "label": "Axis maximum",
+      "default": "16",
+      "info": "Top of the chart. Bar heights are calculated from this."
+    },
+    {
+      "type": "text",
+      "id": "axis_step",
+      "label": "Axis step",
+      "default": "4",
+      "info": "Spacing between gridlines"
+    },
+    {
+      "type": "text",
+      "id": "threshold_value",
+      "label": "Threshold line value",
+      "default": "10",
+      "info": "Set to 0 to hide the dashed threshold line"
+    },
+    {
+      "type": "text",
+      "id": "threshold_label",
+      "label": "Threshold line label",
+      "default": "Dentist strength 10%+"
+    },
+    {
+      "type": "textarea",
+      "id": "chart_footnote",
+      "label": "Chart footnote",
+      "default": "Dentist-grade strength, prescribed to your sensitivity — with hydroxyapatite, coconut oil and aloe to keep it comfortable."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "margin_bottom",
+      "label": "Margin bottom",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Statistic",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "2.2x"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Stronger formula"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Strength Comparison",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "value": "2.2x",
+            "label": "Stronger formula"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "value": "7+",
+            "label": "Shades in 6 days"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "value": "10 min",
+            "label": "Daily routine"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

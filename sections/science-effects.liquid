@@ -1,0 +1,313 @@
+{{ 'section-science-effects.css' | asset_url | stylesheet_tag }}
+
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+
+{% assign effect_blocks = section.blocks | where: 'type', 'effect' %}
+
+<section
+  class="science-effects {% if section.settings.margin_bottom %}science-effects--with-spacing{% endif %}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
+    <div class="science-effects__inner">
+      {% if section.settings.eyebrow != blank %}
+        <p class="science-effects__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h3 class="science-effects__heading">{{ formatted_heading }}</h3>
+      {% endif %}
+
+      {% if section.settings.intro != blank %}
+        <p class="science-effects__intro sh2">{{ section.settings.intro }}</p>
+      {% endif %}
+
+      {% if effect_blocks.size > 0 %}
+        <div class="science-effects__diagram" data-science-diagram>
+          <div class="science-effects__glow" aria-hidden="true"></div>
+          <div class="science-effects__ring science-effects__ring--inner" aria-hidden="true"></div>
+          <div class="science-effects__ring science-effects__ring--outer" aria-hidden="true"></div>
+
+          <div class="science-effects__image">
+            {% if section.settings.image != blank %}
+              <img
+                src="{{ section.settings.image | image_url: width: 640 }}"
+                srcset="
+                  {{ section.settings.image | image_url: width: 320 }} 320w,
+                  {{ section.settings.image | image_url: width: 640 }} 640w,
+                  {{ section.settings.image | image_url: width: 960 }} 960w
+                "
+                sizes="(min-width: 769px) 320px, 232px"
+                alt="{{ section.settings.image.alt | default: section.settings.heading | strip_html | escape }}"
+                width="{{ section.settings.image.width }}"
+                height="{{ section.settings.image.height }}"
+                loading="lazy"
+              >
+            {% else %}
+              <img
+                src="{{ 'science-tooth.png' | asset_url }}"
+                alt="{{ section.settings.heading | strip_html | escape }}"
+                width="1024"
+                height="1236"
+                loading="lazy"
+              >
+            {% endif %}
+          </div>
+
+          <div class="science-effects__nodes" data-science-nodes>
+            {% for block in effect_blocks %}
+              <div class="science-effects__node" {{ block.shopify_attributes }}>
+                <button
+                  type="button"
+                  class="science-effects__node-button"
+                  data-science-open="{{ forloop.index0 }}"
+                  aria-expanded="false"
+                >
+                  <span class="science-effects__node-text">
+                    {% if block.settings.ingredient != blank %}
+                      <span class="science-effects__node-ingredient">{{ block.settings.ingredient }}</span>
+                    {% endif %}
+                    {% if block.settings.effect_short != blank %}
+                      <span class="science-effects__node-effect stylized">{{ block.settings.effect_short }}</span>
+                    {% endif %}
+                  </span>
+                  <span class="science-effects__node-marker" aria-hidden="true">+</span>
+                  <span class="science-effects__node-line" aria-hidden="true"></span>
+                </button>
+              </div>
+            {% endfor %}
+          </div>
+
+          {%- comment -%} Frosted detail panels, one per effect {%- endcomment -%}
+          {% for block in effect_blocks %}
+            <div
+              class="science-effects__panel"
+              data-science-panel="{{ forloop.index0 }}"
+              hidden
+            >
+              <div class="science-effects__panel-head">
+                <span class="science-effects__panel-index label-sm">
+                  {{ section.settings.panel_label }}&nbsp;/&nbsp;{{ forloop.index | prepend: '0' | slice: -2, 2 }}
+                </span>
+                <button
+                  type="button"
+                  class="science-effects__panel-close"
+                  data-science-close
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&#10005;</span>
+                </button>
+              </div>
+              {% if block.settings.ingredient != blank %}
+                <p class="science-effects__panel-ingredient">{{ block.settings.ingredient }}</p>
+              {% endif %}
+              {% if block.settings.effect_title != blank %}
+                <p class="science-effects__panel-effect stylized">{{ block.settings.effect_title }}</p>
+              {% endif %}
+              {% if block.settings.science != blank %}
+                <p class="science-effects__panel-body sh3">{{ block.settings.science }}</p>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var section = document.querySelector('.science-effects[data-section-id="{{ section.id }}"]');
+    if (!section) return;
+
+    var diagram = section.querySelector('[data-science-diagram]');
+    var nodesWrap = section.querySelector('[data-science-nodes]');
+    if (!diagram || !nodesWrap) return;
+
+    var triggers = diagram.querySelectorAll('[data-science-open]');
+    var panels = diagram.querySelectorAll('[data-science-panel]');
+    var closeTimer = null;
+
+    function close() {
+      diagram.classList.remove('science-effects__diagram--active');
+      for (var i = 0; i < panels.length; i++) panels[i].hidden = true;
+      for (var j = 0; j < triggers.length; j++) triggers[j].setAttribute('aria-expanded', 'false');
+    }
+
+    function open(index) {
+      clearTimeout(closeTimer);
+      close();
+      var panel = diagram.querySelector('[data-science-panel="' + index + '"]');
+      var trigger = diagram.querySelector('[data-science-open="' + index + '"]');
+      if (!panel) return;
+      panel.hidden = false;
+      diagram.classList.add('science-effects__diagram--active');
+      if (trigger) trigger.setAttribute('aria-expanded', 'true');
+    }
+
+    function isDesktopHover() {
+      return window.matchMedia('(min-width: 769px) and (hover: hover)').matches;
+    }
+
+    for (var i = 0; i < triggers.length; i++) {
+      (function (trigger) {
+        var index = trigger.getAttribute('data-science-open');
+        trigger.addEventListener('click', function () {
+          if (trigger.getAttribute('aria-expanded') === 'true') {
+            close();
+          } else {
+            open(index);
+          }
+        });
+        trigger.addEventListener('mouseenter', function () {
+          if (isDesktopHover()) open(index);
+        });
+        trigger.addEventListener('focus', function () {
+          open(index);
+        });
+      })(triggers[i]);
+    }
+
+    for (var k = 0; k < panels.length; k++) {
+      panels[k].addEventListener('mouseenter', function () {
+        clearTimeout(closeTimer);
+      });
+    }
+
+    var closeButtons = diagram.querySelectorAll('[data-science-close]');
+    for (var m = 0; m < closeButtons.length; m++) {
+      closeButtons[m].addEventListener('click', close);
+    }
+
+    diagram.addEventListener('mouseleave', function () {
+      if (!isDesktopHover()) return;
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(close, 250);
+    });
+
+    section.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') close();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Science Effects",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "The Science"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "More than {\"whitening\"}",
+      "info": "Wrap emphasized text in {} for the italic Canela style"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro paragraph",
+      "default": "Generic whitening stops at whitening. Yours is built to brighten, polish and whiten at once. Select an ingredient to see the science."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Centre image",
+      "info": "Defaults to the packaged tooth image if left empty"
+    },
+    {
+      "type": "text",
+      "id": "panel_label",
+      "label": "Detail panel label",
+      "default": "The Science"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "margin_bottom",
+      "label": "Margin bottom",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "effect",
+      "name": "Effect",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "ingredient",
+          "label": "Ingredient",
+          "default": "Hydroxyapatite"
+        },
+        {
+          "type": "text",
+          "id": "effect_short",
+          "label": "Short effect (on the diagram)",
+          "default": "to boost brightness"
+        },
+        {
+          "type": "text",
+          "id": "effect_title",
+          "label": "Effect title (in the detail panel)",
+          "default": "Boosts brightness"
+        },
+        {
+          "type": "textarea",
+          "id": "science",
+          "label": "The science",
+          "default": "Hydroxyapatite is the same mineral your enamel is made of. It rebuilds and densifies the enamel surface — and denser enamel reflects light more evenly, so your teeth read visibly brighter."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Science Effects",
+      "blocks": [
+        {
+          "type": "effect",
+          "settings": {
+            "ingredient": "Hydroxyapatite",
+            "effect_short": "to boost brightness",
+            "effect_title": "Boosts brightness",
+            "science": "Hydroxyapatite is the same mineral your enamel is made of. It rebuilds and densifies the enamel surface — and denser enamel reflects light more evenly, so your teeth read visibly brighter."
+          }
+        },
+        {
+          "type": "effect",
+          "settings": {
+            "ingredient": "Coconut Oil",
+            "effect_short": "for a porcelain finish",
+            "effect_title": "A porcelain finish",
+            "science": "Coconut oil binds to plaque biofilm and lifts it away from the enamel surface — polishing off the rough film that dulls teeth and leaving a smooth, glass-like porcelain finish."
+          }
+        },
+        {
+          "type": "effect",
+          "settings": {
+            "ingredient": "Hydrogen Peroxide",
+            "effect_short": "for deep whitening",
+            "effect_title": "Deep whitening",
+            "science": "Hydrogen peroxide penetrates porous enamel and oxidizes stain molecules, breaking the bonds that hold their color — lifting the deepest coffee, wine and tobacco stains from the inside out."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

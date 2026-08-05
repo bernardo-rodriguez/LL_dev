@@ -1,0 +1,543 @@
+/* Science Effects - navy panel with a centred product image and orbiting ingredient nodes */
+
+.science-effects {
+  background: var(--navy);
+  color: var(--cream);
+}
+
+.science-effects__inner {
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.science-effects--with-spacing .science-effects__inner {
+  padding-bottom: 60px;
+}
+
+.science-effects__eyebrow {
+  margin: 0 0 12px;
+  color: var(--blue);
+  text-align: center;
+}
+
+.science-effects__heading {
+  margin: 0 0 16px;
+  color: var(--cream);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: var(--ds-line-height);
+  letter-spacing: -0.015em;
+  text-align: center;
+  text-transform: none;
+}
+
+body.template-product .science-effects__heading {
+  letter-spacing: -0.015em !important;
+}
+
+.science-effects__intro {
+  margin: 0;
+  max-width: 560px;
+  color: var(--blue-tint-40);
+  text-align: center;
+}
+
+/* Diagram */
+.science-effects__diagram {
+  position: relative;
+  width: 100%;
+  height: 540px;
+  margin-top: 20px;
+}
+
+.science-effects__glow,
+.science-effects__ring {
+  position: absolute;
+  left: 50%;
+  top: 44%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.science-effects__glow {
+  width: 330px;
+  height: 330px;
+  background: radial-gradient(
+    circle,
+    rgba(70, 189, 240, 0.32) 0%,
+    rgba(70, 189, 240, 0.1) 45%,
+    rgba(13, 34, 68, 0) 70%
+  );
+}
+
+.science-effects__ring--inner {
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(196, 233, 255, 0.18);
+}
+
+.science-effects__ring--outer {
+  width: 350px;
+  height: 350px;
+  border: 1px dashed rgba(196, 233, 255, 0.12);
+}
+
+.science-effects__image {
+  position: absolute;
+  left: 50%;
+  top: 44%;
+  transform: translate(-50%, -52%);
+  width: 232px;
+  height: 280px;
+  pointer-events: none;
+}
+
+.science-effects__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 46px rgba(70, 189, 240, 0.45));
+}
+
+.science-effects__nodes {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.3s ease;
+}
+
+.science-effects__diagram--active .science-effects__nodes {
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.science-effects__node {
+  position: absolute;
+}
+
+.science-effects__node-button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-height: 44px;
+  max-width: 150px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--ds-font-family);
+}
+
+.science-effects__node-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.science-effects__node-ingredient {
+  font-family: var(--ds-font-family);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--blue-tint-40);
+}
+
+.science-effects__node-effect {
+  font-size: 19px;
+  line-height: 1.2;
+  color: var(--cream);
+  white-space: normal;
+  margin-right: 0;
+}
+
+.science-effects__node-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  font-size: 18px;
+  line-height: 1;
+  animation: scienceNodePulse 3s ease-in-out infinite;
+}
+
+.science-effects__node-line {
+  position: absolute;
+  height: 1px;
+  pointer-events: none;
+}
+
+/* Mobile node placement: 1 top-left, 2 top-right, 3 bottom-centre, 4 mid-left */
+.science-effects__node:nth-child(1) {
+  left: 0;
+  top: 0;
+}
+
+.science-effects__node:nth-child(1) .science-effects__node-line {
+  left: 40px;
+  top: 90px;
+  width: 70px;
+  background: linear-gradient(90deg, rgba(70, 189, 240, 0.8), rgba(70, 189, 240, 0));
+  transform: rotate(38deg);
+  transform-origin: left center;
+}
+
+.science-effects__node:nth-child(2) {
+  right: 0;
+  top: 44px;
+}
+
+.science-effects__node:nth-child(2) .science-effects__node-button {
+  align-items: flex-end;
+  text-align: right;
+  margin-left: auto;
+}
+
+.science-effects__node:nth-child(2) .science-effects__node-text {
+  text-align: right;
+}
+
+.science-effects__node:nth-child(2) .science-effects__node-marker {
+  animation-delay: 1s;
+}
+
+.science-effects__node:nth-child(2) .science-effects__node-line {
+  right: 40px;
+  top: 90px;
+  width: 60px;
+  background: linear-gradient(270deg, rgba(70, 189, 240, 0.8), rgba(70, 189, 240, 0));
+  transform: rotate(-34deg);
+  transform-origin: right center;
+}
+
+.science-effects__node:nth-child(3) {
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+.science-effects__node:nth-child(3) .science-effects__node-button {
+  align-items: center;
+  text-align: center;
+  flex-direction: column-reverse;
+}
+
+.science-effects__node:nth-child(3) .science-effects__node-text {
+  text-align: center;
+}
+
+.science-effects__node:nth-child(3) .science-effects__node-marker {
+  animation-delay: 2s;
+}
+
+.science-effects__node:nth-child(3) .science-effects__node-line {
+  left: 50%;
+  bottom: 100%;
+  width: 1px;
+  height: 46px;
+  margin-bottom: 8px;
+  background: linear-gradient(0deg, rgba(70, 189, 240, 0.8), rgba(70, 189, 240, 0));
+}
+
+.science-effects__node:nth-child(4) {
+  left: 0;
+  bottom: 90px;
+}
+
+.science-effects__node:nth-child(4) .science-effects__node-marker {
+  animation-delay: 1.5s;
+}
+
+/* Detail panel */
+.science-effects__panel {
+  position: absolute;
+  left: 50%;
+  top: 44%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  width: calc(100% - 8px);
+  max-width: 400px;
+  box-sizing: border-box;
+  padding: 30px 28px 34px;
+  background: rgba(13, 34, 68, 0.9);
+  border: 1px solid rgba(196, 233, 255, 0.35);
+  backdrop-filter: blur(22px) saturate(1.3);
+  -webkit-backdrop-filter: blur(22px) saturate(1.3);
+}
+
+.science-effects__panel[hidden] {
+  display: none;
+}
+
+.science-effects__panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.science-effects__panel-index {
+  color: var(--blue);
+}
+
+.science-effects__panel-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  padding: 0;
+  border: 1px solid rgba(196, 233, 255, 0.4);
+  border-radius: 50%;
+  background: none;
+  color: var(--blue-tint-40);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.science-effects__panel-ingredient {
+  margin: 0 0 4px;
+  font-family: var(--ds-font-family);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--blue-tint-40);
+}
+
+.science-effects__panel-effect {
+  margin: 0 0 14px;
+  font-size: 27px;
+  line-height: 1.2;
+  color: var(--cream);
+  white-space: normal;
+}
+
+.science-effects__panel-body {
+  margin: 0;
+  color: var(--blue-tint-40);
+}
+
+@keyframes scienceNodePulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(70, 189, 240, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(70, 189, 240, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .science-effects__node-marker {
+    animation: none;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 769px) {
+  .science-effects__inner {
+    padding: 80px 0;
+  }
+
+  .science-effects--with-spacing .science-effects__inner {
+    padding-bottom: 100px;
+  }
+
+  .science-effects__heading {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .science-effects__diagram {
+    max-width: 1080px;
+    height: 620px;
+    top: 0;
+  }
+
+  .science-effects__glow,
+  .science-effects__ring,
+  .science-effects__image,
+  .science-effects__panel {
+    top: 50%;
+  }
+
+  .science-effects__glow {
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(
+      circle,
+      rgba(70, 189, 240, 0.3) 0%,
+      rgba(70, 189, 240, 0.09) 45%,
+      rgba(13, 34, 68, 0) 70%
+    );
+  }
+
+  .science-effects__ring--inner {
+    width: 430px;
+    height: 430px;
+  }
+
+  .science-effects__ring--outer {
+    width: 540px;
+    height: 540px;
+  }
+
+  .science-effects__image {
+    width: 320px;
+    height: 386px;
+  }
+
+  .science-effects__image img {
+    filter: drop-shadow(0 0 60px rgba(70, 189, 240, 0.45));
+  }
+
+  /* Desktop nodes read horizontally: text, marker, connector line */
+  .science-effects__node-button {
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+    max-width: none;
+  }
+
+  .science-effects__node-ingredient {
+    font-size: 11px;
+  }
+
+  .science-effects__node-effect {
+    font-size: 28px;
+  }
+
+  .science-effects__node-marker {
+    width: 42px;
+    height: 42px;
+    font-size: 21px;
+  }
+
+  .science-effects__node-line {
+    position: static;
+    width: 130px;
+    flex-shrink: 0;
+    transform: none;
+  }
+
+  /* Node 1 - left, upper */
+  .science-effects__node:nth-child(1) {
+    left: 0;
+    top: 60px;
+  }
+
+  .science-effects__node:nth-child(1) .science-effects__node-text {
+    text-align: right;
+  }
+
+  .science-effects__node:nth-child(1) .science-effects__node-button {
+    align-items: center;
+  }
+
+  .science-effects__node:nth-child(1) .science-effects__node-line {
+    background: linear-gradient(90deg, rgba(70, 189, 240, 0.85), rgba(70, 189, 240, 0));
+  }
+
+  /* Node 2 - right, middle. Line first, then marker, then text */
+  .science-effects__node:nth-child(2) {
+    left: auto;
+    right: 0;
+    top: 240px;
+  }
+
+  .science-effects__node:nth-child(2) .science-effects__node-button {
+    flex-direction: row-reverse;
+    align-items: center;
+    text-align: left;
+  }
+
+  .science-effects__node:nth-child(2) .science-effects__node-text {
+    text-align: left;
+  }
+
+  .science-effects__node:nth-child(2) .science-effects__node-line {
+    background: linear-gradient(270deg, rgba(70, 189, 240, 0.85), rgba(70, 189, 240, 0));
+  }
+
+  /* Node 3 - left, lower. Connector angles up toward the image */
+  .science-effects__node:nth-child(3) {
+    left: 90px;
+    bottom: 40px;
+    transform: none;
+  }
+
+  .science-effects__node:nth-child(3) .science-effects__node-button {
+    flex-direction: row;
+    align-items: center;
+    text-align: right;
+  }
+
+  .science-effects__node:nth-child(3) .science-effects__node-text {
+    text-align: right;
+  }
+
+  .science-effects__node:nth-child(3) .science-effects__node-line {
+    width: 120px;
+    height: 1px;
+    margin: 0;
+    background: linear-gradient(90deg, rgba(70, 189, 240, 0.85), rgba(70, 189, 240, 0));
+    transform: rotate(-26deg);
+    transform-origin: left center;
+  }
+
+  /* Node 4 - right, lower */
+  .science-effects__node:nth-child(4) {
+    left: auto;
+    right: 60px;
+    bottom: 60px;
+  }
+
+  .science-effects__node:nth-child(4) .science-effects__node-button {
+    flex-direction: row-reverse;
+  }
+
+  .science-effects__node:nth-child(4) .science-effects__node-line {
+    background: linear-gradient(270deg, rgba(70, 189, 240, 0.85), rgba(70, 189, 240, 0));
+  }
+
+  .science-effects__panel {
+    width: min(520px, calc(100% - 400px));
+    min-width: 340px;
+    padding: 40px 44px 46px;
+  }
+
+  .science-effects__panel-head {
+    margin-bottom: 22px;
+  }
+
+  .science-effects__panel-close {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .science-effects__panel-ingredient {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .science-effects__panel-effect {
+    font-size: 34px;
+    margin-bottom: 16px;
+  }
+}
