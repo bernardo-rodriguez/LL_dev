@@ -84,7 +84,12 @@ xhttp.send();
               Your Whitening Formula
             {% endif %}          
           </dt>
-          <dd class="label" style='font-weight: 500; text-transform: none; margin-inline-start: 0' data-formula-type>
+          {%- comment -%}
+            .sh3 to match the body copy in the new PDP sections (16px desktop /
+            14px mobile, weight 500). Sets no colour, so this keeps inheriting
+            --navy exactly as it did under .label.
+          {%- endcomment -%}
+          <dd class="sh3" style='margin-inline-start: 0' data-formula-type>
             {% comment %}
               {{
                 product.selected_or_first_available_variant.metafields.custom.formula_details
