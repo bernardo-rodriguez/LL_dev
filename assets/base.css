@@ -1850,12 +1850,6 @@ body.template-product .jdgm-rev-widg {
   padding-top: 60px;
 }
 
-@media screen and (min-width: 769px) {
-  body.template-product .jdgm-rev-widg {
-    padding-top: 100px;
-  }
-}
-
 .jdgm-widget {
   margin-bottom: 100px;
   font-family: manrope, sans-serif;
