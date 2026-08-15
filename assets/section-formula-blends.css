@@ -53,7 +53,8 @@ body.template-product .formula-blends__heading {
 
 .formula-blends__intro {
   margin: 0 0 24px;
-  color: var(--navy-tint-80);
+  /* Full navy, matching .strength-comparison__body and the formula line */
+  color: var(--navy);
 }
 
 /* Accordion */
