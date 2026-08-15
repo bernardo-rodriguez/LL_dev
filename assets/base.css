@@ -1840,6 +1840,22 @@ deferred-media {
   padding-top: 0;
 }
 
+/*
+  Product page: the reset above strips Judge.me's own top spacing, which left
+  the review widget flush against the full-bleed section above it. Higher
+  specificity than the reset, and matches whether or not the widget is wrapped
+  in .shopify-app-block.
+*/
+body.template-product .jdgm-rev-widg {
+  padding-top: 60px;
+}
+
+@media screen and (min-width: 769px) {
+  body.template-product .jdgm-rev-widg {
+    padding-top: 100px;
+  }
+}
+
 .jdgm-widget {
   margin-bottom: 100px;
   font-family: manrope, sans-serif;
@@ -2478,14 +2494,6 @@ section.with-spacing {
   justify-content: center;
   text-align: center;
   row-gap: 5px;
-  /* Breathing room when this sits directly under a full-bleed section */
-  padding-top: 60px;
-}
-
-@media screen and (min-width: 769px) {
-  .stars {
-    padding-top: 100px;
-  }
 }
 
 .stars__average-rating {
