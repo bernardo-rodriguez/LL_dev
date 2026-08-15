@@ -52,9 +52,29 @@
 
           {% if blend_blocks.size > 0 %}
             <div class="formula-blends__list">
-              {% for block in blend_blocks %}
+              {%- comment -%}
+                Blocks are flat in Shopify, so ingredients are grouped by position:
+                each "ingredient" block belongs to the "blend" block above it.
+              {%- endcomment -%}
+              {% assign blend_index = 0 %}
+              {% for block in section.blocks %}
+                {% if block.type != 'blend' %}
+                  {% continue %}
+                {% endif %}
+                {% assign blend_index = blend_index | plus: 1 %}
+
+                {%- comment -%} Count the ingredient blocks that directly follow this blend {%- endcomment -%}
+                {% assign ingredient_count = 0 %}
+                {% for ing in section.blocks offset: forloop.index %}
+                  {% unless ing.type == 'ingredient' %}
+                    {% break %}
+                  {% endunless %}
+                  {% assign ingredient_count = ingredient_count | plus: 1 %}
+                {% endfor %}
+                {% assign ingredients_start = forloop.index %}
+
                 {% assign is_open = false %}
-                {% if section.settings.first_open and forloop.first %}
+                {% if section.settings.first_open and blend_index == 1 %}
                   {% assign is_open = true %}
                 {% endif %}
                 {% assign panel_id = 'FormulaBlend-' | append: section.id | append: '-' | append: block.id %}
@@ -67,7 +87,7 @@
                     aria-controls="{{ panel_id }}"
                   >
                     <span class="formula-blends__item-number label-sm">
-                      {{ forloop.index | prepend: '0' | slice: -2, 2 }}
+                      {{ blend_index | prepend: '0' | slice: -2, 2 }}
                     </span>
                     <span class="formula-blends__item-titles">
                       {% if block.settings.name != blank %}
@@ -80,22 +100,56 @@
                     <span class="formula-blends__item-toggle" aria-hidden="true"></span>
                   </button>
 
-                  {% if block.settings.ingredients != blank %}
+                  {% if ingredient_count > 0 or block.settings.ingredients != blank %}
                     <div class="formula-blends__item-panel" id="{{ panel_id }}" {% unless is_open %}hidden{% endunless %}>
                       <div class="formula-blends__ingredients">
-                        {% assign ingredient_lines = block.settings.ingredients | newline_to_br | split: '<br />' %}
-                        {% for line in ingredient_lines %}
-                          {% assign trimmed = line | strip %}
-                          {% if trimmed != blank %}
-                            {% assign parts = trimmed | split: '|' %}
-                            <div class="formula-blends__ingredient">
-                              <span class="formula-blends__ingredient-name sh3">{{ parts[0] | strip }}</span>
-                              {% if parts.size > 1 %}
-                                <span class="formula-blends__ingredient-role stylized">{{ parts[1] | strip }}</span>
+                        {% if ingredient_count > 0 %}
+                          {%- comment -%} Ingredient blocks: individually editable, each with its own image {%- endcomment -%}
+                          {% for ing in section.blocks offset: ingredients_start limit: ingredient_count %}
+                            <div class="formula-blends__ingredient" {{ ing.shopify_attributes }}>
+                              <span class="formula-blends__ingredient-media">
+                                {% if ing.settings.image != blank %}
+                                  <img
+                                    src="{{ ing.settings.image | image_url: width: 320 }}"
+                                    srcset="
+                                      {{ ing.settings.image | image_url: width: 224 }} 224w,
+                                      {{ ing.settings.image | image_url: width: 320 }} 320w
+                                    "
+                                    sizes="(min-width: 769px) 112px, 100px"
+                                    alt="{{ ing.settings.image.alt | default: ing.settings.name | escape }}"
+                                    width="112"
+                                    height="78"
+                                    loading="lazy"
+                                  >
+                                {% endif %}
+                              </span>
+                              {% if ing.settings.name != blank %}
+                                <span class="formula-blends__ingredient-name sh3">{{ ing.settings.name }}</span>
+                              {% endif %}
+                              {% if ing.settings.role != blank %}
+                                <span class="formula-blends__ingredient-role stylized">{{ ing.settings.role }}</span>
                               {% endif %}
                             </div>
-                          {% endif %}
-                        {% endfor %}
+                          {% endfor %}
+                        {% else %}
+                          {%- comment -%}
+                            Fallback for blends still using the "one per line" textarea.
+                            Add Ingredient blocks under the blend to get per-ingredient images.
+                          {%- endcomment -%}
+                          {% assign ingredient_lines = block.settings.ingredients | newline_to_br | split: '<br />' %}
+                          {% for line in ingredient_lines %}
+                            {% assign trimmed = line | strip %}
+                            {% if trimmed != blank %}
+                              {% assign parts = trimmed | split: '|' %}
+                              <div class="formula-blends__ingredient formula-blends__ingredient--no-media">
+                                <span class="formula-blends__ingredient-name sh3">{{ parts[0] | strip }}</span>
+                                {% if parts.size > 1 %}
+                                  <span class="formula-blends__ingredient-role stylized">{{ parts[1] | strip }}</span>
+                                {% endif %}
+                              </div>
+                            {% endif %}
+                          {% endfor %}
+                        {% endif %}
                       </div>
                     </div>
                   {% endif %}
@@ -265,9 +319,36 @@
         {
           "type": "textarea",
           "id": "ingredients",
-          "label": "Ingredients (one per line)",
-          "default": "Glycerin | hydration barrier\nHydroxyapatite | enamel shield\nAloe Vera | soothes gums",
-          "info": "Format each line as: Ingredient name | its role"
+          "label": "Ingredients (one per line) — fallback",
+          "info": "Only used when this blend has no Ingredient blocks under it. Format: Ingredient name | its role. Add Ingredient blocks instead to get per-ingredient images."
+        }
+      ]
+    },
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Belongs to the Blend block above it. Drag to reorder or move between blends."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Shown at 112×78 on desktop, 100×72 on mobile. Leave empty for a placeholder."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Ingredient name",
+          "default": "Glycerin"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Role",
+          "default": "hydration barrier"
         }
       ]
     },
@@ -304,32 +385,98 @@
           "type": "blend",
           "settings": {
             "name": "Sensitivity Protection Blend",
-            "summary": "Keeps dentist-grade strength comfortable",
-            "ingredients": "Glycerin | hydration barrier\nHydroxyapatite | enamel shield\nAloe Vera | soothes gums"
+            "summary": "Keeps dentist-grade strength comfortable"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Glycerin",
+            "role": "hydration barrier"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Hydroxyapatite",
+            "role": "enamel shield"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Aloe Vera",
+            "role": "soothes gums"
           }
         },
         {
           "type": "blend",
           "settings": {
             "name": "Brightness Blend",
-            "summary": "Rebuilds enamel so light reflects evenly",
-            "ingredients": "Hydroxyapatite | densifies enamel\nHydrogen Peroxide | lifts discoloration"
+            "summary": "Rebuilds enamel so light reflects evenly"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Hydroxyapatite",
+            "role": "densifies enamel"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Hydrogen Peroxide",
+            "role": "lifts discoloration"
           }
         },
         {
           "type": "blend",
           "settings": {
             "name": "Oral Microbiome Support Blend",
-            "summary": "Balances the bacteria that cause staining",
-            "ingredients": "Xylitol | starves bad bacteria\nPomegranate Extract | antioxidant defense\nCoconut Oil | balances the mouth"
+            "summary": "Balances the bacteria that cause staining"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Xylitol",
+            "role": "starves bad bacteria"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Pomegranate Extract",
+            "role": "antioxidant defense"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Coconut Oil",
+            "role": "balances the mouth"
           }
         },
         {
           "type": "blend",
           "settings": {
             "name": "Stain Removing Blend",
-            "summary": "Lifts surface and deep-set discoloration",
-            "ingredients": "Hydrogen Peroxide | oxidizes deep stains\nCoconut Oil | sweeps surface stains"
+            "summary": "Lifts surface and deep-set discoloration"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Hydrogen Peroxide",
+            "role": "oxidizes deep stains"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Coconut Oil",
+            "role": "sweeps surface stains"
           }
         },
         {

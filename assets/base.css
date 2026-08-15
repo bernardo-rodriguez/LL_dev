@@ -2478,6 +2478,14 @@ section.with-spacing {
   justify-content: center;
   text-align: center;
   row-gap: 5px;
+  /* Breathing room when this sits directly under a full-bleed section */
+  padding-top: 36px;
+}
+
+@media screen and (min-width: 769px) {
+  .stars {
+    padding-top: 60px;
+  }
 }
 
 .stars__average-rating {
