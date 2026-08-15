@@ -100,7 +100,7 @@ body.template-product .formula-blends__heading {
 
 .formula-blends__item-name {
   font-family: var(--ds-font-family);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
   line-height: var(--ds-line-height);
   letter-spacing: var(--ds-heading-ls-sm);
@@ -112,7 +112,7 @@ body.template-product .formula-blends__item-name {
 }
 
 .formula-blends__item-summary {
-  font-size: 15px;
+  font-size: 14px;
   line-height: var(--ds-line-height);
   color: var(--navy-tint-60);
   white-space: normal;
@@ -207,7 +207,7 @@ body.template-product .formula-blends__item-name {
 
 .formula-blends__ingredient-role {
   grid-area: role;
-  font-size: 15px;
+  font-size: 14px;
   line-height: var(--ds-line-height);
   color: var(--navy-tint-60);
   white-space: normal;
@@ -339,13 +339,13 @@ body.template-product .formula-blends__item-name {
   }
 
   .formula-blends__item-name {
-    font-size: 28px;
+    font-size: 22px;
     letter-spacing: var(--ds-heading-ls-md);
     font-weight: 500;
   }
 
   .formula-blends__item-summary {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .formula-blends__item-toggle {
@@ -383,7 +383,7 @@ body.template-product .formula-blends__item-name {
   }
 
   .formula-blends__ingredient-role {
-    font-size: 19px;
+    font-size: 16px;
   }
 
   .formula-blends__ingredient--no-media .formula-blends__ingredient-role {

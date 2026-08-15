@@ -2479,12 +2479,12 @@ section.with-spacing {
   text-align: center;
   row-gap: 5px;
   /* Breathing room when this sits directly under a full-bleed section */
-  padding-top: 36px;
+  padding-top: 60px;
 }
 
 @media screen and (min-width: 769px) {
   .stars {
-    padding-top: 60px;
+    padding-top: 100px;
   }
 }
 
