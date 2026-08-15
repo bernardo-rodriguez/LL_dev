@@ -63,15 +63,20 @@
                 {% endif %}
                 {% assign blend_index = blend_index | plus: 1 %}
 
+                {%- comment -%}
+                  Capture the outer loop position BEFORE the nested loop — inside and
+                  after a nested for, `forloop` refers to the inner loop.
+                {%- endcomment -%}
+                {% assign ingredients_start = forloop.index %}
+
                 {%- comment -%} Count the ingredient blocks that directly follow this blend {%- endcomment -%}
                 {% assign ingredient_count = 0 %}
-                {% for ing in section.blocks offset: forloop.index %}
+                {% for ing in section.blocks offset: ingredients_start %}
                   {% unless ing.type == 'ingredient' %}
                     {% break %}
                   {% endunless %}
                   {% assign ingredient_count = ingredient_count | plus: 1 %}
                 {% endfor %}
-                {% assign ingredients_start = forloop.index %}
 
                 {% assign is_open = false %}
                 {% if section.settings.first_open and blend_index == 1 %}
