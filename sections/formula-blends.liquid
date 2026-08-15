@@ -115,15 +115,15 @@
                               <span class="formula-blends__ingredient-media">
                                 {% if ing.settings.image != blank %}
                                   <img
-                                    src="{{ ing.settings.image | image_url: width: 320 }}"
+                                    src="{{ ing.settings.image | image_url: width: 252 }}"
                                     srcset="
-                                      {{ ing.settings.image | image_url: width: 224 }} 224w,
-                                      {{ ing.settings.image | image_url: width: 320 }} 320w
+                                      {{ ing.settings.image | image_url: width: 168 }} 168w,
+                                      {{ ing.settings.image | image_url: width: 252 }} 252w
                                     "
-                                    sizes="(min-width: 769px) 112px, 100px"
+                                    sizes="(min-width: 769px) 84px, 76px"
                                     alt="{{ ing.settings.image.alt | default: ing.settings.name | escape }}"
-                                    width="112"
-                                    height="78"
+                                    width="84"
+                                    height="58"
                                     loading="lazy"
                                   >
                                 {% endif %}
@@ -341,7 +341,7 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image",
-          "info": "Shown at 112×78 on desktop, 100×72 on mobile. Leave empty for a placeholder."
+          "info": "Shown at 84×58 on desktop, 76×54 on mobile. Leave empty for a placeholder."
         },
         {
           "type": "text",

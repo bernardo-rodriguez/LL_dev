@@ -159,19 +159,19 @@ body.template-product .formula-blends__item-name {
 .formula-blends__ingredients {
   display: flex;
   flex-direction: column;
-  padding: 0 0 20px 36px;
+  padding: 0 0 14px 36px;
 }
 
 /* Image + name + role. Media spans both text rows on mobile. */
 .formula-blends__ingredient {
   display: grid;
-  grid-template-columns: 100px minmax(0, 1fr);
+  grid-template-columns: 76px minmax(0, 1fr);
   grid-template-areas:
     'media name'
     'media role';
   align-items: center;
-  gap: 2px 14px;
-  padding: 12px 0;
+  gap: 1px 12px;
+  padding: 8px 0;
   border-top: 1px solid var(--blue-tint-20);
 }
 
@@ -187,9 +187,9 @@ body.template-product .formula-blends__item-name {
 .formula-blends__ingredient-media {
   grid-area: media;
   display: block;
-  width: 100px;
-  height: 72px;
-  border-radius: 7px;
+  width: 76px;
+  height: 54px;
+  border-radius: 6px;
   overflow: hidden;
   background: var(--blue-tint-10);
 }
@@ -355,14 +355,14 @@ body.template-product .formula-blends__item-name {
   }
 
   .formula-blends__ingredients {
-    padding: 0 0 20px 50px;
+    padding: 0 0 14px 50px;
   }
 
   .formula-blends__ingredient {
-    grid-template-columns: 112px minmax(0, 1fr) 1.1fr;
+    grid-template-columns: 84px minmax(0, 1fr) 1.1fr;
     grid-template-areas: 'media name role';
-    gap: 20px;
-    padding: 14px 0;
+    gap: 16px;
+    padding: 9px 0;
   }
 
   .formula-blends__ingredient--no-media {
@@ -373,9 +373,9 @@ body.template-product .formula-blends__item-name {
   }
 
   .formula-blends__ingredient-media {
-    width: 112px;
-    height: 78px;
-    border-radius: 8px;
+    width: 84px;
+    height: 58px;
+    border-radius: 6px;
   }
 
   .formula-blends__ingredient-role {
