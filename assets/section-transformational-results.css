@@ -1,12 +1,11 @@
+/*
+  Always 60px above, at every breakpoint and on every template. The product
+  page previously pulled this section up (-60px desktop / -40px mobile) to
+  overlap the section above it; those overrides were removed rather than
+  fought with !important, so nothing reintroduces a negative top margin.
+*/
 .transformational-results {
-  margin: 0 0 60px;
-}
-
-/* Negative margin only on product page (overlap with section above) */
-@media screen and (min-width: 769px) {
-  body.template-product .transformational-results {
-    margin-top: -60px;
-  }
+  margin: 60px 0;
 }
 
 .transformational-results__inner {
@@ -149,10 +148,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  body.template-product .transformational-results {
-    margin-top: -40px;
-  }
-
   .transformational-results__inner {
     grid-template-columns: 1fr;
     padding: 20px 20px 40px;
