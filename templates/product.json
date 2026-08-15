@@ -75,13 +75,93 @@
             "title": "FDA-Registered Facilities",
             "text": "Made in the USA, batch-tested for purity"
           }
+        },
+        "ingredient_e4TR1S": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Glycerin",
+            "role": "hydration barrier"
+          }
+        },
+        "ingredient_74T3Pb": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Hydroxyapatite",
+            "role": "enamel shield"
+          }
+        },
+        "ingredient_KlQwBW": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Aloe Vera",
+            "role": "soothes gums"
+          }
+        },
+        "ingredient_PR8gmL": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Hydroxyapatite",
+            "role": "densifies enamel"
+          }
+        },
+        "ingredient_5vMySD": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Hydrogen Peroxide",
+            "role": "lifts discoloration"
+          }
+        },
+        "ingredient_0A0dEV": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Xylitol",
+            "role": "starves bad bacteria"
+          }
+        },
+        "ingredient_NBHwF7": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Pomegranate Extract",
+            "role": "antioxidant defense"
+          }
+        },
+        "ingredient_9NykBN": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Coconut Oil",
+            "role": "balances the mouth"
+          }
+        },
+        "ingredient_HPwFBJ": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Hydrogen Peroxide",
+            "role": "oxidizes deep stains"
+          }
+        },
+        "ingredient_7VGPLe": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Coconut Oil",
+            "role": "sweeps surface stains"
+          }
         }
       },
       "block_order": [
         "blend_9mDc8T",
+        "ingredient_e4TR1S",
+        "ingredient_74T3Pb",
+        "ingredient_KlQwBW",
         "blend_wgMWR7",
+        "ingredient_PR8gmL",
+        "ingredient_5vMySD",
         "blend_dj7YaT",
+        "ingredient_0A0dEV",
+        "ingredient_NBHwF7",
+        "ingredient_9NykBN",
         "blend_pQpqnp",
+        "ingredient_HPwFBJ",
+        "ingredient_7VGPLe",
         "trust_DNktbM",
         "trust_faDAmR",
         "trust_RQL98X"
