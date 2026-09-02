@@ -55,27 +55,6 @@
             "ingredients": "Hydrogen Peroxide | oxidizes deep stains\nCoconut Oil | sweeps surface stains"
           }
         },
-        "trust_DNktbM": {
-          "type": "trust",
-          "settings": {
-            "title": "Clinically Tested",
-            "text": "74% increase in brightness over 14 days"
-          }
-        },
-        "trust_faDAmR": {
-          "type": "trust",
-          "settings": {
-            "title": "Designed By Dentists",
-            "text": "Dentist-grade formulas, prescribed for you"
-          }
-        },
-        "trust_RQL98X": {
-          "type": "trust",
-          "settings": {
-            "title": "FDA-Registered Facilities",
-            "text": "Made in the USA, batch-tested for purity"
-          }
-        },
         "ingredient_e4TR1S": {
           "type": "ingredient",
           "settings": {
@@ -161,10 +140,7 @@
         "ingredient_9NykBN",
         "blend_pQpqnp",
         "ingredient_HPwFBJ",
-        "ingredient_7VGPLe",
-        "trust_DNktbM",
-        "trust_faDAmR",
-        "trust_RQL98X"
+        "ingredient_7VGPLe"
       ],
       "name": "Formula Blends",
       "settings": {
@@ -482,7 +458,10 @@
             "ingredient": "Hydroxyapatite",
             "effect_short": "to boost brightness",
             "effect_title": "Boosts brightness",
-            "science": "Hydroxyapatite is the same mineral your enamel is made of. It rebuilds and densifies the enamel surface — and denser enamel reflects light more evenly, so your teeth read visibly brighter."
+            "science": "Hydroxyapatite is the same mineral your enamel is made of. It rebuilds and densifies the enamel surface — and denser enamel reflects light more evenly, so your teeth read visibly brighter.",
+            "marker_label": "Brightness",
+            "marker_top": 19,
+            "marker_left": 30
           }
         },
         "effect_UBdVbd": {
@@ -491,7 +470,10 @@
             "ingredient": "Coconut Oil",
             "effect_short": "for a porcelain finish",
             "effect_title": "A porcelain finish",
-            "science": "Coconut oil binds to plaque biofilm and lifts it away from the enamel surface — polishing off the rough film that dulls teeth and leaving a smooth, glass-like porcelain finish."
+            "science": "Coconut oil binds to plaque biofilm and lifts it away from the enamel surface — polishing off the rough film that dulls teeth and leaving a smooth, glass-like porcelain finish.",
+            "marker_label": "Porcelain finish",
+            "marker_top": 40,
+            "marker_left": 78
           }
         },
         "effect_c9FihQ": {
@@ -500,7 +482,10 @@
             "ingredient": "Hydrogen Peroxide",
             "effect_short": "for deep whitening",
             "effect_title": "Deep whitening",
-            "science": "Hydrogen peroxide penetrates porous enamel and oxidizes stain molecules, breaking the bonds that hold their color — lifting the deepest coffee, wine and tobacco stains from the inside out."
+            "science": "Hydrogen peroxide penetrates porous enamel and oxidizes stain molecules, breaking the bonds that hold their color — lifting the deepest coffee, wine and tobacco stains from the inside out.",
+            "marker_label": "Whitening",
+            "marker_top": 72,
+            "marker_left": 34
           }
         }
       },
@@ -827,11 +812,51 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "our_standards_pdp": {
+      "type": "our-standards",
+      "blocks": {
+        "standard_1": {
+          "type": "standard",
+          "settings": {
+            "title": "Pharmaceutical-Grade Actives",
+            "text": "Higher purity means fewer free radicals — the real cause of whitening sensitivity."
+          }
+        },
+        "standard_2": {
+          "type": "standard",
+          "settings": {
+            "title": "FDA-Registered Facilities",
+            "text": "Both production and storage happen in FDA-registered facilities in the USA."
+          }
+        },
+        "standard_3": {
+          "type": "standard",
+          "settings": {
+            "title": "Dentist Designed & Clinically Tested",
+            "text": "Formulated by dentists and validated in clinical testing — a 74% increase in brightness over 14 days."
+          }
+        }
+      },
+      "block_order": [
+        "standard_1",
+        "standard_2",
+        "standard_3"
+      ],
+      "name": "Our Standards",
+      "settings": {
+        "eyebrow": "Our Standards",
+        "heading": "Clean ingredients, {pharmaceutical grade.}",
+        "intro": "Strength only matters if what's in the bottle is clean. Every ingredient we use is held to a higher purity standard than the industry asks for.",
+        "top_border": true,
+        "margin_bottom": true
+      }
     }
   },
   "order": [
     "main",
     "formula_blends_E38KV6",
+    "our_standards_pdp",
     "product-recommendations",
     "strength_comparison_gNykFW",
     "ingredients_that_work_N67RbP",
