@@ -22,7 +22,7 @@ body.template-product .page-width--product {
     padding-right: 0;
   }
 
-  /* Details + accordions (Clean Ingredients, 7 Shades, How To Use, Why Subscribe): 10px extra = 20px total; use margin so horizontal borders are inset too */
+  /* Details + accordions (Why Subscribe, How To Use): 10px extra = 20px total; use margin so horizontal borders are inset too */
   body.template-product .product__details,
   body.template-product .product__accordion {
     margin-left: 10px;
@@ -612,4 +612,30 @@ input:checked + .slider:before {
 
 .pdp-offer-banner strong {
   font-weight: 800;
+}
+
+/* Why Subscribe panel — subscription benefits list */
+.product__subscribe-benefits {
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+}
+
+.product__subscribe-benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 6px;
+  color: var(--navy);
+}
+
+.product__subscribe-benefit:last-child {
+  margin-bottom: 0;
+}
+
+.product__subscribe-check {
+  flex-shrink: 0;
+  font-weight: 700;
+  color: var(--blue);
+  line-height: 1.3;
 }

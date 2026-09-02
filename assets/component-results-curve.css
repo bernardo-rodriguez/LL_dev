@@ -1,0 +1,91 @@
+/* Results curve — single-series log line for the Why Subscribe panel */
+
+.results-curve {
+  margin: 0 0 18px;
+}
+
+.results-curve__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Recessive: one step off the surface, hairline, solid */
+.results-curve__grid line {
+  stroke: var(--blue-tint-10);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.results-curve__axis {
+  stroke: var(--navy-tint-20);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Wash under the curve, never a saturated block */
+.results-curve__area {
+  fill: var(--blue);
+  opacity: 0.1;
+}
+
+.results-curve__line {
+  stroke: var(--navy);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+/* 8px dots with a 2px surface ring so they stay legible over the line */
+.results-curve__dot {
+  fill: var(--navy);
+  stroke: #ffffff;
+  stroke-width: 2;
+}
+
+.results-curve__dot--end {
+  fill: var(--blue);
+  stroke: var(--navy);
+}
+
+.results-curve__x-label {
+  font-family: var(--ds-font-family);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: var(--ds-label-letter-spacing);
+  text-transform: uppercase;
+  fill: var(--navy);
+}
+
+.results-curve__x-sub {
+  font-family: var(--ds-font-family);
+  font-size: 9px;
+  font-weight: 500;
+  fill: var(--navy-tint-60);
+}
+
+.results-curve__highlight {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 4px 0 0;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.results-curve__highlight-dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: var(--blue);
+  border: 1px solid var(--navy);
+}
+
+.results-curve__caption {
+  margin: 8px 0 0;
+  color: var(--navy-tint-60);
+}

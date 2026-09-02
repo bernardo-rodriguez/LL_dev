@@ -187,6 +187,7 @@
 }
 
 .pdp-product-options + .product__details,
+.pdp-product-options + .product__why-subscribe,
 .pdp-product-options + .product__how-to-use {
   margin-top: 0;
 }
