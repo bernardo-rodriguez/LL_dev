@@ -191,7 +191,7 @@
         "heading": "Clean ingredients, {pharmaceutical grade.}",
         "intro": "Strength only matters if what's in the bottle is clean. Every ingredient we use is held to a higher purity standard than the industry asks for.",
         "image": "shopify://shop_images/scientist-in-lab-with-pipette.jpg",
-        "top_border": true,
+        "top_border": false,
         "margin_bottom": true
       }
     },
