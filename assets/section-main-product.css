@@ -614,6 +614,17 @@ input:checked + .slider:before {
   font-weight: 800;
 }
 
+/* Extra breathing room above the first accordion (Why Subscribe) */
+.product__accordion:first-of-type {
+  margin-top: 24px;
+}
+
+@media screen and (min-width: 769px) {
+  .product__accordion:first-of-type {
+    margin-top: 32px;
+  }
+}
+
 /* Why Subscribe panel — subscription benefits list */
 .product__subscribe-benefits {
   margin: 0 0 14px;

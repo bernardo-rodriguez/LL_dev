@@ -479,7 +479,7 @@ xhttp.send();
 
         {%- comment -%} Why Subscribe sits above How To Use — it carries the subscription case. {%- endcomment -%}
         {% if section.settings.why_subscribe != blank or section.settings.subscribe_points != blank or section.settings.subscribe_benefits != blank %}
-          <div class="product__why-subscribe product__accordion">
+          <div class="product__why-subscribe product__accordion" data-why-subscribe>
             <button class="product__accordion-button sh3">
               Why Subscribe <span class="accordion-toggle">{% render 'icon', icon: 'accordion' %}</span>
             </button>
@@ -488,7 +488,6 @@ xhttp.send();
                 {% render 'results-curve',
                   points: section.settings.subscribe_points,
                   highlight: section.settings.subscribe_highlight,
-                  caption: section.settings.subscribe_caption,
                   aria: section.settings.subscribe_chart_aria
                 %}
               {% endif %}
@@ -499,7 +498,7 @@ xhttp.send();
                   {% for line in benefit_lines %}
                     {% assign benefit = line | strip %}
                     {% if benefit != blank %}
-                      <li class="product__subscribe-benefit sh3">
+                      <li class="product__subscribe-benefit body-sm">
                         <span class="product__subscribe-check" aria-hidden="true">&#10003;</span>
                         {{ benefit }}
                       </li>
@@ -508,7 +507,7 @@ xhttp.send();
                 </ul>
               {% endif %}
 
-              {% if section.settings.why_subscribe != blank %}
+              {% if section.settings.show_why_subscribe_text and section.settings.why_subscribe != blank %}
                 <div class="rte sh3">
                   {{ section.settings.why_subscribe }}
                 </div>
@@ -535,6 +534,43 @@ xhttp.send();
 </section>
 
 {% javascript %}
+  // Open Why Subscribe automatically when one-time purchase is selected, so the
+  // subscription case is in front of the customer at the moment they opt out.
+  // Skio fires skio::update-selling-plan with a falsy sellingPlan for one-time.
+  (function () {
+    function panel() { return document.querySelector('[data-why-subscribe]'); }
+
+    function openPanel() {
+      var el = panel();
+      if (!el || el.classList.contains('active')) return;
+      var body = el.querySelector('.product__accordion--inner');
+      el.classList.add('active');
+      if (body && typeof slideDown === 'function') {
+        slideDown(body, 400);
+      } else if (body) {
+        body.style.display = 'block';
+      }
+    }
+
+    function bind() {
+      var picker = document.querySelector('skio-plan-picker');
+      if (!picker) return false;
+      picker.addEventListener('skio::update-selling-plan', function (e) {
+        var oneTime = !(e && e.detail && e.detail.sellingPlan);
+        if (oneTime) openPanel();
+      });
+      return true;
+    }
+
+    if (!bind()) {
+      // The picker is injected asynchronously; retry briefly, then give up.
+      var tries = 0;
+      var iv = setInterval(function () {
+        if (bind() || ++tries > 40) clearInterval(iv);
+      }, 150);
+    }
+  })();
+
   function removePageTransitionVisible() {
     const pageTransition = document.querySelector('.page-transition');
     if (pageTransition && pageTransition.classList.contains('visible')) {
@@ -876,20 +912,14 @@ xhttp.send();
       "type": "textarea",
       "id": "subscribe_points",
       "label": "Results curve milestones",
-      "info": "One per line, 2-5 lines, as: Label | Caption. Plotted along a logarithmic curve — fast early gains that keep compounding.",
-      "default": "Today | Starting shade\nDay 6 | 7+ shades whiter\nDay 14 | Deeper, even tone\nKeep going | Your dream smile"
+      "info": "One short label per line, 2-5 lines. Plotted along a logarithmic curve.",
+      "default": "Today\nDay 6\nDay 14\nKeep going"
     },
     {
       "type": "text",
       "id": "subscribe_highlight",
       "label": "Curve highlight",
-      "default": "Results compound — the longer you stay on it, the further your smile goes."
-    },
-    {
-      "type": "text",
-      "id": "subscribe_caption",
-      "label": "Curve caption",
-      "default": "Illustrative. Most of the change lands early; staying on your formula is what holds and deepens it."
+      "default": "Results compound — staying on your formula is what gets you all the way."
     },
     {
       "type": "text",
@@ -902,7 +932,14 @@ xhttp.send();
       "id": "subscribe_benefits",
       "label": "Subscription benefits",
       "info": "One per line",
-      "default": "Prevents stain buildup between treatments\nFree gifts with every subscription\nResults guaranteed or your money back"
+      "default": "Prevents stain buildup between treatments\nFree gifts every cycle\nResults guaranteed or your money back"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_why_subscribe_text",
+      "label": "Also show the Why Subscribe rich text",
+      "default": false,
+      "info": "Off by default — the metafield copy repeats the benefits above. Turn on to show it as well."
     },
     {
       "type": "text",
