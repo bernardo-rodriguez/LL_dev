@@ -534,21 +534,24 @@ xhttp.send();
 </section>
 
 {% javascript %}
-  // Open Why Subscribe automatically when one-time purchase is selected, so the
-  // subscription case is in front of the customer at the moment they opt out.
+  // Why Subscribe follows the purchase choice: it opens on one-time, so the
+  // subscription case is in front of the customer at the moment they opt out,
+  // and closes again when they switch back to subscribe & save.
   // Skio fires skio::update-selling-plan with a falsy sellingPlan for one-time.
   (function () {
     function panel() { return document.querySelector('[data-why-subscribe]'); }
 
-    function openPanel() {
+    function setPanel(open) {
       var el = panel();
-      if (!el || el.classList.contains('active')) return;
+      if (!el || el.classList.contains('active') === open) return;
       var body = el.querySelector('.product__accordion--inner');
-      el.classList.add('active');
-      if (body && typeof slideDown === 'function') {
-        slideDown(body, 400);
-      } else if (body) {
-        body.style.display = 'block';
+      el.classList.toggle('active', open);
+      if (!body) return;
+      // Reuse the theme's own accordion motion so it matches a manual toggle.
+      if (open) {
+        if (typeof slideDown === 'function') { slideDown(body, 400); } else { body.style.display = 'block'; }
+      } else {
+        if (typeof slideUp === 'function') { slideUp(body, 400); } else { body.style.display = 'none'; }
       }
     }
 
@@ -557,7 +560,7 @@ xhttp.send();
       if (!picker) return false;
       picker.addEventListener('skio::update-selling-plan', function (e) {
         var oneTime = !(e && e.detail && e.detail.sellingPlan);
-        if (oneTime) openPanel();
+        setPanel(oneTime);
       });
       return true;
     }
