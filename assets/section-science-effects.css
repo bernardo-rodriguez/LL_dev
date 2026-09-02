@@ -1,4 +1,4 @@
-/* Science Effects - navy panel with a centred product image and orbiting ingredient nodes */
+/* Science Effects - navy panel, markers sit on the product image, pairs listed below */
 
 .science-effects {
   background: var(--navy);
@@ -48,51 +48,62 @@ body.template-product .science-effects__heading {
 .science-effects__diagram {
   position: relative;
   width: 100%;
-  height: 540px;
-  margin-top: 20px;
+  height: 340px;
+  margin-top: 10px;
 }
 
 .science-effects__glow,
 .science-effects__ring {
   position: absolute;
   left: 50%;
-  top: 44%;
+  top: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   pointer-events: none;
 }
 
 .science-effects__glow {
-  width: 330px;
-  height: 330px;
+  width: 332px;
+  height: 332px;
   background: radial-gradient(
     circle,
-    rgba(70, 189, 240, 0.32) 0%,
-    rgba(70, 189, 240, 0.1) 45%,
+    rgba(70, 189, 240, 0.3) 0%,
+    rgba(70, 189, 240, 0.09) 45%,
     rgba(13, 34, 68, 0) 70%
   );
 }
 
 .science-effects__ring--inner {
-  width: 280px;
-  height: 280px;
+  width: 288px;
+  height: 288px;
   border: 1px solid rgba(196, 233, 255, 0.18);
 }
 
 .science-effects__ring--outer {
-  width: 350px;
-  height: 350px;
+  width: 334px;
+  height: 334px;
   border: 1px dashed rgba(196, 233, 255, 0.12);
+}
+
+.science-effects__nodes {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Dim the tooth + markers while a science panel is open */
+.science-effects__diagram--active .science-effects__nodes {
+  opacity: 0.08;
+  pointer-events: none;
 }
 
 .science-effects__image {
   position: absolute;
   left: 50%;
-  top: 44%;
-  transform: translate(-50%, -52%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 232px;
   height: 280px;
-  pointer-events: none;
 }
 
 .science-effects__image img {
@@ -102,30 +113,68 @@ body.template-product .science-effects__heading {
   filter: drop-shadow(0 0 46px rgba(70, 189, 240, 0.45));
 }
 
-.science-effects__nodes {
+/* Markers, positioned as a percentage of the image so they scale with it */
+.science-effects__marker {
   position: absolute;
-  inset: 0;
-  transition: opacity 0.3s ease;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font-family: var(--ds-font-family);
 }
 
-.science-effects__diagram--active .science-effects__nodes {
-  opacity: 0.08;
-  pointer-events: none;
+.science-effects__marker-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--blue);
+  background: rgba(13, 34, 68, 0.35);
+  color: var(--blue);
+  font-size: 18px;
+  line-height: 1;
+  animation: scienceNodePulse 3s ease-in-out infinite;
+  /* Custom properties inherit reliably; animation-delay does not. */
+  animation-delay: var(--marker-delay, 0s);
 }
 
-.science-effects__node {
-  position: absolute;
+.science-effects__marker-label {
+  font-family: var(--ds-font-family);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--blue-tint-40);
+  white-space: nowrap;
+  text-shadow: 0 1px 8px rgba(13, 34, 68, 0.9);
 }
 
-.science-effects__node-button {
+/* Ingredient / effect pairs under the image */
+.science-effects__pairs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.science-effects__pair {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
-  min-height: 44px;
-  max-width: 150px;
-  padding: 0;
+  gap: 2px;
+  padding: 14px 0;
   border: 0;
+  border-top: 1px solid rgba(196, 233, 255, 0.2);
   background: none;
   color: inherit;
   text-align: left;
@@ -133,13 +182,7 @@ body.template-product .science-effects__heading {
   font-family: var(--ds-font-family);
 }
 
-.science-effects__node-text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.science-effects__node-ingredient {
+.science-effects__pair-ingredient {
   font-family: var(--ds-font-family);
   font-size: 10px;
   font-weight: 700;
@@ -149,121 +192,19 @@ body.template-product .science-effects__heading {
   color: var(--blue-tint-40);
 }
 
-.science-effects__node-effect {
-  font-size: 19px;
+.science-effects__pair-effect {
+  font-size: 20px;
   line-height: 1.2;
   color: var(--cream);
   white-space: normal;
   margin-right: 0;
 }
 
-.science-effects__node-marker {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  border: 1px solid var(--blue);
-  color: var(--blue);
-  font-size: 18px;
-  line-height: 1;
-  animation: scienceNodePulse 3s ease-in-out infinite;
-}
-
-.science-effects__node-line {
-  position: absolute;
-  height: 1px;
-  pointer-events: none;
-}
-
-/* Mobile node placement: 1 top-left, 2 top-right, 3 bottom-centre, 4 mid-left */
-.science-effects__node:nth-child(1) {
-  left: 0;
-  top: 0;
-}
-
-.science-effects__node:nth-child(1) .science-effects__node-line {
-  left: 40px;
-  top: 90px;
-  width: 70px;
-  background: linear-gradient(90deg, rgba(70, 189, 240, 0.8), rgba(70, 189, 240, 0));
-  transform: rotate(38deg);
-  transform-origin: left center;
-}
-
-.science-effects__node:nth-child(2) {
-  right: 0;
-  top: 44px;
-}
-
-.science-effects__node:nth-child(2) .science-effects__node-button {
-  align-items: flex-end;
-  text-align: right;
-  margin-left: auto;
-}
-
-.science-effects__node:nth-child(2) .science-effects__node-text {
-  text-align: right;
-}
-
-.science-effects__node:nth-child(2) .science-effects__node-marker {
-  animation-delay: 1s;
-}
-
-.science-effects__node:nth-child(2) .science-effects__node-line {
-  right: 40px;
-  top: 90px;
-  width: 60px;
-  background: linear-gradient(270deg, rgba(70, 189, 240, 0.8), rgba(70, 189, 240, 0));
-  transform: rotate(-34deg);
-  transform-origin: right center;
-}
-
-.science-effects__node:nth-child(3) {
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-}
-
-.science-effects__node:nth-child(3) .science-effects__node-button {
-  align-items: center;
-  text-align: center;
-  flex-direction: column-reverse;
-}
-
-.science-effects__node:nth-child(3) .science-effects__node-text {
-  text-align: center;
-}
-
-.science-effects__node:nth-child(3) .science-effects__node-marker {
-  animation-delay: 2s;
-}
-
-.science-effects__node:nth-child(3) .science-effects__node-line {
-  left: 50%;
-  bottom: 100%;
-  width: 1px;
-  height: 46px;
-  margin-bottom: 8px;
-  background: linear-gradient(0deg, rgba(70, 189, 240, 0.8), rgba(70, 189, 240, 0));
-}
-
-.science-effects__node:nth-child(4) {
-  left: 0;
-  bottom: 90px;
-}
-
-.science-effects__node:nth-child(4) .science-effects__node-marker {
-  animation-delay: 1.5s;
-}
-
 /* Detail panel */
 .science-effects__panel {
   position: absolute;
   left: 50%;
-  top: 44%;
+  top: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
   width: calc(100% - 8px);
@@ -343,7 +284,7 @@ body.template-product .science-effects__heading {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .science-effects__node-marker {
+  .science-effects__marker-dot {
     animation: none;
   }
 }
@@ -365,154 +306,59 @@ body.template-product .science-effects__heading {
 
   .science-effects__diagram {
     max-width: 1080px;
-    height: 620px;
-    top: 0;
-  }
-
-  .science-effects__glow,
-  .science-effects__ring,
-  .science-effects__image,
-  .science-effects__panel {
-    top: 50%;
+    height: 440px;
   }
 
   .science-effects__glow {
-    width: 520px;
-    height: 520px;
-    background: radial-gradient(
-      circle,
-      rgba(70, 189, 240, 0.3) 0%,
-      rgba(70, 189, 240, 0.09) 45%,
-      rgba(13, 34, 68, 0) 70%
-    );
-  }
-
-  .science-effects__ring--inner {
     width: 430px;
     height: 430px;
   }
 
+  .science-effects__ring--inner {
+    width: 372px;
+    height: 372px;
+  }
+
   .science-effects__ring--outer {
-    width: 540px;
-    height: 540px;
+    width: 432px;
+    height: 432px;
   }
 
   .science-effects__image {
-    width: 320px;
-    height: 386px;
+    width: 300px;
+    height: 362px;
   }
 
   .science-effects__image img {
     filter: drop-shadow(0 0 60px rgba(70, 189, 240, 0.45));
   }
 
-  /* Desktop nodes read horizontally: text, marker, connector line */
-  .science-effects__node-button {
-    flex-direction: row;
-    align-items: center;
-    gap: 18px;
-    max-width: none;
-  }
-
-  .science-effects__node-ingredient {
-    font-size: 11px;
-  }
-
-  .science-effects__node-effect {
-    font-size: 28px;
-  }
-
-  .science-effects__node-marker {
+  .science-effects__marker-dot {
     width: 42px;
     height: 42px;
     font-size: 21px;
   }
 
-  .science-effects__node-line {
-    position: static;
-    width: 130px;
-    flex-shrink: 0;
-    transform: none;
-  }
-
-  /* Node 1 - left, upper */
-  .science-effects__node:nth-child(1) {
-    left: 0;
-    top: 60px;
-  }
-
-  .science-effects__node:nth-child(1) .science-effects__node-text {
-    text-align: right;
-  }
-
-  .science-effects__node:nth-child(1) .science-effects__node-button {
-    align-items: center;
-  }
-
-  .science-effects__node:nth-child(1) .science-effects__node-line {
-    background: linear-gradient(90deg, rgba(70, 189, 240, 0.85), rgba(70, 189, 240, 0));
-  }
-
-  /* Node 2 - right, middle. Line first, then marker, then text */
-  .science-effects__node:nth-child(2) {
-    left: auto;
-    right: 0;
-    top: 240px;
-  }
-
-  .science-effects__node:nth-child(2) .science-effects__node-button {
-    flex-direction: row-reverse;
-    align-items: center;
-    text-align: left;
-  }
-
-  .science-effects__node:nth-child(2) .science-effects__node-text {
-    text-align: left;
-  }
-
-  .science-effects__node:nth-child(2) .science-effects__node-line {
-    background: linear-gradient(270deg, rgba(70, 189, 240, 0.85), rgba(70, 189, 240, 0));
-  }
-
-  /* Node 3 - left, lower. Connector angles up toward the image */
-  .science-effects__node:nth-child(3) {
-    left: 90px;
-    bottom: 40px;
-    transform: none;
-  }
-
-  .science-effects__node:nth-child(3) .science-effects__node-button {
+  /* Pairs become a divided row */
+  .science-effects__pairs {
     flex-direction: row;
-    align-items: center;
-    text-align: right;
+    justify-content: center;
+    width: auto;
   }
 
-  .science-effects__node:nth-child(3) .science-effects__node-text {
-    text-align: right;
+  .science-effects__pair {
+    gap: 4px;
+    padding: 0 26px;
+    border-top: 0;
+    border-left: 1px solid rgba(196, 233, 255, 0.2);
   }
 
-  .science-effects__node:nth-child(3) .science-effects__node-line {
-    width: 120px;
-    height: 1px;
-    margin: 0;
-    background: linear-gradient(90deg, rgba(70, 189, 240, 0.85), rgba(70, 189, 240, 0));
-    transform: rotate(-26deg);
-    transform-origin: left center;
+  .science-effects__pair-ingredient {
+    font-size: 11px;
   }
 
-  /* Node 4 - right, lower */
-  .science-effects__node:nth-child(4) {
-    left: auto;
-    right: 60px;
-    bottom: 60px;
-  }
-
-  .science-effects__node:nth-child(4) .science-effects__node-button {
-    flex-direction: row-reverse;
-  }
-
-  .science-effects__node:nth-child(4) .science-effects__node-line {
-    background: linear-gradient(270deg, rgba(70, 189, 240, 0.85), rgba(70, 189, 240, 0));
+  .science-effects__pair-effect {
+    font-size: 24px;
   }
 
   .science-effects__panel {

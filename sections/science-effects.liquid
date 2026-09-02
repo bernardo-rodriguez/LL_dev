@@ -31,54 +31,53 @@
           <div class="science-effects__ring science-effects__ring--inner" aria-hidden="true"></div>
           <div class="science-effects__ring science-effects__ring--outer" aria-hidden="true"></div>
 
-          <div class="science-effects__image">
-            {% if section.settings.image != blank %}
-              <img
-                src="{{ section.settings.image | image_url: width: 640 }}"
-                srcset="
-                  {{ section.settings.image | image_url: width: 320 }} 320w,
-                  {{ section.settings.image | image_url: width: 640 }} 640w,
-                  {{ section.settings.image | image_url: width: 960 }} 960w
-                "
-                sizes="(min-width: 769px) 320px, 232px"
-                alt="{{ section.settings.image.alt | default: section.settings.heading | strip_html | escape }}"
-                width="{{ section.settings.image.width }}"
-                height="{{ section.settings.image.height }}"
-                loading="lazy"
-              >
-            {% else %}
-              <img
-                src="{{ 'science-tooth.png' | asset_url }}"
-                alt="{{ section.settings.heading | strip_html | escape }}"
-                width="1024"
-                height="1236"
-                loading="lazy"
-              >
-            {% endif %}
-          </div>
-
+          {%- comment -%}
+            The markers sit on the tooth, so they live inside the same wrapper and
+            are positioned as a percentage of it. That keeps them anchored when the
+            image scales between breakpoints.
+          {%- endcomment -%}
           <div class="science-effects__nodes" data-science-nodes>
-            {% for block in effect_blocks %}
-              <div class="science-effects__node" {{ block.shopify_attributes }}>
+            <div class="science-effects__image">
+              {% if section.settings.image != blank %}
+                <img
+                  src="{{ section.settings.image | image_url: width: 640 }}"
+                  srcset="
+                    {{ section.settings.image | image_url: width: 320 }} 320w,
+                    {{ section.settings.image | image_url: width: 640 }} 640w,
+                    {{ section.settings.image | image_url: width: 960 }} 960w
+                  "
+                  sizes="(min-width: 769px) 300px, 232px"
+                  alt="{{ section.settings.image.alt | default: section.settings.heading | strip_html | escape }}"
+                  width="{{ section.settings.image.width }}"
+                  height="{{ section.settings.image.height }}"
+                  loading="lazy"
+                >
+              {% else %}
+                <img
+                  src="{{ 'science-tooth.png' | asset_url }}"
+                  alt="{{ section.settings.heading | strip_html | escape }}"
+                  width="1024"
+                  height="1236"
+                  loading="lazy"
+                >
+              {% endif %}
+
+              {% for block in effect_blocks %}
                 <button
                   type="button"
-                  class="science-effects__node-button"
+                  class="science-effects__marker"
                   data-science-open="{{ forloop.index0 }}"
                   aria-expanded="false"
+                  style="top: {{ block.settings.marker_top | default: 50 }}%; left: {{ block.settings.marker_left | default: 50 }}%; --marker-delay: {{ forloop.index0 }}s;"
+                  {{ block.shopify_attributes }}
                 >
-                  <span class="science-effects__node-text">
-                    {% if block.settings.ingredient != blank %}
-                      <span class="science-effects__node-ingredient">{{ block.settings.ingredient }}</span>
-                    {% endif %}
-                    {% if block.settings.effect_short != blank %}
-                      <span class="science-effects__node-effect stylized">{{ block.settings.effect_short }}</span>
-                    {% endif %}
-                  </span>
-                  <span class="science-effects__node-marker" aria-hidden="true">+</span>
-                  <span class="science-effects__node-line" aria-hidden="true"></span>
+                  <span class="science-effects__marker-dot" aria-hidden="true">+</span>
+                  {% if block.settings.marker_label != blank %}
+                    <span class="science-effects__marker-label">{{ block.settings.marker_label }}</span>
+                  {% endif %}
                 </button>
-              </div>
-            {% endfor %}
+              {% endfor %}
+            </div>
           </div>
 
           {%- comment -%} Frosted detail panels, one per effect {%- endcomment -%}
@@ -113,6 +112,25 @@
             </div>
           {% endfor %}
         </div>
+
+        {%- comment -%} Ingredient / effect pairs below the tooth — also open the overlay {%- endcomment -%}
+        <div class="science-effects__pairs">
+          {% for block in effect_blocks %}
+            <button
+              type="button"
+              class="science-effects__pair"
+              data-science-open="{{ forloop.index0 }}"
+              aria-expanded="false"
+            >
+              {% if block.settings.ingredient != blank %}
+                <span class="science-effects__pair-ingredient">{{ block.settings.ingredient }}</span>
+              {% endif %}
+              {% if block.settings.effect_short != blank %}
+                <span class="science-effects__pair-effect stylized">{{ block.settings.effect_short }}</span>
+              {% endif %}
+            </button>
+          {% endfor %}
+        </div>
       {% endif %}
     </div>
   </div>
@@ -124,10 +142,10 @@
     if (!section) return;
 
     var diagram = section.querySelector('[data-science-diagram]');
-    var nodesWrap = section.querySelector('[data-science-nodes]');
-    if (!diagram || !nodesWrap) return;
+    if (!diagram) return;
 
-    var triggers = diagram.querySelectorAll('[data-science-open]');
+    // Triggers live both on the tooth and in the pair row below it.
+    var triggers = section.querySelectorAll('[data-science-open]');
     var panels = diagram.querySelectorAll('[data-science-panel]');
     var closeTimer = null;
 
@@ -141,11 +159,14 @@
       clearTimeout(closeTimer);
       close();
       var panel = diagram.querySelector('[data-science-panel="' + index + '"]');
-      var trigger = diagram.querySelector('[data-science-open="' + index + '"]');
       if (!panel) return;
       panel.hidden = false;
       diagram.classList.add('science-effects__diagram--active');
-      if (trigger) trigger.setAttribute('aria-expanded', 'true');
+      for (var k = 0; k < triggers.length; k++) {
+        if (triggers[k].getAttribute('data-science-open') === String(index)) {
+          triggers[k].setAttribute('aria-expanded', 'true');
+        }
+      }
     }
 
     function isDesktopHover() {
@@ -217,7 +238,7 @@
       "type": "textarea",
       "id": "intro",
       "label": "Intro paragraph",
-      "default": "Generic whitening stops at whitening. Yours is built to brighten, polish and whiten at once. Select an ingredient to see the science."
+      "default": "Generic whitening stops at whitening. Yours is built to brighten, polish and whiten at once. Select a marker to see the science."
     },
     {
       "type": "image_picker",
@@ -246,7 +267,6 @@
     {
       "type": "effect",
       "name": "Effect",
-      "limit": 4,
       "settings": [
         {
           "type": "text",
@@ -257,7 +277,7 @@
         {
           "type": "text",
           "id": "effect_short",
-          "label": "Short effect (on the diagram)",
+          "label": "Short effect (in the row below the image)",
           "default": "to boost brightness"
         },
         {
@@ -271,6 +291,37 @@
           "id": "science",
           "label": "The science",
           "default": "Hydroxyapatite is the same mineral your enamel is made of. It rebuilds and densifies the enamel surface — and denser enamel reflects light more evenly, so your teeth read visibly brighter."
+        },
+        {
+          "type": "header",
+          "content": "Marker on the image"
+        },
+        {
+          "type": "text",
+          "id": "marker_label",
+          "label": "Marker label",
+          "default": "Brightness",
+          "info": "Short, one or two words. Leave blank to show just the + marker."
+        },
+        {
+          "type": "range",
+          "id": "marker_top",
+          "label": "Marker position — from top",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 19
+        },
+        {
+          "type": "range",
+          "id": "marker_left",
+          "label": "Marker position — from left",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 30
         }
       ]
     }
@@ -285,7 +336,10 @@
             "ingredient": "Hydroxyapatite",
             "effect_short": "to boost brightness",
             "effect_title": "Boosts brightness",
-            "science": "Hydroxyapatite is the same mineral your enamel is made of. It rebuilds and densifies the enamel surface — and denser enamel reflects light more evenly, so your teeth read visibly brighter."
+            "science": "Hydroxyapatite is the same mineral your enamel is made of. It rebuilds and densifies the enamel surface — and denser enamel reflects light more evenly, so your teeth read visibly brighter.",
+            "marker_label": "Brightness",
+            "marker_top": 19,
+            "marker_left": 30
           }
         },
         {
@@ -294,7 +348,10 @@
             "ingredient": "Coconut Oil",
             "effect_short": "for a porcelain finish",
             "effect_title": "A porcelain finish",
-            "science": "Coconut oil binds to plaque biofilm and lifts it away from the enamel surface — polishing off the rough film that dulls teeth and leaving a smooth, glass-like porcelain finish."
+            "science": "Coconut oil binds to plaque biofilm and lifts it away from the enamel surface — polishing off the rough film that dulls teeth and leaving a smooth, glass-like porcelain finish.",
+            "marker_label": "Porcelain finish",
+            "marker_top": 40,
+            "marker_left": 78
           }
         },
         {
@@ -303,7 +360,10 @@
             "ingredient": "Hydrogen Peroxide",
             "effect_short": "for deep whitening",
             "effect_title": "Deep whitening",
-            "science": "Hydrogen peroxide penetrates porous enamel and oxidizes stain molecules, breaking the bonds that hold their color — lifting the deepest coffee, wine and tobacco stains from the inside out."
+            "science": "Hydrogen peroxide penetrates porous enamel and oxidizes stain molecules, breaking the bonds that hold their color — lifting the deepest coffee, wine and tobacco stains from the inside out.",
+            "marker_label": "Whitening",
+            "marker_top": 72,
+            "marker_left": 34
           }
         }
       ]

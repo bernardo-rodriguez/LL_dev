@@ -1,0 +1,184 @@
+/* Our Standards - copy + list with a sticky image; mirror of Formula Blends */
+
+.our-standards {
+  background: #ffffff;
+  color: var(--navy);
+}
+
+.our-standards__inner {
+  padding: 30px 0 0;
+}
+
+.our-standards--with-spacing .our-standards__inner {
+  padding-bottom: 30px;
+}
+
+/* Hairline separating this section from the one above */
+.our-standards--top-border .our-standards__inner {
+  border-top: 1px solid var(--navy-tint-20);
+  padding-top: 30px;
+}
+
+.our-standards__columns {
+  display: flex;
+  flex-direction: column;
+}
+
+.our-standards__eyebrow {
+  margin: 0 0 12px;
+  color: var(--navy-tint-60);
+}
+
+.our-standards__heading {
+  margin: 0 0 16px;
+  color: var(--navy);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: var(--ds-line-height);
+  letter-spacing: -0.015em;
+  text-transform: none;
+}
+
+body.template-product .our-standards__heading {
+  letter-spacing: -0.015em !important;
+}
+
+.our-standards__intro {
+  margin: 0 0 24px;
+  color: var(--navy);
+}
+
+/* List */
+.our-standards__list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--navy);
+}
+
+.our-standards__item {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--navy-tint-20);
+}
+
+.our-standards__item:last-child {
+  border-bottom-color: var(--navy);
+}
+
+.our-standards__item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border: 1px solid var(--navy-tint-20);
+  border-radius: 50%;
+  color: var(--navy);
+  font-size: 15px;
+  line-height: 1;
+}
+
+.our-standards__item-icon img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.our-standards__item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.our-standards__item-title {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.our-standards__item-detail {
+  color: var(--navy-tint-60);
+}
+
+/* Image sits below the list on mobile */
+.our-standards__rail {
+  margin-top: 24px;
+}
+
+.our-standards__image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Desktop: list on the left, sticky image on the right */
+@media screen and (min-width: 769px) {
+  .our-standards__inner {
+    padding: 80px 0 0;
+  }
+
+  .our-standards--with-spacing .our-standards__inner {
+    padding-bottom: 80px;
+  }
+
+  .our-standards--top-border .our-standards__inner {
+    padding-top: 80px;
+  }
+
+  .our-standards__columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: start;
+  }
+
+  /* No image chosen yet — don't leave half the row empty */
+  .our-standards__columns--no-image {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .our-standards__main {
+    min-width: 0;
+  }
+
+  .our-standards__rail {
+    position: sticky;
+    top: 60px;
+    min-width: 0;
+    margin-top: 0;
+  }
+
+  .our-standards__heading {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .our-standards__intro {
+    margin-bottom: 30px;
+  }
+
+  .our-standards__item {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 22px;
+    padding: 26px 0;
+  }
+
+  .our-standards__item-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+
+  .our-standards__item-icon img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .our-standards__item-text {
+    gap: 6px;
+  }
+}

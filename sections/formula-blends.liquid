@@ -6,7 +6,6 @@
 %}
 
 {% assign blend_blocks = section.blocks | where: 'type', 'blend' %}
-{% assign trust_blocks = section.blocks | where: 'type', 'trust' %}
 
 <section
   class="formula-blends {% if section.settings.margin_bottom %}formula-blends--with-spacing{% endif %}"
@@ -44,7 +43,7 @@
           {% endif %}
         </div>
 
-        {%- comment -%} Right column: intro, blend accordion, trust markers, footnote {%- endcomment -%}
+        {%- comment -%} Right column: intro, blend accordion, footnote {%- endcomment -%}
         <div class="formula-blends__main">
           {% if section.settings.intro != blank %}
             <p class="formula-blends__intro sh3">{{ section.settings.intro }}</p>
@@ -158,36 +157,6 @@
                       </div>
                     </div>
                   {% endif %}
-                </div>
-              {% endfor %}
-            </div>
-          {% endif %}
-
-          {% if trust_blocks.size > 0 %}
-            <div class="formula-blends__trust">
-              {% for block in trust_blocks %}
-                <div class="formula-blends__trust-item" {{ block.shopify_attributes }}>
-                  <span class="formula-blends__trust-icon" aria-hidden="true">
-                    {% if block.settings.icon != blank %}
-                      <img
-                        src="{{ block.settings.icon | image_url: width: 48 }}"
-                        alt=""
-                        width="20"
-                        height="20"
-                        loading="lazy"
-                      >
-                    {% else %}
-                      &#10003;
-                    {% endif %}
-                  </span>
-                  <span class="formula-blends__trust-text">
-                    {% if block.settings.title != blank %}
-                      <span class="formula-blends__trust-title label-sm">{{ block.settings.title }}</span>
-                    {% endif %}
-                    {% if block.settings.text != blank %}
-                      <span class="formula-blends__trust-detail body-sm">{{ block.settings.text }}</span>
-                    {% endif %}
-                  </span>
                 </div>
               {% endfor %}
             </div>
@@ -359,8 +328,12 @@
     },
     {
       "type": "trust",
-      "name": "Trust marker",
+      "name": "Trust marker (moved to Our Standards)",
       "settings": [
+        {
+          "type": "paragraph",
+          "content": "No longer displayed. These moved to the Our Standards section — add that section instead, then delete this block."
+        },
         {
           "type": "image_picker",
           "id": "icon",
@@ -482,27 +455,6 @@
           "settings": {
             "name": "Coconut Oil",
             "role": "sweeps surface stains"
-          }
-        },
-        {
-          "type": "trust",
-          "settings": {
-            "title": "Clinically Tested",
-            "text": "74% increase in brightness over 14 days"
-          }
-        },
-        {
-          "type": "trust",
-          "settings": {
-            "title": "Designed By Dentists",
-            "text": "Dentist-grade formulas, prescribed for you"
-          }
-        },
-        {
-          "type": "trust",
-          "settings": {
-            "title": "FDA-Registered Facilities",
-            "text": "Made in the USA, batch-tested for purity"
           }
         }
       ]

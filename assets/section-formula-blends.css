@@ -62,9 +62,7 @@ body.template-product .formula-blends__heading {
   display: flex;
   flex-direction: column;
   border-top: 1px solid var(--navy);
-  /* No gap: the last blend's bottom border doubles as the trust list's top
-     rule, and each trust row's own padding provides the spacing. */
-  margin-bottom: 0;
+  margin-bottom: 24px;
 }
 
 .formula-blends__item {
@@ -221,58 +219,6 @@ body.template-product .formula-blends__item-name {
   text-align: right;
 }
 
-/* Trust markers */
-.formula-blends__trust {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-
-.formula-blends__trust-item {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--navy-tint-20);
-}
-
-/* No top border on the first row — the blend list above already ends in one */
-
-.formula-blends__trust-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  flex-shrink: 0;
-  border: 1px solid var(--navy-tint-20);
-  border-radius: 50%;
-  color: var(--navy);
-  font-size: 15px;
-  line-height: 1;
-}
-
-.formula-blends__trust-icon img {
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-}
-
-.formula-blends__trust-text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.formula-blends__trust-title {
-  color: var(--navy);
-  font-weight: 700;
-}
-
-.formula-blends__trust-detail {
-  color: var(--navy-tint-60);
-}
-
 .formula-blends__footnote {
   margin: 0;
   color: var(--navy-tint-60);
@@ -319,6 +265,10 @@ body.template-product .formula-blends__item-name {
   }
 
   .formula-blends__intro {
+    margin-bottom: 30px;
+  }
+
+  .formula-blends__list {
     margin-bottom: 30px;
   }
 
@@ -385,28 +335,5 @@ body.template-product .formula-blends__item-name {
 
   .formula-blends__ingredient--no-media .formula-blends__ingredient-role {
     text-align: left;
-  }
-
-  .formula-blends__trust-item {
-    gap: 18px;
-  }
-
-  .formula-blends__trust-icon {
-    width: 44px;
-    height: 44px;
-    font-size: 18px;
-  }
-
-  .formula-blends__trust-icon img {
-    width: 20px;
-    height: 20px;
-  }
-
-  .formula-blends__trust-text {
-    gap: 3px;
-  }
-
-  .formula-blends__trust-item:last-child {
-    border-bottom-color: var(--navy);
   }
 }

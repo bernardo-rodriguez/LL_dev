@@ -1,0 +1,193 @@
+{{ 'section-our-standards.css' | asset_url | stylesheet_tag }}
+
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+
+{% assign standard_blocks = section.blocks | where: 'type', 'standard' %}
+
+<section
+  class="our-standards {% if section.settings.top_border %}our-standards--top-border{% endif %} {% if section.settings.margin_bottom %}our-standards--with-spacing{% endif %}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
+    <div class="our-standards__inner">
+      <div class="our-standards__columns {% if section.settings.image == blank %}our-standards__columns--no-image{% endif %}">
+        {%- comment -%}
+          Copy and list on the left, sticky image on the right — the mirror of
+          Formula Blends, which runs image-left / text-right.
+        {%- endcomment -%}
+        <div class="our-standards__main">
+          {% if section.settings.eyebrow != blank %}
+            <p class="our-standards__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+          {% endif %}
+
+          {% if section.settings.heading != blank %}
+            <h3 class="our-standards__heading">{{ formatted_heading }}</h3>
+          {% endif %}
+
+          {% if section.settings.intro != blank %}
+            <p class="our-standards__intro sh3">{{ section.settings.intro }}</p>
+          {% endif %}
+
+          {% if standard_blocks.size > 0 %}
+            <div class="our-standards__list">
+              {% for block in standard_blocks %}
+                <div class="our-standards__item" {{ block.shopify_attributes }}>
+                  <span class="our-standards__item-icon" aria-hidden="true">
+                    {% if block.settings.icon != blank %}
+                      <img
+                        src="{{ block.settings.icon | image_url: width: 48 }}"
+                        alt=""
+                        width="20"
+                        height="20"
+                        loading="lazy"
+                      >
+                    {% else %}
+                      &#10003;
+                    {% endif %}
+                  </span>
+                  <span class="our-standards__item-text">
+                    {% if block.settings.title != blank %}
+                      <span class="our-standards__item-title label-sm">{{ block.settings.title }}</span>
+                    {% endif %}
+                    {% if block.settings.text != blank %}
+                      <span class="our-standards__item-detail sh3">{{ block.settings.text }}</span>
+                    {% endif %}
+                  </span>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+
+        {% if section.settings.image != blank %}
+          <div class="our-standards__rail">
+            <div class="our-standards__image">
+              <img
+                src="{{ section.settings.image | image_url: width: 800 }}"
+                srcset="
+                  {{ section.settings.image | image_url: width: 400 }} 400w,
+                  {{ section.settings.image | image_url: width: 800 }} 800w,
+                  {{ section.settings.image | image_url: width: 1200 }} 1200w
+                "
+                sizes="(min-width: 769px) 50vw, 100vw"
+                alt="{{ section.settings.image.alt | default: section.settings.heading | strip_html | escape }}"
+                width="{{ section.settings.image.width }}"
+                height="{{ section.settings.image.height }}"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Our Standards",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Our Standards"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Clean ingredients, {pharmaceutical grade.}",
+      "info": "Wrap emphasized text in {} for the italic Canela style"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro paragraph",
+      "default": "Strength only matters if what's in the bottle is clean. Every ingredient we use is held to a higher purity standard than the industry asks for."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Lab or production photo. Sticky beside the list on desktop, below it on mobile."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "top_border",
+      "label": "Top hairline",
+      "default": true,
+      "info": "Thin rule separating this section from the one above"
+    },
+    {
+      "type": "checkbox",
+      "id": "margin_bottom",
+      "label": "Margin bottom",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "standard",
+      "name": "Standard",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon",
+          "info": "Leave empty to use a checkmark"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Pharmaceutical-Grade Actives"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Detail",
+          "default": "Higher purity means fewer free radicals — the real cause of whitening sensitivity."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Standards",
+      "blocks": [
+        {
+          "type": "standard",
+          "settings": {
+            "title": "Pharmaceutical-Grade Actives",
+            "text": "Higher purity means fewer free radicals — the real cause of whitening sensitivity."
+          }
+        },
+        {
+          "type": "standard",
+          "settings": {
+            "title": "FDA-Registered Facilities",
+            "text": "Both production and storage happen in FDA-registered facilities in the USA."
+          }
+        },
+        {
+          "type": "standard",
+          "settings": {
+            "title": "Dentist Designed & Clinically Tested",
+            "text": "Formulated by dentists and validated in clinical testing — a 74% increase in brightness over 14 days."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
