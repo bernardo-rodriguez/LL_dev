@@ -17,8 +17,12 @@
         "satisfaction_svg": "<svg style=\"vertical-align: middle\" xmlns=\"http://www.w3.org/2000/svg\" width=\"26\" height=\"25\" viewbox=\"0 0 26 25\" fill=\"none\">\n<circle cx=\"11.5\" cy=\"13.5\" r=\"11\" fill=\"white\" stroke=\"#0D2244\"></circle>\n<g clip-path=\"url(#clip0_6_176)\">\n<path d=\"M24.6712 0C24.6712 0 17.4227 4.72968 11.3998 16.3691V16.3724L10.8333 15.6122C9.06901 13.3203 4.66836 9.65063 4.66836 9.65063L4 10.521C4 10.521 9.41322 15.9623 11.5279 22C11.5279 22 16.4333 7.96331 25.1852 0.781257L24.6712 0V0Z\" fill=\"#46BDF0\"></path>\n</g>\n<defs>\n<clippath id=\"clip0_6_176\">\n<rect width=\"21.1852\" height=\"22\" fill=\"white\" transform=\"translate(4)\"></rect>\n</clippath>\n</defs>\n</svg>",
         "how_to_use": "{{ product.metafields.custom.how_to_use | metafield_tag }}",
         "why_subscribe": "{{ product.metafields.custom.why_subscribe | metafield_tag }}",
-        "offer_text": "LIMITED TIME OFFER: 30% OFF YOUR FIRST SUBSCRIPTION PLUS TWO FREE GIFTS",
-        "subscribe_points": "1\n6\n12\n20+ sessions"
+        "subscribe_points": "1\n6\n12\n20+ sessions",
+        "subscribe_highlight": "Results compound — staying on your formula is what gets you all the way.",
+        "subscribe_chart_aria": "Whitening results by session: fast early gains that keep compounding with continued use.",
+        "subscribe_benefits": "Prevents stain buildup between treatments\nFree gifts every cycle\nResults guaranteed or your money back",
+        "show_why_subscribe_text": false,
+        "offer_text": "LIMITED TIME OFFER: 30% OFF YOUR FIRST SUBSCRIPTION PLUS TWO FREE GIFTS"
       }
     },
     "formula_blends_E38KV6": {
@@ -35,6 +39,7 @@
         "ingredient_e4TR1S": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/stack-aloe-vera-sliced-gel-600nw-2161312827.webp",
             "name": "Glycerin",
             "role": "hydration barrier"
           }
@@ -192,6 +197,111 @@
         "margin_bottom": true
       }
     },
+    "comparison_table_pdp": {
+      "type": "comparison-table",
+      "blocks": {
+        "competitor_1": {
+          "type": "competitor",
+          "settings": {
+            "heading": "Whitening Strips"
+          }
+        },
+        "competitor_2": {
+          "type": "competitor",
+          "settings": {
+            "heading": "Whitening Toothpaste"
+          }
+        },
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "label": "Lifts deep-set stains",
+            "col_1": true,
+            "col_2": false,
+            "col_3": false,
+            "col_4": false
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "label": "Dentist-grade strength",
+            "col_1": false,
+            "col_2": false,
+            "col_3": false,
+            "col_4": false
+          }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "label": "Strengthens enamel",
+            "col_1": false,
+            "col_2": false,
+            "col_3": false,
+            "col_4": false
+          }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": {
+            "label": "Sensitivity protection",
+            "col_1": false,
+            "col_2": false,
+            "col_3": false,
+            "col_4": false
+          }
+        },
+        "row_5": {
+          "type": "row",
+          "settings": {
+            "label": "Removes plaque & biofilm",
+            "col_1": false,
+            "col_2": true,
+            "col_3": false,
+            "col_4": false
+          }
+        },
+        "row_6": {
+          "type": "row",
+          "settings": {
+            "label": "Supports oral microbiome",
+            "col_1": false,
+            "col_2": false,
+            "col_3": false,
+            "col_4": false
+          }
+        },
+        "row_7": {
+          "type": "row",
+          "settings": {
+            "label": "Prescribed to your smile",
+            "col_1": false,
+            "col_2": false,
+            "col_3": false,
+            "col_4": false
+          }
+        }
+      },
+      "block_order": [
+        "competitor_1",
+        "competitor_2",
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5",
+        "row_6",
+        "row_7"
+      ],
+      "name": "Comparison Table",
+      "settings": {
+        "heading": "Laughland is a {whole-mouth} solution",
+        "ours_label": "Laughland",
+        "footnote": "†Based on currently available data for mass-market at-home whitening products.",
+        "margin_bottom": true
+      }
+    },
     "product-recommendations": {
       "type": "product-recommendations",
       "disabled": true,
@@ -245,8 +355,7 @@
         "threshold_value": "10",
         "threshold_label": "Dentist strength 10%+",
         "chart_footnote": "Dentist-grade strength, prescribed to your sensitivity — with hydroxyapatite, coconut oil and aloe to keep it comfortable.",
-        "margin_bottom": true,
-        "compare_label_short": "Avg. OTC"
+        "margin_bottom": true
       }
     },
     "ingredients_that_work_N67RbP": {
@@ -841,111 +950,6 @@
       "type": "apps",
       "settings": {
         "include_margins": true
-      }
-    },
-    "comparison_table_pdp": {
-      "type": "comparison-table",
-      "blocks": {
-        "competitor_1": {
-          "type": "competitor",
-          "settings": {
-            "heading": "Whitening Strips"
-          }
-        },
-        "competitor_2": {
-          "type": "competitor",
-          "settings": {
-            "heading": "Whitening Toothpaste"
-          }
-        },
-        "row_1": {
-          "type": "row",
-          "settings": {
-            "label": "Lifts deep-set stains",
-            "col_1": true,
-            "col_2": false,
-            "col_3": false,
-            "col_4": false
-          }
-        },
-        "row_2": {
-          "type": "row",
-          "settings": {
-            "label": "Dentist-grade strength",
-            "col_1": false,
-            "col_2": false,
-            "col_3": false,
-            "col_4": false
-          }
-        },
-        "row_3": {
-          "type": "row",
-          "settings": {
-            "label": "Strengthens enamel",
-            "col_1": false,
-            "col_2": false,
-            "col_3": false,
-            "col_4": false
-          }
-        },
-        "row_4": {
-          "type": "row",
-          "settings": {
-            "label": "Sensitivity protection",
-            "col_1": false,
-            "col_2": false,
-            "col_3": false,
-            "col_4": false
-          }
-        },
-        "row_5": {
-          "type": "row",
-          "settings": {
-            "label": "Removes plaque & biofilm",
-            "col_1": false,
-            "col_2": true,
-            "col_3": false,
-            "col_4": false
-          }
-        },
-        "row_6": {
-          "type": "row",
-          "settings": {
-            "label": "Supports oral microbiome",
-            "col_1": false,
-            "col_2": false,
-            "col_3": false,
-            "col_4": false
-          }
-        },
-        "row_7": {
-          "type": "row",
-          "settings": {
-            "label": "Prescribed to your smile",
-            "col_1": false,
-            "col_2": false,
-            "col_3": false,
-            "col_4": false
-          }
-        }
-      },
-      "block_order": [
-        "competitor_1",
-        "competitor_2",
-        "row_1",
-        "row_2",
-        "row_3",
-        "row_4",
-        "row_5",
-        "row_6",
-        "row_7"
-      ],
-      "name": "Comparison Table",
-      "settings": {
-        "heading": "Laughland is a {whole-mouth} solution",
-        "ours_label": "Laughland",
-        "footnote": "†Based on currently available data for mass-market at-home whitening products.",
-        "margin_bottom": true
       }
     }
   },
