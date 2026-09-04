@@ -498,6 +498,8 @@ xhttp.send();
               {% if section.settings.subscribe_points != blank %}
                 {% render 'results-curve',
                   points: section.settings.subscribe_points,
+                  keep_label: section.settings.subscribe_keep_label,
+                  stop_label: section.settings.subscribe_stop_label,
                   highlight: section.settings.subscribe_highlight,
                   aria: section.settings.subscribe_chart_aria
                 %}
@@ -925,28 +927,40 @@ xhttp.send();
     {
       "type": "textarea",
       "id": "subscribe_points",
-      "label": "Results curve milestones",
-      "info": "One short label per line, 2-5 lines. Keep them brief — they sit in a single row under the chart. Naming the unit on the last label only reads as an axis.",
-      "default": "1\n6\n12\n20+ sessions"
+      "label": "Curve labels",
+      "info": "Up to 4 short labels, one per line: the start, the peak, then two points along the branch. Positions are fixed to the curve.",
+      "default": "Start\n~12 treatments\n3 months\n6 months"
+    },
+    {
+      "type": "text",
+      "id": "subscribe_keep_label",
+      "label": "Legend — maintained",
+      "default": "With touch-ups"
+    },
+    {
+      "type": "text",
+      "id": "subscribe_stop_label",
+      "label": "Legend — no touch-ups",
+      "default": "Without touch-ups"
     },
     {
       "type": "text",
       "id": "subscribe_highlight",
       "label": "Curve highlight",
-      "default": "Results compound — staying on your formula is what gets you all the way."
+      "default": "Most people reach their target shade in about 12 treatments. Coffee, staining foods and everyday wear pull it back down — touch-ups every few months are what hold it."
     },
     {
       "type": "text",
       "id": "subscribe_chart_aria",
       "label": "Curve description (screen readers)",
-      "default": "Whitening results by session: fast early gains that keep compounding with continued use."
+      "default": "Shade over time: about twelve treatments to reach your target shade, held with regular touch-ups but fading without them."
     },
     {
       "type": "textarea",
       "id": "subscribe_benefits",
       "label": "Subscription benefits",
       "info": "One per line",
-      "default": "Prevents stain buildup between treatments\nFree gifts every cycle\nResults guaranteed or your money back"
+      "default": "Touch-ups arrive before your shade slips\nPrevents stain buildup between treatments\nFree gifts every cycle\nResults guaranteed or your money back"
     },
     {
       "type": "checkbox",

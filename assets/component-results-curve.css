@@ -1,7 +1,7 @@
-/* Results curve — compact single-series log line for the Why Subscribe panel */
+/* Results curve — two series sharing a peak, then branching */
 
 .results-curve {
-  /* Capped so it stays a small chart in a wide panel instead of ballooning */
+  /* Capped so it stays a small chart in a wide panel */
   max-width: 340px;
   margin: 0 0 14px;
 }
@@ -20,27 +20,40 @@
   vector-effect: non-scaling-stroke;
 }
 
-.results-curve__axis {
+.results-curve__axis,
+.results-curve__tick {
   stroke: var(--navy-tint-20);
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
 }
 
-/* Wash under the curve, never a saturated block */
+/* Wash under the maintained line, never a saturated block */
 .results-curve__area {
   fill: var(--blue);
   opacity: 0.1;
 }
 
 .results-curve__line {
-  stroke: var(--navy);
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
 }
 
-/* Dots carry a surface ring so they stay legible over the line */
+.results-curve__line--keep {
+  stroke: var(--navy);
+}
+
+/*
+  Dashed as well as coloured: this hue sits at 2.54:1 on a light surface, so
+  it is not left to carry the meaning on its own.
+*/
+.results-curve__line--stop {
+  stroke: var(--pink);
+  stroke-dasharray: 5 4;
+}
+
+/* Dots carry a surface ring so they stay legible where lines meet */
 .results-curve__dot {
   fill: var(--navy);
   stroke: #ffffff;
@@ -48,24 +61,23 @@
   vector-effect: non-scaling-stroke;
 }
 
-.results-curve__dot--end {
+.results-curve__dot--peak,
+.results-curve__dot--keep {
   fill: var(--blue);
   stroke: var(--navy);
 }
 
-/* Labels are HTML, so they never scale with the viewBox */
-.results-curve__tick {
-  stroke: var(--navy-tint-20);
-  stroke-width: 1;
-  vector-effect: non-scaling-stroke;
+.results-curve__dot--stop {
+  fill: var(--pink);
+  stroke: #ffffff;
 }
 
+/* Labels are HTML, so they never scale with the viewBox */
 .results-curve__labels {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  /* Generous minimum gap so adjacent labels never read as one phrase */
-  gap: 18px;
+  gap: 10px;
   margin-top: 2px;
 }
 
@@ -80,9 +92,44 @@
   white-space: nowrap;
 }
 
-.results-curve__label--end {
+/* The peak is the point the copy is about */
+.results-curve__label--peak {
   color: var(--navy);
   font-weight: 700;
+}
+
+/* Legend — always present, since there are two series */
+.results-curve__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.results-curve__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--ds-font-family);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: var(--ds-line-height);
+  /* Text wears ink, not the series colour */
+  color: var(--navy);
+}
+
+.results-curve__swatch {
+  width: 14px;
+  height: 0;
+  flex-shrink: 0;
+  border-top: 2px solid var(--navy);
+}
+
+.results-curve__swatch--stop {
+  border-top-style: dashed;
+  border-top-color: var(--pink);
 }
 
 .results-curve__highlight {
