@@ -200,3 +200,34 @@
     text-align: center;
   }
 }
+
+/*
+  Join the two #EEF9FF panels when this section directly follows the dentist
+  carousel, instead of leaving a white band between them.
+
+  Disabled sections emit no markup, so the two wrappers are adjacent siblings
+  in the DOM even though other (disabled) sections sit between them in the
+  template order. :has() is already relied on elsewhere in the theme.
+
+  Mobile: both panels are square, so closing the 60px + 60px of margin is enough.
+  Desktop: pull up 12px further and square this panel's top corners, so it
+  paints over the carousel's rounded bottom corners — same colour, no seam.
+*/
+.section:has(.multi-slide-carousel) + .section:has(.transformational-results) {
+  margin-top: -60px;
+}
+
+.section:has(.multi-slide-carousel) + .section:has(.transformational-results) .transformational-results {
+  margin-top: 0;
+}
+
+@media screen and (min-width: 769px) {
+  .section:has(.multi-slide-carousel) + .section:has(.transformational-results) {
+    margin-top: -72px;
+  }
+
+  .section:has(.multi-slide-carousel) + .section:has(.transformational-results) .transformational-results__inner {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
