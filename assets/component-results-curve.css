@@ -54,17 +54,24 @@
 }
 
 /* Labels are HTML, so they never scale with the viewBox */
+.results-curve__tick {
+  stroke: var(--navy-tint-20);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
 .results-curve__labels {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: 6px;
-  margin-top: 6px;
+  /* Generous minimum gap so adjacent labels never read as one phrase */
+  gap: 18px;
+  margin-top: 2px;
 }
 
 .results-curve__label {
   font-family: var(--ds-font-family);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: var(--ds-label-letter-spacing);
