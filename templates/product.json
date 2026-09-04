@@ -161,22 +161,19 @@
         "standard_1": {
           "type": "standard",
           "settings": {
-            "title": "Pharmaceutical-Grade Actives",
-            "text": "Higher purity means fewer free radicals — the real cause of whitening sensitivity."
+            "title": "Pharmaceutical-grade active ingredients"
           }
         },
         "standard_2": {
           "type": "standard",
           "settings": {
-            "title": "FDA-Registered Facilities",
-            "text": "Both production and storage happen in FDA-registered facilities in the USA."
+            "title": "FDA-registered production and storage"
           }
         },
         "standard_3": {
           "type": "standard",
           "settings": {
-            "title": "Dentist Designed & Clinically Tested",
-            "text": "Formulated by dentists and validated in clinical testing — a 74% increase in brightness over 14 days."
+            "title": "Dentist designed & clinically tested"
           }
         }
       },
@@ -188,8 +185,7 @@
       "name": "Our Standards",
       "settings": {
         "eyebrow": "Our Standards",
-        "heading": "Clean ingredients, {pharmaceutical grade.}",
-        "intro": "Strength only matters if what's in the bottle is clean. Every ingredient we use is held to a higher purity standard than the industry asks for.",
+        "heading": "Pharmaceutical-grade {ingredients.}",
         "image": "shopify://shop_images/scientist-in-lab-with-pipette.jpg",
         "top_border": false,
         "margin_bottom": true
@@ -224,29 +220,21 @@
             "value": "7+",
             "label": "Shades in 6 days"
           }
-        },
-        "stat_NB8QYg": {
-          "type": "stat",
-          "settings": {
-            "value": "10 min",
-            "label": "Daily routine"
-          }
         }
       },
       "block_order": [
         "stat_JTKMLC",
-        "stat_KqiDyr",
-        "stat_NB8QYg"
+        "stat_KqiDyr"
       ],
       "name": "Strength Comparison",
       "settings": {
         "eyebrow": "Why It Works Faster",
         "heading": "2x stronger than {anything over the counter.}",
         "body": "OTC whitening isn't strong enough for a meaningful difference. Your formula is prescribed at 14% hydrogen peroxide — the same strength professional whitening uses — so stains lift faster, and results go further.",
-        "footnote": "*Maximum prescribed concentration. SmileAI sets your strength based on sensitivity, cavity history and diet — as strong as your smile can comfortably handle.",
+        "footnote": "",
         "chart_label": "Active whitening strength",
         "chart_badge": "2.2× stronger",
-        "compare_label": "Avg. strips",
+        "compare_label": "Avg. OTC Whitening",
         "compare_value": "6.5",
         "ours_label": "Laughland",
         "ours_value": "14",
@@ -256,7 +244,8 @@
         "threshold_value": "10",
         "threshold_label": "Dentist strength 10%+",
         "chart_footnote": "Dentist-grade strength, prescribed to your sensitivity — with hydroxyapatite, coconut oil and aloe to keep it comfortable.",
-        "margin_bottom": true
+        "margin_bottom": true,
+        "compare_label_short": "Avg. OTC"
       }
     },
     "ingredients_that_work_N67RbP": {
@@ -852,12 +841,118 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "comparison_table_pdp": {
+      "type": "comparison-table",
+      "blocks": {
+        "competitor_1": {
+          "type": "competitor",
+          "settings": {
+            "heading": "Whitening Strips"
+          }
+        },
+        "competitor_2": {
+          "type": "competitor",
+          "settings": {
+            "heading": "Whitening Toothpaste"
+          }
+        },
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "label": "Lifts deep-set stains",
+            "col_1": true,
+            "col_2": false,
+            "col_3": false,
+            "col_4": false
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "label": "Dentist-grade strength",
+            "col_1": false,
+            "col_2": false,
+            "col_3": false,
+            "col_4": false
+          }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "label": "Strengthens enamel",
+            "col_1": false,
+            "col_2": false,
+            "col_3": false,
+            "col_4": false
+          }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": {
+            "label": "Sensitivity protection",
+            "col_1": false,
+            "col_2": false,
+            "col_3": false,
+            "col_4": false
+          }
+        },
+        "row_5": {
+          "type": "row",
+          "settings": {
+            "label": "Removes plaque & biofilm",
+            "col_1": false,
+            "col_2": true,
+            "col_3": false,
+            "col_4": false
+          }
+        },
+        "row_6": {
+          "type": "row",
+          "settings": {
+            "label": "Supports oral microbiome",
+            "col_1": false,
+            "col_2": false,
+            "col_3": false,
+            "col_4": false
+          }
+        },
+        "row_7": {
+          "type": "row",
+          "settings": {
+            "label": "Prescribed to your smile",
+            "col_1": false,
+            "col_2": false,
+            "col_3": false,
+            "col_4": false
+          }
+        }
+      },
+      "block_order": [
+        "competitor_1",
+        "competitor_2",
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5",
+        "row_6",
+        "row_7"
+      ],
+      "name": "Comparison Table",
+      "settings": {
+        "heading": "Laughland is a {whole-mouth} solution",
+        "ours_label": "Laughland",
+        "footnote": "†Based on currently available data for mass-market at-home whitening products.",
+        "margin_bottom": true
+      }
     }
   },
   "order": [
     "main",
     "formula_blends_E38KV6",
     "our_standards_pdp",
+    "comparison_table_pdp",
     "product-recommendations",
     "strength_comparison_gNykFW",
     "ingredients_that_work_N67RbP",
