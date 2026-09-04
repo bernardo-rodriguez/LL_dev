@@ -232,9 +232,21 @@
   margin-bottom: 0;
 }
 
+/*
+  Breathing room above SELECT KIT. It now sits directly under the star rating,
+  since the offer banner and formula line above it are hidden by default.
+  The refill picker's FORMULA PICKER: title reuses this class but is pinned to
+  margin 0 by the #formula-picker-direct rule above, so it is unaffected.
+*/
 .pdp-kit-selector__title {
   color: #1a1a1a;
-  margin: 0;
+  margin: 20px 0 0;
+}
+
+@media screen and (min-width: 769px) {
+  .pdp-kit-selector__title {
+    margin-top: 24px;
+  }
 }
 
 .pdp-kit-selector.quantity-radio-group {
