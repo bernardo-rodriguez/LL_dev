@@ -121,7 +121,10 @@
                   >
                     <span class="strength-comparison__bar-value">{{ section.settings.compare_value }}{{ section.settings.axis_suffix }}</span>
                   </div>
-                  <span class="strength-comparison__bar-caption body-sm">{{ section.settings.compare_label }}</span>
+                  <span class="strength-comparison__bar-caption body-sm">
+                    <span class="strength-comparison__caption-full">{{ section.settings.compare_label }}</span>
+                    <span class="strength-comparison__caption-short">{{ section.settings.compare_label_short | default: section.settings.compare_label }}</span>
+                  </span>
                 </div>
                 <div class="strength-comparison__bar-col">
                   <div
@@ -174,7 +177,8 @@
       "type": "textarea",
       "id": "footnote",
       "label": "Footnote",
-      "default": "*Maximum prescribed concentration. SmileAI sets your strength based on sensitivity, cavity history and diet — as strong as your smile can comfortably handle."
+      "default": "",
+      "info": "Leave blank to hide"
     },
     {
       "type": "header",
@@ -197,7 +201,14 @@
       "type": "text",
       "id": "compare_label",
       "label": "Comparison bar label",
-      "default": "Avg. strips"
+      "default": "Avg. OTC Whitening"
+    },
+    {
+      "type": "text",
+      "id": "compare_label_short",
+      "label": "Comparison bar label (mobile)",
+      "default": "Avg. OTC",
+      "info": "Shorter form used under the bar on mobile. Falls back to the full label."
     },
     {
       "type": "text",
@@ -303,13 +314,6 @@
           "settings": {
             "value": "7+",
             "label": "Shades in 6 days"
-          }
-        },
-        {
-          "type": "stat",
-          "settings": {
-            "value": "10 min",
-            "label": "Daily routine"
           }
         }
       ]

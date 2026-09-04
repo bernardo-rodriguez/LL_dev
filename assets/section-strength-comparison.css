@@ -293,6 +293,25 @@ body.template-product .strength-comparison__heading {
   white-space: nowrap;
 }
 
+/* Full label on desktop, abbreviated under the narrow mobile bar */
+.strength-comparison__caption-full {
+  display: none;
+}
+
+.strength-comparison__caption-short {
+  display: inline;
+}
+
+@media screen and (min-width: 769px) {
+  .strength-comparison__caption-full {
+    display: inline;
+  }
+
+  .strength-comparison__caption-short {
+    display: none;
+  }
+}
+
 .strength-comparison__bar-caption--ours {
   color: var(--navy);
   font-weight: 700;

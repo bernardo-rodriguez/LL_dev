@@ -93,6 +93,22 @@
                     <span class="formula-blends__item-number label-sm">
                       {{ blend_index | prepend: '0' | slice: -2, 2 }}
                     </span>
+                    <span class="formula-blends__item-media">
+                      {% if block.settings.image != blank %}
+                        <img
+                          src="{{ block.settings.image | image_url: width: 312 }}"
+                          srcset="
+                            {{ block.settings.image | image_url: width: 208 }} 208w,
+                            {{ block.settings.image | image_url: width: 312 }} 312w
+                          "
+                          sizes="(min-width: 769px) 104px, 76px"
+                          alt="{{ block.settings.image.alt | default: block.settings.name | escape }}"
+                          width="104"
+                          height="74"
+                          loading="lazy"
+                        >
+                      {% endif %}
+                    </span>
                     <span class="formula-blends__item-titles">
                       {% if block.settings.name != blank %}
                         <span class="formula-blends__item-name">{{ block.settings.name }}</span>
@@ -111,22 +127,6 @@
                           {%- comment -%} Ingredient blocks: individually editable, each with its own image {%- endcomment -%}
                           {% for ing in section.blocks offset: ingredients_start limit: ingredient_count %}
                             <div class="formula-blends__ingredient" {{ ing.shopify_attributes }}>
-                              <span class="formula-blends__ingredient-media">
-                                {% if ing.settings.image != blank %}
-                                  <img
-                                    src="{{ ing.settings.image | image_url: width: 252 }}"
-                                    srcset="
-                                      {{ ing.settings.image | image_url: width: 168 }} 168w,
-                                      {{ ing.settings.image | image_url: width: 252 }} 252w
-                                    "
-                                    sizes="(min-width: 769px) 84px, 76px"
-                                    alt="{{ ing.settings.image.alt | default: ing.settings.name | escape }}"
-                                    width="84"
-                                    height="58"
-                                    loading="lazy"
-                                  >
-                                {% endif %}
-                              </span>
                               {% if ing.settings.name != blank %}
                                 <span class="formula-blends__ingredient-name sh3">{{ ing.settings.name }}</span>
                               {% endif %}
@@ -145,7 +145,7 @@
                             {% assign trimmed = line | strip %}
                             {% if trimmed != blank %}
                               {% assign parts = trimmed | split: '|' %}
-                              <div class="formula-blends__ingredient formula-blends__ingredient--no-media">
+                              <div class="formula-blends__ingredient">
                                 <span class="formula-blends__ingredient-name sh3">{{ parts[0] | strip }}</span>
                                 {% if parts.size > 1 %}
                                   <span class="formula-blends__ingredient-role stylized">{{ parts[1] | strip }}</span>
@@ -279,6 +279,12 @@
       "name": "Blend",
       "settings": [
         {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Blend image",
+          "info": "Shown in the accordion header. 104x74 desktop, 76x56 mobile."
+        },
+        {
           "type": "text",
           "id": "name",
           "label": "Blend name",
@@ -305,12 +311,6 @@
         {
           "type": "paragraph",
           "content": "Belongs to the Blend block above it. Drag to reorder or move between blends."
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image",
-          "info": "Shown at 84×58 on desktop, 76×54 on mobile. Leave empty for a placeholder."
         },
         {
           "type": "text",

@@ -27,9 +27,6 @@
             <h3 class="our-standards__heading">{{ formatted_heading }}</h3>
           {% endif %}
 
-          {% if section.settings.intro != blank %}
-            <p class="our-standards__intro sh3">{{ section.settings.intro }}</p>
-          {% endif %}
 
           {% if standard_blocks.size > 0 %}
             <div class="our-standards__list">
@@ -48,14 +45,9 @@
                       &#10003;
                     {% endif %}
                   </span>
-                  <span class="our-standards__item-text">
-                    {% if block.settings.title != blank %}
-                      <span class="our-standards__item-title label-sm">{{ block.settings.title }}</span>
-                    {% endif %}
-                    {% if block.settings.text != blank %}
-                      <span class="our-standards__item-detail sh3">{{ block.settings.text }}</span>
-                    {% endif %}
-                  </span>
+                  {% if block.settings.title != blank %}
+                    <span class="our-standards__item-title sh3">{{ block.settings.title }}</span>
+                  {% endif %}
                 </div>
               {% endfor %}
             </div>
@@ -102,14 +94,8 @@
       "type": "textarea",
       "id": "heading",
       "label": "Heading",
-      "default": "Clean ingredients, {pharmaceutical grade.}",
+      "default": "Pharmaceutical-grade {ingredients.}",
       "info": "Wrap emphasized text in {} for the italic Canela style"
-    },
-    {
-      "type": "textarea",
-      "id": "intro",
-      "label": "Intro paragraph",
-      "default": "Strength only matters if what's in the bottle is clean. Every ingredient we use is held to a higher purity standard than the industry asks for."
     },
     {
       "type": "image_picker",
@@ -149,14 +135,8 @@
         {
           "type": "text",
           "id": "title",
-          "label": "Title",
-          "default": "Pharmaceutical-Grade Actives"
-        },
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Detail",
-          "default": "Higher purity means fewer free radicals — the real cause of whitening sensitivity."
+          "label": "Claim",
+          "default": "Pharmaceutical-grade active ingredients"
         }
       ]
     }
@@ -168,22 +148,19 @@
         {
           "type": "standard",
           "settings": {
-            "title": "Pharmaceutical-Grade Actives",
-            "text": "Higher purity means fewer free radicals — the real cause of whitening sensitivity."
+            "title": "Pharmaceutical-grade active ingredients"
           }
         },
         {
           "type": "standard",
           "settings": {
-            "title": "FDA-Registered Facilities",
-            "text": "Both production and storage happen in FDA-registered facilities in the USA."
+            "title": "FDA-registered production and storage"
           }
         },
         {
           "type": "standard",
           "settings": {
-            "title": "Dentist Designed & Clinically Tested",
-            "text": "Formulated by dentists and validated in clinical testing — a 74% increase in brightness over 14 days."
+            "title": "Dentist designed & clinically tested"
           }
         }
       ]
