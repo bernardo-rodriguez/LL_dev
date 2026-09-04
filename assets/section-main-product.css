@@ -614,9 +614,11 @@ input:checked + .slider:before {
   font-weight: 800;
 }
 
-/* Extra breathing room above the first accordion (Why Subscribe) */
+/* Extra breathing room above the first accordion (Why Subscribe), and no rule
+   above it — the divider reads as a stray line under the kit options. */
 .product__accordion:first-of-type {
   margin-top: 24px;
+  border-top: 0;
 }
 
 @media screen and (min-width: 769px) {
