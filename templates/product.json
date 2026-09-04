@@ -47,6 +47,7 @@
         "ingredient_74T3Pb": {
           "type": "ingredient",
           "settings": {
+            "image": "shopify://shop_images/hydroxipetite.webp",
             "name": "Hydroxyapatite",
             "role": "enamel shield"
           }
