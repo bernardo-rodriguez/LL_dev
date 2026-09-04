@@ -700,6 +700,7 @@
         "effect_UBdVbd",
         "effect_c9FihQ"
       ],
+      "disabled": true,
       "name": "Science Effects",
       "settings": {
         "eyebrow": "The Science",
