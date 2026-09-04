@@ -31,10 +31,10 @@
         "blend_9mDc8T": {
           "type": "blend",
           "settings": {
+            "image": "shopify://shop_images/stack-aloe-vera-sliced-gel-600nw-2161312827.webp",
             "name": "Sensitivity Protection Blend",
             "summary": "Keeps dentist-grade strength comfortable",
-            "ingredients": "Glycerin | hydration barrier\nHydroxyapatite | enamel shield\nAloe Vera | soothes gums",
-            "image": "shopify://shop_images/stack-aloe-vera-sliced-gel-600nw-2161312827.webp"
+            "ingredients": "Glycerin | hydration barrier\nHydroxyapatite | enamel shield\nAloe Vera | soothes gums"
           }
         },
         "ingredient_e4TR1S": {
@@ -61,10 +61,10 @@
         "blend_wgMWR7": {
           "type": "blend",
           "settings": {
+            "image": "shopify://shop_images/stack-aloe-vera-sliced-gel-600nw-2161312827.webp",
             "name": "Brightness Blend",
             "summary": "Rebuilds enamel so light reflects evenly",
-            "ingredients": "Hydroxyapatite | densifies enamel\nHydrogen Peroxide | lifts discoloration",
-            "image": "shopify://shop_images/hydroxipetite.webp"
+            "ingredients": "Hydroxyapatite | densifies enamel\nHydrogen Peroxide | lifts discoloration"
           }
         },
         "ingredient_PR8gmL": {
@@ -84,6 +84,7 @@
         "blend_dj7YaT": {
           "type": "blend",
           "settings": {
+            "image": "shopify://shop_images/stack-aloe-vera-sliced-gel-600nw-2161312827.webp",
             "name": "Oral Microbiome Support Blend",
             "summary": "Balances the bacteria that cause staining",
             "ingredients": "Xylitol | starves bad bacteria\nPomegranate Extract | antioxidant defense\nCoconut Oil | balances the mouth"
@@ -113,6 +114,7 @@
         "blend_pQpqnp": {
           "type": "blend",
           "settings": {
+            "image": "shopify://shop_images/hydroxipetite.webp",
             "name": "Stain Removing Blend",
             "summary": "Lifts surface and deep-set discoloration",
             "ingredients": "Hydrogen Peroxide | oxidizes deep stains\nCoconut Oil | sweeps surface stains"
