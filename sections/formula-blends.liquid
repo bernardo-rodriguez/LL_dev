@@ -299,8 +299,8 @@
         {
           "type": "textarea",
           "id": "ingredients",
-          "label": "Ingredients (one per line) — fallback",
-          "info": "Only used when this blend has no Ingredient blocks under it. Format: Ingredient name | its role. Add Ingredient blocks instead to get per-ingredient images."
+          "label": "Ingredients (fallback)",
+          "info": "Only used when this blend has no Ingredient blocks under it. Format: name | role."
         }
       ]
     },
@@ -310,7 +310,7 @@
       "settings": [
         {
           "type": "paragraph",
-          "content": "Belongs to the Blend block above it. Drag to reorder or move between blends."
+          "content": "Belongs to the Blend above it. Drag to reorder or move between blends."
         },
         {
           "type": "text",
@@ -323,34 +323,6 @@
           "id": "role",
           "label": "Role",
           "default": "hydration barrier"
-        }
-      ]
-    },
-    {
-      "type": "trust",
-      "name": "Trust marker (moved to Our Standards)",
-      "settings": [
-        {
-          "type": "paragraph",
-          "content": "No longer displayed. These moved to the Our Standards section — add that section instead, then delete this block."
-        },
-        {
-          "type": "image_picker",
-          "id": "icon",
-          "label": "Icon",
-          "info": "Leave empty to use a checkmark"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Clinically Tested"
-        },
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Detail",
-          "default": "74% increase in brightness over 14 days"
         }
       ]
     }
