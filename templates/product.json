@@ -33,13 +33,13 @@
           "settings": {
             "name": "Sensitivity Protection Blend",
             "summary": "Keeps dentist-grade strength comfortable",
-            "ingredients": "Glycerin | hydration barrier\nHydroxyapatite | enamel shield\nAloe Vera | soothes gums"
+            "ingredients": "Glycerin | hydration barrier\nHydroxyapatite | enamel shield\nAloe Vera | soothes gums",
+            "image": "shopify://shop_images/stack-aloe-vera-sliced-gel-600nw-2161312827.webp"
           }
         },
         "ingredient_e4TR1S": {
           "type": "ingredient",
           "settings": {
-            "image": "shopify://shop_images/stack-aloe-vera-sliced-gel-600nw-2161312827.webp",
             "name": "Glycerin",
             "role": "hydration barrier"
           }
@@ -47,7 +47,6 @@
         "ingredient_74T3Pb": {
           "type": "ingredient",
           "settings": {
-            "image": "shopify://shop_images/hydroxipetite.webp",
             "name": "Hydroxyapatite",
             "role": "enamel shield"
           }
@@ -64,7 +63,8 @@
           "settings": {
             "name": "Brightness Blend",
             "summary": "Rebuilds enamel so light reflects evenly",
-            "ingredients": "Hydroxyapatite | densifies enamel\nHydrogen Peroxide | lifts discoloration"
+            "ingredients": "Hydroxyapatite | densifies enamel\nHydrogen Peroxide | lifts discoloration",
+            "image": "shopify://shop_images/hydroxipetite.webp"
           }
         },
         "ingredient_PR8gmL": {

@@ -175,16 +175,16 @@ body.template-product .formula-blends__item-name {
 .formula-blends__ingredients {
   display: flex;
   flex-direction: column;
-  padding: 0 0 14px 36px;
+  padding: 0 0 12px 36px;
 }
 
-/* Name + italic role */
+/* Name + italic role — text only, so the rows stay compact */
 .formula-blends__ingredient {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 14px;
+  gap: 12px;
   align-items: baseline;
-  padding: 10px 0;
+  padding: 7px 0;
   border-top: 1px solid var(--blue-tint-20);
 }
 
@@ -289,13 +289,13 @@ body.template-product .formula-blends__item-name {
   }
 
   .formula-blends__ingredients {
-    padding: 0 0 14px 50px;
+    padding: 0 0 12px 50px;
   }
 
   .formula-blends__ingredient {
     grid-template-columns: minmax(0, 1fr) 1.2fr;
     gap: 24px;
-    padding: 12px 0;
+    padding: 9px 0;
   }
 
   .formula-blends__item-media {
