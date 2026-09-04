@@ -64,6 +64,12 @@ xhttp.send();
         {% render 'small-stars' %}
         {% comment %} {% render 'estimated_arrival' %} {% endcomment %}
 
+        {%- comment -%}
+          Off by default. Note the affiliate scripts in cookie-specific-actions.js
+          write into #product-offer-banner, so their PDP banner is hidden too
+          while this is off; every lookup there is null-guarded.
+        {%- endcomment -%}
+        {% if section.settings.show_offer_banner %}
         {% unless product.id == cfg.REFILL_DEFAULT.product_id %}
         <div id="product-offer-banner" class="pdp-offer-banner pdp-body-text">
           {% if section.settings.offer_text != blank %}
@@ -76,8 +82,13 @@ xhttp.send();
           {% endif %}
         </div>
         {% endunless %}
+        {% endif %}
 
-        <dl class="product-info">
+        {%- comment -%}
+          Kept in the DOM when hidden, just not visible: product-form.js reads the
+          per-variant spans below to drive the sticky bar's formula label.
+        {%- endcomment -%}
+        <dl class="product-info {% unless section.settings.show_formula_line %}visually-hidden{% endunless %}">
           <dt class="label"> 
             {% if product.metafields.custom.subheading_one %}
               {{ product.metafields.custom.subheading_one }}
@@ -949,6 +960,20 @@ xhttp.send();
       "id": "offer_text",
       "label": "Offer Banner Text",
       "default": "LIMITED TIME OFFER: 30% OFF YOUR FIRST SUBSCRIPTION PLUS TWO FREE GIFTS"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_offer_banner",
+      "label": "Show the offer banner",
+      "default": false,
+      "info": "Off hides it, including affiliate banners on the product page."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_formula_line",
+      "label": "Show the formula line",
+      "default": false,
+      "info": "The \"Your Whitening Formula\" heading, the formula description and the rule below them."
     }
   ]
 }
