@@ -20,9 +20,9 @@
         "subscribe_points": "Start\n~12 treatments\n3 months\n6 months",
         "subscribe_keep_label": "With touch-ups",
         "subscribe_stop_label": "Without touch-ups",
-        "subscribe_highlight": "Most people reach their target shade in about 12 treatments. Coffee, staining foods and everyday wear pull it back down — touch-ups every few months are what hold it.",
+        "subscribe_highlight": "While most reach their target shade in 12 treatments, coffee, staining foods and everyday wear pull it back down — touch-ups every few months are what hold it.",
         "subscribe_chart_aria": "Whitening results by session: fast early gains that keep compounding with continued use.",
-        "subscribe_benefits": "Touch-ups arrive before your shade slips\nPrevents stain buildup between treatments\nFree gifts every cycle\nResults guaranteed or your money back",
+        "subscribe_benefits": "Touch-ups arrive before your shade slips\nPrevents stain buildup between treatments\nResults guaranteed or money back",
         "show_why_subscribe_text": false,
         "offer_text": "LIMITED TIME OFFER: 30% OFF YOUR FIRST SUBSCRIPTION PLUS TWO FREE GIFTS",
         "show_offer_banner": false,
@@ -230,7 +230,7 @@
         "row_2": {
           "type": "row",
           "settings": {
-            "label": "Dentist-grade strength",
+            "label": ">10% HP",
             "col_1": false,
             "col_2": false,
             "col_3": false,
