@@ -32,6 +32,15 @@
     "formula_blends_E38KV6": {
       "type": "formula-blends",
       "blocks": {
+        "blend_wgMWR7": {
+          "type": "blend",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-09-09_at_6.25.02_PM.png",
+            "name": "Total Whitening",
+            "summary": "From surface to deep enamel",
+            "ingredients": "Hydroxyapatite | densifies enamel\nHydrogen Peroxide | lifts discoloration"
+          }
+        },
         "blend_9mDc8T": {
           "type": "blend",
           "settings": {
@@ -60,15 +69,6 @@
           "settings": {
             "name": "Hydroxyapatite",
             "role": "fills microscopic gaps in enamel that trigger sensitivity."
-          }
-        },
-        "blend_wgMWR7": {
-          "type": "blend",
-          "settings": {
-            "image": "shopify://shop_images/Screenshot_2026-09-09_at_6.25.02_PM.png",
-            "name": "Total Whitening",
-            "summary": "From surface to deep enamel",
-            "ingredients": "Hydroxyapatite | densifies enamel\nHydrogen Peroxide | lifts discoloration"
           }
         },
         "ingredient_5vMySD": {
@@ -133,11 +133,11 @@
         }
       },
       "block_order": [
+        "blend_wgMWR7",
         "blend_9mDc8T",
         "ingredient_KlQwBW",
         "ingredient_WdFCdG",
         "ingredient_e4TR1S",
-        "blend_wgMWR7",
         "ingredient_5vMySD",
         "ingredient_hGje7T",
         "blend_dj7YaT",
@@ -149,8 +149,8 @@
       ],
       "name": "Formula Blends",
       "settings": {
-        "eyebrow": "What's Inside",
-        "heading": "An 11-ingredient formula for {your smile transformation*}",
+        "eyebrow": "Your Whitening formula",
+        "heading": "11 ingredients for {your smile transformation}",
         "intro": "A beautiful smile is more than just white teeth. Each ingredient targets a foundational element — whiteness, brightness, healthy enamel.",
         "image": "shopify://shop_images/Laughland_80136_1_1.png",
         "show_image_mobile": false,
