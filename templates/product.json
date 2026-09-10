@@ -183,6 +183,68 @@
         "margin_bottom": true
       }
     },
+    "transformational_results_ddRMfc": {
+      "type": "transformational-results",
+      "blocks": {
+        "profile_8JMmJK": {
+          "type": "profile",
+          "settings": {
+            "person_name": "BAILEY W.",
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_7.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_8.png"
+          }
+        },
+        "profile_bbgBRd": {
+          "type": "profile",
+          "settings": {
+            "person_name": "SOPHIA T.",
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_5.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_6.png"
+          }
+        },
+        "profile_TyzdzQ": {
+          "type": "profile",
+          "settings": {
+            "person_name": "NEELAM S.",
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png"
+          }
+        },
+        "stat_ETKGJE": {
+          "type": "stat",
+          "settings": {
+            "percent": "100%",
+            "text": "100% of clinical trial participants reported whiter teeth after 6 treatments"
+          }
+        },
+        "stat_WDyFBB": {
+          "type": "stat",
+          "settings": {
+            "percent": "74%",
+            "text": "Clinical trial participants reported, on average, a 74% whiter teeth shade"
+          }
+        },
+        "stat_jx3cyR": {
+          "type": "stat",
+          "settings": {
+            "percent": "0%",
+            "text": "0% of clinical trial participants reported an increase in sensitivity after whitening"
+          }
+        }
+      },
+      "block_order": [
+        "profile_8JMmJK",
+        "profile_bbgBRd",
+        "profile_TyzdzQ",
+        "stat_ETKGJE",
+        "stat_WDyFBB",
+        "stat_jx3cyR"
+      ],
+      "name": "Transformational Results",
+      "settings": {
+        "heading": "Over 100,000+ brighter smiles"
+      }
+    },
     "comparison_table_pdp": {
       "type": "comparison-table",
       "blocks": {
@@ -567,68 +629,6 @@
         "margin_bottom": true
       }
     },
-    "transformational_results_ddRMfc": {
-      "type": "transformational-results",
-      "blocks": {
-        "profile_8JMmJK": {
-          "type": "profile",
-          "settings": {
-            "person_name": "BAILEY W.",
-            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_7.png",
-            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_8.png"
-          }
-        },
-        "profile_bbgBRd": {
-          "type": "profile",
-          "settings": {
-            "person_name": "SOPHIA T.",
-            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_5.png",
-            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_6.png"
-          }
-        },
-        "profile_TyzdzQ": {
-          "type": "profile",
-          "settings": {
-            "person_name": "NEELAM S.",
-            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
-            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png"
-          }
-        },
-        "stat_ETKGJE": {
-          "type": "stat",
-          "settings": {
-            "percent": "100%",
-            "text": "100% of clinical trial participants reported whiter teeth after 6 treatments"
-          }
-        },
-        "stat_WDyFBB": {
-          "type": "stat",
-          "settings": {
-            "percent": "74%",
-            "text": "Clinical trial participants reported, on average, a 74% whiter teeth shade"
-          }
-        },
-        "stat_jx3cyR": {
-          "type": "stat",
-          "settings": {
-            "percent": "0%",
-            "text": "0% of clinical trial participants reported an increase in sensitivity after whitening"
-          }
-        }
-      },
-      "block_order": [
-        "profile_8JMmJK",
-        "profile_bbgBRd",
-        "profile_TyzdzQ",
-        "stat_ETKGJE",
-        "stat_WDyFBB",
-        "stat_jx3cyR"
-      ],
-      "name": "Transformational Results",
-      "settings": {
-        "heading": "Over 100,000+ brighter smiles"
-      }
-    },
     "science_effects_yCEdFb": {
       "type": "science-effects",
       "blocks": {
@@ -937,6 +937,7 @@
     "main",
     "formula_blends_E38KV6",
     "strength_comparison_gNykFW",
+    "transformational_results_ddRMfc",
     "comparison_table_pdp",
     "product-recommendations",
     "ingredients_that_work_N67RbP",
@@ -944,7 +945,6 @@
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
     "1c8af4c9-5992-4bfb-9d4a-a8e06e025318",
     "our_standards_pdp",
-    "transformational_results_ddRMfc",
     "science_effects_yCEdFb",
     "health_and_safety_7jXKQb",
     "30a71a58-b5ad-472f-9d70-97379fc62b74",
