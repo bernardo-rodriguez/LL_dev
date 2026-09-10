@@ -37,7 +37,7 @@
           "settings": {
             "image": "shopify://shop_images/Screenshot_2026-09-09_at_6.25.02_PM.png",
             "name": "Total Whitening",
-            "summary": "Whitens beyond the surface",
+            "summary": "Pharma-Grade Peroxide",
             "ingredients": "Hydroxyapatite | densifies enamel\nHydrogen Peroxide | lifts discoloration"
           }
         },
@@ -60,7 +60,7 @@
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_terzrrterzrrterz_554a6ecc-f365-488b-b304-7637df9afe0a.jpg",
             "name": "Sensitivity Care",
-            "summary": "Comfort with every treatment",
+            "summary": "Hydroxyapatite + Glycerin",
             "ingredients": "Glycerin | hydration barrier\nHydroxyapatite | enamel shield"
           }
         },
@@ -90,7 +90,7 @@
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_975skw975skw975s_1334a040-d856-4c20-ad8a-353a6cbbe604.jpg",
             "name": "Healthier Enamel",
-            "summary": "For brighter, luminous teeth",
+            "summary": "Nano-Hydroxyapatite",
             "ingredients": "Xylitol | starves bad bacteria\nPomegranate Extract | antioxidant defense\nCoconut Oil | balances the mouth"
           }
         },
@@ -112,8 +112,8 @@
           "type": "blend",
           "settings": {
             "image": "shopify://shop_images/Screenshot_2026-09-09_at_6.24.43_PM.png",
-            "name": "Gloss Enhancing",
-            "summary": "Removes plaque & tartar",
+            "name": "Gloss & Brightness",
+            "summary": "Coconut Oil + NaCl",
             "ingredients": "Hydrogen Peroxide | oxidizes deep stains\nCoconut Oil | sweeps surface stains"
           }
         },
@@ -127,7 +127,7 @@
         "ingredient_HPwFBJ": {
           "type": "ingredient",
           "settings": {
-            "name": "Sodium Bicarbonate",
+            "name": "Sodium Bicarbonate (NaCl)",
             "role": "breaks down surface tartar"
           }
         }
@@ -151,7 +151,7 @@
       "settings": {
         "eyebrow": "Your  formula",
         "heading": "A beautiful smile takes {more than whitening.}",
-        "intro": "Our 11-ingredient formula targets four pillars: deep whitening, healthy enamel, plaque removal, and sensitivity.",
+        "intro": "Our 11-ingredient formula targets four pillars: deep whitening, healthy enamel, plaque removal - while preventing sensitivity.",
         "image": "shopify://shop_images/Laughland_80136_1_1.png",
         "show_image_mobile": false,
         "footnote": "",
@@ -646,7 +646,7 @@
       ],
       "name": "Transformational Results",
       "settings": {
-        "heading": "Over 100,000 Brighter Smiles"
+        "heading": "Over 100,000+ brighter smiles"
       }
     },
     "science_effects_yCEdFb": {
