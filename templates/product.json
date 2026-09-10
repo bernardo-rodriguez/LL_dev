@@ -20,11 +20,11 @@
         "subscribe_points": "Start\n~12 treatments\n3 months\n6 months",
         "subscribe_keep_label": "With touch-ups",
         "subscribe_stop_label": "Without touch-ups",
-        "subscribe_highlight": "While most reach their target shade in 12 treatments, coffee, staining foods and everyday wear pull it back down — touch-ups every few months are what hold it.",
+        "subscribe_highlight": "While most reach their target shade in 12 treatments, coffee, staining foods and everyday wear will gradually darken teeth — touch-ups every few months are what keep your smile bright.",
         "subscribe_chart_aria": "Whitening results by session: fast early gains that keep compounding with continued use.",
-        "subscribe_benefits": "Touch-ups arrive before your shade slips\nPrevents stain buildup between treatments\nResults guaranteed or money back",
+        "subscribe_benefits": "Touch-ups every few months prevents stain buildup and keeps your smile bright\nResults guaranteed or money back",
         "show_why_subscribe_text": false,
-        "offer_text": "LIMITED TIME OFFER: 30% OFF YOUR FIRST SUBSCRIPTION PLUS TWO FREE GIFTS",
+        "offer_text": "LIMITED TIME OFFER: 30% OFF YOUR FIRST ORDER + FREE WHITENING PEN",
         "show_offer_banner": false,
         "show_formula_line": false
       }
@@ -37,15 +37,29 @@
           "settings": {
             "image": "shopify://shop_images/Screenshot_2026-09-09_at_6.25.02_PM.png",
             "name": "Total Whitening",
-            "summary": "From surface to deep enamel",
+            "summary": "Whitens beyond the surface",
             "ingredients": "Hydroxyapatite | densifies enamel\nHydrogen Peroxide | lifts discoloration"
+          }
+        },
+        "ingredient_5vMySD": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Hydrogen Peroxide",
+            "role": "targets deep stains in enamel & dentin"
+          }
+        },
+        "ingredient_hGje7T": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Sodium Bicarbonate",
+            "role": "targets  surface stains"
           }
         },
         "blend_9mDc8T": {
           "type": "blend",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_terzrrterzrrterz_554a6ecc-f365-488b-b304-7637df9afe0a.jpg",
-            "name": "Sensitivity Relief",
+            "name": "Sensitivity Care",
             "summary": "Comfort with every treatment",
             "ingredients": "Glycerin | hydration barrier\nHydroxyapatite | enamel shield"
           }
@@ -71,26 +85,12 @@
             "role": "fills microscopic gaps in enamel that trigger sensitivity."
           }
         },
-        "ingredient_5vMySD": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Hydrogen Peroxide",
-            "role": "oxidizes deep stains in enamel"
-          }
-        },
-        "ingredient_hGje7T": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Sodium Bicarbonate",
-            "role": "breaks down surface stains"
-          }
-        },
         "blend_dj7YaT": {
           "type": "blend",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_975skw975skw975s_1334a040-d856-4c20-ad8a-353a6cbbe604.jpg",
             "name": "Healthier Enamel",
-            "summary": "Increases brightness",
+            "summary": "For brighter, luminous teeth",
             "ingredients": "Xylitol | starves bad bacteria\nPomegranate Extract | antioxidant defense\nCoconut Oil | balances the mouth"
           }
         },
@@ -105,7 +105,7 @@
           "type": "ingredient",
           "settings": {
             "name": "Coconut Oil",
-            "role": "balances oral pH"
+            "role": "neutralize acids that wear down enamel"
           }
         },
         "blend_pQpqnp": {
@@ -113,7 +113,7 @@
           "settings": {
             "image": "shopify://shop_images/Screenshot_2026-09-09_at_6.24.43_PM.png",
             "name": "Gloss Enhancing",
-            "summary": "Plaque & Tartar Removal",
+            "summary": "Removes plaque & tartar",
             "ingredients": "Hydrogen Peroxide | oxidizes deep stains\nCoconut Oil | sweeps surface stains"
           }
         },
@@ -134,12 +134,12 @@
       },
       "block_order": [
         "blend_wgMWR7",
+        "ingredient_5vMySD",
+        "ingredient_hGje7T",
         "blend_9mDc8T",
         "ingredient_KlQwBW",
         "ingredient_WdFCdG",
         "ingredient_e4TR1S",
-        "ingredient_5vMySD",
-        "ingredient_hGje7T",
         "blend_dj7YaT",
         "ingredient_0A0dEV",
         "ingredient_9NykBN",
@@ -149,9 +149,9 @@
       ],
       "name": "Formula Blends",
       "settings": {
-        "eyebrow": "Your Whitening formula",
-        "heading": "11 ingredients for {your smile transformation}",
-        "intro": "A beautiful smile is more than just white teeth. Each ingredient targets a foundational element — whiteness, brightness, healthy enamel.",
+        "eyebrow": "Your  formula",
+        "heading": "A beautiful smile takes {more than whitening.}",
+        "intro": "Our 11-ingredient formula targets four pillars: deep whitening, healthy enamel, plaque removal, and sensitivity.",
         "image": "shopify://shop_images/Laughland_80136_1_1.png",
         "show_image_mobile": false,
         "footnote": "",
@@ -160,39 +160,46 @@
         "margin_bottom": true
       }
     },
-    "our_standards_pdp": {
-      "type": "our-standards",
+    "strength_comparison_gNykFW": {
+      "type": "strength-comparison",
       "blocks": {
-        "standard_1": {
-          "type": "standard",
+        "stat_JTKMLC": {
+          "type": "stat",
           "settings": {
-            "title": "Pharmaceutical-grade ingredients for higher purity & performance"
+            "value": "5x+",
+            "label": "Stronger formula"
           }
         },
-        "standard_2": {
-          "type": "standard",
+        "stat_KqiDyr": {
+          "type": "stat",
           "settings": {
-            "title": "Manufactured in FDA-registered facilities following ISO standards"
-          }
-        },
-        "standard_3": {
-          "type": "standard",
-          "settings": {
-            "title": "Each formula is designed by dentists & clinically tested for efficacy"
+            "value": "7+",
+            "label": "Shades Whiter in 6 days"
           }
         }
       },
       "block_order": [
-        "standard_1",
-        "standard_2",
-        "standard_3"
+        "stat_JTKMLC",
+        "stat_KqiDyr"
       ],
-      "name": "Our Standards",
+      "name": "Strength Comparison",
       "settings": {
-        "eyebrow": "Higher Standards",
-        "heading": "If it touches your smile, {quality matters.}",
-        "image": "shopify://shop_images/scientist-in-lab-with-pipette.jpg",
-        "top_border": false,
+        "eyebrow": "Why It Works Faster",
+        "heading": "Professional strength for {a real difference.}",
+        "body": "Most at-home whitening is too weak for dramatic results. We use higher concentrations of active ingredients for faster & bigger results.",
+        "footnote": "",
+        "chart_label": "whitening strength",
+        "chart_badge": "4x Stronger",
+        "compare_label": "Avg. OTC Whitening",
+        "compare_value": "30",
+        "ours_label": "Laughland",
+        "ours_value": "120",
+        "axis_suffix": "mg",
+        "axis_max": "150",
+        "axis_step": "30",
+        "threshold_value": "100",
+        "threshold_label": "Dentist strength = 100mg+",
+        "chart_footnote": "Paired with sensitivity blockers like hydroxyapatite and aloe for a comfortable, pain-free whitening experience.",
         "margin_bottom": true
       }
     },
@@ -295,7 +302,7 @@
       ],
       "name": "Comparison Table",
       "settings": {
-        "heading": "Laughland is {more than} just \"whitening\"",
+        "heading": "Everything your smile needs, {in one treatment.}",
         "ours_label": "Laughland",
         "footnote": "",
         "margin_bottom": true
@@ -312,49 +319,6 @@
         "show_image_outline": true,
         "show_vendor": false,
         "show_rating": false
-      }
-    },
-    "strength_comparison_gNykFW": {
-      "type": "strength-comparison",
-      "blocks": {
-        "stat_JTKMLC": {
-          "type": "stat",
-          "settings": {
-            "value": "2.2x",
-            "label": "Stronger formula"
-          }
-        },
-        "stat_KqiDyr": {
-          "type": "stat",
-          "settings": {
-            "value": "7+",
-            "label": "Shades in 6 days"
-          }
-        }
-      },
-      "block_order": [
-        "stat_JTKMLC",
-        "stat_KqiDyr"
-      ],
-      "name": "Strength Comparison",
-      "settings": {
-        "eyebrow": "Why It Works Faster",
-        "heading": "2x stronger than {over the counter.}",
-        "body": "Most OTC Whitening is too weak to make a big difference, or do it fast. We use the same ingredients at the dosage dentists use for whitening that you'll be proud of.",
-        "footnote": "",
-        "chart_label": "Active whitening strength",
-        "chart_badge": "2.2× stronger",
-        "compare_label": "Avg. OTC Whitening",
-        "compare_value": "6.5",
-        "ours_label": "Laughland",
-        "ours_value": "14",
-        "axis_suffix": "%",
-        "axis_max": "16",
-        "axis_step": "4",
-        "threshold_value": "10",
-        "threshold_label": "Dentist strength 10%+",
-        "chart_footnote": "Dentist-grade strength, prescribed to your sensitivity — with hydroxyapatite, coconut oil and aloe to keep it comfortable.",
-        "margin_bottom": true
       }
     },
     "ingredients_that_work_N67RbP": {
@@ -587,6 +551,42 @@
         "review_label": "Review"
       }
     },
+    "our_standards_pdp": {
+      "type": "our-standards",
+      "blocks": {
+        "standard_1": {
+          "type": "standard",
+          "settings": {
+            "title": "Pharmaceutical-grade ingredients for higher purity & performance"
+          }
+        },
+        "standard_2": {
+          "type": "standard",
+          "settings": {
+            "title": "Manufactured in FDA-registered facilities following ISO standards"
+          }
+        },
+        "standard_3": {
+          "type": "standard",
+          "settings": {
+            "title": "Each formula is designed by dentists & clinically tested for efficacy"
+          }
+        }
+      },
+      "block_order": [
+        "standard_1",
+        "standard_2",
+        "standard_3"
+      ],
+      "name": "Our Standards",
+      "settings": {
+        "eyebrow": "Higher Standards",
+        "heading": "If it touches your smile, {quality matters.}",
+        "image": "shopify://shop_images/scientist-in-lab-with-pipette.jpg",
+        "top_border": false,
+        "margin_bottom": true
+      }
+    },
     "transformational_results_ddRMfc": {
       "type": "transformational-results",
       "blocks": {
@@ -618,21 +618,21 @@
           "type": "stat",
           "settings": {
             "percent": "100%",
-            "text": "100% of clinical participants reported whiter teeth after only 6 treatments."
+            "text": "100% of clinical trial participants reported whiter teeth after 6 treatments"
           }
         },
         "stat_WDyFBB": {
           "type": "stat",
           "settings": {
             "percent": "74%",
-            "text": "Clinical participants reported, on average, a 74% increase in teeth brightness."
+            "text": "Clinical trial participants reported, on average, a 74% whiter teeth shade"
           }
         },
         "stat_jx3cyR": {
           "type": "stat",
           "settings": {
             "percent": "0%",
-            "text": "0% of clinical participants reported an increase in sensitivity after whitening."
+            "text": "0% of clinical trial participants reported an increase in sensitivity after whitening"
           }
         }
       },
@@ -646,7 +646,7 @@
       ],
       "name": "Transformational Results",
       "settings": {
-        "heading": "Over 100,000 Smiles Transformed"
+        "heading": "Over 100,000 Brighter Smiles"
       }
     },
     "science_effects_yCEdFb": {
@@ -956,14 +956,14 @@
   "order": [
     "main",
     "formula_blends_E38KV6",
-    "our_standards_pdp",
+    "strength_comparison_gNykFW",
     "comparison_table_pdp",
     "product-recommendations",
-    "strength_comparison_gNykFW",
     "ingredients_that_work_N67RbP",
     "multi_slide_carousel_rc9KtU",
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
     "1c8af4c9-5992-4bfb-9d4a-a8e06e025318",
+    "our_standards_pdp",
     "transformational_results_ddRMfc",
     "science_effects_yCEdFb",
     "health_and_safety_7jXKQb",
