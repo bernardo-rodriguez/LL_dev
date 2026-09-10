@@ -60,7 +60,7 @@
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_terzrrterzrrterz_554a6ecc-f365-488b-b304-7637df9afe0a.jpg",
             "name": "Sensitivity Care",
-            "summary": "Hydroxyapatite + Glycerin",
+            "summary": "Hydroxyapatite + Glycerin + Aloe Vera",
             "ingredients": "Glycerin | hydration barrier\nHydroxyapatite | enamel shield"
           }
         },
@@ -162,26 +162,6 @@
     },
     "strength_comparison_gNykFW": {
       "type": "strength-comparison",
-      "blocks": {
-        "stat_JTKMLC": {
-          "type": "stat",
-          "settings": {
-            "value": "5x+",
-            "label": "Stronger formula"
-          }
-        },
-        "stat_KqiDyr": {
-          "type": "stat",
-          "settings": {
-            "value": "7+",
-            "label": "Shades Whiter in 6 days"
-          }
-        }
-      },
-      "block_order": [
-        "stat_JTKMLC",
-        "stat_KqiDyr"
-      ],
       "name": "Strength Comparison",
       "settings": {
         "eyebrow": "Why It Works Faster",
