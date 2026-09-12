@@ -47,7 +47,6 @@ body.template-product .our-standards__heading {
 .our-standards__list {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--navy);
 }
 
 .our-standards__item {
@@ -55,12 +54,7 @@ body.template-product .our-standards__heading {
   grid-template-columns: 36px minmax(0, 1fr);
   gap: 14px;
   align-items: center;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--navy-tint-20);
-}
-
-.our-standards__item:last-child {
-  border-bottom-color: var(--navy);
+  padding: 10px 0;
 }
 
 .our-standards__item-icon {

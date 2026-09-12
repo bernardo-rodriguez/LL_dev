@@ -11,7 +11,8 @@
 .transformational-results__inner {
   background: #EEF9FF;
   border-radius: 12px;
-  padding: 40px 50px 60px;
+  /* Top padding matches .multi-slide-carousel__content-wrap (80px desktop) */
+  padding: 80px 50px 60px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   /* Row 1: heading + tabs full width; row 2: image column | stats — same start height */
@@ -150,7 +151,8 @@
 @media screen and (max-width: 768px) {
   .transformational-results__inner {
     grid-template-columns: 1fr;
-    padding: 20px 20px 40px;
+    /* Matches the carousel's 40px top padding on mobile */
+    padding: 40px 20px 40px;
     border-radius: 0;
     gap: 32px;
     align-items: start;
