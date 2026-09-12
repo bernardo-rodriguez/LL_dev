@@ -117,6 +117,119 @@
         "section_padding": true
       }
     },
+    "reasons_storyline_lp": {
+      "type": "reasons-storyline",
+      "blocks": {
+        "reason_1": {
+          "type": "reason",
+          "settings": {
+            "title": "Stronger whitening for faster results",
+            "body": "The dentist recommended threshold for whitening is 10%. Most over-the-counter whitening uses far below that, with an average of 6.5%. So we made a properly dosed formula, so you see an actual difference quickly.",
+            "media_type": "chart",
+            "image_caption": "",
+            "image_secondary_caption": "",
+            "checklist": "",
+            "compare_label": "Avg. OTC",
+            "compare_value": "6.5",
+            "ours_label": "Laughland",
+            "ours_value": "14",
+            "axis_max": "16",
+            "axis_suffix": "%",
+            "threshold_value": "10",
+            "threshold_label": "Dentist threshold 10%"
+          }
+        },
+        "reason_2": {
+          "type": "reason",
+          "settings": {
+            "title": "We solve more than whitening",
+            "body": "White is not the same as bright. The smile you're dreaming of isn't possible through whitening alone — you need to address plaque buildup, increase enamel density and more to get there. So we built a formula to do that.",
+            "media_type": "pair",
+            "image_caption": "Before",
+            "image_secondary_caption": "After",
+            "checklist": "Deep whitening\nHealthier enamel\nPlaque free",
+            "compare_label": "Avg. OTC",
+            "compare_value": "6.5",
+            "ours_label": "Laughland",
+            "ours_value": "14",
+            "axis_max": "16",
+            "axis_suffix": "%",
+            "threshold_value": "10",
+            "threshold_label": "Dentist threshold 10%"
+          }
+        },
+        "reason_3": {
+          "type": "reason",
+          "settings": {
+            "title": "Sensitivity-free, by design",
+            "body": "Your formula is matched to your sensitivity, and paired with blockers like hydroxyapatite and aloe that shield enamel and gums while the actives work.",
+            "media_type": "image",
+            "image_caption": "",
+            "image_secondary_caption": "",
+            "checklist": "",
+            "compare_label": "Avg. OTC",
+            "compare_value": "6.5",
+            "ours_label": "Laughland",
+            "ours_value": "14",
+            "axis_max": "16",
+            "axis_suffix": "%",
+            "threshold_value": "10",
+            "threshold_label": "Dentist threshold 10%"
+          }
+        },
+        "reason_4": {
+          "type": "reason",
+          "settings": {
+            "title": "Results and pain-free, guaranteed",
+            "body": "If you don't see a difference, or it isn't comfortable, you get your money back.",
+            "media_type": "image",
+            "image_caption": "",
+            "image_secondary_caption": "",
+            "checklist": "",
+            "compare_label": "Avg. OTC",
+            "compare_value": "6.5",
+            "ours_label": "Laughland",
+            "ours_value": "14",
+            "axis_max": "16",
+            "axis_suffix": "%",
+            "threshold_value": "10",
+            "threshold_label": "Dentist threshold 10%"
+          }
+        },
+        "reason_5": {
+          "type": "reason",
+          "settings": {
+            "title": "Made to the highest standards, with cosmetic dentists",
+            "body": "Formulated with cosmetic dentists and produced in FDA-registered facilities, using pharmaceutical-grade actives.",
+            "media_type": "image",
+            "image_caption": "",
+            "image_secondary_caption": "",
+            "checklist": "",
+            "compare_label": "Avg. OTC",
+            "compare_value": "6.5",
+            "ours_label": "Laughland",
+            "ours_value": "14",
+            "axis_max": "16",
+            "axis_suffix": "%",
+            "threshold_value": "10",
+            "threshold_label": "Dentist threshold 10%"
+          }
+        }
+      },
+      "block_order": [
+        "reason_1",
+        "reason_2",
+        "reason_3",
+        "reason_4",
+        "reason_5"
+      ],
+      "name": "Reasons Storyline",
+      "settings": {
+        "eyebrow": "Why Personalization",
+        "heading": "",
+        "margin_bottom": false
+      }
+    },
     "key_benefits_list_tKyQWA": {
       "type": "key-benefits-list",
       "blocks": {
@@ -163,11 +276,11 @@
         "item_NNtaNA",
         "item_RK7GtM"
       ],
+      "disabled": true,
       "name": "Key Benefits List",
       "settings": {
         "heading": ""
-      },
-      "disabled": true
+      }
     },
     "36e4f7aa-dd9e-4e47-a123-81be1338efe2": {
       "type": "marquee-section",
@@ -202,6 +315,7 @@
         "benefit_2",
         "benefit_3"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Why Personalization Works Better Than Generic Strips",
         "intro_text": "Drugstore whitening solve sensitivity by keeping the formula weak — at the cost of results.  \n\nWe don't dilute. We calculate exactly which sensitivity blockers you need and how much, then build them into your formula — so you can whiten at full strength.",
@@ -313,6 +427,7 @@
         "83b29aad-1ec3-43d4-9d28-f3f7680cfd9d",
         "b20252da-6f97-40ae-92c3-af2f2dfb57cb"
       ],
+      "disabled": true,
       "custom_css": [
         ".Reviews_Section .Reviews_Inr_Section {background-color: #faf5f1;}"
       ],
@@ -332,6 +447,112 @@
         "button_action": "quiz",
         "button_link": "#get-started",
         "side_image": "shopify://shop_images/2026_03_18_Laughland_Ad_1b_1_2_258ff711-c742-4ee6-a577-5557e0ecc266.jpg"
+      }
+    },
+    "comparison_table_pfewV6": {
+      "type": "comparison-table",
+      "blocks": {
+        "competitor_fdMAen": {
+          "type": "competitor",
+          "settings": {
+            "heading": "Whitening Strips"
+          }
+        },
+        "competitor_6CA9mp": {
+          "type": "competitor",
+          "settings": {
+            "heading": "Whitening Toothpaste"
+          }
+        },
+        "row_YzHgfw": {
+          "type": "row",
+          "settings": {
+            "label": "Lifts deep-set stains",
+            "col_1": true,
+            "col_2": false,
+            "col_3": false,
+            "col_4": false
+          }
+        },
+        "row_7cRMkt": {
+          "type": "row",
+          "settings": {
+            "label": "Dentist-grade strength",
+            "col_1": false,
+            "col_2": false,
+            "col_3": false,
+            "col_4": false
+          }
+        },
+        "row_KHBtwh": {
+          "type": "row",
+          "settings": {
+            "label": "Strengthens enamel",
+            "col_1": false,
+            "col_2": false,
+            "col_3": false,
+            "col_4": false
+          }
+        },
+        "row_4kAYMV": {
+          "type": "row",
+          "settings": {
+            "label": "Sensitivity protection",
+            "col_1": false,
+            "col_2": false,
+            "col_3": false,
+            "col_4": false
+          }
+        },
+        "row_3RpGhp": {
+          "type": "row",
+          "settings": {
+            "label": "Removes plaque & biofilm",
+            "col_1": false,
+            "col_2": true,
+            "col_3": false,
+            "col_4": false
+          }
+        },
+        "row_tenYbA": {
+          "type": "row",
+          "settings": {
+            "label": "Supports oral microbiome",
+            "col_1": false,
+            "col_2": false,
+            "col_3": false,
+            "col_4": false
+          }
+        },
+        "row_YKU6JF": {
+          "type": "row",
+          "settings": {
+            "label": "Prescribed to your smile",
+            "col_1": false,
+            "col_2": false,
+            "col_3": false,
+            "col_4": false
+          }
+        }
+      },
+      "block_order": [
+        "competitor_fdMAen",
+        "competitor_6CA9mp",
+        "row_YzHgfw",
+        "row_7cRMkt",
+        "row_KHBtwh",
+        "row_4kAYMV",
+        "row_3RpGhp",
+        "row_tenYbA",
+        "row_YKU6JF"
+      ],
+      "name": "Comparison Table",
+      "settings": {
+        "heading": "Laughland is a {whole-mouth} solution",
+        "ours_label": "Laughland",
+        "ours_logo_svg": "",
+        "footnote": "†Based on currently available data for mass-market at-home whitening products.",
+        "margin_bottom": false
       }
     },
     "multi_slide_carousel_M68Vqj": {
@@ -370,6 +591,7 @@
         "slide_CN4BYq",
         "slide_qe7WUD"
       ],
+      "disabled": true,
       "settings": {}
     },
     "0bba9f22-7698-459e-80ea-c2869211daea": {
@@ -715,75 +937,6 @@
         "section_sub_heading": "@mylaughland",
         "sub_heading_link": "https://www.instagram.com/"
       }
-    },
-    "reasons_storyline_lp": {
-      "type": "reasons-storyline",
-      "blocks": {
-        "reason_1": {
-          "type": "reason",
-          "settings": {
-            "title": "Stronger whitening for faster results",
-            "media_type": "chart",
-            "body": "The dentist recommended threshold for whitening is 10%. Most over-the-counter whitening uses far below that, with an average of 6.5%. So we made a properly dosed formula, so you see an actual difference quickly.",
-            "compare_label": "Avg. OTC",
-            "compare_value": "6.5",
-            "ours_label": "Laughland",
-            "ours_value": "14",
-            "axis_max": "16",
-            "axis_suffix": "%",
-            "threshold_value": "10",
-            "threshold_label": "Dentist threshold 10%"
-          }
-        },
-        "reason_2": {
-          "type": "reason",
-          "settings": {
-            "title": "We solve more than whitening",
-            "media_type": "pair",
-            "image_caption": "Before",
-            "image_secondary_caption": "After",
-            "checklist": "Deep whitening\nHealthier enamel\nPlaque free",
-            "body": "White is not the same as bright. The smile you're dreaming of isn't possible through whitening alone — you need to address plaque buildup, increase enamel density and more to get there. So we built a formula to do that."
-          }
-        },
-        "reason_3": {
-          "type": "reason",
-          "settings": {
-            "title": "Sensitivity-free, by design",
-            "media_type": "image",
-            "body": "Your formula is matched to your sensitivity, and paired with blockers like hydroxyapatite and aloe that shield enamel and gums while the actives work."
-          }
-        },
-        "reason_4": {
-          "type": "reason",
-          "settings": {
-            "title": "Results and pain-free, guaranteed",
-            "media_type": "image",
-            "body": "If you don't see a difference, or it isn't comfortable, you get your money back."
-          }
-        },
-        "reason_5": {
-          "type": "reason",
-          "settings": {
-            "title": "Made to the highest standards, with cosmetic dentists",
-            "media_type": "image",
-            "body": "Formulated with cosmetic dentists and produced in FDA-registered facilities, using pharmaceutical-grade actives."
-          }
-        }
-      },
-      "block_order": [
-        "reason_1",
-        "reason_2",
-        "reason_3",
-        "reason_4",
-        "reason_5"
-      ],
-      "name": "Reasons Storyline",
-      "settings": {
-        "eyebrow": "Why Personalization",
-        "heading": "",
-        "margin_bottom": false
-      }
     }
   },
   "order": [
@@ -798,6 +951,7 @@
     "transformational_results_cRe3TQ",
     "240de530-a532-4dbd-b2a8-79f7e7c9b9fa",
     "first-order-includes-box",
+    "comparison_table_pfewV6",
     "multi_slide_carousel_M68Vqj",
     "0bba9f22-7698-459e-80ea-c2869211daea",
     "adc7667a-6bb9-4319-878c-b709f2259336",
