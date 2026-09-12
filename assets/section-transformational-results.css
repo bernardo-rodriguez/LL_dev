@@ -241,3 +241,23 @@
     border-top-right-radius: 0;
   }
 }
+
+/*
+  Desktop: join this panel to a bordered logo bar directly above it, so the two
+  read as one block instead of leaving a white band between the bar's bottom
+  hairline and the panel's top edge. The top corners are squared for the same
+  reason they are against the carousel — a rounded corner sitting on the
+  hairline leaves a white wedge, which is the gap this removes.
+
+  Mobile already meets flush via the generic preceding-section rule above.
+*/
+@media screen and (min-width: 769px) {
+  .section:has(.logo-bar--rules) + .section:has(.transformational-results) .transformational-results {
+    margin-top: 0;
+  }
+
+  .section:has(.logo-bar--rules) + .section:has(.transformational-results) .transformational-results__inner {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
