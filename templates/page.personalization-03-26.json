@@ -351,7 +351,9 @@
         "logo_rhrEgx",
         "logo_6DeJbJ"
       ],
-      "settings": {}
+      "settings": {
+        "show_rules": true
+      }
     },
     "36e4f7aa-dd9e-4e47-a123-81be1338efe2": {
       "type": "marquee-section",

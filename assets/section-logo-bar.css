@@ -47,3 +47,31 @@
     padding: 35px 0;
   }
 }
+
+/*
+  Bordered band treatment, opt-in per section.
+
+  Scoped to the modifier so the existing placements — the homepage and the
+  special product page — keep the taller, borderless bar they have today.
+
+  With the rules on, the bar becomes a slim band like the marquee it replaced:
+  hairlines top and bottom, tighter internal padding, and the standard section
+  rhythm above it. It takes no bottom space, since the next section supplies
+  the gap.
+*/
+.logo-bar--rules {
+  margin-top: var(--section-space-y);
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: var(--navy);
+}
+
+.logo-bar--rules .logo-bar__list {
+  padding: 20px 0;
+}
+
+@media screen and (min-width: 769px) {
+  .logo-bar--rules .logo-bar__list {
+    padding: 26px 0;
+  }
+}

@@ -1,6 +1,6 @@
 {{ 'section-logo-bar.css' | asset_url | stylesheet_tag }}
 
-<section class="logo-bar">
+<section class="logo-bar {% if section.settings.show_rules %}logo-bar--rules{% endif %}">
     <div class="logo-bar__inner">
       {% for i in (i..5)%}
       <ul class="logo-bar__list list-unstyled">
@@ -58,6 +58,15 @@
   "presets": [
     {
       "name": "Logo Bar"
+    }
+  ],
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_rules",
+      "label": "Hairlines above and below",
+      "default": false,
+      "info": "Turns the bar into a slim bordered band and gives it the standard section spacing."
     }
   ]
 }
