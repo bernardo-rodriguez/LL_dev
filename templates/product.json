@@ -157,7 +157,7 @@
         "footnote": "",
         "first_open": true,
         "close_others": true,
-        "margin_bottom": true
+        "margin_bottom": false
       }
     },
     "strength_comparison_gNykFW": {
@@ -180,7 +180,7 @@
         "threshold_value": "100",
         "threshold_label": "Dentist strength = 100mg+",
         "chart_footnote": "Paired with sensitivity blockers like hydroxyapatite and aloe for a comfortable, pain-free whitening experience.",
-        "margin_bottom": true
+        "margin_bottom": false
       }
     },
     "transformational_results_ddRMfc": {
@@ -348,7 +348,7 @@
         "ours_label": "Laughland",
         "ours_logo_svg": "",
         "footnote": "",
-        "margin_bottom": true
+        "margin_bottom": false
       }
     },
     "product-recommendations": {
@@ -627,7 +627,7 @@
         "heading": "If it touches your smile, {quality matters.}",
         "image": "shopify://shop_images/scientist-in-lab-with-pipette.jpg",
         "top_border": false,
-        "margin_bottom": true
+        "margin_bottom": false
       }
     },
     "science_effects_yCEdFb": {

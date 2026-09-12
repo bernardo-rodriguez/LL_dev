@@ -5,7 +5,7 @@
   fought with !important, so nothing reintroduces a negative top margin.
 */
 .transformational-results {
-  margin: var(--section-space-y) 0;
+  margin: var(--section-space-y) 0 0;
 }
 
 .transformational-results__inner {
@@ -203,28 +203,37 @@
 }
 
 /*
-  Join the two #EEF9FF panels when this section directly follows the dentist
-  carousel, instead of leaving a white band between them.
+  Mobile: sit flush against whatever section precedes this one, so the panel's
+  colour runs straight on from the section above instead of leaving a white
+  band. The panel is already full-bleed and square-cornered at this breakpoint.
 
-  Disabled sections emit no markup, so the two wrappers are adjacent siblings
-  in the DOM even though other (disabled) sections sit between them in the
-  template order. :has() is already relied on elsewhere in the theme.
+  Written against any preceding section rather than a specific pairing, since
+  the section order is rearranged in the theme editor — an earlier version of
+  this rule was tied to the dentist carousel and stopped applying the moment
+  the order changed.
 
-  Mobile: both panels are square, so closing the 60px + 60px of margin is enough.
-  Desktop: pull up 12px further and square this panel's top corners, so it
-  paints over the carousel's rounded bottom corners — same colour, no seam.
+  Sections only carry top space, so zeroing this one's own top margin is all
+  that is needed for the two to meet at zero.
 */
-.section:has(.multi-slide-carousel) + .section:has(.transformational-results) {
-  margin-top: calc(var(--section-space-y) * -1);
+@media screen and (max-width: 768px) {
+  .section + .section:has(.transformational-results) .transformational-results {
+    margin-top: 0;
+  }
 }
 
-.section:has(.multi-slide-carousel) + .section:has(.transformational-results) .transformational-results {
-  margin-top: 0;
-}
-
+/*
+  Desktop keeps the panels as separate rounded cards, except where this section
+  follows the dentist carousel — there the two #EEF9FF panels join into one
+  field, pulling up a further 12px and squaring this panel's top corners so it
+  paints over the carousel's rounded bottom corners.
+*/
 @media screen and (min-width: 769px) {
   .section:has(.multi-slide-carousel) + .section:has(.transformational-results) {
-    margin-top: calc((var(--section-space-y) + 12px) * -1);
+    margin-top: -12px;
+  }
+
+  .section:has(.multi-slide-carousel) + .section:has(.transformational-results) .transformational-results {
+    margin-top: 0;
   }
 
   .section:has(.multi-slide-carousel) + .section:has(.transformational-results) .transformational-results__inner {

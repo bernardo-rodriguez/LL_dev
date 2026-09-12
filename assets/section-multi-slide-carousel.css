@@ -1,5 +1,5 @@
 .multi-slide-carousel {
-  margin: var(--section-space-y) 0;
+  margin: var(--section-space-y) 0 0;
 }
 
 .multi-slide-carousel__content-wrap {
