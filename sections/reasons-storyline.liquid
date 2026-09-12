@@ -1,0 +1,211 @@
+{{ 'section-reasons-storyline.css' | asset_url | stylesheet_tag }}
+
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+{% assign reasons = section.blocks | where: 'type', 'reason' %}
+
+<section
+  class="reasons-storyline {% if section.settings.margin_bottom %}reasons-storyline--with-spacing{% endif %}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="page-width">
+    <div class="reasons-storyline__inner">
+      {% if section.settings.eyebrow != blank %}
+        <p class="reasons-storyline__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h3 class="reasons-storyline__heading">{{ formatted_heading }}</h3>
+      {% endif %}
+
+      {% for block in reasons %}
+        <article class="reasons-storyline__reason" {{ block.shopify_attributes }}>
+          <h4 class="reasons-storyline__title">
+            <span class="reasons-storyline__number">{{ forloop.index }}.</span>
+            {{ block.settings.title }}
+          </h4>
+
+          {%- comment -%} Media: a single image, a before/after pair, or the strength chart {%- endcomment -%}
+          {% case block.settings.media_type %}
+            {% when 'pair' %}
+              <div class="reasons-storyline__media reasons-storyline__media--pair">
+                {% for i in (1..2) %}
+                  {% if i == 1 %}
+                    {% assign img = block.settings.image %}
+                    {% assign cap = block.settings.image_caption %}
+                  {% else %}
+                    {% assign img = block.settings.image_secondary %}
+                    {% assign cap = block.settings.image_secondary_caption %}
+                  {% endif %}
+                  <figure class="reasons-storyline__frame">
+                    {% if img != blank %}
+                      <img
+                        src="{{ img | image_url: width: 800 }}"
+                        srcset="{{ img | image_url: width: 400 }} 400w, {{ img | image_url: width: 800 }} 800w"
+                        sizes="(min-width: 769px) 400px, 50vw"
+                        alt="{{ img.alt | default: cap | default: block.settings.title | escape }}"
+                        loading="lazy"
+                      >
+                    {% endif %}
+                    {% if cap != blank %}
+                      <figcaption class="reasons-storyline__pill">{{ cap }}</figcaption>
+                    {% endif %}
+                  </figure>
+                {% endfor %}
+              </div>
+
+            {% when 'chart' %}
+              {%- liquid
+                assign axis_max = block.settings.axis_max | plus: 0.0
+                if axis_max <= 0
+                  assign axis_max = 16.0
+                endif
+                assign compare_value = block.settings.compare_value | plus: 0.0
+                assign ours_value = block.settings.ours_value | plus: 0.0
+                assign threshold_value = block.settings.threshold_value | plus: 0.0
+                assign compare_pct = compare_value | times: 100.0 | divided_by: axis_max
+                assign ours_pct = ours_value | times: 100.0 | divided_by: axis_max
+                assign threshold_pct = threshold_value | times: 100.0 | divided_by: axis_max
+              -%}
+              <div class="reasons-storyline__media reasons-storyline__chart">
+                <div class="reasons-storyline__plot">
+                  {% if threshold_value > 0 %}
+                    <div class="reasons-storyline__threshold" style="bottom: {{ threshold_pct }}%;">
+                      {% if block.settings.threshold_label != blank %}
+                        <span class="reasons-storyline__threshold-label">{{ block.settings.threshold_label }}</span>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                  <div class="reasons-storyline__bars">
+                    <div class="reasons-storyline__bar-col">
+                      <div class="reasons-storyline__bar reasons-storyline__bar--compare" style="height: {{ compare_pct }}%;">
+                        <span class="reasons-storyline__bar-value">{{ block.settings.compare_value }}{{ block.settings.axis_suffix }}</span>
+                      </div>
+                      <span class="reasons-storyline__bar-caption">{{ block.settings.compare_label }}</span>
+                    </div>
+                    <div class="reasons-storyline__bar-col">
+                      <div class="reasons-storyline__bar reasons-storyline__bar--ours" style="height: {{ ours_pct }}%;">
+                        <span class="reasons-storyline__bar-value">{{ block.settings.ours_value }}{{ block.settings.axis_suffix }}</span>
+                      </div>
+                      <span class="reasons-storyline__bar-caption reasons-storyline__bar-caption--ours">{{ block.settings.ours_label }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            {% else %}
+              {% if block.settings.image != blank %}
+                <figure class="reasons-storyline__media reasons-storyline__frame">
+                  <img
+                    src="{{ block.settings.image | image_url: width: 1200 }}"
+                    srcset="{{ block.settings.image | image_url: width: 600 }} 600w, {{ block.settings.image | image_url: width: 1200 }} 1200w"
+                    sizes="(min-width: 769px) 820px, 100vw"
+                    alt="{{ block.settings.image.alt | default: block.settings.title | escape }}"
+                    loading="lazy"
+                  >
+                  {% if block.settings.image_caption != blank %}
+                    <figcaption class="reasons-storyline__pill">{{ block.settings.image_caption }}</figcaption>
+                  {% endif %}
+                </figure>
+              {% endif %}
+          {% endcase %}
+
+          {% if block.settings.checklist != blank %}
+            <ul class="reasons-storyline__checklist">
+              {% assign check_lines = block.settings.checklist | newline_to_br | split: '<br />' %}
+              {% for line in check_lines %}
+                {% assign item = line | strip %}
+                {% if item != blank %}
+                  <li class="reasons-storyline__check sh3">
+                    <span class="reasons-storyline__check-icon" aria-hidden="true">{% render 'icon', icon: 'checkmark' %}</span>
+                    {{ item }}
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          {% if block.settings.body != blank %}
+            <p class="reasons-storyline__body sh3">{{ block.settings.body }}</p>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Reasons Storyline",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Why Personalization" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "info": "Optional. Wrap emphasized text in {} for the italic Canela style" },
+    { "type": "header", "content": "Layout" },
+    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." }
+  ],
+  "blocks": [
+    {
+      "type": "reason",
+      "name": "Reason",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Stronger whitening for faster results" },
+        { "type": "textarea", "id": "body", "label": "Body copy" },
+        { "type": "select", "id": "media_type", "label": "Media", "default": "image",
+          "options": [
+            { "value": "image", "label": "Single image" },
+            { "value": "pair", "label": "Two images side by side" },
+            { "value": "chart", "label": "Strength bar chart" }
+          ] },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_caption", "label": "Image label", "info": "Optional pill drawn over the image, e.g. Before" },
+        { "type": "image_picker", "id": "image_secondary", "label": "Second image", "info": "Used by the two-image layout" },
+        { "type": "text", "id": "image_secondary_caption", "label": "Second image label" },
+        { "type": "textarea", "id": "checklist", "label": "Checklist", "info": "Optional, one per line" },
+        { "type": "header", "content": "Bar chart" },
+        { "type": "text", "id": "compare_label", "label": "Comparison bar label", "default": "Avg. OTC" },
+        { "type": "text", "id": "compare_value", "label": "Comparison bar value", "default": "6.5" },
+        { "type": "text", "id": "ours_label", "label": "Laughland bar label", "default": "Laughland" },
+        { "type": "text", "id": "ours_value", "label": "Laughland bar value", "default": "14" },
+        { "type": "text", "id": "axis_max", "label": "Axis maximum", "default": "16" },
+        { "type": "text", "id": "axis_suffix", "label": "Value suffix", "default": "%" },
+        { "type": "text", "id": "threshold_value", "label": "Threshold value", "default": "10", "info": "0 hides the dashed line" },
+        { "type": "text", "id": "threshold_label", "label": "Threshold label", "default": "Dentist threshold 10%" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reasons Storyline",
+      "blocks": [
+        { "type": "reason", "settings": {
+            "title": "Stronger whitening for faster results",
+            "media_type": "chart",
+            "body": "The dentist recommended threshold for whitening is 10%. Most over-the-counter whitening sits far below that, averaging 6.5%. We made a properly dosed formula so you see an actual difference quickly." } },
+        { "type": "reason", "settings": {
+            "title": "We solve more than whitening",
+            "media_type": "pair",
+            "image_caption": "Before",
+            "image_secondary_caption": "After",
+            "checklist": "Deep whitening\nHealthier, denser enamel\nPlaque and biofilm free",
+            "body": "White is not the same as bright. The smile you are after is not possible through whitening alone — it takes addressing plaque buildup and enamel density too. So we built a formula that does both." } },
+        { "type": "reason", "settings": {
+            "title": "Sensitivity-free, by design",
+            "media_type": "image",
+            "body": "Your formula is matched to your sensitivity, and paired with hydroxyapatite and aloe that shield enamel and gums while the actives work." } },
+        { "type": "reason", "settings": {
+            "title": "Results and pain-free, guaranteed",
+            "media_type": "image",
+            "body": "If you do not see a difference, or it is not comfortable, you get your money back." } },
+        { "type": "reason", "settings": {
+            "title": "Made to the highest standards, with cosmetic dentists",
+            "media_type": "image",
+            "body": "Formulated with cosmetic dentists and produced in FDA-registered facilities, using pharmaceutical-grade actives." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

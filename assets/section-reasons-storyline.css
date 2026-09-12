@@ -1,0 +1,286 @@
+/* Reasons Storyline - numbered reason, media, then copy; a single centred column */
+
+.reasons-storyline {
+  background: #ffffff;
+  color: var(--navy);
+}
+
+.reasons-storyline__inner {
+  padding: var(--section-space-y) 0 0;
+  /* Reading column, centred like the reference layout */
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.reasons-storyline--with-spacing .reasons-storyline__inner {
+  padding-bottom: var(--section-space-y);
+}
+
+.reasons-storyline__eyebrow {
+  margin: 0 0 12px;
+  color: var(--navy-tint-60);
+}
+
+.reasons-storyline__heading {
+  margin: 0 0 32px;
+  color: var(--navy);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: var(--ds-line-height);
+  letter-spacing: -0.015em;
+  text-transform: none;
+}
+
+body.template-product .reasons-storyline__heading {
+  letter-spacing: -0.015em !important;
+}
+
+/* Each reason: title, media, optional checklist, copy */
+.reasons-storyline__reason + .reasons-storyline__reason {
+  margin-top: 48px;
+}
+
+.reasons-storyline__title {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 16px;
+  color: var(--navy);
+  font-family: var(--ds-font-family);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-heading-ls-sm);
+  text-transform: none;
+}
+
+.reasons-storyline__number {
+  flex-shrink: 0;
+  color: var(--navy-tint-60);
+}
+
+.reasons-storyline__media {
+  margin: 0 0 16px;
+}
+
+/* Frames hold an image plus an optional label pill */
+.reasons-storyline__frame {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--blue-tint-10);
+}
+
+.reasons-storyline__frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.reasons-storyline__media--pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.reasons-storyline__media--pair .reasons-storyline__frame img {
+  aspect-ratio: 3 / 4;
+}
+
+.reasons-storyline__pill {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 40px;
+  background: #ffffff;
+  color: var(--navy);
+  font-family: var(--ds-font-family);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-label-letter-spacing);
+  text-transform: uppercase;
+}
+
+/* Bar chart, same visual language as the PDP strength chart */
+.reasons-storyline__chart {
+  padding: 24px 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: var(--cream);
+}
+
+.reasons-storyline__plot {
+  position: relative;
+  height: 220px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--navy);
+}
+
+.reasons-storyline__threshold {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 26px;
+  border-top: 2px dashed var(--pink);
+  z-index: 2;
+}
+
+.reasons-storyline__threshold-label {
+  position: absolute;
+  left: 0;
+  bottom: 6px;
+  font-family: var(--ds-font-family);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--pink);
+  white-space: nowrap;
+}
+
+.reasons-storyline__bars {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 26px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  z-index: 1;
+}
+
+.reasons-storyline__bar-col {
+  position: relative;
+  width: min(96px, 30%);
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.reasons-storyline__bar {
+  position: relative;
+  width: 100%;
+  border-radius: 6px 6px 0 0;
+}
+
+.reasons-storyline__bar--compare {
+  background: var(--navy-tint-20);
+}
+
+.reasons-storyline__bar--ours {
+  background: var(--blue);
+}
+
+.reasons-storyline__bar-value {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translateX(-50%);
+  font-family: var(--ds-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: var(--ds-line-height);
+  color: var(--navy);
+  white-space: nowrap;
+}
+
+.reasons-storyline__bar--compare .reasons-storyline__bar-value {
+  color: var(--navy-tint-60);
+}
+
+.reasons-storyline__bar-caption {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 8px);
+  transform: translateX(-50%);
+  font-family: var(--ds-font-family);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: var(--ds-line-height);
+  color: var(--navy-tint-80);
+  white-space: nowrap;
+}
+
+.reasons-storyline__bar-caption--ours {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+/* Checklist */
+.reasons-storyline__checklist {
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.reasons-storyline__check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 6px;
+  color: var(--navy);
+}
+
+.reasons-storyline__check:last-child {
+  margin-bottom: 0;
+}
+
+.reasons-storyline__check-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  height: 1.3em;
+}
+
+.reasons-storyline__check-icon .icon-checkmark {
+  width: 14px;
+  height: 14px;
+}
+
+.reasons-storyline__body {
+  margin: 0;
+  color: var(--navy);
+}
+
+@media screen and (min-width: 769px) {
+  .reasons-storyline__heading {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  .reasons-storyline__reason + .reasons-storyline__reason {
+    margin-top: 64px;
+  }
+
+  .reasons-storyline__title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .reasons-storyline__media {
+    margin-bottom: 20px;
+  }
+
+  .reasons-storyline__media--pair {
+    gap: 12px;
+  }
+
+  .reasons-storyline__chart {
+    padding: 32px 40px;
+  }
+
+  .reasons-storyline__plot {
+    height: 280px;
+  }
+
+  .reasons-storyline__bar-caption {
+    font-size: 13px;
+  }
+}

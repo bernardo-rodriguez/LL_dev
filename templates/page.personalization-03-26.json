@@ -166,7 +166,8 @@
       "name": "Key Benefits List",
       "settings": {
         "heading": ""
-      }
+      },
+      "disabled": true
     },
     "36e4f7aa-dd9e-4e47-a123-81be1338efe2": {
       "type": "marquee-section",
@@ -714,6 +715,75 @@
         "section_sub_heading": "@mylaughland",
         "sub_heading_link": "https://www.instagram.com/"
       }
+    },
+    "reasons_storyline_lp": {
+      "type": "reasons-storyline",
+      "blocks": {
+        "reason_1": {
+          "type": "reason",
+          "settings": {
+            "title": "Stronger whitening for faster results",
+            "media_type": "chart",
+            "body": "The dentist recommended threshold for whitening is 10%. Most over-the-counter whitening uses far below that, with an average of 6.5%. So we made a properly dosed formula, so you see an actual difference quickly.",
+            "compare_label": "Avg. OTC",
+            "compare_value": "6.5",
+            "ours_label": "Laughland",
+            "ours_value": "14",
+            "axis_max": "16",
+            "axis_suffix": "%",
+            "threshold_value": "10",
+            "threshold_label": "Dentist threshold 10%"
+          }
+        },
+        "reason_2": {
+          "type": "reason",
+          "settings": {
+            "title": "We solve more than whitening",
+            "media_type": "pair",
+            "image_caption": "Before",
+            "image_secondary_caption": "After",
+            "checklist": "Deep whitening\nHealthier enamel\nPlaque free",
+            "body": "White is not the same as bright. The smile you're dreaming of isn't possible through whitening alone — you need to address plaque buildup, increase enamel density and more to get there. So we built a formula to do that."
+          }
+        },
+        "reason_3": {
+          "type": "reason",
+          "settings": {
+            "title": "Sensitivity-free, by design",
+            "media_type": "image",
+            "body": "Your formula is matched to your sensitivity, and paired with blockers like hydroxyapatite and aloe that shield enamel and gums while the actives work."
+          }
+        },
+        "reason_4": {
+          "type": "reason",
+          "settings": {
+            "title": "Results and pain-free, guaranteed",
+            "media_type": "image",
+            "body": "If you don't see a difference, or it isn't comfortable, you get your money back."
+          }
+        },
+        "reason_5": {
+          "type": "reason",
+          "settings": {
+            "title": "Made to the highest standards, with cosmetic dentists",
+            "media_type": "image",
+            "body": "Formulated with cosmetic dentists and produced in FDA-registered facilities, using pharmaceutical-grade actives."
+          }
+        }
+      },
+      "block_order": [
+        "reason_1",
+        "reason_2",
+        "reason_3",
+        "reason_4",
+        "reason_5"
+      ],
+      "name": "Reasons Storyline",
+      "settings": {
+        "eyebrow": "Why Personalization",
+        "heading": "",
+        "margin_bottom": false
+      }
     }
   },
   "order": [
@@ -721,6 +791,7 @@
     "3a2908b4-cb46-4bba-ab1d-db530f856c49",
     "testimonials_BGjeX7",
     "8f55a32e-9355-4413-8e5d-a7d66bb39102",
+    "reasons_storyline_lp",
     "key_benefits_list_tKyQWA",
     "36e4f7aa-dd9e-4e47-a123-81be1338efe2",
     "why_personalization_landing",
