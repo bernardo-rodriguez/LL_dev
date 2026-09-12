@@ -60,7 +60,7 @@
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_terzrrterzrrterz_554a6ecc-f365-488b-b304-7637df9afe0a.jpg",
             "name": "Sensitivity Care",
-            "summary": "Hydroxyapatite + Glycerin + Aloe Vera",
+            "summary": "Hydroxyapatite + Aloe Vera",
             "ingredients": "Glycerin | hydration barrier\nHydroxyapatite | enamel shield"
           }
         },
@@ -346,6 +346,7 @@
       "settings": {
         "heading": "Everything your smile needs, {in one treatment.}",
         "ours_label": "Laughland",
+        "ours_logo_svg": "",
         "footnote": "",
         "margin_bottom": true
       }
