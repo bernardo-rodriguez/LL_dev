@@ -38,10 +38,24 @@
 
             <div class="comparison-table__cell comparison-table__cell--ours comparison-table__cell--head" role="columnheader">
               {%- comment -%}
-                Typographic wordmark for now — the design system points at
-                assets/logo.svg, which does not exist in the theme yet.
+                Custom SVG wins, then a picked image, then the wordmark snippet.
+                The snippet's fills are currentColor, so CSS tints it to cream
+                against the navy column.
               {%- endcomment -%}
-              <span class="comparison-table__wordmark stylized">{{ section.settings.ours_label }}</span>
+              {% if section.settings.ours_logo_svg != blank %}
+                <span class="comparison-table__logo">{{ section.settings.ours_logo_svg }}</span>
+              {% elsif section.settings.ours_logo != blank %}
+                <span class="comparison-table__logo">
+                  <img
+                    src="{{ section.settings.ours_logo | image_url: width: 320 }}"
+                    alt="{{ section.settings.ours_label | escape }}"
+                    loading="lazy"
+                  >
+                </span>
+              {% else %}
+                <span class="comparison-table__logo">{% render 'laughland-wordmark' %}</span>
+              {% endif %}
+              <span class="visually-hidden">{{ section.settings.ours_label }}</span>
             </div>
 
             {% for block in competitors limit: competitor_count %}
@@ -115,8 +129,21 @@
     {
       "type": "text",
       "id": "ours_label",
-      "label": "Laughland column heading",
-      "default": "Laughland"
+      "label": "Laughland column name",
+      "default": "Laughland",
+      "info": "Used as the accessible name for the logo, and as the fallback if no logo is supplied."
+    },
+    {
+      "type": "textarea",
+      "id": "ours_logo_svg",
+      "label": "Laughland logo (inline SVG)",
+      "info": "Optional. Overrides the built-in wordmark. Use fill=\"currentColor\" so it picks up the column colour."
+    },
+    {
+      "type": "image_picker",
+      "id": "ours_logo",
+      "label": "Laughland logo (image)",
+      "info": "Optional. Used when no inline SVG is set. An image cannot be recoloured, so supply a light version."
     },
     {
       "type": "textarea",
@@ -194,15 +221,74 @@
     {
       "name": "Comparison Table",
       "blocks": [
-        { "type": "competitor", "settings": { "heading": "Whitening Strips" } },
-        { "type": "competitor", "settings": { "heading": "Whitening Toothpaste" } },
-        { "type": "row", "settings": { "label": "Lifts deep-set stains", "col_1": true, "col_2": false } },
-        { "type": "row", "settings": { "label": "Dentist-grade strength", "col_1": false, "col_2": false } },
-        { "type": "row", "settings": { "label": "Strengthens enamel", "col_1": false, "col_2": false } },
-        { "type": "row", "settings": { "label": "Sensitivity protection", "col_1": false, "col_2": false } },
-        { "type": "row", "settings": { "label": "Removes plaque & biofilm", "col_1": false, "col_2": true } },
-        { "type": "row", "settings": { "label": "Supports oral microbiome", "col_1": false, "col_2": false } },
-        { "type": "row", "settings": { "label": "Prescribed to your smile", "col_1": false, "col_2": false } }
+        {
+          "type": "competitor",
+          "settings": {
+            "heading": "Whitening Strips"
+          }
+        },
+        {
+          "type": "competitor",
+          "settings": {
+            "heading": "Whitening Toothpaste"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "label": "Lifts deep-set stains",
+            "col_1": true,
+            "col_2": false
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "label": "Dentist-grade strength",
+            "col_1": false,
+            "col_2": false
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "label": "Strengthens enamel",
+            "col_1": false,
+            "col_2": false
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "label": "Sensitivity protection",
+            "col_1": false,
+            "col_2": false
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "label": "Removes plaque & biofilm",
+            "col_1": false,
+            "col_2": true
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "label": "Supports oral microbiome",
+            "col_1": false,
+            "col_2": false
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "label": "Prescribed to your smile",
+            "col_1": false,
+            "col_2": false
+          }
+        }
       ]
     }
   ]

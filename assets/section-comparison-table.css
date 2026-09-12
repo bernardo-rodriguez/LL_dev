@@ -73,12 +73,21 @@ body.template-product .comparison-table__heading {
   border-top: 0;
 }
 
-.comparison-table__wordmark {
-  font-size: 17px;
-  line-height: 1.2;
+/* Logo in the navy column — the wordmark's fills are currentColor */
+.comparison-table__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   color: var(--cream);
-  white-space: nowrap;
-  margin-right: 0;
+}
+
+.comparison-table__logo svg,
+.comparison-table__logo img {
+  display: block;
+  width: 100%;
+  max-width: 86px;
+  height: auto;
 }
 
 .comparison-table__col-label {
@@ -183,8 +192,9 @@ body.template-product .comparison-table__heading {
     padding-right: 24px;
   }
 
-  .comparison-table__wordmark {
-    font-size: 28px;
+  .comparison-table__logo svg,
+  .comparison-table__logo img {
+    max-width: 140px;
   }
 
   .comparison-table__col-label {
