@@ -53,7 +53,7 @@ body.template-product .strength-comparison__heading {
 
 .strength-comparison__chart-card {
   order: 4;
-  margin: 0 -20px 24px;
+  margin: 0 -20px;
   padding: 30px 20px 24px;
   box-sizing: border-box;
   background: var(--cream);
@@ -63,12 +63,14 @@ body.template-product .strength-comparison__heading {
   order: 5;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-top: 24px;
 }
 
 .strength-comparison__footnote {
   order: 6;
-  margin: 0;
+  /* Spacing lives here rather than on the stats block above, which is often
+     the last visible element when no footnote is set. */
+  margin: 20px 0 0;
   color: var(--navy-tint-60);
 }
 
@@ -374,7 +376,7 @@ body.template-product .strength-comparison__heading {
   .strength-comparison__stats {
     flex-direction: row;
     border-top: 1px solid var(--navy);
-    margin-bottom: 24px;
+    margin-bottom: 0;
   }
 
   .strength-comparison__stat {
@@ -408,6 +410,7 @@ body.template-product .strength-comparison__heading {
 
   .strength-comparison__footnote {
     max-width: 470px;
+    margin-top: 24px;
   }
 
   .strength-comparison__chart-card {
