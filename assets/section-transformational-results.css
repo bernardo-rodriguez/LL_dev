@@ -207,16 +207,20 @@
   colour runs straight on from the section above instead of leaving a white
   band. The panel is already full-bleed and square-cornered at this breakpoint.
 
-  Written against any preceding section rather than a specific pairing, since
+  Written against any preceding sibling rather than a specific pairing, since
   the section order is rearranged in the theme editor — an earlier version of
   this rule was tied to the dentist carousel and stopped applying the moment
   the order changed.
+
+  Matched on the bare wrapper rather than `.section`, because that class only
+  exists when a section's schema declares it. Logo Bar's does not, so a
+  `.section + .section` rule skipped this pairing entirely.
 
   Sections only carry top space, so zeroing this one's own top margin is all
   that is needed for the two to meet at zero.
 */
 @media screen and (max-width: 768px) {
-  .section + .section:has(.transformational-results) .transformational-results {
+  * + *:has(> .transformational-results) .transformational-results {
     margin-top: 0;
   }
 }
@@ -252,11 +256,11 @@
   Mobile already meets flush via the generic preceding-section rule above.
 */
 @media screen and (min-width: 769px) {
-  .section:has(.logo-bar--rules) + .section:has(.transformational-results) .transformational-results {
+  *:has(> .logo-bar--rules) + *:has(> .transformational-results) .transformational-results {
     margin-top: 0;
   }
 
-  .section:has(.logo-bar--rules) + .section:has(.transformational-results) .transformational-results__inner {
+  *:has(> .logo-bar--rules) + *:has(> .transformational-results) .transformational-results__inner {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
