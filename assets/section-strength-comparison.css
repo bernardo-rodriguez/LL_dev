@@ -6,11 +6,11 @@
 }
 
 .strength-comparison__inner {
-  padding: 30px 0 0;
+  padding: var(--section-space-y) 0 0;
 }
 
 .strength-comparison--with-spacing .strength-comparison__inner {
-  padding-bottom: 30px;
+  padding-bottom: var(--section-space-y);
 }
 
 /* Mobile order: eyebrow, heading, body, chart, stats, footnote */
@@ -339,14 +339,6 @@ body.template-product .strength-comparison__heading {
 
 /* Desktop: two-column split - left: copy + stats, right: chart card */
 @media screen and (min-width: 769px) {
-  .strength-comparison__inner {
-    padding: 80px 0 0;
-  }
-
-  .strength-comparison--with-spacing .strength-comparison__inner {
-    padding-bottom: 80px;
-  }
-
   .strength-comparison__columns {
     display: grid;
     grid-template-columns: 1fr 1.15fr;

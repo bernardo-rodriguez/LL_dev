@@ -1,10 +1,10 @@
 .multi-slide-carousel {
-  margin: 0 0 60px;
+  margin: var(--section-space-y) 0;
 }
 
 .multi-slide-carousel__content-wrap {
   background-color: #EEF9FF;
-  padding: 80px 50px;
+  padding: var(--section-space-y) 50px;
   border-radius: 12px;
 }
 
@@ -16,7 +16,7 @@
   }
 
   .multi-slide-carousel__content-wrap {
-    padding: 40px 20px 0px 20px;
+    padding: var(--section-space-y) 20px 0px 20px;
     border-radius: 0;
     margin-left: -20px;
     margin-right: -20px;
@@ -26,10 +26,6 @@
 }
 
 @media screen and (min-width: 769px) {
-  .multi-slide-carousel {
-    margin-top: 30px;
-  }
-
   .multi-slide-carousel__pagination-wrap {
     display: none !important;
   }
@@ -222,10 +218,6 @@ body.template-product .multi-slide-carousel__heading {
 }
 
 @media screen and (max-width: 768px) {
-  .multi-slide-carousel {
-    margin: 40px 0;
-  }
-
   .multi-slide-carousel__header {
     margin-bottom: 30px;
     padding: 0;

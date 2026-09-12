@@ -6,11 +6,11 @@
 }
 
 .formula-blends__inner {
-  padding: 30px 0 0;
+  padding: var(--section-space-y) 0 0;
 }
 
 .formula-blends--with-spacing .formula-blends__inner {
-  padding-bottom: 30px;
+  padding-bottom: var(--section-space-y);
 }
 
 .formula-blends__columns {
@@ -209,14 +209,6 @@ body.template-product .formula-blends__item-name {
 
 /* Desktop: sticky left rail, accordion on the right */
 @media screen and (min-width: 769px) {
-  .formula-blends__inner {
-    padding: 80px 0 0;
-  }
-
-  .formula-blends--with-spacing .formula-blends__inner {
-    padding-bottom: 80px;
-  }
-
   .formula-blends__columns {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);

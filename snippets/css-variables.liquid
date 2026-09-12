@@ -168,6 +168,13 @@
 
     --cream-tint-50: #FAF5F150;
 
+    /*
+      Vertical rhythm between product page sections. One value drives every
+      section's top and bottom space, whether that is padding on an inner
+      wrapper or margin around a coloured panel.
+    */
+    --section-space-y: 40px;
+
     --header-height: 67px;
     --mobile-header-height: 52px;
     --simple-header-height: 67px;
@@ -231,6 +238,12 @@
     --variant-pills-shadow-vertical-offset: {{ settings.variant_pills_shadow_vertical_offset }}px;
     --variant-pills-shadow-blur-radius: {{ settings.variant_pills_shadow_blur }}px;
 
+  }
+
+  @media screen and (min-width: 769px) {
+    :root {
+      --section-space-y: 80px;
+    }
   }
 
   *,

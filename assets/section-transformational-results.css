@@ -5,14 +5,14 @@
   fought with !important, so nothing reintroduces a negative top margin.
 */
 .transformational-results {
-  margin: 60px 0;
+  margin: var(--section-space-y) 0;
 }
 
 .transformational-results__inner {
   background: #EEF9FF;
   border-radius: 12px;
-  /* Top padding matches .multi-slide-carousel__content-wrap (80px desktop) */
-  padding: 80px 50px 60px;
+  /* Top padding comes from the same token as the carousel's panel */
+  padding: var(--section-space-y) 50px 60px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   /* Row 1: heading + tabs full width; row 2: image column | stats — same start height */
@@ -151,8 +151,7 @@
 @media screen and (max-width: 768px) {
   .transformational-results__inner {
     grid-template-columns: 1fr;
-    /* Matches the carousel's 40px top padding on mobile */
-    padding: 40px 20px 40px;
+    padding: var(--section-space-y) 20px 40px;
     border-radius: 0;
     gap: 32px;
     align-items: start;
@@ -216,7 +215,7 @@
   paints over the carousel's rounded bottom corners — same colour, no seam.
 */
 .section:has(.multi-slide-carousel) + .section:has(.transformational-results) {
-  margin-top: -60px;
+  margin-top: calc(var(--section-space-y) * -1);
 }
 
 .section:has(.multi-slide-carousel) + .section:has(.transformational-results) .transformational-results {
@@ -225,7 +224,7 @@
 
 @media screen and (min-width: 769px) {
   .section:has(.multi-slide-carousel) + .section:has(.transformational-results) {
-    margin-top: -72px;
+    margin-top: calc((var(--section-space-y) + 12px) * -1);
   }
 
   .section:has(.multi-slide-carousel) + .section:has(.transformational-results) .transformational-results__inner {

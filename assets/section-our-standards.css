@@ -6,17 +6,17 @@
 }
 
 .our-standards__inner {
-  padding: 30px 0 0;
+  padding: var(--section-space-y) 0 0;
 }
 
 .our-standards--with-spacing .our-standards__inner {
-  padding-bottom: 30px;
+  padding-bottom: var(--section-space-y);
 }
 
 /* Hairline separating this section from the one above */
 .our-standards--top-border .our-standards__inner {
   border-top: 1px solid var(--navy-tint-20);
-  padding-top: 30px;
+  padding-top: var(--section-space-y);
 }
 
 .our-standards__columns {
@@ -96,18 +96,6 @@ body.template-product .our-standards__heading {
 
 /* Desktop: list on the left, sticky image on the right */
 @media screen and (min-width: 769px) {
-  .our-standards__inner {
-    padding: 80px 0 0;
-  }
-
-  .our-standards--with-spacing .our-standards__inner {
-    padding-bottom: 80px;
-  }
-
-  .our-standards--top-border .our-standards__inner {
-    padding-top: 80px;
-  }
-
   .our-standards__columns {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
