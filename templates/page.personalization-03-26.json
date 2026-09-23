@@ -20,7 +20,7 @@
       "type": "hero-two-column",
       "settings": {
         "headline": "5 Reasons Why 100K+ Switched From Crest To A Personalized Whitening Kit",
-        "description": "Visibly whiter teeth, enamel protection, stain defense in just 6 days.",
+        "description": "",
         "button_label": "GET YOUR CUSTOM FORMULA",
         "button_link": "#get-started",
         "button_action": "quiz",
@@ -123,15 +123,15 @@
         "reason_1": {
           "type": "reason",
           "settings": {
-            "title": "Stronger whitening for faster results",
-            "body": "The dentist recommended threshold for whitening is 10%. Most over-the-counter whitening uses far below that, with an average of 6.5%. So we made a properly dosed formula, so you see an actual difference quickly.",
+            "title": "Your strongest whitening. Matched to you.",
+            "body": "One-size-fits-all whitening has to account for the most sensitive teeth. That means a weak formula for everyone—even though only 8% of people have hypersensitive teeth. We personalize your formula to your sensitivity, matching you with the highest whitening strength you can use comfortably.",
             "media_type": "chart",
             "image_caption": "",
             "image_secondary_caption": "",
             "checklist": "",
-            "compare_label": "Avg. OTC",
-            "compare_value": "6.5",
-            "ours_label": "Laughland",
+            "compare_label": "Avg. OTC Whitening",
+            "compare_value": "4.5",
+            "ours_label": "Avg. Laughland",
             "ours_value": "14",
             "axis_max": "16",
             "axis_suffix": "%",
@@ -142,13 +142,13 @@
         "reason_2": {
           "type": "reason",
           "settings": {
-            "title": "We solve more than \"whitening\"",
-            "body": "Your smile's appearance isn't just color. The smile you're dreaming of isn't possible through whitening alone — you need to address plaque buildup, increase enamel density and more to get there. So we built a formula to do that.",
+            "title": "Your dream smile takes more than whitening.",
+            "body": "A beautiful smile isn’t just white. Stains, plaque buildup, and enamel density all affect how your teeth look. Our formula tackles all three, meaning for more than a shade change. You get a brighter, healthier-looking smile.",
             "media_type": "image",
             "image": "shopify://shop_images/Different_issues.png",
             "image_caption": "Before",
             "image_secondary_caption": "After",
-            "checklist": "",
+            "checklist": "PLAQUE REMOVAL\nDEEP WHITENING\nHEALTHIER ENAMEL",
             "compare_label": "Avg. OTC",
             "compare_value": "6.5",
             "ours_label": "Laughland",
@@ -162,8 +162,8 @@
         "reason_3": {
           "type": "reason",
           "settings": {
-            "title": "Sensitivity-Free.",
-            "body": "Your formula is matched to your sensitivity, and paired with blockers like hydroxyapatite and aloe that shield enamel and gums while the actives work.",
+            "title": "Stronger yet sensitivity-free.",
+            "body": "Your formula is matched to your sensitivity, and paired with modern sensitivity blockers like hydroxyapatite and aloe vera that shield enamel and gums while whitening.",
             "media_type": "image",
             "image": "shopify://shop_images/Screenshot_2026-09-09_at_6.24.43_PM.png",
             "image_caption": "",
@@ -182,13 +182,13 @@
         "reason_4": {
           "type": "reason",
           "settings": {
-            "title": "Don't see a difference? Feel any sensitivity? We'll give you a full refund.",
-            "body": "If you don't see a difference, or it isn't comfortable, you get your money back.",
+            "title": "Our BetterSmile Guarantee.",
+            "body": "If you don't see a difference, or it isn't comfortable, let us know and we'll refund you, no questions asked.",
             "media_type": "image",
             "image": "shopify://shop_images/Gemini_Generated_Image_terzrrterzrrterz.jpg",
             "image_caption": "",
             "image_secondary_caption": "",
-            "checklist": "",
+            "checklist": "Results Guarantee\nSensitivity-Free Guarantee",
             "compare_label": "Avg. OTC",
             "compare_value": "6.5",
             "ours_label": "Laughland",
@@ -202,8 +202,8 @@
         "reason_5": {
           "type": "reason",
           "settings": {
-            "title": "Made to the highest standards, with cosmetic dentists",
-            "body": "Formulated with cosmetic dentists and produced in FDA-registered facilities, using pharmaceutical-grade actives.",
+            "title": "Better Ingredients. Higher Standards.",
+            "body": "Formulated with cosmetic dentists and produced in FDA-registered facilities, using pharmaceutical-grade ingredients.",
             "media_type": "image",
             "image": "shopify://shop_images/scientist-in-lab-with-pipette.jpg",
             "image_caption": "",
