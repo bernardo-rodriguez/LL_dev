@@ -27,8 +27,8 @@
         "review_product": "at-home-whitening-kit",
         "rating": "4.7/5",
         "review_count": "80,000+ Reviews",
-        "review_author": "Lesley C.",
-        "testimonial_text": "\"I had to come here to say something. Normally I have excruciating pain with crest white strips and this other brand I got from the dentist. Both of which didn't whiten my teeth very much. So, I had low hopes for Laughland. I got the formula made for highest sensitivity, and I left it on for I think 12 minutes. Just after the first day my teeth look 2 shades whiter. I'm actually really shocked.\"",
+        "review_author": "Jenna T.",
+        "testimonial_text": "\"I had to come here to say something. Normally I have excruciating pain with crest white strips and this other brand I got from the dentist. Both of which didn't whiten my teeth very much. So, I had low hopes for Laughland. I got the formula made for highest sensitivity, and I left it on for I think 12 minutes. Just after two days my teeth look way whiter. I'm actually really shocked.\"",
         "product_image_url": "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/BOX_MELTING.png?v=1772993951"
       }
     },
@@ -142,12 +142,13 @@
         "reason_2": {
           "type": "reason",
           "settings": {
-            "title": "We solve more than whitening",
-            "body": "White is not the same as bright. The smile you're dreaming of isn't possible through whitening alone — you need to address plaque buildup, increase enamel density and more to get there. So we built a formula to do that.",
-            "media_type": "pair",
+            "title": "We solve more than \"whitening\"",
+            "body": "Your smile's appearance isn't just color. The smile you're dreaming of isn't possible through whitening alone — you need to address plaque buildup, increase enamel density and more to get there. So we built a formula to do that.",
+            "media_type": "image",
+            "image": "shopify://shop_images/Different_issues.png",
             "image_caption": "Before",
             "image_secondary_caption": "After",
-            "checklist": "Deep whitening\nHealthier enamel\nPlaque free",
+            "checklist": "",
             "compare_label": "Avg. OTC",
             "compare_value": "6.5",
             "ours_label": "Laughland",
@@ -161,9 +162,10 @@
         "reason_3": {
           "type": "reason",
           "settings": {
-            "title": "Sensitivity-free, by design",
+            "title": "Sensitivity-Free.",
             "body": "Your formula is matched to your sensitivity, and paired with blockers like hydroxyapatite and aloe that shield enamel and gums while the actives work.",
             "media_type": "image",
+            "image": "shopify://shop_images/Screenshot_2026-09-09_at_6.24.43_PM.png",
             "image_caption": "",
             "image_secondary_caption": "",
             "checklist": "",
@@ -180,9 +182,10 @@
         "reason_4": {
           "type": "reason",
           "settings": {
-            "title": "Results and pain-free, guaranteed",
+            "title": "Don't see a difference? Feel any sensitivity? We'll give you a full refund.",
             "body": "If you don't see a difference, or it isn't comfortable, you get your money back.",
             "media_type": "image",
+            "image": "shopify://shop_images/Gemini_Generated_Image_terzrrterzrrterz.jpg",
             "image_caption": "",
             "image_secondary_caption": "",
             "checklist": "",
@@ -542,9 +545,9 @@
         "row_YzHgfw": {
           "type": "row",
           "settings": {
-            "label": "Lifts deep-set stains",
+            "label": "Whitens Teeth",
             "col_1": true,
-            "col_2": false,
+            "col_2": true,
             "col_3": false,
             "col_4": false
           }
@@ -552,7 +555,7 @@
         "row_7cRMkt": {
           "type": "row",
           "settings": {
-            "label": "Dentist-grade strength",
+            "label": "Results in 5 days",
             "col_1": false,
             "col_2": false,
             "col_3": false,
@@ -562,7 +565,7 @@
         "row_KHBtwh": {
           "type": "row",
           "settings": {
-            "label": "Strengthens enamel",
+            "label": "Supports enamel",
             "col_1": false,
             "col_2": false,
             "col_3": false,
@@ -582,7 +585,7 @@
         "row_3RpGhp": {
           "type": "row",
           "settings": {
-            "label": "Removes plaque & biofilm",
+            "label": "Removes plaque",
             "col_1": false,
             "col_2": true,
             "col_3": false,
@@ -602,7 +605,7 @@
         "row_YKU6JF": {
           "type": "row",
           "settings": {
-            "label": "Prescribed to your smile",
+            "label": "Personalized Formulas",
             "col_1": false,
             "col_2": false,
             "col_3": false,
@@ -623,7 +626,7 @@
       ],
       "name": "Comparison Table",
       "settings": {
-        "heading": "Laughland is a {whole-mouth} solution",
+        "heading": "Laughland does more than {whitening.}",
         "ours_label": "Laughland",
         "ours_logo_svg": "",
         "footnote": "†Based on currently available data for mass-market at-home whitening products.",
