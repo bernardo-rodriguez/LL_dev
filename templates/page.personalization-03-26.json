@@ -130,7 +130,7 @@
             "image_secondary_caption": "",
             "checklist": "",
             "compare_label": "Avg. OTC Whitening",
-            "compare_value": "4.5",
+            "compare_value": "5.5",
             "ours_label": "Avg. Laughland",
             "ours_value": "14",
             "axis_max": "16",
@@ -533,13 +533,13 @@
         "competitor_fdMAen": {
           "type": "competitor",
           "settings": {
-            "heading": "Whitening Strips"
+            "heading": "Dentist Whitening"
           }
         },
         "competitor_6CA9mp": {
           "type": "competitor",
           "settings": {
-            "heading": "Whitening Toothpaste"
+            "heading": "otc whitening products"
           }
         },
         "row_YzHgfw": {
@@ -555,8 +555,8 @@
         "row_7cRMkt": {
           "type": "row",
           "settings": {
-            "label": "Results in 5 days",
-            "col_1": false,
+            "label": "Results in <5 days",
+            "col_1": true,
             "col_2": false,
             "col_3": false,
             "col_4": false
@@ -566,7 +566,7 @@
           "type": "row",
           "settings": {
             "label": "Supports enamel",
-            "col_1": false,
+            "col_1": true,
             "col_2": false,
             "col_3": false,
             "col_4": false
@@ -576,27 +576,17 @@
           "type": "row",
           "settings": {
             "label": "Sensitivity protection",
-            "col_1": false,
+            "col_1": true,
             "col_2": false,
             "col_3": false,
             "col_4": false
           }
         },
-        "row_3RpGhp": {
+        "row_cn8Rgk": {
           "type": "row",
           "settings": {
-            "label": "Removes plaque",
-            "col_1": false,
-            "col_2": true,
-            "col_3": false,
-            "col_4": false
-          }
-        },
-        "row_tenYbA": {
-          "type": "row",
-          "settings": {
-            "label": "Supports oral microbiome",
-            "col_1": false,
+            "label": "Made by Dentists",
+            "col_1": true,
             "col_2": false,
             "col_3": false,
             "col_4": false
@@ -606,6 +596,16 @@
           "type": "row",
           "settings": {
             "label": "Personalized Formulas",
+            "col_1": true,
+            "col_2": false,
+            "col_3": false,
+            "col_4": false
+          }
+        },
+        "row_HNt6pK": {
+          "type": "row",
+          "settings": {
+            "label": "NEED PRICE SECTION WHERE WE CAN PUT TEXT ($39 VS $400+ VS $30~$50)",
             "col_1": false,
             "col_2": false,
             "col_3": false,
@@ -620,13 +620,13 @@
         "row_7cRMkt",
         "row_KHBtwh",
         "row_4kAYMV",
-        "row_3RpGhp",
-        "row_tenYbA",
-        "row_YKU6JF"
+        "row_cn8Rgk",
+        "row_YKU6JF",
+        "row_HNt6pK"
       ],
       "name": "Comparison Table",
       "settings": {
-        "heading": "Laughland does more than {whitening.}",
+        "heading": "Dentist whitening without the {dentist price tag.}",
         "ours_label": "Laughland",
         "ours_logo_svg": "",
         "footnote": "†Based on currently available data for mass-market at-home whitening products.",
