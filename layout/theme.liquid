@@ -147,9 +147,16 @@
     <link rel="preload" as="image" href="important.png"> {% endcomment %}
     {% render 'css-variables' %}
 
+    {%- comment -%}
+      Must run before anything paints: it decides which flow's copy and
+      sections the stylesheet below will reveal.
+    {%- endcomment -%}
+    {% render 'flow-detect' %}
+
     {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
     {{ 'slick.min.css' | asset_url | stylesheet_tag }}
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'component-flow.css' | asset_url | stylesheet_tag }}
     {{ 'custom.css' | asset_url | stylesheet_tag }}
     {{ 'in_house_custom.css' | asset_url | stylesheet_tag }}
 

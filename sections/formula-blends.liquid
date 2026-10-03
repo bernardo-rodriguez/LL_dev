@@ -10,6 +10,7 @@
 <section
   class="formula-blends {% if section.settings.margin_bottom %}formula-blends--with-spacing{% endif %}"
   data-section-id="{{ section.id }}"
+  {% render 'flow-only', visibility: section.settings.flow_visibility %}
 >
   <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
     <div class="formula-blends__inner">
@@ -21,7 +22,7 @@
           {% endif %}
 
           {% if section.settings.heading != blank %}
-            <h3 class="formula-blends__heading">{{ formatted_heading }}</h3>
+            <h3 class="formula-blends__heading">{% render 'flow-text', base: section.settings.heading, quiz: section.settings.heading_quiz, stylize: true %}</h3>
           {% endif %}
 
           {% if section.settings.image != blank %}
@@ -46,7 +47,7 @@
         {%- comment -%} Right column: intro, blend accordion, footnote {%- endcomment -%}
         <div class="formula-blends__main">
           {% if section.settings.intro != blank %}
-            <p class="formula-blends__intro sh3">{{ section.settings.intro }}</p>
+            <p class="formula-blends__intro sh3">{% render 'flow-text', base: section.settings.intro, quiz: section.settings.intro_quiz %}</p>
           {% endif %}
 
           {% if blend_blocks.size > 0 %}
@@ -272,6 +273,43 @@
       "label": "Extra space below",
       "default": false,
       "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap. Turn on only when this section ends the page."
+    },
+    {
+      "type": "header",
+      "content": "Personalization flow"
+    },
+    {
+      "type": "select",
+      "id": "flow_visibility",
+      "label": "Show this section to",
+      "default": "all",
+      "options": [
+        {
+          "value": "all",
+          "label": "Everyone"
+        },
+        {
+          "value": "quiz",
+          "label": "Quiz arrivals only"
+        },
+        {
+          "value": "direct",
+          "label": "Direct arrivals only"
+        }
+      ],
+      "info": "Quiz arrivals completed the customization quiz on the landing page. Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL."
+    },
+    {
+      "type": "textarea",
+      "id": "heading_quiz",
+      "label": "Heading — quiz arrivals",
+      "info": "Optional. Wording for visitors who came through the quiz. One per line: a line on its own applies to all of them, a line starting strong:, medium: or sensitive: applies to that formula only. Anything left out falls back to the wording above."
+    },
+    {
+      "type": "textarea",
+      "id": "intro_quiz",
+      "label": "Intro — quiz arrivals",
+      "info": "Optional. Wording for visitors who came through the quiz. One per line: a line on its own applies to all of them, a line starting strong:, medium: or sensitive: applies to that formula only. Anything left out falls back to the wording above."
     }
   ],
   "blocks": [

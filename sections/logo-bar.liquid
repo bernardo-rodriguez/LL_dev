@@ -1,6 +1,6 @@
 {{ 'section-logo-bar.css' | asset_url | stylesheet_tag }}
 
-<section class="logo-bar {% if section.settings.show_rules %}logo-bar--rules{% endif %}">
+<section class="logo-bar {% if section.settings.show_rules %}logo-bar--rules{% endif %}" {% render 'flow-only', visibility: section.settings.flow_visibility %}>
     <div class="logo-bar__inner">
       {% for i in (i..5)%}
       <ul class="logo-bar__list list-unstyled">
@@ -67,6 +67,31 @@
       "label": "Hairlines above and below",
       "default": false,
       "info": "Turns the bar into a slim bordered band and gives it the standard section spacing."
+    },
+    {
+      "type": "header",
+      "content": "Personalization flow"
+    },
+    {
+      "type": "select",
+      "id": "flow_visibility",
+      "label": "Show this section to",
+      "default": "all",
+      "options": [
+        {
+          "value": "all",
+          "label": "Everyone"
+        },
+        {
+          "value": "quiz",
+          "label": "Quiz arrivals only"
+        },
+        {
+          "value": "direct",
+          "label": "Direct arrivals only"
+        }
+      ],
+      "info": "Quiz arrivals completed the customization quiz on the landing page. Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL."
     }
   ]
 }

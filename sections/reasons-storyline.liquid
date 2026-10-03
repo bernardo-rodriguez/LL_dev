@@ -9,6 +9,7 @@
 <section
   class="reasons-storyline {% if section.settings.margin_bottom %}reasons-storyline--with-spacing{% endif %}"
   data-section-id="{{ section.id }}"
+  {% render 'flow-only', visibility: section.settings.flow_visibility %}
 >
   <div class="page-width">
     <div class="reasons-storyline__inner">
@@ -17,7 +18,7 @@
       {% endif %}
 
       {% if section.settings.heading != blank %}
-        <h3 class="reasons-storyline__heading">{{ formatted_heading }}</h3>
+        <h3 class="reasons-storyline__heading">{% render 'flow-text', base: section.settings.heading, quiz: section.settings.heading_quiz, stylize: true %}</h3>
       {% endif %}
 
       {% for block in reasons %}
@@ -142,38 +143,178 @@
   "tag": "section",
   "class": "section",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Why Personalization" },
-    { "type": "textarea", "id": "heading", "label": "Heading", "info": "Optional. Wrap emphasized text in {} for the italic Canela style" },
-    { "type": "header", "content": "Layout" },
-    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Why Personalization"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Optional. Wrap emphasized text in {} for the italic Canela style"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "margin_bottom",
+      "label": "Extra space below",
+      "default": false,
+      "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap."
+    },
+    {
+      "type": "header",
+      "content": "Personalization flow"
+    },
+    {
+      "type": "select",
+      "id": "flow_visibility",
+      "label": "Show this section to",
+      "default": "all",
+      "options": [
+        {
+          "value": "all",
+          "label": "Everyone"
+        },
+        {
+          "value": "quiz",
+          "label": "Quiz arrivals only"
+        },
+        {
+          "value": "direct",
+          "label": "Direct arrivals only"
+        }
+      ],
+      "info": "Quiz arrivals completed the customization quiz on the landing page. Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL."
+    },
+    {
+      "type": "textarea",
+      "id": "heading_quiz",
+      "label": "Heading — quiz arrivals",
+      "info": "Optional. Wording for visitors who came through the quiz. One per line: a line on its own applies to all of them, a line starting strong:, medium: or sensitive: applies to that formula only. Anything left out falls back to the wording above."
+    }
   ],
   "blocks": [
     {
       "type": "reason",
       "name": "Reason",
       "settings": [
-        { "type": "text", "id": "title", "label": "Title", "default": "Stronger whitening for faster results" },
-        { "type": "textarea", "id": "body", "label": "Body copy" },
-        { "type": "select", "id": "media_type", "label": "Media", "default": "image",
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Stronger whitening for faster results"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Body copy"
+        },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media",
+          "default": "image",
           "options": [
-            { "value": "image", "label": "Single image" },
-            { "value": "pair", "label": "Two images side by side" },
-            { "value": "chart", "label": "Strength bar chart" }
-          ] },
-        { "type": "image_picker", "id": "image", "label": "Image" },
-        { "type": "text", "id": "image_caption", "label": "Image label", "info": "Optional pill drawn over the image, e.g. Before" },
-        { "type": "image_picker", "id": "image_secondary", "label": "Second image", "info": "Used by the two-image layout" },
-        { "type": "text", "id": "image_secondary_caption", "label": "Second image label" },
-        { "type": "textarea", "id": "checklist", "label": "Checklist", "info": "Optional, one per line" },
-        { "type": "header", "content": "Bar chart" },
-        { "type": "text", "id": "compare_label", "label": "Comparison bar label", "default": "Avg. OTC" },
-        { "type": "text", "id": "compare_value", "label": "Comparison bar value", "default": "6.5" },
-        { "type": "text", "id": "ours_label", "label": "Laughland bar label", "default": "Laughland" },
-        { "type": "text", "id": "ours_value", "label": "Laughland bar value", "default": "14" },
-        { "type": "text", "id": "axis_max", "label": "Axis maximum", "default": "16" },
-        { "type": "text", "id": "axis_suffix", "label": "Value suffix", "default": "%" },
-        { "type": "text", "id": "threshold_value", "label": "Threshold value", "default": "10", "info": "0 hides the dashed line" },
-        { "type": "text", "id": "threshold_label", "label": "Threshold label", "default": "Dentist threshold 10%" }
+            {
+              "value": "image",
+              "label": "Single image"
+            },
+            {
+              "value": "pair",
+              "label": "Two images side by side"
+            },
+            {
+              "value": "chart",
+              "label": "Strength bar chart"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_caption",
+          "label": "Image label",
+          "info": "Optional pill drawn over the image, e.g. Before"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_secondary",
+          "label": "Second image",
+          "info": "Used by the two-image layout"
+        },
+        {
+          "type": "text",
+          "id": "image_secondary_caption",
+          "label": "Second image label"
+        },
+        {
+          "type": "textarea",
+          "id": "checklist",
+          "label": "Checklist",
+          "info": "Optional, one per line"
+        },
+        {
+          "type": "header",
+          "content": "Bar chart"
+        },
+        {
+          "type": "text",
+          "id": "compare_label",
+          "label": "Comparison bar label",
+          "default": "Avg. OTC"
+        },
+        {
+          "type": "text",
+          "id": "compare_value",
+          "label": "Comparison bar value",
+          "default": "6.5"
+        },
+        {
+          "type": "text",
+          "id": "ours_label",
+          "label": "Laughland bar label",
+          "default": "Laughland"
+        },
+        {
+          "type": "text",
+          "id": "ours_value",
+          "label": "Laughland bar value",
+          "default": "14"
+        },
+        {
+          "type": "text",
+          "id": "axis_max",
+          "label": "Axis maximum",
+          "default": "16"
+        },
+        {
+          "type": "text",
+          "id": "axis_suffix",
+          "label": "Value suffix",
+          "default": "%"
+        },
+        {
+          "type": "text",
+          "id": "threshold_value",
+          "label": "Threshold value",
+          "default": "10",
+          "info": "0 hides the dashed line"
+        },
+        {
+          "type": "text",
+          "id": "threshold_label",
+          "label": "Threshold label",
+          "default": "Dentist threshold 10%"
+        }
       ]
     }
   ],
@@ -181,29 +322,49 @@
     {
       "name": "Reasons Storyline",
       "blocks": [
-        { "type": "reason", "settings": {
+        {
+          "type": "reason",
+          "settings": {
             "title": "Stronger whitening for faster results",
             "media_type": "chart",
-            "body": "The dentist recommended threshold for whitening is 10%. Most over-the-counter whitening sits far below that, averaging 6.5%. We made a properly dosed formula so you see an actual difference quickly." } },
-        { "type": "reason", "settings": {
+            "body": "The dentist recommended threshold for whitening is 10%. Most over-the-counter whitening sits far below that, averaging 6.5%. We made a properly dosed formula so you see an actual difference quickly."
+          }
+        },
+        {
+          "type": "reason",
+          "settings": {
             "title": "We solve more than whitening",
             "media_type": "pair",
             "image_caption": "Before",
             "image_secondary_caption": "After",
             "checklist": "Deep whitening\nHealthier, denser enamel\nPlaque and biofilm free",
-            "body": "White is not the same as bright. The smile you are after is not possible through whitening alone — it takes addressing plaque buildup and enamel density too. So we built a formula that does both." } },
-        { "type": "reason", "settings": {
+            "body": "White is not the same as bright. The smile you are after is not possible through whitening alone — it takes addressing plaque buildup and enamel density too. So we built a formula that does both."
+          }
+        },
+        {
+          "type": "reason",
+          "settings": {
             "title": "Sensitivity-free, by design",
             "media_type": "image",
-            "body": "Your formula is matched to your sensitivity, and paired with hydroxyapatite and aloe that shield enamel and gums while the actives work." } },
-        { "type": "reason", "settings": {
+            "body": "Your formula is matched to your sensitivity, and paired with hydroxyapatite and aloe that shield enamel and gums while the actives work."
+          }
+        },
+        {
+          "type": "reason",
+          "settings": {
             "title": "Results and pain-free, guaranteed",
             "media_type": "image",
-            "body": "If you do not see a difference, or it is not comfortable, you get your money back." } },
-        { "type": "reason", "settings": {
+            "body": "If you do not see a difference, or it is not comfortable, you get your money back."
+          }
+        },
+        {
+          "type": "reason",
+          "settings": {
             "title": "Made to the highest standards, with cosmetic dentists",
             "media_type": "image",
-            "body": "Formulated with cosmetic dentists and produced in FDA-registered facilities, using pharmaceutical-grade actives." } }
+            "body": "Formulated with cosmetic dentists and produced in FDA-registered facilities, using pharmaceutical-grade actives."
+          }
+        }
       ]
     }
   ]

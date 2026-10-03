@@ -10,6 +10,7 @@
 <section
   class="our-standards {% if section.settings.top_border %}our-standards--top-border{% endif %} {% if section.settings.margin_bottom %}our-standards--with-spacing{% endif %}"
   data-section-id="{{ section.id }}"
+  {% render 'flow-only', visibility: section.settings.flow_visibility %}
 >
   <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
     <div class="our-standards__inner">
@@ -120,6 +121,31 @@
       "label": "Extra space below",
       "default": false,
       "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap. Turn on only when this section ends the page."
+    },
+    {
+      "type": "header",
+      "content": "Personalization flow"
+    },
+    {
+      "type": "select",
+      "id": "flow_visibility",
+      "label": "Show this section to",
+      "default": "all",
+      "options": [
+        {
+          "value": "all",
+          "label": "Everyone"
+        },
+        {
+          "value": "quiz",
+          "label": "Quiz arrivals only"
+        },
+        {
+          "value": "direct",
+          "label": "Direct arrivals only"
+        }
+      ],
+      "info": "Quiz arrivals completed the customization quiz on the landing page. Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL."
     }
   ],
   "blocks": [

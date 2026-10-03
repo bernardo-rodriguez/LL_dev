@@ -243,6 +243,11 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
       console.log(formula_translate[sensitivity])
 
       document.cookie =  "strength=" + formula_translate[sensitivity] + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
+      // Marks this visitor as a quiz arrival, so the product page can show the
+      // personalized wording and skip the sections they have already seen. The
+      // strength cookie cannot stand in for this: the PDP's own strength picker
+      // writes one too, which would read every direct visitor as a quiz arrival.
+      document.cookie = "ll_flow=quiz" + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
       document.cookie = "firstname=" + document.querySelector('#first_name').value + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
       document.cookie = "lastname=" + document.querySelector('#last_name').value + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"
       document.cookie = "starting_shade=" + starting_shade + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;"

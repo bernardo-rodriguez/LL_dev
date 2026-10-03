@@ -1,0 +1,89 @@
+{%- comment -%}
+  PERSONALIZATION FLOWS
+  =====================
+
+  Two kinds of visitor reach the product page, and they should not see the
+  same page:
+
+    quiz    — arrived via the landing page and completed the customization
+              quiz, so they already know their formula and have already seen
+              some of the story.
+    direct  — landed on the product page cold. Generic wording, full story.
+
+  Shopify caches pages for everyone, so this cannot be decided in Liquid —
+  Liquid never sees the visitor's cookies. Instead every variant is rendered
+  into the page and the browser picks one. This script runs in <head>, before
+  anything paints, and stamps the answer on <html>:
+
+    data-ll-flow      quiz | direct
+    data-ll-strength  strong | medium | sensitive
+
+  component-flow.css then shows the matching copy and hides sections that do
+  not belong to the active flow. Because the choice is made by CSS on an
+  attribute that is set before first paint, there is no flash of the wrong
+  version.
+
+  HOW A VISITOR BECOMES "quiz"
+  ----------------------------
+  The quiz writes ll_flow=quiz when it hands off to the product page
+  (assets/quiz.js, assets/quiz_2.js). The strength cookie on its own is NOT
+  enough: the product page's own strength picker writes one too, so a direct
+  visitor who clicks around would otherwise be misread as a quiz arrival.
+
+  Visitors who took the quiz before ll_flow existed are still recognised, by
+  the starting_shade cookie — only the two quizzes ever write that.
+
+  PREVIEWING EITHER FLOW
+  ----------------------
+  Add to any URL:
+
+    ?ll_flow=quiz&ll_strength=sensitive
+    ?ll_flow=direct
+
+  The override wins over the cookies, so both flows can be checked without
+  taking the quiz. In the theme editor nothing is ever hidden unless a flow is
+  named in the URL this way — otherwise half the page would vanish from the
+  editor and look broken.
+{%- endcomment -%}
+<script>
+  (function () {
+    var root = document.documentElement;
+
+    function cookie(name) {
+      var m = document.cookie.match('(?:^|;\\s*)' + name + '=([^;]*)');
+      return m ? decodeURIComponent(m[1]) : '';
+    }
+
+    function param(name) {
+      var m = window.location.search.match('[?&]' + name + '=([^&]*)');
+      return m ? decodeURIComponent(m[1]) : '';
+    }
+
+    var flowParam = param('ll_flow');
+    var flow = flowParam || cookie('ll_flow');
+
+    // Legacy quiz takers predate the ll_flow cookie; starting_shade is written
+    // by the quizzes and nothing else.
+    if (!flow && cookie('starting_shade')) {
+      flow = 'quiz';
+    }
+
+    var strength = param('ll_strength') || cookie('strength');
+    if (strength === 'gentle') {
+      strength = 'sensitive';
+    }
+    if (strength !== 'strong' && strength !== 'medium' && strength !== 'sensitive') {
+      strength = 'medium';
+    }
+
+    root.setAttribute('data-ll-flow', flow === 'quiz' ? 'quiz' : 'direct');
+    root.setAttribute('data-ll-strength', strength);
+
+    // In the editor, show every section regardless of flow unless the URL
+    // explicitly asks for one, so the merchant can still see and click
+    // everything they have placed.
+    if (window.Shopify && window.Shopify.designMode && !flowParam) {
+      root.setAttribute('data-ll-editor', 'true');
+    }
+  })();
+</script>
