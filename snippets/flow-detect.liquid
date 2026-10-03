@@ -37,9 +37,10 @@
   ---------------------------
   Add to any URL:
 
-    ?ll_flow=quiz&ll_strength=sensitive
-    ?ll_flow=direct
-    ?ll_flow=reset
+    ?ll_flow=quiz&ll_strength=sensitive   pose as a quiz arrival
+    ?ll_flow=direct                       pose as a cold arrival
+    ?ll_flow=auto                         stop posing, go back to the truth
+    ?ll_reset=1                           become a brand new visitor
 
   These are sticky: the parameter rewrites the cookie, so the chosen flow
   survives clicking through to other pages instead of lasting one page view.
@@ -52,8 +53,13 @@
   writes, so the rest of the product page (variant selection, ingredient copy)
   follows along rather than only the wording this file governs.
 
-  ?ll_flow=reset clears the override and returns to normal detection: a past
-  quiz taker goes back to being a quiz arrival, everyone else to direct.
+  ?ll_flow=auto clears only the forced flow and returns to normal detection: a
+  past quiz taker goes back to being a quiz arrival, everyone else to direct.
+  ('reset' is accepted as a spelling of this too.)
+
+  ?ll_reset=1 goes further and clears everything the quiz wrote — flow,
+  strength, shades, name — so the next page load looks like a first ever visit.
+  This is the state worth testing most and the hardest to reach by hand.
 
   Because it is sticky, do not put these parameters in a link you publish —
   anyone who clicks it is switched for real. They are a testing tool.
@@ -89,9 +95,20 @@
     var flowParam = param('ll_flow');
     var strengthParam = param('ll_strength');
 
+    // ?ll_reset=1 — become a brand new visitor. Everything the quiz leaves
+    // behind is cleared, which is the one state a tester cannot otherwise get
+    // back to without emptying the browser by hand.
+    if (param('ll_reset')) {
+      ['ll_flow', 'strength', 'starting_shade', 'ending_shade', 'firstname', 'lastname'].forEach(clear);
+      flowParam = '';
+      strengthParam = '';
+    }
+
     // The testing parameters rewrite the cookies rather than applying for one
     // page view, so the chosen flow carries across the whole journey.
-    if (flowParam === 'reset') {
+    // 'auto' only drops the forced flow, leaving the quiz's own answers in
+    // place, so a real quiz taker goes back to being one.
+    if (flowParam === 'auto' || flowParam === 'reset') {
       clear('ll_flow');
       flowParam = '';
     } else if (flowParam === 'quiz' || flowParam === 'direct') {
