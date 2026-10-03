@@ -157,7 +157,10 @@
         "footnote": "",
         "first_open": true,
         "close_others": true,
-        "margin_bottom": false
+        "margin_bottom": false,
+        "flow_visibility": "all",
+        "heading_quiz": "",
+        "intro_quiz": ""
       }
     },
     "strength_comparison_gNykFW": {
@@ -242,7 +245,10 @@
       ],
       "name": "Transformational Results",
       "settings": {
-        "heading": "Over 100,000+ brighter smiles"
+        "heading": "Over 100,000+ brighter smiles",
+        "show_stats": false,
+        "flow_visibility": "all",
+        "heading_quiz": ""
       }
     },
     "comparison_table_pdp": {
@@ -264,70 +270,112 @@
           "type": "row",
           "settings": {
             "label": "Whitens Enamel",
+            "row_type": "marks",
             "col_1": true,
             "col_2": false,
             "col_3": false,
-            "col_4": false
+            "col_4": false,
+            "ours_text": "$39",
+            "col_1_text": "",
+            "col_2_text": "",
+            "col_3_text": "",
+            "col_4_text": ""
           }
         },
         "row_7": {
           "type": "row",
           "settings": {
             "label": "Lifts Surface Stains",
+            "row_type": "marks",
             "col_1": false,
             "col_2": true,
             "col_3": false,
-            "col_4": false
+            "col_4": false,
+            "ours_text": "$39",
+            "col_1_text": "",
+            "col_2_text": "",
+            "col_3_text": "",
+            "col_4_text": ""
           }
         },
         "row_5": {
           "type": "row",
           "settings": {
             "label": "Removes Plaque",
+            "row_type": "marks",
             "col_1": false,
             "col_2": true,
             "col_3": false,
-            "col_4": false
+            "col_4": false,
+            "ours_text": "$39",
+            "col_1_text": "",
+            "col_2_text": "",
+            "col_3_text": "",
+            "col_4_text": ""
           }
         },
         "row_3": {
           "type": "row",
           "settings": {
             "label": "Strengthens Enamel",
+            "row_type": "marks",
             "col_1": false,
             "col_2": false,
             "col_3": false,
-            "col_4": false
+            "col_4": false,
+            "ours_text": "$39",
+            "col_1_text": "",
+            "col_2_text": "",
+            "col_3_text": "",
+            "col_4_text": ""
           }
         },
         "row_mGUq86": {
           "type": "row",
           "settings": {
             "label": "Fixes Translucent Edges",
+            "row_type": "marks",
             "col_1": false,
             "col_2": false,
             "col_3": false,
-            "col_4": false
+            "col_4": false,
+            "ours_text": "$39",
+            "col_1_text": "",
+            "col_2_text": "",
+            "col_3_text": "",
+            "col_4_text": ""
           }
         },
         "row_4": {
           "type": "row",
           "settings": {
             "label": "Prevents Sensitivity",
+            "row_type": "marks",
             "col_1": false,
             "col_2": false,
             "col_3": false,
-            "col_4": false
+            "col_4": false,
+            "ours_text": "$39",
+            "col_1_text": "",
+            "col_2_text": "",
+            "col_3_text": "",
+            "col_4_text": ""
           }
         },
         "row_6": {
           "type": "row",
           "settings": {
             "label": "Supports Oral Microbiome",
+            "row_type": "marks",
             "col_1": false,
             "col_2": false,
             "col_3": false,
-            "col_4": false
+            "col_4": false,
+            "ours_text": "$39",
+            "col_1_text": "",
+            "col_2_text": "",
+            "col_3_text": "",
+            "col_4_text": ""
           }
         }
       },
@@ -348,7 +396,9 @@
         "ours_label": "Laughland",
         "ours_logo_svg": "",
         "footnote": "",
-        "margin_bottom": false
+        "margin_bottom": false,
+        "flow_visibility": "all",
+        "heading_quiz": ""
       }
     },
     "product-recommendations": {
@@ -467,6 +517,46 @@
         "slide_ArCbGL"
       ],
       "settings": {}
+    },
+    "how_to_steps_bpjbpm": {
+      "type": "how-to-steps",
+      "blocks": {
+        "step_paVVx4": {
+          "type": "step",
+          "settings": {
+            "text": "Brush and floss as normal, then dry your teeth."
+          }
+        },
+        "step_bJBXmW": {
+          "type": "step",
+          "settings": {
+            "text": "Apply a thin line of your formula to the tray and clip in the LED light."
+          }
+        },
+        "step_N6tYpa": {
+          "type": "step",
+          "settings": {
+            "text": "Wear for 10 minutes, rinse, and repeat every other day."
+          }
+        }
+      },
+      "block_order": [
+        "step_paVVx4",
+        "step_bJBXmW",
+        "step_N6tYpa"
+      ],
+      "name": "How To Use Steps",
+      "settings": {
+        "eyebrow": "Quick, easy, effective",
+        "heading": "How to use your {kit}",
+        "media_caption": "",
+        "button_label": "Build my kit",
+        "button_link": "",
+        "reassurance": "30-day money back guarantee",
+        "media_position": "left",
+        "margin_bottom": false,
+        "flow_visibility": "all"
+      }
     },
     "6916709c-578f-4b73-afd1-d8e53aa1db15": {
       "type": "carousel",
@@ -627,7 +717,8 @@
         "heading": "If it touches your smile, {quality matters.}",
         "image": "shopify://shop_images/scientist-in-lab-with-pipette.jpg",
         "top_border": false,
-        "margin_bottom": false
+        "margin_bottom": false,
+        "flow_visibility": "all"
       }
     },
     "science_effects_yCEdFb": {
@@ -943,6 +1034,7 @@
     "product-recommendations",
     "ingredients_that_work_N67RbP",
     "multi_slide_carousel_rc9KtU",
+    "how_to_steps_bpjbpm",
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
     "1c8af4c9-5992-4bfb-9d4a-a8e06e025318",
     "our_standards_pdp",
