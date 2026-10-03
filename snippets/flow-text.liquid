@@ -1,78 +1,68 @@
 {%- comment -%}
   A string that changes with the visitor's flow.
 
-    {% render 'flow-text', base: section.settings.heading, quiz: section.settings.heading_quiz %}
+    render 'flow-text', base: section.settings.heading, quiz: section.settings.heading_quiz
 
-  `base` is the normal wording, shown to direct arrivals and used as the
-  fallback everywhere else. `quiz` is an optional override block, one entry per
-  line:
+  base is the normal wording, shown to direct arrivals and used as the fallback
+  everywhere else. quiz is an optional override block, one entry per line:
 
       Your formula, built around your sensitivity.
-      strong: Your Super Strength formula — the most we can safely prescribe.
+      strong: Your Super Strength formula, the most we can safely prescribe.
       sensitive: Your Gentle formula, dosed for sensitive teeth.
 
   A line with no prefix applies to every quiz arrival. A line prefixed with
   strong:, medium: or sensitive: applies to that formula only and wins over the
-  unprefixed line. Anything left unset falls back to `base`, so a merchant can
+  unprefixed line. Anything left unset falls back to base, so a merchant can
   override one strength and leave the rest alone.
 
-  When `quiz` is blank nothing is wrapped and the plain string is printed, so
+  When quiz is blank nothing is wrapped and the plain string is printed, so
   pages that do not use this stay clean.
 
   Options:
-    stylize  — true to turn {curly braces} into the italic Canela span, the
-               same transform the headings in these sections already do.
+    stylize - true to turn {curly braces} into the italic Canela span, the same
+    transform the headings in these sections already do.
+
+  Written with plain tags on purpose. An earlier version used a liquid tag with
+  a comment block nested inside it; Shopify refused to save the file, and every
+  section that rendered this snippet then failed with "Could not find asset".
+  Nothing exotic goes in here.
 {%- endcomment -%}
 
-{%- liquid
-  assign quiz_all = ''
-  assign quiz_strong = ''
-  assign quiz_medium = ''
-  assign quiz_sensitive = ''
+{%- assign quiz_all = '' -%}
+{%- assign quiz_strong = '' -%}
+{%- assign quiz_medium = '' -%}
+{%- assign quiz_sensitive = '' -%}
 
-  if quiz != blank
-    assign lines = quiz | strip | newline_to_br | split: '<br />'
-    for line in lines
-      assign entry = line | strip
-      if entry == blank
-        continue
-      endif
+{%- if quiz != blank -%}
+  {%- assign quiz_lines = quiz | strip | newline_to_br | split: '<br />' -%}
+  {%- for quiz_line in quiz_lines -%}
+    {%- assign entry = quiz_line | strip -%}
+    {%- if entry != blank -%}
+      {%- assign raw_key = entry | split: ':' | first -%}
+      {%- assign key = raw_key | strip | downcase -%}
+      {%- assign skip = raw_key | size | plus: 1 -%}
+      {%- assign value = entry | slice: skip, 5000 | strip -%}
+      {%- if key == 'strong' -%}
+        {%- assign quiz_strong = value -%}
+      {%- elsif key == 'medium' -%}
+        {%- assign quiz_medium = value -%}
+      {%- elsif key == 'sensitive' or key == 'gentle' -%}
+        {%- assign quiz_sensitive = value -%}
+      {%- else -%}
+        {%- assign quiz_all = entry -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
 
-      assign raw_key = entry | split: ':' | first
-      assign key = raw_key | strip | downcase
-      assign skip = raw_key | size | plus: 1
-      assign value = entry | slice: skip, 5000 | strip
-
-      case key
-        when 'strong'
-          assign quiz_strong = value
-        when 'medium'
-          assign quiz_medium = value
-        when 'sensitive', 'gentle'
-          assign quiz_sensitive = value
-        else
-          assign quiz_all = entry
-      endcase
-    endfor
-  endif
-
-  comment
-    Resolve every slot now, so the markup always carries a complete set and the
-    browser always finds exactly one match.
-  endcomment
-  if quiz_all == blank
-    assign quiz_all = base
-  endif
-  if quiz_strong == blank
-    assign quiz_strong = quiz_all
-  endif
-  if quiz_medium == blank
-    assign quiz_medium = quiz_all
-  endif
-  if quiz_sensitive == blank
-    assign quiz_sensitive = quiz_all
-  endif
--%}
+{%- comment -%}
+  Resolve every slot now, so the markup always carries a complete set and the
+  browser always finds exactly one match.
+{%- endcomment -%}
+{%- if quiz_all == blank -%}{%- assign quiz_all = base -%}{%- endif -%}
+{%- if quiz_strong == blank -%}{%- assign quiz_strong = quiz_all -%}{%- endif -%}
+{%- if quiz_medium == blank -%}{%- assign quiz_medium = quiz_all -%}{%- endif -%}
+{%- if quiz_sensitive == blank -%}{%- assign quiz_sensitive = quiz_all -%}{%- endif -%}
 
 {%- if quiz == blank -%}
   {%- if stylize -%}
@@ -81,19 +71,18 @@
     {{ base }}
   {%- endif -%}
 {%- else -%}
-  {%- assign variants = 'direct,quiz:strong,quiz:medium,quiz:sensitive' | split: ',' -%}
-  {%- for variant in variants -%}
-    {%- case variant -%}
-      {%- when 'direct' -%}
-        {%- assign copy = base -%}
-      {%- when 'quiz:strong' -%}
-        {%- assign copy = quiz_strong -%}
-      {%- when 'quiz:medium' -%}
-        {%- assign copy = quiz_medium -%}
-      {%- else -%}
-        {%- assign copy = quiz_sensitive -%}
-    {%- endcase -%}
-    <span data-ll-when="{{ variant }}">
+  {%- assign flow_variants = 'direct,quiz:strong,quiz:medium,quiz:sensitive' | split: ',' -%}
+  {%- for flow_variant in flow_variants -%}
+    {%- if flow_variant == 'direct' -%}
+      {%- assign copy = base -%}
+    {%- elsif flow_variant == 'quiz:strong' -%}
+      {%- assign copy = quiz_strong -%}
+    {%- elsif flow_variant == 'quiz:medium' -%}
+      {%- assign copy = quiz_medium -%}
+    {%- else -%}
+      {%- assign copy = quiz_sensitive -%}
+    {%- endif -%}
+    <span data-ll-when="{{ flow_variant }}">
       {%- if stylize -%}
         {{ copy | replace: '{', "<span class='stylized'>" | replace: '}', '</span>' }}
       {%- else -%}
