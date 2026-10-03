@@ -10,7 +10,7 @@
 <section
   class="formula-blends {% if section.settings.margin_bottom %}formula-blends--with-spacing{% endif %}"
   data-section-id="{{ section.id }}"
-  {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
+  {% render 'flow-only', visibility: section.settings.flow_visibility %}
 >
   <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
     <div class="formula-blends__inner">
@@ -22,12 +22,7 @@
           {% endif %}
 
           {% if section.settings.heading != blank %}
-            {%- comment -%}
-                  The guard is not just an optimisation: it keeps the section from
-                  reaching for flow-text at all until someone has written an override,
-                  so a theme that is missing that snippet still renders.
-            {%- endcomment -%}
-            <h3 class="formula-blends__heading">{% if section.settings.heading_quiz != blank %}{% render 'flow-text', base: section.settings.heading, quiz: section.settings.heading_quiz, stylize: true %}{% else %}{{ section.settings.heading | replace: '{', "<span class='stylized'>" | replace: '}', '</span>' }}{% endif %}</h3>
+            <h3 class="formula-blends__heading">{% render 'flow-text', base: section.settings.heading, quiz: section.settings.heading_quiz, stylize: true %}</h3>
           {% endif %}
 
           {% if section.settings.image != blank %}
@@ -52,7 +47,7 @@
         {%- comment -%} Right column: intro, blend accordion, footnote {%- endcomment -%}
         <div class="formula-blends__main">
           {% if section.settings.intro != blank %}
-            <p class="formula-blends__intro sh3">{% if section.settings.intro_quiz != blank %}{% render 'flow-text', base: section.settings.intro, quiz: section.settings.intro_quiz %}{% else %}{{ section.settings.intro }}{% endif %}</p>
+            <p class="formula-blends__intro sh3">{% render 'flow-text', base: section.settings.intro, quiz: section.settings.intro_quiz %}</p>
           {% endif %}
 
           {% if blend_blocks.size > 0 %}
