@@ -4,8 +4,16 @@
  * Constrained width (does not take full screen).
  */
 
+/*
+  Top-only spacing, from the same token as every other section, so the gap above
+  this box matches the gap above the ones before it. It used to carry a flat
+  1.5rem top and bottom, which left 80px above the results panel and 24px
+  between that panel and this box.
+
+  Horizontal padding is left exactly as it was.
+*/
 .first-order-includes-section {
-  padding: 1.5rem var(--page-width-margin, 1.5rem);
+  padding: var(--section-space-y) var(--page-width-margin, 1.5rem) 0;
 }
 
 .first-order-includes-section__wrapper {

@@ -161,15 +161,19 @@
 
     It is not shrink-wrapped to the slider either: a panel that merely traces
     its contents reads as a box around an image rather than a section of the
-    page. The width below sits between the two, so the colour has room to be a
-    field without becoming a wasteland.
+    page.
+
+    880px is not a taste call — it is what first-order-includes uses for its
+    own boxed wrapper, and these two stack directly on the landing page. Any
+    other number leaves two centred boxes with edges that almost line up, which
+    reads as a mistake. If that section's width changes, change this with it.
   */
   .transformational-results--no-stats .transformational-results__inner {
     grid-template-columns: minmax(0, 1fr);
     justify-items: center;
     /* border-box so the width is the panel, padding included */
     box-sizing: border-box;
-    width: min(840px, 100%);
+    width: min(880px, 100%);
     margin-inline: auto;
     /* Even padding: without the stats column there is no tall neighbour to
        balance against. */
