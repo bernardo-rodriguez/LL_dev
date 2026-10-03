@@ -155,19 +155,24 @@
 */
 @media screen and (min-width: 769px) {
   /*
-    Without the stats column the panel only has to hold the slider, so it is
-    sized to that rather than running the full page width — otherwise the blue
-    field is mostly empty either side of a narrow column.
+    Without the stats column the panel only has to hold the slider, so it stops
+    well short of the full page width — otherwise the blue field is mostly
+    empty either side of a narrow column.
+
+    It is not shrink-wrapped to the slider either: a panel that merely traces
+    its contents reads as a box around an image rather than a section of the
+    page. The width below sits between the two, so the colour has room to be a
+    field without becoming a wasteland.
   */
   .transformational-results--no-stats .transformational-results__inner {
     grid-template-columns: minmax(0, 1fr);
     justify-items: center;
-    /* border-box so the max-width is the panel, padding included */
+    /* border-box so the width is the panel, padding included */
     box-sizing: border-box;
-    max-width: 680px;
+    width: min(840px, 100%);
     margin-inline: auto;
     /* Even padding: without the stats column there is no tall neighbour to
-       balance against, so the panel just hugs the slider. */
+       balance against. */
     padding: 56px 50px;
   }
 
@@ -184,7 +189,7 @@
 
   .transformational-results--no-stats .transformational-results__slider-column {
     width: 100%;
-    max-width: 560px;
+    max-width: 600px;
   }
 }
 
