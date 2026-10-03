@@ -1,0 +1,230 @@
+/* How To Use Steps - media beside a numbered sequence, stacked on mobile */
+
+.how-to-steps {
+  background: #ffffff;
+  color: var(--navy);
+}
+
+.how-to-steps__inner {
+  padding: var(--section-space-y) 0 0;
+}
+
+.how-to-steps--with-spacing .how-to-steps__inner {
+  padding-bottom: var(--section-space-y);
+}
+
+/* Mobile: media first, then the copy under it */
+.how-to-steps__columns {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Media -------------------------------------------------------------- */
+
+.how-to-steps__media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--blue-tint-10);
+  aspect-ratio: 1;
+}
+
+/* video_tag emits its own <video>, so style by element rather than a class */
+.how-to-steps__media video,
+.how-to-steps__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.how-to-steps__caption {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  padding: 7px 13px;
+  border-radius: 40px;
+  background: rgba(13, 34, 68, 0.72);
+  color: #ffffff;
+  font-family: var(--ds-font-family);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-label-letter-spacing);
+  text-transform: uppercase;
+}
+
+/* Copy ---------------------------------------------------------------- */
+
+.how-to-steps__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.how-to-steps__eyebrow {
+  margin: 0 0 12px;
+  color: var(--navy-tint-60);
+}
+
+.how-to-steps__heading {
+  margin: 0 0 24px;
+  color: var(--navy);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: var(--ds-line-height);
+  letter-spacing: -0.015em;
+  text-transform: none;
+}
+
+body.template-product .how-to-steps__heading {
+  letter-spacing: -0.015em !important;
+}
+
+/* Steps --------------------------------------------------------------- */
+
+.how-to-steps__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none;
+  counter-reset: none;
+}
+
+.how-to-steps__step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/*
+  The number is drawn, not a list marker, so it keeps its size and colour next
+  to copy that wraps. Sized in em so it tracks the step text at both breakpoints.
+*/
+.how-to-steps__number {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.55em;
+  height: 1.55em;
+  margin-top: 0.08em;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--navy);
+  font-family: var(--ds-font-family);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.how-to-steps__text {
+  color: var(--navy);
+}
+
+/* Call to action ------------------------------------------------------ */
+
+/*
+  .button carries no link reset anywhere in the theme — the existing buttons
+  are <button> elements, so the browser's underline never showed up. This one
+  is an anchor, so it clears it here.
+*/
+.how-to-steps__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.how-to-steps__cta-arrow {
+  display: flex;
+  align-items: center;
+}
+
+/* The arrow's viewBox is 14x10, so height follows the width rather than
+   squaring it off. */
+.how-to-steps__cta-arrow svg {
+  width: 15px;
+  height: auto;
+  fill: currentColor;
+}
+
+.how-to-steps__reassurance {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 0 0;
+  color: var(--navy-tint-80);
+  font-family: var(--ds-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: var(--ds-line-height);
+}
+
+.how-to-steps__reassurance-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* The checkmark ships with a hard-coded blue fill, which is too light against
+   this line. Follow the text instead. */
+.how-to-steps__reassurance-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.how-to-steps__reassurance-icon svg path {
+  fill: currentColor;
+}
+
+/* Desktop: two columns, copy centred against the media ----------------- */
+
+@media screen and (min-width: 769px) {
+  .how-to-steps__columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 56px;
+    align-items: center;
+  }
+
+  /*
+    Order rather than a second grid definition, so the two arrangements cannot
+    drift apart. On mobile the media always leads.
+  */
+  .how-to-steps--media-right .how-to-steps__media {
+    order: 2;
+  }
+
+  .how-to-steps__heading {
+    font-size: 36px;
+    margin-bottom: 28px;
+  }
+
+  .how-to-steps__list {
+    gap: 18px;
+    margin-bottom: 32px;
+  }
+
+  .how-to-steps__number {
+    font-size: 14px;
+  }
+
+  .how-to-steps__cta {
+    width: auto;
+    min-width: 280px;
+  }
+
+  .how-to-steps__reassurance {
+    margin-top: 16px;
+    font-size: 15px;
+  }
+}

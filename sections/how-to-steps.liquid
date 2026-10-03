@@ -1,0 +1,216 @@
+{{ 'section-how-to-steps.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  The brace swap must stay in an assign tag. Shopify ends an output tag at the
+  first }, so putting replace: '}' inside {{ }} truncates the tag and the file
+  is refused on save.
+{%- endcomment -%}
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+{% assign steps = section.blocks | where: 'type', 'step' %}
+
+<section
+  class="how-to-steps {% if section.settings.media_position == 'right' %}how-to-steps--media-right{% endif %} {% if section.settings.margin_bottom %}how-to-steps--with-spacing{% endif %}"
+  data-section-id="{{ section.id }}"
+  {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
+>
+  <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
+    <div class="how-to-steps__inner">
+      <div class="how-to-steps__columns">
+
+        {%- comment -%}
+          Media: a Shopify-hosted video plays itself, silent and looping, the
+          way a demo should. An image is a complete substitute, so the section
+          is usable before the video exists.
+        {%- endcomment -%}
+        <div class="how-to-steps__media">
+          {% if section.settings.video != blank %}
+            {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
+          {% elsif section.settings.image != blank %}
+            <img
+              src="{{ section.settings.image | image_url: width: 1200 }}"
+              srcset="{{ section.settings.image | image_url: width: 600 }} 600w, {{ section.settings.image | image_url: width: 1200 }} 1200w"
+              sizes="(min-width: 769px) 50vw, 100vw"
+              alt="{{ section.settings.image.alt | default: section.settings.heading | escape }}"
+              loading="lazy"
+              width="{{ section.settings.image.width }}"
+              height="{{ section.settings.image.height }}"
+            >
+          {% endif %}
+
+          {% if section.settings.media_caption != blank %}
+            <span class="how-to-steps__caption">{{ section.settings.media_caption }}</span>
+          {% endif %}
+        </div>
+
+        <div class="how-to-steps__content">
+          {% if section.settings.eyebrow != blank %}
+            <p class="how-to-steps__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+          {% endif %}
+
+          {% if section.settings.heading != blank %}
+            <h3 class="how-to-steps__heading">{{ formatted_heading }}</h3>
+          {% endif %}
+
+          {% if steps.size > 0 %}
+            <ol class="how-to-steps__list">
+              {% for block in steps %}
+                <li class="how-to-steps__step" {{ block.shopify_attributes }}>
+                  <span class="how-to-steps__number" aria-hidden="true">{{ forloop.index }}</span>
+                  <span class="how-to-steps__text body-md">{{ block.settings.text }}</span>
+                </li>
+              {% endfor %}
+            </ol>
+          {% endif %}
+
+          {% if section.settings.button_label != blank %}
+            <a
+              class="button button--primary how-to-steps__cta"
+              {% if section.settings.button_link != blank %}href="{{ section.settings.button_link }}"{% else %}href="#"{% endif %}
+            >
+              {{ section.settings.button_label }}
+              <span class="how-to-steps__cta-arrow" aria-hidden="true">{% render 'icon', icon: 'arrow' %}</span>
+            </a>
+          {% endif %}
+
+          {% if section.settings.reassurance != blank %}
+            <p class="how-to-steps__reassurance">
+              <span class="how-to-steps__reassurance-icon" aria-hidden="true">{% render 'icon', icon: 'checkmark' %}</span>
+              {{ section.settings.reassurance }}
+            </p>
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "How To Use Steps",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Quick, easy, effective"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How to use your {kit}",
+      "info": "Wrap emphasized text in {} for the italic Canela style"
+    },
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video",
+      "info": "Plays automatically, silent and looping. Takes precedence over the image."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Used when no video is set."
+    },
+    {
+      "type": "text",
+      "id": "media_caption",
+      "label": "Caption over the media",
+      "info": "Optional, e.g. 1. Brush"
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Build my kit"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "reassurance",
+      "label": "Reassurance line",
+      "default": "30-day money back guarantee"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "media_position",
+      "label": "Media position on desktop",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "margin_bottom",
+      "label": "Extra space below",
+      "default": false,
+      "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap."
+    },
+    {
+      "type": "header",
+      "content": "Personalization flow"
+    },
+    {
+      "type": "select",
+      "id": "flow_visibility",
+      "label": "Show this section to",
+      "default": "all",
+      "options": [
+        { "value": "all", "label": "Everyone" },
+        { "value": "quiz", "label": "Quiz arrivals only" },
+        { "value": "direct", "label": "Direct arrivals only" }
+      ],
+      "info": "Quiz arrivals completed the customization quiz. Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Step",
+          "default": "Brush and floss as normal, then dry your teeth."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How To Use Steps",
+      "blocks": [
+        { "type": "step", "settings": { "text": "Brush and floss as normal, then dry your teeth." } },
+        { "type": "step", "settings": { "text": "Apply a thin line of your formula to the tray and clip in the LED light." } },
+        { "type": "step", "settings": { "text": "Wear for 10 minutes, rinse, and repeat every other day." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
