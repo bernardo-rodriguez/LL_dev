@@ -33,17 +33,34 @@
   Visitors who took the quiz before ll_flow existed are still recognised, by
   the starting_shade cookie — only the two quizzes ever write that.
 
-  PREVIEWING EITHER FLOW
-  ----------------------
+  SWITCHING FLOWS FOR TESTING
+  ---------------------------
   Add to any URL:
 
     ?ll_flow=quiz&ll_strength=sensitive
     ?ll_flow=direct
+    ?ll_flow=reset
 
-  The override wins over the cookies, so both flows can be checked without
-  taking the quiz. In the theme editor nothing is ever hidden unless a flow is
-  named in the URL this way — otherwise half the page would vanish from the
-  editor and look broken.
+  These are sticky: the parameter rewrites the cookie, so the chosen flow
+  survives clicking through to other pages instead of lasting one page view.
+  That is the point — a flow is a journey across several pages, and testing it
+  one URL at a time would not tell you much. It means a quiz taker can flip
+  themselves to the direct version and browse it as if they had landed cold,
+  and back again.
+
+  ll_strength rewrites the strength cookie proper, the same one the quiz
+  writes, so the rest of the product page (variant selection, ingredient copy)
+  follows along rather than only the wording this file governs.
+
+  ?ll_flow=reset clears the override and returns to normal detection: a past
+  quiz taker goes back to being a quiz arrival, everyone else to direct.
+
+  Because it is sticky, do not put these parameters in a link you publish —
+  anyone who clicks it is switched for real. They are a testing tool.
+
+  In the theme editor nothing is ever hidden unless a flow is named in the URL
+  this way — otherwise half the page would vanish from the editor and look
+  broken.
 {%- endcomment -%}
 <script>
   (function () {
@@ -59,16 +76,43 @@
       return m ? decodeURIComponent(m[1]) : '';
     }
 
+    var FOREVER = '; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/;';
+
+    function write(name, value) {
+      document.cookie = name + '=' + value + FOREVER;
+    }
+
+    function clear(name) {
+      document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;';
+    }
+
     var flowParam = param('ll_flow');
+    var strengthParam = param('ll_strength');
+
+    // The testing parameters rewrite the cookies rather than applying for one
+    // page view, so the chosen flow carries across the whole journey.
+    if (flowParam === 'reset') {
+      clear('ll_flow');
+      flowParam = '';
+    } else if (flowParam === 'quiz' || flowParam === 'direct') {
+      write('ll_flow', flowParam);
+    }
+
+    if (strengthParam === 'strong' || strengthParam === 'medium' || strengthParam === 'sensitive') {
+      write('strength', strengthParam);
+    }
+
     var flow = flowParam || cookie('ll_flow');
 
     // Legacy quiz takers predate the ll_flow cookie; starting_shade is written
-    // by the quizzes and nothing else.
+    // by the quizzes and nothing else. An explicit ll_flow cookie wins over
+    // this, which is what lets ?ll_flow=direct stick for someone who has in
+    // fact taken the quiz.
     if (!flow && cookie('starting_shade')) {
       flow = 'quiz';
     }
 
-    var strength = param('ll_strength') || cookie('strength');
+    var strength = strengthParam || cookie('strength');
     if (strength === 'gentle') {
       strength = 'sensitive';
     }
