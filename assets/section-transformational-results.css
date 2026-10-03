@@ -154,9 +154,21 @@
   The images keep a sensible reading width instead of stretching the full panel.
 */
 @media screen and (min-width: 769px) {
+  /*
+    Without the stats column the panel only has to hold the slider, so it is
+    sized to that rather than running the full page width — otherwise the blue
+    field is mostly empty either side of a narrow column.
+  */
   .transformational-results--no-stats .transformational-results__inner {
     grid-template-columns: minmax(0, 1fr);
     justify-items: center;
+    /* border-box so the max-width is the panel, padding included */
+    box-sizing: border-box;
+    max-width: 680px;
+    margin-inline: auto;
+    /* Even padding: without the stats column there is no tall neighbour to
+       balance against, so the panel just hugs the slider. */
+    padding: 56px 50px;
   }
 
   .transformational-results--no-stats .transformational-results__heading,
@@ -260,35 +272,19 @@
   paints over the carousel's rounded bottom corners.
 */
 @media screen and (min-width: 769px) {
-  .section:has(.multi-slide-carousel) + .section:has(.transformational-results) {
+  .section:has(.multi-slide-carousel) + .section:has(.transformational-results--no-stats) {
+    margin-top: 0;
+  }
+
+  .section:has(.multi-slide-carousel) + .section:has(.transformational-results):not(:has(.transformational-results--no-stats)) {
     margin-top: -12px;
   }
 
-  .section:has(.multi-slide-carousel) + .section:has(.transformational-results) .transformational-results {
+  .section:has(.multi-slide-carousel) + .section:has(.transformational-results:not(.transformational-results--no-stats)) .transformational-results {
     margin-top: 0;
   }
 
-  .section:has(.multi-slide-carousel) + .section:has(.transformational-results) .transformational-results__inner {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-}
-
-/*
-  Desktop: join this panel to a bordered logo bar directly above it, so the two
-  read as one block instead of leaving a white band between the bar's bottom
-  hairline and the panel's top edge. The top corners are squared for the same
-  reason they are against the carousel — a rounded corner sitting on the
-  hairline leaves a white wedge, which is the gap this removes.
-
-  Mobile already meets flush via the generic preceding-section rule above.
-*/
-@media screen and (min-width: 769px) {
-  *:has(> .logo-bar--rules) + *:has(> .transformational-results) .transformational-results {
-    margin-top: 0;
-  }
-
-  *:has(> .logo-bar--rules) + *:has(> .transformational-results) .transformational-results__inner {
+  .section:has(.multi-slide-carousel) + .section:has(.transformational-results:not(.transformational-results--no-stats)) .transformational-results__inner {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
