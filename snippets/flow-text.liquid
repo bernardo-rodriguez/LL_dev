@@ -22,10 +22,12 @@
     stylize - true to turn {curly braces} into the italic Canela span, the same
     transform the headings in these sections already do.
 
-  Written with plain tags on purpose. An earlier version used a liquid tag with
-  a comment block nested inside it; Shopify refused to save the file, and every
-  section that rendered this snippet then failed with "Could not find asset".
-  Nothing exotic goes in here.
+  Note the assign before each stylized output. The brace swap CANNOT go inside
+  {{ }}: Shopify ends an output tag at the first }, so a replace: '}' in the
+  filter chain truncates the tag and the file is refused on save — which is
+  what "Could not find asset snippets/flow-text.liquid" actually meant. The
+  sections have always built this string with {% assign %}, whose %} delimiter
+  is not affected. Keep it in a tag.
 {%- endcomment -%}
 
 {%- assign quiz_all = '' -%}
@@ -66,7 +68,7 @@
 
 {%- if quiz == blank -%}
   {%- if stylize -%}
-    {{ base | replace: '{', "<span class='stylized'>" | replace: '}', '</span>' }}
+    {%- assign styled_base = base | replace: '{', "<span class='stylized'>" | replace: '}', '</span>' -%}{{ styled_base }}
   {%- else -%}
     {{ base }}
   {%- endif -%}
@@ -84,7 +86,7 @@
     {%- endif -%}
     <span data-ll-when="{{ flow_variant }}">
       {%- if stylize -%}
-        {{ copy | replace: '{', "<span class='stylized'>" | replace: '}', '</span>' }}
+        {%- assign styled_copy = copy | replace: '{', "<span class='stylized'>" | replace: '}', '</span>' -%}{{ styled_copy }}
       {%- else -%}
         {{ copy }}
       {%- endif -%}

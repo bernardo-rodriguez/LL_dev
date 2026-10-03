@@ -47,7 +47,7 @@
                   reaching for flow-text at all until someone has written an override,
                   so a theme that is missing that snippet still renders.
             {%- endcomment -%}
-            <h3 class="strength-comparison__heading">{% if section.settings.heading_quiz != blank %}{% render 'flow-text', base: section.settings.heading, quiz: section.settings.heading_quiz, stylize: true %}{% else %}{{ section.settings.heading | replace: '{', "<span class='stylized'>" | replace: '}', '</span>' }}{% endif %}</h3>
+            <h3 class="strength-comparison__heading">{% if section.settings.heading_quiz != blank %}{% render 'flow-text', base: section.settings.heading, quiz: section.settings.heading_quiz, stylize: true %}{% else %}{{ formatted_heading }}{% endif %}</h3>
           {% endif %}
 
           {% if section.settings.body != blank %}
