@@ -23,7 +23,7 @@
   {% assign pen_image_url = 'https://cdn.shopify.com/s/files/1/0066/4728/3782/files/Generated_with_Kive.ai_-_Create_a_product_shot_of_this_with_a_white_background_behind_it._It_should_just_have_the_product_and_the_packaging.png?v=1771286740' %}
 {% endif %}
 
-<section class="first-order-includes-section" {% render 'flow-only', visibility: section.settings.flow_visibility %}>
+<section class="first-order-includes-section" {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}>
   <div class="first-order-includes-section__wrapper{% if side_image != blank %} first-order-includes-section__wrapper--with-side-image{% endif %}">
     <div class="first-order-includes-layout">
       {% if side_image != blank %}

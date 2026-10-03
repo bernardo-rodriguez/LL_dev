@@ -1,6 +1,6 @@
 {{ 'section-logo-bar.css' | asset_url | stylesheet_tag }}
 
-<section class="logo-bar {% if section.settings.show_rules %}logo-bar--rules{% endif %}" {% render 'flow-only', visibility: section.settings.flow_visibility %}>
+<section class="logo-bar {% if section.settings.show_rules %}logo-bar--rules{% endif %}" {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}>
     <div class="logo-bar__inner">
       {% for i in (i..5)%}
       <ul class="logo-bar__list list-unstyled">

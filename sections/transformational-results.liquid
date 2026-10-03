@@ -4,12 +4,12 @@
 <section
   class="transformational-results {% unless section.settings.show_stats %}transformational-results--no-stats{% endunless %}"
   data-section-id="{{ section.id }}"
-  {% render 'flow-only', visibility: section.settings.flow_visibility %}
+  {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
 >
   <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
     <div class="transformational-results__inner">
       <div class="transformational-results__header-row">
-        <h3 class="transformational-results__heading">{% render 'flow-text', base: section.settings.heading | default: 'Transformational Results', quiz: section.settings.heading_quiz %}</h3>
+        <h3 class="transformational-results__heading">{% if section.settings.heading_quiz != blank %}{% render 'flow-text', base: section.settings.heading | default: 'Transformational Results', quiz: section.settings.heading_quiz %}{% else %}{{ section.settings.heading | default: 'Transformational Results' }}{% endif %}</h3>
 
         <div class="transformational-results__tabs" role="tablist">
           <button type="button" class="transformational-results__tab active" data-duration="2" aria-selected="true">2 MONTHS</button>

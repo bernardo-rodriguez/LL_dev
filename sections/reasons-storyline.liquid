@@ -9,7 +9,7 @@
 <section
   class="reasons-storyline {% if section.settings.margin_bottom %}reasons-storyline--with-spacing{% endif %}"
   data-section-id="{{ section.id }}"
-  {% render 'flow-only', visibility: section.settings.flow_visibility %}
+  {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
 >
   <div class="page-width">
     <div class="reasons-storyline__inner">
@@ -18,7 +18,7 @@
       {% endif %}
 
       {% if section.settings.heading != blank %}
-        <h3 class="reasons-storyline__heading">{% render 'flow-text', base: section.settings.heading, quiz: section.settings.heading_quiz, stylize: true %}</h3>
+        <h3 class="reasons-storyline__heading">{% if section.settings.heading_quiz != blank %}{% render 'flow-text', base: section.settings.heading, quiz: section.settings.heading_quiz, stylize: true %}{% else %}{{ section.settings.heading | replace: '{', "<span class='stylized'>" | replace: '}', '</span>' }}{% endif %}</h3>
       {% endif %}
 
       {% for block in reasons %}

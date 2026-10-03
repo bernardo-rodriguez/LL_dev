@@ -30,7 +30,7 @@
 <section
   class="strength-comparison {% if section.settings.margin_bottom %}strength-comparison--with-spacing{% endif %}"
   data-section-id="{{ section.id }}"
-  {% render 'flow-only', visibility: section.settings.flow_visibility %}
+  {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
 >
   <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
     <div class="strength-comparison__inner">
@@ -42,11 +42,11 @@
           {% endif %}
 
           {% if section.settings.heading != blank %}
-            <h3 class="strength-comparison__heading">{% render 'flow-text', base: section.settings.heading, quiz: section.settings.heading_quiz, stylize: true %}</h3>
+            <h3 class="strength-comparison__heading">{% if section.settings.heading_quiz != blank %}{% render 'flow-text', base: section.settings.heading, quiz: section.settings.heading_quiz, stylize: true %}{% else %}{{ section.settings.heading | replace: '{', "<span class='stylized'>" | replace: '}', '</span>' }}{% endif %}</h3>
           {% endif %}
 
           {% if section.settings.body != blank %}
-            <p class="strength-comparison__body sh3">{% render 'flow-text', base: section.settings.body, quiz: section.settings.body_quiz %}</p>
+            <p class="strength-comparison__body sh3">{% if section.settings.body_quiz != blank %}{% render 'flow-text', base: section.settings.body, quiz: section.settings.body_quiz %}{% else %}{{ section.settings.body }}{% endif %}</p>
           {% endif %}
 
           {% if stat_blocks.size > 0 %}
