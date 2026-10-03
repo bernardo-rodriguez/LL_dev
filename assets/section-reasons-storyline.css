@@ -233,7 +233,12 @@ body.template-product .reasons-storyline__heading {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  margin-bottom: 6px;
+  /*
+    Checklist items are single lines of the same copy, so they need the gap the
+    paragraph gets from its leading — otherwise the list reads denser than the
+    prose around it.
+  */
+  margin-bottom: 12px;
   color: var(--navy);
 }
 

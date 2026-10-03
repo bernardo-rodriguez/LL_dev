@@ -502,7 +502,7 @@ p,
   font-family: var(--ds-font-family);
   font-size: 14px;
   font-weight: 500;
-  line-height: var(--ds-line-height);
+  line-height: var(--ds-line-height-copy);
   letter-spacing: 0;
 }
 
@@ -542,6 +542,13 @@ p,
 :root {
   --ds-font-family: manrope, sans-serif;
   --ds-line-height: 1.3;
+
+  /*
+    Running copy that wraps onto several lines. 1.3 is set for headings and
+    single-line UI text, where the leading never shows; at paragraph length it
+    reads cramped.
+  */
+  --ds-line-height-copy: 1.5;
 
   /* Label style: uppercase UI labels, titles, badges */
   --ds-label-letter-spacing: 0.04em;
