@@ -68,36 +68,55 @@
           {% for row in rows %}
             <div class="comparison-table__row" role="row" {{ row.shopify_attributes }}>
               <div class="comparison-table__cell comparison-table__cell--label" role="rowheader">
-                <span class="comparison-table__label">{{ row.settings.label }}</span>
+                <span class="comparison-table__label body-md">{{ row.settings.label }}</span>
               </div>
 
+              {%- comment -%}
+                A text row (price, say) prints a value in every column instead
+                of a tick or a cross. Laughland is still fixed, but its value
+                comes from the row rather than being an automatic yes.
+              {%- endcomment -%}
+              {% assign is_text_row = false %}
+              {% if row.settings.row_type == 'text' %}
+                {% assign is_text_row = true %}
+              {% endif %}
+
               <div class="comparison-table__cell comparison-table__cell--ours" role="cell">
-                <span class="comparison-table__mark comparison-table__mark--yes">
-                  {% render 'icon', icon: 'checkmark' %}
-                  <span class="visually-hidden">Yes</span>
-                </span>
+                {% if is_text_row %}
+                  <span class="comparison-table__value comparison-table__value--ours">{{ row.settings.ours_text }}</span>
+                {% else %}
+                  <span class="comparison-table__mark comparison-table__mark--yes">
+                    {% render 'icon', icon: 'checkmark' %}
+                    <span class="visually-hidden">Yes</span>
+                  </span>
+                {% endif %}
               </div>
 
               {% for block in competitors limit: competitor_count %}
                 {%- comment -%}
                   Blocks cannot have a variable number of settings, so each row
-                  carries four toggles and we read the first N.
+                  carries four toggles and four text values, and we read the
+                  first N of whichever set this row type uses.
                 {%- endcomment -%}
-                {% assign key = 'col_' | append: forloop.index %}
-                {% assign has = row.settings[key] %}
                 <div class="comparison-table__cell" role="cell">
-                  {% if has %}
-                    <span class="comparison-table__mark comparison-table__mark--yes">
-                      {% render 'icon', icon: 'checkmark' %}
-                      <span class="visually-hidden">Yes</span>
-                    </span>
+                  {% if is_text_row %}
+                    {% assign text_key = 'col_' | append: forloop.index | append: '_text' %}
+                    <span class="comparison-table__value">{{ row.settings[text_key] }}</span>
                   {% else %}
-                    <span class="comparison-table__mark comparison-table__mark--no">
-                      <svg class="comparison-table__cross" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-                        <path d="M6 6 L18 18 M18 6 L6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                      </svg>
-                      <span class="visually-hidden">No</span>
-                    </span>
+                    {% assign key = 'col_' | append: forloop.index %}
+                    {% if row.settings[key] %}
+                      <span class="comparison-table__mark comparison-table__mark--yes">
+                        {% render 'icon', icon: 'checkmark' %}
+                        <span class="visually-hidden">Yes</span>
+                      </span>
+                    {% else %}
+                      <span class="comparison-table__mark comparison-table__mark--no">
+                        <svg class="comparison-table__cross" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                          <path d="M6 6 L18 18 M18 6 L6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                        </svg>
+                        <span class="visually-hidden">No</span>
+                      </span>
+                    {% endif %}
                   {% endif %}
                 </div>
               {% endfor %}
@@ -149,7 +168,7 @@
       "type": "textarea",
       "id": "footnote",
       "label": "Footnote",
-      "default": "†Based on currently available data for mass-market at-home whitening products."
+      "default": "\u2020Based on currently available data for mass-market at-home whitening products."
     },
     {
       "type": "header",
@@ -188,8 +207,28 @@
           "default": "Lifts deep-set stains"
         },
         {
+          "type": "select",
+          "id": "row_type",
+          "label": "Row type",
+          "default": "marks",
+          "options": [
+            {
+              "value": "marks",
+              "label": "Yes / no marks"
+            },
+            {
+              "value": "text",
+              "label": "Text values (e.g. price)"
+            }
+          ]
+        },
+        {
           "type": "paragraph",
-          "content": "Laughland is always a yes. The toggles below map to the competitor columns in order — extra toggles are ignored."
+          "content": "Yes / no rows: Laughland is always a yes, and the checkboxes below map to the competitor columns in order. Text rows use the value fields instead. Extra entries are ignored."
+        },
+        {
+          "type": "header",
+          "content": "Yes / no rows"
         },
         {
           "type": "checkbox",
@@ -214,6 +253,36 @@
           "id": "col_4",
           "label": "Competitor 4",
           "default": false
+        },
+        {
+          "type": "header",
+          "content": "Text rows"
+        },
+        {
+          "type": "text",
+          "id": "ours_text",
+          "label": "Laughland value",
+          "default": "$39"
+        },
+        {
+          "type": "text",
+          "id": "col_1_text",
+          "label": "Competitor 1 value"
+        },
+        {
+          "type": "text",
+          "id": "col_2_text",
+          "label": "Competitor 2 value"
+        },
+        {
+          "type": "text",
+          "id": "col_3_text",
+          "label": "Competitor 3 value"
+        },
+        {
+          "type": "text",
+          "id": "col_4_text",
+          "label": "Competitor 4 value"
         }
       ]
     }

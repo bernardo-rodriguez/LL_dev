@@ -101,12 +101,33 @@ body.template-product .comparison-table__heading {
   color: var(--navy);
 }
 
+/* Type comes from the shared .body-md class in base.css */
 .comparison-table__label {
+  color: var(--navy);
+}
+
+/*
+  Text rows (price, for one) print a value where a mark would go. Sized like
+  the row label so a text row reads as part of the same table, and tinted cream
+  in the navy column for the same reason the ticks are.
+*/
+.comparison-table__value {
   font-family: var(--ds-font-family);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: var(--ds-line-height);
   color: var(--navy);
+  text-align: center;
+}
+
+.comparison-table__value--ours {
+  color: var(--cream);
+}
+
+@media screen and (min-width: 769px) {
+  .comparison-table__value {
+    font-size: 17px;
+  }
 }
 
 /* Marks */
@@ -194,10 +215,6 @@ body.template-product .comparison-table__heading {
     font-weight: 600;
     letter-spacing: 0;
     text-transform: none;
-  }
-
-  .comparison-table__label {
-    font-size: 17px;
   }
 
   .comparison-table__mark {

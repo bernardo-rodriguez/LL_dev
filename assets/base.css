@@ -490,6 +490,28 @@ p,
   font-size: 18px;
 }
 
+/*
+  Running copy at row-label size — 14px mobile / 17px desktop.
+
+  This is the comparison table's row-label style, lifted out so it can be
+  shared. Anything that should read as that same body copy (the reasons
+  storyline's paragraphs and checklists, for one) uses this class rather than
+  restating the declarations, so the two never drift apart.
+*/
+.body-md {
+  font-family: var(--ds-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: var(--ds-line-height);
+  letter-spacing: 0;
+}
+
+@media screen and (min-width: 769px) {
+  .body-md {
+    font-size: 17px;
+  }
+}
+
 /* Mirrored in skio shadow DOM: .price--strike, .skio-first-order-item__price, .bundle-description, .bundle_price_per_treatment */
 .body-sm {
   font-size: 12px;

@@ -118,7 +118,7 @@
               {% for line in check_lines %}
                 {% assign item = line | strip %}
                 {% if item != blank %}
-                  <li class="reasons-storyline__check sh3">
+                  <li class="reasons-storyline__check body-md">
                     <span class="reasons-storyline__check-icon" aria-hidden="true">{% render 'icon', icon: 'checkmark' %}</span>
                     {{ item }}
                   </li>
@@ -128,7 +128,7 @@
           {% endif %}
 
           {% if block.settings.body != blank %}
-            <p class="reasons-storyline__body sh3">{{ block.settings.body }}</p>
+            <p class="reasons-storyline__body body-md">{{ block.settings.body }}</p>
           {% endif %}
         </article>
       {% endfor %}

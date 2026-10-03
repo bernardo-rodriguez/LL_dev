@@ -1,7 +1,10 @@
 {{ 'section-transformational-results.css' | asset_url | stylesheet_tag }}
 {{ 'section-test-results.css' | asset_url | stylesheet_tag }}
 
-<section class="transformational-results" data-section-id="{{ section.id }}">
+<section
+  class="transformational-results {% unless section.settings.show_stats %}transformational-results--no-stats{% endunless %}"
+  data-section-id="{{ section.id }}"
+>
   <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
     <div class="transformational-results__inner">
       <div class="transformational-results__header-row">
@@ -70,17 +73,25 @@
         </div>
       </div>
 
-      <div class="transformational-results__stats-column">
-        <ul class="list-unstyled test-results__list">
-          {% assign stat_blocks = section.blocks | where: 'type', 'stat' %}
-          {% for block in stat_blocks %}
-            <li class="test-results__item" {{ block.shopify_attributes }}>
-              <h3 class="stylized test-results__item-percent">{{ block.settings.percent }}</h3>
-              <p class="body-sm test-results__item-details">{{ block.settings.text }}</p>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
+      {%- comment -%}
+        The statistics column is optional. With it off the slider becomes the
+        only column and the whole section centres on desktop, so the images do
+        not sit alone against a half-empty panel. Stat blocks are left in place
+        rather than deleted, so turning it back on restores them.
+      {%- endcomment -%}
+      {% if section.settings.show_stats %}
+        <div class="transformational-results__stats-column">
+          <ul class="list-unstyled test-results__list">
+            {% assign stat_blocks = section.blocks | where: 'type', 'stat' %}
+            {% for block in stat_blocks %}
+              <li class="test-results__item" {{ block.shopify_attributes }}>
+                <h3 class="stylized test-results__item-percent">{{ block.settings.percent }}</h3>
+                <p class="body-sm test-results__item-details">{{ block.settings.text }}</p>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     </div>
   </div>
 </section>
@@ -143,6 +154,13 @@
       "id": "heading",
       "label": "Heading",
       "default": "Transformational Results"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stats",
+      "label": "Show statistics column",
+      "default": false,
+      "info": "Off by default. With it off the before/after images centre on desktop. Statistic blocks are kept, just not displayed."
     }
   ],
   "blocks": [

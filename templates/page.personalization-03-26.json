@@ -605,11 +605,15 @@
         "row_HNt6pK": {
           "type": "row",
           "settings": {
-            "label": "NEED PRICE SECTION WHERE WE CAN PUT TEXT ($39 VS $400+ VS $30~$50)",
+            "label": "Price",
+            "row_type": "text",
             "col_1": false,
             "col_2": false,
             "col_3": false,
-            "col_4": false
+            "col_4": false,
+            "ours_text": "$39",
+            "col_1_text": "$400+",
+            "col_2_text": "$30–$50"
           }
         }
       },

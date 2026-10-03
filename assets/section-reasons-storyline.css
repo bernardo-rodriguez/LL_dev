@@ -58,10 +58,6 @@ body.template-product .reasons-storyline__heading {
   color: var(--navy-tint-60);
 }
 
-.reasons-storyline__media {
-  margin: 0 0 16px;
-}
-
 /* Frames hold an image plus an optional label pill */
 .reasons-storyline__frame {
   position: relative;
@@ -69,6 +65,19 @@ body.template-product .reasons-storyline__heading {
   overflow: hidden;
   border-radius: 10px;
   background: var(--blue-tint-10);
+}
+
+/*
+  Declared after .reasons-storyline__frame on purpose: a single-image reason
+  carries both classes, so the frame's margin reset would win on equal
+  specificity and leave no gap under the image.
+
+  The media sits between the title and the copy, so it needs more room beneath
+  it than the title has above it — otherwise the image reads as belonging to
+  the paragraph that follows rather than to its own reason.
+*/
+.reasons-storyline__media {
+  margin: 0 0 24px;
 }
 
 .reasons-storyline__frame img {
@@ -265,7 +274,7 @@ body.template-product .reasons-storyline__heading {
   }
 
   .reasons-storyline__media {
-    margin-bottom: 20px;
+    margin-bottom: 32px;
   }
 
   .reasons-storyline__media--pair {

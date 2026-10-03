@@ -52,7 +52,8 @@
       ],
       "name": "Transformational Results",
       "settings": {
-        "heading": "Transformational Results"
+        "heading": "Transformational Results",
+        "show_stats": true
       }
     }
   },

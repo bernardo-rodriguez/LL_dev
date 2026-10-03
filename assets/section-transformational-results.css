@@ -148,6 +148,34 @@
   width: 100%;
 }
 
+/*
+  No statistics column: the slider is the only thing in the grid, so the panel
+  collapses to one centred column rather than leaving the right half empty.
+  The images keep a sensible reading width instead of stretching the full panel.
+*/
+@media screen and (min-width: 769px) {
+  .transformational-results--no-stats .transformational-results__inner {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+  }
+
+  .transformational-results--no-stats .transformational-results__heading,
+  .transformational-results--no-stats .transformational-results__name {
+    text-align: center;
+  }
+
+  .transformational-results--no-stats .transformational-results__header-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .transformational-results--no-stats .transformational-results__slider-column {
+    width: 100%;
+    max-width: 560px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .transformational-results__inner {
     grid-template-columns: 1fr;
