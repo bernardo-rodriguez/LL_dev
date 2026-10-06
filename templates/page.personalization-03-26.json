@@ -19,7 +19,7 @@
     "3a2908b4-cb46-4bba-ab1d-db530f856c49": {
       "type": "hero-two-column",
       "settings": {
-        "headline": "5 Reasons Why 100K+ Switched From Crest To A Personalized Whitening Kit",
+        "headline": "5 Reasons Why 100K+ Switched From Crest To Personalized Whitening",
         "description": "",
         "button_label": "GET YOUR CUSTOM FORMULA",
         "button_link": "#get-started",
@@ -28,7 +28,7 @@
         "rating": "4.7/5",
         "review_count": "80,000+ Reviews",
         "review_author": "Jenna T.",
-        "testimonial_text": "\"I had to come here to say something. Normally I have excruciating pain with crest white strips and this other brand I got from the dentist. Both of which didn't whiten my teeth very much. So, I had low hopes for Laughland. I got the formula made for highest sensitivity, and I left it on for I think 12 minutes. Just after two days my teeth look way whiter. I'm actually really shocked.\"",
+        "testimonial_text": "\"I had to come here to say something. Normally I have excruciating pain with crest white strips and this other brand I got from the dentist. Both didn't whiten much. So I had low hopes for Laughland. I got the formula made for highest sensitivity, and I left it on for I think 12 minutes. Just after two days my teeth look way whiter. I'm actually really shocked.\"",
         "product_image_url": "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/BOX_MELTING.png?v=1772993951"
       }
     },
@@ -142,7 +142,7 @@
         "reason_2": {
           "type": "reason",
           "settings": {
-            "title": "Your dream smile takes more than whitening.",
+            "title": "Your dream smile takes more than \"whitening\".",
             "body": "A beautiful smile isn’t just white. Stains, plaque buildup, and enamel density all affect how your teeth look. Our formula tackles all three, meaning for more than a shade change. You get a brighter, healthier-looking smile.",
             "media_type": "image",
             "image": "shopify://shop_images/Different_issues.png",
@@ -231,7 +231,9 @@
       "settings": {
         "eyebrow": "Why Personalization",
         "heading": "",
-        "margin_bottom": false
+        "margin_bottom": false,
+        "flow_visibility": "all",
+        "heading_quiz": ""
       }
     },
     "key_benefits_list_tKyQWA": {
@@ -356,7 +358,8 @@
         "logo_6DeJbJ"
       ],
       "settings": {
-        "show_rules": true
+        "show_rules": true,
+        "flow_visibility": "all"
       }
     },
     "36e4f7aa-dd9e-4e47-a123-81be1338efe2": {
@@ -460,7 +463,10 @@
       ],
       "name": "Transformational Results",
       "settings": {
-        "heading": "Transformational Results"
+        "heading": "Transformational Results",
+        "show_stats": false,
+        "flow_visibility": "all",
+        "heading_quiz": ""
       }
     },
     "240de530-a532-4dbd-b2a8-79f7e7c9b9fa": {
@@ -524,7 +530,8 @@
         "button_label": "UNLOCK OFFER",
         "button_action": "quiz",
         "button_link": "#get-started",
-        "side_image": "shopify://shop_images/2026_03_18_Laughland_Ad_1b_1_2_258ff711-c742-4ee6-a577-5557e0ecc266.jpg"
+        "side_image": "shopify://shop_images/2026_03_18_Laughland_Ad_1b_1_2_258ff711-c742-4ee6-a577-5557e0ecc266.jpg",
+        "flow_visibility": "all"
       }
     },
     "comparison_table_pfewV6": {
@@ -546,60 +553,96 @@
           "type": "row",
           "settings": {
             "label": "Whitens Teeth",
+            "row_type": "marks",
             "col_1": true,
             "col_2": true,
             "col_3": false,
-            "col_4": false
+            "col_4": false,
+            "ours_text": "$39",
+            "col_1_text": "",
+            "col_2_text": "",
+            "col_3_text": "",
+            "col_4_text": ""
           }
         },
         "row_7cRMkt": {
           "type": "row",
           "settings": {
             "label": "Results in <5 days",
+            "row_type": "marks",
             "col_1": true,
             "col_2": false,
             "col_3": false,
-            "col_4": false
+            "col_4": false,
+            "ours_text": "$39",
+            "col_1_text": "",
+            "col_2_text": "",
+            "col_3_text": "",
+            "col_4_text": ""
           }
         },
         "row_KHBtwh": {
           "type": "row",
           "settings": {
             "label": "Supports enamel",
+            "row_type": "marks",
             "col_1": true,
             "col_2": false,
             "col_3": false,
-            "col_4": false
+            "col_4": false,
+            "ours_text": "$39",
+            "col_1_text": "",
+            "col_2_text": "",
+            "col_3_text": "",
+            "col_4_text": ""
           }
         },
         "row_4kAYMV": {
           "type": "row",
           "settings": {
             "label": "Sensitivity protection",
+            "row_type": "marks",
             "col_1": true,
             "col_2": false,
             "col_3": false,
-            "col_4": false
+            "col_4": false,
+            "ours_text": "$39",
+            "col_1_text": "",
+            "col_2_text": "",
+            "col_3_text": "",
+            "col_4_text": ""
           }
         },
         "row_cn8Rgk": {
           "type": "row",
           "settings": {
             "label": "Made by Dentists",
+            "row_type": "marks",
             "col_1": true,
             "col_2": false,
             "col_3": false,
-            "col_4": false
+            "col_4": false,
+            "ours_text": "$39",
+            "col_1_text": "",
+            "col_2_text": "",
+            "col_3_text": "",
+            "col_4_text": ""
           }
         },
         "row_YKU6JF": {
           "type": "row",
           "settings": {
             "label": "Personalized Formulas",
+            "row_type": "marks",
             "col_1": true,
             "col_2": false,
             "col_3": false,
-            "col_4": false
+            "col_4": false,
+            "ours_text": "$39",
+            "col_1_text": "",
+            "col_2_text": "",
+            "col_3_text": "",
+            "col_4_text": ""
           }
         },
         "row_HNt6pK": {
@@ -613,7 +656,9 @@
             "col_4": false,
             "ours_text": "$39",
             "col_1_text": "$400+",
-            "col_2_text": "$30–$50"
+            "col_2_text": "$30–$50",
+            "col_3_text": "",
+            "col_4_text": ""
           }
         }
       },
@@ -634,7 +679,9 @@
         "ours_label": "Laughland",
         "ours_logo_svg": "",
         "footnote": "†Based on currently available data for mass-market at-home whitening products.",
-        "margin_bottom": false
+        "margin_bottom": false,
+        "flow_visibility": "all",
+        "heading_quiz": ""
       }
     },
     "multi_slide_carousel_M68Vqj": {
