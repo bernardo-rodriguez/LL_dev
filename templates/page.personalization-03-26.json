@@ -123,7 +123,7 @@
         "reason_1": {
           "type": "reason",
           "settings": {
-            "title": "Your strongest whitening. Matched to you.",
+            "title": "Personalization = Stronger Formulas. Stronger formulas = Faster + Bigger Results",
             "body": "One-size-fits-all whitening has to work even for hypersensitive teeth. That means a weak formula for everyone—But only 8% of Americans have hypersensitivity. We personalize your formula to your sensitivity, matching you with the highest whitening strength you can use comfortably.",
             "media_type": "chart",
             "image_caption": "",
@@ -142,7 +142,7 @@
         "reason_2": {
           "type": "reason",
           "settings": {
-            "title": "Targets  3 key root causes of yellow teeth, not just stains.",
+            "title": "Targets 3 key root causes of yellow teeth, not just stains.",
             "body": "Stains, plaque buildup, and enamel thickness all affect how your teeth look. Traditional whitening only removes stains. Our formula tackles all three for better whitening.",
             "media_type": "image",
             "image": "shopify://shop_images/Different_issues.png",
@@ -162,8 +162,8 @@
         "reason_3": {
           "type": "reason",
           "settings": {
-            "title": "Stronger yet sensitivity-free.",
-            "body": "Your formula is matched to your sensitivity, and paired with modern sensitivity blockers like hydroxyapatite and aloe vera that shield enamel and gums while whitening.",
+            "title": "The reason your teeth are yellow may not be why his teeth are yellow.",
+            "body": "Your teeth can look yellow for more than one reason. It's not just \"stains\". By analyzing your smile first, we're able to address your specific root causes.",
             "media_type": "image",
             "image": "shopify://shop_images/Screenshot_2026-09-09_at_6.24.43_PM.png",
             "image_caption": "",
