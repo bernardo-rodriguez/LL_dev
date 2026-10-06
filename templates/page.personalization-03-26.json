@@ -142,11 +142,11 @@
         "reason_2": {
           "type": "reason",
           "settings": {
-            "title": "Your dream smile takes more than \"whitening\".",
-            "body": "A beautiful smile isn’t just white. Stains, plaque buildup, and enamel density all affect how your teeth look. Our formula tackles all three, meaning more than a shade change. You get a brighter, healthier-looking smile.",
+            "title": "Targets  3 key root causes of yellow teeth, not just stains.",
+            "body": "Stains, plaque buildup, and enamel thickness all affect how your teeth look. Traditional whitening only removes stains. Our formula tackles all three for better whitening.",
             "media_type": "image",
             "image": "shopify://shop_images/Different_issues.png",
-            "image_caption": "Before",
+            "image_caption": "ANALYSIS",
             "image_secondary_caption": "After",
             "checklist": "PLAQUE REMOVAL\nDEEP WHITENING\nHEALTHIER ENAMEL",
             "compare_label": "Avg. OTC",
