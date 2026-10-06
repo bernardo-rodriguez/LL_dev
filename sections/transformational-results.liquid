@@ -14,7 +14,7 @@
           reaching for flow-text at all until someone has written an override,
           so a theme that is missing that snippet still renders.
         {%- endcomment -%}
-        <h3 class="transformational-results__heading">{% if section.settings.heading_quiz != blank %}{% render 'flow-text', base: section.settings.heading | default: 'Transformational Results', quiz: section.settings.heading_quiz %}{% else %}{{ section.settings.heading | default: 'Transformational Results' }}{% endif %}</h3>
+        <h3 class="transformational-results__heading">{% if section.settings.heading_quiz != blank %}{% render 'flow-text', base: section.settings.heading, default: 'Transformational Results', quiz: section.settings.heading_quiz %}{% else %}{{ section.settings.heading | default: 'Transformational Results' }}{% endif %}</h3>
 
         <div class="transformational-results__tabs" role="tablist">
           <button type="button" class="transformational-results__tab active" data-duration="2" aria-selected="true">2 MONTHS</button>
@@ -278,3 +278,15 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'flow-text', base: section.settings.heading | default: 'Transformational
+    Results', quiz: section.settings.heading_quiz %}"
+  to: "{% render 'flow-text', base: section.settings.heading, default: 'Transformational
+    Results', quiz: section.settings.heading_quiz %}"
+  position: 1037..1167
+{% endcomment %}
