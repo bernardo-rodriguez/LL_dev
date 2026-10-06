@@ -492,7 +492,7 @@
         "step_bJBXmW": {
           "type": "step",
           "settings": {
-            "text": "Apply a thin line of your formula to the tray and clip in the LED light."
+            "text": "Apply a thin line of your gel to your NanoBlue mouthpiece. Turn on the mouthpiece."
           }
         },
         "step_N6tYpa": {
@@ -514,7 +514,7 @@
         "media_caption": "",
         "button_label": "BUY NOW",
         "button_link": "",
-        "reassurance": "30-day money back guarantee",
+        "reassurance": "",
         "media_position": "left",
         "margin_bottom": false,
         "flow_visibility": "all"
