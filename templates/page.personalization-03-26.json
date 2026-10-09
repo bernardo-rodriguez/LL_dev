@@ -123,20 +123,20 @@
         "reason_1": {
           "type": "reason",
           "settings": {
-            "title": "Personalization = Stronger Formulas. Stronger formulas = Faster + Bigger Results",
-            "body": "One-size-fits-all whitening has to work even for hypersensitive teeth. That means a weak formula for everyone—But only 8% of Americans have hypersensitivity. We personalize your formula to your sensitivity, matching you with the highest whitening strength you can use comfortably.",
+            "title": "3x+ Stronger formulas for better whitening.",
+            "body": "One-size-fits-all whitening has to work for everyone, even people whose teeth hurt from cold water. So everyone gets a weaker formula. But only 8% of Americans have hypersensitivity. That's why we personalize your formula to give you the strongest whitening you can comfortably handle.",
             "media_type": "chart",
             "image_caption": "",
             "image_secondary_caption": "",
             "checklist": "",
             "compare_label": "Avg. OTC Whitening",
-            "compare_value": "5.5",
+            "compare_value": "30",
             "ours_label": "Avg. Laughland",
-            "ours_value": "14",
-            "axis_max": "16",
-            "axis_suffix": "%",
-            "threshold_value": "10",
-            "threshold_label": "Dentist threshold 10%"
+            "ours_value": "100",
+            "axis_max": "150",
+            "axis_suffix": "mg",
+            "threshold_value": "80",
+            "threshold_label": "Dentist threshold 100mg"
           }
         },
         "reason_2": {
