@@ -144,7 +144,7 @@
           "type": "reason",
           "settings": {
             "title": "3x+ Stronger formulas for better whitening.",
-            "body": "One-size-fits-all whitening has to work for everyone, even people whose teeth hurt from cold water. So everyone gets a weaker formula. But only 8% of Americans have hypersensitivity. That's why we personalize your formula to give you the strongest whitening you can comfortably handle.",
+            "body": "One-size-fits-all whitening has to work even for people whose teeth hurt from cold water. So everyone gets a weaker formula. We measure your sensitivity first, then give you the strongest whitening you can comfortably handle.",
             "media_type": "chart",
             "image_caption": "",
             "image_secondary_caption": "",
@@ -162,8 +162,8 @@
         "reason_3": {
           "type": "reason",
           "settings": {
-            "title": "The reason your teeth are yellow may not be why his teeth are yellow.",
-            "body": "Your teeth can look yellow for more than one reason. It's not just \"stains\". By analyzing your smile first, we're able to address your specific root causes.",
+            "title": "Maximum whitening. Minimum discomfort.",
+            "body": "We use the same advanced sensitivity protection as top cosmetic dentists to minimize sensitivity.  Our blend of hydroxyapatite, glycerin, and aloe vera protects enamel and minimize discomfort even at higher strengths.",
             "media_type": "image",
             "image": "shopify://shop_images/Screenshot_2026-09-09_at_6.24.43_PM.png",
             "image_caption": "",
@@ -182,7 +182,7 @@
         "reason_4": {
           "type": "reason",
           "settings": {
-            "title": "Used & Loved by Dentists",
+            "title": "Bigger results in fewer treatments.",
             "body": "Personalizing the treatment to the patient is how dentists whiten teeth. Hence why dentists are our biggest fans, and how they whiten at home.",
             "media_type": "image",
             "image": "shopify://shop_images/Gemini_Generated_Image_terzrrterzrrterz.jpg",
@@ -202,7 +202,7 @@
         "reason_5": {
           "type": "reason",
           "settings": {
-            "title": "Better Ingredients. Higher Standards.",
+            "title": "Professional whitening without the dentist's price tag.",
             "body": "Formulated with cosmetic dentists and produced in FDA-registered facilities, using pharmaceutical-grade ingredients.",
             "media_type": "image",
             "image": "shopify://shop_images/scientist-in-lab-with-pipette.jpg",
