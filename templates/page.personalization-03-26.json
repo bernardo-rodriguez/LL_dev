@@ -140,10 +140,30 @@
             "threshold_label": "Dentist threshold 10%"
           }
         },
+        "reason_jAqidX": {
+          "type": "reason",
+          "settings": {
+            "title": "Most whitening is too weak to make a real difference.",
+            "body": "Formulated with cosmetic dentists and produced in FDA-registered facilities, using pharmaceutical-grade ingredients.",
+            "media_type": "image",
+            "image": "shopify://shop_images/scientist-in-lab-with-pipette.jpg",
+            "image_caption": "",
+            "image_secondary_caption": "",
+            "checklist": "",
+            "compare_label": "Avg. OTC",
+            "compare_value": "6.5",
+            "ours_label": "Laughland",
+            "ours_value": "14",
+            "axis_max": "16",
+            "axis_suffix": "%",
+            "threshold_value": "10",
+            "threshold_label": "Dentist threshold 10%"
+          }
+        },
         "reason_1": {
           "type": "reason",
           "settings": {
-            "title": "3x+ Stronger formulas for better whitening.",
+            "title": "Personalizing means everyone gets their max dose. 3x+ Stronger formulas for better whitening.",
             "body": "One-size-fits-all whitening has to work even for people whose teeth hurt from cold water. So everyone gets a weaker formula. We measure your sensitivity first, then give you the strongest whitening you can comfortably handle.",
             "media_type": "chart",
             "image_caption": "",
@@ -222,6 +242,7 @@
       },
       "block_order": [
         "reason_2",
+        "reason_jAqidX",
         "reason_1",
         "reason_3",
         "reason_4",
