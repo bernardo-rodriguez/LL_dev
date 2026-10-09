@@ -144,9 +144,9 @@
           "type": "reason",
           "settings": {
             "title": "One-size-fits-all means everyone gets the same weak formula.",
-            "body": "One-size-fits-all whitening is made to work for even those who can't drink cold water. But only 8% of Americans have hypersensitivity. The other 92%? Stuck with weaker whitening and slower results.",
+            "body": "One-size-fits-all whitening needs to work for even those who can't drink cold water. But only 8% of Americans have hypersensitivity. The other 92%? Stuck with weaker whitening and slower results.",
             "media_type": "image",
-            "image": "shopify://shop_images/scientist-in-lab-with-pipette.jpg",
+            "image": "shopify://shop_images/Screenshot_2026-09-24_at_4.00.21_PM.png",
             "image_caption": "",
             "image_secondary_caption": "",
             "checklist": "",
@@ -163,8 +163,8 @@
         "reason_1": {
           "type": "reason",
           "settings": {
-            "title": "Personalization means the right strength for you. Bigger results, faster.",
-            "body": "We measure your sensitivity first, then give you the strongest whitening you can comfortably handle. The result? Faster, Bigger results.",
+            "title": "Personalized whitening means the right dose for you.",
+            "body": "We match whitening strength to your sensitivity. For the 92% without hypersensitive teeth, that can mean 2x+ the typical OTC dose—and more noticeable results in fewer treatments.",
             "media_type": "chart",
             "image_caption": "",
             "image_secondary_caption": "",
@@ -182,8 +182,8 @@
         "reason_3": {
           "type": "reason",
           "settings": {
-            "title": "Maximum whitening. Minimum discomfort.",
-            "body": "We use the same advanced sensitivity protection as top cosmetic dentists to minimize sensitivity.  Our blend of hydroxyapatite, glycerin, and aloe vera protects enamel and minimize discomfort even at higher strengths.",
+            "title": "Advanced sensitivity prevention for minimum discomfort.",
+            "body": "We use the same advanced sensitivity protection as top cosmetic dentists to minimize sensitivity. Our blend of hydroxyapatite, glycerin, and aloe vera protects enamel and minimize discomfort even at higher strengths.",
             "media_type": "image",
             "image": "shopify://shop_images/Screenshot_2026-09-09_at_6.24.43_PM.png",
             "image_caption": "",
@@ -203,12 +203,12 @@
           "type": "reason",
           "settings": {
             "title": "Bigger results in fewer treatments.",
-            "body": "Personalizing the treatment to the patient is how dentists whiten teeth. Hence why dentists are our biggest fans, and how they whiten at home.",
+            "body": "By treating all root causes and using the right strength, we get you a noticeably whiter smile in fewer treatments.",
             "media_type": "image",
             "image": "shopify://shop_images/Gemini_Generated_Image_terzrrterzrrterz.jpg",
             "image_caption": "",
             "image_secondary_caption": "",
-            "checklist": "Results Guarantee\nSensitivity-Free Guarantee",
+            "checklist": "",
             "compare_label": "Avg. OTC",
             "compare_value": "6.5",
             "ours_label": "Laughland",
@@ -223,7 +223,7 @@
           "type": "reason",
           "settings": {
             "title": "Professional whitening without the dentist's price tag.",
-            "body": "Formulated with cosmetic dentists and produced in FDA-registered facilities, using pharmaceutical-grade ingredients.",
+            "body": "(picture of our dentists) Same ingredients. Same clinical standards. Same personalized approach top cosmetic dentists use. It's why dentists choose Laughland to whiten their own teeth at home.",
             "media_type": "image",
             "image": "shopify://shop_images/scientist-in-lab-with-pipette.jpg",
             "image_caption": "",
