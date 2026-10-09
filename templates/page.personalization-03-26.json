@@ -120,6 +120,26 @@
     "reasons_storyline_lp": {
       "type": "reasons-storyline",
       "blocks": {
+        "reason_2": {
+          "type": "reason",
+          "settings": {
+            "title": "Most whitening only \"removes stains\". We tackle all key causes of yellow teeth.",
+            "body": "Traditional whitening only treats stains. We assess all key causes of yellow teeth, identify what’s affecting your smile most, then prescribe a personalized formula to target them.",
+            "media_type": "image",
+            "image": "shopify://shop_images/Different_issues.png",
+            "image_caption": "ANALYSIS",
+            "image_secondary_caption": "After",
+            "checklist": "PLAQUE REMOVAL\nDEEP WHITENING\nHEALTHIER ENAMEL",
+            "compare_label": "Avg. OTC",
+            "compare_value": "6.5",
+            "ours_label": "Laughland",
+            "ours_value": "14",
+            "axis_max": "16",
+            "axis_suffix": "%",
+            "threshold_value": "10",
+            "threshold_label": "Dentist threshold 10%"
+          }
+        },
         "reason_1": {
           "type": "reason",
           "settings": {
@@ -137,26 +157,6 @@
             "axis_suffix": "mg",
             "threshold_value": "80",
             "threshold_label": "Dentist threshold 100mg"
-          }
-        },
-        "reason_2": {
-          "type": "reason",
-          "settings": {
-            "title": "Targets 3 key root causes of yellow teeth, not just stains.",
-            "body": "Stains, plaque buildup, and enamel thickness all affect how your teeth look. Traditional whitening only removes stains. Our formula tackles all three for better whitening.",
-            "media_type": "image",
-            "image": "shopify://shop_images/Different_issues.png",
-            "image_caption": "ANALYSIS",
-            "image_secondary_caption": "After",
-            "checklist": "PLAQUE REMOVAL\nDEEP WHITENING\nHEALTHIER ENAMEL",
-            "compare_label": "Avg. OTC",
-            "compare_value": "6.5",
-            "ours_label": "Laughland",
-            "ours_value": "14",
-            "axis_max": "16",
-            "axis_suffix": "%",
-            "threshold_value": "10",
-            "threshold_label": "Dentist threshold 10%"
           }
         },
         "reason_3": {
@@ -221,8 +221,8 @@
         }
       },
       "block_order": [
-        "reason_1",
         "reason_2",
+        "reason_1",
         "reason_3",
         "reason_4",
         "reason_5"
