@@ -484,7 +484,7 @@
       ],
       "name": "Transformational Results",
       "settings": {
-        "heading": "Transformational Results",
+        "heading": "Over 100k+ Transformational Results",
         "show_stats": false,
         "flow_visibility": "all",
         "heading_quiz": ""
@@ -541,7 +541,7 @@
     "first-order-includes-box": {
       "type": "first-order-includes",
       "settings": {
-        "section_title": "FIRST ORDER INCLUDES",
+        "section_title": "",
         "kit_previous_price": "$65",
         "kit_current_price": "$39",
         "total_previous_price": "$100",
