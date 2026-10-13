@@ -23,6 +23,37 @@ xhttp.send();
       {{ 'accessibility.skip_to_product_info' | t }}
     </a>
 
+    {%- comment -%}
+      Headline and subhead live outside the info column so that on phones they
+      can sit above the gallery, which is the order the page is meant to be read
+      in. On desktop they are placed back at the top of the right-hand column by
+      grid position, so nothing moves there.
+
+      product-form.js still personalises #product__title_id; it looks the
+      element up by id on the document rather than inside the info column.
+    {%- endcomment -%}
+    <div class="product__intro">
+      <h3
+        class="product__title"
+        id="product__title_id"
+        {% if section.settings.personalized_title != blank %}
+          data-name-title="{{ section.settings.personalized_title | escape }}"
+        {% endif %}
+      >
+        {{ section.settings.intro_title | default: product.metafields.custom.title | default: product.title }}
+      </h3>
+
+      {% if section.settings.subhead != blank %}
+        <p class="product__subhead">
+          {% if section.settings.subhead_quiz != blank %}
+            {% render 'flow-text', base: section.settings.subhead, quiz: section.settings.subhead_quiz %}
+          {% else %}
+            {{ section.settings.subhead }}
+          {% endif %}
+        </p>
+      {% endif %}
+    </div>
+
     <div class="product__media-wrapper">
       <ul class="product__media-list list-unstyled swiper" role="list">
         <div class="swiper-wrapper">
@@ -35,7 +66,7 @@ xhttp.send();
         <div class="product__media-pagination swiper-pagination hide-desktop"></div>
       </ul>
 
-      <div class="product__media-thumbnails hide-mobile">
+      <div class="product__media-thumbnails">
         {% for media in product.media %}
           <button
             class="product__media-thumbnail-item"
@@ -52,9 +83,6 @@ xhttp.send();
       <div id="ProductInfo-{{ section.id }}" class="product__info-container">
         {% assign product_form_id = 'product-form-' | append: section.id %}
 
-        <h3 class="product__title" id="product__title_id">
-          {{ product.metafields.custom.title | default: product.title }}
-        </h3>
         {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: true, product: product %}
 
         <div class="no-js-hidden visibility-hidden visually-hidden" id="price-{{ section.id }}" role="status">
@@ -159,18 +187,16 @@ xhttp.send();
         </dl>
 
         {% unless product.id == cfg.REFILL_DEFAULT.product_id %}
-        <div class="pdp-kit-selector__title label">SELECT KIT:</div>
         <div class="pdp-product-options">
         <div class="pdp-product-options__row treatment-quantity-selector" id = 'treatment-quantity-selector-id'>
           <div class="quantity-radio-group pdp-kit-selector">
             <input type="radio" id="quantity-6" name="treatment-quantity" value="6" checked>
             <label for="quantity-6" class="quantity-option quantity-option-1 pdp-kit-option">
               <span class="pdp-kit-image">
-                <img src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/single_ll_background_removed.png?v=1772386952" alt="Starter Kit" width="80" height="80" loading="lazy">
+                <img src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/single_ll_background_removed.png?v=1772386952" alt="6 treatments" width="80" height="80" loading="lazy">
               </span>
               <div class="pdp-kit-text">
-                <span class="quantity-title label">STARTER KIT</span>
-                <span class="quantity-subtitle label-sm">6 TREATMENTS</span>
+                <span class="quantity-title label">6 TREATMENTS</span>
               </div>
             </label>
             
@@ -178,11 +204,10 @@ xhttp.send();
             <label for="quantity-12" class="quantity-option quantity-option-2 pdp-kit-option">
               <span class="pdp-kit-badge label-sm">BEST VALUE</span>
               <span class="pdp-kit-image">
-                <img src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/12_treatment_bg_removed.png?v=1772386983" alt="Deluxe Kit" width="80" height="80" loading="lazy">
+                <img src="https://cdn.shopify.com/s/files/1/0066/4728/3782/files/12_treatment_bg_removed.png?v=1772386983" alt="12 treatments" width="80" height="80" loading="lazy">
               </span>
               <div class="pdp-kit-text">
-                <span class="quantity-title label">DELUXE KIT</span>
-                <span class="quantity-subtitle label-sm">12 TREATMENTS</span>
+                <span class="quantity-title label">12 TREATMENTS</span>
               </div>
             </label>
           </div>
@@ -891,6 +916,32 @@ xhttp.send();
   "class": "product-section",
   "blocks": [],
   "settings": [
+    {
+      "type": "text",
+      "id": "intro_title",
+      "label": "Headline",
+      "default": "Starter Whitening Kit",
+      "info": "Leave blank to use the product title."
+    },
+    {
+      "type": "text",
+      "id": "personalized_title",
+      "label": "Headline for quiz arrivals",
+      "default": "Formula",
+      "info": "Shown after the visitor's first name, e.g. \"Sarah's Formula\". Only used when we know who they are; otherwise the headline above shows."
+    },
+    {
+      "type": "textarea",
+      "id": "subhead",
+      "label": "Subhead",
+      "default": "Designed to treat all key root causes of yellow & dulling teeth."
+    },
+    {
+      "type": "textarea",
+      "id": "subhead_quiz",
+      "label": "Subhead — quiz arrivals",
+      "info": "Optional. One per line: a line on its own applies to all quiz arrivals, a line starting strong:, medium: or sensitive: applies to that formula only. Falls back to the subhead above."
+    },
     {
       "type": "text",
       "id": "atc",

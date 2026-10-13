@@ -105,7 +105,13 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     // Retrieves first name from the quiz cookies.
     const first_name = getCookie('firstname') || ""
     const last_name = getCookie('lastname') || ""
-    const storedProductName = this.container?.querySelector('#product__title_id')?.innerHTML
+    // The headline moved out of .product__info-wrapper so mobile can place it
+    // above the gallery, so look it up by id on the document. It is a unique
+    // id, so this is the same element, found wherever the layout puts it.
+    const titleEl = document.querySelector('#product__title_id')
+    // Sections can name the word to use after the first name — "Sarah's
+    // Formula" rather than "Sarah's Starter Whitening Kit".
+    const storedProductName = titleEl?.dataset?.nameTitle || titleEl?.innerHTML
 
     let name = `${first_name}${ last_name != "" ? ' ' + last_name : ''}`
 
@@ -114,8 +120,8 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     }
 
     if (window.location.href.includes('at-home-whitening-kit')) { 
-      if ( name != "" && !storedProductName?.toLowerCase().includes("to go pen") && window.location.pathname != '/pages/landing-page') {
-        this.container.querySelector('#product__title_id').innerHTML = `<span class="stylized">${name}'s</span><br> ${storedProductName.replace(/[^\p{L}\p{N}\p{P}\p{Z}^$\n]/gu, '')}`
+      if ( titleEl && name != "" && !storedProductName?.toLowerCase().includes("to go pen") && window.location.pathname != '/pages/landing-page') {
+        titleEl.innerHTML = `<span class="stylized">${name}'s</span><br> ${storedProductName.replace(/[^\p{L}\p{N}\p{P}\p{Z}^$\n]/gu, '')}`
       }
     } else if (window.location.href.includes('landing-page-product-main')) {
       $('#perfect-match-text').html(`${name}'s Perfect Match`)

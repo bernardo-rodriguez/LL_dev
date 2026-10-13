@@ -671,7 +671,7 @@ const INCLUDE_KIT_STARTER = {
     type: 'item',
     title: 'CUSTOM WHITENING KIT',
     image: 'https://cdn.shopify.com/s/files/1/0066/4728/3782/files/og_small_26338a09-fa97-40d9-a133-2eb7374c16ea.png?v=1771274817',
-    bullets: ['6 TREATMENTS (2-MONTH SUPPLY)', '30-DAY SATISFACTION GUARANTEE'],
+    bullets: ['6 TREATMENTS (2-MONTH SUPPLY)'],
     dynamic_price: true,
 };
 
@@ -679,7 +679,7 @@ const INCLUDE_KIT_DELUXE = {
     type: 'item',
     title: 'CUSTOM WHITENING KIT',
     image: 'https://cdn.shopify.com/s/files/1/0066/4728/3782/files/og_small_26338a09-fa97-40d9-a133-2eb7374c16ea.png?v=1771274817',
-    bullets: ['12 TREATMENTS (4-MONTH SUPPLY)', '30-DAY SATISFACTION GUARANTEE'],
+    bullets: ['12 TREATMENTS (4-MONTH SUPPLY)'],
     dynamic_price: true,
 };
 
@@ -713,7 +713,7 @@ const INCLUDE_REFILL_GELS = {
     type: 'item',
     title: 'FORMULA REFILL GELS',
     image: 'https://cdn.shopify.com/s/files/1/0066/4728/3782/files/og_small_26338a09-fa97-40d9-a133-2eb7374c16ea.png?v=1771274817',
-    bullets: ['6 REFILL TREATMENTS (2-MONTH SUPPLY)', '30-DAY SATISFACTION GUARANTEE'],
+    bullets: ['6 REFILL TREATMENTS (2-MONTH SUPPLY)'],
     dynamic_price: true,
 };
 
