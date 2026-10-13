@@ -23,6 +23,32 @@ xhttp.send();
       {{ 'accessibility.skip_to_product_info' | t }}
     </a>
 
+    <div class="product__media-wrapper">
+      <ul class="product__media-list list-unstyled swiper" role="list">
+        <div class="swiper-wrapper">
+          {% for media in product.media %}
+            <li class="product__media-item swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}">
+              {% render 'product-media-2', media: media, position: forloop.index %}
+            </li>
+          {% endfor %}
+        </div>
+        <div class="product__media-pagination swiper-pagination hide-desktop"></div>
+      </ul>
+
+      <div class="product__media-thumbnails">
+        {% for media in product.media %}
+          <button
+            class="product__media-thumbnail-item"
+            data-media-id="{{ section.id }}-{{ media.id }}"
+            data-loop-position="{{ forloop.index0 }}"
+          >
+            {{ media | image_url: width: 200 | image_tag }}
+          </button>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="product__column">
     {%- comment -%}
       Headline and subhead live outside the info column so that on phones they
       can sit above the gallery, which is the order the page is meant to be read
@@ -52,31 +78,6 @@ xhttp.send();
           {% endif %}
         </p>
       {% endif %}
-    </div>
-
-    <div class="product__media-wrapper">
-      <ul class="product__media-list list-unstyled swiper" role="list">
-        <div class="swiper-wrapper">
-          {% for media in product.media %}
-            <li class="product__media-item swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}">
-              {% render 'product-media-2', media: media, position: forloop.index %}
-            </li>
-          {% endfor %}
-        </div>
-        <div class="product__media-pagination swiper-pagination hide-desktop"></div>
-      </ul>
-
-      <div class="product__media-thumbnails">
-        {% for media in product.media %}
-          <button
-            class="product__media-thumbnail-item"
-            data-media-id="{{ section.id }}-{{ media.id }}"
-            data-loop-position="{{ forloop.index0 }}"
-          >
-            {{ media | image_url: width: 200 | image_tag }}
-          </button>
-        {% endfor %}
-      </div>
     </div>
 
     <div class="product__info-wrapper">
@@ -567,6 +568,7 @@ xhttp.send();
           </div>
         {% endif %}
       </div>
+    </div>
     </div>
   </div>
 </section>

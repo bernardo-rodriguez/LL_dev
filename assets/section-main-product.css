@@ -106,7 +106,8 @@ body.template-product #MainContent,
   
   .product {
     gap: 0;
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin-bottom: 20px;
   }
   
@@ -680,26 +681,35 @@ input:checked + .slider:before {
   so that phones can read it first. Desktop puts it back where it was by grid
   position: top of the right-hand column, with the gallery spanning both rows.
 */
+/*
+  The headline and the rest of the right-hand column share one wrapper, so the
+  column stacks on its own instead of being laid out against the gallery row by
+  row. An earlier version spanned the gallery across two grid rows and let the
+  headline sit in the first: the gallery is the taller column, and grid handed
+  its surplus height to that row, leaving 175px of air under the subhead.
+*/
 @media screen and (min-width: 769px) {
-  .product__intro {
+  .product__column {
     grid-column: 2;
-    grid-row: 1;
+    min-width: 0;
+  }
+
+  .product__intro {
     max-width: 600px;
     margin-left: 50px;
     margin-right: 50px;
     padding-top: 60px;
   }
 
-  .product__media-wrapper {
-    grid-column: 1;
-    grid-row: 1 / 3;
-  }
-
+  /*
+    The gap under the headline sits here rather than as padding on the intro.
+    Something inside this wrapper carries a 100px top margin; the original
+    60px padding was holding it in, and zeroing that padding let it escape and
+    push the whole column down. Padding on this side both spaces the two and
+    keeps that margin contained.
+  */
   .product__info-wrapper {
-    grid-column: 2;
-    grid-row: 2;
-    /* the intro above now carries the column's top padding */
-    padding-top: 0;
+    padding-top: 24px;
   }
 }
 
@@ -711,8 +721,27 @@ input:checked + .slider:before {
 }
 
 @media screen and (max-width: 768px) {
+  /*
+    display: contents lifts the intro and the info column out of their wrapper
+    so all three can be ordered against each other — headline, then gallery,
+    then everything else. The wrapper carries no styling of its own, so nothing
+    is lost by taking its box away.
+  */
+  .product__column {
+    display: contents;
+  }
+
   .product__intro {
+    order: 1;
     padding: 20px 10px 16px;
+  }
+
+  .product__media-wrapper {
+    order: 2;
+  }
+
+  .product__info-wrapper {
+    order: 3;
   }
 }
 
