@@ -751,6 +751,32 @@ body.template-product .product__info-container .label-sm {
   font-size: 11px;
 }
 
+/*
+  The Skio picker renders in shadow DOM, so none of the rules above can reach
+  it — but custom properties inherit across that boundary. Lowering the token
+  here brings the picker's small copy down with the rest of the column, and
+  only on this template.
+
+  The picker's own hardcoded sizes are stepped down to match in
+  skio-plan-picker-component.js; base.css records which classes mirror which,
+  so the two stay in step.
+*/
+body.template-product {
+  --ds-body-sm-size: 11px;
+}
+
+/*
+  .sh2 and .sh2-5 mirror .skio-group-title and friends, so they move with the
+  picker rather than staying a size above it.
+*/
+body.template-product .product__info-container .sh2 {
+  font-size: 16px;
+}
+
+body.template-product .product__info-container .sh2-5 {
+  font-size: 15px;
+}
+
 @media screen and (max-width: 768px) {
   body.template-product .product__title {
     font-size: 25px;
@@ -762,5 +788,13 @@ body.template-product .product__info-container .label-sm {
 
   body.template-product .product__info-container .sh3 {
     font-size: 13px;
+  }
+
+  body.template-product .product__info-container .sh2 {
+    font-size: 14px;
+  }
+
+  body.template-product .product__info-container .sh2-5 {
+    font-size: 14px;
   }
 }
