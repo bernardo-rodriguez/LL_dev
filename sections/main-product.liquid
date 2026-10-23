@@ -24,6 +24,11 @@ xhttp.send();
     </a>
 
     <div class="product__media-wrapper">
+      {%- comment -%}
+        The gallery carries the aspect ratio and the clipping, not the wrapper,
+        so the previews below it are not cut off by the same overflow.
+      {%- endcomment -%}
+      <div class="product__gallery">
       <ul class="product__media-list list-unstyled swiper" role="list">
         <div class="swiper-wrapper">
           {% for media in product.media %}
@@ -34,6 +39,7 @@ xhttp.send();
         </div>
         <div class="product__media-pagination swiper-pagination hide-desktop"></div>
       </ul>
+      </div>
 
       <div class="product__media-thumbnails">
         {% for media in product.media %}

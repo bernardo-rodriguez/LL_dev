@@ -108,15 +108,30 @@ body.template-product #MainContent,
     gap: 0;
     display: flex;
     flex-direction: column;
+    /*
+      The base rule sets align-items: start, which is what the desktop grid
+      wants. In a column flex container it means the opposite of what is needed
+      here: items stop stretching and shrink to their content, which collapsed
+      the gallery and the info column to a few pixels wide.
+    */
+    align-items: stretch;
     margin-bottom: 20px;
   }
   
 }
 
 /*================ Media ================*/
+/*
+  The wrapper is a plain column: the gallery on top, its previews beneath. The
+  aspect ratio and the clipping belong to the gallery, not here — when the
+  wrapper carried them the preview row fell outside the box and was cut off.
+*/
 .product__media-wrapper {
-  /* min-height: 390px; */
-  aspect-ratio: .85/1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product__gallery {
   aspect-ratio: 1;
   border-radius: 0px 0px 12px 0px;
   overflow: hidden;
@@ -124,11 +139,15 @@ body.template-product #MainContent,
 
 @media screen and (min-width: 769px) {
   .product__media-wrapper {
-    height: 100vh;
-    min-height: 600px;
-    aspect-ratio: unset;
     position: sticky;
     top: 0;
+  }
+
+  .product__gallery {
+    /* leaves room for the preview row inside the same sticky viewport */
+    height: calc(100vh - 86px);
+    min-height: 520px;
+    aspect-ratio: unset;
   }
 }
 
