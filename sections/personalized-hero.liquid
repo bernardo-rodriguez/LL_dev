@@ -1,0 +1,179 @@
+{{ 'section-personalized-hero.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  Brace swap stays in an assign tag — Shopify ends an output tag at the first }.
+{%- endcomment -%}
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+{% assign stats = section.blocks | where: 'type', 'stat' %}
+
+<section
+  class="personalized-hero {% if section.settings.margin_bottom %}personalized-hero--with-spacing{% endif %}"
+  data-section-id="{{ section.id }}"
+  {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
+>
+  <div class="page-width">
+    <div class="personalized-hero__inner">
+
+      <div class="personalized-hero__copy">
+        {% if section.settings.rating_text != blank %}
+          <p class="personalized-hero__rating body-sm">
+            {% if section.settings.show_stars %}
+              <span class="personalized-hero__stars" aria-hidden="true">★★★★★</span>
+            {% endif %}
+            {{ section.settings.rating_text }}
+          </p>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="personalized-hero__heading h2">{{ formatted_heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.body != blank %}
+          <p class="personalized-hero__body sh2">{{ section.settings.body }}</p>
+        {% endif %}
+
+        {% if section.settings.button_label != blank %}
+          <a
+            class="button button--primary personalized-hero__cta"
+            {% if section.settings.button_link != blank %}href="{{ section.settings.button_link }}"{% else %}href="#"{% endif %}
+            {% if section.settings.button_opens_quiz %}data-open-quiz{% endif %}
+          >{{ section.settings.button_label }}</a>
+        {% endif %}
+
+        {% if section.settings.microcopy != blank %}
+          <p class="personalized-hero__microcopy body-sm">{{ section.settings.microcopy }}</p>
+        {% endif %}
+      </div>
+
+      {%- comment -%} Before and after, with the formula card sitting over the seam {%- endcomment -%}
+      <div class="personalized-hero__proof">
+        <div class="personalized-hero__pair">
+          {% for i in (1..2) %}
+            {% if i == 1 %}
+              {% assign img = section.settings.image_before %}
+              {% assign pill = section.settings.label_before %}
+            {% else %}
+              {% assign img = section.settings.image_after %}
+              {% assign pill = section.settings.label_after %}
+            {% endif %}
+            <figure class="personalized-hero__frame">
+              {% if img != blank %}
+                <img
+                  src="{{ img | image_url: width: 800 }}"
+                  srcset="{{ img | image_url: width: 400 }} 400w, {{ img | image_url: width: 800 }} 800w"
+                  sizes="(min-width: 769px) 320px, 50vw"
+                  alt="{{ img.alt | default: pill | escape }}"
+                  loading="lazy"
+                >
+              {% endif %}
+              {% if pill != blank %}
+                <figcaption class="personalized-hero__pill label-sm {% if i == 2 %}personalized-hero__pill--after{% endif %}">{{ pill }}</figcaption>
+              {% endif %}
+            </figure>
+          {% endfor %}
+
+          {% if section.settings.card_title != blank %}
+            <div class="personalized-hero__card">
+              <div class="personalized-hero__card-top">
+                <span class="personalized-hero__card-title label-sm">{{ section.settings.card_title }}</span>
+                {% if section.settings.card_value != blank %}
+                  <span class="personalized-hero__card-value body-md">{{ section.settings.card_value }}</span>
+                {% endif %}
+              </div>
+
+              {% if section.settings.card_tags != blank %}
+                <ul class="personalized-hero__tags">
+                  {% assign tag_lines = section.settings.card_tags | newline_to_br | split: '<br />' %}
+                  {% for line in tag_lines %}
+                    {% assign tag = line | strip %}
+                    {% if tag != blank %}
+                      <li class="personalized-hero__tag body-sm">{{ tag }}</li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              {% endif %}
+
+              {% if section.settings.card_note != blank %}
+                <p class="personalized-hero__card-note body-sm">{{ section.settings.card_note }}</p>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+
+        {% if stats.size > 0 %}
+          <dl class="personalized-hero__stats">
+            {% for block in stats %}
+              <div class="personalized-hero__stat" {{ block.shopify_attributes }}>
+                <dt class="personalized-hero__stat-value sh2">{{ block.settings.value }}</dt>
+                <dd class="personalized-hero__stat-label body-sm">{{ block.settings.label }}</dd>
+              </div>
+            {% endfor %}
+          </dl>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Personalized Hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "checkbox", "id": "show_stars", "label": "Show stars", "default": true },
+    { "type": "text", "id": "rating_text", "label": "Rating line", "default": "4.7/5 from 2,316 reviews" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Treat all root causes holding your smile back.", "info": "Wrap emphasized text in {} for the italic Canela style" },
+    { "type": "textarea", "id": "body", "label": "Body copy", "default": "Dentist-made formulas to treat every root cause behind yellow teeth for noticeably whiter teeth." },
+    { "type": "header", "content": "Call to action" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Build my formula" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "checkbox", "id": "button_opens_quiz", "label": "Button opens the quiz", "default": true, "info": "Uses the same quiz trigger as the other landing pages. Leave the link blank when this is on." },
+    { "type": "text", "id": "microcopy", "label": "Line under the button", "default": "Free 2-min quiz · Your kit: $39" },
+    { "type": "header", "content": "Before and after" },
+    { "type": "image_picker", "id": "image_before", "label": "Before image" },
+    { "type": "text", "id": "label_before", "label": "Before label", "default": "Before" },
+    { "type": "image_picker", "id": "image_after", "label": "After image" },
+    { "type": "text", "id": "label_after", "label": "After label", "default": "After 6 days" },
+    { "type": "header", "content": "Formula card" },
+    { "type": "text", "id": "card_title", "label": "Card title", "default": "Kailey's formula" },
+    { "type": "text", "id": "card_value", "label": "Formula number", "default": "8-16" },
+    { "type": "textarea", "id": "card_tags", "label": "Causes found", "info": "One per line", "default": "Surface stains\nPlaque film\nDeep stains" },
+    { "type": "text", "id": "card_note", "label": "Note under the tags", "default": "Medium sensitivity · dosed to match" },
+    { "type": "header", "content": "Layout" },
+    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." },
+    { "type": "header", "content": "Personalization flow" },
+    { "type": "select", "id": "flow_visibility", "label": "Show this section to", "default": "all",
+      "options": [
+        { "value": "all", "label": "Everyone" },
+        { "value": "quiz", "label": "Quiz arrivals only" },
+        { "value": "direct", "label": "Direct arrivals only" }
+      ],
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL." }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Statistic",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Value", "default": "7 shades" },
+        { "type": "text", "id": "label", "label": "Label", "default": "whiter in 6 days (avg.)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Personalized Hero",
+      "blocks": [
+        { "type": "stat", "settings": { "value": "7 shades", "label": "whiter in 6 days (avg.)" } },
+        { "type": "stat", "settings": { "value": "0%", "label": "reported more sensitivity" } },
+        { "type": "stat", "settings": { "value": "100k+", "label": "smiles whitened" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,246 @@
+/*
+  Personalized Hero.
+
+  Type comes entirely from the shared scale — nothing new is defined here.
+  The mockup's sizes map onto it almost exactly:
+
+    mockup 34px headline  ->  .h2          34px mobile / 48px desktop
+    mockup 16px body      ->  .sh2         16 / 18
+    mockup 13px rating    ->  .body-sm     12 / 14
+    mockup 10-11px pills  ->  .label-sm    12, uppercase, --ds-label-letter-spacing
+
+  Colours map the same way: the mockup's #22202F ink is --navy, #F8F8F5 is
+  --cream, and its two greys are --navy-tint-80 and --navy-tint-60.
+*/
+
+.personalized-hero {
+  background: var(--cream);
+  color: var(--navy);
+}
+
+.personalized-hero__inner {
+  padding: var(--section-space-y) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.personalized-hero--with-spacing .personalized-hero__inner {
+  padding-bottom: var(--section-space-y);
+}
+
+/* Copy ---------------------------------------------------------------- */
+
+.personalized-hero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.personalized-hero__rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  color: var(--navy-tint-80);
+}
+
+.personalized-hero__stars {
+  letter-spacing: 1px;
+  color: var(--navy);
+}
+
+.personalized-hero__heading {
+  margin: 0 0 14px;
+  color: var(--navy);
+  text-transform: none;
+}
+
+body.template-product .personalized-hero__heading {
+  letter-spacing: var(--ds-heading-ls-lg) !important;
+}
+
+.personalized-hero__body {
+  margin: 0 0 22px;
+  max-width: 44ch;
+  color: var(--navy-tint-80);
+  line-height: var(--ds-line-height-copy);
+}
+
+.personalized-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.personalized-hero__microcopy {
+  width: 100%;
+  margin: 10px 0 0;
+  color: var(--navy-tint-60);
+  text-align: center;
+}
+
+/* Before and after ----------------------------------------------------- */
+
+.personalized-hero__pair {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--blue-tint-10);
+}
+
+.personalized-hero__frame {
+  position: relative;
+  margin: 0;
+  background: var(--blue-tint-10);
+}
+
+.personalized-hero__frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.personalized-hero__pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 10px;
+  border-radius: 40px;
+  background: #ffffff;
+  color: var(--navy);
+}
+
+.personalized-hero__pill--after {
+  left: auto;
+  right: 12px;
+  background: var(--navy);
+  color: var(--cream);
+}
+
+/*
+  The card straddles the seam between the two photos, which is what makes the
+  pair read as one result rather than two pictures.
+*/
+.personalized-hero__card {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 6px 24px -12px rgba(13, 34, 68, 0.45);
+}
+
+.personalized-hero__card-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.personalized-hero__card-title {
+  color: var(--navy-tint-60);
+}
+
+.personalized-hero__card-value {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.personalized-hero__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.personalized-hero__tag {
+  padding: 4px 10px;
+  border-radius: 40px;
+  background: var(--blue-tint-10);
+  color: var(--navy);
+}
+
+.personalized-hero__card-note {
+  margin: 10px 0 0;
+  color: var(--blue-shade, #2E86C8);
+}
+
+/* Stats ---------------------------------------------------------------- */
+
+.personalized-hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: 18px 0 0;
+}
+
+.personalized-hero__stat {
+  padding: 0 10px;
+  text-align: center;
+  border-left: 1px solid var(--navy-tint-20);
+}
+
+.personalized-hero__stat:first-child {
+  border-left: 0;
+}
+
+.personalized-hero__stat-value {
+  margin: 0 0 2px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.personalized-hero__stat-label {
+  margin: 0;
+  color: var(--navy-tint-60);
+}
+
+/*
+  Desktop: the mobile design is a single 480px column, so the two halves are
+  placed side by side rather than invented — copy left, proof right, both
+  vertically centred.
+*/
+@media screen and (min-width: 769px) {
+  .personalized-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 56px;
+    align-items: center;
+  }
+
+  .personalized-hero__heading {
+    margin-bottom: 18px;
+  }
+
+  .personalized-hero__body {
+    margin-bottom: 28px;
+  }
+
+  .personalized-hero__cta {
+    width: auto;
+    min-width: 300px;
+  }
+
+  .personalized-hero__microcopy {
+    width: auto;
+    text-align: left;
+  }
+
+  .personalized-hero__stats {
+    margin-top: 24px;
+  }
+}
