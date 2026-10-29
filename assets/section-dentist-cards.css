@@ -80,7 +80,9 @@
 
 .dentist-cards__disclosure { margin: auto 0 0; color: var(--navy-tint-60); }
 
-.dentist-cards__hint { margin: 12px 0 0; color: var(--navy-tint-60); }
+/* The row bleeds off the edge, so the hint needs room under it before the
+   next section begins. */
+.dentist-cards__hint { margin: 12px 0 0; padding-bottom: 28px; color: var(--navy-tint-60); }
 
 @media screen and (min-width: 769px) {
   .dentist-cards__heading { margin-bottom: 28px; }

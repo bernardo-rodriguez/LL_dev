@@ -212,9 +212,10 @@
         "button_link": "",
         "button_opens_quiz": true,
         "guarantee": "Noticeably whiter in 30 days or your money back",
-        "trust": "Enamel-safe · Dentist-formulated · FDA-registered · Free shipping",
+        "trust": "Enamel-safe · Dentist-formulated · FDA-registered",
         "margin_bottom": false,
-        "flow_visibility": "all"
+        "flow_visibility": "all",
+        "shipping": "Free shipping"
       }
     },
     "root_causes": {
@@ -560,12 +561,6 @@
         "flow_visibility": "all"
       }
     },
-    "main": {
-      "type": "main-page",
-      "settings": {
-        "heading": ""
-      }
-    },
     "sticky_quiz_bar": {
       "type": "sticky-quiz-bar",
       "settings": {
@@ -592,7 +587,6 @@
     "results_cards",
     "faq_section_Aifz8F",
     "quiz_cta_panel",
-    "main",
     "sticky_quiz_bar"
   ]
 }

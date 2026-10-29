@@ -58,7 +58,7 @@
   display: flex;
   align-items: baseline;
   gap: 10px;
-  margin: 0 0 2px;
+  margin: 0 0 6px;
 }
 
 /*
@@ -69,6 +69,8 @@
 */
 .personalized-offer__price-now {
   margin: 0;
+  /* the heading line-height left a band of empty leading under the figure */
+  line-height: 1;
   color: var(--navy);
   text-transform: none;
 }
@@ -85,20 +87,25 @@
   color: var(--navy-tint-80);
 }
 
+/* Ruled rows, as in the reference: the steps are a sequence, not a list of
+   loose lines, and the rules make that read. */
 .personalized-offer__steps {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0;
   width: 100%;
   margin: 0 0 18px;
   padding: 0;
   list-style: none;
+  border-top: 1px solid var(--blue-tint-20);
 }
 
 .personalized-offer__step {
   display: flex;
   align-items: flex-start;
   gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--blue-tint-20);
 }
 
 .personalized-offer__step-number {
@@ -166,6 +173,12 @@
 
 .personalized-offer__trust {
   margin: 12px 0 0;
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.personalized-offer__shipping {
+  margin: 2px 0 0;
   color: var(--navy-tint-60);
 }
 
