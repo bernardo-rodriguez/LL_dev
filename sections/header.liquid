@@ -186,7 +186,7 @@
     {% endif %}
 
     <div class="hidden">
-       {% if template != 'cart' %}
+       {% if template.name != 'cart' %}
         <button class="js-open-cart header__icon header__icon--cart" id="cart-icon-bubble" aria-label="Open Cart Drawer">
           {% render 'icon', icon: 'cart' %}
           <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>

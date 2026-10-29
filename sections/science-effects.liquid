@@ -11,7 +11,7 @@
   class="science-effects {% if section.settings.margin_bottom %}science-effects--with-spacing{% endif %}"
   data-section-id="{{ section.id }}"
 >
-  <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
+  <div class="page-width {% if template.name == 'product' %}page-width--product{% endif %}">
     <div class="science-effects__inner">
       {% if section.settings.eyebrow != blank %}
         <p class="science-effects__eyebrow label-sm">{{ section.settings.eyebrow }}</p>

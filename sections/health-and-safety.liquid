@@ -1,7 +1,7 @@
 {{ 'section-health-and-safety.css' | asset_url | stylesheet_tag }}
 
 <section class="health-and-safety" data-section-id="{{ section.id }}">
-  <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
+  <div class="page-width {% if template.name == 'product' %}page-width--product{% endif %}">
     {% if section.settings.heading != blank %}
       <div class="health-and-safety__header">
         <h3 class="health-and-safety__heading">{{ section.settings.heading }}</h3>
