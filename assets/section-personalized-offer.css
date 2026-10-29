@@ -1,0 +1,178 @@
+/*
+  Personalized Offer. Type from the shared scale only:
+    price      -> .h2        34 / 48
+    steps      -> .sh3       14 / 16
+    notes      -> .body-sm   12 / 14
+    eyebrow    -> .label-sm via .section-eyebrow
+*/
+
+.personalized-offer {
+  background: var(--cream);
+  color: var(--navy);
+}
+
+.personalized-offer__inner {
+  padding: var(--section-space-y) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.personalized-offer--with-spacing .personalized-offer__inner {
+  padding-bottom: var(--section-space-y);
+}
+
+.personalized-offer__media {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--blue-tint-10);
+  aspect-ratio: 4 / 3;
+}
+
+.personalized-offer__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.personalized-offer__badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 7px 13px;
+  border-radius: 40px;
+  background: var(--navy);
+  color: var(--cream);
+}
+
+.personalized-offer__detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.personalized-offer__price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 6px;
+}
+
+.personalized-offer__price-now {
+  color: var(--navy);
+  text-transform: none;
+}
+
+.personalized-offer__price-was {
+  color: var(--navy-tint-60);
+  text-decoration: line-through;
+}
+
+.personalized-offer__price-note {
+  margin: 0 0 20px;
+  color: var(--navy-tint-80);
+}
+
+.personalized-offer__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.personalized-offer__step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.personalized-offer__step-number {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6em;
+  height: 1.6em;
+  margin-top: 0.05em;
+  border-radius: 50%;
+  background: var(--blue-tint-20);
+  color: var(--navy);
+  font-family: var(--ds-font-family);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.personalized-offer__step-text {
+  color: var(--navy);
+}
+
+.personalized-offer__includes {
+  margin: 0 0 20px;
+  color: var(--navy-tint-60);
+}
+
+.personalized-offer__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.personalized-offer__guarantee {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin: 14px 0 0;
+  padding: 10px 14px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background: var(--blue-tint-10);
+  color: var(--navy);
+}
+
+.personalized-offer__guarantee-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.personalized-offer__guarantee-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.personalized-offer__guarantee-icon svg path {
+  fill: currentColor;
+}
+
+.personalized-offer__trust {
+  margin: 12px 0 0;
+  color: var(--navy-tint-60);
+}
+
+@media screen and (min-width: 769px) {
+  .personalized-offer__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 56px;
+    align-items: center;
+  }
+
+  .personalized-offer__cta {
+    width: auto;
+    min-width: 300px;
+  }
+
+  .personalized-offer__guarantee {
+    width: auto;
+  }
+}

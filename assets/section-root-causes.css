@@ -1,0 +1,119 @@
+/*
+  Root Causes. Heading and eyebrow come from the shared .section-heading and
+  .section-eyebrow; the list uses .sh3 and .label-sm.
+*/
+
+.root-causes {
+  background: #ffffff;
+  color: var(--navy);
+}
+
+.root-causes__inner {
+  padding: var(--section-space-y) 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.root-causes--with-spacing .root-causes__inner {
+  padding-bottom: var(--section-space-y);
+}
+
+.root-causes__header {
+  margin-bottom: 24px;
+}
+
+.root-causes__heading {
+  margin: 0 0 14px;
+  text-transform: none;
+}
+
+.root-causes__body {
+  margin: 0;
+  max-width: 52ch;
+  color: var(--navy-tint-80);
+  line-height: var(--ds-line-height-copy);
+}
+
+/* Diagram beside the numbered causes */
+.root-causes__columns {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 18px;
+  align-items: center;
+  width: 100%;
+}
+
+.root-causes__diagram img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.root-causes__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.root-causes__item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 12px 0;
+  border-top: 1px solid var(--blue-tint-20);
+}
+
+.root-causes__item:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+/* Falls back to the muted ink when a block sets no colour */
+.root-causes__item-label {
+  color: var(--navy-tint-60);
+}
+
+.root-causes__item-text {
+  color: var(--navy);
+}
+
+.root-causes__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  color: var(--navy);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid var(--navy-tint-40);
+  padding-bottom: 2px;
+}
+
+.root-causes__link-arrow svg {
+  display: block;
+  width: 15px;
+  height: auto;
+  fill: currentColor;
+}
+
+@media screen and (min-width: 769px) {
+  .root-causes__header {
+    margin-bottom: 36px;
+  }
+
+  .root-causes__columns {
+    gap: 56px;
+  }
+
+  .root-causes__item {
+    padding: 16px 0;
+  }
+
+  .root-causes__link {
+    margin-top: 32px;
+  }
+}

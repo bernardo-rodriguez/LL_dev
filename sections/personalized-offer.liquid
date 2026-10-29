@@ -1,0 +1,133 @@
+{{ 'section-personalized-offer.css' | asset_url | stylesheet_tag }}
+
+{% assign steps = section.blocks | where: 'type', 'step' %}
+
+<section
+  class="personalized-offer {% if section.settings.margin_bottom %}personalized-offer--with-spacing{% endif %}"
+  data-section-id="{{ section.id }}"
+  {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
+>
+  <div class="page-width">
+    <div class="personalized-offer__inner">
+
+      <div class="personalized-offer__media">
+        {% if section.settings.image != blank %}
+          <img
+            src="{{ section.settings.image | image_url: width: 1200 }}"
+            srcset="{{ section.settings.image | image_url: width: 600 }} 600w, {{ section.settings.image | image_url: width: 1200 }} 1200w"
+            sizes="(min-width: 769px) 50vw, 100vw"
+            alt="{{ section.settings.image.alt | default: section.settings.heading | escape }}"
+            loading="lazy"
+          >
+        {% endif %}
+        {% if section.settings.badge != blank %}
+          <span class="personalized-offer__badge label-sm">{{ section.settings.badge }}</span>
+        {% endif %}
+      </div>
+
+      <div class="personalized-offer__detail">
+        {% if section.settings.eyebrow != blank %}
+          <p class="section-eyebrow personalized-offer__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+
+        <p class="personalized-offer__price">
+          <span class="personalized-offer__price-now h2">{{ section.settings.price }}</span>
+          {% if section.settings.price_was != blank %}
+            <span class="personalized-offer__price-was sh2">{{ section.settings.price_was }}</span>
+          {% endif %}
+        </p>
+
+        {% if section.settings.price_note != blank %}
+          <p class="personalized-offer__price-note body-md">{{ section.settings.price_note }}</p>
+        {% endif %}
+
+        {% if steps.size > 0 %}
+          <ol class="personalized-offer__steps">
+            {% for block in steps %}
+              <li class="personalized-offer__step" {{ block.shopify_attributes }}>
+                <span class="personalized-offer__step-number" aria-hidden="true">{{ forloop.index }}</span>
+                <span class="personalized-offer__step-text sh3">{{ block.settings.text }}</span>
+              </li>
+            {% endfor %}
+          </ol>
+        {% endif %}
+
+        {% if section.settings.includes != blank %}
+          <p class="personalized-offer__includes body-sm">{{ section.settings.includes }}</p>
+        {% endif %}
+
+        {% if section.settings.button_label != blank %}
+          <a
+            class="button button--primary personalized-offer__cta"
+            {% if section.settings.button_link != blank %}href="{{ section.settings.button_link }}"{% else %}href="#"{% endif %}
+            {% if section.settings.button_opens_quiz %}data-open-quiz{% endif %}
+          >{{ section.settings.button_label }}</a>
+        {% endif %}
+
+        {% if section.settings.guarantee != blank %}
+          <p class="personalized-offer__guarantee body-sm">
+            <span class="personalized-offer__guarantee-icon" aria-hidden="true">{% render 'icon', icon: 'checkmark' %}</span>
+            {{ section.settings.guarantee }}
+          </p>
+        {% endif %}
+
+        {% if section.settings.trust != blank %}
+          <p class="personalized-offer__trust body-sm">{{ section.settings.trust }}</p>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Personalized Offer",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Product image" },
+    { "type": "text", "id": "badge", "label": "Badge over the image", "default": "Anniversary sale 40% off" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Your personalized kit" },
+    { "type": "text", "id": "price", "label": "Price", "default": "$39" },
+    { "type": "text", "id": "price_was", "label": "Price before discount", "default": "$65" },
+    { "type": "text", "id": "price_note", "label": "Line under the price", "default": "vs. $400–$1000 for whitening at the dentist" },
+    { "type": "text", "id": "includes", "label": "What the kit includes", "default": "Includes Blue LED mouthpiece and 3 custom gels" },
+    { "type": "header", "content": "Call to action" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Build my formula" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "checkbox", "id": "button_opens_quiz", "label": "Button opens the quiz", "default": true },
+    { "type": "text", "id": "guarantee", "label": "Guarantee line", "default": "Noticeably whiter in 30 days or your money back" },
+    { "type": "text", "id": "trust", "label": "Trust line", "default": "Enamel-safe · Dentist-formulated · FDA-registered · Free shipping" },
+    { "type": "header", "content": "Layout" },
+    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." },
+    { "type": "header", "content": "Personalization flow" },
+    { "type": "select", "id": "flow_visibility", "label": "Show this section to", "default": "all",
+      "options": [
+        { "value": "all", "label": "Everyone" },
+        { "value": "quiz", "label": "Quiz arrivals only" },
+        { "value": "direct", "label": "Direct arrivals only" }
+      ],
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL." }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "Step", "default": "Take the 2-min quiz" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Personalized Offer",
+      "blocks": [
+        { "type": "step", "settings": { "text": "Take the 2-min quiz" } },
+        { "type": "step", "settings": { "text": "Get a formula made for your smile" } },
+        { "type": "step", "settings": { "text": "Avg. 7 shades whiter in 6 days (20 min daily)" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

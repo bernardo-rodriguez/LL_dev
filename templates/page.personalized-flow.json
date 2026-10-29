@@ -153,10 +153,102 @@
         "margin_bottom": false,
         "flow_visibility": "all"
       }
+    },
+    "personalized_offer": {
+      "type": "personalized-offer",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "text": "Take the 2-min quiz"
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "text": "Get a formula made for your smile"
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "text": "Avg. 7 shades whiter in 6 days (20 min daily)"
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "settings": {
+        "badge": "Anniversary sale 40% off",
+        "eyebrow": "Your personalized kit",
+        "price": "$39",
+        "price_was": "$65",
+        "price_note": "vs. $400–$1000 for whitening at the dentist",
+        "includes": "Includes Blue LED mouthpiece and 3 custom gels",
+        "button_label": "Build my formula",
+        "button_opens_quiz": true,
+        "guarantee": "Noticeably whiter in 30 days or your money back",
+        "trust": "Enamel-safe · Dentist-formulated · FDA-registered · Free shipping",
+        "margin_bottom": false,
+        "flow_visibility": "all"
+      }
+    },
+    "root_causes": {
+      "type": "root-causes",
+      "blocks": {
+        "cause_1": {
+          "type": "cause",
+          "settings": {
+            "title": "Plaque film",
+            "text": "Glossy, even shine"
+          }
+        },
+        "cause_2": {
+          "type": "cause",
+          "settings": {
+            "title": "Surface stains",
+            "text": "Coffee and wine stains lifted"
+          }
+        },
+        "cause_3": {
+          "type": "cause",
+          "settings": {
+            "title": "Deep stains",
+            "text": "Years-old yellow fades"
+          }
+        },
+        "cause_4": {
+          "type": "cause",
+          "settings": {
+            "title": "Thin enamel",
+            "text": "Remineralizes and rebuilds enamel"
+          }
+        }
+      },
+      "block_order": [
+        "cause_1",
+        "cause_2",
+        "cause_3",
+        "cause_4"
+      ],
+      "settings": {
+        "eyebrow": "Treats every root cause",
+        "heading": "Analysis first. Treatment second.",
+        "body": "Stains are just one of four reasons teeth look yellow. Miss one and your smile stays dull. Our assessment analyzes your root causes and creates a formula to treat all four.",
+        "button_label": "Build my formula",
+        "button_opens_quiz": true,
+        "margin_bottom": false,
+        "flow_visibility": "all"
+      }
     }
   },
   "order": [
     "personalized_hero",
+    "personalized_offer",
+    "root_causes",
     "main",
     "faq_section_Aifz8F"
   ]

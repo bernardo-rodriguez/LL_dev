@@ -1,0 +1,123 @@
+{{ 'section-root-causes.css' | asset_url | stylesheet_tag }}
+
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+{% assign causes = section.blocks | where: 'type', 'cause' %}
+
+<section
+  class="root-causes {% if section.settings.margin_bottom %}root-causes--with-spacing{% endif %}"
+  data-section-id="{{ section.id }}"
+  {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
+>
+  <div class="page-width">
+    <div class="root-causes__inner">
+
+      <div class="root-causes__header">
+        {% if section.settings.eyebrow != blank %}
+          <p class="section-eyebrow root-causes__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h3 class="section-heading root-causes__heading">{{ formatted_heading }}</h3>
+        {% endif %}
+        {% if section.settings.body != blank %}
+          <p class="root-causes__body body-md">{{ section.settings.body }}</p>
+        {% endif %}
+      </div>
+
+      <div class="root-causes__columns">
+        {%- comment -%}
+          The diagram is an image so it stays editable: the numbered markers in
+          the artwork line up with the numbered list beside it.
+        {%- endcomment -%}
+        {% if section.settings.image != blank %}
+          <div class="root-causes__diagram">
+            <img
+              src="{{ section.settings.image | image_url: width: 900 }}"
+              srcset="{{ section.settings.image | image_url: width: 450 }} 450w, {{ section.settings.image | image_url: width: 900 }} 900w"
+              sizes="(min-width: 769px) 40vw, 45vw"
+              alt="{{ section.settings.image.alt | default: section.settings.heading | escape }}"
+              loading="lazy"
+            >
+          </div>
+        {% endif %}
+
+        {% if causes.size > 0 %}
+          <ol class="root-causes__list">
+            {% for block in causes %}
+              <li class="root-causes__item" {{ block.shopify_attributes }}>
+                <span class="root-causes__item-label label-sm" {% if block.settings.colour != blank %}style="color: {{ block.settings.colour }};"{% endif %}>
+                  {{ forloop.index }} · {{ block.settings.title }}
+                </span>
+                <span class="root-causes__item-text sh3">{{ block.settings.text }}</span>
+              </li>
+            {% endfor %}
+          </ol>
+        {% endif %}
+      </div>
+
+      {% if section.settings.button_label != blank %}
+        <a
+          class="root-causes__link sh3"
+          {% if section.settings.button_link != blank %}href="{{ section.settings.button_link }}"{% else %}href="#"{% endif %}
+          {% if section.settings.button_opens_quiz %}data-open-quiz{% endif %}
+        >
+          {{ section.settings.button_label }}
+          <span class="root-causes__link-arrow" aria-hidden="true">{% render 'icon', icon: 'arrow' %}</span>
+        </a>
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Root Causes",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Treats every root cause" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Analysis first. Treatment second.", "info": "Wrap emphasized text in {} for the italic Canela style" },
+    { "type": "textarea", "id": "body", "label": "Body copy", "default": "Stains are just one of four reasons teeth look yellow. Miss one and your smile stays dull. Our assessment analyzes your root causes and creates a formula to treat all four." },
+    { "type": "image_picker", "id": "image", "label": "Diagram image", "info": "The numbered markers in the artwork should match the order of the causes below." },
+    { "type": "header", "content": "Call to action" },
+    { "type": "text", "id": "button_label", "label": "Link label", "default": "Build my formula" },
+    { "type": "url", "id": "button_link", "label": "Link" },
+    { "type": "checkbox", "id": "button_opens_quiz", "label": "Link opens the quiz", "default": true },
+    { "type": "header", "content": "Layout" },
+    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." },
+    { "type": "header", "content": "Personalization flow" },
+    { "type": "select", "id": "flow_visibility", "label": "Show this section to", "default": "all",
+      "options": [
+        { "value": "all", "label": "Everyone" },
+        { "value": "quiz", "label": "Quiz arrivals only" },
+        { "value": "direct", "label": "Direct arrivals only" }
+      ],
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL." }
+  ],
+  "blocks": [
+    {
+      "type": "cause",
+      "name": "Root cause",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Cause", "default": "Plaque film" },
+        { "type": "text", "id": "text", "label": "What the formula does", "default": "Glossy, even shine" },
+        { "type": "color", "id": "colour", "label": "Label colour", "info": "Optional. Match the marker in the diagram." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Root Causes",
+      "blocks": [
+        { "type": "cause", "settings": { "title": "Plaque film", "text": "Glossy, even shine" } },
+        { "type": "cause", "settings": { "title": "Surface stains", "text": "Coffee and wine stains lifted" } },
+        { "type": "cause", "settings": { "title": "Deep stains", "text": "Years-old yellow fades" } },
+        { "type": "cause", "settings": { "title": "Thin enamel", "text": "Remineralizes and rebuilds enamel" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
