@@ -1,0 +1,87 @@
+{{ 'section-sticky-quiz-bar.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  A fixed bar for page templates. The theme's sticky-product-bar reads
+  product.id and cannot run here, so this is the page equivalent: no product,
+  no variant, just the standing offer and the way into the quiz.
+{%- endcomment -%}
+
+<div
+  class="sticky-quiz-bar {% if section.settings.mobile_only %}sticky-quiz-bar--mobile-only{% endif %}"
+  data-section-id="{{ section.id }}"
+  data-sticky-quiz-bar
+  {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
+  hidden
+>
+  <div class="sticky-quiz-bar__inner">
+    <div class="sticky-quiz-bar__copy">
+      <p class="sticky-quiz-bar__price sh3">
+        {{ section.settings.price_text }}
+        {% if section.settings.price_was != blank %}
+          <span class="sticky-quiz-bar__was">{{ section.settings.price_was }}</span>
+        {% endif %}
+      </p>
+      {% if section.settings.note != blank %}
+        <p class="sticky-quiz-bar__note body-sm">{{ section.settings.note }}</p>
+      {% endif %}
+    </div>
+
+    {% if section.settings.button_label != blank %}
+      <a
+        class="button button--primary sticky-quiz-bar__cta"
+        {% if section.settings.button_link != blank %}href="{{ section.settings.button_link }}"{% else %}href="#"{% endif %}
+        {% if section.settings.button_opens_quiz %}data-open-quiz{% endif %}
+      >{{ section.settings.button_label }}</a>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  (function () {
+    var bar = document.querySelector('[data-sticky-quiz-bar][data-section-id="{{ section.id }}"]');
+    if (!bar) return;
+
+    {%- comment -%}
+      Held back until the first screen has been passed, so it does not cover
+      the hero's own button. Falls back to simply showing it where
+      IntersectionObserver is unavailable.
+    {%- endcomment -%}
+    var trigger = document.querySelector('.personalized-hero') || document.querySelector('[data-section-id]');
+
+    function show() { bar.hidden = false; bar.classList.add('sticky-quiz-bar--in'); }
+    function hide() { bar.classList.remove('sticky-quiz-bar--in'); }
+
+    if (!trigger || !('IntersectionObserver' in window)) { show(); return; }
+
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { hide(); } else { show(); }
+      });
+    }, { rootMargin: '0px 0px -60% 0px' }).observe(trigger);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Sticky Quiz Bar",
+  "settings": [
+    { "type": "text", "id": "price_text", "label": "Price line", "default": "Your kit, $39" },
+    { "type": "text", "id": "price_was", "label": "Price before discount", "default": "$65" },
+    { "type": "text", "id": "note", "label": "Line underneath", "default": "Starts with a 2-min quiz" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Build my formula" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "checkbox", "id": "button_opens_quiz", "label": "Button opens the quiz", "default": true },
+    { "type": "header", "content": "Layout" },
+    { "type": "checkbox", "id": "mobile_only", "label": "Phones only", "default": true, "info": "Desktop has the buttons in view for longer, so the bar is usually only needed on phones." },
+    { "type": "header", "content": "Personalization flow" },
+    { "type": "select", "id": "flow_visibility", "label": "Show this section to", "default": "all",
+      "options": [
+        { "value": "all", "label": "Everyone" },
+        { "value": "quiz", "label": "Quiz arrivals only" },
+        { "value": "direct", "label": "Direct arrivals only" }
+      ],
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL." }
+  ],
+  "presets": [ { "name": "Sticky Quiz Bar" } ]
+}
+{% endschema %}
