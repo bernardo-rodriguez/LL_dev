@@ -105,9 +105,58 @@
         "section_heading": "Frequently asked questions",
         "section_sub_heading": ""
       }
+    },
+    "personalized_hero": {
+      "type": "personalized-hero",
+      "blocks": {
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "value": "7 shades",
+            "label": "whiter in 6 days (avg.)"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "value": "0%",
+            "label": "reported more sensitivity"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "value": "100k+",
+            "label": "smiles whitened"
+          }
+        }
+      },
+      "block_order": [
+        "stat_1",
+        "stat_2",
+        "stat_3"
+      ],
+      "settings": {
+        "show_stars": true,
+        "rating_text": "4.7/5 from 2,316 reviews",
+        "heading": "Treat all root causes holding your smile back.",
+        "body": "Dentist-made formulas to treat every root cause behind yellow teeth for noticeably whiter teeth.",
+        "button_label": "Build my formula",
+        "button_opens_quiz": true,
+        "microcopy": "Free 2-min quiz · Your kit: $39",
+        "label_before": "Before",
+        "label_after": "After 6 days",
+        "card_title": "Kailey's formula",
+        "card_value": "8-16",
+        "card_tags": "Surface stains\nPlaque film\nDeep stains",
+        "card_note": "Medium sensitivity · dosed to match",
+        "margin_bottom": false,
+        "flow_visibility": "all"
+      }
     }
   },
   "order": [
+    "personalized_hero",
     "main",
     "faq_section_Aifz8F"
   ]
