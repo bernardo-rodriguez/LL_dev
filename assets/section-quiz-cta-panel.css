@@ -2,8 +2,15 @@
 
 .quiz-cta-panel { background: #ffffff; }
 
+/*
+  The one section that carries its space below instead of above. It is the
+  page's closing block and sits directly under the questions, so a gap above it
+  only showed a strip of background between the two; the gap belongs beneath,
+  keeping it off the footer.
+*/
 .quiz-cta-panel__inner {
-  margin-top: var(--section-space-y);
+  margin-top: 0;
+  margin-bottom: var(--section-space-y);
   padding: 44px 24px 48px;
   border-radius: 12px;
   background: var(--navy);
@@ -14,7 +21,10 @@
   text-align: center;
 }
 
-.quiz-cta-panel--with-spacing .quiz-cta-panel__inner { margin-bottom: var(--section-space-y); }
+/* The toggle doubles the gap below, for pages that want more room there */
+.quiz-cta-panel--with-spacing .quiz-cta-panel__inner {
+  margin-bottom: calc(var(--section-space-y) * 2);
+}
 
 .quiz-cta-panel__eyebrow { margin: 0 0 14px; color: var(--blue); }
 

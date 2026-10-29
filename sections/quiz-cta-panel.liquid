@@ -45,24 +45,89 @@
   "tag": "section",
   "class": "section",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Free 2-minute quiz" },
-    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Find out what's holding your smile back.", "info": "Wrap emphasized text in {} for the italic Canela style" },
-    { "type": "text", "id": "button_label", "label": "Button label", "default": "Build my formula" },
-    { "type": "url", "id": "button_link", "label": "Button link" },
-    { "type": "checkbox", "id": "button_opens_quiz", "label": "Button opens the quiz", "default": true },
-    { "type": "text", "id": "note", "label": "Line under the button", "default": "Then your kit is $39 (reg. $65)." },
-    { "type": "text", "id": "guarantee", "label": "Guarantee line", "default": "Noticeably whiter in 30 days or your money back." },
-    { "type": "header", "content": "Layout" },
-    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." },
-    { "type": "header", "content": "Personalization flow" },
-    { "type": "select", "id": "flow_visibility", "label": "Show this section to", "default": "all",
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Free 2-minute quiz"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Find out what's holding your smile back.",
+      "info": "Wrap emphasized text in {} for the italic Canela style"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Build my formula"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_opens_quiz",
+      "label": "Button opens the quiz",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Line under the button",
+      "default": "Then your kit is $39 (reg. $65)."
+    },
+    {
+      "type": "text",
+      "id": "guarantee",
+      "label": "Guarantee line",
+      "default": "Noticeably whiter in 30 days or your money back."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "margin_bottom",
+      "label": "Extra space below",
+      "default": false,
+      "info": "This panel sits flush against the section above it and carries its spacing underneath. Turn this on to double that gap."
+    },
+    {
+      "type": "header",
+      "content": "Personalization flow"
+    },
+    {
+      "type": "select",
+      "id": "flow_visibility",
+      "label": "Show this section to",
+      "default": "all",
       "options": [
-        { "value": "all", "label": "Everyone" },
-        { "value": "quiz", "label": "Quiz arrivals only" },
-        { "value": "direct", "label": "Direct arrivals only" }
+        {
+          "value": "all",
+          "label": "Everyone"
+        },
+        {
+          "value": "quiz",
+          "label": "Quiz arrivals only"
+        },
+        {
+          "value": "direct",
+          "label": "Direct arrivals only"
+        }
       ],
-      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL." }
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL."
+    }
   ],
-  "presets": [ { "name": "Quiz CTA Panel" } ]
+  "presets": [
+    {
+      "name": "Quiz CTA Panel"
+    }
+  ]
 }
 {% endschema %}
