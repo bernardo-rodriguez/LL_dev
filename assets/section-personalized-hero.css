@@ -89,10 +89,10 @@ body.template-product .personalized-hero__heading {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2px 2px;
+  gap: 2px;
   border-radius: 12px;
   overflow: hidden;
-  background: var(--blue-tint-20);
+  background: var(--blue-tint-10);
 }
 
 .personalized-hero__frame {
@@ -101,12 +101,22 @@ body.template-product .personalized-hero__heading {
   background: var(--blue-tint-10);
 }
 
+/*
+  object-position carries the focal point set on each image in the editor.
+
+  Higher values crop more off the top and show more of the bottom, which lifts
+  the subject up the frame — the opposite of what the number looks like it
+  should do. 65% clears a centred smile of the card below it; portraits framed
+  tighter or looser want tuning per image, which is why it is a setting rather
+  than a constant.
+*/
 .personalized-hero__frame img {
   display: block;
   width: 100%;
   height: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
+  object-position: 50% var(--focal, 65%);
 }
 
 .personalized-hero__pill {
@@ -127,18 +137,22 @@ body.template-product .personalized-hero__heading {
 }
 
 /*
-  The card sits under the photos rather than over them. It used to float on the
-  seam, which read well against the mockup's placeholder blocks but covered the
-  teeth once real photographs went in — and where the teeth fall depends on the
-  crop, so no overlay position is safe for every image. Keeping it inside the
-  same rounded container preserves the one-object look without ever hiding the
-  thing the pair exists to show.
+  The card straddles the seam between the two photos, which is what makes the
+  pair read as one result rather than two pictures.
+
+  It covers roughly the bottom third of the frame, so the teeth have to sit
+  above that. The focal point set on each image is what puts them there — see
+  the note on __frame img.
 */
 .personalized-hero__card {
-  grid-column: 1 / -1;
-  padding: 14px 16px 16px;
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  padding: 12px 14px 13px;
+  border-radius: 10px;
   background: #ffffff;
-  border-top: 1px solid var(--blue-tint-20);
+  box-shadow: 0 6px 24px -12px rgba(13, 34, 68, 0.45);
 }
 
 .personalized-hero__card-top {

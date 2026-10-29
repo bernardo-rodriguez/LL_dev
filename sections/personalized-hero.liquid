@@ -55,11 +55,17 @@
             {% if i == 1 %}
               {% assign img = section.settings.image_before %}
               {% assign pill = section.settings.label_before %}
+              {% assign focal = section.settings.focal_before %}
             {% else %}
               {% assign img = section.settings.image_after %}
               {% assign pill = section.settings.label_after %}
+              {% assign focal = section.settings.focal_after %}
             {% endif %}
-            <figure class="personalized-hero__frame">
+            {%- comment -%}
+              The focal point decides how much of the top is cropped, which is
+              what keeps the teeth above the card sitting over the bottom third.
+            {%- endcomment -%}
+            <figure class="personalized-hero__frame" style="--focal: {{ focal | default: 65 }}%;">
               {% if img != blank %}
                 <img
                   src="{{ img | image_url: width: 800 }}"
@@ -125,43 +131,190 @@
   "tag": "section",
   "class": "section",
   "settings": [
-    { "type": "checkbox", "id": "show_stars", "label": "Show stars", "default": true },
-    { "type": "text", "id": "rating_text", "label": "Rating line", "default": "4.7/5 from 2,316 reviews" },
-    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Treat all root causes holding your smile back.", "info": "Wrap emphasized text in {} for the italic Canela style" },
-    { "type": "textarea", "id": "body", "label": "Body copy", "default": "Dentist-made formulas to treat every root cause behind yellow teeth for noticeably whiter teeth." },
-    { "type": "header", "content": "Call to action" },
-    { "type": "text", "id": "button_label", "label": "Button label", "default": "Build my formula" },
-    { "type": "url", "id": "button_link", "label": "Button link" },
-    { "type": "checkbox", "id": "button_opens_quiz", "label": "Button opens the quiz", "default": true, "info": "Uses the same quiz trigger as the other landing pages. Leave the link blank when this is on." },
-    { "type": "text", "id": "microcopy", "label": "Line under the button", "default": "Free 2-min quiz · Your kit: $39" },
-    { "type": "header", "content": "Before and after" },
-    { "type": "image_picker", "id": "image_before", "label": "Before image" },
-    { "type": "text", "id": "label_before", "label": "Before label", "default": "Before" },
-    { "type": "image_picker", "id": "image_after", "label": "After image" },
-    { "type": "text", "id": "label_after", "label": "After label", "default": "After 6 days" },
-    { "type": "header", "content": "Formula card" },
-    { "type": "text", "id": "card_title", "label": "Card title", "default": "Kailey's formula" },
-    { "type": "text", "id": "card_value", "label": "Formula number", "default": "8-16" },
-    { "type": "textarea", "id": "card_tags", "label": "Causes found", "info": "One per line", "default": "Surface stains\nPlaque film\nDeep stains" },
-    { "type": "text", "id": "card_note", "label": "Note under the tags", "default": "Medium sensitivity · dosed to match" },
-    { "type": "header", "content": "Layout" },
-    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." },
-    { "type": "header", "content": "Personalization flow" },
-    { "type": "select", "id": "flow_visibility", "label": "Show this section to", "default": "all",
+    {
+      "type": "checkbox",
+      "id": "show_stars",
+      "label": "Show stars",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "rating_text",
+      "label": "Rating line",
+      "default": "4.7/5 from 2,316 reviews"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Treat all root causes holding your smile back.",
+      "info": "Wrap emphasized text in {} for the italic Canela style"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body copy",
+      "default": "Dentist-made formulas to treat every root cause behind yellow teeth for noticeably whiter teeth."
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Build my formula"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_opens_quiz",
+      "label": "Button opens the quiz",
+      "default": true,
+      "info": "Uses the same quiz trigger as the other landing pages. Leave the link blank when this is on."
+    },
+    {
+      "type": "text",
+      "id": "microcopy",
+      "label": "Line under the button",
+      "default": "Free 2-min quiz · Your kit: $39"
+    },
+    {
+      "type": "header",
+      "content": "Before and after"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_before",
+      "label": "Before image"
+    },
+    {
+      "type": "text",
+      "id": "label_before",
+      "label": "Before label",
+      "default": "Before"
+    },
+    {
+      "type": "range",
+      "id": "focal_before",
+      "label": "Before — focal point",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 65,
+      "info": "Higher crops more off the top and lifts the face, keeping the teeth clear of the card."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_after",
+      "label": "After image"
+    },
+    {
+      "type": "text",
+      "id": "label_after",
+      "label": "After label",
+      "default": "After 6 days"
+    },
+    {
+      "type": "range",
+      "id": "focal_after",
+      "label": "After — focal point",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 65,
+      "info": "Higher crops more off the top and lifts the face, keeping the teeth clear of the card."
+    },
+    {
+      "type": "header",
+      "content": "Formula card"
+    },
+    {
+      "type": "text",
+      "id": "card_title",
+      "label": "Card title",
+      "default": "Kailey's formula"
+    },
+    {
+      "type": "text",
+      "id": "card_value",
+      "label": "Formula number",
+      "default": "8-16"
+    },
+    {
+      "type": "textarea",
+      "id": "card_tags",
+      "label": "Causes found",
+      "info": "One per line",
+      "default": "Surface stains\nPlaque film\nDeep stains"
+    },
+    {
+      "type": "text",
+      "id": "card_note",
+      "label": "Note under the tags",
+      "default": "Medium sensitivity · dosed to match"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "margin_bottom",
+      "label": "Extra space below",
+      "default": false,
+      "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap."
+    },
+    {
+      "type": "header",
+      "content": "Personalization flow"
+    },
+    {
+      "type": "select",
+      "id": "flow_visibility",
+      "label": "Show this section to",
+      "default": "all",
       "options": [
-        { "value": "all", "label": "Everyone" },
-        { "value": "quiz", "label": "Quiz arrivals only" },
-        { "value": "direct", "label": "Direct arrivals only" }
+        {
+          "value": "all",
+          "label": "Everyone"
+        },
+        {
+          "value": "quiz",
+          "label": "Quiz arrivals only"
+        },
+        {
+          "value": "direct",
+          "label": "Direct arrivals only"
+        }
       ],
-      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL." }
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL."
+    }
   ],
   "blocks": [
     {
       "type": "stat",
       "name": "Statistic",
       "settings": [
-        { "type": "text", "id": "value", "label": "Value", "default": "7 shades" },
-        { "type": "text", "id": "label", "label": "Label", "default": "whiter in 6 days (avg.)" }
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "7 shades"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "whiter in 6 days (avg.)"
+        }
       ]
     }
   ],
@@ -169,9 +322,27 @@
     {
       "name": "Personalized Hero",
       "blocks": [
-        { "type": "stat", "settings": { "value": "7 shades", "label": "whiter in 6 days (avg.)" } },
-        { "type": "stat", "settings": { "value": "0%", "label": "reported more sensitivity" } },
-        { "type": "stat", "settings": { "value": "100k+", "label": "smiles whitened" } }
+        {
+          "type": "stat",
+          "settings": {
+            "value": "7 shades",
+            "label": "whiter in 6 days (avg.)"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "value": "0%",
+            "label": "reported more sensitivity"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "value": "100k+",
+            "label": "smiles whitened"
+          }
+        }
       ]
     }
   ]
