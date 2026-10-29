@@ -17,7 +17,6 @@
 }
 
 .science-effects__eyebrow {
-  margin: 0 0 12px;
   color: var(--blue);
   text-align: center;
 }
@@ -25,16 +24,8 @@
 .science-effects__heading {
   margin: 0 0 16px;
   color: var(--cream);
-  font-size: 28px;
-  font-weight: 500;
-  line-height: var(--ds-line-height);
-  letter-spacing: -0.015em;
   text-align: center;
   text-transform: none;
-}
-
-body.template-product .science-effects__heading {
-  letter-spacing: -0.015em !important;
 }
 
 .science-effects__intro {
@@ -66,10 +57,10 @@ body.template-product .science-effects__heading {
   width: 332px;
   height: 332px;
   background: radial-gradient(
-    circle,
-    rgba(70, 189, 240, 0.3) 0%,
-    rgba(70, 189, 240, 0.09) 45%,
-    rgba(13, 34, 68, 0) 70%
+  circle,
+  rgba(70, 189, 240, 0.3) 0%,
+  rgba(70, 189, 240, 0.09) 45%,
+  rgba(13, 34, 68, 0) 70%
   );
 }
 
@@ -292,7 +283,6 @@ body.template-product .science-effects__heading {
 /* Desktop */
 @media screen and (min-width: 769px) {
   .science-effects__heading {
-    font-size: 36px;
     margin-bottom: 20px;
   }
 

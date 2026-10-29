@@ -24,23 +24,9 @@
   flex-direction: column;
 }
 
-.our-standards__eyebrow {
-  margin: 0 0 12px;
-  color: var(--navy-tint-60);
-}
-
 .our-standards__heading {
   margin: 0 0 16px;
-  color: var(--navy);
-  font-size: 28px;
-  font-weight: 500;
-  line-height: var(--ds-line-height);
-  letter-spacing: -0.015em;
   text-transform: none;
-}
-
-body.template-product .our-standards__heading {
-  letter-spacing: -0.015em !important;
 }
 
 /* List */
@@ -120,7 +106,6 @@ body.template-product .our-standards__heading {
   }
 
   .our-standards__heading {
-    font-size: 36px;
     margin-bottom: 20px;
   }
 

@@ -16,23 +16,9 @@
   padding-bottom: var(--section-space-y);
 }
 
-.reasons-storyline__eyebrow {
-  margin: 0 0 12px;
-  color: var(--navy-tint-60);
-}
-
 .reasons-storyline__heading {
   margin: 0 0 32px;
-  color: var(--navy);
-  font-size: 28px;
-  font-weight: 500;
-  line-height: var(--ds-line-height);
-  letter-spacing: -0.015em;
   text-transform: none;
-}
-
-body.template-product .reasons-storyline__heading {
-  letter-spacing: -0.015em !important;
 }
 
 /* Each reason: title, media, optional checklist, copy */
@@ -68,13 +54,13 @@ body.template-product .reasons-storyline__heading {
 }
 
 /*
-  Declared after .reasons-storyline__frame on purpose: a single-image reason
-  carries both classes, so the frame's margin reset would win on equal
-  specificity and leave no gap under the image.
+Declared after .reasons-storyline__frame on purpose: a single-image reason
+carries both classes, so the frame's margin reset would win on equal
+specificity and leave no gap under the image.
 
-  The media sits between the title and the copy, so it needs more room beneath
-  it than the title has above it — otherwise the image reads as belonging to
-  the paragraph that follows rather than to its own reason.
+The media sits between the title and the copy, so it needs more room beneath
+it than the title has above it — otherwise the image reads as belonging to
+the paragraph that follows rather than to its own reason.
 */
 .reasons-storyline__media {
   margin: 0 0 24px;
@@ -234,9 +220,9 @@ body.template-product .reasons-storyline__heading {
   align-items: flex-start;
   gap: 10px;
   /*
-    Checklist items are single lines of the same copy, so they need the gap the
-    paragraph gets from its leading — otherwise the list reads denser than the
-    prose around it.
+  Checklist items are single lines of the same copy, so they need the gap the
+  paragraph gets from its leading — otherwise the list reads denser than the
+  prose around it.
   */
   margin-bottom: 12px;
   color: var(--navy);
@@ -265,7 +251,6 @@ body.template-product .reasons-storyline__heading {
 
 @media screen and (min-width: 769px) {
   .reasons-storyline__heading {
-    font-size: 36px;
     margin-bottom: 40px;
   }
 

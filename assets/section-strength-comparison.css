@@ -25,23 +25,12 @@
 
 .strength-comparison__eyebrow {
   order: 1;
-  margin: 0 0 12px;
-  color: var(--navy-tint-60);
 }
 
 .strength-comparison__heading {
   order: 2;
   margin: 0 0 16px;
-  color: var(--navy);
-  font-size: 28px;
-  font-weight: 500;
-  line-height: var(--ds-line-height);
-  letter-spacing: -0.015em;
   text-transform: none;
-}
-
-body.template-product .strength-comparison__heading {
-  letter-spacing: -0.015em !important;
 }
 
 .strength-comparison__body {
@@ -69,7 +58,7 @@ body.template-product .strength-comparison__heading {
 .strength-comparison__footnote {
   order: 6;
   /* Spacing lives here rather than on the stats block above, which is often
-     the last visible element when no footnote is set. */
+  the last visible element when no footnote is set. */
   margin: 20px 0 0;
   color: var(--navy-tint-60);
 }
@@ -363,7 +352,6 @@ body.template-product .strength-comparison__heading {
   }
 
   .strength-comparison__heading {
-    font-size: 36px;
     margin-bottom: 20px;
   }
 

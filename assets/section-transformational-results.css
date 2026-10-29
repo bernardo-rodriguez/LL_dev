@@ -1,8 +1,8 @@
 /*
-  Always 60px above, at every breakpoint and on every template. The product
-  page previously pulled this section up (-60px desktop / -40px mobile) to
-  overlap the section above it; those overrides were removed rather than
-  fought with !important, so nothing reintroduces a negative top margin.
+Always 60px above, at every breakpoint and on every template. The product
+page previously pulled this section up (-60px desktop / -40px mobile) to
+overlap the section above it; those overrides were removed rather than
+fought with !important, so nothing reintroduces a negative top margin.
 */
 .transformational-results {
   margin: var(--section-space-y) 0 0;
@@ -29,13 +29,7 @@
 }
 
 .transformational-results__heading {
-  font-family: manrope, sans-serif;
-  font-weight: 500;
-  font-size: 36px;
-  line-height: var(--ds-line-height);
-  letter-spacing: -0.015em !important;
   margin: 0 0 28px;
-  color: var(--navy);
   text-align: left;
 }
 
@@ -149,24 +143,24 @@
 }
 
 /*
-  No statistics column: the slider is the only thing in the grid, so the panel
-  collapses to one centred column rather than leaving the right half empty.
-  The images keep a sensible reading width instead of stretching the full panel.
+No statistics column: the slider is the only thing in the grid, so the panel
+collapses to one centred column rather than leaving the right half empty.
+The images keep a sensible reading width instead of stretching the full panel.
 */
 @media screen and (min-width: 769px) {
   /*
-    Without the stats column the panel only has to hold the slider, so it stops
-    well short of the full page width — otherwise the blue field is mostly
-    empty either side of a narrow column.
+  Without the stats column the panel only has to hold the slider, so it stops
+  well short of the full page width — otherwise the blue field is mostly
+  empty either side of a narrow column.
 
-    It is not shrink-wrapped to the slider either: a panel that merely traces
-    its contents reads as a box around an image rather than a section of the
-    page.
+  It is not shrink-wrapped to the slider either: a panel that merely traces
+  its contents reads as a box around an image rather than a section of the
+  page.
 
-    880px is not a taste call — it is what first-order-includes uses for its
-    own boxed wrapper, and these two stack directly on the landing page. Any
-    other number leaves two centred boxes with edges that almost line up, which
-    reads as a mistake. If that section's width changes, change this with it.
+  880px is not a taste call — it is what first-order-includes uses for its
+  own boxed wrapper, and these two stack directly on the landing page. Any
+  other number leaves two centred boxes with edges that almost line up, which
+  reads as a mistake. If that section's width changes, change this with it.
   */
   .transformational-results--no-stats .transformational-results__inner {
     grid-template-columns: minmax(0, 1fr);
@@ -176,7 +170,7 @@
     width: min(880px, 100%);
     margin-inline: auto;
     /* Even padding: without the stats column there is no tall neighbour to
-       balance against. */
+    balance against. */
     padding: 56px 50px;
   }
 
@@ -211,7 +205,6 @@
   }
 
   .transformational-results__heading {
-    font-size: 28px;
     margin-bottom: 20px;
     text-align: center;
   }
@@ -252,21 +245,21 @@
 }
 
 /*
-  Mobile: sit flush against whatever section precedes this one, so the panel's
-  colour runs straight on from the section above instead of leaving a white
-  band. The panel is already full-bleed and square-cornered at this breakpoint.
+Mobile: sit flush against whatever section precedes this one, so the panel's
+colour runs straight on from the section above instead of leaving a white
+band. The panel is already full-bleed and square-cornered at this breakpoint.
 
-  Written against any preceding sibling rather than a specific pairing, since
-  the section order is rearranged in the theme editor — an earlier version of
-  this rule was tied to the dentist carousel and stopped applying the moment
-  the order changed.
+Written against any preceding sibling rather than a specific pairing, since
+the section order is rearranged in the theme editor — an earlier version of
+this rule was tied to the dentist carousel and stopped applying the moment
+the order changed.
 
-  Matched on the bare wrapper rather than `.section`, because that class only
-  exists when a section's schema declares it. Logo Bar's does not, so a
-  `.section + .section` rule skipped this pairing entirely.
+Matched on the bare wrapper rather than `.section`, because that class only
+exists when a section's schema declares it. Logo Bar's does not, so a
+`.section + .section` rule skipped this pairing entirely.
 
-  Sections only carry top space, so zeroing this one's own top margin is all
-  that is needed for the two to meet at zero.
+Sections only carry top space, so zeroing this one's own top margin is all
+that is needed for the two to meet at zero.
 */
 @media screen and (max-width: 768px) {
   * + *:has(> .transformational-results) .transformational-results {
@@ -275,10 +268,10 @@
 }
 
 /*
-  Desktop keeps the panels as separate rounded cards, except where this section
-  follows the dentist carousel — there the two #EEF9FF panels join into one
-  field, pulling up a further 12px and squaring this panel's top corners so it
-  paints over the carousel's rounded bottom corners.
+Desktop keeps the panels as separate rounded cards, except where this section
+follows the dentist carousel — there the two #EEF9FF panels join into one
+field, pulling up a further 12px and squaring this panel's top corners so it
+paints over the carousel's rounded bottom corners.
 */
 @media screen and (min-width: 769px) {
   .section:has(.multi-slide-carousel) + .section:has(.transformational-results--no-stats) {

@@ -14,11 +14,11 @@
   <div class="page-width {% if template.name == 'product' %}page-width--product{% endif %}">
     <div class="science-effects__inner">
       {% if section.settings.eyebrow != blank %}
-        <p class="science-effects__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+        <p class="section-eyebrow science-effects__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
       {% endif %}
 
       {% if section.settings.heading != blank %}
-        <h3 class="science-effects__heading">{{ formatted_heading }}</h3>
+        <h3 class="section-heading science-effects__heading">{{ formatted_heading }}</h3>
       {% endif %}
 
       {% if section.settings.intro != blank %}

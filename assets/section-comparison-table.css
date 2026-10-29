@@ -15,22 +15,13 @@
 
 .comparison-table__heading {
   margin: 0 0 24px;
-  color: var(--navy);
-  font-size: 28px;
-  font-weight: 500;
-  line-height: var(--ds-line-height);
-  letter-spacing: -0.015em;
   text-transform: none;
 }
 
-body.template-product .comparison-table__heading {
-  letter-spacing: -0.015em !important;
-}
-
 /*
-  One grid for the whole table so columns line up. --comparison-columns is the
-  number of data columns (Laughland + competitors), set inline by the section.
-  No grid gap, so consecutive navy cells merge into one continuous column.
+One grid for the whole table so columns line up. --comparison-columns is the
+number of data columns (Laughland + competitors), set inline by the section.
+No grid gap, so consecutive navy cells merge into one continuous column.
 */
 .comparison-table__grid {
   display: grid;
@@ -107,9 +98,9 @@ body.template-product .comparison-table__heading {
 }
 
 /*
-  Text rows (price, for one) print a value where a mark would go. Sized like
-  the row label so a text row reads as part of the same table, and tinted cream
-  in the navy column for the same reason the ticks are.
+Text rows (price, for one) print a value where a mark would go. Sized like
+the row label so a text row reads as part of the same table, and tinted cream
+in the navy column for the same reason the ticks are.
 */
 .comparison-table__value {
   font-family: var(--ds-font-family);
@@ -172,7 +163,6 @@ body.template-product .comparison-table__heading {
 
 @media screen and (min-width: 769px) {
   .comparison-table__heading {
-    font-size: 36px;
     max-width: 700px;
     /* Centred over the table, which is itself centred in the page width */
     margin: 0 auto 40px;

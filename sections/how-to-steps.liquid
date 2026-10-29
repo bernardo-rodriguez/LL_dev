@@ -47,11 +47,11 @@
 
         <div class="how-to-steps__content">
           {% if section.settings.eyebrow != blank %}
-            <p class="how-to-steps__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+            <p class="section-eyebrow how-to-steps__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
           {% endif %}
 
           {% if section.settings.heading != blank %}
-            <h3 class="how-to-steps__heading">{{ formatted_heading }}</h3>
+            <h3 class="section-heading how-to-steps__heading">{{ formatted_heading }}</h3>
           {% endif %}
 
           {% if steps.size > 0 %}

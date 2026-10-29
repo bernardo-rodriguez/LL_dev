@@ -64,23 +64,9 @@
   align-items: flex-start;
 }
 
-.how-to-steps__eyebrow {
-  margin: 0 0 12px;
-  color: var(--navy-tint-60);
-}
-
 .how-to-steps__heading {
   margin: 0 0 24px;
-  color: var(--navy);
-  font-size: 28px;
-  font-weight: 500;
-  line-height: var(--ds-line-height);
-  letter-spacing: -0.015em;
   text-transform: none;
-}
-
-body.template-product .how-to-steps__heading {
-  letter-spacing: -0.015em !important;
 }
 
 /* Steps --------------------------------------------------------------- */
@@ -103,8 +89,8 @@ body.template-product .how-to-steps__heading {
 }
 
 /*
-  The number is drawn, not a list marker, so it keeps its size and colour next
-  to copy that wraps. Sized in em so it tracks the step text at both breakpoints.
+The number is drawn, not a list marker, so it keeps its size and colour next
+to copy that wraps. Sized in em so it tracks the step text at both breakpoints.
 */
 .how-to-steps__number {
   flex-shrink: 0;
@@ -130,9 +116,9 @@ body.template-product .how-to-steps__heading {
 /* Call to action ------------------------------------------------------ */
 
 /*
-  .button carries no link reset anywhere in the theme — the existing buttons
-  are <button> elements, so the browser's underline never showed up. This one
-  is an anchor, so it clears it here.
+.button carries no link reset anywhere in the theme — the existing buttons
+are <button> elements, so the browser's underline never showed up. This one
+is an anchor, so it clears it here.
 */
 .how-to-steps__cta {
   display: inline-flex;
@@ -150,7 +136,7 @@ body.template-product .how-to-steps__heading {
 }
 
 /* The arrow's viewBox is 14x10, so height follows the width rather than
-   squaring it off. */
+squaring it off. */
 .how-to-steps__cta-arrow svg {
   width: 15px;
   height: auto;
@@ -176,7 +162,7 @@ body.template-product .how-to-steps__heading {
 }
 
 /* The checkmark ships with a hard-coded blue fill, which is too light against
-   this line. Follow the text instead. */
+this line. Follow the text instead. */
 .how-to-steps__reassurance-icon svg {
   width: 15px;
   height: 15px;
@@ -197,15 +183,14 @@ body.template-product .how-to-steps__heading {
   }
 
   /*
-    Order rather than a second grid definition, so the two arrangements cannot
-    drift apart. On mobile the media always leads.
+  Order rather than a second grid definition, so the two arrangements cannot
+  drift apart. On mobile the media always leads.
   */
   .how-to-steps--media-right .how-to-steps__media {
     order: 2;
   }
 
   .how-to-steps__heading {
-    font-size: 36px;
     margin-bottom: 28px;
   }
 

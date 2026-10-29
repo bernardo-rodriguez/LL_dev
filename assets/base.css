@@ -498,6 +498,52 @@ p,
   storyline's paragraphs and checklists, for one) uses this class rather than
   restating the declarations, so the two never drift apart.
 */
+/*
+  Section-level type, shared.
+  ==========================
+
+  Ten section stylesheets each restated the same heading: 28px rising to 36px,
+  weight 500, --ds-heading-ls-md. Editing one left the other nine behind, which
+  is how the pages drift apart.
+
+  Only the invariants live here. Everything that legitimately differs between
+  sections stays in that section's own stylesheet, and because section CSS
+  loads after base.css it still wins:
+
+    margin          12px to 40px depending on the section
+    color           science-effects is cream on navy, the rest are navy
+    text-align      centred in the comparison table and results
+    text-transform  three sections deliberately keep h3's capitalize
+    order, max-width
+
+  The !important mirrors the one these rules already carried: the product page
+  zeroes letter-spacing on every heading class, and section headings opt back out.
+*/
+.section-heading {
+  font-family: var(--ds-font-family);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-heading-ls-md);
+  color: var(--navy);
+}
+
+@media screen and (min-width: 769px) {
+  .section-heading {
+    font-size: 36px;
+  }
+}
+
+body.template-product .section-heading {
+  letter-spacing: var(--ds-heading-ls-md) !important;
+}
+
+/* Eyebrow above a section heading. Pair with .label-sm for the type itself. */
+.section-eyebrow {
+  margin: 0 0 12px;
+  color: var(--navy-tint-60);
+}
+
 .body-md {
   font-family: var(--ds-font-family);
   font-size: 14px;
