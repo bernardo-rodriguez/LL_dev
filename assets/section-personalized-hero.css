@@ -98,25 +98,37 @@ body.template-product .personalized-hero__heading {
 .personalized-hero__frame {
   position: relative;
   margin: 0;
+  aspect-ratio: 3 / 4;
   background: var(--blue-tint-10);
 }
 
 /*
-  object-position carries the focal point set on each image in the editor.
+  The focal point decides how much is cropped off the top, which is what keeps
+  the teeth above the card sitting over the bottom third.
 
-  Higher values crop more off the top and show more of the bottom, which lifts
-  the subject up the frame — the opposite of what the number looks like it
-  should do. 65% clears a centred smile of the card below it; portraits framed
-  tighter or looser want tuning per image, which is why it is a setting rather
-  than a constant.
+  The image is given 25% more height than the frame and then slid up by a share
+  of that overflow. Doing it this way rather than with object-position alone
+  means the control always has room to move: object-position can only shift an
+  image that is already taller than the 3:4 frame, so on a square or landscape
+  photo it would do nothing at all.
+
+  0 shows the top of the photo, 100 crops the most off the top and lifts the
+  face highest. The default sits near the top of that range because these are
+  portraits of a smile, and the smile needs to clear the card.
 */
+.personalized-hero__frame {
+  overflow: hidden;
+}
+
 .personalized-hero__frame img {
   display: block;
   width: 100%;
-  height: 100%;
-  aspect-ratio: 3 / 4;
+  height: 125%;
+  aspect-ratio: auto;
   object-fit: cover;
-  object-position: 50% var(--focal, 65%);
+  object-position: 50% 50%;
+  position: relative;
+  top: calc(-25% * var(--focal, 80) / 100);
 }
 
 .personalized-hero__pill {

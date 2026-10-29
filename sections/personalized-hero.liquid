@@ -65,7 +65,7 @@
               The focal point decides how much of the top is cropped, which is
               what keeps the teeth above the card sitting over the bottom third.
             {%- endcomment -%}
-            <figure class="personalized-hero__frame" style="--focal: {{ focal | default: 65 }}%;">
+            <figure class="personalized-hero__frame" style="--focal: {{ focal | default: 80 }};">
               {% if img != blank %}
                 <img
                   src="{{ img | image_url: width: 800 }}"
@@ -207,8 +207,8 @@
       "max": 100,
       "step": 5,
       "unit": "%",
-      "default": 65,
-      "info": "Higher crops more off the top and lifts the face, keeping the teeth clear of the card."
+      "default": 80,
+      "info": "0 shows the top of the photo. Higher crops more off the top and lifts the face, keeping the teeth clear of the card."
     },
     {
       "type": "image_picker",
@@ -229,8 +229,8 @@
       "max": 100,
       "step": 5,
       "unit": "%",
-      "default": 65,
-      "info": "Higher crops more off the top and lifts the face, keeping the teeth clear of the card."
+      "default": 80,
+      "info": "0 shows the top of the photo. Higher crops more off the top and lifts the face, keeping the teeth clear of the card."
     },
     {
       "type": "header",
