@@ -750,9 +750,16 @@ input:checked + .slider:before {
     display: contents;
   }
 
+  /*
+    Centred on phones only. The headline sits above the gallery here rather
+    than beside it, so it reads as a title for the page instead of the top of
+    a left-aligned column; on desktop it stays ranged left with the rest of
+    the info column.
+  */
   .product__intro {
     order: 1;
     padding: 20px 10px 16px;
+    text-align: center;
   }
 
   .product__media-wrapper {

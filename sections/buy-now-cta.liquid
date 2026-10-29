@@ -1,0 +1,164 @@
+{{ 'section-buy-now-cta.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  The brace swap stays in an assign tag. Shopify ends an output tag at the
+  first }, so replace: '}' inside {{ }} truncates it and the file is refused.
+{%- endcomment -%}
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+
+<section
+  class="buy-now-cta {% if section.settings.margin_bottom %}buy-now-cta--with-spacing{% endif %}"
+  data-section-id="{{ section.id }}"
+  {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
+>
+  <div class="page-width {% if template == 'product' %}page-width--product{% endif %}">
+    <div class="buy-now-cta__inner">
+      {% if section.settings.eyebrow != blank %}
+        <p class="buy-now-cta__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h3 class="buy-now-cta__heading">{{ formatted_heading }}</h3>
+      {% endif %}
+
+      {% if section.settings.body != blank %}
+        <p class="buy-now-cta__body body-md">{{ section.settings.body }}</p>
+      {% endif %}
+
+      {%- comment -%}
+        A button, not a link: this moves the visitor within the page rather
+        than taking them somewhere, and it keeps the browser's link underline
+        out of it.
+      {%- endcomment -%}
+      <button
+        type="button"
+        class="button button--primary buy-now-cta__button"
+        data-buy-now-cta
+        data-scroll-target="{{ section.settings.scroll_target }}"
+      >
+        {{ section.settings.button_label }}
+      </button>
+
+      {% if section.settings.reassurance != blank %}
+        <p class="buy-now-cta__reassurance">
+          <span class="buy-now-cta__reassurance-icon" aria-hidden="true">{% render 'icon', icon: 'checkmark' %}</span>
+          {{ section.settings.reassurance }}
+        </p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var root = document.querySelector('[data-section-id="{{ section.id }}"]');
+    if (!root) return;
+
+    var button = root.querySelector('[data-buy-now-cta]');
+    if (!button) return;
+
+    button.addEventListener('click', function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var behavior = reduce ? 'auto' : 'smooth';
+      var target = button.getAttribute('data-scroll-target');
+
+      // Fall back to the top of the page whenever the buy box is not on this
+      // template, so the button always does something.
+      if (target === 'options') {
+        var options = document.querySelector('.pdp-product-options') || document.querySelector('.product__info-wrapper');
+        if (options) {
+          var top = options.getBoundingClientRect().top + window.pageYOffset - 20;
+          window.scrollTo({ top: top, behavior: behavior });
+          return;
+        }
+      }
+
+      window.scrollTo({ top: 0, behavior: behavior });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Buy Now CTA",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Ready when you are"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Start your {transformation.}",
+      "info": "Wrap emphasized text in {} for the italic Canela style"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body copy",
+      "default": "Build the kit matched to your sensitivity and see a difference in under a week."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Buy now"
+    },
+    {
+      "type": "select",
+      "id": "scroll_target",
+      "label": "Button scrolls to",
+      "default": "top",
+      "options": [
+        { "value": "top", "label": "Top of the page" },
+        { "value": "options", "label": "The kit picker" }
+      ],
+      "info": "Falls back to the top of the page on templates with no kit picker."
+    },
+    {
+      "type": "text",
+      "id": "reassurance",
+      "label": "Reassurance line",
+      "default": "30-day money back guarantee"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "margin_bottom",
+      "label": "Extra space below",
+      "default": false,
+      "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap."
+    },
+    {
+      "type": "header",
+      "content": "Personalization flow"
+    },
+    {
+      "type": "select",
+      "id": "flow_visibility",
+      "label": "Show this section to",
+      "default": "all",
+      "options": [
+        { "value": "all", "label": "Everyone" },
+        { "value": "quiz", "label": "Quiz arrivals only" },
+        { "value": "direct", "label": "Direct arrivals only" }
+      ],
+      "info": "Quiz arrivals completed the customization quiz. Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL."
+    }
+  ],
+  "presets": [
+    { "name": "Buy Now CTA" }
+  ]
+}
+{% endschema %}

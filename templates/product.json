@@ -1023,6 +1023,19 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "buy_now_cta_pdp": {
+      "type": "buy-now-cta",
+      "settings": {
+        "eyebrow": "Ready when you are",
+        "heading": "Start your {transformation.}",
+        "body": "Build the kit matched to your sensitivity and see a difference in under a week.",
+        "button_label": "Buy now",
+        "scroll_target": "top",
+        "reassurance": "30-day money back guarantee",
+        "margin_bottom": false,
+        "flow_visibility": "all"
+      }
     }
   },
   "order": [
@@ -1038,6 +1051,7 @@
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
     "1c8af4c9-5992-4bfb-9d4a-a8e06e025318",
     "our_standards_pdp",
+    "buy_now_cta_pdp",
     "science_effects_yCEdFb",
     "health_and_safety_7jXKQb",
     "30a71a58-b5ad-472f-9d70-97379fc62b74",
