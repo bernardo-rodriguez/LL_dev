@@ -121,7 +121,10 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
 
     if (window.location.href.includes('at-home-whitening-kit')) { 
       if ( titleEl && name != "" && !storedProductName?.toLowerCase().includes("to go pen") && window.location.pathname != '/pages/landing-page') {
-        titleEl.innerHTML = `<span class="stylized">${name}'s</span><br> ${storedProductName.replace(/[^\p{L}\p{N}\p{P}\p{Z}^$\n]/gu, '')}`
+        // A space rather than a <br>: the headline is short now that the word
+        // after the name comes from data-name-title, so it should only wrap
+        // when it genuinely does not fit.
+        titleEl.innerHTML = `<span class="stylized">${name}'s</span> ${storedProductName.replace(/[^\p{L}\p{N}\p{P}\p{Z}^$\n]/gu, '')}`
       }
     } else if (window.location.href.includes('landing-page-product-main')) {
       $('#perfect-match-text').html(`${name}'s Perfect Match`)
