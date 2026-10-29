@@ -255,7 +255,15 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
 
       setTimeout(function(){
         console.log(document.cookie)
-  
+
+        // A page can name where its quiz should land, so a landing page built
+        // against a particular product template sends people to that template
+        // instead of the default product page. Affiliate routing still wins:
+        // those destinations are different products, not a different view of
+        // the same one.
+        var pageDestination = document.querySelector('[data-quiz-destination]')
+        var destination = pageDestination && pageDestination.getAttribute('data-quiz-destination')
+
         if (getCookie('affiliate_referrer') == 'ut' && getCookie('affiliate_referrer') != 'ut_direct') {
           window.location = '/products/at-home-whitening-kit-affiliate-ut'
           // window.location = '/products/at-home-whitening-kit'
@@ -266,6 +274,8 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
           window.location = '/products/6-serving-of-whitening-gels-free-starter-kit'
         } else if (getCookie('affiliate_referrer') == 'nift_bundle') {
           window.location = '/products/starter-whitening-kit-6-treatments-free-pen'
+        } else if (destination) {
+          window.location = destination
         } else {
           window.location = '/products/at-home-whitening-kit'
         }

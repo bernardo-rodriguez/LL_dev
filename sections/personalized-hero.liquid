@@ -9,9 +9,15 @@
 %}
 {% assign stats = section.blocks | where: 'type', 'stat' %}
 
+{%- comment -%}
+  data-quiz-destination tells quiz.js where to send people when they finish.
+  It is read from the page rather than hardcoded in the script, so a landing
+  page built against a particular product template routes to that template.
+{%- endcomment -%}
 <section
   class="personalized-hero {% if section.settings.margin_bottom %}personalized-hero--with-spacing{% endif %}"
   data-section-id="{{ section.id }}"
+  {% if section.settings.quiz_destination != blank %}data-quiz-destination="{{ section.settings.quiz_destination }}"{% endif %}
   {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
 >
   <div class="page-width">
@@ -177,6 +183,13 @@
       "label": "Button opens the quiz",
       "default": true,
       "info": "Uses the same quiz trigger as the other landing pages. Leave the link blank when this is on."
+    },
+    {
+      "type": "text",
+      "id": "quiz_destination",
+      "label": "Where the quiz lands",
+      "default": "/products/at-home-whitening-kit?view=personalized",
+      "info": "Where someone is sent after finishing the quiz on this page. Leave blank to use the theme's default product page. Affiliate links still take priority."
     },
     {
       "type": "richtext",

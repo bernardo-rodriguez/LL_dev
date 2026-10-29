@@ -409,6 +409,15 @@ customElements.define('formula-quiz-2', class FormulaQuiz2 extends HTMLElement {
     setTimeout(function(){
       console.log(document.cookie)
 
+      // Same page-named destination as quiz.js, so the two quizzes cannot
+      // route differently from the same landing page.
+      var pageDestination = document.querySelector('[data-quiz-destination]')
+      var destination = pageDestination && pageDestination.getAttribute('data-quiz-destination')
+      if (destination) {
+        window.location = destination
+        return
+      }
+
       if (ut == 'true' && ut_direct != 'true' && ut_trial != 'true') {
         window.location = '/products/landing-page-product-main'
       } else {

@@ -59,7 +59,8 @@
         "card_tags": "Surface stains\nPlaque film\nDeep stains",
         "card_note": "Medium sensitivity · dosed to match",
         "margin_bottom": false,
-        "flow_visibility": "all"
+        "flow_visibility": "all",
+        "quiz_destination": "/products/at-home-whitening-kit?view=personalized"
       }
     },
     "press_logos": {
