@@ -61,12 +61,20 @@
   margin: 0 0 2px;
 }
 
+/*
+  .h2 is borrowed here for the size, and it brings the heading margin with it —
+  30px, 20px on phones. A span would normally ignore a vertical margin, but a
+  flex item is block-level, so it applied and left a gap under the price that
+  looked like it came from the row.
+*/
 .personalized-offer__price-now {
+  margin: 0;
   color: var(--navy);
   text-transform: none;
 }
 
 .personalized-offer__price-was {
+  margin: 0;
   color: var(--navy-tint-60);
   text-decoration: line-through;
 }
