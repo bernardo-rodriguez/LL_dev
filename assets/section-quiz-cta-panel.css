@@ -41,6 +41,23 @@
 .quiz-cta-panel__note { margin: 14px 0 0; color: var(--blue-tint-40); }
 .quiz-cta-panel__guarantee { margin: 6px 0 0; color: var(--blue-tint-40); }
 
+/*
+  Full width on phones: the panel is the page's closing statement, and the
+  20px gutter either side made it read as one more card. Negative margins
+  cancel .page-width's padding rather than the section opting out of it, which
+  is how transformational-results does the same thing.
+*/
+@media screen and (max-width: 768px) {
+  .quiz-cta-panel__inner {
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+    box-sizing: border-box;
+    border-radius: 0;
+    padding: 44px 24px 48px;
+  }
+}
+
 @media screen and (min-width: 769px) {
   .quiz-cta-panel__inner { padding: 64px 40px 68px; }
   .quiz-cta-panel__cta { width: auto; min-width: 320px; }

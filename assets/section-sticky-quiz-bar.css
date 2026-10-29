@@ -90,3 +90,17 @@
     padding: 12px 50px;
   }
 }
+
+
+/*
+  The theme renders sticky-footer ("Find Your Personalized Formula") on every
+  non-product page from the layout, with no setting to turn it off. Where this
+  bar is present the two do the same job and would stack on top of each other,
+  so the older one stands down.
+
+  Keyed to the presence of this section rather than to a page name, so any page
+  that adopts this bar gets the same behaviour without editing the layout.
+*/
+body:has(.sticky-quiz-bar) #shopify-section-sticky-footer {
+  display: none;
+}
