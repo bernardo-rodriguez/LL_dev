@@ -1027,12 +1027,8 @@
     "buy_now_cta_pdp": {
       "type": "buy-now-cta",
       "settings": {
-        "eyebrow": "Ready when you are",
-        "heading": "Start your {transformation.}",
-        "body": "Build the kit matched to your sensitivity and see a difference in under a week.",
         "button_label": "Buy now",
         "scroll_target": "top",
-        "reassurance": "30-day money back guarantee",
         "margin_bottom": false,
         "flow_visibility": "all"
       }
