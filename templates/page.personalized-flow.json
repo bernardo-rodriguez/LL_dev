@@ -243,13 +243,174 @@
         "margin_bottom": false,
         "flow_visibility": "all"
       }
+    },
+    "sensitivity_match": {
+      "type": "sensitivity-match",
+      "blocks": {
+        "choice_1": {
+          "type": "choice",
+          "settings": {
+            "label": "Pain",
+            "selected": false
+          }
+        },
+        "choice_2": {
+          "type": "choice",
+          "settings": {
+            "label": "Wince",
+            "selected": true
+          }
+        },
+        "choice_3": {
+          "type": "choice",
+          "settings": {
+            "label": "Feel fine",
+            "selected": false
+          }
+        },
+        "meter_4": {
+          "type": "meter",
+          "settings": {
+            "label": "Whitening power",
+            "value": "Balanced",
+            "level": 60,
+            "highlight": false
+          }
+        },
+        "meter_5": {
+          "type": "meter",
+          "settings": {
+            "label": "Sensitivity protection",
+            "value": "Balanced",
+            "level": 60,
+            "highlight": true
+          }
+        }
+      },
+      "block_order": [
+        "choice_1",
+        "choice_2",
+        "choice_3",
+        "meter_4",
+        "meter_5"
+      ],
+      "settings": {
+        "eyebrow": "Your max strength",
+        "heading": "Max whitening, minimum sensitivity.",
+        "body": "Sensitivity blockers are matched to your sensitivity level, so you get the strongest dose without pain.",
+        "question": "Cold drinks make my teeth…",
+        "result_name": "Everyday 8-16",
+        "result_note": "Bright and comfortable",
+        "margin_bottom": false,
+        "flow_visibility": "all"
+      }
+    },
+    "dentist_cards": {
+      "type": "dentist-cards",
+      "blocks": {
+        "dentist_1": {
+          "type": "dentist",
+          "settings": {
+            "name": "Dr. Name, DDS",
+            "practice": "Practice · City, State",
+            "tag": "Uses it with patients",
+            "quote": "Matching strength to sensitivity is how we whiten in the office. Laughland brings that home.",
+            "disclosure": "Paid Laughland advisor"
+          }
+        },
+        "dentist_2": {
+          "type": "dentist",
+          "settings": {
+            "name": "Dr. Name, DMD",
+            "practice": "Practice · City, State",
+            "tag": "Uses it with patients",
+            "quote": "Whitening fades when it only treats stains. Treating plaque and enamel too is what makes it last.",
+            "disclosure": "Paid Laughland advisor"
+          }
+        },
+        "dentist_3": {
+          "type": "dentist",
+          "settings": {
+            "name": "Dr. Name, DDS",
+            "practice": "Practice · City, State",
+            "tag": "Recommends to patients",
+            "quote": "It's what I suggest for patients who couldn't get through strips.",
+            "disclosure": "Paid Laughland advisor"
+          }
+        }
+      },
+      "block_order": [
+        "dentist_1",
+        "dentist_2",
+        "dentist_3"
+      ],
+      "settings": {
+        "eyebrow": "Dentist approved",
+        "heading": "Dentists trust it. It's how they whiten teeth.",
+        "swipe_hint": "Swipe for more",
+        "margin_bottom": false,
+        "flow_visibility": "all"
+      }
+    },
+    "results_cards": {
+      "type": "results-cards",
+      "blocks": {
+        "result_1": {
+          "type": "result",
+          "settings": {
+            "name": "Sophia S.",
+            "formula": "8-16",
+            "tags": "Surface stains\nMedium sensitivity",
+            "quote": "After a single use I can actually tell a difference in the color of my teeth."
+          }
+        },
+        "result_2": {
+          "type": "result",
+          "settings": {
+            "name": "Lesley C.",
+            "formula": "19-2",
+            "tags": "Deep stains\nHigh sensitivity",
+            "quote": "Normally I have excruciating pain with strips. After the first day my teeth look 2 shades whiter."
+          }
+        }
+      },
+      "block_order": [
+        "result_1",
+        "result_2"
+      ],
+      "settings": {
+        "eyebrow": "Real results · 4.7/5 · 2,316 reviews",
+        "heading": "Different causes. Different formulas. Same brighter smile.",
+        "label_before": "Before",
+        "label_after": "After",
+        "swipe_hint": "Swipe for more",
+        "margin_bottom": false,
+        "flow_visibility": "all"
+      }
+    },
+    "quiz_cta_panel": {
+      "type": "quiz-cta-panel",
+      "settings": {
+        "eyebrow": "Free 2-minute quiz",
+        "heading": "Find out what's holding your smile back.",
+        "button_label": "Build my formula",
+        "button_opens_quiz": true,
+        "note": "Then your kit is $39 (reg. $65).",
+        "guarantee": "Noticeably whiter in 30 days or your money back.",
+        "margin_bottom": false,
+        "flow_visibility": "all"
+      }
     }
   },
   "order": [
     "personalized_hero",
     "personalized_offer",
     "root_causes",
-    "main",
-    "faq_section_Aifz8F"
+    "sensitivity_match",
+    "dentist_cards",
+    "results_cards",
+    "faq_section_Aifz8F",
+    "quiz_cta_panel",
+    "main"
   ]
 }

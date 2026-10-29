@@ -1,0 +1,145 @@
+{{ 'section-sensitivity-match.css' | asset_url | stylesheet_tag }}
+
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+{% assign choices = section.blocks | where: 'type', 'choice' %}
+{% assign meters = section.blocks | where: 'type', 'meter' %}
+
+<section
+  class="sensitivity-match {% if section.settings.margin_bottom %}sensitivity-match--with-spacing{% endif %}"
+  data-section-id="{{ section.id }}"
+  {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
+>
+  <div class="page-width">
+    <div class="sensitivity-match__inner">
+
+      <div class="sensitivity-match__copy">
+        {% if section.settings.eyebrow != blank %}
+          <p class="section-eyebrow sensitivity-match__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h3 class="section-heading sensitivity-match__heading">{{ formatted_heading }}</h3>
+        {% endif %}
+        {% if section.settings.body != blank %}
+          <p class="sensitivity-match__body body-md">{{ section.settings.body }}</p>
+        {% endif %}
+      </div>
+
+      {%- comment -%}
+        An illustration of the matcher, not the matcher itself: it shows one
+        worked example so the reader sees what the quiz does. Nothing here is
+        clickable, so the choices are plain spans rather than inputs and the
+        selected one is marked in the editor.
+      {%- endcomment -%}
+      <div class="sensitivity-match__card">
+        {% if section.settings.question != blank %}
+          <p class="sensitivity-match__question body-sm">{{ section.settings.question }}</p>
+        {% endif %}
+
+        {% if choices.size > 0 %}
+          <div class="sensitivity-match__choices" role="presentation">
+            {% for block in choices %}
+              <span
+                class="sensitivity-match__choice sh3 {% if block.settings.selected %}sensitivity-match__choice--selected{% endif %}"
+                {{ block.shopify_attributes }}
+              >{{ block.settings.label }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if meters.size > 0 %}
+          <div class="sensitivity-match__meters">
+            {% for block in meters %}
+              {%- assign pct = block.settings.level | plus: 0 -%}
+              {%- if pct > 100 -%}{%- assign pct = 100 -%}{%- endif -%}
+              {%- if pct < 0 -%}{%- assign pct = 0 -%}{%- endif -%}
+              <div class="sensitivity-match__meter" {{ block.shopify_attributes }}>
+                <div class="sensitivity-match__meter-top">
+                  <span class="sensitivity-match__meter-label body-sm">{{ block.settings.label }}</span>
+                  <span class="sensitivity-match__meter-value body-sm {% if block.settings.highlight %}sensitivity-match__meter-value--accent{% endif %}">{{ block.settings.value }}</span>
+                </div>
+                <div class="sensitivity-match__track">
+                  <span
+                    class="sensitivity-match__fill {% if block.settings.highlight %}sensitivity-match__fill--accent{% endif %}"
+                    style="width: {{ pct }}%;"
+                  ></span>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if section.settings.result_name != blank %}
+          <div class="sensitivity-match__result">
+            <span class="sensitivity-match__result-name sh3">{{ section.settings.result_name }}</span>
+            {% if section.settings.result_note != blank %}
+              <span class="sensitivity-match__result-note body-sm">{{ section.settings.result_note }}</span>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sensitivity Match",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Your max strength" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Max whitening, minimum sensitivity.", "info": "Wrap emphasized text in {} for the italic Canela style" },
+    { "type": "textarea", "id": "body", "label": "Body copy", "default": "Sensitivity blockers are matched to your sensitivity level, so you get the strongest dose without pain." },
+    { "type": "header", "content": "Example card" },
+    { "type": "text", "id": "question", "label": "Question", "default": "Cold drinks make my teeth…" },
+    { "type": "text", "id": "result_name", "label": "Resulting formula", "default": "Everyday 8-16" },
+    { "type": "text", "id": "result_note", "label": "Note beside the formula", "default": "Bright and comfortable" },
+    { "type": "header", "content": "Layout" },
+    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." },
+    { "type": "header", "content": "Personalization flow" },
+    { "type": "select", "id": "flow_visibility", "label": "Show this section to", "default": "all",
+      "options": [
+        { "value": "all", "label": "Everyone" },
+        { "value": "quiz", "label": "Quiz arrivals only" },
+        { "value": "direct", "label": "Direct arrivals only" }
+      ],
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL." }
+  ],
+  "blocks": [
+    {
+      "type": "choice",
+      "name": "Answer",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Answer", "default": "Wince" },
+        { "type": "checkbox", "id": "selected", "label": "Show as chosen", "default": false }
+      ]
+    },
+    {
+      "type": "meter",
+      "name": "Meter",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Whitening power" },
+        { "type": "text", "id": "value", "label": "Value", "default": "Balanced" },
+        { "type": "range", "id": "level", "label": "Level", "min": 0, "max": 100, "step": 5, "unit": "%", "default": 60 },
+        { "type": "checkbox", "id": "highlight", "label": "Use the accent colour", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sensitivity Match",
+      "blocks": [
+        { "type": "choice", "settings": { "label": "Pain", "selected": false } },
+        { "type": "choice", "settings": { "label": "Wince", "selected": true } },
+        { "type": "choice", "settings": { "label": "Feel fine", "selected": false } },
+        { "type": "meter", "settings": { "label": "Whitening power", "value": "Balanced", "level": 60, "highlight": false } },
+        { "type": "meter", "settings": { "label": "Sensitivity protection", "value": "Balanced", "level": 60, "highlight": true } }
+      ]
+    }
+  ]
+}
+{% endschema %}

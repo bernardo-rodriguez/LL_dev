@@ -1,0 +1,94 @@
+/*
+  Dentist Cards. A scroll-snapping row, not a scripted carousel: it swipes
+  natively, keeps reading order intact and needs no JavaScript. The row runs
+  full-bleed so cards bleed off the edge, which is what signals "more here".
+*/
+
+.dentist-cards { background: var(--cream); color: var(--navy); }
+
+.dentist-cards__inner { padding: var(--section-space-y) 0 0; }
+
+.dentist-cards--with-spacing { padding-bottom: var(--section-space-y); }
+
+.dentist-cards__heading { margin: 0 0 20px; text-transform: none; }
+
+.dentist-cards__row {
+  display: flex;
+  gap: 14px;
+  margin: 0;
+  padding: 0 20px 4px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.dentist-cards__row::-webkit-scrollbar { display: none; }
+
+.dentist-cards__card {
+  flex: 0 0 auto;
+  width: min(330px, 84vw);
+  box-sizing: border-box;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  border: 1px solid var(--blue-tint-20);
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.dentist-cards__person { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+
+.dentist-cards__photo {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--blue-tint-10);
+}
+
+.dentist-cards__photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.dentist-cards__identity { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.dentist-cards__name { font-weight: 700; color: var(--navy); }
+.dentist-cards__practice { color: var(--navy-tint-60); }
+
+.dentist-cards__tag {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 6px;
+  padding: 5px 11px;
+  margin-bottom: 12px;
+  border-radius: 40px;
+  background: var(--blue-tint-10);
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.dentist-cards__tag-icon { display: flex; align-items: center; }
+.dentist-cards__tag-icon svg { width: 12px; height: 12px; }
+.dentist-cards__tag-icon svg path { fill: currentColor; }
+
+.dentist-cards__quote {
+  margin: 0 0 12px;
+  color: var(--navy);
+  line-height: var(--ds-line-height-copy);
+}
+
+.dentist-cards__disclosure { margin: auto 0 0; color: var(--navy-tint-60); }
+
+.dentist-cards__hint { margin: 12px 0 0; color: var(--navy-tint-60); }
+
+@media screen and (min-width: 769px) {
+  .dentist-cards__heading { margin-bottom: 28px; }
+  .dentist-cards__row { gap: 20px; padding: 0 50px 6px; }
+  .dentist-cards__card { width: 380px; padding: 24px; }
+}
+
+@media screen and (min-width: 1540px) {
+  /* keep the row aligned with the page width once the viewport outruns it */
+  .dentist-cards__row { padding-left: calc((100vw - 1440px) / 2 + 50px); }
+}

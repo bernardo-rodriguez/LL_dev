@@ -1,0 +1,135 @@
+{{ 'section-results-cards.css' | asset_url | stylesheet_tag }}
+
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+{% assign results = section.blocks | where: 'type', 'result' %}
+
+<section
+  class="results-cards {% if section.settings.margin_bottom %}results-cards--with-spacing{% endif %}"
+  data-section-id="{{ section.id }}"
+  {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
+>
+  <div class="page-width">
+    <div class="results-cards__inner">
+      {% if section.settings.eyebrow != blank %}
+        <p class="section-eyebrow results-cards__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h3 class="section-heading results-cards__heading">{{ formatted_heading }}</h3>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if results.size > 0 %}
+    <ul class="results-cards__row list-unstyled">
+      {% for block in results %}
+        <li class="results-cards__card" {{ block.shopify_attributes }}>
+          <div class="results-cards__pair">
+            {% for i in (1..2) %}
+              {% if i == 1 %}
+                {% assign img = block.settings.image_before %}
+                {% assign pill = section.settings.label_before %}
+              {% else %}
+                {% assign img = block.settings.image_after %}
+                {% assign pill = section.settings.label_after %}
+              {% endif %}
+              <figure class="results-cards__frame">
+                {% if img != blank %}
+                  <img
+                    src="{{ img | image_url: width: 600 }}"
+                    alt="{{ img.alt | default: block.settings.name | escape }}"
+                    loading="lazy"
+                  >
+                {% endif %}
+                {% if pill != blank %}
+                  <figcaption class="results-cards__pill label-sm {% if i == 2 %}results-cards__pill--after{% endif %}">{{ pill }}</figcaption>
+                {% endif %}
+              </figure>
+            {% endfor %}
+          </div>
+
+          <div class="results-cards__detail">
+            <div class="results-cards__top">
+              <span class="results-cards__name sh3">{{ block.settings.name }}</span>
+              {% if block.settings.formula != blank %}
+                <span class="results-cards__formula body-sm">{{ block.settings.formula }}</span>
+              {% endif %}
+            </div>
+
+            {% if block.settings.tags != blank %}
+              <ul class="results-cards__tags">
+                {% assign tag_lines = block.settings.tags | newline_to_br | split: '<br />' %}
+                {% for line in tag_lines %}
+                  {% assign tag = line | strip %}
+                  {% if tag != blank %}
+                    <li class="results-cards__tag body-sm">{{ tag }}</li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %}
+
+            {% if block.settings.quote != blank %}
+              <blockquote class="results-cards__quote body-md">{{ block.settings.quote }}</blockquote>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% if section.settings.swipe_hint != blank %}
+      <div class="page-width">
+        <p class="results-cards__hint body-sm">{{ section.settings.swipe_hint }}</p>
+      </div>
+    {% endif %}
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Results Cards",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Real results · 4.7/5 · 2,316 reviews" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Different causes. Different formulas. Same brighter smile.", "info": "Wrap emphasized text in {} for the italic Canela style" },
+    { "type": "text", "id": "label_before", "label": "Before label", "default": "Before" },
+    { "type": "text", "id": "label_after", "label": "After label", "default": "After" },
+    { "type": "text", "id": "swipe_hint", "label": "Hint under the row", "default": "Swipe for more" },
+    { "type": "header", "content": "Layout" },
+    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." },
+    { "type": "header", "content": "Personalization flow" },
+    { "type": "select", "id": "flow_visibility", "label": "Show this section to", "default": "all",
+      "options": [
+        { "value": "all", "label": "Everyone" },
+        { "value": "quiz", "label": "Quiz arrivals only" },
+        { "value": "direct", "label": "Direct arrivals only" }
+      ],
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL." }
+  ],
+  "blocks": [
+    {
+      "type": "result",
+      "name": "Result",
+      "settings": [
+        { "type": "image_picker", "id": "image_before", "label": "Before image" },
+        { "type": "image_picker", "id": "image_after", "label": "After image" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Sophia S." },
+        { "type": "text", "id": "formula", "label": "Formula", "default": "8-16" },
+        { "type": "textarea", "id": "tags", "label": "Causes and sensitivity", "info": "One per line", "default": "Surface stains\nMedium sensitivity" },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "After a single use I can actually tell a difference in the color of my teeth." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Results Cards",
+      "blocks": [
+        { "type": "result", "settings": { "name": "Sophia S.", "formula": "8-16", "tags": "Surface stains\nMedium sensitivity", "quote": "After a single use I can actually tell a difference in the color of my teeth." } },
+        { "type": "result", "settings": { "name": "Lesley C.", "formula": "19-2", "tags": "Deep stains\nHigh sensitivity", "quote": "Normally I have excruciating pain with strips. After the first day my teeth look 2 shades whiter." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

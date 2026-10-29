@@ -1,0 +1,122 @@
+{{ 'section-dentist-cards.css' | asset_url | stylesheet_tag }}
+
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+{% assign dentists = section.blocks | where: 'type', 'dentist' %}
+
+<section
+  class="dentist-cards {% if section.settings.margin_bottom %}dentist-cards--with-spacing{% endif %}"
+  data-section-id="{{ section.id }}"
+  {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
+>
+  <div class="page-width">
+    <div class="dentist-cards__inner">
+      {% if section.settings.eyebrow != blank %}
+        <p class="section-eyebrow dentist-cards__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h3 class="section-heading dentist-cards__heading">{{ formatted_heading }}</h3>
+      {% endif %}
+    </div>
+  </div>
+
+  {%- comment -%}
+    A scroll-snapping row rather than a scripted carousel: it swipes natively,
+    keeps the keyboard and screen reader order intact, and needs no JS.
+  {%- endcomment -%}
+  {% if dentists.size > 0 %}
+    <ul class="dentist-cards__row list-unstyled">
+      {% for block in dentists %}
+        <li class="dentist-cards__card" {{ block.shopify_attributes }}>
+          <div class="dentist-cards__person">
+            <span class="dentist-cards__photo">
+              {% if block.settings.image != blank %}
+                <img
+                  src="{{ block.settings.image | image_url: width: 160 }}"
+                  alt="{{ block.settings.image.alt | default: block.settings.name | escape }}"
+                  loading="lazy"
+                >
+              {% endif %}
+            </span>
+            <span class="dentist-cards__identity">
+              <span class="dentist-cards__name sh3">{{ block.settings.name }}</span>
+              {% if block.settings.practice != blank %}
+                <span class="dentist-cards__practice body-sm">{{ block.settings.practice }}</span>
+              {% endif %}
+            </span>
+          </div>
+
+          {% if block.settings.tag != blank %}
+            <span class="dentist-cards__tag body-sm">
+              <span class="dentist-cards__tag-icon" aria-hidden="true">{% render 'icon', icon: 'checkmark' %}</span>
+              {{ block.settings.tag }}
+            </span>
+          {% endif %}
+
+          {% if block.settings.quote != blank %}
+            <blockquote class="dentist-cards__quote body-md">{{ block.settings.quote }}</blockquote>
+          {% endif %}
+
+          {% if block.settings.disclosure != blank %}
+            <p class="dentist-cards__disclosure body-sm">{{ block.settings.disclosure }}</p>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% if section.settings.swipe_hint != blank %}
+      <div class="page-width">
+        <p class="dentist-cards__hint body-sm">{{ section.settings.swipe_hint }}</p>
+      </div>
+    {% endif %}
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Dentist Cards",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Dentist approved" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Dentists trust it. It's how they whiten teeth.", "info": "Wrap emphasized text in {} for the italic Canela style" },
+    { "type": "text", "id": "swipe_hint", "label": "Hint under the row", "default": "Swipe for more" },
+    { "type": "header", "content": "Layout" },
+    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." },
+    { "type": "header", "content": "Personalization flow" },
+    { "type": "select", "id": "flow_visibility", "label": "Show this section to", "default": "all",
+      "options": [
+        { "value": "all", "label": "Everyone" },
+        { "value": "quiz", "label": "Quiz arrivals only" },
+        { "value": "direct", "label": "Direct arrivals only" }
+      ],
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL." }
+  ],
+  "blocks": [
+    {
+      "type": "dentist",
+      "name": "Dentist",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Dr. Name, DDS" },
+        { "type": "text", "id": "practice", "label": "Practice and location", "default": "Practice · City, State" },
+        { "type": "text", "id": "tag", "label": "Tag", "default": "Uses it with patients" },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "Matching strength to sensitivity is how we whiten in the office. Laughland brings that home." },
+        { "type": "text", "id": "disclosure", "label": "Disclosure", "default": "Paid Laughland advisor" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dentist Cards",
+      "blocks": [
+        { "type": "dentist", "settings": { "name": "Dr. Name, DDS", "tag": "Uses it with patients", "quote": "Matching strength to sensitivity is how we whiten in the office. Laughland brings that home." } },
+        { "type": "dentist", "settings": { "name": "Dr. Name, DMD", "tag": "Uses it with patients", "quote": "Whitening fades when it only treats stains. Treating plaque and enamel too is what makes it last." } },
+        { "type": "dentist", "settings": { "name": "Dr. Name, DDS", "tag": "Recommends to patients", "quote": "It's what I suggest for patients who couldn't get through strips." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

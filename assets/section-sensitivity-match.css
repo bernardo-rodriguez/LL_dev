@@ -1,0 +1,94 @@
+/* Sensitivity Match — a worked example of the matcher, not the matcher itself. */
+
+.sensitivity-match { background: #ffffff; color: var(--navy); }
+
+.sensitivity-match__inner {
+  padding: var(--section-space-y) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.sensitivity-match--with-spacing .sensitivity-match__inner { padding-bottom: var(--section-space-y); }
+
+.sensitivity-match__heading { margin: 0 0 14px; text-transform: none; }
+
+.sensitivity-match__body {
+  margin: 0;
+  max-width: 52ch;
+  color: var(--navy-tint-80);
+  line-height: var(--ds-line-height-copy);
+}
+
+.sensitivity-match__card {
+  padding: 18px;
+  border: 1px solid var(--blue-tint-20);
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.sensitivity-match__question { margin: 0 0 12px; color: var(--navy-tint-80); }
+
+.sensitivity-match__choices { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+
+/* Not inputs: nothing here is clickable, so they read as a picture of a choice */
+.sensitivity-match__choice {
+  padding: 9px 18px;
+  border: 1px solid var(--navy-tint-20);
+  border-radius: 999px;
+  color: var(--navy-tint-60);
+}
+
+.sensitivity-match__choice--selected {
+  border-color: var(--blue);
+  color: var(--navy);
+  font-weight: 700;
+  background: var(--blue-tint-10);
+}
+
+.sensitivity-match__meters { display: flex; flex-direction: column; gap: 14px; }
+
+.sensitivity-match__meter-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.sensitivity-match__meter-label { color: var(--navy); }
+.sensitivity-match__meter-value { color: var(--navy-tint-60); }
+.sensitivity-match__meter-value--accent { color: var(--navy); font-weight: 700; }
+
+.sensitivity-match__track {
+  height: 5px;
+  border-radius: 999px;
+  background: var(--navy-tint-20);
+  overflow: hidden;
+}
+
+.sensitivity-match__fill { display: block; height: 100%; background: var(--navy); }
+.sensitivity-match__fill--accent { background: var(--blue); }
+
+.sensitivity-match__result {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--blue-tint-20);
+}
+
+.sensitivity-match__result-name { font-weight: 700; color: var(--navy); }
+.sensitivity-match__result-note { color: var(--navy-tint-60); }
+
+@media screen and (min-width: 769px) {
+  .sensitivity-match__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 56px;
+    align-items: center;
+  }
+  .sensitivity-match__card { padding: 26px; }
+}
