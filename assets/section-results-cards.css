@@ -96,7 +96,9 @@
   line-height: var(--ds-line-height-copy);
 }
 
-.results-cards__hint { margin: 12px 0 0; color: var(--navy-tint-60); }
+/* Same room under the hint as the dentist row, so the two carousels sit
+   identically against whatever follows them. */
+.results-cards__hint { margin: 12px 0 0; padding-bottom: 28px; color: var(--navy-tint-60); }
 
 @media screen and (min-width: 769px) {
   .results-cards__heading { margin-bottom: 28px; }

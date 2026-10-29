@@ -2,8 +2,13 @@
 
 .sensitivity-match { background: #ffffff; color: var(--navy); }
 
+/*
+  Carries space underneath as well as on top, unlike most sections. The card is
+  a hard-edged box and the section that follows is tinted, so without it the
+  two meet immediately and the card looks wedged against the next block.
+*/
 .sensitivity-match__inner {
-  padding: var(--section-space-y) 0 0;
+  padding: var(--section-space-y) 0 32px;
   display: flex;
   flex-direction: column;
   gap: 22px;
@@ -108,6 +113,7 @@
 
 @media screen and (min-width: 769px) {
   .sensitivity-match__inner {
+    padding-bottom: 44px;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 56px;

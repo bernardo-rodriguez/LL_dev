@@ -171,15 +171,25 @@
   fill: currentColor;
 }
 
+/*
+  Centred under the button rather than ranged left with the copy above: these
+  two read as a footer to the offer, not as more of its body. They need the
+  full column width to centre within, since the column itself packs to the
+  start.
+*/
 .personalized-offer__trust {
+  width: 100%;
   margin: 12px 0 0;
   color: var(--navy);
   font-weight: 700;
+  text-align: center;
 }
 
 .personalized-offer__shipping {
+  width: 100%;
   margin: 2px 0 0;
   color: var(--navy-tint-60);
+  text-align: center;
 }
 
 @media screen and (min-width: 769px) {
