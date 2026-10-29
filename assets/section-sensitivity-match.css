@@ -31,12 +31,26 @@
 
 .sensitivity-match__choices { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
 
-/* Not inputs: nothing here is clickable, so they read as a picture of a choice */
+/* Real buttons: picking one updates the meters and the formula below */
 .sensitivity-match__choice {
   padding: 9px 18px;
   border: 1px solid var(--navy-tint-20);
   border-radius: 999px;
+  background: none;
   color: var(--navy-tint-60);
+  font-family: var(--ds-font-family);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.sensitivity-match__choice:hover {
+  border-color: var(--blue);
+  color: var(--navy);
+}
+
+.sensitivity-match__choice:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
 }
 
 .sensitivity-match__choice--selected {
@@ -67,7 +81,16 @@
   overflow: hidden;
 }
 
-.sensitivity-match__fill { display: block; height: 100%; background: var(--navy); }
+.sensitivity-match__fill {
+  display: block;
+  height: 100%;
+  background: var(--navy);
+  transition: width 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sensitivity-match__fill { transition: none; }
+}
 .sensitivity-match__fill--accent { background: var(--blue); }
 
 .sensitivity-match__result {

@@ -47,7 +47,7 @@
         "button_label": "Build my formula",
         "button_link": "",
         "button_opens_quiz": true,
-        "microcopy": "Free 2-min quiz · Your kit: $39",
+        "microcopy": "<p>Free 2-min quiz · Your kit: <strong>$39</strong> <em>$65</em></p>",
         "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_7.png",
         "label_before": "Before",
         "focal_before": 80,
@@ -137,77 +137,41 @@
       }
     },
     "why_personalized": {
-      "type": "comparison-table",
+      "type": "why-personalized",
       "blocks": {
-        "competitor_otc": {
-          "type": "competitor",
-          "settings": {
-            "heading": "OTC whitening"
-          }
-        },
         "row_1": {
           "type": "row",
           "settings": {
-            "label": "What it treats",
-            "row_type": "text",
-            "col_1": false,
-            "col_2": false,
-            "col_3": false,
-            "col_4": false,
-            "ours_text": "Treat all 4 root causes",
-            "col_1_text": "Only removes surface stains",
-            "col_2_text": "",
-            "col_3_text": "",
-            "col_4_text": ""
+            "them": "Only removes surface stains",
+            "ours": "Treats all 4 root causes"
           }
         },
         "row_2": {
           "type": "row",
           "settings": {
-            "label": "Whitening actives",
-            "row_type": "text",
-            "col_1": false,
-            "col_2": false,
-            "col_3": false,
-            "col_4": false,
-            "ours_text": "80–125mg of whitening actives",
-            "col_1_text": "20–40mg of whitening actives",
-            "col_2_text": "",
-            "col_3_text": "",
-            "col_4_text": ""
+            "them": "20–40mg of whitening actives",
+            "ours": "80–125mg of whitening actives"
           }
         },
         "row_3": {
           "type": "row",
           "settings": {
-            "label": "Sensitivity",
-            "row_type": "text",
-            "col_1": false,
-            "col_2": false,
-            "col_3": false,
-            "col_4": false,
-            "ours_text": "Sensitivity blockers matched to you",
-            "col_1_text": "Zings and sore teeth",
-            "col_2_text": "",
-            "col_3_text": "",
-            "col_4_text": ""
+            "them": "Zings and sore teeth",
+            "ours": "Sensitivity blockers matched to you"
           }
         }
       },
       "block_order": [
-        "competitor_otc",
         "row_1",
         "row_2",
         "row_3"
       ],
       "settings": {
         "heading": "Why {personalized} whitening works better.",
+        "them_label": "OTC whitening",
         "ours_label": "Laughland",
-        "ours_logo_svg": "",
-        "footnote": "",
         "margin_bottom": false,
-        "flow_visibility": "all",
-        "heading_quiz": ""
+        "flow_visibility": "all"
       }
     },
     "personalized_offer": {
@@ -322,7 +286,7 @@
         "ours_value": "100",
         "axis_suffix": "mg",
         "axis_max": "120",
-        "axis_step": "4",
+        "axis_step": "30",
         "threshold_value": "0",
         "threshold_label": "",
         "chart_footnote": "Dosed for the weakest teeth vs. dosed to your max",
@@ -336,21 +300,39 @@
           "type": "choice",
           "settings": {
             "label": "Pain",
-            "selected": false
+            "selected": false,
+            "power": 35,
+            "power_label": "Gentle",
+            "shield": 95,
+            "shield_label": "Highest",
+            "formula": "Gentle 19-2",
+            "note": "Kind to sensitive teeth"
           }
         },
         "choice_2": {
           "type": "choice",
           "settings": {
             "label": "Wince",
-            "selected": true
+            "selected": true,
+            "power": 60,
+            "power_label": "Balanced",
+            "shield": 60,
+            "shield_label": "Balanced",
+            "formula": "Everyday 8-16",
+            "note": "Bright and comfortable"
           }
         },
         "choice_3": {
           "type": "choice",
           "settings": {
             "label": "Feel fine",
-            "selected": false
+            "selected": false,
+            "power": 95,
+            "power_label": "Highest",
+            "shield": 35,
+            "shield_label": "Standard",
+            "formula": "Super Strength 8-17",
+            "note": "Fastest results"
           }
         },
         "meter_4": {

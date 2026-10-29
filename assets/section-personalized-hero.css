@@ -76,11 +76,35 @@ body.template-product .personalized-hero__heading {
   text-decoration: none;
 }
 
+/*
+  Rich text, so the merchant can bold the price. The <p> Shopify wraps it in
+  carries the theme's own body type; em is reused as the struck-through former
+  price, since the editor offers no strikethrough of its own.
+*/
 .personalized-hero__microcopy {
   width: 100%;
   margin: 10px 0 0;
   color: var(--navy-tint-60);
   text-align: center;
+}
+
+.personalized-hero__microcopy p {
+  margin: 0;
+  font-family: var(--ds-font-family);
+  font-size: inherit;
+  font-weight: 500;
+  line-height: var(--ds-line-height);
+  color: inherit;
+}
+
+.personalized-hero__microcopy strong {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.personalized-hero__microcopy em {
+  font-style: normal;
+  text-decoration: line-through;
 }
 
 /* Before and after ----------------------------------------------------- */

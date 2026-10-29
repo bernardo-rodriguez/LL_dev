@@ -1,0 +1,77 @@
+/*
+  Why Personalized — a self-contained comparison card.
+
+  Deliberately not the product page's comparison-table: that one always carries
+  a row-label column, and these rows are a claim and its counterpart rather than
+  one attribute measured twice, so a label column would only restate them.
+*/
+
+.why-personalized { background: var(--cream); color: var(--navy); }
+
+.why-personalized__inner { padding: var(--section-space-y) 0 0; }
+
+.why-personalized--with-spacing .why-personalized__inner { padding-bottom: var(--section-space-y); }
+
+.why-personalized__heading { margin: 0 0 20px; max-width: 18ch; text-transform: none; }
+
+/* The card: rounded, clipped, with its own edge */
+.why-personalized__table {
+  border: 1px solid var(--blue-tint-20);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.why-personalized__head,
+.why-personalized__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.why-personalized__head { border-bottom: 1px solid var(--blue-tint-20); }
+
+.why-personalized__row + .why-personalized__row,
+.why-personalized__row { border-top: 1px solid var(--blue-tint-20); }
+
+.why-personalized__head + .why-personalized__row { border-top: 0; }
+
+.why-personalized__col-label {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  color: var(--navy-tint-60);
+}
+
+/* Our column runs unbroken from the heading to the last row */
+.why-personalized__col-label--ours,
+.why-personalized__cell--ours {
+  background: var(--blue-tint-10);
+}
+
+.why-personalized__logo { display: flex; align-items: center; }
+
+.why-personalized__logo svg,
+.why-personalized__logo svg path,
+.why-personalized__logo svg g {
+  fill: var(--navy);
+}
+
+.why-personalized__logo svg { width: auto; height: 17px; max-width: 120px; }
+
+.why-personalized__cell {
+  padding: 14px 16px;
+  color: var(--navy-tint-80);
+  line-height: var(--ds-line-height-copy);
+}
+
+.why-personalized__cell--ours { color: var(--navy); font-weight: 700; }
+
+.why-personalized__footnote { margin: 14px 0 0; color: var(--navy-tint-60); }
+
+@media screen and (min-width: 769px) {
+  .why-personalized__inner { max-width: 820px; margin: 0 auto; }
+  .why-personalized__heading { margin-bottom: 28px; }
+  .why-personalized__col-label { padding: 16px 22px; }
+  .why-personalized__cell { padding: 18px 22px; }
+  .why-personalized__logo svg { height: 20px; max-width: 150px; }
+}

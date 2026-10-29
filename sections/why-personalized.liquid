@@ -1,0 +1,102 @@
+{{ 'section-why-personalized.css' | asset_url | stylesheet_tag }}
+
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+{% assign rows = section.blocks | where: 'type', 'row' %}
+
+<section
+  class="why-personalized {% if section.settings.margin_bottom %}why-personalized--with-spacing{% endif %}"
+  data-section-id="{{ section.id }}"
+  {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
+>
+  <div class="page-width">
+    <div class="why-personalized__inner">
+      {% if section.settings.eyebrow != blank %}
+        <p class="section-eyebrow why-personalized__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h3 class="section-heading why-personalized__heading">{{ formatted_heading }}</h3>
+      {% endif %}
+
+      {%- comment -%}
+        Two columns and no row labels: the rows are a claim and its counterpart,
+        not an attribute measured twice, so a label column would only restate
+        them. Our side is the one that carries the logo and the tint.
+      {%- endcomment -%}
+      {% if rows.size > 0 %}
+        <div class="why-personalized__table">
+          <div class="why-personalized__head">
+            <span class="why-personalized__col-label label-sm">{{ section.settings.them_label }}</span>
+            <span class="why-personalized__col-label why-personalized__col-label--ours">
+              {% if section.settings.ours_logo_svg != blank %}
+                <span class="why-personalized__logo">{{ section.settings.ours_logo_svg }}</span>
+              {% else %}
+                <span class="why-personalized__logo">{% render 'laughland-wordmark' %}</span>
+              {% endif %}
+              <span class="visually-hidden">{{ section.settings.ours_label }}</span>
+            </span>
+          </div>
+
+          {% for block in rows %}
+            <div class="why-personalized__row" {{ block.shopify_attributes }}>
+              <span class="why-personalized__cell sh3">{{ block.settings.them }}</span>
+              <span class="why-personalized__cell why-personalized__cell--ours sh3">{{ block.settings.ours }}</span>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if section.settings.footnote != blank %}
+        <p class="why-personalized__footnote body-sm">{{ section.settings.footnote }}</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Why Personalized",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Why {personalized} whitening works better.", "info": "Wrap emphasized text in {} for the italic Canela style" },
+    { "type": "text", "id": "them_label", "label": "Their column heading", "default": "OTC whitening" },
+    { "type": "text", "id": "ours_label", "label": "Our column name", "default": "Laughland", "info": "Used as the accessible name for the logo." },
+    { "type": "textarea", "id": "ours_logo_svg", "label": "Logo (inline SVG)", "info": "Optional. Overrides the built-in wordmark. Use fill=\"currentColor\" so it picks up the column colour." },
+    { "type": "textarea", "id": "footnote", "label": "Footnote" },
+    { "type": "header", "content": "Layout" },
+    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." },
+    { "type": "header", "content": "Personalization flow" },
+    { "type": "select", "id": "flow_visibility", "label": "Show this section to", "default": "all",
+      "options": [
+        { "value": "all", "label": "Everyone" },
+        { "value": "quiz", "label": "Quiz arrivals only" },
+        { "value": "direct", "label": "Direct arrivals only" }
+      ],
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL." }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Row",
+      "settings": [
+        { "type": "textarea", "id": "them", "label": "Theirs", "default": "Only removes surface stains" },
+        { "type": "textarea", "id": "ours", "label": "Ours", "default": "Treats all 4 root causes" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Personalized",
+      "blocks": [
+        { "type": "row", "settings": { "them": "Only removes surface stains", "ours": "Treats all 4 root causes" } },
+        { "type": "row", "settings": { "them": "20–40mg of whitening actives", "ours": "80–125mg of whitening actives" } },
+        { "type": "row", "settings": { "them": "Zings and sore teeth", "ours": "Sensitivity blockers matched to you" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

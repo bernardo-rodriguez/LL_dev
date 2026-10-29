@@ -6,8 +6,9 @@
     eyebrow    -> .label-sm via .section-eyebrow
 */
 
+/* White, so the kit reads as the page's own offer rather than a panel */
 .personalized-offer {
-  background: var(--cream);
+  background: #ffffff;
   color: var(--navy);
 }
 
@@ -57,7 +58,7 @@
   display: flex;
   align-items: baseline;
   gap: 10px;
-  margin: 0 0 6px;
+  margin: 0 0 2px;
 }
 
 .personalized-offer__price-now {
@@ -72,6 +73,7 @@
 
 .personalized-offer__price-note {
   margin: 0 0 20px;
+  line-height: var(--ds-line-height);
   color: var(--navy-tint-80);
 }
 

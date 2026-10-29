@@ -10,9 +10,16 @@
   if axis_max <= 0
     assign axis_max = 16
   endif
+  comment
+    A fixed fallback of 4 meant a 120mg axis drew thirty gridlines. Quarter the
+    axis instead, so any scale gets about four ticks unless one is set.
+  endcomment
   assign axis_step = section.settings.axis_step | plus: 0
   if axis_step <= 0
-    assign axis_step = 4
+    assign axis_step = axis_max | divided_by: 4
+  endif
+  if axis_step <= 0
+    assign axis_step = 1
   endif
 
   assign compare_value = section.settings.compare_value | plus: 0.0

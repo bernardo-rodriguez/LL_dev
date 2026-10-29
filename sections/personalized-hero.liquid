@@ -44,7 +44,7 @@
         {% endif %}
 
         {% if section.settings.microcopy != blank %}
-          <p class="personalized-hero__microcopy body-sm">{{ section.settings.microcopy }}</p>
+          <div class="personalized-hero__microcopy body-sm">{{ section.settings.microcopy }}</div>
         {% endif %}
       </div>
 
@@ -179,10 +179,11 @@
       "info": "Uses the same quiz trigger as the other landing pages. Leave the link blank when this is on."
     },
     {
-      "type": "text",
+      "type": "richtext",
       "id": "microcopy",
       "label": "Line under the button",
-      "default": "Free 2-min quiz · Your kit: $39"
+      "default": "<p>Free 2-min quiz · Your kit: <strong>$39</strong> <em>$65</em></p>",
+      "info": "Bold the price; italic renders as the struck-through former price."
     },
     {
       "type": "header",

@@ -28,10 +28,10 @@
       </div>
 
       {%- comment -%}
-        An illustration of the matcher, not the matcher itself: it shows one
-        worked example so the reader sees what the quiz does. Nothing here is
-        clickable, so the choices are plain spans rather than inputs and the
-        selected one is marked in the editor.
+        A working miniature of the matcher. Each answer carries the outcome it
+        produces, so picking one updates the meters, the formula and the note
+        without a request. The block marked as chosen is what renders first, so
+        the card is complete before any script runs.
       {%- endcomment -%}
       <div class="sensitivity-match__card">
         {% if section.settings.question != blank %}
@@ -41,10 +41,19 @@
         {% if choices.size > 0 %}
           <div class="sensitivity-match__choices" role="presentation">
             {% for block in choices %}
-              <span
+              <button
+                type="button"
                 class="sensitivity-match__choice sh3 {% if block.settings.selected %}sensitivity-match__choice--selected{% endif %}"
+                data-choice
+                aria-pressed="{% if block.settings.selected %}true{% else %}false{% endif %}"
+                data-power="{{ block.settings.power }}"
+                data-power-label="{{ block.settings.power_label | escape }}"
+                data-shield="{{ block.settings.shield }}"
+                data-shield-label="{{ block.settings.shield_label | escape }}"
+                data-formula="{{ block.settings.formula | escape }}"
+                data-note="{{ block.settings.note | escape }}"
                 {{ block.shopify_attributes }}
-              >{{ block.settings.label }}</span>
+              >{{ block.settings.label }}</button>
             {% endfor %}
           </div>
         {% endif %}
@@ -55,14 +64,14 @@
               {%- assign pct = block.settings.level | plus: 0 -%}
               {%- if pct > 100 -%}{%- assign pct = 100 -%}{%- endif -%}
               {%- if pct < 0 -%}{%- assign pct = 0 -%}{%- endif -%}
-              <div class="sensitivity-match__meter" {{ block.shopify_attributes }}>
+              <div class="sensitivity-match__meter" data-meter="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
                 <div class="sensitivity-match__meter-top">
                   <span class="sensitivity-match__meter-label body-sm">{{ block.settings.label }}</span>
-                  <span class="sensitivity-match__meter-value body-sm {% if block.settings.highlight %}sensitivity-match__meter-value--accent{% endif %}">{{ block.settings.value }}</span>
+                  <span data-meter-value class="sensitivity-match__meter-value body-sm {% if block.settings.highlight %}sensitivity-match__meter-value--accent{% endif %}">{{ block.settings.value }}</span>
                 </div>
                 <div class="sensitivity-match__track">
                   <span
-                    class="sensitivity-match__fill {% if block.settings.highlight %}sensitivity-match__fill--accent{% endif %}"
+                    data-meter-fill class="sensitivity-match__fill {% if block.settings.highlight %}sensitivity-match__fill--accent{% endif %}"
                     style="width: {{ pct }}%;"
                   ></span>
                 </div>
@@ -73,9 +82,9 @@
 
         {% if section.settings.result_name != blank %}
           <div class="sensitivity-match__result">
-            <span class="sensitivity-match__result-name sh3">{{ section.settings.result_name }}</span>
+            <span data-result-name class="sensitivity-match__result-name sh3">{{ section.settings.result_name }}</span>
             {% if section.settings.result_note != blank %}
-              <span class="sensitivity-match__result-note body-sm">{{ section.settings.result_note }}</span>
+              <span data-result-note class="sensitivity-match__result-note body-sm">{{ section.settings.result_note }}</span>
             {% endif %}
           </div>
         {% endif %}
@@ -85,47 +94,241 @@
   </div>
 </section>
 
+<script>
+  (function () {
+    var root = document.querySelector('[data-section-id="{{ section.id }}"]');
+    if (!root) return;
+
+    var choices = root.querySelectorAll('[data-choice]');
+    if (!choices.length) return;
+
+    var meters = root.querySelectorAll('[data-meter]');
+    var resultName = root.querySelector('[data-result-name]');
+    var resultNote = root.querySelector('[data-result-note]');
+
+    function clamp(n) { return Math.max(0, Math.min(100, n)); }
+
+    function apply(button) {
+      choices.forEach(function (other) {
+        var on = other === button;
+        other.classList.toggle('sensitivity-match__choice--selected', on);
+        other.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+
+      // Meter order follows the blocks: the first is whitening power, the
+      // second sensitivity protection. Anything an answer leaves blank keeps
+      // whatever the block was set to.
+      var pairs = [
+        { value: button.getAttribute('data-power'), label: button.getAttribute('data-power-label') },
+        { value: button.getAttribute('data-shield'), label: button.getAttribute('data-shield-label') }
+      ];
+
+      meters.forEach(function (meter, i) {
+        var pair = pairs[i];
+        if (!pair) return;
+        var fill = meter.querySelector('[data-meter-fill]');
+        var label = meter.querySelector('[data-meter-value]');
+        if (fill && pair.value !== null && pair.value !== '') {
+          fill.style.width = clamp(parseInt(pair.value, 10) || 0) + '%';
+        }
+        if (label && pair.label) { label.textContent = pair.label; }
+      });
+
+      var formula = button.getAttribute('data-formula');
+      var note = button.getAttribute('data-note');
+      if (resultName && formula) { resultName.textContent = formula; }
+      if (resultNote && note) { resultNote.textContent = note; }
+    }
+
+    choices.forEach(function (button) {
+      button.addEventListener('click', function () { apply(button); });
+    });
+  })();
+</script>
+
 {% schema %}
 {
   "name": "Sensitivity Match",
   "tag": "section",
   "class": "section",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Your max strength" },
-    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Max whitening, minimum sensitivity.", "info": "Wrap emphasized text in {} for the italic Canela style" },
-    { "type": "textarea", "id": "body", "label": "Body copy", "default": "Sensitivity blockers are matched to your sensitivity level, so you get the strongest dose without pain." },
-    { "type": "header", "content": "Example card" },
-    { "type": "text", "id": "question", "label": "Question", "default": "Cold drinks make my teeth…" },
-    { "type": "text", "id": "result_name", "label": "Resulting formula", "default": "Everyday 8-16" },
-    { "type": "text", "id": "result_note", "label": "Note beside the formula", "default": "Bright and comfortable" },
-    { "type": "header", "content": "Layout" },
-    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." },
-    { "type": "header", "content": "Personalization flow" },
-    { "type": "select", "id": "flow_visibility", "label": "Show this section to", "default": "all",
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Your max strength"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Max whitening, minimum sensitivity.",
+      "info": "Wrap emphasized text in {} for the italic Canela style"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body copy",
+      "default": "Sensitivity blockers are matched to your sensitivity level, so you get the strongest dose without pain."
+    },
+    {
+      "type": "header",
+      "content": "Example card"
+    },
+    {
+      "type": "text",
+      "id": "question",
+      "label": "Question",
+      "default": "Cold drinks make my teeth…"
+    },
+    {
+      "type": "text",
+      "id": "result_name",
+      "label": "Resulting formula",
+      "default": "Everyday 8-16"
+    },
+    {
+      "type": "text",
+      "id": "result_note",
+      "label": "Note beside the formula",
+      "default": "Bright and comfortable"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "margin_bottom",
+      "label": "Extra space below",
+      "default": false,
+      "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap."
+    },
+    {
+      "type": "header",
+      "content": "Personalization flow"
+    },
+    {
+      "type": "select",
+      "id": "flow_visibility",
+      "label": "Show this section to",
+      "default": "all",
       "options": [
-        { "value": "all", "label": "Everyone" },
-        { "value": "quiz", "label": "Quiz arrivals only" },
-        { "value": "direct", "label": "Direct arrivals only" }
+        {
+          "value": "all",
+          "label": "Everyone"
+        },
+        {
+          "value": "quiz",
+          "label": "Quiz arrivals only"
+        },
+        {
+          "value": "direct",
+          "label": "Direct arrivals only"
+        }
       ],
-      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL." }
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL."
+    }
   ],
   "blocks": [
     {
       "type": "choice",
       "name": "Answer",
       "settings": [
-        { "type": "text", "id": "label", "label": "Answer", "default": "Wince" },
-        { "type": "checkbox", "id": "selected", "label": "Show as chosen", "default": false }
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Answer",
+          "default": "Wince"
+        },
+        {
+          "type": "checkbox",
+          "id": "selected",
+          "label": "Chosen when the page loads",
+          "default": false
+        },
+        {
+          "type": "paragraph",
+          "content": "What picking this answer shows. Leave a field blank to keep the meter's own setting."
+        },
+        {
+          "type": "range",
+          "id": "power",
+          "label": "Whitening power",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "default": 60
+        },
+        {
+          "type": "text",
+          "id": "power_label",
+          "label": "Whitening power value",
+          "default": "Balanced"
+        },
+        {
+          "type": "range",
+          "id": "shield",
+          "label": "Sensitivity protection",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "default": 60
+        },
+        {
+          "type": "text",
+          "id": "shield_label",
+          "label": "Sensitivity protection value",
+          "default": "Balanced"
+        },
+        {
+          "type": "text",
+          "id": "formula",
+          "label": "Resulting formula",
+          "default": "Everyday 8-16"
+        },
+        {
+          "type": "text",
+          "id": "note",
+          "label": "Note beside the formula",
+          "default": "Bright and comfortable"
+        }
       ]
     },
     {
       "type": "meter",
       "name": "Meter",
       "settings": [
-        { "type": "text", "id": "label", "label": "Label", "default": "Whitening power" },
-        { "type": "text", "id": "value", "label": "Value", "default": "Balanced" },
-        { "type": "range", "id": "level", "label": "Level", "min": 0, "max": 100, "step": 5, "unit": "%", "default": 60 },
-        { "type": "checkbox", "id": "highlight", "label": "Use the accent colour", "default": false }
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Whitening power"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "Balanced"
+        },
+        {
+          "type": "range",
+          "id": "level",
+          "label": "Level",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "default": 60
+        },
+        {
+          "type": "checkbox",
+          "id": "highlight",
+          "label": "Use the accent colour",
+          "default": false
+        }
       ]
     }
   ],
@@ -133,11 +336,63 @@
     {
       "name": "Sensitivity Match",
       "blocks": [
-        { "type": "choice", "settings": { "label": "Pain", "selected": false } },
-        { "type": "choice", "settings": { "label": "Wince", "selected": true } },
-        { "type": "choice", "settings": { "label": "Feel fine", "selected": false } },
-        { "type": "meter", "settings": { "label": "Whitening power", "value": "Balanced", "level": 60, "highlight": false } },
-        { "type": "meter", "settings": { "label": "Sensitivity protection", "value": "Balanced", "level": 60, "highlight": true } }
+        {
+          "type": "choice",
+          "settings": {
+            "label": "Pain",
+            "selected": false,
+            "power": 35,
+            "power_label": "Gentle",
+            "shield": 95,
+            "shield_label": "Highest",
+            "formula": "Gentle 19-2",
+            "note": "Kind to sensitive teeth"
+          }
+        },
+        {
+          "type": "choice",
+          "settings": {
+            "label": "Wince",
+            "selected": true,
+            "power": 60,
+            "power_label": "Balanced",
+            "shield": 60,
+            "shield_label": "Balanced",
+            "formula": "Everyday 8-16",
+            "note": "Bright and comfortable"
+          }
+        },
+        {
+          "type": "choice",
+          "settings": {
+            "label": "Feel fine",
+            "selected": false,
+            "power": 95,
+            "power_label": "Highest",
+            "shield": 35,
+            "shield_label": "Standard",
+            "formula": "Super Strength 8-17",
+            "note": "Fastest results"
+          }
+        },
+        {
+          "type": "meter",
+          "settings": {
+            "label": "Whitening power",
+            "value": "Balanced",
+            "level": 60,
+            "highlight": false
+          }
+        },
+        {
+          "type": "meter",
+          "settings": {
+            "label": "Sensitivity protection",
+            "value": "Balanced",
+            "level": 60,
+            "highlight": true
+          }
+        }
       ]
     }
   ]
