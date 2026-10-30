@@ -274,35 +274,35 @@
           "type": "faq",
           "settings": {
             "title": "Which formula is right for me?",
-            "sub_title": "Your formula treats the causes we found. Pick its strength by how your teeth react to cold, and change it anytime before your next refill ships."
+            "sub_title": "<p>Your formula treats the causes we found. Pick its strength by how your teeth react to cold, and change it anytime before your next refill ships.</p>"
           }
         },
         "faq_2": {
           "type": "faq",
           "settings": {
             "title": "Is this a subscription?",
-            "sub_title": "Only if you choose it. Your first kit is $39, then refills in your formula ship every 1–2 months for $39. Skip, change or cancel anytime from your account."
+            "sub_title": "<p>Only if you choose it. Your first kit is $39, then refills in your formula ship every 1–2 months for $39. Skip, change or cancel anytime from your account.</p>"
           }
         },
         "faq_3": {
           "type": "faq",
           "settings": {
             "title": "Will it hurt my teeth?",
-            "sub_title": "Your strength and sensitivity blockers are matched to how your teeth react to cold. 0% of testers reported more sensitivity."
+            "sub_title": "<p>Your strength and sensitivity blockers are matched to how your teeth react to cold. 0% of testers reported more sensitivity.</p>"
           }
         },
         "faq_4": {
           "type": "faq",
           "settings": {
             "title": "Does it work on crowns or veneers?",
-            "sub_title": "No. Whitening only works on natural teeth, so crowns, veneers and fillings stay the same shade."
+            "sub_title": "<p>No. Whitening only works on natural teeth, so crowns, veneers and fillings stay the same shade.</p>"
           }
         },
         "faq_5": {
           "type": "faq",
           "settings": {
             "title": "How long do results last?",
-            "sub_title": "Because your formula also clears plaque and strengthens enamel, stains come back slower."
+            "sub_title": "<p>Because your formula also clears plaque and strengthens enamel, stains come back slower.</p>"
           }
         }
       },
