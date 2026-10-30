@@ -9,26 +9,6 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "main-product",
-      "settings": {
-        "atc": "Buy Now",
-        "satisfaction": "30 Day Satisfaction Guarantee",
-        "satisfaction_svg": "<svg style=\"vertical-align: middle\" xmlns=\"http://www.w3.org/2000/svg\" width=\"26\" height=\"25\" viewbox=\"0 0 26 25\" fill=\"none\">\n<circle cx=\"11.5\" cy=\"13.5\" r=\"11\" fill=\"white\" stroke=\"#0D2244\"></circle>\n<g clip-path=\"url(#clip0_6_176)\">\n<path d=\"M24.6712 0C24.6712 0 17.4227 4.72968 11.3998 16.3691V16.3724L10.8333 15.6122C9.06901 13.3203 4.66836 9.65063 4.66836 9.65063L4 10.521C4 10.521 9.41322 15.9623 11.5279 22C11.5279 22 16.4333 7.96331 25.1852 0.781257L24.6712 0V0Z\" fill=\"#46BDF0\"></path>\n</g>\n<defs>\n<clippath id=\"clip0_6_176\">\n<rect width=\"21.1852\" height=\"22\" fill=\"white\" transform=\"translate(4)\"></rect>\n</clippath>\n</defs>\n</svg>",
-        "how_to_use": "{{ product.metafields.custom.how_to_use | metafield_tag }}",
-        "why_subscribe": "{{ product.metafields.custom.why_subscribe | metafield_tag }}",
-        "subscribe_points": "Start\n~12 treatments\n3 months\n6 months",
-        "subscribe_keep_label": "With touch-ups",
-        "subscribe_stop_label": "Without touch-ups",
-        "subscribe_highlight": "While most reach their target shade in 12 treatments, coffee, staining foods and everyday wear will gradually darken teeth — touch-ups every few months are what keep your smile bright.",
-        "subscribe_chart_aria": "Whitening results by session: fast early gains that keep compounding with continued use.",
-        "subscribe_benefits": "Touch-ups every few months prevents stain buildup and keeps your smile bright\nResults guaranteed or money back",
-        "show_why_subscribe_text": false,
-        "offer_text": "LIMITED TIME OFFER: 30% OFF YOUR FIRST ORDER + FREE WHITENING PEN",
-        "show_offer_banner": false,
-        "show_formula_line": false
-      }
-    },
     "smile_analysis": {
       "type": "smile-analysis",
       "blocks": {
@@ -36,7 +16,8 @@
           "type": "cause",
           "settings": {
             "label": "Surface stains",
-            "tint": "#F4ECE6",
+            "image": "shopify://shop_images/Product_page_post-quiz_mobile_-selection.png",
+            "tint": "#f4ece6",
             "why": "Coffee, tea and wine leave pigment on the enamel surface.",
             "effect": "Teeth look dull and yellowed, even just after brushing."
           }
@@ -45,7 +26,7 @@
           "type": "cause",
           "settings": {
             "label": "Plaque film",
-            "tint": "#F6EFE2",
+            "tint": "#f6efe2",
             "why": "A soft film builds up through the day and holds onto pigment.",
             "effect": "Light scatters instead of reflecting, so teeth look flat."
           }
@@ -54,7 +35,7 @@
           "type": "cause",
           "settings": {
             "label": "Deep stains",
-            "tint": "#F2EAF1",
+            "tint": "#f2eaf1",
             "why": "Years of pigment work below the surface, into the dentin.",
             "effect": "A yellow cast that brushing and strips cannot reach."
           }
@@ -82,28 +63,30 @@
           "type": "treatment",
           "settings": {
             "cause": "Surface + deep stains",
+            "dot": "#8a5a3c",
+            "dot_two": "#73476e",
             "agent": "Hydrogen peroxide + LED",
-            "effect": "Lifts stains, surface to deep.",
-            "dot": "#8A5A3C",
-            "dot_two": "#73476E"
+            "effect": "Lifts stains, surface to deep."
           }
         },
         "treatment_2": {
           "type": "treatment",
           "settings": {
             "cause": "Plaque film",
+            "dot": "#a87b2a",
+            "dot_two": "",
             "agent": "Bicarb + coconut oil",
-            "effect": "Clears the dulling film.",
-            "dot": "#A87B2A"
+            "effect": "Clears the dulling film."
           }
         },
         "treatment_3": {
           "type": "treatment",
           "settings": {
             "cause": "Thin enamel",
+            "dot": "#4f7a91",
+            "dot_two": "",
             "agent": "Hydroxyapatite",
-            "effect": "Strengthens thin spots.",
-            "dot": "#4F7A91"
+            "effect": "Strengthens thin spots."
           }
         }
       },
@@ -118,6 +101,30 @@
         "body": "One 20-min session a day treats all of it.",
         "margin_bottom": false,
         "flow_visibility": "all"
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "settings": {
+        "intro_title": "Starter Whitening Kit",
+        "personalized_title": "Formula",
+        "subhead": "Designed to treat all key root causes of yellow & dulling teeth.",
+        "subhead_quiz": "",
+        "atc": "Buy Now",
+        "satisfaction": "30 Day Satisfaction Guarantee",
+        "satisfaction_svg": "<svg style=\"vertical-align: middle\" xmlns=\"http://www.w3.org/2000/svg\" width=\"26\" height=\"25\" viewbox=\"0 0 26 25\" fill=\"none\">\n<circle cx=\"11.5\" cy=\"13.5\" r=\"11\" fill=\"white\" stroke=\"#0D2244\"></circle>\n<g clip-path=\"url(#clip0_6_176)\">\n<path d=\"M24.6712 0C24.6712 0 17.4227 4.72968 11.3998 16.3691V16.3724L10.8333 15.6122C9.06901 13.3203 4.66836 9.65063 4.66836 9.65063L4 10.521C4 10.521 9.41322 15.9623 11.5279 22C11.5279 22 16.4333 7.96331 25.1852 0.781257L24.6712 0V0Z\" fill=\"#46BDF0\"></path>\n</g>\n<defs>\n<clippath id=\"clip0_6_176\">\n<rect width=\"21.1852\" height=\"22\" fill=\"white\" transform=\"translate(4)\"></rect>\n</clippath>\n</defs>\n</svg>",
+        "how_to_use": "{{ product.metafields.custom.how_to_use | metafield_tag }}",
+        "why_subscribe": "{{ product.metafields.custom.why_subscribe | metafield_tag }}",
+        "subscribe_points": "Start\n~12 treatments\n3 months\n6 months",
+        "subscribe_keep_label": "With touch-ups",
+        "subscribe_stop_label": "Without touch-ups",
+        "subscribe_highlight": "While most reach their target shade in 12 treatments, coffee, staining foods and everyday wear will gradually darken teeth — touch-ups every few months are what keep your smile bright.",
+        "subscribe_chart_aria": "Whitening results by session: fast early gains that keep compounding with continued use.",
+        "subscribe_benefits": "Touch-ups every few months prevents stain buildup and keeps your smile bright\nResults guaranteed or money back",
+        "show_why_subscribe_text": false,
+        "offer_text": "LIMITED TIME OFFER: 30% OFF YOUR FIRST ORDER + FREE WHITENING PEN",
+        "show_offer_banner": false,
+        "show_formula_line": false
       }
     },
     "kit_contents": {
@@ -148,6 +155,7 @@
         "extra_title": "Sensitivity blockers",
         "extra_text": "Aloe vera, glycerin, hydroxyapatite",
         "ingredients_label": "Full ingredients",
+        "ingredients": "",
         "margin_bottom": false,
         "flow_visibility": "all"
       }
@@ -178,7 +186,7 @@
           "settings": {
             "when": "First use",
             "text": "Many people see a difference right away",
-            "dot": "#9EA7B4"
+            "dot": "#9ea7b4"
           }
         },
         "stage_5": {
@@ -186,7 +194,7 @@
           "settings": {
             "when": "Day 6",
             "text": "Avg. 7 shades whiter",
-            "dot": "#46BDF0"
+            "dot": "#46bdf0"
           }
         },
         "stage_6": {
@@ -194,7 +202,7 @@
           "settings": {
             "when": "Day 30",
             "text": "Noticeably whiter, or your money back",
-            "dot": "#0D2244"
+            "dot": "#0d2244"
           }
         }
       },
@@ -251,7 +259,10 @@
     },
     "faq_section": {
       "type": "faq-section",
-      "settings": {}
+      "settings": {
+        "section_heading": "",
+        "section_sub_heading": ""
+      }
     }
   },
   "order": [
