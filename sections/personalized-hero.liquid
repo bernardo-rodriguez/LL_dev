@@ -8,6 +8,7 @@
   | replace: '}', '</span>'
 %}
 {% assign stats = section.blocks | where: 'type', 'stat' %}
+{% assign causes = section.blocks | where: 'type', 'cause' %}
 
 {%- comment -%}
   data-quiz-destination tells quiz.js where to send people when they finish.
@@ -96,20 +97,31 @@
                 {% endif %}
               </div>
 
-              {% if section.settings.card_tags != blank %}
+              {% if causes.size > 0 %}
                 <ul class="personalized-hero__tags">
-                  {% assign tag_lines = section.settings.card_tags | newline_to_br | split: '<br />' %}
-                  {% for line in tag_lines %}
-                    {% assign tag = line | strip %}
-                    {% if tag != blank %}
-                      <li class="personalized-hero__tag body-sm">{{ tag }}</li>
-                    {% endif %}
+                  {% for block in causes %}
+                    <li
+                      class="personalized-hero__tag body-sm"
+                      {% if block.settings.tint != blank %}style="background: {{ block.settings.tint }};"{% endif %}
+                      {{ block.shopify_attributes }}
+                    >
+                      {% if block.settings.dot != blank %}
+                        <span class="personalized-hero__tag-dot" style="background: {{ block.settings.dot }};" aria-hidden="true"></span>
+                      {% endif %}
+                      {{ block.settings.label }}
+                    </li>
                   {% endfor %}
                 </ul>
               {% endif %}
 
               {% if section.settings.card_note != blank %}
-                <p class="personalized-hero__card-note body-sm">{{ section.settings.card_note }}</p>
+                <p class="personalized-hero__card-note body-sm">
+                  {%- comment -%} Inline: the theme's icon set has no shield {%- endcomment -%}
+                  <svg class="personalized-hero__shield" viewBox="0 0 16 18" fill="none" aria-hidden="true" focusable="false">
+                    <path d="M8 1 1.5 3.6v5.1c0 3.6 2.7 6.9 6.5 8.3 3.8-1.4 6.5-4.7 6.5-8.3V3.6L8 1Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+                  </svg>
+                  {{ section.settings.card_note }}
+                </p>
               {% endif %}
             </div>
           {% endif %}
@@ -263,13 +275,6 @@
       "default": "8-16"
     },
     {
-      "type": "textarea",
-      "id": "card_tags",
-      "label": "Causes found",
-      "info": "One per line",
-      "default": "Surface stains\nPlaque film\nDeep stains"
-    },
-    {
       "type": "text",
       "id": "card_note",
       "label": "Note under the tags",
@@ -330,12 +335,60 @@
           "default": "whiter in 6 days (avg.)"
         }
       ]
+    },
+    {
+      "type": "cause",
+      "name": "Cause found",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Cause",
+          "default": "Surface stains"
+        },
+        {
+          "type": "color",
+          "id": "tint",
+          "label": "Pill colour",
+          "default": "#F4ECE6"
+        },
+        {
+          "type": "color",
+          "id": "dot",
+          "label": "Dot colour",
+          "info": "Leave empty for no dot."
+        }
+      ]
     }
   ],
   "presets": [
     {
       "name": "Personalized Hero",
       "blocks": [
+        {
+          "type": "cause",
+          "settings": {
+            "label": "Surface stains",
+            "tint": "#F4ECE6",
+            "dot": "#8A5A3C"
+          }
+        },
+        {
+          "type": "cause",
+          "settings": {
+            "label": "Plaque film",
+            "tint": "#F6EFE2",
+            "dot": "#A87B2A"
+          }
+        },
+        {
+          "type": "cause",
+          "settings": {
+            "label": "Deep stains",
+            "tint": "#F2EAF1",
+            "dot": ""
+          }
+        },
         {
           "type": "stat",
           "settings": {

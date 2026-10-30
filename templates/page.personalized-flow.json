@@ -12,6 +12,30 @@
     "personalized_hero": {
       "type": "personalized-hero",
       "blocks": {
+        "cause_1": {
+          "type": "cause",
+          "settings": {
+            "label": "Surface stains",
+            "tint": "#F4ECE6",
+            "dot": "#8A5A3C"
+          }
+        },
+        "cause_2": {
+          "type": "cause",
+          "settings": {
+            "label": "Plaque film",
+            "tint": "#F6EFE2",
+            "dot": "#A87B2A"
+          }
+        },
+        "cause_3": {
+          "type": "cause",
+          "settings": {
+            "label": "Deep stains",
+            "tint": "#F2EAF1",
+            "dot": ""
+          }
+        },
         "stat_1": {
           "type": "stat",
           "settings": {
@@ -35,6 +59,9 @@
         }
       },
       "block_order": [
+        "cause_1",
+        "cause_2",
+        "cause_3",
         "stat_1",
         "stat_2",
         "stat_3"
@@ -56,7 +83,6 @@
         "focal_after": 80,
         "card_title": "Kailey's formula",
         "card_value": "8-16",
-        "card_tags": "Surface stains\nPlaque film\nDeep stains",
         "card_note": "Medium sensitivity · dosed to match",
         "margin_bottom": false,
         "flow_visibility": "all",
