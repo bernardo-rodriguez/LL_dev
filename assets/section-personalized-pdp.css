@@ -46,13 +46,43 @@ body.template-product-personalized {
 }
 
 /*
-  One rating line, not two. The theme prints the Judge.me preview badge and a
-  separate small-stars line, which read as a duplicate stacked on itself. The
-  reference shows a single line, so the badge carries it and the second is
-  dropped — on this template only.
+  One rating line, not two. The theme prints the Judge.me preview badge — yellow
+  stars and a bare review count — and a separate small-stars line underneath, so
+  the same rating appears twice in two different styles.
+
+  The reference shows one line: dark stars, the score, then the review count.
+  small-stars already is that line, and already derives its count the way the
+  rest of the site does, so the badge is the one that goes.
 */
-body.template-product-personalized .product__info-container small-stars-section {
+body.template-product-personalized .product__info-container .jdgm-preview-badge {
   display: none;
+}
+
+/* The reference shows the score alone, not out of five */
+body.template-product-personalized .small-stars-outof {
+  display: none;
+}
+
+body.template-product-personalized .small-stars-section {
+  gap: 6px;
+  color: var(--navy);
+}
+
+body.template-product-personalized .small-stars-rating {
+  margin-right: 0;
+}
+
+/* "4.7 · 2,583 Reviews", the separator drawn rather than typed */
+body.template-product-personalized .small-stars-review-count::before {
+  content: '·';
+  margin: 0 5px 0 3px;
+  color: var(--navy-tint-60);
+}
+
+body.template-product-personalized .small-stars-review-count {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--navy-tint-40);
 }
 
 /*
