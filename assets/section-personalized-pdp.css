@@ -1,0 +1,40 @@
+/*
+  Personalized product template — scoped overrides.
+  ================================================
+
+  Everything here is keyed to body.template-product-personalized, the class the
+  layout emits from template.suffix. The default product page carries only
+  .template-product and so is untouched by every rule in this file.
+
+  The plan picker renders in Skio's shadow DOM, which no selector of ours can
+  reach. Custom properties do cross that boundary, so the picker's component
+  stylesheet reads its layout and colours from variables whose fallbacks are
+  the values it always had. Setting them here restyles the picker on this
+  template only; leaving them unset anywhere else leaves the picker exactly as
+  it ships.
+
+  This is a restyle within Skio's own structure, not a replacement for it. The
+  markup, the selling-plan logic and the cart behaviour are all still Skio's.
+*/
+
+body.template-product-personalized {
+  /* Stacked rows rather than two columns side by side */
+  --skio-row-columns: minmax(0, 1fr);
+  --skio-row-gap: 10px;
+
+  /* Soft cards rather than a joined black-bordered block */
+  --skio-card-radius: 12px;
+  --skio-card-border: var(--blue-tint-20);
+  --skio-card-bg: #ffffff;
+  --skio-card-border-selected: var(--blue);
+  --skio-card-bg-selected: var(--blue-tint-10);
+
+  /* The joined look relied on removed borders and inset dividers. Stacked
+     cards want their own edges back and no dividers. */
+  --skio-selected-border-bottom: 1px solid var(--blue);
+  --skio-selected-border-side: 1px solid var(--blue);
+  --skio-selected-divider-left: none;
+  --skio-selected-divider-right: none;
+  --skio-unselected-border: 1px solid var(--blue-tint-20);
+  --skio-unselected-border-bottom: 1px solid var(--blue-tint-20);
+}

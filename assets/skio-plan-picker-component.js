@@ -121,8 +121,8 @@ const skioStyles = css`
   }
   .skio-plan-picker__purchase-row {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 0;
+    grid-template-columns: var(--skio-row-columns, minmax(0, 1fr) minmax(0, 1fr));
+    gap: var(--skio-row-gap, 0);
   }
   .skio-subscription-first {
     order: 1;
@@ -143,32 +143,32 @@ const skioStyles = css`
     position: relative;
     min-width: 0;
     overflow: visible;
-    border-radius: 0;
-    border: 1px solid #000;
+    border-radius: var(--skio-card-radius, 0);
+    border: 1px solid var(--skio-card-border, #000);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    background: #e5e5e5;
+    background: var(--skio-card-bg, #e5e5e5);
     -webkit-tap-highlight-color: transparent;
   }
   .skio-group-container--selected {
-    border-color: #000;
-    background: #fff !important;
+    border-color: var(--skio-card-border-selected, #000);
+    background: var(--skio-card-bg-selected, #fff) !important;
   }
   .skio-plan-picker__purchase-row .skio-group-container--selected {
-    border-bottom: none;
+    border-bottom: var(--skio-selected-border-bottom, none);
     align-self: stretch;
   }
   /* Divider via box-shadow to avoid jog where unselected option ends */
   .skio-plan-picker__purchase-row .skio-subscription-first .skio-group-container--selected {
-    border-right: none;
-    box-shadow: inset -1px 0 0 #000;
+    border-right: var(--skio-selected-border-side, none);
+    box-shadow: var(--skio-selected-divider-left, inset -1px 0 0 #000);
   }
   .skio-plan-picker__purchase-row .skio-onetime-second.skio-group-container--selected {
-    border-left: none;
-    box-shadow: inset 1px 0 0 #000;
+    border-left: var(--skio-selected-border-side, none);
+    box-shadow: var(--skio-selected-divider-right, inset 1px 0 0 #000);
   }
   .skio-plan-picker__purchase-row .skio-group-container--available:not(.skio-group-container--selected) {
-    border: none;
-    border-bottom: 1px solid #000;
+    border: var(--skio-unselected-border, none);
+    border-bottom: var(--skio-unselected-border-bottom, 1px solid #000);
   }
   .skio-plan-picker__purchase-row .skio-group-container--available:not(.skio-group-container--selected) .skio-group-label {
     padding: 10px 16px;
