@@ -1,0 +1,80 @@
+/* How To Timeline — the daily steps, then what happens over time. */
+
+.how-to-timeline { background: var(--cream); color: var(--navy); }
+.how-to-timeline__inner { padding: var(--section-space-y) 0 0; }
+.how-to-timeline--with-spacing .how-to-timeline__inner { padding-bottom: var(--section-space-y); }
+
+.how-to-timeline__heading { margin: 0 0 20px; text-transform: none; }
+
+.how-to-timeline__steps {
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--navy-tint-20);
+}
+
+.how-to-timeline__step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--navy-tint-20);
+}
+
+.how-to-timeline__number {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--navy);
+  font-family: var(--ds-font-family);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.how-to-timeline__step-text { color: var(--navy); }
+
+/* A track, not a list: these are points in time rather than things to do */
+.how-to-timeline__track {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.how-to-timeline__stage {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 0 12px 20px;
+  border-left: 2px solid var(--blue-tint-40);
+  position: relative;
+}
+
+.how-to-timeline__stage::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 17px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+
+.how-to-timeline__stage:last-child { border-left-color: transparent; }
+
+.how-to-timeline__stage-when { color: var(--navy-tint-60); }
+.how-to-timeline__stage-text { color: var(--navy); }
+
+@media screen and (min-width: 769px) {
+  .how-to-timeline__inner { max-width: 760px; }
+  .how-to-timeline__heading { margin-bottom: 28px; }
+  .how-to-timeline__steps { margin-bottom: 32px; }
+}

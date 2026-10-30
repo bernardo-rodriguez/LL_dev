@@ -1,0 +1,154 @@
+{{ 'section-smile-analysis.css' | asset_url | stylesheet_tag }}
+
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+{% assign causes = section.blocks | where: 'type', 'cause' %}
+
+<section
+  class="smile-analysis {% if section.settings.margin_bottom %}smile-analysis--with-spacing{% endif %}"
+  data-section-id="{{ section.id }}"
+  {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
+>
+  <div class="page-width {% if template.name == 'product' %}page-width--product{% endif %}">
+    <div class="smile-analysis__inner">
+      {% if section.settings.eyebrow != blank %}
+        <p class="section-eyebrow smile-analysis__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h3 class="section-heading smile-analysis__heading">{{ formatted_heading }}</h3>
+      {% endif %}
+      {% if section.settings.body != blank %}
+        <p class="smile-analysis__body body-md">{{ section.settings.body }}</p>
+      {% endif %}
+
+      {% if causes.size > 0 %}
+        {%- comment -%}
+          Tabs over a single panel. Every panel is in the markup and the chosen
+          one is shown, so the first cause reads before any script runs and the
+          rest are reachable without one failing silently.
+        {%- endcomment -%}
+        <div class="smile-analysis__chips" role="tablist">
+          {% for block in causes %}
+            <button
+              type="button"
+              class="smile-analysis__chip sh3 {% if forloop.first %}smile-analysis__chip--on{% endif %}"
+              role="tab"
+              id="chip-{{ section.id }}-{{ forloop.index }}"
+              aria-controls="panel-{{ section.id }}-{{ forloop.index }}"
+              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+              data-chip="{{ forloop.index }}"
+              {% if block.settings.tint != blank %}style="--tint: {{ block.settings.tint }};"{% endif %}
+              {{ block.shopify_attributes }}
+            >
+              {% if block.settings.dot != blank %}
+                <span class="smile-analysis__dot" style="background: {{ block.settings.dot }};" aria-hidden="true"></span>
+              {% endif %}
+              {{ block.settings.label }}
+            </button>
+          {% endfor %}
+        </div>
+
+        {% for block in causes %}
+          <div
+            class="smile-analysis__panel"
+            role="tabpanel"
+            id="panel-{{ section.id }}-{{ forloop.index }}"
+            aria-labelledby="chip-{{ section.id }}-{{ forloop.index }}"
+            data-panel="{{ forloop.index }}"
+            {% unless forloop.first %}hidden{% endunless %}
+          >
+            <p class="smile-analysis__panel-name sh3">{{ block.settings.label }}</p>
+
+            {% if block.settings.why != blank %}
+              <div class="smile-analysis__row">
+                <span class="smile-analysis__row-label label-sm">{{ section.settings.why_label }}</span>
+                <p class="smile-analysis__row-text body-md">{{ block.settings.why }}</p>
+              </div>
+            {% endif %}
+
+            {% if block.settings.effect != blank %}
+              <div class="smile-analysis__row">
+                <span class="smile-analysis__row-label label-sm">{{ section.settings.effect_label }}</span>
+                <p class="smile-analysis__row-text body-md">{{ block.settings.effect }}</p>
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var root = document.querySelector('[data-section-id="{{ section.id }}"]');
+    if (!root) return;
+    var chips = root.querySelectorAll('[data-chip]');
+    var panels = root.querySelectorAll('[data-panel]');
+    if (chips.length < 2) return;
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var want = chip.getAttribute('data-chip');
+        chips.forEach(function (c) {
+          var on = c === chip;
+          c.classList.toggle('smile-analysis__chip--on', on);
+          c.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        panels.forEach(function (p) {
+          p.hidden = p.getAttribute('data-panel') !== want;
+        });
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Smile Analysis",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Your analysis" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "We found 3 causes dulling your smile.", "info": "Wrap emphasized text in {} for the italic Canela style" },
+    { "type": "text", "id": "body", "label": "Body copy", "default": "Tap each to see what's going on." },
+    { "type": "text", "id": "why_label", "label": "First row label", "default": "Why it happens" },
+    { "type": "text", "id": "effect_label", "label": "Second row label", "default": "What it does to your smile" },
+    { "type": "header", "content": "Layout" },
+    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." },
+    { "type": "header", "content": "Personalization flow" },
+    { "type": "select", "id": "flow_visibility", "label": "Show this section to", "default": "all",
+      "options": [
+        { "value": "all", "label": "Everyone" },
+        { "value": "quiz", "label": "Quiz arrivals only" },
+        { "value": "direct", "label": "Direct arrivals only" }
+      ],
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL." }
+  ],
+  "blocks": [
+    {
+      "type": "cause",
+      "name": "Cause",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Cause", "default": "Surface stains" },
+        { "type": "color", "id": "tint", "label": "Chip colour", "default": "#F4ECE6" },
+        { "type": "color", "id": "dot", "label": "Dot colour", "info": "Leave empty for no dot." },
+        { "type": "textarea", "id": "why", "label": "Why it happens", "default": "Coffee, tea and wine leave pigment on the enamel surface." },
+        { "type": "textarea", "id": "effect", "label": "What it does", "default": "Teeth look dull and yellowed, even just after brushing." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Smile Analysis",
+      "blocks": [
+        { "type": "cause", "settings": { "label": "Surface stains", "tint": "#F4ECE6", "dot": "#8A5A3C" } },
+        { "type": "cause", "settings": { "label": "Plaque film", "tint": "#F6EFE2", "dot": "#A87B2A", "why": "A soft film builds up through the day and holds onto pigment.", "effect": "Light scatters instead of reflecting, so teeth look flat." } },
+        { "type": "cause", "settings": { "label": "Deep stains", "tint": "#F2EAF1", "why": "Years of pigment work below the surface, into the dentin.", "effect": "A yellow cast that brushing and strips cannot reach." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

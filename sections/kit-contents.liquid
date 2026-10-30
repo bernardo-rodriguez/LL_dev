@@ -1,0 +1,117 @@
+{{ 'section-kit-contents.css' | asset_url | stylesheet_tag }}
+
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+{% assign items = section.blocks | where: 'type', 'item' %}
+
+<section
+  class="kit-contents {% if section.settings.margin_bottom %}kit-contents--with-spacing{% endif %}"
+  data-section-id="{{ section.id }}"
+  {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
+>
+  <div class="page-width {% if template.name == 'product' %}page-width--product{% endif %}">
+    <div class="kit-contents__inner">
+      {% if section.settings.eyebrow != blank %}
+        <p class="section-eyebrow kit-contents__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h3 class="section-heading kit-contents__heading">{{ formatted_heading }}</h3>
+      {% endif %}
+
+      {% if items.size > 0 %}
+        <ul class="kit-contents__list list-unstyled">
+          {% for block in items %}
+            <li class="kit-contents__item" {{ block.shopify_attributes }}>
+              <div class="kit-contents__media">
+                {% if block.settings.image != blank %}
+                  <img
+                    src="{{ block.settings.image | image_url: width: 500 }}"
+                    alt="{{ block.settings.image.alt | default: block.settings.title | escape }}"
+                    loading="lazy"
+                  >
+                {% endif %}
+              </div>
+              <div class="kit-contents__detail">
+                <span class="kit-contents__title sh3">{{ block.settings.title }}</span>
+                {% if block.settings.text != blank %}
+                  <span class="kit-contents__text body-md">{{ block.settings.text }}</span>
+                {% endif %}
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if section.settings.extra_title != blank %}
+        <div class="kit-contents__extra">
+          <span class="kit-contents__extra-title label-sm">{{ section.settings.extra_title }}</span>
+          <span class="kit-contents__extra-text body-md">{{ section.settings.extra_text }}</span>
+        </div>
+      {% endif %}
+
+      {%- comment -%}
+        details/summary rather than a scripted accordion: it opens without JS
+        and carries its own expanded state for assistive technology.
+      {%- endcomment -%}
+      {% if section.settings.ingredients != blank %}
+        <details class="kit-contents__ingredients">
+          <summary class="kit-contents__ingredients-summary sh3">
+            {{ section.settings.ingredients_label }}
+            <span class="kit-contents__ingredients-mark" aria-hidden="true"></span>
+          </summary>
+          <div class="kit-contents__ingredients-body body-md">{{ section.settings.ingredients }}</div>
+        </details>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kit Contents",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "In the box" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "What's in your kit.", "info": "Wrap emphasized text in {} for the italic Canela style" },
+    { "type": "header", "content": "Extra line" },
+    { "type": "text", "id": "extra_title", "label": "Label", "default": "Sensitivity blockers" },
+    { "type": "text", "id": "extra_text", "label": "Text", "default": "Aloe vera, glycerin, hydroxyapatite" },
+    { "type": "header", "content": "Full ingredients" },
+    { "type": "text", "id": "ingredients_label", "label": "Toggle label", "default": "Full ingredients" },
+    { "type": "richtext", "id": "ingredients", "label": "Ingredient list" },
+    { "type": "header", "content": "Layout" },
+    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." },
+    { "type": "header", "content": "Personalization flow" },
+    { "type": "select", "id": "flow_visibility", "label": "Show this section to", "default": "all",
+      "options": [
+        { "value": "all", "label": "Everyone" },
+        { "value": "quiz", "label": "Quiz arrivals only" },
+        { "value": "direct", "label": "Direct arrivals only" }
+      ],
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL." }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "title", "label": "Name", "default": "Blue LED mouthpiece" },
+        { "type": "textarea", "id": "text", "label": "Description", "default": "Speeds up whitening. Yours to keep." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kit Contents",
+      "blocks": [
+        { "type": "item", "settings": { "title": "Blue LED mouthpiece", "text": "Speeds up whitening. Yours to keep." } },
+        { "type": "item", "settings": { "title": "3 custom gels", "text": "Mixed to your formula and sensitivity." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

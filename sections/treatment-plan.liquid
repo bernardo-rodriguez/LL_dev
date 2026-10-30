@@ -1,0 +1,83 @@
+{{ 'section-treatment-plan.css' | asset_url | stylesheet_tag }}
+
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+{% assign treatments = section.blocks | where: 'type', 'treatment' %}
+
+<section
+  class="treatment-plan {% if section.settings.margin_bottom %}treatment-plan--with-spacing{% endif %}"
+  data-section-id="{{ section.id }}"
+  {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
+>
+  <div class="page-width {% if template.name == 'product' %}page-width--product{% endif %}">
+    <div class="treatment-plan__inner">
+      {% if section.settings.eyebrow != blank %}
+        <p class="section-eyebrow treatment-plan__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h3 class="section-heading treatment-plan__heading">{{ formatted_heading }}</h3>
+      {% endif %}
+      {% if section.settings.body != blank %}
+        <p class="treatment-plan__body body-md">{{ section.settings.body }}</p>
+      {% endif %}
+
+      {% if treatments.size > 0 %}
+        <ul class="treatment-plan__list list-unstyled">
+          {% for block in treatments %}
+            <li class="treatment-plan__item" {{ block.shopify_attributes }}>
+              <span class="treatment-plan__cause sh3">{{ block.settings.cause }}</span>
+              <span class="treatment-plan__agent label-sm">{{ block.settings.agent }}</span>
+              <span class="treatment-plan__effect body-md">{{ block.settings.effect }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Treatment Plan",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Your treatment" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Here's how we treat it.", "info": "Wrap emphasized text in {} for the italic Canela style" },
+    { "type": "text", "id": "body", "label": "Body copy", "default": "One 20-min session a day treats all of it." },
+    { "type": "header", "content": "Layout" },
+    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." },
+    { "type": "header", "content": "Personalization flow" },
+    { "type": "select", "id": "flow_visibility", "label": "Show this section to", "default": "all",
+      "options": [
+        { "value": "all", "label": "Everyone" },
+        { "value": "quiz", "label": "Quiz arrivals only" },
+        { "value": "direct", "label": "Direct arrivals only" }
+      ],
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL." }
+  ],
+  "blocks": [
+    {
+      "type": "treatment",
+      "name": "Treatment",
+      "settings": [
+        { "type": "text", "id": "cause", "label": "What it treats", "default": "Surface + deep stains" },
+        { "type": "text", "id": "agent", "label": "Active", "default": "Hydrogen peroxide + LED" },
+        { "type": "text", "id": "effect", "label": "What it does", "default": "Lifts stains, surface to deep." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Treatment Plan",
+      "blocks": [
+        { "type": "treatment", "settings": { "cause": "Surface + deep stains", "agent": "Hydrogen peroxide + LED", "effect": "Lifts stains, surface to deep." } },
+        { "type": "treatment", "settings": { "cause": "Plaque film", "agent": "Bicarb + coconut oil", "effect": "Clears the dulling film." } },
+        { "type": "treatment", "settings": { "cause": "Thin enamel", "agent": "Hydroxyapatite", "effect": "Strengthens thin spots." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

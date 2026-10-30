@@ -1,0 +1,72 @@
+/* Smile Analysis — tabs over one panel. Type from the shared scale only. */
+
+.smile-analysis { background: #ffffff; color: var(--navy); }
+.smile-analysis__inner { padding: var(--section-space-y) 0 0; }
+.smile-analysis--with-spacing .smile-analysis__inner { padding-bottom: var(--section-space-y); }
+
+.smile-analysis__heading { margin: 0 0 10px; text-transform: none; }
+
+.smile-analysis__body {
+  margin: 0 0 18px;
+  max-width: 52ch;
+  color: var(--navy-tint-80);
+  line-height: var(--ds-line-height-copy);
+}
+
+.smile-analysis__chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+
+.smile-analysis__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 15px;
+  border: 1px solid var(--navy-tint-20);
+  border-radius: 999px;
+  background: none;
+  color: var(--navy-tint-60);
+  font-family: var(--ds-font-family);
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.smile-analysis__chip:hover { border-color: var(--navy-tint-40); color: var(--navy); }
+.smile-analysis__chip:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+/* The chosen chip takes the cause's own tint, set per block */
+.smile-analysis__chip--on {
+  background: var(--tint, var(--blue-tint-10));
+  border-color: transparent;
+  color: var(--navy);
+}
+
+.smile-analysis__dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+
+.smile-analysis__panel {
+  padding: 18px;
+  border: 1px solid var(--blue-tint-20);
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.smile-analysis__panel[hidden] { display: none; }
+
+.smile-analysis__panel-name { margin: 0 0 14px; font-weight: 700; color: var(--navy); }
+
+.smile-analysis__row { padding-top: 12px; border-top: 1px solid var(--blue-tint-20); }
+.smile-analysis__row + .smile-analysis__row { margin-top: 12px; }
+
+.smile-analysis__row-label { display: block; margin-bottom: 4px; color: var(--navy-tint-60); }
+
+.smile-analysis__row-text {
+  margin: 0;
+  color: var(--navy);
+  line-height: var(--ds-line-height-copy);
+}
+
+@media screen and (min-width: 769px) {
+  .smile-analysis__inner { max-width: 760px; }
+  .smile-analysis__heading { margin-bottom: 14px; }
+  .smile-analysis__body { margin-bottom: 24px; }
+  .smile-analysis__panel { padding: 26px; }
+}
