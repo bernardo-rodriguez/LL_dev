@@ -24,12 +24,37 @@
       {% endif %}
 
       {% if treatments.size > 0 %}
-        <ul class="treatment-plan__list list-unstyled">
+        {%- comment -%}
+          One card holding ruled rows: what is being treated on the left, with
+          the dots that tie it back to the causes above, then what treats it.
+        {%- endcomment -%}
+        <ul class="treatment-plan__card list-unstyled">
           {% for block in treatments %}
             <li class="treatment-plan__item" {{ block.shopify_attributes }}>
-              <span class="treatment-plan__cause sh3">{{ block.settings.cause }}</span>
-              <span class="treatment-plan__agent label-sm">{{ block.settings.agent }}</span>
-              <span class="treatment-plan__effect body-md">{{ block.settings.effect }}</span>
+              <span class="treatment-plan__target">
+                {% if block.settings.dot != blank or block.settings.dot_two != blank %}
+                  <span class="treatment-plan__dots" aria-hidden="true">
+                    {% if block.settings.dot != blank %}
+                      <span class="treatment-plan__dot" style="background: {{ block.settings.dot }};"></span>
+                    {% endif %}
+                    {% if block.settings.dot_two != blank %}
+                      <span class="treatment-plan__dot" style="background: {{ block.settings.dot_two }};"></span>
+                    {% endif %}
+                  </span>
+                {% endif %}
+                <span class="treatment-plan__cause sh3">{{ block.settings.cause }}</span>
+              </span>
+
+              <span class="treatment-plan__arrow" aria-hidden="true">
+                <svg viewBox="0 0 20 12" fill="none" focusable="false">
+                  <path d="M1 6h17m0 0-5-4.5M18 6l-5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+
+              <span class="treatment-plan__treatment">
+                <span class="treatment-plan__agent sh3">{{ block.settings.agent }}</span>
+                <span class="treatment-plan__effect body-md">{{ block.settings.effect }}</span>
+              </span>
             </li>
           {% endfor %}
         </ul>
@@ -44,28 +69,97 @@
   "tag": "section",
   "class": "section",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Your treatment" },
-    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Here's how we treat it.", "info": "Wrap emphasized text in {} for the italic Canela style" },
-    { "type": "text", "id": "body", "label": "Body copy", "default": "One 20-min session a day treats all of it." },
-    { "type": "header", "content": "Layout" },
-    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." },
-    { "type": "header", "content": "Personalization flow" },
-    { "type": "select", "id": "flow_visibility", "label": "Show this section to", "default": "all",
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Your treatment"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Here's how we treat it.",
+      "info": "Wrap emphasized text in {} for the italic Canela style"
+    },
+    {
+      "type": "text",
+      "id": "body",
+      "label": "Body copy",
+      "default": "One 20-min session a day treats all of it."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "margin_bottom",
+      "label": "Extra space below",
+      "default": false,
+      "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap."
+    },
+    {
+      "type": "header",
+      "content": "Personalization flow"
+    },
+    {
+      "type": "select",
+      "id": "flow_visibility",
+      "label": "Show this section to",
+      "default": "all",
       "options": [
-        { "value": "all", "label": "Everyone" },
-        { "value": "quiz", "label": "Quiz arrivals only" },
-        { "value": "direct", "label": "Direct arrivals only" }
+        {
+          "value": "all",
+          "label": "Everyone"
+        },
+        {
+          "value": "quiz",
+          "label": "Quiz arrivals only"
+        },
+        {
+          "value": "direct",
+          "label": "Direct arrivals only"
+        }
       ],
-      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL." }
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL."
+    }
   ],
   "blocks": [
     {
       "type": "treatment",
       "name": "Treatment",
       "settings": [
-        { "type": "text", "id": "cause", "label": "What it treats", "default": "Surface + deep stains" },
-        { "type": "text", "id": "agent", "label": "Active", "default": "Hydrogen peroxide + LED" },
-        { "type": "text", "id": "effect", "label": "What it does", "default": "Lifts stains, surface to deep." }
+        {
+          "type": "text",
+          "id": "cause",
+          "label": "What it treats",
+          "default": "Surface + deep stains"
+        },
+        {
+          "type": "color",
+          "id": "dot",
+          "label": "Dot",
+          "info": "Match the cause above. Leave empty for none."
+        },
+        {
+          "type": "color",
+          "id": "dot_two",
+          "label": "Second dot",
+          "info": "For a row covering two causes."
+        },
+        {
+          "type": "text",
+          "id": "agent",
+          "label": "Active",
+          "default": "Hydrogen peroxide + LED"
+        },
+        {
+          "type": "text",
+          "id": "effect",
+          "label": "What it does",
+          "default": "Lifts stains, surface to deep."
+        }
       ]
     }
   ],
@@ -73,9 +167,34 @@
     {
       "name": "Treatment Plan",
       "blocks": [
-        { "type": "treatment", "settings": { "cause": "Surface + deep stains", "agent": "Hydrogen peroxide + LED", "effect": "Lifts stains, surface to deep." } },
-        { "type": "treatment", "settings": { "cause": "Plaque film", "agent": "Bicarb + coconut oil", "effect": "Clears the dulling film." } },
-        { "type": "treatment", "settings": { "cause": "Thin enamel", "agent": "Hydroxyapatite", "effect": "Strengthens thin spots." } }
+        {
+          "type": "treatment",
+          "settings": {
+            "cause": "Surface + deep stains",
+            "agent": "Hydrogen peroxide + LED",
+            "effect": "Lifts stains, surface to deep.",
+            "dot": "#8A5A3C",
+            "dot_two": "#73476E"
+          }
+        },
+        {
+          "type": "treatment",
+          "settings": {
+            "cause": "Plaque film",
+            "agent": "Bicarb + coconut oil",
+            "effect": "Clears the dulling film.",
+            "dot": "#A87B2A"
+          }
+        },
+        {
+          "type": "treatment",
+          "settings": {
+            "cause": "Thin enamel",
+            "agent": "Hydroxyapatite",
+            "effect": "Strengthens thin spots.",
+            "dot": "#4F7A91"
+          }
+        }
       ]
     }
   ]

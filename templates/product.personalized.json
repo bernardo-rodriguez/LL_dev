@@ -38,8 +38,7 @@
             "label": "Surface stains",
             "tint": "#F4ECE6",
             "why": "Coffee, tea and wine leave pigment on the enamel surface.",
-            "effect": "Teeth look dull and yellowed, even just after brushing.",
-            "dot": "#8A5A3C"
+            "effect": "Teeth look dull and yellowed, even just after brushing."
           }
         },
         "cause_2": {
@@ -48,8 +47,7 @@
             "label": "Plaque film",
             "tint": "#F6EFE2",
             "why": "A soft film builds up through the day and holds onto pigment.",
-            "effect": "Light scatters instead of reflecting, so teeth look flat.",
-            "dot": "#A87B2A"
+            "effect": "Light scatters instead of reflecting, so teeth look flat."
           }
         },
         "cause_3": {
@@ -85,7 +83,9 @@
           "settings": {
             "cause": "Surface + deep stains",
             "agent": "Hydrogen peroxide + LED",
-            "effect": "Lifts stains, surface to deep."
+            "effect": "Lifts stains, surface to deep.",
+            "dot": "#8A5A3C",
+            "dot_two": "#73476E"
           }
         },
         "treatment_2": {
@@ -93,7 +93,8 @@
           "settings": {
             "cause": "Plaque film",
             "agent": "Bicarb + coconut oil",
-            "effect": "Clears the dulling film."
+            "effect": "Clears the dulling film.",
+            "dot": "#A87B2A"
           }
         },
         "treatment_3": {
@@ -101,7 +102,8 @@
           "settings": {
             "cause": "Thin enamel",
             "agent": "Hydroxyapatite",
-            "effect": "Strengthens thin spots."
+            "effect": "Strengthens thin spots.",
+            "dot": "#4F7A91"
           }
         }
       },

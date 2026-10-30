@@ -13,34 +13,55 @@
   line-height: var(--ds-line-height-copy);
 }
 
-.smile-analysis__chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+/*
+  Three illustrated cards rather than text chips: the causes are things you can
+  show, and the reference draws each one. The card is the control, so the
+  illustration and its label are both part of the button.
+*/
+.smile-analysis__cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
 
-.smile-analysis__chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 9px 15px;
-  border: 1px solid var(--navy-tint-20);
-  border-radius: 999px;
-  background: none;
-  color: var(--navy-tint-60);
-  font-family: var(--ds-font-family);
-  font-weight: 600;
+.smile-analysis__card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 8px 8px 12px;
+  border: 1px solid var(--blue-tint-20);
+  border-radius: 12px;
+  background: #ffffff;
+  text-align: left;
   cursor: pointer;
-  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.smile-analysis__chip:hover { border-color: var(--navy-tint-40); color: var(--navy); }
-.smile-analysis__chip:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.smile-analysis__card:hover { border-color: var(--navy-tint-40); }
+.smile-analysis__card:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 
-/* The chosen chip takes the cause's own tint, set per block */
-.smile-analysis__chip--on {
-  background: var(--tint, var(--blue-tint-10));
-  border-color: transparent;
+.smile-analysis__card--on {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 1px var(--navy);
+}
+
+.smile-analysis__art {
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--blue-tint-10);
+}
+
+.smile-analysis__art img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.smile-analysis__card-label {
+  padding: 0 2px;
   color: var(--navy);
+  font-weight: 700;
+  line-height: var(--ds-line-height);
 }
-
-.smile-analysis__dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
 
 .smile-analysis__panel {
   padding: 18px;
@@ -66,6 +87,8 @@
 
 @media screen and (min-width: 769px) {
   .smile-analysis__inner { max-width: 760px; }
+  .smile-analysis__cards { gap: 14px; margin-bottom: 22px; }
+  .smile-analysis__card { padding: 10px 10px 14px; }
   .smile-analysis__heading { margin-bottom: 14px; }
   .smile-analysis__body { margin-bottom: 24px; }
   .smile-analysis__panel { padding: 26px; }

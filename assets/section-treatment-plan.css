@@ -13,33 +13,47 @@
   line-height: var(--ds-line-height-copy);
 }
 
-.treatment-plan__list {
+/* One card, ruled inside, as the reference draws it */
+.treatment-plan__card {
   margin: 0;
-  padding: 0;
-  border-top: 1px solid var(--navy-tint-20);
+  padding: 0 16px;
+  border: 1px solid var(--blue-tint-20);
+  border-radius: 14px;
+  background: #ffffff;
 }
 
 .treatment-plan__item {
   display: grid;
-  gap: 3px;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.25fr);
+  gap: 12px;
+  align-items: center;
   padding: 16px 0;
-  border-bottom: 1px solid var(--navy-tint-20);
+  border-top: 1px solid var(--blue-tint-20);
 }
 
-.treatment-plan__cause { font-weight: 700; color: var(--navy); }
-.treatment-plan__agent { color: var(--navy-tint-60); }
-.treatment-plan__effect { color: var(--navy-tint-80); }
+.treatment-plan__item:first-child { border-top: 0; }
+
+.treatment-plan__target { display: flex; align-items: center; gap: 8px; min-width: 0; }
+
+/* Two dots where a row covers two causes, overlapping as in the reference */
+.treatment-plan__dots { display: flex; flex-shrink: 0; }
+.treatment-plan__dot { width: 9px; height: 9px; border-radius: 50%; }
+.treatment-plan__dot + .treatment-plan__dot { margin-left: -2px; }
+
+.treatment-plan__cause { font-weight: 700; color: var(--navy); line-height: var(--ds-line-height); }
+
+.treatment-plan__arrow { display: flex; align-items: center; color: var(--blue); }
+.treatment-plan__arrow svg { width: 20px; height: auto; }
+
+.treatment-plan__treatment { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.treatment-plan__agent { font-weight: 700; color: var(--navy); line-height: var(--ds-line-height); }
+.treatment-plan__effect { color: var(--navy-tint-60); line-height: var(--ds-line-height); }
 
 @media screen and (min-width: 769px) {
   .treatment-plan__inner { max-width: 760px; }
   .treatment-plan__heading { margin-bottom: 14px; }
   .treatment-plan__body { margin-bottom: 28px; }
 
-  /* Three columns once there is room: what, with what, to what effect */
-  .treatment-plan__item {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.2fr);
-    gap: 24px;
-    align-items: baseline;
-    padding: 18px 0;
-  }
+  .treatment-plan__card { padding: 0 24px; }
+  .treatment-plan__item { gap: 20px; padding: 20px 0; }
 }
