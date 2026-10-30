@@ -16,23 +16,23 @@
           "type": "cause",
           "settings": {
             "label": "Surface stains",
-            "tint": "#F4ECE6",
-            "dot": "#8A5A3C"
+            "tint": "#f4ece6",
+            "dot": "#8a5a3c"
           }
         },
         "cause_2": {
           "type": "cause",
           "settings": {
             "label": "Plaque film",
-            "tint": "#F6EFE2",
-            "dot": "#A87B2A"
+            "tint": "#f6efe2",
+            "dot": "#a87b2a"
           }
         },
         "cause_3": {
           "type": "cause",
           "settings": {
             "label": "Deep stains",
-            "tint": "#F2EAF1",
+            "tint": "#f2eaf1",
             "dot": ""
           }
         },
@@ -74,6 +74,7 @@
         "button_label": "Build my formula",
         "button_link": "",
         "button_opens_quiz": true,
+        "quiz_destination": "/products/at-home-whitening-kit?view=personalized",
         "microcopy": "<p>Free 2-min quiz · Your kit: <strong>$39</strong> <em>$65</em></p>",
         "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_7.png",
         "label_before": "Before",
@@ -85,8 +86,7 @@
         "card_value": "8-16",
         "card_note": "Medium sensitivity · dosed to match",
         "margin_bottom": false,
-        "flow_visibility": "all",
-        "quiz_destination": "/products/at-home-whitening-kit?view=personalized"
+        "flow_visibility": "all"
       }
     },
     "press_logos": {
@@ -194,9 +194,12 @@
         "row_3"
       ],
       "settings": {
+        "eyebrow": "",
         "heading": "Why {personalized} whitening works better.",
         "them_label": "OTC whitening",
         "ours_label": "Laughland",
+        "ours_logo_svg": "",
+        "footnote": "",
         "margin_bottom": false,
         "flow_visibility": "all"
       }
@@ -240,9 +243,9 @@
         "button_opens_quiz": true,
         "guarantee": "Noticeably whiter in 30 days or your money back",
         "trust": "Enamel-safe · Dentist-formulated · FDA-registered",
+        "shipping": "Free shipping",
         "margin_bottom": false,
-        "flow_visibility": "all",
-        "shipping": "Free shipping"
+        "flow_visibility": "all"
       }
     },
     "root_causes": {
@@ -453,6 +456,8 @@
         "result_1": {
           "type": "result",
           "settings": {
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_5.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_6.png",
             "name": "Sophia S.",
             "formula": "8-16",
             "tags": "Surface stains\nMedium sensitivity",
@@ -462,6 +467,8 @@
         "result_2": {
           "type": "result",
           "settings": {
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png",
             "name": "Lesley C.",
             "formula": "19-2",
             "tags": "Deep stains\nHigh sensitivity",
