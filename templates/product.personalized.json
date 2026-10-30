@@ -26,6 +26,7 @@
           "type": "cause",
           "settings": {
             "label": "Plaque film",
+            "image": "shopify://shop_images/Product_page_post-quiz_mobile_-selection_1.png",
             "tint": "#f6efe2",
             "why": "A soft film builds up through the day and holds onto pigment.",
             "effect": "Light scatters instead of reflecting, so teeth look flat."
@@ -35,6 +36,7 @@
           "type": "cause",
           "settings": {
             "label": "Deep stains",
+            "image": "shopify://shop_images/Product_page_post-quiz_mobile_-selection_2.png",
             "tint": "#f2eaf1",
             "why": "Years of pigment work below the surface, into the dentin.",
             "effect": "A yellow cast that brushing and strips cannot reach."
