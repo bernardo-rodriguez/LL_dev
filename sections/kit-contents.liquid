@@ -33,12 +33,10 @@
                   >
                 {% endif %}
               </div>
-              <div class="kit-contents__detail">
-                <span class="kit-contents__title sh3">{{ block.settings.title }}</span>
-                {% if block.settings.text != blank %}
-                  <span class="kit-contents__text body-md">{{ block.settings.text }}</span>
-                {% endif %}
-              </div>
+              <span class="kit-contents__title sh3">{{ block.settings.title }}</span>
+              {% if block.settings.text != blank %}
+                <span class="kit-contents__text body-md">{{ block.settings.text }}</span>
+              {% endif %}
             </li>
           {% endfor %}
         </ul>
@@ -46,7 +44,10 @@
 
       {% if section.settings.extra_title != blank %}
         <div class="kit-contents__extra">
-          <span class="kit-contents__extra-title label-sm">{{ section.settings.extra_title }}</span>
+          <span class="kit-contents__extra-title sh3">
+            <span class="kit-contents__extra-dot" aria-hidden="true"></span>
+            {{ section.settings.extra_title }}
+          </span>
           <span class="kit-contents__extra-text body-md">{{ section.settings.extra_text }}</span>
         </div>
       {% endif %}

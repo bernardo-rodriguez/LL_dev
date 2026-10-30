@@ -6,20 +6,29 @@
 
 .kit-contents__heading { margin: 0 0 20px; text-transform: none; }
 
-.kit-contents__list { display: flex; flex-direction: column; gap: 14px; margin: 0; padding: 0; }
+/*
+  Two cards side by side with the photo on top, as the reference draws them —
+  not a stacked list with the photo beside the text.
+*/
+.kit-contents__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
 
 .kit-contents__item {
-  display: grid;
-  grid-template-columns: 84px minmax(0, 1fr);
-  gap: 14px;
-  align-items: center;
-  padding: 14px;
-  border: 1px solid var(--blue-tint-20);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
   border-radius: 12px;
+  background: var(--cream);
 }
 
 .kit-contents__media {
-  aspect-ratio: 1;
+  aspect-ratio: 4 / 3;
   border-radius: 8px;
   overflow: hidden;
   background: var(--blue-tint-10);
@@ -27,25 +36,41 @@
 
 .kit-contents__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
-.kit-contents__detail { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
-.kit-contents__title { font-weight: 700; color: var(--navy); }
-.kit-contents__text { color: var(--navy-tint-80); line-height: var(--ds-line-height-copy); }
+.kit-contents__title { font-weight: 700; color: var(--navy); line-height: var(--ds-line-height); }
+.kit-contents__text { color: var(--navy-tint-60); line-height: var(--ds-line-height-copy); }
 
+/* A ruled row rather than a tinted box: it belongs with the ingredients
+   toggle beneath it, not with the cards above. */
 .kit-contents__extra {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  margin-top: 14px;
-  padding: 14px;
-  border-radius: 12px;
-  background: var(--blue-tint-10);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 16px;
+  align-items: baseline;
+  margin-top: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--blue-tint-20);
 }
 
-.kit-contents__extra-title { color: var(--navy-tint-60); }
-.kit-contents__extra-text { color: var(--navy); }
+.kit-contents__extra-title {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.kit-contents__extra-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+}
+
+.kit-contents__extra-text { color: var(--navy-tint-60); line-height: var(--ds-line-height-copy); }
 
 /* details/summary: opens with no script, and carries its own state */
-.kit-contents__ingredients { margin-top: 14px; border-top: 1px solid var(--blue-tint-20); }
+.kit-contents__ingredients { border-top: 1px solid var(--blue-tint-20); border-bottom: 1px solid var(--blue-tint-20); }
 
 .kit-contents__ingredients-summary {
   display: flex;
@@ -53,8 +78,8 @@
   justify-content: space-between;
   gap: 12px;
   padding: 14px 0;
-  color: var(--navy);
-  font-weight: 600;
+  color: var(--blue-shade, #2E86C8);
+  font-weight: 700;
   cursor: pointer;
   list-style: none;
 }
@@ -77,7 +102,7 @@
   top: 50%;
   width: 12px;
   height: 1.5px;
-  background: var(--navy);
+  background: var(--blue-shade, #2E86C8);
   transform: translate(-50%, -50%);
   transition: opacity 0.2s ease;
 }
@@ -91,5 +116,6 @@
 @media screen and (min-width: 769px) {
   .kit-contents__inner { max-width: 760px; }
   .kit-contents__heading { margin-bottom: 28px; }
-  .kit-contents__item { grid-template-columns: 110px minmax(0, 1fr); gap: 20px; padding: 18px; }
+  .kit-contents__list { gap: 16px; }
+  .kit-contents__item { padding: 16px; }
 }
