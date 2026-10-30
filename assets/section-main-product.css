@@ -853,3 +853,14 @@ body.template-product .product__info-container .sh2-5 {
     font-size: 14px;
   }
 }
+
+
+/*
+  The star rating above the title sits 100px clear of everything below it.
+  .jdgm-widget carries margin-bottom: 100px in base.css, which is right for the
+  full reviews block further down the page but not for the small preview badge,
+  which shares the class.
+*/
+.product__info-container .jdgm-preview-badge {
+  margin-bottom: 0;
+}

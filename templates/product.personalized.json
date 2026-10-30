@@ -175,21 +175,24 @@
           "type": "stage",
           "settings": {
             "when": "First use",
-            "text": "Many people see a difference right away"
+            "text": "Many people see a difference right away",
+            "dot": "#9EA7B4"
           }
         },
         "stage_5": {
           "type": "stage",
           "settings": {
             "when": "Day 6",
-            "text": "Avg. 7 shades whiter"
+            "text": "Avg. 7 shades whiter",
+            "dot": "#46BDF0"
           }
         },
         "stage_6": {
           "type": "stage",
           "settings": {
             "when": "Day 30",
-            "text": "Noticeably whiter, or your money back"
+            "text": "Noticeably whiter, or your money back",
+            "dot": "#0D2244"
           }
         }
       },
@@ -250,9 +253,9 @@
     }
   },
   "order": [
-    "main",
     "smile_analysis",
     "treatment_plan",
+    "main",
     "kit_contents",
     "how_to_timeline",
     "reviews",

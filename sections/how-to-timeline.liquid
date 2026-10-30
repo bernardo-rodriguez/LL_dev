@@ -26,7 +26,7 @@
           {% for block in steps %}
             <li class="how-to-timeline__step" {{ block.shopify_attributes }}>
               <span class="how-to-timeline__number" aria-hidden="true">{{ forloop.index }}</span>
-              <span class="how-to-timeline__step-text sh3">{{ block.settings.text }}</span>
+              <span class="how-to-timeline__step-text body-sm">{{ block.settings.text }}</span>
             </li>
           {% endfor %}
         </ol>
@@ -39,7 +39,7 @@
       {% if stages.size > 0 %}
         <ol class="how-to-timeline__track">
           {% for block in stages %}
-            <li class="how-to-timeline__stage" {{ block.shopify_attributes }}>
+            <li class="how-to-timeline__stage" {% if block.settings.dot != blank %}style="--dot: {{ block.settings.dot }};"{% endif %} {{ block.shopify_attributes }}>
               <span class="how-to-timeline__stage-when label-sm">{{ block.settings.when }}</span>
               <span class="how-to-timeline__stage-text body-md">{{ block.settings.text }}</span>
             </li>
@@ -56,33 +56,91 @@
   "tag": "section",
   "class": "section",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "How to use" },
-    { "type": "textarea", "id": "heading", "label": "Heading", "default": "20 minutes a day.", "info": "Wrap emphasized text in {} for the italic Canela style" },
-    { "type": "header", "content": "Layout" },
-    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." },
-    { "type": "header", "content": "Personalization flow" },
-    { "type": "select", "id": "flow_visibility", "label": "Show this section to", "default": "all",
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "How to use"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "20 minutes a day.",
+      "info": "Wrap emphasized text in {} for the italic Canela style"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "margin_bottom",
+      "label": "Extra space below",
+      "default": false,
+      "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap."
+    },
+    {
+      "type": "header",
+      "content": "Personalization flow"
+    },
+    {
+      "type": "select",
+      "id": "flow_visibility",
+      "label": "Show this section to",
+      "default": "all",
       "options": [
-        { "value": "all", "label": "Everyone" },
-        { "value": "quiz", "label": "Quiz arrivals only" },
-        { "value": "direct", "label": "Direct arrivals only" }
+        {
+          "value": "all",
+          "label": "Everyone"
+        },
+        {
+          "value": "quiz",
+          "label": "Quiz arrivals only"
+        },
+        {
+          "value": "direct",
+          "label": "Direct arrivals only"
+        }
       ],
-      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL." }
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL."
+    }
   ],
   "blocks": [
     {
       "type": "step",
       "name": "Step",
       "settings": [
-        { "type": "textarea", "id": "text", "label": "Step", "default": "Add gel to the mouthpiece" }
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Step",
+          "default": "Add gel to the mouthpiece"
+        }
       ]
     },
     {
       "type": "stage",
       "name": "Stage",
       "settings": [
-        { "type": "text", "id": "when", "label": "When", "default": "First use" },
-        { "type": "textarea", "id": "text", "label": "What to expect", "default": "Many people see a difference right away" }
+        {
+          "type": "text",
+          "id": "when",
+          "label": "When",
+          "default": "First use"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "What to expect",
+          "default": "Many people see a difference right away"
+        },
+        {
+          "type": "color",
+          "id": "dot",
+          "label": "Dot colour",
+          "info": "Leave empty to use the section's default."
+        }
       ]
     }
   ],
@@ -90,12 +148,48 @@
     {
       "name": "How To Timeline",
       "blocks": [
-        { "type": "step", "settings": { "text": "Add gel to the mouthpiece" } },
-        { "type": "step", "settings": { "text": "Wear with the light on for 20 min" } },
-        { "type": "step", "settings": { "text": "Rinse and go" } },
-        { "type": "stage", "settings": { "when": "First use", "text": "Many people see a difference right away" } },
-        { "type": "stage", "settings": { "when": "Day 6", "text": "Avg. 7 shades whiter" } },
-        { "type": "stage", "settings": { "when": "Day 30", "text": "Noticeably whiter, or your money back" } }
+        {
+          "type": "step",
+          "settings": {
+            "text": "Add gel to the mouthpiece"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "text": "Wear with the light on for 20 min"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "text": "Rinse and go"
+          }
+        },
+        {
+          "type": "stage",
+          "settings": {
+            "when": "First use",
+            "text": "Many people see a difference right away",
+            "dot": "#9EA7B4"
+          }
+        },
+        {
+          "type": "stage",
+          "settings": {
+            "when": "Day 6",
+            "text": "Avg. 7 shades whiter",
+            "dot": "#46BDF0"
+          }
+        },
+        {
+          "type": "stage",
+          "settings": {
+            "when": "Day 30",
+            "text": "Noticeably whiter, or your money back",
+            "dot": "#0D2244"
+          }
+        }
       ]
     }
   ]

@@ -6,19 +6,29 @@
 
 .how-to-timeline__heading { margin: 0 0 20px; text-transform: none; }
 
+/*
+  Three cards side by side rather than ruled rows: the steps are equal and
+  parallel, and the reference sets them that way. They stay three across even
+  on a phone, which is what keeps them reading as one sequence.
+*/
 .how-to-timeline__steps {
-  margin: 0 0 24px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 0 26px;
   padding: 0;
   list-style: none;
-  border-top: 1px solid var(--navy-tint-20);
 }
 
 .how-to-timeline__step {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--navy-tint-20);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--blue-tint-20);
+  border-radius: 12px;
+  background: #ffffff;
 }
 
 .how-to-timeline__number {
@@ -29,7 +39,7 @@
   width: 1.6em;
   height: 1.6em;
   border-radius: 50%;
-  background: var(--blue);
+  background: var(--blue-tint-20);
   color: var(--navy);
   font-family: var(--ds-font-family);
   font-size: 13px;
@@ -37,7 +47,14 @@
   line-height: 1;
 }
 
-.how-to-timeline__step-text { color: var(--navy); }
+/* .body-sm, not .sh3: three cards across a 390px screen leaves about 110px
+   each, and the larger size overflowed on the longest step. */
+.how-to-timeline__step-text {
+  color: var(--navy);
+  font-weight: 600;
+  line-height: var(--ds-line-height);
+  overflow-wrap: anywhere;
+}
 
 /* A track, not a list: these are points in time rather than things to do */
 .how-to-timeline__track {
@@ -53,7 +70,7 @@
   flex-direction: column;
   gap: 2px;
   padding: 12px 0 12px 20px;
-  border-left: 2px solid var(--blue-tint-40);
+  border-left: 2px solid var(--navy-tint-20);
   position: relative;
 }
 
@@ -65,7 +82,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--blue);
+  background: var(--dot, var(--blue));
 }
 
 .how-to-timeline__stage:last-child { border-left-color: transparent; }
@@ -76,5 +93,6 @@
 @media screen and (min-width: 769px) {
   .how-to-timeline__inner { max-width: 760px; }
   .how-to-timeline__heading { margin-bottom: 28px; }
-  .how-to-timeline__steps { margin-bottom: 32px; }
+  .how-to-timeline__steps { gap: 14px; margin-bottom: 32px; }
+  .how-to-timeline__step { padding: 18px; }
 }
