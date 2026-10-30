@@ -55,7 +55,12 @@ body.template-product-personalized {
   rest of the site does, so the badge is the one that goes.
 */
 body.template-product-personalized .product__info-container .jdgm-preview-badge {
-  display: none;
+  /*
+    !important because Judge.me's script writes style="display: block" straight
+    onto the badge element, and an inline style beats any stylesheet rule
+    without it. product-page-landing.css hides it the same way.
+  */
+  display: none !important;
 }
 
 /* The reference shows the score alone, not out of five */
@@ -73,7 +78,7 @@ body.template-product-personalized .small-stars-rating {
 }
 
 /* "4.7 · 2,583 Reviews", the separator drawn rather than typed */
-body.template-product-personalized .small-stars-review-count::before {
+body.template-product-personalized .small-stars-review-count:not(:empty)::before {
   content: '·';
   margin: 0 5px 0 3px;
   color: var(--navy-tint-60);

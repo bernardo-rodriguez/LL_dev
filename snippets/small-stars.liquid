@@ -44,6 +44,16 @@
       var rawCount = null;
       if (summaryText) rawCount = getReviewCountFromElement(summaryText);
       if (rawCount == null && allReviewsText) rawCount = getReviewCountFromElement(allReviewsText);
+      // Templates without the full reviews widget on the page (the personalized
+      // PDP, for one) have neither element, so the count never filled in. The
+      // preview badge carries the same raw number as an attribute.
+      if (rawCount == null) {
+        var prevBadge = document.querySelector('.jdgm-prev-badge[data-number-of-reviews]');
+        if (prevBadge) {
+          var attr = parseInt(prevBadge.getAttribute('data-number-of-reviews'), 10);
+          if (!isNaN(attr)) rawCount = attr;
+        }
+      }
       if (rawCount != null) {
         var displayCount = rawCount < 1000 ? rawCount + 2000 : rawCount;
         var text = displayCount.toLocaleString() + ' Reviews';
