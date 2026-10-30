@@ -84,12 +84,6 @@ body.template-product-personalized .small-stars-review-count:not(:empty)::before
   color: var(--navy-tint-60);
 }
 
-body.template-product-personalized .small-stars-review-count {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-color: var(--navy-tint-40);
-}
-
 /*
   The plan chooser spans the screen because the mobile rule pulls the row
   full-bleed. The reference insets it with the rest of the column, so that is
@@ -101,4 +95,23 @@ body.template-product-personalized .small-stars-review-count {
     margin-right: 0;
     width: 100%;
   }
+}
+
+/*
+  The footer was overlapping the FAQ box by 60px, cutting "How Can We Help?"
+  in half across the blue edge.
+
+  base.css pulls the footer up with `#MainContent:not(.template-product)
+  { margin-bottom: -60px }` — product pages are meant to be exempt. But
+  theme.liquid writes main's class from `{{ template }}`, which on an
+  alternate template renders the single dotted token
+  "template-product.personalized". That doesn't match .template-product, so
+  the :not() passes and the exemption is lost. (Same shape as the body-class
+  bug, still unfixed on main; fixing it there would also drop the pull from
+  landing-page-product and product-special, which stay as they are.)
+
+  0 is what a product page resolves to in production.
+*/
+body.template-product-personalized #MainContent {
+  margin-bottom: 0;
 }
