@@ -229,6 +229,8 @@
         "result_1": {
           "type": "result",
           "settings": {
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_5.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_6.png",
             "name": "Sophia S.",
             "formula": "8-16",
             "tags": "Surface stains\nMedium sensitivity",
@@ -238,6 +240,8 @@
         "result_2": {
           "type": "result",
           "settings": {
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png",
             "name": "Lesley C.",
             "formula": "19-2",
             "tags": "Deep stains\nHigh sensitivity",
