@@ -37,4 +37,33 @@ body.template-product-personalized {
   --skio-selected-divider-right: none;
   --skio-unselected-border: 1px solid var(--blue-tint-20);
   --skio-unselected-border-bottom: 1px solid var(--blue-tint-20);
+
+  /* The treatment cards take the same soft shape as everything else here */
+  --kit-card-radius: 12px;
+  --kit-card-border: var(--blue-tint-20);
+  --kit-card-border-selected: var(--blue);
+  --kit-card-bg-selected: var(--blue-tint-10);
+}
+
+/*
+  One rating line, not two. The theme prints the Judge.me preview badge and a
+  separate small-stars line, which read as a duplicate stacked on itself. The
+  reference shows a single line, so the badge carries it and the second is
+  dropped — on this template only.
+*/
+body.template-product-personalized .product__info-container small-stars-section {
+  display: none;
+}
+
+/*
+  The plan chooser spans the screen because the mobile rule pulls the row
+  full-bleed. The reference insets it with the rest of the column, so that is
+  undone here.
+*/
+@media screen and (max-width: 768px) {
+  body.template-product-personalized .pdp-product-options__form-row {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
 }

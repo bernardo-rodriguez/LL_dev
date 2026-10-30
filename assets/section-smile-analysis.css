@@ -1,7 +1,12 @@
 /* Smile Analysis — tabs over one panel. Type from the shared scale only. */
 
 .smile-analysis { background: #ffffff; color: var(--navy); }
-.smile-analysis__inner { padding: var(--section-space-y) 0 0; }
+/*
+  Carries space underneath as well as on top. The section ends in a
+  hard-edged card and the next one begins immediately, so without it the
+  two meet with no breathing room at all.
+*/
+.smile-analysis__inner { padding: var(--section-space-y) 0 32px; }
 .smile-analysis--with-spacing .smile-analysis__inner { padding-bottom: var(--section-space-y); }
 
 .smile-analysis__heading { margin: 0 0 10px; text-transform: none; }
@@ -86,7 +91,7 @@
 }
 
 @media screen and (min-width: 769px) {
-  .smile-analysis__inner { max-width: 760px; }
+  .smile-analysis__inner { max-width: 760px; padding-bottom: 44px; }
   .smile-analysis__cards { gap: 14px; margin-bottom: 22px; }
   .smile-analysis__card { padding: 10px 10px 14px; }
   .smile-analysis__heading { margin-bottom: 14px; }

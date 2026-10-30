@@ -1,7 +1,12 @@
 /* Treatment Plan — cause, active, effect, as ruled rows. */
 
 .treatment-plan { background: var(--cream); color: var(--navy); }
-.treatment-plan__inner { padding: var(--section-space-y) 0 0; }
+/*
+  Carries space underneath as well as on top. The section ends in a
+  hard-edged card and the next one begins immediately, so without it the
+  two meet with no breathing room at all.
+*/
+.treatment-plan__inner { padding: var(--section-space-y) 0 32px; }
 .treatment-plan--with-spacing .treatment-plan__inner { padding-bottom: var(--section-space-y); }
 
 .treatment-plan__heading { margin: 0 0 10px; text-transform: none; }
@@ -50,7 +55,7 @@
 .treatment-plan__effect { color: var(--navy-tint-60); line-height: var(--ds-line-height); }
 
 @media screen and (min-width: 769px) {
-  .treatment-plan__inner { max-width: 760px; }
+  .treatment-plan__inner { max-width: 760px; padding-bottom: 44px; }
   .treatment-plan__heading { margin-bottom: 14px; }
   .treatment-plan__body { margin-bottom: 28px; }
 
