@@ -135,6 +135,7 @@
         "item_1": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/5_ee42888c-6739-4f6c-b762-e878dba3a17a.png",
             "title": "Blue LED mouthpiece",
             "text": "Speeds up whitening. Yours to keep."
           }
@@ -142,6 +143,7 @@
         "item_2": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/Laughland_80136_1_1.png",
             "title": "3 custom gels",
             "text": "Mixed to your formula and sensitivity."
           }
@@ -265,10 +267,6 @@
     },
     "faq_section": {
       "type": "faq-section",
-      "settings": {
-        "section_heading": "Questions",
-        "section_sub_heading": ""
-      },
       "blocks": {
         "faq_1": {
           "type": "faq",
@@ -312,7 +310,11 @@
         "faq_3",
         "faq_4",
         "faq_5"
-      ]
+      ],
+      "settings": {
+        "section_heading": "Questions",
+        "section_sub_heading": ""
+      }
     }
   },
   "order": [
