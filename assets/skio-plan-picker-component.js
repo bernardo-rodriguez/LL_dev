@@ -637,12 +637,16 @@ const skioStyles = css`
     .skio-total-row__price {
       min-width: 60px;
     }
-    /* Remove side borders when full-bleed */
+    /* Remove side borders when full-bleed.
+       Only the style is switched, not the whole shorthand: a border whose
+       style is none computes to zero width, so the default below is exactly
+       what "border-left: none" produced, while setting it back to solid
+       restores the width and colour the rules above already established. */
     .skio-plan-picker__purchase-row .skio-subscription-first .skio-group-container {
-      border-left: none;
+      border-left-style: var(--skio-sub-border-left-style, none);
     }
     .skio-plan-picker__purchase-row .skio-onetime-second .skio-group-container {
-      border-right: none;
+      border-right-style: var(--skio-once-border-right-style, none);
     }
   }
 

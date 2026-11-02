@@ -55,6 +55,15 @@ body.template-product-personalized {
   --skio-label-gap: 10px;
   --skio-price-size: 17px;
 
+  /*
+    The component drops the subscribe card's left border and the one-time
+    card's right border below 768px — correct for the original two-column row,
+    which went full-bleed to the screen edges there. These cards are stacked
+    and inset, so both sides are wanted back.
+  */
+  --skio-sub-border-left-style: solid;
+  --skio-once-border-right-style: solid;
+
   /* Sits on the border rather than across it, so the edge stays unbroken */
   --skio-ribbon-top: 0;
   --skio-ribbon-left: auto;
