@@ -89,11 +89,13 @@
       'font-family:var(--ds-font-family,manrope,sans-serif);font-size:14px!important;font-weight:600!important;',
       'letter-spacing:.08em!important;text-transform:uppercase!important;cursor:pointer}',
 
-      '.skio-modify-disclaimer{display:flex!important;align-items:center;justify-content:center;gap:8px;',
-      'margin:0!important;padding:0!important;font-family:var(--ds-font-family,manrope,sans-serif);',
-      'font-size:13.5px!important;font-weight:500!important;letter-spacing:0!important;',
-      'text-transform:none!important;color:var(--navy,#0D2244)!important;text-align:center}',
-      '.skio-modify-disclaimer svg{width:16px;height:16px;flex:none;color:var(--pdp-accent,#2369c9)}'
+      /* Skio's ships-every-60-days line is not in v6, and is subscription-only */
+      '.skio-modify-disclaimer{display:none!important}',
+
+      '.ll-plan-guarantee{display:flex;align-items:center;justify-content:center;gap:8px;',
+      'font-family:var(--ds-font-family,manrope,sans-serif);font-size:13.5px;font-weight:500;',
+      'line-height:1.35;color:var(--navy,#0D2244);text-align:center}',
+      '.ll-plan-guarantee svg{width:16px;height:16px;flex:none;color:var(--pdp-accent,#2369c9)}'
     ].join('');
 
     var ICONS = [
@@ -166,21 +168,25 @@
         onceLabel.appendChild(el('span', 'll-plan-note ll-plan-note--once', ONCE_NOTE));
       }
 
-      // v6 puts the price on the button. The total row is hidden but still
-      // maintained by Skio, so it stays the source for this and keeps the
-      // figure correct when the plan or treatment count changes.
+      // v6 puts the price on the button. The price comes off the selected
+      // card rather than the total row: Skio renders no total row on the
+      // one-time plan, which left the button with no figure at all.
       var cta = root.querySelector('.add-to-cart.skio-includes-cta');
       if (CTA_TEXT && cta) {
-        var totalNow = root.querySelector('.skio-total-row .price--current');
-        var want = CTA_TEXT + (totalNow ? ' · ' + totalNow.textContent.replace(/\s+/g, '') : '');
+        var picked = root.querySelector('.skio-group-container--selected .skio-purchase-option-price span:not(.price--strike)')
+          || root.querySelector('.skio-total-row .price--current');
+        var want = CTA_TEXT + (picked ? ' · ' + picked.textContent.replace(/\s+/g, '') : '');
         if (cta.textContent.trim() !== want) cta.textContent = want;
       }
 
-      var disc = root.querySelector('.skio-modify-disclaimer');
-      if (GUARANTEE && disc && disc.getAttribute('data-ll-v6') !== '1') {
-        disc.setAttribute('data-ll-v6', '1');
-        disc.innerHTML = SHIELD;
-        disc.appendChild(document.createTextNode(GUARANTEE));
+      // Skio's own disclaimer is subscription-only, so the guarantee is our
+      // own node after the button and shows on either plan. Skio's line is
+      // hidden by the stylesheet rather than rewritten in place.
+      if (GUARANTEE && cta && !root.querySelector('.ll-plan-guarantee')) {
+        var gline = el('span', 'll-plan-guarantee');
+        gline.innerHTML = SHIELD;
+        gline.appendChild(document.createTextNode(GUARANTEE));
+        cta.parentNode.insertBefore(gline, cta.nextSibling);
       }
       return true;
     }
