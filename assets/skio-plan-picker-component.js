@@ -214,22 +214,24 @@ const skioStyles = css`
   }
 
   .skio-plan-picker__purchase-row .skio-group-topline {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
+    flex-direction: var(--skio-topline-direction, column);
+    align-items: var(--skio-topline-align, flex-start);
+    gap: var(--skio-topline-gap, 4px);
   }
 
   .skio-plan-picker__purchase-row .skio-center-wrapper {
-    flex-direction: column !important;
-    align-items: flex-start;
+    flex-direction: var(--skio-wrapper-direction, column) !important;
+    align-items: var(--skio-wrapper-align, flex-start);
     width: 100%;
-    gap: 4px;
-    justify-content: flex-start !important;
+    gap: var(--skio-wrapper-gap, 4px);
+    justify-content: var(--skio-wrapper-justify, flex-start) !important;
   }
 
   /* Align purchase card text with kit card image start (padding 16px = where image starts) */
   .skio-plan-picker__purchase-row .skio-group-label {
     padding-left: 16px;
+    padding: var(--skio-label-padding, 16px 16px 16px 16px);
+    gap: var(--skio-label-gap, 0);
   }
 
   .skio-purchase-option-price {
@@ -262,7 +264,7 @@ const skioStyles = css`
 
   /* Aligns to: p/.p (16px) */
   .skio-plan-picker__purchase-row .skio-purchase-option-price span:not(.price--strike) {
-    font-size: 14px;
+    font-size: var(--skio-price-size, 14px);
     line-height: var(--ds-line-height, 1.3);
     font-weight: 700;
   }
@@ -280,6 +282,19 @@ const skioStyles = css`
     display: flex;
     margin-right: auto;
     margin-left: 5px;
+  }
+  /* Inline display:none on the element wins over the rule above, so `none` is
+     the effective value everywhere today and stays the fallback here. */
+  .skio-plan-picker .skio-radio__container {
+    display: var(--skio-radio-display, none) !important;
+    order: var(--skio-radio-order, 0);
+    margin-right: var(--skio-radio-margin-right, auto);
+    margin-left: var(--skio-radio-margin-left, 5px);
+    align-items: center;
+  }
+  .skio-plan-picker .skio-radio__container svg {
+    width: var(--skio-radio-size, 25px);
+    height: var(--skio-radio-size, 25px);
   }
   
   .skio-radio {
@@ -357,16 +372,17 @@ const skioStyles = css`
   
   .skio-save-ribbon {
     position: absolute;
-    top: 0;
-    left: -1px;
-    transform: translateY(-50%);
-    background: #000;
-    color: #fff;
+    top: var(--skio-ribbon-top, 0);
+    left: var(--skio-ribbon-left, -1px);
+    right: var(--skio-ribbon-right, auto);
+    transform: var(--skio-ribbon-transform, translateY(-50%));
+    background: var(--skio-ribbon-bg, #000);
+    color: var(--skio-ribbon-color, #fff);
     /* Aligns to: .label-sm (12px) but smaller at 10px for ribbon */
     font-family: var(--ds-font-family, manrope, sans-serif);
-    font-size: 10px;
-    font-weight: 700;
-    padding: 4px 10px;
+    font-size: var(--skio-ribbon-size, 10px);
+    font-weight: var(--skio-ribbon-weight, 700);
+    padding: var(--skio-ribbon-padding, 4px 10px);
     text-transform: uppercase;
     letter-spacing: var(--ds-label-letter-spacing, 0.04em);
     border-radius: 0;

@@ -15,31 +15,31 @@
         "cause_1": {
           "type": "cause",
           "settings": {
-            "label": "Surface stains",
+            "label": "Plaque film",
             "image": "shopify://shop_images/Product_page_post-quiz_mobile_-selection.png",
             "tint": "#f4ece6",
-            "why": "Coffee, tea and wine leave pigment on the enamel surface.",
-            "effect": "Teeth look dull and yellowed, even just after brushing."
+            "effect": "A sticky film coats your teeth and scatters light, so they look dull and yellow instead of glossy.",
+            "dot": "#A87B2A"
           }
         },
         "cause_2": {
           "type": "cause",
           "settings": {
-            "label": "Plaque film",
+            "label": "Deep stains",
             "image": "shopify://shop_images/Product_page_post-quiz_mobile_-selection_1.png",
             "tint": "#f6efe2",
-            "why": "A soft film builds up through the day and holds onto pigment.",
-            "effect": "Light scatters instead of reflecting, so teeth look flat."
+            "effect": "Coffee and tea pigment sits inside the enamel, giving teeth a yellow cast that won’t brush off.",
+            "dot": "#73476E"
           }
         },
         "cause_3": {
           "type": "cause",
           "settings": {
-            "label": "Deep stains",
+            "label": "Thin enamel",
             "image": "shopify://shop_images/Product_page_post-quiz_mobile_-selection_2.png",
             "tint": "#f2eaf1",
-            "why": "Years of pigment work below the surface, into the dentin.",
-            "effect": "A yellow cast that brushing and strips cannot reach."
+            "effect": "Thinner enamel lets the yellow layer underneath show through, so teeth look darker and edges look see-through.",
+            "dot": "#4F7A91"
           }
         }
       },
@@ -51,9 +51,6 @@
       "settings": {
         "eyebrow": "Your analysis",
         "heading": "We found 3 causes dulling your smile.",
-        "body": "Tap each to see what's going on.",
-        "why_label": "Why it happens",
-        "effect_label": "What it does to your smile",
         "margin_bottom": false,
         "flow_visibility": "all"
       }
@@ -64,31 +61,28 @@
         "treatment_1": {
           "type": "treatment",
           "settings": {
-            "cause": "Surface + deep stains",
-            "dot": "#8a5a3c",
-            "dot_two": "#73476e",
-            "agent": "Hydrogen peroxide + LED",
-            "effect": "Lifts stains, surface to deep."
+            "cause": "Plaque film",
+            "dot": "#D2AE5A",
+            "agent": "Sodium bicarbonate",
+            "effect": "Clears the dulling film."
           }
         },
         "treatment_2": {
           "type": "treatment",
           "settings": {
-            "cause": "Plaque film",
-            "dot": "#a87b2a",
-            "dot_two": "",
-            "agent": "Bicarb + coconut oil",
-            "effect": "Clears the dulling film."
+            "cause": "Deep stains",
+            "dot": "#B48FAE",
+            "agent": "11% Hydrogen Peroxide",
+            "effect": "Lifts stains from deep inside."
           }
         },
         "treatment_3": {
           "type": "treatment",
           "settings": {
             "cause": "Thin enamel",
-            "dot": "#4f7a91",
-            "dot_two": "",
+            "dot": "#8FB3C6",
             "agent": "Hydroxyapatite",
-            "effect": "Strengthens thin spots."
+            "effect": "Remineralizes + repairs enamel."
           }
         }
       },
@@ -100,9 +94,10 @@
       "settings": {
         "eyebrow": "Your treatment",
         "heading": "Here's how we treat it.",
-        "body": "One 20-min session a day treats all of it.",
         "margin_bottom": false,
-        "flow_visibility": "all"
+        "flow_visibility": "all",
+        "meta_left": "Formula 8-17",
+        "meta_right": "20 min · 6 days"
       }
     },
     "main": {
@@ -170,43 +165,40 @@
         "step_1": {
           "type": "step",
           "settings": {
-            "text": "Add gel to the mouthpiece"
+            "text": "Add gel to the Blue Light."
           }
         },
         "step_2": {
           "type": "step",
           "settings": {
-            "text": "Wear with the light on for 20 min"
+            "text": "Wear with the light for 20 min."
           }
         },
         "step_3": {
           "type": "step",
           "settings": {
-            "text": "Rinse and go"
+            "text": "Rinse and go."
           }
         },
         "stage_4": {
           "type": "stage",
           "settings": {
-            "when": "First use",
-            "text": "Many people see a difference right away",
-            "dot": "#9ea7b4"
+            "when": "1st treatment",
+            "text": "Glossier, cleaner-feeling teeth"
           }
         },
         "stage_5": {
           "type": "stage",
           "settings": {
-            "when": "Day 6",
-            "text": "Avg. 7 shades whiter",
-            "dot": "#46bdf0"
+            "when": "6 treatments",
+            "text": "Visibly brighter"
           }
         },
         "stage_6": {
           "type": "stage",
           "settings": {
-            "when": "Day 30",
-            "text": "Noticeably whiter, or your money back",
-            "dot": "#0d2244"
+            "when": "12 treatments",
+            "text": "Deep stains lifted, enamel stronger"
           }
         }
       },
@@ -219,10 +211,13 @@
         "stage_6"
       ],
       "settings": {
-        "eyebrow": "How to use",
-        "heading": "20 minutes a day.",
+        "eyebrow": "20 minutes / 6 treatments",
+        "heading": "How to use",
         "margin_bottom": false,
-        "flow_visibility": "all"
+        "flow_visibility": "all",
+        "demo_caption": "Applying gel + LED",
+        "demo_badge": "Watch · 0:30",
+        "stages_label": "What to expect"
       }
     },
     "reviews": {

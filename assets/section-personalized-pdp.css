@@ -29,6 +29,44 @@ body.template-product-personalized {
   --skio-card-border-selected: var(--blue);
   --skio-card-bg-selected: var(--blue-tint-10);
 
+  /*
+    v6: square cards, a visible radio dot, and the discount chip moved to the
+    top-right as "Best value". Each of these is a variable the component
+    stylesheet reads with its original value as the fallback, so leaving them
+    unset anywhere else leaves the picker exactly as it ships.
+  */
+  --skio-card-radius: 0;
+  --skio-row-gap: 10px;
+
+  /* The dot is hidden by an inline style everywhere else; this turns it on */
+  --skio-radio-display: flex;
+  --skio-radio-order: -1;
+  --skio-radio-margin-right: 0;
+  --skio-radio-margin-left: 0;
+  --skio-radio-size: 20px;
+
+  /* One line: dot, title, price */
+  --skio-topline-direction: row;
+  --skio-topline-align: center;
+  --skio-topline-gap: 12px;
+  --skio-wrapper-direction: row;
+  --skio-wrapper-align: center;
+  --skio-wrapper-justify: space-between;
+  --skio-wrapper-gap: 12px;
+  --skio-label-padding: 14px;
+  --skio-label-gap: 10px;
+  --skio-price-size: 17px;
+
+  --skio-ribbon-top: -10px;
+  --skio-ribbon-left: auto;
+  --skio-ribbon-right: 12px;
+  --skio-ribbon-transform: none;
+  --skio-ribbon-bg: var(--navy);
+  --skio-ribbon-color: #ffffff;
+  --skio-ribbon-size: 10px;
+  --skio-ribbon-weight: 600;
+  --skio-ribbon-padding: 5px 8px;
+
   /* The joined look relied on removed borders and inset dividers. Stacked
      cards want their own edges back and no dividers. */
   --skio-selected-border-bottom: 1px solid var(--blue);
@@ -37,6 +75,22 @@ body.template-product-personalized {
   --skio-selected-divider-right: none;
   --skio-unselected-border: 1px solid var(--blue-tint-20);
   --skio-unselected-border-bottom: 1px solid var(--blue-tint-20);
+
+  /*
+    v6 design tokens.
+    -----------------
+    Only two colours in the v6 reference have no close equivalent in the
+    palette, so only those two are declared. Everything else maps onto an
+    existing token and is written that way in the section stylesheets, so a
+    palette change still carries: the reference's #61718A muted text reads as
+    --navy-tint-60, its #D8ECFF pale blue as --blue-tint-20, and its hairlines
+    as --navy-tint-20.
+
+    These live here, on the template scope, because the four sections that use
+    them render on this template only.
+  */
+  --pdp-accent: #2369c9;
+  --pdp-silver: #f4f6f8;
 
   /* The treatment cards take the same soft shape as everything else here */
   --kit-card-radius: 12px;

@@ -1,4 +1,5 @@
 {{ 'section-how-to-timeline.css' | asset_url | stylesheet_tag }}
+{{ 'section-personalized-pdp.css' | asset_url | stylesheet_tag }}
 
 {% assign formatted_heading = section.settings.heading
   | replace: '{', "<span class='stylized'>"
@@ -14,34 +15,69 @@
 >
   <div class="page-width {% if template.name == 'product' %}page-width--product{% endif %}">
     <div class="how-to-timeline__inner">
-      {% if section.settings.eyebrow != blank %}
-        <p class="section-eyebrow how-to-timeline__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
-      {% endif %}
-      {% if section.settings.heading != blank %}
-        <h3 class="section-heading how-to-timeline__heading">{{ formatted_heading }}</h3>
-      {% endif %}
+      <div class="how-to-timeline__intro">
+        {% if section.settings.eyebrow != blank %}
+          <p class="section-eyebrow how-to-timeline__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h3 class="section-heading how-to-timeline__heading">{{ formatted_heading }}</h3>
+        {% endif %}
+      </div>
 
+      {%- comment -%}
+        The demo frame. An image is optional: with none set it falls back to a
+        labelled navy placeholder rather than collapsing, so the section still
+        reads while the video is being produced.
+      {%- endcomment -%}
+      <div class="how-to-timeline__demo">
+        {% if section.settings.demo_image != blank %}
+          <img
+            class="how-to-timeline__demo-img"
+            src="{{ section.settings.demo_image | image_url: width: 1200 }}"
+            alt="{{ section.settings.demo_image.alt | default: section.settings.demo_caption | escape }}"
+            loading="lazy"
+          >
+        {% endif %}
+        <span class="how-to-timeline__demo-mark">
+          <span class="how-to-timeline__demo-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" focusable="false">
+              <path d="M8 5.5v13l11-6.5z" fill="currentColor"/>
+            </svg>
+          </span>
+          {% if section.settings.demo_caption != blank %}
+            <span class="how-to-timeline__demo-caption">{{ section.settings.demo_caption }}</span>
+          {% endif %}
+        </span>
+        {% if section.settings.demo_badge != blank %}
+          <span class="how-to-timeline__demo-badge">{{ section.settings.demo_badge }}</span>
+        {% endif %}
+      </div>
+
+      {%- comment -%}
+        Steps and stages are both three-across ruled columns in v6, sharing one
+        layout. They stay distinct by rule colour: hairline over the steps, a
+        2px accent over the stages.
+      {%- endcomment -%}
       {% if steps.size > 0 %}
-        <ol class="how-to-timeline__steps">
+        <ol class="how-to-timeline__cols how-to-timeline__steps">
           {% for block in steps %}
-            <li class="how-to-timeline__step" {{ block.shopify_attributes }}>
+            <li class="how-to-timeline__col" {{ block.shopify_attributes }}>
               <span class="how-to-timeline__number" aria-hidden="true">{{ forloop.index }}</span>
-              <span class="how-to-timeline__step-text body-sm">{{ block.settings.text }}</span>
+              <span class="how-to-timeline__step-text">{{ block.settings.text }}</span>
             </li>
           {% endfor %}
         </ol>
       {% endif %}
 
-      {%- comment -%}
-        The stages are what happens over time, not more steps, so they are
-        their own block type and read as a track rather than a numbered list.
-      {%- endcomment -%}
       {% if stages.size > 0 %}
-        <ol class="how-to-timeline__track">
+        {% if section.settings.stages_label != blank %}
+          <p class="how-to-timeline__stages-label label-sm">{{ section.settings.stages_label }}</p>
+        {% endif %}
+        <ol class="how-to-timeline__cols how-to-timeline__track">
           {% for block in stages %}
-            <li class="how-to-timeline__stage" {% if block.settings.dot != blank %}style="--dot: {{ block.settings.dot }};"{% endif %} {{ block.shopify_attributes }}>
-              <span class="how-to-timeline__stage-when label-sm">{{ block.settings.when }}</span>
-              <span class="how-to-timeline__stage-text body-md">{{ block.settings.text }}</span>
+            <li class="how-to-timeline__col" {{ block.shopify_attributes }}>
+              <span class="how-to-timeline__stage-when">{{ block.settings.when }}</span>
+              <span class="how-to-timeline__stage-text">{{ block.settings.text }}</span>
             </li>
           {% endfor %}
         </ol>
@@ -68,6 +104,38 @@
       "label": "Heading",
       "default": "20 minutes a day.",
       "info": "Wrap emphasized text in {} for the italic Canela style"
+    },
+    {
+      "type": "header",
+      "content": "Demo"
+    },
+    {
+      "type": "image_picker",
+      "id": "demo_image",
+      "label": "Demo image",
+      "info": "Optional. A labelled placeholder shows while this is empty."
+    },
+    {
+      "type": "text",
+      "id": "demo_caption",
+      "label": "Demo caption",
+      "default": "Applying gel + LED"
+    },
+    {
+      "type": "text",
+      "id": "demo_badge",
+      "label": "Corner badge",
+      "default": "Watch · 0:30"
+    },
+    {
+      "type": "header",
+      "content": "What to expect"
+    },
+    {
+      "type": "text",
+      "id": "stages_label",
+      "label": "Stages label",
+      "default": "What to expect"
     },
     {
       "type": "header",
@@ -134,12 +202,6 @@
           "id": "text",
           "label": "What to expect",
           "default": "Many people see a difference right away"
-        },
-        {
-          "type": "color",
-          "id": "dot",
-          "label": "Dot colour",
-          "info": "Leave empty to use the section's default."
         }
       ]
     }
@@ -170,24 +232,21 @@
           "type": "stage",
           "settings": {
             "when": "First use",
-            "text": "Many people see a difference right away",
-            "dot": "#9EA7B4"
+            "text": "Many people see a difference right away"
           }
         },
         {
           "type": "stage",
           "settings": {
             "when": "Day 6",
-            "text": "Avg. 7 shades whiter",
-            "dot": "#46BDF0"
+            "text": "Avg. 7 shades whiter"
           }
         },
         {
           "type": "stage",
           "settings": {
             "when": "Day 30",
-            "text": "Noticeably whiter, or your money back",
-            "dot": "#0D2244"
+            "text": "Noticeably whiter, or your money back"
           }
         }
       ]

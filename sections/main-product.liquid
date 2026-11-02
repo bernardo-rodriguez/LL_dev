@@ -394,6 +394,14 @@ xhttp.send();
                 </skio-plan-picker>
                 <input type="hidden" aria-hidden="true" name="selling_plan" value="">
                 <script src="{{ 'skio-plan-picker-component.js' | asset_url }}" type="module"></script>
+                {%- comment -%}
+                  The v6 picker adds a label, benefit tiles and per-plan notes
+                  that Skio has no markup for. Personalized template only, so
+                  the production picker renders exactly as it does today.
+                {%- endcomment -%}
+                {% if template.suffix == 'personalized' %}
+                  {% render 'pdp-plan-picker-v6', section: section %}
+                {% endif %}
               {% endif %}
 
 
@@ -1047,6 +1055,65 @@ xhttp.send();
       "label": "Show the formula line",
       "default": false,
       "info": "The \"Your Whitening Formula\" heading, the formula description and the rule below them."
+    },
+    {
+      "type": "header",
+      "content": "Plan picker (personalized)",
+      "info": "Used only by the personalized product template."
+    },
+    {
+      "type": "text",
+      "id": "plan_label",
+      "label": "Label above the plans",
+      "default": "Choose your plan:"
+    },
+    {
+      "type": "text",
+      "id": "plan_sub_note",
+      "label": "Subscribe note",
+      "default": "Then $39 refills every 1-2 months. Skip or cancel anytime."
+    },
+    {
+      "type": "text",
+      "id": "plan_once_note",
+      "label": "One-time note",
+      "default": "6 treatments. No refills."
+    },
+    {
+      "type": "text",
+      "id": "plan_benefit_1",
+      "label": "Benefit 1",
+      "default": "Save 40%"
+    },
+    {
+      "type": "text",
+      "id": "plan_benefit_1_sub",
+      "label": "Benefit 1 sub-line",
+      "default": "Every order"
+    },
+    {
+      "type": "text",
+      "id": "plan_benefit_2",
+      "label": "Benefit 2",
+      "default": "Free shipping"
+    },
+    {
+      "type": "text",
+      "id": "plan_benefit_2_sub",
+      "label": "Benefit 2 sub-line",
+      "default": "Every order"
+    },
+    {
+      "type": "text",
+      "id": "plan_benefit_3",
+      "label": "Benefit 3",
+      "default": "Free whitening pen"
+    },
+    {
+      "type": "text",
+      "id": "plan_benefit_3_sub",
+      "label": "Benefit 3 sub-line",
+      "default": "($30 value)"
     }
   ]
 }

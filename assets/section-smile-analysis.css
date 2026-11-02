@@ -1,60 +1,68 @@
-/* Smile Analysis — tabs over one panel. Type from the shared scale only. */
+/*
+  Smile Analysis — v6: three illustrated tiles over one panel, closed to start.
+
+  Colours come from the palette tokens rather than the reference's literals, so
+  a palette change carries here. --pdp-silver and --pdp-accent are declared on
+  the template scope in section-personalized-pdp.css.
+*/
 
 .smile-analysis { background: #ffffff; color: var(--navy); }
+
 /*
-  Carries space underneath as well as on top. The section ends in a
-  hard-edged card and the next one begins immediately, so without it the
-  two meet with no breathing room at all.
+  Carries space underneath as well as on top: the section can end on a
+  hard-edged panel and the next one begins immediately.
 */
 .smile-analysis__inner { padding: var(--section-space-y) 0 32px; }
 .smile-analysis--with-spacing .smile-analysis__inner { padding-bottom: var(--section-space-y); }
 
-.smile-analysis__heading { margin: 0 0 10px; text-transform: none; }
+/* The v6 reference centres the whole intro */
+.smile-analysis__eyebrow { text-align: center; }
+.smile-analysis__heading { margin: 0 0 16px; text-align: center; text-transform: none; }
 
 .smile-analysis__body {
-  margin: 0 0 18px;
+  margin: 0 0 16px;
   max-width: 52ch;
   color: var(--navy-tint-80);
   line-height: var(--ds-line-height-copy);
+  text-align: center;
 }
 
 /*
-  Three illustrated cards rather than text chips: the causes are things you can
-  show, and the reference draws each one. The card is the control, so the
-  illustration and its label are both part of the button.
+  Square tiles, tight 6px gutter, no radius — the reference's restrained,
+  drawing-like treatment rather than the soft cards this section used to have.
 */
 .smile-analysis__cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  margin-bottom: 16px;
+  gap: 6px;
 }
 
 .smile-analysis__card {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 8px 8px 12px;
-  border: 1px solid var(--blue-tint-20);
-  border-radius: 12px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--navy-tint-20);
+  border-radius: 0;
   background: #ffffff;
   text-align: left;
   cursor: pointer;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease;
 }
 
 .smile-analysis__card:hover { border-color: var(--navy-tint-40); }
-.smile-analysis__card:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.smile-analysis__card:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
 
+/* The open tile reads a touch heavier than a plain border change */
 .smile-analysis__card--on {
   border-color: var(--navy);
-  box-shadow: 0 0 0 1px var(--navy);
+  box-shadow: inset 0 0 0 1px var(--navy);
 }
 
 .smile-analysis__art {
   display: block;
+  width: 100%;
   aspect-ratio: 1;
-  border-radius: 8px;
   overflow: hidden;
   background: var(--blue-tint-10);
 }
@@ -62,39 +70,90 @@
 .smile-analysis__art img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 .smile-analysis__card-label {
-  padding: 0 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  padding: 8px;
   color: var(--navy);
-  font-weight: 700;
-  line-height: var(--ds-line-height);
+  font-family: var(--ds-font-family);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
+/* The + turns into an x when its panel is open */
+.smile-analysis__plus {
+  flex: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.smile-analysis__card--on .smile-analysis__plus { transform: rotate(45deg); }
+
+/*
+  The panel butts up against the tiles rather than floating under them, so the
+  pair reads as one object. The negative margin is what closes that seam, and
+  it only applies while the panel is open.
+*/
 .smile-analysis__panel {
-  padding: 18px;
-  border: 1px solid var(--blue-tint-20);
-  border-radius: 12px;
+  margin-top: 8px;
+  padding: 12px 14px 14px;
+  border: 1px solid var(--navy);
+  border-radius: 0;
   background: #ffffff;
 }
 
 .smile-analysis__panel[hidden] { display: none; }
 
-.smile-analysis__panel-name { margin: 0 0 14px; font-weight: 700; color: var(--navy); }
+.smile-analysis__panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
 
-.smile-analysis__row { padding-top: 12px; border-top: 1px solid var(--blue-tint-20); }
-.smile-analysis__row + .smile-analysis__row { margin-top: 12px; }
+.smile-analysis__panel-id { display: flex; align-items: center; gap: 8px; min-width: 0; }
 
-.smile-analysis__row-label { display: block; margin-bottom: 4px; color: var(--navy-tint-60); }
+/* Square, like the dots in the treatment rows it pairs with */
+.smile-analysis__panel-dot {
+  flex: none;
+  width: 9px;
+  height: 9px;
+  background: var(--navy-tint-40);
+}
 
-.smile-analysis__row-text {
-  margin: 0;
+.smile-analysis__panel-name { margin: 0; font-weight: 600; color: var(--navy); }
+
+.smile-analysis__close {
+  /* 40px of hit area pulled back over the padding, so the icon still sits in the corner */
+  width: 40px;
+  height: 40px;
+  margin: -10px -10px -10px 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy-tint-60);
+  cursor: pointer;
+}
+
+.smile-analysis__close:focus-visible { outline: 2px solid var(--navy); outline-offset: -4px; }
+.smile-analysis__close svg { width: 16px; height: 16px; }
+
+.smile-analysis__panel-text {
+  margin: 6px 0 0;
   color: var(--navy);
   line-height: var(--ds-line-height-copy);
 }
 
 @media screen and (min-width: 769px) {
   .smile-analysis__inner { max-width: 760px; padding-bottom: 44px; }
-  .smile-analysis__cards { gap: 14px; margin-bottom: 22px; }
-  .smile-analysis__card { padding: 10px 10px 14px; }
-  .smile-analysis__heading { margin-bottom: 14px; }
-  .smile-analysis__body { margin-bottom: 24px; }
-  .smile-analysis__panel { padding: 26px; }
+  .smile-analysis__cards { gap: 10px; }
+  .smile-analysis__card-label { padding: 10px 12px; font-size: 15px; }
+  .smile-analysis__panel { padding: 18px 20px 20px; }
 }

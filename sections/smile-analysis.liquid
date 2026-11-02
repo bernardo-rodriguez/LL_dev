@@ -26,19 +26,19 @@
 
       {% if causes.size > 0 %}
         {%- comment -%}
-          Tabs over a single panel. Every panel is in the markup and the chosen
-          one is shown, so the first cause reads before any script runs and the
-          rest are reachable without one failing silently.
+          Tiles over one panel, all closed to start, as the v6 reference draws
+          it. Each tile owns its own panel in the markup rather than a shared
+          one filled by script, so the copy is in the page for search and for
+          anyone whose JS never runs.
         {%- endcomment -%}
-        <div class="smile-analysis__cards" role="tablist">
+        <div class="smile-analysis__cards">
           {% for block in causes %}
             <button
               type="button"
-              class="smile-analysis__card {% if forloop.first %}smile-analysis__card--on{% endif %}"
-              role="tab"
+              class="smile-analysis__card"
               id="chip-{{ section.id }}-{{ forloop.index }}"
               aria-controls="panel-{{ section.id }}-{{ forloop.index }}"
-              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+              aria-expanded="false"
               data-chip="{{ forloop.index }}"
               {{ block.shopify_attributes }}
             >
@@ -51,7 +51,10 @@
                   >
                 {% endif %}
               </span>
-              <span class="smile-analysis__card-label sh3">{{ block.settings.label }}</span>
+              <span class="smile-analysis__card-label">
+                <span class="smile-analysis__card-name">{{ block.settings.label }}</span>
+                <span class="smile-analysis__plus" aria-hidden="true">+</span>
+              </span>
             </button>
           {% endfor %}
         </div>
@@ -59,27 +62,23 @@
         {% for block in causes %}
           <div
             class="smile-analysis__panel"
-            role="tabpanel"
             id="panel-{{ section.id }}-{{ forloop.index }}"
             aria-labelledby="chip-{{ section.id }}-{{ forloop.index }}"
             data-panel="{{ forloop.index }}"
-            {% unless forloop.first %}hidden{% endunless %}
+            hidden
           >
-            <p class="smile-analysis__panel-name sh3">{{ block.settings.label }}</p>
-
-            {% if block.settings.why != blank %}
-              <div class="smile-analysis__row">
-                <span class="smile-analysis__row-label label-sm">{{ section.settings.why_label }}</span>
-                <p class="smile-analysis__row-text body-md">{{ block.settings.why }}</p>
-              </div>
-            {% endif %}
-
-            {% if block.settings.effect != blank %}
-              <div class="smile-analysis__row">
-                <span class="smile-analysis__row-label label-sm">{{ section.settings.effect_label }}</span>
-                <p class="smile-analysis__row-text body-md">{{ block.settings.effect }}</p>
-              </div>
-            {% endif %}
+            <div class="smile-analysis__panel-head">
+              <span class="smile-analysis__panel-id">
+                <span class="smile-analysis__panel-dot" {% if block.settings.dot != blank %}style="background: {{ block.settings.dot }};"{% endif %} aria-hidden="true"></span>
+                <span class="smile-analysis__panel-name sh3">{{ block.settings.label }}</span>
+              </span>
+              <button type="button" class="smile-analysis__close" data-close="{{ forloop.index }}" aria-label="{{ section.settings.close_label | escape }}">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                  <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+            <p class="smile-analysis__panel-text body-md">{{ block.settings.effect }}</p>
           </div>
         {% endfor %}
       {% endif %}
@@ -93,20 +92,28 @@
     if (!root) return;
     var chips = root.querySelectorAll('[data-chip]');
     var panels = root.querySelectorAll('[data-panel]');
-    if (chips.length < 2) return;
+
+    function show(want) {
+      chips.forEach(function (c) {
+        var on = c.getAttribute('data-chip') === want;
+        c.classList.toggle('smile-analysis__card--on', on);
+        c.setAttribute('aria-expanded', on ? 'true' : 'false');
+      });
+      panels.forEach(function (p) {
+        p.hidden = p.getAttribute('data-panel') !== want;
+      });
+    }
 
     chips.forEach(function (chip) {
       chip.addEventListener('click', function () {
-        var want = chip.getAttribute('data-chip');
-        chips.forEach(function (c) {
-          var on = c === chip;
-          c.classList.toggle('smile-analysis__card--on', on);
-          c.setAttribute('aria-selected', on ? 'true' : 'false');
-        });
-        panels.forEach(function (p) {
-          p.hidden = p.getAttribute('data-panel') !== want;
-        });
+        // Tapping the open tile closes it, which is how the reference behaves.
+        var want = chip.getAttribute('aria-expanded') === 'true' ? null : chip.getAttribute('data-chip');
+        show(want);
       });
+    });
+
+    root.querySelectorAll('[data-close]').forEach(function (btn) {
+      btn.addEventListener('click', function () { show(null); });
     });
   })();
 </script>
@@ -138,15 +145,10 @@
     },
     {
       "type": "text",
-      "id": "why_label",
-      "label": "First row label",
-      "default": "Why it happens"
-    },
-    {
-      "type": "text",
-      "id": "effect_label",
-      "label": "Second row label",
-      "default": "What it does to your smile"
+      "id": "close_label",
+      "label": "Close button label",
+      "default": "Close",
+      "info": "Screen-reader name for the panel's close button."
     },
     {
       "type": "header",
@@ -208,16 +210,17 @@
           "default": "#F4ECE6"
         },
         {
-          "type": "textarea",
-          "id": "why",
-          "label": "Why it happens",
-          "default": "Coffee, tea and wine leave pigment on the enamel surface."
+          "type": "color",
+          "id": "dot",
+          "label": "Panel dot colour",
+          "default": "#A87B2A"
         },
         {
           "type": "textarea",
           "id": "effect",
-          "label": "What it does",
-          "default": "Teeth look dull and yellowed, even just after brushing."
+          "label": "Panel copy",
+          "default": "Teeth look dull and yellowed, even just after brushing.",
+          "info": "The one paragraph shown when the tile is open."
         }
       ]
     }
@@ -238,7 +241,6 @@
           "settings": {
             "label": "Plaque film",
             "tint": "#F6EFE2",
-            "why": "A soft film builds up through the day and holds onto pigment.",
             "effect": "Light scatters instead of reflecting, so teeth look flat."
           }
         },
@@ -247,7 +249,6 @@
           "settings": {
             "label": "Deep stains",
             "tint": "#F2EAF1",
-            "why": "Years of pigment work below the surface, into the dentin.",
             "effect": "A yellow cast that brushing and strips cannot reach."
           }
         }

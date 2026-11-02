@@ -1,98 +1,175 @@
-/* How To Timeline — the daily steps, then what happens over time. */
+/*
+  How To Use — v6: a demo frame, then the daily steps and what to expect as
+  two ruled three-column rows.
 
-.how-to-timeline { background: var(--cream); color: var(--navy); }
-.how-to-timeline__inner { padding: var(--section-space-y) 0 0; }
+  Steps and stages share .how-to-timeline__cols. They are the same shape on
+  purpose; what separates them is the rule above each — a hairline over the
+  steps you perform, the accent over the results you get.
+*/
+
+.how-to-timeline { background: #ffffff; color: var(--navy); }
+.how-to-timeline__inner {
+  padding: var(--section-space-y) 0 0;
+  border-top: 1px solid var(--navy-tint-20);
+}
 .how-to-timeline--with-spacing .how-to-timeline__inner { padding-bottom: var(--section-space-y); }
 
-.how-to-timeline__heading { margin: 0 0 20px; text-transform: none; }
-
-/*
-  Three cards side by side rather than ruled rows: the steps are equal and
-  parallel, and the reference sets them that way. They stay three across even
-  on a phone, which is what keeps them reading as one sequence.
-*/
-.how-to-timeline__steps {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  margin: 0 0 26px;
-  padding: 0;
-  list-style: none;
-}
-
-.how-to-timeline__step {
+.how-to-timeline__intro {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 12px;
-  border: 1px solid var(--blue-tint-20);
-  border-radius: 12px;
-  background: #ffffff;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  text-align: center;
 }
 
-.how-to-timeline__number {
-  flex-shrink: 0;
+.how-to-timeline__eyebrow { margin: 0; }
+.how-to-timeline__heading { margin: 0; text-transform: none; }
+
+/* 16:11 keeps the frame from eating the fold on a phone */
+.how-to-timeline__demo {
+  position: relative;
+  aspect-ratio: 16 / 11;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1.6em;
-  height: 1.6em;
-  border-radius: 50%;
-  background: var(--blue-tint-20);
-  color: var(--navy);
+  overflow: hidden;
+  background: var(--navy);
+}
+
+.how-to-timeline__demo-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.how-to-timeline__demo-mark {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  color: var(--blue-tint-40);
   font-family: var(--ds-font-family);
   font-size: 13px;
-  font-weight: 700;
-  line-height: 1;
+  font-weight: 500;
+  text-align: center;
 }
 
-/* .body-sm, not .sh3: three cards across a 390px screen leaves about 110px
-   each, and the larger size overflowed on the longest step. */
-.how-to-timeline__step-text {
+.how-to-timeline__demo-play {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--blue-tint-20);
   color: var(--navy);
-  font-weight: 600;
-  line-height: var(--ds-line-height);
-  overflow-wrap: anywhere;
 }
 
-/* A track, not a list: these are points in time rather than things to do */
-.how-to-timeline__track {
+.how-to-timeline__demo-play svg { width: 24px; height: 24px; }
+
+/* With a photo set, the caption would sit on top of it */
+.how-to-timeline__demo-img ~ .how-to-timeline__demo-mark { display: none; }
+
+.how-to-timeline__demo-badge {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 4px 7px;
+  background: #ffffff;
+  color: var(--navy);
+  font-family: var(--ds-font-family);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: var(--ds-label-letter-spacing);
+  text-transform: uppercase;
+}
+
+/*
+  Ruled columns, not cards. The first column runs to the left edge and each
+  later one carries its own divider, so the group reads as one ruled band.
+*/
+.how-to-timeline__cols {
   display: grid;
-  gap: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.how-to-timeline__stage {
+.how-to-timeline__col {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  padding: 12px 0 12px 20px;
-  border-left: 2px solid var(--navy-tint-20);
-  position: relative;
+  gap: 6px;
+  padding: 12px 10px;
+  min-width: 0;
 }
 
-.how-to-timeline__stage::before {
-  content: '';
-  position: absolute;
-  left: -6px;
-  top: 17px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--dot, var(--blue));
+.how-to-timeline__col:first-child { padding-left: 0; }
+.how-to-timeline__col + .how-to-timeline__col { border-left: 1px solid var(--navy-tint-20); }
+
+.how-to-timeline__steps {
+  margin-top: 16px;
+  border-top: 1px solid var(--navy-tint-20);
+  border-bottom: 1px solid var(--navy-tint-20);
 }
 
-.how-to-timeline__stage:last-child { border-left-color: transparent; }
+/* A drawn numeral, not a badge in a circle */
+.how-to-timeline__number {
+  font-family: var(--ds-font-family);
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: var(--pdp-accent);
+}
 
-.how-to-timeline__stage-when { color: var(--navy-tint-60); }
-.how-to-timeline__stage-text { color: var(--navy); }
+.how-to-timeline__step-text {
+  font-family: var(--ds-font-family);
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--navy);
+  overflow-wrap: anywhere;
+}
+
+.how-to-timeline__stages-label { margin: 20px 0 0; color: var(--navy-tint-60); }
+
+/* The accent rule is what separates results from steps */
+.how-to-timeline__track { margin-top: 8px; border-top: 2px solid var(--pdp-accent); }
+
+.how-to-timeline__stage-when {
+  font-family: var(--ds-font-family);
+  font-size: 10.5px;
+  font-weight: 600;
+  line-height: var(--ds-line-height);
+  letter-spacing: var(--ds-label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--pdp-accent);
+}
+
+/* The last stage is the furthest out, so it stops reading as a promise */
+.how-to-timeline__track .how-to-timeline__col:last-child .how-to-timeline__stage-when { color: var(--navy); }
+
+.how-to-timeline__stage-text {
+  font-family: var(--ds-font-family);
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--navy);
+  overflow-wrap: anywhere;
+}
 
 @media screen and (min-width: 769px) {
   .how-to-timeline__inner { max-width: 760px; }
-  .how-to-timeline__heading { margin-bottom: 28px; }
-  .how-to-timeline__steps { gap: 14px; margin-bottom: 32px; }
-  .how-to-timeline__step { padding: 18px; }
+  .how-to-timeline__intro { margin-bottom: 22px; }
+  .how-to-timeline__col { padding: 16px 14px; }
+  .how-to-timeline__number { font-size: 32px; }
+  .how-to-timeline__step-text,
+  .how-to-timeline__stage-text { font-size: 15px; }
+  .how-to-timeline__stage-when { font-size: 11.5px; }
 }

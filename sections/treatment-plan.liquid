@@ -1,4 +1,5 @@
 {{ 'section-treatment-plan.css' | asset_url | stylesheet_tag }}
+{{ 'section-personalized-pdp.css' | asset_url | stylesheet_tag }}
 
 {% assign formatted_heading = section.settings.heading
   | replace: '{', "<span class='stylized'>"
@@ -13,51 +14,63 @@
 >
   <div class="page-width {% if template.name == 'product' %}page-width--product{% endif %}">
     <div class="treatment-plan__inner">
-      {% if section.settings.eyebrow != blank %}
-        <p class="section-eyebrow treatment-plan__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
-      {% endif %}
-      {% if section.settings.heading != blank %}
-        <h3 class="section-heading treatment-plan__heading">{{ formatted_heading }}</h3>
-      {% endif %}
-      {% if section.settings.body != blank %}
-        <p class="treatment-plan__body body-md">{{ section.settings.body }}</p>
-      {% endif %}
+      <div class="treatment-plan__intro">
+        {% if section.settings.eyebrow != blank %}
+          <p class="section-eyebrow treatment-plan__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h3 class="section-heading treatment-plan__heading">{{ formatted_heading }}</h3>
+        {% endif %}
+        {% if section.settings.body != blank %}
+          <p class="treatment-plan__body body-md">{{ section.settings.body }}</p>
+        {% endif %}
+      </div>
 
       {% if treatments.size > 0 %}
         {%- comment -%}
-          One card holding ruled rows: what is being treated on the left, with
-          the dots that tie it back to the causes above, then what treats it.
+          Ruled rows on a navy band: what is being treated on the left, the dot
+          tying it back to the cause above it, then what treats it. The three
+          columns are fixed so the arrows line up down the page.
         {%- endcomment -%}
-        <ul class="treatment-plan__card list-unstyled">
-          {% for block in treatments %}
-            <li class="treatment-plan__item" {{ block.shopify_attributes }}>
-              <span class="treatment-plan__target">
-                {% if block.settings.dot != blank or block.settings.dot_two != blank %}
-                  <span class="treatment-plan__dots" aria-hidden="true">
-                    {% if block.settings.dot != blank %}
-                      <span class="treatment-plan__dot" style="background: {{ block.settings.dot }};"></span>
-                    {% endif %}
-                    {% if block.settings.dot_two != blank %}
-                      <span class="treatment-plan__dot" style="background: {{ block.settings.dot_two }};"></span>
-                    {% endif %}
-                  </span>
-                {% endif %}
-                <span class="treatment-plan__cause sh3">{{ block.settings.cause }}</span>
-              </span>
+        <div class="treatment-plan__grid">
+          <ul class="treatment-plan__rows list-unstyled">
+            {% for block in treatments %}
+              <li class="treatment-plan__item" {{ block.shopify_attributes }}>
+                <span class="treatment-plan__target">
+                  {% if block.settings.dot != blank or block.settings.dot_two != blank %}
+                    <span class="treatment-plan__dots" aria-hidden="true">
+                      {% if block.settings.dot != blank %}
+                        <span class="treatment-plan__dot" style="background: {{ block.settings.dot }};"></span>
+                      {% endif %}
+                      {% if block.settings.dot_two != blank %}
+                        <span class="treatment-plan__dot" style="background: {{ block.settings.dot_two }};"></span>
+                      {% endif %}
+                    </span>
+                  {% endif %}
+                  <span class="treatment-plan__cause">{{ block.settings.cause }}</span>
+                </span>
 
-              <span class="treatment-plan__arrow" aria-hidden="true">
-                <svg viewBox="0 0 20 12" fill="none" focusable="false">
-                  <path d="M1 6h17m0 0-5-4.5M18 6l-5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
+                <span class="treatment-plan__arrow" aria-hidden="true">
+                  <svg viewBox="0 0 20 12" fill="none" focusable="false">
+                    <path d="M1 6h17m0 0-5-4.5M18 6l-5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
 
-              <span class="treatment-plan__treatment">
-                <span class="treatment-plan__agent sh3">{{ block.settings.agent }}</span>
-                <span class="treatment-plan__effect body-md">{{ block.settings.effect }}</span>
-              </span>
-            </li>
-          {% endfor %}
-        </ul>
+                <span class="treatment-plan__treatment">
+                  <span class="treatment-plan__agent">{{ block.settings.agent }}</span>
+                  <span class="treatment-plan__effect">{{ block.settings.effect }}</span>
+                </span>
+              </li>
+            {% endfor %}
+          </ul>
+
+          {% if section.settings.meta_left != blank or section.settings.meta_right != blank %}
+            <p class="treatment-plan__meta">
+              <span>{{ section.settings.meta_left }}</span>
+              <span>{{ section.settings.meta_right }}</span>
+            </p>
+          {% endif %}
+        </div>
       {% endif %}
     </div>
   </div>
@@ -87,6 +100,22 @@
       "id": "body",
       "label": "Body copy",
       "default": "One 20-min session a day treats all of it."
+    },
+    {
+      "type": "header",
+      "content": "Footer row"
+    },
+    {
+      "type": "text",
+      "id": "meta_left",
+      "label": "Footer left",
+      "default": "Formula 8-17"
+    },
+    {
+      "type": "text",
+      "id": "meta_right",
+      "label": "Footer right",
+      "default": "20 min · 6 days"
     },
     {
       "type": "header",

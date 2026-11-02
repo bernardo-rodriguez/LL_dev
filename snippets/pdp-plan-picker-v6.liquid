@@ -1,0 +1,134 @@
+{%- comment -%}
+  v6 plan picker — the parts Skio does not render.
+
+  Skio owns the cards, the selling-plan logic and the cart behaviour; this only
+  adds the three things the v6 design shows that have no counterpart in Skio's
+  markup: the "Choose your plan:" label above the picker, the three benefit
+  tiles inside the subscribe card, and the one-line note under each card.
+
+  It runs on the personalized template only — main-product.liquid renders this
+  snippet behind a template.suffix check — so the production picker is
+  untouched. Everything is inserted into Skio's shadow root after it renders;
+  nothing here replaces or re-implements any of Skio's own markup.
+{%- endcomment -%}
+
+<script>
+  (function () {
+    var LABEL = {{ section.settings.plan_label | default: 'Choose your plan:' | json }};
+    var SUB_NOTE = {{ section.settings.plan_sub_note | default: '' | json }};
+    var ONCE_NOTE = {{ section.settings.plan_once_note | default: '' | json }};
+    var BENEFITS = [
+      { t: {{ section.settings.plan_benefit_1 | default: '' | json }}, s: {{ section.settings.plan_benefit_1_sub | default: '' | json }} },
+      { t: {{ section.settings.plan_benefit_2 | default: '' | json }}, s: {{ section.settings.plan_benefit_2_sub | default: '' | json }} },
+      { t: {{ section.settings.plan_benefit_3 | default: '' | json }}, s: {{ section.settings.plan_benefit_3_sub | default: '' | json }} }
+    ].filter(function (b) { return b.t; });
+
+    function el(tag, cls, text) {
+      var n = document.createElement(tag);
+      if (cls) n.className = cls;
+      if (text) n.textContent = text;
+      return n;
+    }
+
+    // Shadow DOM blocks selectors from outside, so the styling for the nodes
+    // below has to be adopted into the root alongside them. Values here come
+    // from the same palette tokens as the rest of the template, which do cross
+    // the boundary.
+    var STYLE = [
+      '.ll-plan-label{display:block;margin-bottom:2px;font-family:var(--ds-font-family,manrope,sans-serif);',
+      'font-size:11.5px;font-weight:600;letter-spacing:var(--ds-label-letter-spacing,.04em);',
+      'text-transform:uppercase;color:var(--navy,#0D2244)}',
+      '.ll-plan-benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;width:100%}',
+      '.ll-plan-benefit{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;',
+      'gap:5px;padding:10px 6px;text-align:center;background:#fff;border:1px solid var(--blue-tint-20,#DAF2FC)}',
+      '.ll-plan-benefit__title{font-family:var(--ds-font-family,manrope,sans-serif);font-size:10px;',
+      'font-weight:600;line-height:1.25;letter-spacing:var(--ds-label-letter-spacing,.04em);',
+      'text-transform:uppercase;color:var(--navy,#0D2244);min-height:2.5em;display:flex;align-items:center;',
+      'justify-content:center}',
+      '.ll-plan-benefit__sub{font-family:var(--ds-font-family,manrope,sans-serif);font-size:12px;',
+      'line-height:1.2;color:var(--navy-tint-60,#6E7A8F);min-height:1.2em}',
+      '.ll-plan-note{display:block;width:100%;font-family:var(--ds-font-family,manrope,sans-serif);',
+      'font-size:13px;line-height:1.45;color:var(--navy-tint-60,#6E7A8F);text-align:left}',
+      // The one-time card has no radio column of its own, so its note is
+      // indented to sit under the title rather than under the dot.
+      '.ll-plan-note--once{padding-left:32px}'
+    ].join('');
+
+    function decorate(picker) {
+      var root = picker.shadowRoot;
+      if (!root) return false;
+
+      if (!root.querySelector('style[data-ll-v6]')) {
+        var st = document.createElement('style');
+        st.setAttribute('data-ll-v6', '');
+        st.textContent = STYLE;
+        root.appendChild(st);
+      }
+
+      var fieldset = root.querySelector('.skio-plan-picker');
+      var row = root.querySelector('.skio-plan-picker__purchase-row');
+      if (!fieldset || !row) return false;
+
+      // The label belongs to the picker as a whole, so it goes above the row
+      if (LABEL && !root.querySelector('.ll-plan-label')) {
+        var lab = el('span', 'll-plan-label', LABEL);
+        row.parentNode.insertBefore(lab, row);
+      }
+
+      var subLabel = root.querySelector('.skio-subscription-first .skio-group-label');
+      if (subLabel && BENEFITS.length && !root.querySelector('.ll-plan-benefits')) {
+        var grid = el('span', 'll-plan-benefits');
+        BENEFITS.forEach(function (b) {
+          var cell = el('span', 'll-plan-benefit');
+          cell.appendChild(el('span', 'll-plan-benefit__title', b.t));
+          // The sub line is always present so the three tiles stay the same
+          // height whether or not each one has a second line.
+          cell.appendChild(el('span', 'll-plan-benefit__sub', b.s || ' '));
+          grid.appendChild(cell);
+        });
+        subLabel.appendChild(grid);
+      }
+
+      if (SUB_NOTE && subLabel && !root.querySelector('.ll-plan-note--sub')) {
+        subLabel.appendChild(el('span', 'll-plan-note ll-plan-note--sub', SUB_NOTE));
+      }
+
+      var onceLabel = root.querySelector('.skio-onetime-second .skio-group-label');
+      if (ONCE_NOTE && onceLabel && !root.querySelector('.ll-plan-note--once')) {
+        onceLabel.appendChild(el('span', 'll-plan-note ll-plan-note--once', ONCE_NOTE));
+      }
+      return true;
+    }
+
+    function start() {
+      var picker = document.querySelector('skio-plan-picker');
+      if (!picker) return;
+      if (decorate(picker)) {
+        // Skio re-renders its own markup on selection changes, which drops
+        // these nodes; re-adding them is cheap and the guards make it a no-op
+        // when they are already there.
+        if (picker.shadowRoot) {
+          new MutationObserver(function () { decorate(picker); })
+            .observe(picker.shadowRoot, { childList: true, subtree: true });
+        }
+        return;
+      }
+      var tries = 0;
+      var t = setInterval(function () {
+        if (decorate(picker) || ++tries > 40) {
+          clearInterval(t);
+          if (picker.shadowRoot) {
+            new MutationObserver(function () { decorate(picker); })
+              .observe(picker.shadowRoot, { childList: true, subtree: true });
+          }
+        }
+      }, 250);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', start);
+    } else {
+      start();
+    }
+  })();
+</script>
