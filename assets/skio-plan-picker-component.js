@@ -283,7 +283,7 @@ const skioStyles = css`
     margin-right: auto;
     margin-left: 5px;
   }
-  /* Inline display:none on the element wins over the rule above, so `none` is
+  /* Inline display:none on the element wins over the rule above, so none is
      the effective value everywhere today and stays the fallback here. */
   .skio-plan-picker .skio-radio__container {
     display: var(--skio-radio-display, none) !important;
