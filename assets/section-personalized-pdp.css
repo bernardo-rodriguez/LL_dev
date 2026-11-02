@@ -23,20 +23,18 @@ body.template-product-personalized {
   --skio-row-gap: 10px;
 
   /* v6: white when unchosen, silver when chosen, navy edge on the choice */
-  --skio-card-radius: 12px;
+  --skio-card-radius: 0;
   --skio-card-border: var(--navy-tint-20);
   --skio-card-bg: #ffffff;
   --skio-card-border-selected: var(--navy);
   --skio-card-bg-selected: var(--pdp-silver);
 
   /*
-    v6: square cards, a visible radio dot, and the discount chip moved to the
-    top-right as "Best value". Each of these is a variable the component
-    stylesheet reads with its original value as the fallback, so leaving them
-    unset anywhere else leaves the picker exactly as it ships.
+    A visible radio dot and the chip moved to the top-right. Each of these is
+    a variable the component stylesheet reads with its original value as the
+    fallback, so leaving them unset anywhere else leaves the picker exactly as
+    it ships.
   */
-  --skio-card-radius: 0;
-  --skio-row-gap: 10px;
 
   /* The dot is hidden by an inline style everywhere else; this turns it on */
   --skio-radio-display: flex;
@@ -57,10 +55,11 @@ body.template-product-personalized {
   --skio-label-gap: 10px;
   --skio-price-size: 17px;
 
-  --skio-ribbon-top: -10px;
+  /* Sits on the border rather than across it, so the edge stays unbroken */
+  --skio-ribbon-top: 0;
   --skio-ribbon-left: auto;
   --skio-ribbon-right: 12px;
-  --skio-ribbon-transform: none;
+  --skio-ribbon-transform: translateY(-100%);
   --skio-ribbon-bg: var(--navy);
   --skio-ribbon-color: #ffffff;
   --skio-ribbon-size: 10px;
@@ -168,4 +167,29 @@ body.template-product-personalized .small-stars-review-count:not(:empty)::before
 */
 body.template-product-personalized #MainContent {
   margin-bottom: 0;
+}
+
+/*
+  v6 has no 6 / 12 treatment selector; the title sits in that slot instead.
+  Hidden rather than removed, so its default-checked input still submits with
+  the form and the kit goes to cart with the quantity it always had.
+*/
+body.template-product-personalized .treatment-quantity-selector {
+  display: none;
+}
+
+/*
+  The title moves into the info column (see pdp-personalized-intro), where the
+  phone-width centring and the padding meant for a standalone block above the
+  gallery both read wrong.
+*/
+body.template-product-personalized .product__info-container .product__intro {
+  order: 0;
+  margin: 2px 0 0;
+  padding: 0;
+  text-align: left;
+}
+
+body.template-product-personalized .product__info-container .product__title {
+  margin: 0;
 }

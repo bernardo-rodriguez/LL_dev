@@ -97,6 +97,9 @@ xhttp.send();
         </div>
 
         {% render 'small-stars' %}
+        {% if template.suffix == 'personalized' %}
+          {% render 'pdp-personalized-intro' %}
+        {% endif %}
         {% comment %} {% render 'estimated_arrival' %} {% endcomment %}
 
         {%- comment -%}

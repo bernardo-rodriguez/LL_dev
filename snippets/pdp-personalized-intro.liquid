@@ -1,0 +1,28 @@
+{%- comment -%}
+  v6 reads gallery → reviews → title → plan picker. The title lives in
+  .product__intro, a sibling of the info column, so no amount of flex ordering
+  can slot it between the reviews and the picker — the two it needs to sit
+  between are both inside the info column.
+
+  So the node is moved rather than duplicated: product-form.js personalises it
+  by its id, and a second copy would give that id to two elements.
+
+  Personalized template only — main-product renders this behind a
+  template.suffix check.
+{%- endcomment -%}
+
+<script>
+  (function () {
+    function placeIntro() {
+      var intro = document.querySelector('.product__intro');
+      var stars = document.querySelector('.product__info-container .small-stars-section');
+      if (!intro || !stars || intro.previousElementSibling === stars) return;
+      stars.parentNode.insertBefore(intro, stars.nextSibling);
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', placeIntro);
+    } else {
+      placeIntro();
+    }
+  })();
+</script>

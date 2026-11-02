@@ -8,10 +8,7 @@
 */
 
 .how-to-timeline { background: #ffffff; color: var(--navy); }
-.how-to-timeline__inner {
-  padding: var(--section-space-y) 0 0;
-  border-top: 1px solid var(--navy-tint-20);
-}
+.how-to-timeline__inner { padding: var(--section-space-y) 0 0; }
 .how-to-timeline--with-spacing .how-to-timeline__inner { padding-bottom: var(--section-space-y); }
 
 .how-to-timeline__intro {
