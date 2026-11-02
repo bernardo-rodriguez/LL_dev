@@ -18,8 +18,8 @@
             "label": "Plaque film",
             "image": "shopify://shop_images/Product_page_post-quiz_mobile_-selection.png",
             "tint": "#f4ece6",
-            "effect": "A sticky film coats your teeth and scatters light, so they look dull and yellow instead of glossy.",
-            "dot": "#A87B2A"
+            "dot": "#a87b2a",
+            "effect": "A sticky film coats your teeth and scatters light, so they look dull and yellow instead of glossy."
           }
         },
         "cause_2": {
@@ -28,8 +28,8 @@
             "label": "Deep stains",
             "image": "shopify://shop_images/Product_page_post-quiz_mobile_-selection_1.png",
             "tint": "#f6efe2",
-            "effect": "Coffee and tea pigment sits inside the enamel, giving teeth a yellow cast that won’t brush off.",
-            "dot": "#73476E"
+            "dot": "#73476e",
+            "effect": "Coffee and tea pigment sits inside the enamel, giving teeth a yellow cast that won’t brush off."
           }
         },
         "cause_3": {
@@ -38,8 +38,8 @@
             "label": "Thin enamel",
             "image": "shopify://shop_images/Product_page_post-quiz_mobile_-selection_2.png",
             "tint": "#f2eaf1",
-            "effect": "Thinner enamel lets the yellow layer underneath show through, so teeth look darker and edges look see-through.",
-            "dot": "#4F7A91"
+            "dot": "#4f7a91",
+            "effect": "Thinner enamel lets the yellow layer underneath show through, so teeth look darker and edges look see-through."
           }
         }
       },
@@ -51,6 +51,8 @@
       "settings": {
         "eyebrow": "Your analysis",
         "heading": "We found 3 causes dulling your smile.",
+        "body": "Tap each to see what's going on.",
+        "close_label": "Close",
         "margin_bottom": false,
         "flow_visibility": "all"
       }
@@ -62,7 +64,8 @@
           "type": "treatment",
           "settings": {
             "cause": "Plaque film",
-            "dot": "#D2AE5A",
+            "dot": "#d2ae5a",
+            "dot_two": "",
             "agent": "Sodium bicarbonate",
             "effect": "Clears the dulling film."
           }
@@ -71,7 +74,8 @@
           "type": "treatment",
           "settings": {
             "cause": "Deep stains",
-            "dot": "#B48FAE",
+            "dot": "#b48fae",
+            "dot_two": "",
             "agent": "11% Hydrogen Peroxide",
             "effect": "Lifts stains from deep inside."
           }
@@ -80,7 +84,8 @@
           "type": "treatment",
           "settings": {
             "cause": "Thin enamel",
-            "dot": "#8FB3C6",
+            "dot": "#8fb3c6",
+            "dot_two": "",
             "agent": "Hydroxyapatite",
             "effect": "Remineralizes + repairs enamel."
           }
@@ -94,10 +99,11 @@
       "settings": {
         "eyebrow": "Your treatment",
         "heading": "Here's how we treat it.",
-        "margin_bottom": false,
-        "flow_visibility": "all",
+        "body": "One 20-min session a day treats all of it.",
         "meta_left": "Formula 8-17",
-        "meta_right": "20 min · 6 days"
+        "meta_right": "20 min · 6 days",
+        "margin_bottom": false,
+        "flow_visibility": "all"
       }
     },
     "main": {
@@ -122,8 +128,20 @@
         "offer_text": "LIMITED TIME OFFER: 30% OFF YOUR FIRST ORDER + FREE WHITENING PEN",
         "show_offer_banner": false,
         "show_formula_line": false,
+        "plan_label": "Choose your plan:",
+        "plan_ribbon": "Best value",
+        "plan_sub_title": "Subscribe & save",
+        "plan_once_title": "One-time kit",
+        "plan_cta": "Add to cart",
+        "plan_guarantee": "Noticeably whiter in 30 days or your money back",
+        "plan_sub_note": "Then $39 refills every 1-2 months. Skip or cancel anytime.",
+        "plan_once_note": "6 treatments. No refills.",
+        "plan_benefit_1": "Save 40%",
         "plan_benefit_1_sub": "",
-        "plan_ribbon": "Best value"
+        "plan_benefit_2": "Free shipping",
+        "plan_benefit_2_sub": "Every order",
+        "plan_benefit_3": "Free whitening pen",
+        "plan_benefit_3_sub": "($30 value)"
       }
     },
     "kit_contents": {
@@ -150,6 +168,7 @@
         "item_1",
         "item_2"
       ],
+      "disabled": true,
       "settings": {
         "eyebrow": "In the box",
         "heading": "What's in your kit.",
@@ -215,11 +234,11 @@
       "settings": {
         "eyebrow": "20 minutes / 6 treatments",
         "heading": "How to use",
-        "margin_bottom": false,
-        "flow_visibility": "all",
         "demo_caption": "Applying gel + LED",
         "demo_badge": "Watch · 0:30",
-        "stages_label": "What to expect"
+        "stages_label": "What to expect",
+        "margin_bottom": false,
+        "flow_visibility": "all"
       }
     },
     "reviews": {
