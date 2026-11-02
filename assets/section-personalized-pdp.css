@@ -22,12 +22,12 @@ body.template-product-personalized {
   --skio-row-columns: minmax(0, 1fr);
   --skio-row-gap: 10px;
 
-  /* Soft cards rather than a joined black-bordered block */
+  /* v6: white when unchosen, silver when chosen, navy edge on the choice */
   --skio-card-radius: 12px;
-  --skio-card-border: var(--blue-tint-20);
+  --skio-card-border: var(--navy-tint-20);
   --skio-card-bg: #ffffff;
-  --skio-card-border-selected: var(--blue);
-  --skio-card-bg-selected: var(--blue-tint-10);
+  --skio-card-border-selected: var(--navy);
+  --skio-card-bg-selected: var(--pdp-silver);
 
   /*
     v6: square cards, a visible radio dot, and the discount chip moved to the
@@ -69,12 +69,12 @@ body.template-product-personalized {
 
   /* The joined look relied on removed borders and inset dividers. Stacked
      cards want their own edges back and no dividers. */
-  --skio-selected-border-bottom: 1px solid var(--blue);
-  --skio-selected-border-side: 1px solid var(--blue);
+  --skio-selected-border-bottom: 1px solid var(--navy);
+  --skio-selected-border-side: 1px solid var(--navy);
   --skio-selected-divider-left: none;
   --skio-selected-divider-right: none;
-  --skio-unselected-border: 1px solid var(--blue-tint-20);
-  --skio-unselected-border-bottom: 1px solid var(--blue-tint-20);
+  --skio-unselected-border: 1px solid var(--navy-tint-20);
+  --skio-unselected-border-bottom: 1px solid var(--navy-tint-20);
 
   /*
     v6 design tokens.
