@@ -121,7 +121,9 @@
         "show_why_subscribe_text": false,
         "offer_text": "LIMITED TIME OFFER: 30% OFF YOUR FIRST ORDER + FREE WHITENING PEN",
         "show_offer_banner": false,
-        "show_formula_line": false
+        "show_formula_line": false,
+        "plan_benefit_1_sub": "",
+        "plan_ribbon": "Best value"
       }
     },
     "kit_contents": {

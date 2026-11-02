@@ -15,6 +15,7 @@
 <script>
   (function () {
     var LABEL = {{ section.settings.plan_label | default: 'Choose your plan:' | json }};
+    var RIBBON = {{ section.settings.plan_ribbon | default: '' | json }};
     var SUB_NOTE = {{ section.settings.plan_sub_note | default: '' | json }};
     var ONCE_NOTE = {{ section.settings.plan_once_note | default: '' | json }};
     var BENEFITS = [
@@ -73,6 +74,13 @@
       if (LABEL && !root.querySelector('.ll-plan-label')) {
         var lab = el('span', 'll-plan-label', LABEL);
         row.parentNode.insertBefore(lab, row);
+      }
+
+      // Skio hardcodes the chip text; v6 words it as a recommendation rather
+      // than a discount, so it is retitled in place.
+      var ribbon = root.querySelector('.skio-subscription-first .skio-save-ribbon');
+      if (RIBBON && ribbon && ribbon.textContent.trim() !== RIBBON) {
+        ribbon.textContent = RIBBON;
       }
 
       var subLabel = root.querySelector('.skio-subscription-first .skio-group-label');
