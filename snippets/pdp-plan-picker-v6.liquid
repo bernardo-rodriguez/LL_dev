@@ -16,6 +16,10 @@
   (function () {
     var LABEL = {{ section.settings.plan_label | default: 'Choose your plan:' | json }};
     var RIBBON = {{ section.settings.plan_ribbon | default: '' | json }};
+    var SUB_TITLE = {{ section.settings.plan_sub_title | default: '' | json }};
+    var ONCE_TITLE = {{ section.settings.plan_once_title | default: '' | json }};
+    var CTA_TEXT = {{ section.settings.plan_cta | default: '' | json }};
+    var GUARANTEE = {{ section.settings.plan_guarantee | default: '' | json }};
     var SUB_NOTE = {{ section.settings.plan_sub_note | default: '' | json }};
     var ONCE_NOTE = {{ section.settings.plan_once_note | default: '' | json }};
     var BENEFITS = [
@@ -35,13 +39,34 @@
     // below has to be adopted into the root alongside them. Values here come
     // from the same palette tokens as the rest of the template, which do cross
     // the boundary.
+    // Shadow DOM blocks selectors from outside, so the styling for these nodes
+    // has to be adopted into the root alongside them. Because this sheet lives
+    // inside the root it can also reach Skio's own elements directly, which is
+    // how the pieces v6 drops are hidden. Palette tokens still cross in.
     var STYLE = [
       '.ll-plan-label{display:block;margin-bottom:2px;font-family:var(--ds-font-family,manrope,sans-serif);',
       'font-size:11.5px;font-weight:600;letter-spacing:var(--ds-label-letter-spacing,.04em);',
       'text-transform:uppercase;color:var(--navy,#0D2244)}',
+
+      /* v6 cards: silver when chosen, white when not — not the blue tint */
+      '.skio-group-container--available{background:#fff!important;border:1px solid var(--navy-tint-20,#CFD3DA)!important}',
+      '.skio-group-container--selected{background:var(--pdp-silver,#F4F6F8)!important;',
+      'border:1px solid var(--navy,#0D2244)!important;box-shadow:none!important}',
+
+      /* Sentence case at the reference size, not bold uppercase */
+      '.skio-group-title{text-transform:none!important;font-size:16px!important;font-weight:600!important;',
+      'letter-spacing:0!important;color:var(--navy,#0D2244)!important}',
+
+      /* A ring that fills in, rather than a solid disc */
+      '.skio-radio__container svg circle:first-child{stroke:#9AA7B8;stroke-width:2}',
+      '.skio-group-container--selected .skio-radio__container svg circle:first-child{stroke:var(--navy,#0D2244)}',
+      '.skio-radio{color:var(--navy,#0D2244)!important;transform:scale(.52)!important;opacity:1!important}',
+      '.skio-group-container--available:not(.skio-group-container--selected) .skio-radio{opacity:0!important}',
+
       '.ll-plan-benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;width:100%}',
       '.ll-plan-benefit{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;',
-      'gap:5px;padding:10px 6px;text-align:center;background:#fff;border:1px solid var(--blue-tint-20,#DAF2FC)}',
+      'gap:5px;padding:10px 6px;text-align:center;background:#fff;border:1px solid var(--navy-tint-20,#CFD3DA)}',
+      '.ll-plan-benefit svg{width:20px;height:20px;color:var(--pdp-accent,#2369c9);flex:none}',
       '.ll-plan-benefit__title{font-family:var(--ds-font-family,manrope,sans-serif);font-size:10px;',
       'font-weight:600;line-height:1.25;letter-spacing:var(--ds-label-letter-spacing,.04em);',
       'text-transform:uppercase;color:var(--navy,#0D2244);min-height:2.5em;display:flex;align-items:center;',
@@ -52,8 +77,37 @@
       'font-size:13px;line-height:1.45;color:var(--navy-tint-60,#6E7A8F);text-align:left}',
       // The one-time card has no radio column of its own, so its note is
       // indented to sit under the title rather than under the dot.
-      '.ll-plan-note--once{padding-left:32px}'
+      '.ll-plan-note--once{padding-left:32px}',
+
+      /*
+        v6 goes straight from the two cards to the CTA, so the itemised
+        receipt, its heading and the total row are hidden. They are hidden,
+        not removed: Skio owns that markup and still prices through it.
+      */
+      '.skio-first-order-includes{border:0!important;background:transparent!important;padding:0!important;',
+      'margin-top:14px!important;display:flex;flex-direction:column;gap:14px}',
+      '.skio-first-order-includes__title,.skio-first-order-item,.skio-total-row{display:none!important}',
+
+      /* The CTA carries the price, as the reference does */
+      '.add-to-cart.skio-includes-cta{width:100%;height:54px;margin:0!important;border:0!important;',
+      'border-radius:2px!important;background:var(--navy,#0D2244)!important;color:#fff!important;',
+      'font-family:var(--ds-font-family,manrope,sans-serif);font-size:14px!important;font-weight:600!important;',
+      'letter-spacing:.08em!important;text-transform:uppercase!important;cursor:pointer}',
+
+      '.skio-modify-disclaimer{display:flex!important;align-items:center;justify-content:center;gap:8px;',
+      'margin:0!important;padding:0!important;font-family:var(--ds-font-family,manrope,sans-serif);',
+      'font-size:13.5px!important;font-weight:500!important;letter-spacing:0!important;',
+      'text-transform:none!important;color:var(--navy,#0D2244)!important;text-align:center}',
+      '.skio-modify-disclaimer svg{width:16px;height:16px;flex:none;color:var(--pdp-accent,#2369c9)}'
     ].join('');
+
+    var ICONS = [
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h7l11 11-7 7L3 10z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg>',
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 5h12v10H1z"/><path d="M13 8h4.5L22 11.5V15h-9"/><circle cx="6" cy="17.5" r="1.9"/><circle cx="17" cy="17.5" r="1.9"/></svg>',
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L20 8a2.8 2.8 0 0 0-4-4L4 16z"/></svg>'
+    ];
+
+    var SHIELD = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8 20 6v6c0 4.6-3.3 8-8 9.2C7.3 20 4 16.6 4 12V6z"/><path d="m8.8 12 2.2 2.2 4.2-4.3"/></svg>';
 
     function decorate(picker) {
       var root = picker.shadowRoot;
@@ -83,11 +137,22 @@
         ribbon.textContent = RIBBON;
       }
 
+      // Skio hardcodes both plan titles in caps; v6 sets them in sentence case
+      var subTitle = root.querySelector('.skio-subscription-first .skio-group-title');
+      if (SUB_TITLE && subTitle && subTitle.textContent.trim() !== SUB_TITLE) subTitle.textContent = SUB_TITLE;
+      var onceTitle = root.querySelector('.skio-onetime-second .skio-group-title');
+      if (ONCE_TITLE && onceTitle && onceTitle.textContent.trim() !== ONCE_TITLE) onceTitle.textContent = ONCE_TITLE;
+
       var subLabel = root.querySelector('.skio-subscription-first .skio-group-label');
       if (subLabel && BENEFITS.length && !root.querySelector('.ll-plan-benefits')) {
         var grid = el('span', 'll-plan-benefits');
-        BENEFITS.forEach(function (b) {
+        BENEFITS.forEach(function (b, i) {
           var cell = el('span', 'll-plan-benefit');
+          if (ICONS[i]) {
+            var ic = document.createElement('span');
+            ic.innerHTML = ICONS[i];
+            cell.appendChild(ic.firstChild);
+          }
           cell.appendChild(el('span', 'll-plan-benefit__title', b.t));
           // The sub line is always present so the three tiles stay the same
           // height whether or not each one has a second line.
@@ -104,6 +169,23 @@
       var onceLabel = root.querySelector('.skio-onetime-second .skio-group-label');
       if (ONCE_NOTE && onceLabel && !root.querySelector('.ll-plan-note--once')) {
         onceLabel.appendChild(el('span', 'll-plan-note ll-plan-note--once', ONCE_NOTE));
+      }
+
+      // v6 puts the price on the button. The total row is hidden but still
+      // maintained by Skio, so it stays the source for this and keeps the
+      // figure correct when the plan or treatment count changes.
+      var cta = root.querySelector('.add-to-cart.skio-includes-cta');
+      if (CTA_TEXT && cta) {
+        var totalNow = root.querySelector('.skio-total-row .price--current');
+        var want = CTA_TEXT + (totalNow ? ' · ' + totalNow.textContent.replace(/\s+/g, '') : '');
+        if (cta.textContent.trim() !== want) cta.textContent = want;
+      }
+
+      var disc = root.querySelector('.skio-modify-disclaimer');
+      if (GUARANTEE && disc && disc.getAttribute('data-ll-v6') !== '1') {
+        disc.setAttribute('data-ll-v6', '1');
+        disc.innerHTML = SHIELD;
+        disc.appendChild(document.createTextNode(GUARANTEE));
       }
       return true;
     }
