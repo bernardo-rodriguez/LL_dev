@@ -70,12 +70,12 @@
         "show_stars": true,
         "rating_text": "4.7/5 from 2,316 reviews",
         "heading": "Treat all root causes holding your smile back.",
-        "body": "Dentist-made formulas to treat every root cause behind yellow teeth for noticeably whiter teeth.",
+        "body": "Dentist-made formulas to treat every root cause behind yellow teeth.",
         "button_label": "Build my formula",
         "button_link": "",
         "button_opens_quiz": true,
         "quiz_destination": "/products/at-home-whitening-kit?view=personalized",
-        "microcopy": "<p>Free 2-min quiz · Your kit: <strong>$39</strong> <em>$65</em></p>",
+        "microcopy": "<p>Free 1-min smile assessment</p>",
         "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_7.png",
         "label_before": "Before",
         "focal_before": 80,
@@ -312,6 +312,7 @@
         "chart_label": "Average whitening strength (peroxide)",
         "chart_badge": "",
         "compare_label": "One-size OTC kits",
+        "compare_label_short": "Avg. OTC",
         "compare_value": "30",
         "ours_label": "Your Laughland formula",
         "ours_value": "100",
@@ -321,7 +322,10 @@
         "threshold_value": "0",
         "threshold_label": "",
         "chart_footnote": "Dosed for the weakest teeth vs. dosed to your max",
-        "margin_bottom": false
+        "margin_bottom": false,
+        "flow_visibility": "all",
+        "heading_quiz": "",
+        "body_quiz": ""
       }
     },
     "sensitivity_match": {
@@ -600,7 +604,7 @@
       "settings": {
         "price_text": "Your kit, $39",
         "price_was": "$65",
-        "note": "Starts with a 2-min quiz",
+        "note": "Starts with a 1-min quiz",
         "button_label": "Build my formula",
         "button_link": "",
         "button_opens_quiz": true,
