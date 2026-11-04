@@ -169,6 +169,13 @@
         "row_1": {
           "type": "row",
           "settings": {
+            "them": "One-Size-Fits-All Formula",
+            "ours": "Personalized Formula"
+          }
+        },
+        "row_TxEMbp": {
+          "type": "row",
+          "settings": {
             "them": "Only removes surface stains",
             "ours": "Treats all 4 root causes"
           }
@@ -190,13 +197,14 @@
       },
       "block_order": [
         "row_1",
+        "row_TxEMbp",
         "row_2",
         "row_3"
       ],
       "settings": {
         "eyebrow": "",
         "heading": "Why {personalized} whitening works better.",
-        "them_label": "OTC whitening",
+        "them_label": "OTC whitening (Strips, powders..)",
         "ours_label": "Laughland",
         "ours_logo_svg": "",
         "footnote": "",
@@ -210,7 +218,7 @@
         "step_1": {
           "type": "step",
           "settings": {
-            "text": "Take the 2-min quiz"
+            "text": "Take the 60-second quiz"
           }
         },
         "step_2": {
@@ -222,7 +230,7 @@
         "step_3": {
           "type": "step",
           "settings": {
-            "text": "Avg. 7 shades whiter in 6 days (20 min daily)"
+            "text": "Get 7 shades whiter teeth in 6 days"
           }
         }
       },
@@ -233,10 +241,10 @@
       ],
       "settings": {
         "badge": "Anniversary sale 40% off",
-        "eyebrow": "Your personalized kit",
+        "eyebrow": "Your personalized whitening kit",
         "price": "$39",
         "price_was": "$65",
-        "price_note": "vs. $400–$1000 for whitening at the dentist",
+        "price_note": "vs. $500 for whitening at the dentist",
         "includes": "Includes Blue LED mouthpiece and 3 custom gels",
         "button_label": "Build my formula",
         "button_link": "",
