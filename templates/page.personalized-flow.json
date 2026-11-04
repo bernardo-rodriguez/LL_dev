@@ -46,8 +46,8 @@
         "stat_2": {
           "type": "stat",
           "settings": {
-            "value": "0%",
-            "label": "reported more sensitivity"
+            "value": "99%",
+            "label": "reported zero sensitivity"
           }
         },
         "stat_3": {
