@@ -299,9 +299,9 @@
         "cause_4"
       ],
       "settings": {
-        "eyebrow": "Treats every root cause",
+        "eyebrow": "it's how cosmetic dentists whiten",
         "heading": "Analysis first. Treatment second.",
-        "body": "Stains are just one of four reasons teeth look yellow. Miss one and your smile stays dull. Our assessment analyzes your root causes and creates a formula to treat all four.",
+        "body": "Stains are just one of four reasons teeth look yellow. Miss one and your smile stays dull. Our assessment analyzes your root causes and creates a formula to treat the ones affecting you.",
         "image": "shopify://shop_images/Landing_page_mobile_-selection_9448ecfa-232d-4621-9079-a2b4005e2df5.png",
         "button_label": "Build my formula",
         "button_link": "",
@@ -423,7 +423,7 @@
           "settings": {
             "name": "Dr. Name, DDS",
             "practice": "Practice · City, State",
-            "tag": "Uses it with patients",
+            "tag": "Recommends to patients",
             "quote": "Matching strength to sensitivity is how we whiten in the office. Laughland brings that home.",
             "disclosure": "Paid Laughland advisor"
           }
@@ -433,7 +433,7 @@
           "settings": {
             "name": "Dr. Name, DMD",
             "practice": "Practice · City, State",
-            "tag": "Uses it with patients",
+            "tag": "Recommends to patients",
             "quote": "Whitening fades when it only treats stains. Treating plaque and enamel too is what makes it last.",
             "disclosure": "Paid Laughland advisor"
           }
