@@ -23,7 +23,7 @@
         "cause_2": {
           "type": "cause",
           "settings": {
-            "label": "Plaque film",
+            "label": "Plaque",
             "tint": "#f6efe2",
             "dot": "#a87b2a"
           }
@@ -31,7 +31,7 @@
         "cause_3": {
           "type": "cause",
           "settings": {
-            "label": "Deep stains",
+            "label": "Thinning Enamel",
             "tint": "#f2eaf1",
             "dot": "#570266"
           }
