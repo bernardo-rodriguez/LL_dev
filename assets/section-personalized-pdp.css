@@ -208,14 +208,12 @@ body.template-product-personalized .product__info-container .product__title {
    ==========================================================================
 
    The headings and labels run in Manrope through the theme's own
-   .section-heading / .label-sm, the same as the landing page. Only the sizes
-   the reference calls for are set here; nothing overrides the family.
-   ========================================================================== */
+   .section-heading / .label-sm, the same as the landing page — shared classes
+   are left completely alone so they render identically there and here.
 
-body.template-product-personalized .section-eyebrow,
-body.template-product-personalized .how-to-timeline__stages-label {
-  font-size: 11.5px;
-}
+   Only the three labels with no landing-page counterpart are sized here, and
+   none of them sets a family.
+   ========================================================================== */
 
 body.template-product-personalized .treatment-plan__meta,
 body.template-product-personalized .how-to-timeline__demo-badge,
