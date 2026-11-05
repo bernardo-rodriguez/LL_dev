@@ -193,7 +193,12 @@
       // is the theme's, outside the shadow root — so fall back to it.
       var cta = root.querySelector('.add-to-cart.skio-includes-cta');
       var inShadow = !!cta;
-      if (!cta) cta = document.querySelector('.product-form__buttons .product-form__submit');
+      if (!cta) {
+        // There are hidden .product-form__submit buttons elsewhere on the page
+        // (the upsell modal's), so take the visible one in the main form.
+        cta = [].slice.call(document.querySelectorAll('.pdp-product-options .product-form__buttons .product-form__submit'))
+          .filter(function (b) { return b.offsetParent !== null; })[0] || null;
+      }
 
       if (CTA_TEXT && cta) {
         var picked = root.querySelector('.skio-group-container--selected .skio-purchase-option-price span:not(.price--strike)')

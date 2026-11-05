@@ -293,6 +293,16 @@ body.template-product-personalized .FAQ_Section .Faq_section_inner {
   background: #ffffff;
 }
 
+/*
+  .Row is laid out with margin: 0 -20px against 20px padding on its two
+  children. Flattening both gives the reference's plain 16px gutter and stops
+  the row reaching past the inner's padding, which is what was still pushing
+  the page a few pixels wide.
+*/
+body.template-product-personalized .FAQ_Section .Faq_section_inner .Row { margin: 0; }
+body.template-product-personalized .FAQ_Section .Faq_section_inner .Faq_Heading,
+body.template-product-personalized .FAQ_Section .Faq_section_inner .Faq_Area { padding: 0; }
+
 body.template-product-personalized .Faq_Heading { text-align: center; }
 body.template-product-personalized .Faq_Heading .h4 { margin-bottom: 24px; }
 
@@ -336,7 +346,6 @@ body.template-product-personalized .results-cards .section-heading {
   body.template-product-personalized .FAQ_Section .Faq_section_inner .Faq_Heading,
   body.template-product-personalized .FAQ_Section .Faq_section_inner .Faq_Area {
     width: 100%;
-    padding: 0;
   }
 }
 
