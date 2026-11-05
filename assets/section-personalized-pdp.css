@@ -232,7 +232,8 @@ body.template-product-personalized .product__info-container .product__title {
   proportion rather than leaving a 32px heading stranded on a wide screen.
 */
 body.template-product-personalized .section-heading,
-body.template-product-personalized .Faq_Heading .h4 {
+body.template-product-personalized .Faq_Heading .h4,
+body.template-product-personalized .product__title {
   font-family: var(--v6-serif);
   font-size: 32px;
   font-weight: 500;
@@ -243,7 +244,8 @@ body.template-product-personalized .Faq_Heading .h4 {
 
 @media screen and (min-width: 769px) {
   body.template-product-personalized .section-heading,
-  body.template-product-personalized .Faq_Heading .h4 {
+  body.template-product-personalized .Faq_Heading .h4,
+  body.template-product-personalized .product__title {
     font-size: 40px;
   }
 }
@@ -350,6 +352,18 @@ body.template-product-personalized .results-cards .section-heading {
 }
 
 /*
+  .product-form__buttons is a flex row, so the guarantee landed beside the
+  button and squeezed it to 41px. Stacking the two gives the reference's
+  full-width bar with the line underneath.
+*/
+body.template-product-personalized .pdp-product-options .product-form__buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+
+/*
   The page-level CTA, used on products where Skio renders no includes block
   of its own and the theme's button is the real one. Same navy bar as the
   in-shadow version, and the guarantee line that sits under it.
@@ -406,4 +420,11 @@ body.template-product-personalized .ll-plan-guarantee svg {
   height: 16px;
   flex: none;
   color: var(--pdp-accent);
+}
+
+/* The theme sets this at 32px via body.template-product; match the scale here */
+body.template-product-personalized .product__title { font-size: 32px; }
+
+@media screen and (min-width: 769px) {
+  body.template-product-personalized .product__title { font-size: 40px; }
 }
