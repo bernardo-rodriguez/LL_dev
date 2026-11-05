@@ -44,8 +44,8 @@
     // inside the root it can also reach Skio's own elements directly, which is
     // how the pieces v6 drops are hidden. Palette tokens still cross in.
     var STYLE = [
-      '.ll-plan-label{display:block;margin-bottom:2px;font-family:var(--ds-font-family,manrope,sans-serif);',
-      'font-size:11.5px;font-weight:600;letter-spacing:var(--ds-label-letter-spacing,.04em);',
+      '.ll-plan-label{display:block;margin-bottom:2px;font-family:var(--v6-mono,ui-monospace,Menlo,monospace);',
+      'font-size:11.5px;font-weight:500;letter-spacing:var(--v6-label-ls,.08em);',
       'text-transform:uppercase;color:var(--navy,#0D2244)}',
 
       /* Sentence case at the reference size, not bold uppercase */
@@ -62,8 +62,8 @@
       '.ll-plan-benefit{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;',
       'gap:5px;padding:10px 6px;text-align:center;background:#fff;border:1px solid var(--navy-tint-20,#CFD3DA)}',
       '.ll-plan-benefit svg{width:20px;height:20px;color:var(--pdp-accent,#2369c9);flex:none}',
-      '.ll-plan-benefit__title{font-family:var(--ds-font-family,manrope,sans-serif);font-size:10px;',
-      'font-weight:600;line-height:1.25;letter-spacing:var(--ds-label-letter-spacing,.04em);',
+      '.ll-plan-benefit__title{font-family:var(--v6-mono,ui-monospace,Menlo,monospace);font-size:10px;',
+      'font-weight:500;line-height:1.25;letter-spacing:var(--v6-label-ls,.08em);',
       'text-transform:uppercase;color:var(--navy,#0D2244);min-height:2.5em;display:flex;align-items:center;',
       'justify-content:center}',
       '.ll-plan-benefit__sub{font-family:var(--ds-font-family,manrope,sans-serif);font-size:12px;',
@@ -88,6 +88,16 @@
       'border-radius:2px!important;background:var(--navy,#0D2244)!important;color:#fff!important;',
       'font-family:var(--ds-font-family,manrope,sans-serif);font-size:14px!important;font-weight:600!important;',
       'letter-spacing:.08em!important;text-transform:uppercase!important;cursor:pointer}',
+
+      /* The chip is mono like every other label */
+      '.skio-save-ribbon{font-family:var(--v6-mono,ui-monospace,Menlo,monospace)!important;',
+      'font-weight:500!important;letter-spacing:var(--v6-label-ls,.08em)!important}',
+
+      /* 600, not the component's 700 */
+      '.skio-plan-picker__purchase-row .skio-purchase-option-price span:not(.price--strike){',
+      'font-weight:600!important}',
+      '.skio-purchase-option-price .price--strike{color:var(--navy-tint-60,#6E7A8F)!important;',
+      'font-weight:400!important;font-size:14px!important}',
 
       /* Skio's ships-every-60-days line is not in v6, and is subscription-only */
       '.skio-modify-disclaimer{display:none!important}',
