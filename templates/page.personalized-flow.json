@@ -163,6 +163,60 @@
         "flow_visibility": "all"
       }
     },
+    "root_causes": {
+      "type": "root-causes",
+      "blocks": {
+        "cause_1": {
+          "type": "cause",
+          "settings": {
+            "title": "Plaque film",
+            "text": "Glossy, even shine",
+            "colour": ""
+          }
+        },
+        "cause_2": {
+          "type": "cause",
+          "settings": {
+            "title": "Surface stains",
+            "text": "Coffee and wine stains lifted",
+            "colour": ""
+          }
+        },
+        "cause_3": {
+          "type": "cause",
+          "settings": {
+            "title": "Deep stains",
+            "text": "Years-old yellow fades",
+            "colour": ""
+          }
+        },
+        "cause_4": {
+          "type": "cause",
+          "settings": {
+            "title": "Thin enamel",
+            "text": "Remineralizes and rebuilds enamel",
+            "colour": ""
+          }
+        }
+      },
+      "block_order": [
+        "cause_1",
+        "cause_2",
+        "cause_3",
+        "cause_4"
+      ],
+      "settings": {
+        "eyebrow": "it's how cosmetic dentists whiten",
+        "heading": "Analysis first. Treatment second.",
+        "body": "Stains are just one of four reasons teeth look yellow. Miss one and your smile stays dull. Our assessment analyzes your root causes and creates a formula to treat the ones affecting you.",
+        "image": "shopify://shop_images/Landing_page_mobile_-selection_9448ecfa-232d-4621-9079-a2b4005e2df5.png",
+        "button_label": "Build my formula",
+        "button_link": "",
+        "button_opens_quiz": true,
+        "margin_bottom": false,
+        "flow_visibility": "all"
+      }
+    },
     "why_personalized": {
       "type": "why-personalized",
       "blocks": {
@@ -252,60 +306,6 @@
         "guarantee": "Noticeably whiter in 30 days or your money back",
         "trust": "Enamel-safe · Dentist-formulated · FDA-registered",
         "shipping": "Free shipping",
-        "margin_bottom": false,
-        "flow_visibility": "all"
-      }
-    },
-    "root_causes": {
-      "type": "root-causes",
-      "blocks": {
-        "cause_1": {
-          "type": "cause",
-          "settings": {
-            "title": "Plaque film",
-            "text": "Glossy, even shine",
-            "colour": ""
-          }
-        },
-        "cause_2": {
-          "type": "cause",
-          "settings": {
-            "title": "Surface stains",
-            "text": "Coffee and wine stains lifted",
-            "colour": ""
-          }
-        },
-        "cause_3": {
-          "type": "cause",
-          "settings": {
-            "title": "Deep stains",
-            "text": "Years-old yellow fades",
-            "colour": ""
-          }
-        },
-        "cause_4": {
-          "type": "cause",
-          "settings": {
-            "title": "Thin enamel",
-            "text": "Remineralizes and rebuilds enamel",
-            "colour": ""
-          }
-        }
-      },
-      "block_order": [
-        "cause_1",
-        "cause_2",
-        "cause_3",
-        "cause_4"
-      ],
-      "settings": {
-        "eyebrow": "it's how cosmetic dentists whiten",
-        "heading": "Analysis first. Treatment second.",
-        "body": "Stains are just one of four reasons teeth look yellow. Miss one and your smile stays dull. Our assessment analyzes your root causes and creates a formula to treat the ones affecting you.",
-        "image": "shopify://shop_images/Landing_page_mobile_-selection_9448ecfa-232d-4621-9079-a2b4005e2df5.png",
-        "button_label": "Build my formula",
-        "button_link": "",
-        "button_opens_quiz": true,
         "margin_bottom": false,
         "flow_visibility": "all"
       }
@@ -624,9 +624,9 @@
   "order": [
     "personalized_hero",
     "press_logos",
-    "why_personalized",
-    "personalized_offer",
     "root_causes",
+    "personalized_offer",
+    "why_personalized",
     "strength_chart",
     "sensitivity_match",
     "dentist_cards",
