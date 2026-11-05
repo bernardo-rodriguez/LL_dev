@@ -72,7 +72,7 @@ body.template-product-personalized {
   --skio-ribbon-bg: var(--navy);
   --skio-ribbon-color: #ffffff;
   --skio-ribbon-size: 10px;
-  --skio-ribbon-weight: 500;
+  --skio-ribbon-weight: 600;
   --skio-ribbon-padding: 5px 8px;
 
   /* The joined look relied on removed borders and inset dividers. Stacked
@@ -97,25 +97,6 @@ body.template-product-personalized {
     These live here, on the template scope, because the four sections that use
     them render on this template only.
   */
-  /*
-    v6 type layer.
-    --------------
-    The two faces are what the reference is built on, and running the page in
-    Manrope throughout is what made it read as a different design even where
-    the structure already matched.
-
-      headings  Canela, the serif already in the theme at weight 500
-      labels    JetBrains Mono, the reference's face for every small
-                uppercase label — eyebrows, badges, the plan label, the
-                tile captions, the stage markers
-
-    Both are confined to this template; the stylesheet and the webfont are
-    loaded from theme.liquid behind a template.suffix check.
-  */
-  --v6-serif: canela, 'Canela', Baskerville, 'Iowan Old Style', Georgia, serif;
-  --v6-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --v6-label-ls: 0.08em;
-
   --pdp-accent: #2369c9;
   --pdp-silver: #f4f6f8;
 
@@ -223,48 +204,26 @@ body.template-product-personalized .product__info-container .product__title {
 }
 
 /* ==========================================================================
-   v6 type layer — applied across every section on this template
+   Label sizes — the faces stay the theme's
+   ==========================================================================
+
+   The headings and labels run in Manrope through the theme's own
+   .section-heading / .label-sm, the same as the landing page. Only the sizes
+   the reference calls for are set here; nothing overrides the family.
    ========================================================================== */
-
-/*
-  Canela at 32px is the reference's heading, at a single size: the artboard is
-  a phone, so it specifies no desktop step. 40px above 769px keeps the same
-  proportion rather than leaving a 32px heading stranded on a wide screen.
-*/
-body.template-product-personalized .section-heading,
-body.template-product-personalized .Faq_Heading .h4,
-body.template-product-personalized .product__title {
-  font-family: var(--v6-serif);
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 1.08;
-  letter-spacing: -0.02em !important;
-  text-transform: none;
-}
-
-@media screen and (min-width: 769px) {
-  body.template-product-personalized .section-heading,
-  body.template-product-personalized .Faq_Heading .h4,
-  body.template-product-personalized .product__title {
-    font-size: 40px;
-  }
-}
-
-/* Every small uppercase label on the page shares one mono setting */
-body.template-product-personalized .section-eyebrow,
-body.template-product-personalized .treatment-plan__meta,
-body.template-product-personalized .how-to-timeline__demo-badge,
-body.template-product-personalized .how-to-timeline__stages-label,
-body.template-product-personalized .how-to-timeline__stage-when {
-  font-family: var(--v6-mono);
-  font-weight: 500;
-  letter-spacing: var(--v6-label-ls);
-  text-transform: uppercase;
-}
 
 body.template-product-personalized .section-eyebrow,
 body.template-product-personalized .how-to-timeline__stages-label {
   font-size: 11.5px;
+}
+
+body.template-product-personalized .treatment-plan__meta,
+body.template-product-personalized .how-to-timeline__demo-badge,
+body.template-product-personalized .how-to-timeline__stage-when {
+  font-family: var(--ds-font-family);
+  font-weight: 600;
+  letter-spacing: var(--ds-label-letter-spacing);
+  text-transform: uppercase;
 }
 
 body.template-product-personalized .treatment-plan__meta { font-size: 10.6px; }
@@ -420,11 +379,4 @@ body.template-product-personalized .ll-plan-guarantee svg {
   height: 16px;
   flex: none;
   color: var(--pdp-accent);
-}
-
-/* The theme sets this at 32px via body.template-product; match the scale here */
-body.template-product-personalized .product__title { font-size: 32px; }
-
-@media screen and (min-width: 769px) {
-  body.template-product-personalized .product__title { font-size: 40px; }
 }
