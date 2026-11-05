@@ -310,3 +310,26 @@ body.template-product-personalized .how-to-timeline__inner,
 body.template-product-personalized .treatment-plan__inner {
   margin-inline: auto;
 }
+
+/* The reference centres the results intro, as it does every other section's */
+body.template-product-personalized .results-cards .section-eyebrow,
+body.template-product-personalized .results-cards .section-heading {
+  text-align: center;
+}
+
+/*
+  The FAQ's desktop layout sets the heading in a column beside the list. The
+  reference stacks it above and centres it, which is also how this section
+  already behaves on a phone, so this just carries that up to wide screens.
+*/
+@media screen and (min-width: 992px) {
+  body.template-product-personalized .FAQ_Section .Faq_section_inner .Row {
+    display: block;
+  }
+
+  body.template-product-personalized .FAQ_Section .Faq_section_inner .Faq_Heading,
+  body.template-product-personalized .FAQ_Section .Faq_section_inner .Faq_Area {
+    width: 100%;
+    padding: 0;
+  }
+}
