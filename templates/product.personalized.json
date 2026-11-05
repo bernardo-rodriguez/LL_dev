@@ -51,7 +51,7 @@
       "settings": {
         "eyebrow": "Your analysis",
         "heading": "We found 3 causes dulling your smile.",
-        "body": "Tap each to see what's going on.",
+        "body": "",
         "close_label": "Close",
         "margin_bottom": false,
         "flow_visibility": "all"
@@ -99,7 +99,7 @@
       "settings": {
         "eyebrow": "Your treatment",
         "heading": "Here's how we treat it.",
-        "body": "One 20-min session a day treats all of it.",
+        "body": "",
         "meta_left": "Formula 8-17",
         "meta_right": "20 min · 6 days",
         "margin_bottom": false,
@@ -111,7 +111,7 @@
       "settings": {
         "intro_title": "Starter Whitening Kit",
         "personalized_title": "Formula",
-        "subhead": "Designed to treat all key root causes of yellow & dulling teeth.",
+        "subhead": "",
         "subhead_quiz": "",
         "atc": "Buy Now",
         "satisfaction": "30 Day Satisfaction Guarantee",
@@ -272,8 +272,8 @@
         "result_2"
       ],
       "settings": {
-        "eyebrow": "Reviews",
-        "heading": "4.7 out of 5, from 2,316 reviews",
+        "eyebrow": "4.7 · 2,316 reviews",
+        "heading": "Real results from people with your profile",
         "label_before": "Before",
         "label_after": "After",
         "swipe_hint": "Swipe for more",

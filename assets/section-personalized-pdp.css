@@ -299,3 +299,14 @@ body.template-product-personalized .FAQ_Section .Accordion {
   font-size: 16px;
   font-weight: 500;
 }
+
+/*
+  The section inners cap at 760px but had no auto margins, so above that width
+  they sat against the left edge of the page instead of under the centred
+  heading. The reference is a centred column.
+*/
+body.template-product-personalized .smile-analysis__inner,
+body.template-product-personalized .how-to-timeline__inner,
+body.template-product-personalized .treatment-plan__inner {
+  margin-inline: auto;
+}
