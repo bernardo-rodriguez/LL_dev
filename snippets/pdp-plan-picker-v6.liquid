@@ -75,6 +75,13 @@
       '.ll-plan-note--once{padding-left:32px}',
 
       /*
+        On products Skio treats as non-kit, the subscribe card also carries a
+        nested bundle price box and a list of plan checkmarks. The reference
+        has neither — the card is title, price, benefit tiles, one note.
+      */
+      '.skio-group-content,.subscription_selling_plan_details{display:none!important}',
+
+      /*
         v6 goes straight from the two cards to the CTA, so the itemised
         receipt, its heading and the total row are hidden. They are hidden,
         not removed: Skio owns that markup and still prices through it.
@@ -181,18 +188,27 @@
       // v6 puts the price on the button. The price comes off the selected
       // card rather than the total row: Skio renders no total row on the
       // one-time plan, which left the button with no figure at all.
+      // Skio only renders its own CTA inside the includes block, and that
+      // block exists on kit products only. Everywhere else the real button
+      // is the theme's, outside the shadow root — so fall back to it.
       var cta = root.querySelector('.add-to-cart.skio-includes-cta');
+      var inShadow = !!cta;
+      if (!cta) cta = document.querySelector('.product-form__buttons .product-form__submit');
+
       if (CTA_TEXT && cta) {
         var picked = root.querySelector('.skio-group-container--selected .skio-purchase-option-price span:not(.price--strike)')
           || root.querySelector('.skio-total-row .price--current');
         var want = CTA_TEXT + (picked ? ' · ' + picked.textContent.replace(/\s+/g, '') : '');
-        if (cta.textContent.trim() !== want) cta.textContent = want;
+        var holder = cta.querySelector('span') || cta;
+        if (holder.textContent.trim() !== want) holder.textContent = want;
+        if (!inShadow) cta.classList.add('ll-plan-cta');
       }
 
       // Skio's own disclaimer is subscription-only, so the guarantee is our
       // own node after the button and shows on either plan. Skio's line is
       // hidden by the stylesheet rather than rewritten in place.
-      if (GUARANTEE && cta && !root.querySelector('.ll-plan-guarantee')) {
+      var scope = inShadow ? root : document;
+      if (GUARANTEE && cta && !scope.querySelector('.ll-plan-guarantee')) {
         var gline = el('span', 'll-plan-guarantee');
         gline.innerHTML = SHIELD;
         gline.appendChild(document.createTextNode(GUARANTEE));
