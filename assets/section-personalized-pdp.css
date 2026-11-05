@@ -354,20 +354,32 @@ body.template-product-personalized .results-cards .section-heading {
   of its own and the theme's button is the real one. Same navy bar as the
   in-shadow version, and the guarantee line that sits under it.
 */
-body.template-product-personalized .product-form__submit.ll-plan-cta {
+body.template-product-personalized .product-form__submit.ll-plan-cta,
+body.template-product-personalized #main-clickable-button.ll-plan-cta {
   width: 100%;
   height: 54px;
   min-height: 54px;
   margin: 0;
   border: 0;
   border-radius: 2px;
+  /* The theme's #main-clickable-button is an id rule carrying !important on
+     background, colour and border, so each of those is matched here. */
   background: var(--navy) !important;
   color: #ffffff !important;
+  border: 0 !important;
+  border-radius: 2px !important;
+  padding: 0 !important;
   font-family: var(--ds-font-family);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
   text-transform: uppercase;
+}
+
+body.template-product-personalized #main-clickable-button.ll-plan-cta:hover:not(:disabled) {
+  background: var(--navy) !important;
+  color: #ffffff !important;
+  border: 0 !important;
 }
 
 body.template-product-personalized .product-form__submit.ll-plan-cta::after,
