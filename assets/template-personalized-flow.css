@@ -59,7 +59,7 @@ body.template-page-personalized-flow .section-heading,
 body.template-page-personalized-flow .personalized-hero__heading {
   font-family: canela, 'Canela', Baskerville, 'Iowan Old Style', Georgia, serif;
   font-size: 32px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1.08;
   letter-spacing: -0.02em !important;
   text-transform: none;
@@ -204,7 +204,7 @@ body.template-page-personalized-flow .Faq_Heading .h4 {
   margin-bottom: 24px;
   font-family: canela, 'Canela', Baskerville, 'Iowan Old Style', Georgia, serif;
   font-size: 32px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1.08;
   letter-spacing: -0.02em !important;
 }
@@ -321,16 +321,20 @@ body.template-page-personalized-flow .personalized-hero__tag-dot {
 }
 
 /*
-  Canela at 300, not 500.
-  -----------------------
-  The design names Canela first but never loads it — the artboard pulls only
-  Inter Tight and JetBrains Mono — so the comp everyone is comparing against
-  actually rendered in Baskerville, the next face in its stack.
+  Canela Medium, per the design's own type spec (Canela / Medium / 36px /
+  1.08 / -0.02em).
 
-  Rendering the real Canela at 500 against that reads far too heavy and tight;
-  it is the single biggest reason the headings "look nothing like" the comp.
-  CanelaDeck Light sits almost exactly on Baskerville's weight and colour, so
-  the brand's own face is kept and the page matches the comp.
+  Worth knowing when comparing against the comp image: the artboard declares
+  Canela but never loads it — no @font-face, and the only webfonts it fetches
+  are Inter Tight and JetBrains Mono — so both the export and the design
+  tool's canvas render Baskerville, the next face in the stack. The comp
+  therefore looks lighter and more delicate than this page will. The spec is
+  what we follow; the picture is a fallback.
+
+  One caveat on our side: the theme registers CanelaDeck under the name
+  canela. Deck is the sturdier optical cut meant for mid-size text, so at
+  36px it reads heavier than true Canela would. Adding the Display/Text cut
+  would close that last bit of the gap.
 */
 
 /* ==========================================================================
