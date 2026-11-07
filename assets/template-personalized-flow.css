@@ -74,7 +74,7 @@ body.template-page-personalized-flow [class$="__inner"] {
 */
 body.template-page-personalized-flow .section-heading,
 body.template-page-personalized-flow .personalized-hero__heading {
-  font-family: var(--ds-font-family);
+  font-family: manrope, 'Manrope', 'Inter Tight', 'Helvetica Neue', Arial, sans-serif;
   font-size: 32px;
   font-weight: 500;
   line-height: 1.08;
@@ -224,7 +224,7 @@ body.template-page-personalized-flow .Faq_Heading { text-align: center; }
 
 body.template-page-personalized-flow .Faq_Heading .h4 {
   margin-bottom: 24px;
-  font-family: var(--ds-font-family);
+  font-family: manrope, 'Manrope', 'Inter Tight', 'Helvetica Neue', Arial, sans-serif;
   font-size: 32px;
   font-weight: 500;
   line-height: 1.08;
@@ -656,13 +656,14 @@ body.template-page-personalized-flow .Accordion {
 
 /* the two faces that are not the body sans keep theirs */
 /*
-  The narrative comp sets headings in Manrope, which the theme already has -
-  no serif, and no webfont beyond the two the page already loads.
+  Headings are Manrope in the narrative comp. The face is named directly
+  rather than through --ds-font-family, which this template repoints at
+  Inter Tight for body copy.
 */
 body.template-page-personalized-flow .section-heading,
 body.template-page-personalized-flow .personalized-hero__heading,
 body.template-page-personalized-flow .Faq_Heading .h4 {
-  font-family: var(--ds-font-family);
+  font-family: manrope, 'Manrope', 'Inter Tight', 'Helvetica Neue', Arial, sans-serif;
   letter-spacing: -0.019em !important;
 }
 
