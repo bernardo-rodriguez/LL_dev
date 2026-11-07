@@ -28,8 +28,16 @@ body.template-page-personalized-flow {
   --cream: #f4f6f8;
   --cream-tint-50: rgba(244, 246, 248, 0.5);
 
-  /* The design's own muted ink for eyebrows and secondary copy */
+  /*
+    The design's ink, which differs from the theme's by a few points right
+    across the page - our navy is #0D2244 against the design's #0D244C, and
+    our muted grey #6E7A8F against #61718A. Retoning the tokens moves every
+    section at once rather than per element.
+  */
+  --navy: #0d244c;
+  --navy-tint-60: #61718a;
   --flow-muted: #61718a;
+  --flow-body: #475f7d;
   --flow-rule: #d8dce1;
   --flow-accent: #2369c9;
 }
@@ -496,4 +504,77 @@ body.template-page-personalized-flow .root-causes__link {
 /* the arrow belongs to the link treatment, not the button */
 body.template-page-personalized-flow .root-causes__link-arrow {
   display: none;
+}
+
+/* ==========================================================================
+   Shared type classes, set to the design's scale
+   ==========================================================================
+
+   These are theme-wide classes, so they are corrected once here rather than
+   section by section. The design's scale:
+
+     body copy   15.5px / 400 / 1.5   #475F7D
+     sh3         14.5px / 500         navy, no tracking
+     strong cell 14.5px / 600         navy
+     sh2         15px   / 600         navy
+   ========================================================================== */
+
+body.template-page-personalized-flow .body-md {
+  font-size: 15.5px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--flow-body);
+}
+
+body.template-page-personalized-flow .sh3 {
+  font-size: 14.5px;
+  font-weight: 500;
+  letter-spacing: normal;
+}
+
+body.template-page-personalized-flow .sh2,
+body.template-page-personalized-flow .Accordion {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: normal;
+}
+
+/* the comparison table sets its own weights against the design's 400/600 */
+body.template-page-personalized-flow .why-personalized__cell {
+  font-size: 14.5px;
+  letter-spacing: normal;
+}
+
+/* ==========================================================================
+   Every call to action runs the full column
+   ==========================================================================
+   The comp draws each one 440px wide inside a 480 artboard - the full
+   measure between its gutters. Ours were sizing to their content.
+   ========================================================================== */
+
+body.template-page-personalized-flow .personalized-hero__cta,
+body.template-page-personalized-flow .personalized-offer__cta,
+body.template-page-personalized-flow .quiz-cta-panel__cta,
+body.template-page-personalized-flow .root-causes__link {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Press bar - the comp's quiet ruled strip
+   ==========================================================================
+   Hairlines top and bottom, marks centred in a 43px band. Ours was a moving
+   marquee of large logos, which is what made it read as its own section.
+   ========================================================================== */
+
+body.template-page-personalized-flow .logo-bar {
+  border-top: 1px solid var(--flow-rule);
+  border-bottom: 1px solid var(--flow-rule);
+}
+
+body.template-page-personalized-flow .logo-bar__list {
+  /* the comp holds its marks still rather than scrolling them */
+  animation: none;
+  transform: none;
+  justify-content: space-around;
 }
