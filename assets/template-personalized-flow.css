@@ -839,14 +839,22 @@ body.template-page-personalized-flow .personalized-offer__step-text {
 */
 body.template-page-personalized-flow .personalized-offer__guarantee {
   justify-content: center;
-  margin: 12px 0 0;
+  align-items: center;
+  gap: 8px;
   padding: 0;
   border-radius: 0;
   background: transparent;
   font-size: 13.5px;
   font-weight: 500;
   color: var(--navy);
-  text-align: center;
+  /* the comp ranges this left, so a second line sits under the first */
+  text-align: left;
+}
+
+body.template-page-personalized-flow .personalized-offer__guarantee-icon svg {
+  display: block;
+  width: 16px;
+  height: 16px;
 }
 
 body.template-page-personalized-flow .personalized-offer__guarantee-icon {
@@ -1008,4 +1016,11 @@ body.template-page-personalized-flow .personalized-offer__step {
 /* the hero spaces its blocks 14px apart, against our 24 */
 body.template-page-personalized-flow .personalized-hero__inner {
   gap: 14px;
+}
+
+/* the sticky bar's sub-line: 12px/400 muted, as the comp sets it */
+body.template-page-personalized-flow .sticky-quiz-bar__note {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--flow-muted);
 }
