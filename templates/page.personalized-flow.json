@@ -171,7 +171,7 @@
           "settings": {
             "title": "Plaque film",
             "text": "Glossy, even shine",
-            "colour": ""
+            "colour": "#8A6420"
           }
         },
         "cause_2": {
@@ -179,7 +179,7 @@
           "settings": {
             "title": "Surface stains",
             "text": "Coffee and wine stains lifted",
-            "colour": ""
+            "colour": "#8A5A3C"
           }
         },
         "cause_3": {
@@ -187,15 +187,15 @@
           "settings": {
             "title": "Deep stains",
             "text": "Years-old yellow fades",
-            "colour": ""
+            "colour": "#73476E"
           }
         },
         "cause_4": {
           "type": "cause",
           "settings": {
             "title": "Thin enamel",
-            "text": "Remineralizes and rebuilds enamel",
-            "colour": ""
+            "text": "Remineralizes & rebuilds enamel",
+            "colour": "#4F7A91"
           }
         }
       },
@@ -206,9 +206,9 @@
         "cause_4"
       ],
       "settings": {
-        "eyebrow": "it's how cosmetic dentists whiten",
+        "eyebrow": "Treats every root cause",
         "heading": "Analysis first. Treatment second.",
-        "body": "Stains are just one of four reasons teeth look yellow. Miss one and your smile stays dull. Our assessment analyzes your root causes and creates a formula to treat the ones affecting you.",
+        "body": "There are many factors that can make your smile dull. Our assessment analyzes <strong>your root causes</strong> and creates a formula to treat all.",
         "image": "shopify://shop_images/Landing_page_mobile_-selection_9448ecfa-232d-4621-9079-a2b4005e2df5.png",
         "button_label": "Build my formula",
         "button_link": "",
