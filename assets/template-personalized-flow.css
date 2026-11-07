@@ -735,3 +735,110 @@ body.template-page-personalized-flow .strength-comparison__bar-caption--ours {
   font-weight: 600;
   color: var(--navy);
 }
+
+/* ==========================================================================
+   The offer section
+   ==========================================================================
+   Measured against the artboard. The copy is aligned in the template; these
+   are the styling and ordering differences.
+   ========================================================================== */
+
+/*
+  The comp leads with the trust line above the photo, then the photo, then the
+  price block. Ours had it near the bottom, under the guarantee. The section
+  is a flex column, so it is reordered rather than re-templated.
+*/
+body.template-page-personalized-flow .personalized-offer__inner {
+  display: flex;
+  flex-direction: column;
+}
+
+body.template-page-personalized-flow .personalized-offer__trust {
+  order: -1;
+  margin: 0 0 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #22405f;
+  text-align: center;
+}
+
+/* the photo sits on the same silver as the rest of the design, not pale blue */
+body.template-page-personalized-flow .personalized-offer__media {
+  background: var(--pdp-silver, #f4f6f8);
+}
+
+/* a square chip in the accent, inset 12px - not a navy pill */
+body.template-page-personalized-flow .personalized-offer__badge {
+  top: 12px;
+  left: 12px;
+  padding: 5px 10px;
+  border-radius: 0;
+  background: var(--flow-accent);
+  color: #ffffff;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+/* 36px/400 against the theme's heading weight, and the was-price at 16px */
+body.template-page-personalized-flow .personalized-offer__price-now {
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+body.template-page-personalized-flow .personalized-offer__price-was {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--flow-muted);
+}
+
+body.template-page-personalized-flow .personalized-offer__price-note {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--flow-body);
+}
+
+/* square number chips on silver, accent numeral - not blue-tinted circles */
+body.template-page-personalized-flow .personalized-offer__step {
+  padding: 11px 0;
+  gap: 12px;
+  align-items: center;
+}
+
+body.template-page-personalized-flow .personalized-offer__step-number {
+  width: 26px;
+  height: 26px;
+  flex: none;
+  border-radius: 0;
+  background: var(--pdp-silver, #f4f6f8);
+  color: var(--flow-accent);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+body.template-page-personalized-flow .personalized-offer__step-text {
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+/*
+  The guarantee is a plain centred line in the comp, not a tinted box, and it
+  carries the same shield as the rest of the flow rather than a tick.
+*/
+body.template-page-personalized-flow .personalized-offer__guarantee {
+  justify-content: center;
+  margin: 12px 0 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--navy);
+  text-align: center;
+}
+
+body.template-page-personalized-flow .personalized-offer__guarantee-icon {
+  color: var(--flow-accent);
+}
