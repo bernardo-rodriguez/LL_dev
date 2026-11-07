@@ -753,6 +753,16 @@ body.template-page-personalized-flow .personalized-offer__inner {
   flex-direction: column;
 }
 
+/*
+  The trust line lives inside __detail, which sits after __media, so ordering
+  it within its own parent cannot lift it above the photo. The inner is made
+  the flex container for all three and the line is promoted out of the detail
+  column into it.
+*/
+body.template-page-personalized-flow .personalized-offer__detail {
+  display: contents;
+}
+
 body.template-page-personalized-flow .personalized-offer__trust {
   order: -1;
   margin: 0 0 14px;
