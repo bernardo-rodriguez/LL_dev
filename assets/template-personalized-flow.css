@@ -299,3 +299,22 @@ body.template-page-personalized-flow .personalized-hero__tag-dot {
     font-size: 10px;
   }
 }
+
+/*
+  The frame needs to be taller than 3/4 on a phone for the card to sit where
+  the design puts it.
+
+  In the design the card begins 58% down the photo, well clear of the teeth.
+  That artboard is 480px wide, so its frame is 250px tall and the card takes
+  42% of it. On a 375px phone our frame is only 222px, so the same card takes
+  51% and starts at 42% — up over the teeth.
+
+  A 3/5 frame restores the proportion: ~277px at 375px wide, putting the card
+  back at ~55% and leaving the teeth in the clear. Desktop keeps 3/4, where
+  the column is wide enough that it was never a problem.
+*/
+@media screen and (max-width: 768px) {
+  body.template-page-personalized-flow .personalized-hero__frame {
+    aspect-ratio: 3 / 5;
+  }
+}
