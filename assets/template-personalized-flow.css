@@ -362,3 +362,34 @@ body.template-page-personalized-flow .personalized-hero__pill--after {
   background: var(--flow-accent);
   color: #ffffff;
 }
+
+/* ==========================================================================
+   Label tracking
+   ==========================================================================
+
+   The design tracks its small caps per role rather than uniformly, and three
+   of ours were inheriting .label-sm's 12px / 0.04em instead:
+
+     before / after labels   10px    0.1em   (already matched)
+     root-cause list labels  11px    0.1em
+     chart legend            11px    0.12em
+     formula card title      10.5px  0.14em
+
+   Size and tracking move together — tracking is relative to font-size, so
+   setting one without the other lands in the wrong place.
+   ========================================================================== */
+
+body.template-page-personalized-flow .root-causes__item-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+
+body.template-page-personalized-flow .strength-comparison__chart-label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+body.template-page-personalized-flow .personalized-hero__card-title {
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+}
