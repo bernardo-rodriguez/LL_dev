@@ -227,7 +227,12 @@ body.template-page-personalized-flow .FAQ_Section .Accordion-Block {
   border-top-color: var(--flow-rule);
 }
 
-body.template-page-personalized-flow .FAQ_Section .Accordion {
+/*
+  section-faq.css sizes this through a six-class chain inside a mobile media
+  query, which outranks a shorter selector however correct it is, so the same
+  chain is matched here.
+*/
+body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Faq_Area .Faq_List .Accordion-Block .Accordion {
   font-family: var(--ds-font-family);
   font-size: 15px;
   font-weight: 600;
