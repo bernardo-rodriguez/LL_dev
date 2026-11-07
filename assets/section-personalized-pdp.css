@@ -412,8 +412,8 @@ body.template-product-personalized .ll-plan-guarantee svg {
   heading the span simply inherits. Its nowrap is dropped too: at phone width
   it forced long phrases past the screen edge.
 */
-body.template-product-personalized .section-heading,
-body.template-product-personalized .product__title,
+body.template-product-personalized .section-heading .stylized,
+body.template-product-personalized .product__title .stylized,
 body.template-product-personalized .Faq_Heading .h4 .stylized {
   font-family: inherit;
   font-weight: inherit;

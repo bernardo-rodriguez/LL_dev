@@ -232,8 +232,8 @@ body.template-page-personalized-flow .FAQ_Section .Accordion {
   heading the span simply inherits. Its nowrap is dropped too: at phone width
   it forced long phrases past the screen edge.
 */
-body.template-page-personalized-flow .section-heading,
-body.template-page-personalized-flow .personalized-hero__heading,
+body.template-page-personalized-flow .section-heading .stylized,
+body.template-page-personalized-flow .personalized-hero__heading .stylized,
 body.template-page-personalized-flow .Faq_Heading .h4 .stylized {
   font-family: inherit;
   font-weight: inherit;
