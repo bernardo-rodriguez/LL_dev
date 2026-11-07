@@ -426,8 +426,22 @@ body.template-page-personalized-flow .logo-bar__inner {
   padding: 14px 0;
 }
 
+body.template-page-personalized-flow .logo-bar__list {
+  /* the list carried 20px of its own on top of the inner's padding */
+  padding: 0;
+}
+
 body.template-page-personalized-flow .logo-bar__list-item {
   height: 15px;
+}
+
+/* the marks themselves were still drawn at 25px and overflowed the row */
+body.template-page-personalized-flow .logo-bar__list-item img,
+body.template-page-personalized-flow .logo-bar__list-item svg,
+body.template-page-personalized-flow .logo-bar__list-item .header__heading-logo {
+  height: 15px;
+  width: auto;
+  max-height: 15px;
 }
 
 /* ==========================================================================
