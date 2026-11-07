@@ -48,6 +48,16 @@
         </div>
       {% endif %}
 
+      {% if section.settings.button_label != blank %}
+        <a
+          class="why-personalized__cta button button--primary"
+          {% if section.settings.button_link != blank %}href="{{ section.settings.button_link }}"{% else %}href="#"{% endif %}
+          {% if section.settings.button_opens_quiz %}data-open-quiz{% endif %}
+        >
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+
       {% if section.settings.footnote != blank %}
         <p class="why-personalized__footnote body-sm">{{ section.settings.footnote }}</p>
       {% endif %}
@@ -61,30 +71,116 @@
   "tag": "section",
   "class": "section",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow label" },
-    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Why {personalized} whitening works better.", "info": "Wrap emphasized text in {} for the italic Canela style" },
-    { "type": "text", "id": "them_label", "label": "Their column heading", "default": "OTC whitening" },
-    { "type": "text", "id": "ours_label", "label": "Our column name", "default": "Laughland", "info": "Used as the accessible name for the logo." },
-    { "type": "textarea", "id": "ours_logo_svg", "label": "Logo (inline SVG)", "info": "Optional. Overrides the built-in wordmark. Use fill=\"currentColor\" so it picks up the column colour." },
-    { "type": "textarea", "id": "footnote", "label": "Footnote" },
-    { "type": "header", "content": "Layout" },
-    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." },
-    { "type": "header", "content": "Personalization flow" },
-    { "type": "select", "id": "flow_visibility", "label": "Show this section to", "default": "all",
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why {personalized} whitening works better.",
+      "info": "Wrap emphasized text in {} for the italic Canela style"
+    },
+    {
+      "type": "text",
+      "id": "them_label",
+      "label": "Their column heading",
+      "default": "OTC whitening"
+    },
+    {
+      "type": "text",
+      "id": "ours_label",
+      "label": "Our column name",
+      "default": "Laughland",
+      "info": "Used as the accessible name for the logo."
+    },
+    {
+      "type": "textarea",
+      "id": "ours_logo_svg",
+      "label": "Logo (inline SVG)",
+      "info": "Optional. Overrides the built-in wordmark. Use fill=\"currentColor\" so it picks up the column colour."
+    },
+    {
+      "type": "textarea",
+      "id": "footnote",
+      "label": "Footnote"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "margin_bottom",
+      "label": "Extra space below",
+      "default": false,
+      "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap."
+    },
+    {
+      "type": "header",
+      "content": "Personalization flow"
+    },
+    {
+      "type": "select",
+      "id": "flow_visibility",
+      "label": "Show this section to",
+      "default": "all",
       "options": [
-        { "value": "all", "label": "Everyone" },
-        { "value": "quiz", "label": "Quiz arrivals only" },
-        { "value": "direct", "label": "Direct arrivals only" }
+        {
+          "value": "all",
+          "label": "Everyone"
+        },
+        {
+          "value": "quiz",
+          "label": "Quiz arrivals only"
+        },
+        {
+          "value": "direct",
+          "label": "Direct arrivals only"
+        }
       ],
-      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL." }
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL."
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_opens_quiz",
+      "label": "Opens the quiz",
+      "default": true
+    }
   ],
   "blocks": [
     {
       "type": "row",
       "name": "Row",
       "settings": [
-        { "type": "textarea", "id": "them", "label": "Theirs", "default": "Only removes surface stains" },
-        { "type": "textarea", "id": "ours", "label": "Ours", "default": "Treats all 4 root causes" }
+        {
+          "type": "textarea",
+          "id": "them",
+          "label": "Theirs",
+          "default": "Only removes surface stains"
+        },
+        {
+          "type": "textarea",
+          "id": "ours",
+          "label": "Ours",
+          "default": "Treats all 4 root causes"
+        }
       ]
     }
   ],
@@ -92,9 +188,27 @@
     {
       "name": "Why Personalized",
       "blocks": [
-        { "type": "row", "settings": { "them": "Only removes surface stains", "ours": "Treats all 4 root causes" } },
-        { "type": "row", "settings": { "them": "20–40mg of whitening actives", "ours": "80–125mg of whitening actives" } },
-        { "type": "row", "settings": { "them": "Zings and sore teeth", "ours": "Sensitivity blockers matched to you" } }
+        {
+          "type": "row",
+          "settings": {
+            "them": "Only removes surface stains",
+            "ours": "Treats all 4 root causes"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "them": "20–40mg of whitening actives",
+            "ours": "80–125mg of whitening actives"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "them": "Zings and sore teeth",
+            "ours": "Sensitivity blockers matched to you"
+          }
+        }
       ]
     }
   ]

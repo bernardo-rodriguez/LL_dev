@@ -210,7 +210,7 @@
         "heading": "First, we find what’s yellowing your teeth.",
         "body": "It’s rarely just coffee. Your free smile assessment checks for 4 root causes, and most people have more than one.",
         "image": "shopify://shop_images/Landing_page_mobile_-selection_9448ecfa-232d-4621-9079-a2b4005e2df5.png",
-        "button_label": "Find my formula",
+        "button_label": "",
         "button_link": "",
         "button_opens_quiz": true,
         "margin_bottom": false,
@@ -255,7 +255,9 @@
         "ours_logo_svg": "",
         "footnote": "",
         "margin_bottom": false,
-        "flow_visibility": "all"
+        "flow_visibility": "all",
+        "button_label": "Find my formula",
+        "button_opens_quiz": true
       }
     },
     "personalized_offer": {
@@ -292,7 +294,7 @@
         "price_was": "$65",
         "price_note": "vs. $400–$1000 for whitening at the dentist",
         "includes": "",
-        "button_label": "Build my formula",
+        "button_label": "Find my formula",
         "button_link": "",
         "button_opens_quiz": true,
         "guarantee": "Noticeably whiter in 30 days or your money back",
@@ -485,7 +487,7 @@
       "settings": {
         "eyebrow": "Free 1-min smile assessment",
         "heading": "Find out what's holding your smile back.",
-        "button_label": "Build my formula",
+        "button_label": "Find my formula",
         "button_link": "",
         "button_opens_quiz": true,
         "note": "Then your kit is $39 (reg. $65).",
@@ -500,7 +502,7 @@
         "price_text": "Your kit, $39",
         "price_was": "$65",
         "note": "Starts with a 1-min assessment",
-        "button_label": "Build my formula",
+        "button_label": "Find my formula",
         "button_link": "",
         "button_opens_quiz": true,
         "mobile_only": true,

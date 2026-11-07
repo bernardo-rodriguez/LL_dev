@@ -49,6 +49,7 @@ body.template-page-personalized-flow {
   --flow-body: #475f7d;
   --flow-rule: #d8dce1;
   --flow-accent: #2369c9;
+  --flow-cta: #67b9e8;
 }
 
 @media screen and (min-width: 769px) {
@@ -148,20 +149,21 @@ body.template-page-personalized-flow .strength-comparison__bar {
    Call to action
    ==========================================================================
 
-   One button in the design: a navy block, 54px, barely-there 2px corner,
-   uppercase and letter-spaced. Ours were light blue pills, which is the other
-   half of the mismatch.
+   The narrative comp uses one button everywhere: the brand's light blue with
+   a soft 6px corner, 54px tall, uppercase and letter-spaced. The earlier
+   design's navy square block is gone with it.
    ========================================================================== */
 
 body.template-page-personalized-flow .personalized-hero__cta,
 body.template-page-personalized-flow .personalized-offer__cta,
+body.template-page-personalized-flow .why-personalized__cta,
 body.template-page-personalized-flow .quiz-cta-panel__cta,
 body.template-page-personalized-flow .sticky-quiz-bar__cta {
   min-height: 54px;
   padding: 0 18px;
   border: 0;
-  border-radius: 2px;
-  background: var(--navy);
+  border-radius: 6px;
+  background: var(--flow-cta);
   color: #ffffff;
   font-family: var(--ds-font-family);
   font-size: 14px;
@@ -174,27 +176,16 @@ body.template-page-personalized-flow .sticky-quiz-bar__cta {
   justify-content: center;
 }
 
-/*
-  Inside the navy panel the button inverts, as the design has it: white block,
-  navy text.
-*/
-body.template-page-personalized-flow .quiz-cta-panel__cta {
-  background: #ffffff;
-  color: var(--navy);
-}
-
-/* The sticky bar's button is the compact variant */
+/* the sticky bar's is the compact variant */
 body.template-page-personalized-flow .sticky-quiz-bar__cta {
   min-height: 46px;
   font-size: 13px;
 }
 
 /*
-  The page's own ground. Sections that sit transparent — the FAQ among them —
-  were letting the theme's cream body show through as a warm band between the
-  silver and white panels. The design's ground is white throughout.
+  The comp keeps the same light blue inside the navy panel rather than
+  inverting it, so that rule is dropped.
 */
-body.template-page-personalized-flow { background: #ffffff; }
 
 /* ==========================================================================
    Questions
@@ -461,33 +452,6 @@ body.template-page-personalized-flow .root-causes__diagram {
   max-width: 112px;
 }
 
-/*
-  The comp closes this section with the same navy block as every other call
-  to action, not an underlined text link.
-*/
-body.template-page-personalized-flow .root-causes__link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 54px;
-  padding: 0 18px;
-  border: 0;
-  border-bottom: 0;
-  border-radius: 2px;
-  background: var(--navy);
-  color: #ffffff;
-  font-family: var(--ds-font-family);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-
-/* the arrow belongs to the link treatment, not the button */
-body.template-page-personalized-flow .root-causes__link-arrow {
-  display: none;
-}
 
 /* ==========================================================================
    Shared type classes, set to the design's scale
@@ -537,6 +501,7 @@ body.template-page-personalized-flow .why-personalized__cell {
 
 body.template-page-personalized-flow .personalized-hero__cta,
 body.template-page-personalized-flow .personalized-offer__cta,
+body.template-page-personalized-flow .why-personalized__cta,
 body.template-page-personalized-flow .quiz-cta-panel__cta,
 body.template-page-personalized-flow .root-causes__link {
   width: 100%;
