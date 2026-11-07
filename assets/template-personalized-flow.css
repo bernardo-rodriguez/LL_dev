@@ -165,3 +165,62 @@ body.template-page-personalized-flow .sticky-quiz-bar__cta {
   min-height: 46px;
   font-size: 13px;
 }
+
+/*
+  The page's own ground. Sections that sit transparent — the FAQ among them —
+  were letting the theme's cream body show through as a warm band between the
+  silver and white panels. The design's ground is white throughout.
+*/
+body.template-page-personalized-flow { background: #ffffff; }
+
+/* ==========================================================================
+   Questions
+   ==========================================================================
+
+   A plain white block in the design — no blue panel, no rounded corner, a
+   centred heading over hairline-ruled rows. The section is shared, so every
+   rule here is scoped to this template, exactly as it is on the PDP.
+   ========================================================================== */
+
+body.template-page-personalized-flow .FAQ_Section .Faq_section_inner {
+  /*
+    The side padding stays: .Row is laid out with margin: 0 -20px against 20px
+    padding on its children, so zeroing it lets those negative margins escape
+    and pushes the page wider than the screen.
+  */
+  padding: var(--section-space-y) 16px;
+  border-radius: 0;
+  background: #ffffff;
+}
+
+body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Row { margin: 0; }
+body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Faq_Heading,
+body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Faq_Area { padding: 0; }
+
+body.template-page-personalized-flow .Faq_Heading { text-align: center; }
+
+body.template-page-personalized-flow .Faq_Heading .h4 {
+  margin-bottom: 24px;
+  font-family: canela, 'Canela', Baskerville, 'Iowan Old Style', Georgia, serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.02em !important;
+}
+
+body.template-page-personalized-flow .FAQ_Section .Accordion-Block {
+  border-top-color: var(--flow-rule);
+}
+
+body.template-page-personalized-flow .FAQ_Section .Accordion {
+  font-family: var(--ds-font-family);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 992px) {
+  body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Row { display: block; }
+  body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Faq_Heading,
+  body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Faq_Area { width: 100%; }
+  body.template-page-personalized-flow .Faq_Heading .h4 { font-size: 40px; }
+}
