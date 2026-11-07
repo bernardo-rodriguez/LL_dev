@@ -65,9 +65,15 @@ body.template-page-personalized-flow .personalized-hero__heading {
   text-transform: none;
 }
 
-/* The hero carries the page, and the design sets it a step larger */
+/*
+  The hero carries the page and the design sets it a step larger. 32px rather
+  than the comp's 36: Baskervville runs about 10 per cent wider than the
+  macOS Baskerville the comp rendered, so at 36 the headline breaks to three
+  lines on a 375 and 390 phone where the comp holds two. 32 is the largest
+  size that keeps the comp's two-line block at every phone width.
+*/
 body.template-page-personalized-flow .personalized-hero__heading {
-  font-size: 36px;
+  font-size: 32px;
 }
 
 @media screen and (min-width: 769px) {
