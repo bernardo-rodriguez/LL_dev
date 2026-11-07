@@ -57,9 +57,9 @@ body.template-page-personalized-flow [class$="__inner"] {
 */
 body.template-page-personalized-flow .section-heading,
 body.template-page-personalized-flow .personalized-hero__heading {
-  font-family: canela, 'Canela', Baskerville, 'Iowan Old Style', Georgia, serif;
+  font-family: canela-display, canela, Baskerville, 'Iowan Old Style', Georgia, serif;
   font-size: 32px;
-  font-weight: 500;
+  font-weight: 300;
   line-height: 1.08;
   letter-spacing: -0.02em !important;
   text-transform: none;
@@ -202,9 +202,9 @@ body.template-page-personalized-flow .Faq_Heading { text-align: center; }
 
 body.template-page-personalized-flow .Faq_Heading .h4 {
   margin-bottom: 24px;
-  font-family: canela, 'Canela', Baskerville, 'Iowan Old Style', Georgia, serif;
+  font-family: canela-display, canela, Baskerville, 'Iowan Old Style', Georgia, serif;
   font-size: 32px;
-  font-weight: 500;
+  font-weight: 300;
   line-height: 1.08;
   letter-spacing: -0.02em !important;
 }
@@ -321,20 +321,22 @@ body.template-page-personalized-flow .personalized-hero__tag-dot {
 }
 
 /*
-  Canela Medium, per the design's own type spec (Canela / Medium / 36px /
-  1.08 / -0.02em).
+  Canela, display cut, Light.
 
-  Worth knowing when comparing against the comp image: the artboard declares
-  Canela but never loads it — no @font-face, and the only webfonts it fetches
-  are Inter Tight and JetBrains Mono — so both the export and the design
-  tool's canvas render Baskerville, the next face in the stack. The comp
-  therefore looks lighter and more delicate than this page will. The spec is
-  what we follow; the picture is a fallback.
+  The design's type panel says Canela / Medium, but the comp was never
+  rendering Canela at all — the artboard declares it and then loads only
+  Inter Tight and JetBrains Mono, so both the export and the design tool's
+  canvas fall back to Baskerville. "Medium" therefore describes a weight in
+  a face nobody has been looking at.
 
-  One caveat on our side: the theme registers CanelaDeck under the name
-  canela. Deck is the sturdier optical cut meant for mid-size text, so at
-  36px it reads heavier than true Canela would. Adding the Display/Text cut
-  would close that last bit of the gap.
+  Two things follow. The theme's `canela` is CanelaDeck, the sturdier optical
+  cut meant for mid-size text, which at 36px sets much heavier and wider than
+  the comp — heavy enough to push the hero onto a third line where the comp
+  holds two. And the base Canela cut, which is what display headings want, is
+  in the theme but was never registered.
+
+  So headings take the base cut at Light, which carries the weight and width
+  the comp shows while staying on the brand's own typeface.
 */
 
 /* ==========================================================================

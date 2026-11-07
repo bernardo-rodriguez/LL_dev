@@ -31,6 +31,20 @@
     font-style: normal;
   }
 
+  {%- comment -%}
+    The one non-Deck Canela in the theme. Deck is the sturdier optical cut,
+    drawn for mid-size text; this is the base family, which is what display
+    headings want. Registered under its own name so nothing that already
+    asks for `canela` changes.
+  {%- endcomment -%}
+  @font-face {
+    font-family: canela-display;
+    src: url('{{ "Canela-Light-Trial.otf" | asset_url }}') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
   @font-face {
     font-family: canela;
     src: url('{{ "CanelaDeck-Light-Trial.otf" | asset_url }}') format('opentype');
