@@ -852,3 +852,110 @@ body.template-page-personalized-flow .personalized-offer__guarantee {
 body.template-page-personalized-flow .personalized-offer__guarantee-icon {
   color: var(--flow-accent);
 }
+
+/* ==========================================================================
+   Why personalized
+   ========================================================================== */
+
+/* the comp sets this heading a step smaller than the rest: 30px, not 32 */
+body.template-page-personalized-flow .why-personalized__heading {
+  font-size: 30px;
+  letter-spacing: -0.02em !important;
+}
+
+@media screen and (min-width: 769px) {
+  body.template-page-personalized-flow .why-personalized__heading { font-size: 38px; }
+}
+
+/* column headers: 10.5px mono-ish caps, the Laughland side in the accent */
+body.template-page-personalized-flow .why-personalized__col-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--flow-muted);
+}
+
+body.template-page-personalized-flow .why-personalized__col-label--ours {
+  color: var(--flow-accent);
+}
+
+/* the OTC column is 400 in muted ink, ours 600 in navy - not 500/700 */
+body.template-page-personalized-flow .why-personalized__cell {
+  font-size: 14.5px;
+  font-weight: 400;
+  color: var(--flow-muted);
+}
+
+body.template-page-personalized-flow .why-personalized__cell--ours {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+/* ==========================================================================
+   Sensitivity match
+   ========================================================================== */
+
+/* the comp sets this one at 24px, below the page's 32 */
+body.template-page-personalized-flow .sensitivity-match__heading {
+  font-size: 24px;
+  letter-spacing: -0.02em !important;
+}
+
+@media screen and (min-width: 769px) {
+  body.template-page-personalized-flow .sensitivity-match__heading { font-size: 30px; }
+}
+
+body.template-page-personalized-flow .sensitivity-match__body {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--flow-body);
+}
+
+/* the question above the choices */
+body.template-page-personalized-flow .sensitivity-match__copy {
+  font-size: 13px;
+  font-weight: 500;
+  color: #22405f;
+}
+
+/* the three choices: 13.5px, the chosen one 600 navy */
+body.template-page-personalized-flow .sensitivity-match__choice {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #22405f;
+}
+
+body.template-page-personalized-flow .sensitivity-match__choice[aria-pressed='true'],
+body.template-page-personalized-flow .sensitivity-match__choice--on {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+/* the meter rows: label navy, reading muted, both 13px/400 */
+body.template-page-personalized-flow .sensitivity-match__meter-label {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--navy);
+}
+
+body.template-page-personalized-flow .sensitivity-match__meter-value {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--flow-muted);
+}
+
+/* ==========================================================================
+   Strength chart captions - the comp sets 14px/600 with a 12.5px sub-line
+   ========================================================================== */
+
+body.template-page-personalized-flow .strength-comparison__bar-caption {
+  font-size: 14px;
+  font-weight: 600;
+  color: #22405f;
+}
+
+body.template-page-personalized-flow .strength-comparison__bar-caption--ours {
+  color: var(--navy);
+}
