@@ -1,0 +1,86 @@
+/*
+  Personalized-flow landing page — design alignment layer.
+  =======================================================
+
+  Everything here is scoped to body.template-page-personalized-flow, the class
+  the layout emits from template.suffix. No other page is affected.
+
+  This works through the framework rather than around it: the section rhythm
+  comes from --section-space-y, the alternating panels come from --cream, and
+  the type comes from .section-heading / .section-eyebrow. Retoning those
+  tokens recolours and respaces every section at once, so there is almost no
+  per-section CSS here and section widths and layout are untouched.
+*/
+
+body.template-page-personalized-flow {
+  /*
+    The design runs a 36px top and bottom on each section, so the gap between
+    one section's content and the next is ~72px. Our sections carry their
+    space on top only, so the bottom half is added below.
+  */
+  --section-space-y: 36px;
+
+  /*
+    The design has no cream in it: the alternating panels are a cool silver.
+    Retoning the token moves every section that uses it — hero, why-
+    personalized and dentist-cards — in one line.
+  */
+  --cream: #f4f6f8;
+  --cream-tint-50: rgba(244, 246, 248, 0.5);
+
+  /* The design's own muted ink for eyebrows and secondary copy */
+  --flow-muted: #61718a;
+  --flow-rule: #d8dce1;
+}
+
+@media screen and (min-width: 769px) {
+  body.template-page-personalized-flow { --section-space-y: 72px; }
+}
+
+/*
+  The matching bottom half of each section's rhythm. Every section on this
+  page wraps its content in a __inner element, so this is one rule rather
+  than a block per section.
+*/
+body.template-page-personalized-flow [class$="__inner"] {
+  padding-bottom: var(--section-space-y);
+}
+
+/* ==========================================================================
+   Type
+   ========================================================================== */
+
+/*
+  Canela for every section heading, at the design's size and rhythm. It is
+  already an @font-face in the theme, so no new font file is involved.
+*/
+body.template-page-personalized-flow .section-heading,
+body.template-page-personalized-flow .personalized-hero__heading {
+  font-family: canela, 'Canela', Baskerville, 'Iowan Old Style', Georgia, serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.02em !important;
+  text-transform: none;
+}
+
+/* The hero carries the page, and the design sets it a step larger */
+body.template-page-personalized-flow .personalized-hero__heading {
+  font-size: 36px;
+}
+
+@media screen and (min-width: 769px) {
+  body.template-page-personalized-flow .section-heading { font-size: 40px; }
+  body.template-page-personalized-flow .personalized-hero__heading { font-size: 46px; }
+}
+
+/* JetBrains Mono for the small uppercase labels, as the design sets them */
+body.template-page-personalized-flow .section-eyebrow,
+body.template-page-personalized-flow .quiz-cta-panel__eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase;
+  color: var(--flow-muted);
+}

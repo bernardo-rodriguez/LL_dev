@@ -204,23 +204,49 @@ body.template-product-personalized .product__info-container .product__title {
 }
 
 /* ==========================================================================
-   Label sizes — the faces stay the theme's
+   Type — the same two faces the landing page uses
    ==========================================================================
 
-   The headings and labels run in Manrope through the theme's own
-   .section-heading / .label-sm, the same as the landing page — shared classes
-   are left completely alone so they render identically there and here.
-
-   Only the three labels with no landing-page counterpart are sized here, and
-   none of them sets a family.
+   Canela for headings, JetBrains Mono for the small uppercase labels, matching
+   the design and the landing template. Canela is already an @font-face in the
+   theme; the mono is loaded from theme.liquid alongside this file.
    ========================================================================== */
+
+body.template-product-personalized .section-heading,
+body.template-product-personalized .Faq_Heading .h4,
+body.template-product-personalized .product__title {
+  font-family: canela, 'Canela', Baskerville, 'Iowan Old Style', Georgia, serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.02em !important;
+  text-transform: none;
+}
+
+@media screen and (min-width: 769px) {
+  body.template-product-personalized .section-heading,
+  body.template-product-personalized .Faq_Heading .h4,
+  body.template-product-personalized .product__title {
+    font-size: 40px;
+  }
+}
+
+body.template-product-personalized .section-eyebrow,
+body.template-product-personalized .how-to-timeline__stages-label {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase;
+  color: #61718a;
+}
 
 body.template-product-personalized .treatment-plan__meta,
 body.template-product-personalized .how-to-timeline__demo-badge,
 body.template-product-personalized .how-to-timeline__stage-when {
-  font-family: var(--ds-font-family);
-  font-weight: 600;
-  letter-spacing: var(--ds-label-letter-spacing);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-weight: 500;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 

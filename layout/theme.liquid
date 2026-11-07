@@ -311,15 +311,32 @@
     {{ 'in_house_custom.css' | asset_url | stylesheet_tag }}
 
     {%- comment -%}
-      The personalized product template's stylesheet. Loaded here rather than
-      from a section so it reaches every section on the page, including the
-      shared FAQ and results sections that have no stylesheet of their own.
+      The personalized flow's two templates. Each stylesheet is loaded here
+      rather than from a section so it reaches every section on its page,
+      including shared ones like the FAQ that carry no stylesheet of their own.
 
-      Type stays on the theme's own faces, the same as the landing page; this
-      file sets layout and the sizes the design calls for, never the family.
+      JetBrains Mono is the design's label face and is not in the theme, so it
+      comes from Google Fonts. Canela, the heading face, already is. Both
+      stylesheets and the webfont load on these templates only.
     {%- endcomment -%}
+    {% assign ll_flow_pdp = false %}
+    {% assign ll_flow_landing = false %}
     {% if template.name == 'product' and template.suffix == 'personalized' %}
+      {% assign ll_flow_pdp = true %}
+    {% elsif template.name == 'page' and template.suffix == 'personalized-flow' %}
+      {% assign ll_flow_landing = true %}
+    {% endif %}
+
+    {% if ll_flow_pdp or ll_flow_landing %}
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
+    {% endif %}
+    {% if ll_flow_pdp %}
       {{ 'section-personalized-pdp.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+    {% if ll_flow_landing %}
+      {{ 'template-personalized-flow.css' | asset_url | stylesheet_tag }}
     {% endif %}
 
     <script>
