@@ -617,3 +617,16 @@ body.template-page-personalized-flow .logo-bar__list-item > * {
   height: auto;
   object-fit: contain;
 }
+
+/*
+  The marks arrive at different weights - the SVGs are filled a light grey by
+  the section, while each PNG keeps its own colour and a per-block opacity set
+  in the editor, so one reads near-black beside another that is nearly gone.
+  The comp sets them all at one quiet weight, so the PNGs are desaturated and
+  levelled to match the SVG fill. !important because the opacity is written
+  inline on the element.
+*/
+body.template-page-personalized-flow .logo-bar__list-item img {
+  filter: grayscale(1);
+  opacity: 0.38 !important;
+}
