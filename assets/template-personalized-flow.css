@@ -31,6 +31,7 @@ body.template-page-personalized-flow {
   /* The design's own muted ink for eyebrows and secondary copy */
   --flow-muted: #61718a;
   --flow-rule: #d8dce1;
+  --flow-accent: #2369c9;
 }
 
 @media screen and (min-width: 769px) {
@@ -58,7 +59,7 @@ body.template-page-personalized-flow .section-heading,
 body.template-page-personalized-flow .personalized-hero__heading {
   font-family: canela, 'Canela', Baskerville, 'Iowan Old Style', Georgia, serif;
   font-size: 32px;
-  font-weight: 500;
+  font-weight: 300;
   line-height: 1.08;
   letter-spacing: -0.02em !important;
   text-transform: none;
@@ -203,7 +204,7 @@ body.template-page-personalized-flow .Faq_Heading .h4 {
   margin-bottom: 24px;
   font-family: canela, 'Canela', Baskerville, 'Iowan Old Style', Georgia, serif;
   font-size: 32px;
-  font-weight: 500;
+  font-weight: 300;
   line-height: 1.08;
   letter-spacing: -0.02em !important;
 }
@@ -317,4 +318,41 @@ body.template-page-personalized-flow .personalized-hero__tag-dot {
   body.template-page-personalized-flow .personalized-hero__frame {
     aspect-ratio: 3 / 5;
   }
+}
+
+/*
+  Canela at 300, not 500.
+  -----------------------
+  The design names Canela first but never loads it — the artboard pulls only
+  Inter Tight and JetBrains Mono — so the comp everyone is comparing against
+  actually rendered in Baskerville, the next face in its stack.
+
+  Rendering the real Canela at 500 against that reads far too heavy and tight;
+  it is the single biggest reason the headings "look nothing like" the comp.
+  CanelaDeck Light sits almost exactly on Baskerville's weight and colour, so
+  the brand's own face is kept and the page matches the comp.
+*/
+
+/* ==========================================================================
+   Before / after labels
+   ==========================================================================
+   The design squares them off, puts both at the top left of their own pane,
+   and sets the after state in its accent blue rather than navy.
+   ========================================================================== */
+
+body.template-page-personalized-flow .personalized-hero__pill {
+  top: 10px;
+  left: 10px;
+  padding: 3px 8px;
+  border-radius: 0;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+body.template-page-personalized-flow .personalized-hero__pill--after {
+  left: 10px;
+  right: auto;
+  background: var(--flow-accent);
+  color: #ffffff;
 }
