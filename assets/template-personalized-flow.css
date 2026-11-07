@@ -241,3 +241,61 @@ body.template-page-personalized-flow .Faq_Heading .h4 .stylized {
   margin-right: 0;
   white-space: inherit;
 }
+
+/* ==========================================================================
+   Hero formula card
+   ==========================================================================
+
+   Two corrections against the design:
+
+   1. The formula tags were wrapping onto a second line. The design sets them
+      tighter than we did — 3px 9px against our 4px 11px, and a square chip
+      rather than a full pill — which is most of the width back. Each tag is
+      also kept from breaking internally, so a long one moves as a unit
+      instead of splitting across lines.
+
+   2. That second line is what pushed the card up over the teeth: the card is
+      anchored to the bottom of the frame, so every extra row of tags grows it
+      upward into the photo. One row of tags gives the teeth their clearance
+      back, and the card takes the design's square corner and softer shadow.
+   ========================================================================== */
+
+body.template-page-personalized-flow .personalized-hero__card {
+  padding: 12px 14px;
+  border-radius: 0;
+  box-shadow: 0 10px 28px rgba(13, 36, 76, 0.12);
+}
+
+body.template-page-personalized-flow .personalized-hero__card-title {
+  letter-spacing: 0.14em;
+}
+
+body.template-page-personalized-flow .personalized-hero__tags {
+  gap: 5px;
+}
+
+body.template-page-personalized-flow .personalized-hero__tag {
+  padding: 3px 9px;
+  border-radius: 0;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  /* a tag moves as a unit rather than breaking across lines */
+  white-space: nowrap;
+}
+
+/* Square, like the dots in the treatment rows and the rest of the design */
+body.template-page-personalized-flow .personalized-hero__tag-dot {
+  border-radius: 0;
+}
+
+/*
+  Below about 360px there is not enough room for three tags at the design's
+  size, so they step down rather than wrap.
+*/
+@media screen and (max-width: 360px) {
+  body.template-page-personalized-flow .personalized-hero__tag {
+    padding: 3px 7px;
+    font-size: 10px;
+  }
+}
