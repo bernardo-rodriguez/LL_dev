@@ -675,3 +675,63 @@ body.template-page-personalized-flow .section-eyebrow,
 body.template-page-personalized-flow .quiz-cta-panel__eyebrow {
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
+
+/* ==========================================================================
+   Remaining element-level corrections
+   ==========================================================================
+   Found by diffing every shared string on the page against the artboard
+   rather than by eye. Each line here is a measured difference.
+   ========================================================================== */
+
+/* the formula code reads as a value, not as body copy: 13px/600 navy */
+body.template-page-personalized-flow .personalized-hero__card-value {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: normal;
+  color: var(--navy);
+}
+
+/* the card's sensitivity note: 12.5px/500 in the accent, not 12px/600 */
+body.template-page-personalized-flow .personalized-hero__card-note {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--flow-accent);
+}
+
+/*
+  The comp marks this one section's eyebrow in the accent rather than the
+  muted grey - it is the strength claim, and the colour ties it to the chart.
+*/
+body.template-page-personalized-flow .strength-comparison__eyebrow {
+  color: var(--flow-accent);
+}
+
+/*
+  The chart's two readings carry the comparison, so the comp sets them large
+  and unequal: the Laughland figure at 30px and the OTC one at 20px, against
+  a flat 16px here.
+*/
+body.template-page-personalized-flow .strength-comparison__bar-value {
+  font-size: 20px;
+  font-weight: 500;
+  color: #22405f;
+}
+
+body.template-page-personalized-flow .strength-comparison__bar--ours .strength-comparison__bar-value,
+body.template-page-personalized-flow .strength-comparison__bar-value--ours {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+/* the captions under each bar: 14.5px, 400 for the OTC and 600 for ours */
+body.template-page-personalized-flow .strength-comparison__bar-caption {
+  font-size: 14.5px;
+  font-weight: 400;
+  color: var(--flow-muted);
+}
+
+body.template-page-personalized-flow .strength-comparison__bar-caption--ours {
+  font-weight: 600;
+  color: var(--navy);
+}
