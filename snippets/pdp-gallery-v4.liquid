@@ -1,0 +1,82 @@
+{%- comment -%}
+  The v4 gallery — a square frame with a caption strip, over four labelled
+  thumbnails.
+
+  This is its own markup rather than a restyle of the swiper gallery: the comp
+  labels its thumbnails by role (Kit / Box / Results / How to) rather than
+  showing image previews, which the existing component has no way to express.
+
+  Rendered only when main-product is on the personalized template, so the
+  production PDP keeps the swiper gallery exactly as it is.
+
+  Labels come from each image's alt text, so they stay editable where the
+  images are set. An image with no alt falls back to its position.
+{%- endcomment -%}
+
+{% assign gallery_media = product.media | default: empty %}
+
+<div class="pdp-gallery" data-pdp-gallery>
+  <div class="pdp-gallery__frame">
+    {% for media in gallery_media %}
+      <figure
+        class="pdp-gallery__slide{% if forloop.first %} pdp-gallery__slide--on{% endif %}"
+        data-gallery-slide="{{ forloop.index0 }}"
+        {% unless forloop.first %}hidden{% endunless %}
+      >
+        <img
+          src="{{ media | image_url: width: 1200 }}"
+          alt="{{ media.alt | escape }}"
+          loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+          width="{{ media.width }}"
+          height="{{ media.height }}"
+        >
+      </figure>
+    {% endfor %}
+
+    {% if section.settings.gallery_caption != blank %}
+      <span class="pdp-gallery__caption">{{ section.settings.gallery_caption }}</span>
+    {% endif %}
+  </div>
+
+  {% if gallery_media.size > 1 %}
+    <div class="pdp-gallery__thumbs" role="tablist" aria-label="Product images">
+      {% for media in gallery_media %}
+        <button
+          type="button"
+          class="pdp-gallery__thumb{% if forloop.first %} pdp-gallery__thumb--on{% endif %}"
+          data-gallery-thumb="{{ forloop.index0 }}"
+          role="tab"
+          aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+        >
+          {{ media.alt | default: forloop.index | escape }}
+        </button>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+<script>
+  (function () {
+    var root = document.querySelector('[data-pdp-gallery]');
+    if (!root) return;
+    var thumbs = root.querySelectorAll('[data-gallery-thumb]');
+    var slides = root.querySelectorAll('[data-gallery-slide]');
+    if (thumbs.length < 2) return;
+
+    thumbs.forEach(function (thumb) {
+      thumb.addEventListener('click', function () {
+        var want = thumb.getAttribute('data-gallery-thumb');
+        thumbs.forEach(function (t) {
+          var on = t === thumb;
+          t.classList.toggle('pdp-gallery__thumb--on', on);
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        slides.forEach(function (s) {
+          var on = s.getAttribute('data-gallery-slide') === want;
+          s.hidden = !on;
+          s.classList.toggle('pdp-gallery__slide--on', on);
+        });
+      });
+    });
+  })();
+</script>

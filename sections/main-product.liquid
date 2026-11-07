@@ -1,6 +1,7 @@
 {% comment %}theme-check-disable TemplateLength{% endcomment %}
 {{ 'all-product.css' | asset_url | stylesheet_tag }}
 {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+{% if template.suffix == 'personalized' %}{{ 'section-pdp-gallery.css' | asset_url | stylesheet_tag }}{% endif %}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
 {{ 'component-results-curve.css' | asset_url | stylesheet_tag }}
@@ -24,6 +25,14 @@ xhttp.send();
     </a>
 
     <div class="product__media-wrapper">
+      {%- comment -%}
+        The personalized template draws its own gallery: the design labels the
+        thumbnails by role rather than showing previews, which the swiper
+        gallery below has no way to express. Every other template keeps it.
+      {%- endcomment -%}
+      {% if template.suffix == 'personalized' %}
+        {% render 'pdp-gallery-v4', product: product, section: section %}
+      {% else %}
       {%- comment -%}
         The gallery carries the aspect ratio and the clipping, not the wrapper,
         so the previews below it are not cut off by the same overflow.
@@ -52,6 +61,7 @@ xhttp.send();
           </button>
         {% endfor %}
       </div>
+      {% endif %}
     </div>
 
     <div class="product__column">
@@ -1148,6 +1158,17 @@ xhttp.send();
       "id": "plan_benefit_3_sub",
       "label": "Benefit 3 sub-line",
       "default": "($30 value)"
+    },
+    {
+      "type": "header",
+      "content": "Gallery (personalized)",
+      "info": "Used only by the personalized product template."
+    },
+    {
+      "type": "text",
+      "id": "gallery_caption",
+      "label": "Caption over the image",
+      "default": "Includes Blue Light mouthpiece + 3 gels"
     }
   ]
 }

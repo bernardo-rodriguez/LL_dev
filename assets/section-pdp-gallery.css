@@ -1,0 +1,104 @@
+/*
+  Personalized PDP gallery — square frame, caption strip, labelled thumbnails.
+
+  Measured from the v4 artboard. Loaded by main-product, but every rule is
+  prefixed with the template scope so the production PDP, which renders the
+  swiper gallery instead, is untouched.
+*/
+
+body.template-product-personalized .pdp-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 16px;
+}
+
+/* 1:1, inset from the page edge, on the design's silver */
+body.template-product-personalized .pdp-gallery__frame {
+  position: relative;
+  margin: 0 20px;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--pdp-silver, #f4f6f8);
+}
+
+body.template-product-personalized .pdp-gallery__slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+
+body.template-product-personalized .pdp-gallery__slide[hidden] { display: none; }
+
+body.template-product-personalized .pdp-gallery__slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*
+  The caption sits over the image rather than under it, which is what keeps
+  the kit contents visible without a section of their own.
+*/
+body.template-product-personalized .pdp-gallery__caption {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  padding: 10px 12px;
+  background: #ffffff;
+  color: var(--navy);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+/*
+  Four square thumbnails labelled by role. They carry words rather than image
+  previews, so they are sized by the grid and not by their content.
+*/
+body.template-product-personalized .pdp-gallery__thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  padding: 0 16px;
+}
+
+body.template-product-personalized .pdp-gallery__thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  padding: 4px;
+  border: 1px solid var(--flow-rule, #d8dce1);
+  border-radius: 0;
+  background: var(--pdp-silver, #f4f6f8);
+  color: #61718a;
+  font-family: var(--ds-font-family);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.16s ease, color 0.16s ease;
+}
+
+body.template-product-personalized .pdp-gallery__thumb:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+/* the chosen one takes a heavier navy edge and darker label */
+body.template-product-personalized .pdp-gallery__thumb--on {
+  border: 2px solid var(--navy);
+  color: var(--navy);
+  font-weight: 600;
+}
+
+@media screen and (min-width: 769px) {
+  body.template-product-personalized .pdp-gallery__frame { margin: 0; }
+  body.template-product-personalized .pdp-gallery__thumbs { padding: 0; }
+}

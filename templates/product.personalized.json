@@ -141,43 +141,8 @@
         "plan_benefit_2": "Free shipping",
         "plan_benefit_2_sub": "Every order",
         "plan_benefit_3": "Free whitening pen",
-        "plan_benefit_3_sub": "($30 value)"
-      }
-    },
-    "kit_contents": {
-      "type": "kit-contents",
-      "blocks": {
-        "item_1": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/5_ee42888c-6739-4f6c-b762-e878dba3a17a.png",
-            "title": "Blue LED mouthpiece",
-            "text": "Speeds up whitening. Yours to keep."
-          }
-        },
-        "item_2": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/Laughland_80136_1_1.png",
-            "title": "3 custom gels",
-            "text": "Mixed to your formula and sensitivity."
-          }
-        }
-      },
-      "block_order": [
-        "item_1",
-        "item_2"
-      ],
-      "disabled": true,
-      "settings": {
-        "eyebrow": "In the box",
-        "heading": "What's in your kit.",
-        "extra_title": "Sensitivity blockers",
-        "extra_text": "Aloe vera, glycerin, hydroxyapatite",
-        "ingredients_label": "Full ingredients",
-        "ingredients": "",
-        "margin_bottom": false,
-        "flow_visibility": "all"
+        "plan_benefit_3_sub": "($30 value)",
+        "gallery_caption": "Includes Blue Light mouthpiece + 3 gels"
       }
     },
     "how_to_timeline": {
@@ -337,7 +302,6 @@
     "smile_analysis",
     "treatment_plan",
     "main",
-    "kit_contents",
     "how_to_timeline",
     "reviews",
     "faq_section"
