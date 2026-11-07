@@ -1066,13 +1066,48 @@ body.template-page-personalized-flow .strength-comparison__plot {
   border-left: 0;
 }
 
+/*
+  Two equal columns with the bar centred in each, as the comp lays them out.
+  The section's own CSS spaces the columns with space-evenly at 30% width,
+  which gave 70px columns and left the bars narrow.
+*/
 body.template-page-personalized-flow .strength-comparison__bars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
   align-items: end;
   border-bottom: 1px solid #c6d0db;
 }
 
-body.template-page-personalized-flow .strength-comparison__bar-col { gap: 8px; }
+body.template-page-personalized-flow .strength-comparison__bar-col {
+  width: 100%;
+  justify-content: center;
+}
+
+body.template-page-personalized-flow .strength-comparison__bar {
+  width: min(78px, 100%);
+}
+
+/*
+  The caption is positioned absolutely below the column, so the sub-line has
+  to be too - left in normal flow it became a flex sibling of the bar and
+  squeezed it to a sliver. Captions wrap rather than run on, which is what
+  the comp does at this column width.
+*/
+body.template-page-personalized-flow .strength-comparison__bar-caption {
+  white-space: normal;
+  width: 100%;
+  text-align: center;
+}
+
+body.template-page-personalized-flow .strength-comparison__bar-note {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 32px);
+  transform: translateX(-50%);
+  width: 100%;
+  margin-top: 0;
+}
 
 /* square but for a clipped top-right corner, as the comp draws them */
 body.template-page-personalized-flow .strength-comparison__bar {
