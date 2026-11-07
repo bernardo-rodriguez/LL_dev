@@ -857,6 +857,16 @@ body.template-page-personalized-flow .personalized-offer__guarantee-icon svg {
   height: 16px;
 }
 
+/*
+  section-personalized-offer.css fills the icon path with currentColor, which
+  was right for the tick it was written for but turns the shield into a solid
+  blob. The shield is drawn as an outline.
+*/
+body.template-page-personalized-flow .personalized-offer__guarantee-icon svg path {
+  fill: none;
+  stroke: currentColor;
+}
+
 body.template-page-personalized-flow .personalized-offer__guarantee-icon {
   color: var(--flow-accent);
 }
