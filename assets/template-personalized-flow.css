@@ -34,6 +34,15 @@ body.template-page-personalized-flow {
     our muted grey #6E7A8F against #61718A. Retoning the tokens moves every
     section at once rather than per element.
   */
+  /*
+    The design's sans. The comp loads Inter Tight and sets it on the artboard
+    root, so every piece of body text inherits it; our theme runs Manrope.
+    Inter Tight sets narrower, so at identical sizes every line has different
+    advance widths - which is why copy wrapped differently here and read wider
+    and looser even where size, weight and tracking all matched.
+  */
+  --ds-font-family: 'Inter Tight', Inter, 'Helvetica Neue', Arial, sans-serif;
+
   --navy: #0d244c;
   --navy-tint-60: #61718a;
   --flow-muted: #61718a;
@@ -629,4 +638,40 @@ body.template-page-personalized-flow .logo-bar__list-item > * {
 body.template-page-personalized-flow .logo-bar__list-item img {
   filter: grayscale(1);
   opacity: 0.38 !important;
+}
+
+/*
+  75 rules across the theme hardcode `manrope` rather than reading the token,
+  so retoning the token alone does not reach them. This sets the face on the
+  page and on the shared type classes; the serif headings and the mono labels
+  re-assert their own families below.
+*/
+body.template-page-personalized-flow,
+body.template-page-personalized-flow .body-md,
+body.template-page-personalized-flow .body-sm,
+body.template-page-personalized-flow .body-xs,
+body.template-page-personalized-flow .sh1,
+body.template-page-personalized-flow .sh2,
+body.template-page-personalized-flow .sh3,
+body.template-page-personalized-flow .label,
+body.template-page-personalized-flow .label-sm,
+body.template-page-personalized-flow p,
+body.template-page-personalized-flow li,
+body.template-page-personalized-flow span,
+body.template-page-personalized-flow a,
+body.template-page-personalized-flow button,
+body.template-page-personalized-flow .Accordion {
+  font-family: var(--ds-font-family);
+}
+
+/* the two faces that are not the body sans keep theirs */
+body.template-page-personalized-flow .section-heading,
+body.template-page-personalized-flow .personalized-hero__heading,
+body.template-page-personalized-flow .Faq_Heading .h4 {
+  font-family: 'Baskervville', Baskerville, 'Iowan Old Style', Georgia, serif;
+}
+
+body.template-page-personalized-flow .section-eyebrow,
+body.template-page-personalized-flow .quiz-cta-panel__eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
