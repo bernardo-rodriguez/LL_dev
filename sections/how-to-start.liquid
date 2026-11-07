@@ -1,0 +1,122 @@
+{{ 'section-how-to-start.css' | asset_url | stylesheet_tag }}
+
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+{% assign steps = section.blocks | where: 'type', 'step' %}
+
+<section
+  class="how-to-start {% if section.settings.margin_bottom %}how-to-start--with-spacing{% endif %}"
+  {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
+>
+  <div class="page-width">
+    <div class="how-to-start__inner">
+      {% if section.settings.eyebrow != blank %}
+        <p class="section-eyebrow how-to-start__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="section-heading how-to-start__heading">{{ formatted_heading }}</h2>
+      {% endif %}
+      {% if section.settings.body != blank %}
+        <p class="how-to-start__body body-md">{{ section.settings.body }}</p>
+      {% endif %}
+
+      {%- comment -%}
+        The illustration is optional: with none set the frame falls back to a
+        labelled placeholder rather than collapsing, so the section still
+        reads while the artwork is being produced.
+      {%- endcomment -%}
+      <figure class="how-to-start__media">
+        {% if section.settings.image != blank %}
+          <img
+            src="{{ section.settings.image | image_url: width: 1200 }}"
+            alt="{{ section.settings.image.alt | default: section.settings.image_caption | escape }}"
+            loading="lazy"
+          >
+        {% elsif section.settings.image_caption != blank %}
+          <figcaption class="how-to-start__media-note">{{ section.settings.image_caption }}</figcaption>
+        {% endif %}
+      </figure>
+
+      {% if steps.size > 0 %}
+        <ol class="how-to-start__steps list-unstyled">
+          {% for block in steps %}
+            <li class="how-to-start__step" {{ block.shopify_attributes }}>
+              <span class="how-to-start__step-number" aria-hidden="true">{{ forloop.index }}</span>
+              <span class="how-to-start__step-copy">
+                <span class="how-to-start__step-title">{{ block.settings.title }}</span>
+                {% if block.settings.text != blank %}
+                  <span class="how-to-start__step-text">{{ block.settings.text }}</span>
+                {% endif %}
+              </span>
+            </li>
+          {% endfor %}
+        </ol>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "How To Start",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label" },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How to get started",
+      "info": "Wrap emphasized text in {} for the italic style"
+    },
+    { "type": "text", "id": "body", "label": "Body copy", "default": "Three easy steps. No dentist visit." },
+    { "type": "header", "content": "Illustration" },
+    { "type": "image_picker", "id": "image", "label": "Image", "info": "Optional. A labelled placeholder shows while this is empty." },
+    { "type": "text", "id": "image_caption", "label": "Placeholder caption", "default": "Quiz, formula and kit at your door" },
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "checkbox",
+      "id": "margin_bottom",
+      "label": "Extra space below",
+      "default": false,
+      "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap."
+    },
+    { "type": "header", "content": "Personalization flow" },
+    {
+      "type": "select",
+      "id": "flow_visibility",
+      "label": "Show this section to",
+      "default": "all",
+      "options": [
+        { "value": "all", "label": "Everyone" },
+        { "value": "quiz", "label": "Quiz arrivals only" },
+        { "value": "direct", "label": "Direct arrivals only" }
+      ],
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Step", "default": "Take the 1-min assessment" },
+        { "type": "text", "id": "text", "label": "Sub-line", "default": "Find what’s making your teeth yellow" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How To Start",
+      "blocks": [
+        { "type": "step", "settings": { "title": "Take the 1-min assessment", "text": "Find what’s making your teeth yellow" } },
+        { "type": "step", "settings": { "title": "We blend your formula", "text": "Blended for your causes and sensitivity" } },
+        { "type": "step", "settings": { "title": "20 minutes before bed. 6 Treatments.", "text": "Avg. 7 shades whiter in 6 days" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

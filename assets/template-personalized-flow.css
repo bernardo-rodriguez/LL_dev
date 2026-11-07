@@ -74,9 +74,9 @@ body.template-page-personalized-flow [class$="__inner"] {
 */
 body.template-page-personalized-flow .section-heading,
 body.template-page-personalized-flow .personalized-hero__heading {
-  font-family: 'Baskervville', Baskerville, 'Iowan Old Style', Georgia, serif;
+  font-family: var(--ds-font-family);
   font-size: 32px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.08;
   letter-spacing: -0.02em !important;
   text-transform: none;
@@ -84,10 +84,9 @@ body.template-page-personalized-flow .personalized-hero__heading {
 
 /*
   The hero carries the page and the design sets it a step larger. 32px rather
-  than the comp's 36: Baskervville runs about 10 per cent wider than the
-  macOS Baskerville the comp rendered, so at 36 the headline breaks to three
-  lines on a 375 and 390 phone where the comp holds two. 32 is the largest
-  size that keeps the comp's two-line block at every phone width.
+  than the comp's 36: at 36 the headline breaks to three lines on a 375 and
+  390 phone where the comp holds two. 32 keeps the comp's two-line block at
+  every phone width.
 */
 body.template-page-personalized-flow .personalized-hero__heading {
   font-size: 32px;
@@ -225,9 +224,9 @@ body.template-page-personalized-flow .Faq_Heading { text-align: center; }
 
 body.template-page-personalized-flow .Faq_Heading .h4 {
   margin-bottom: 24px;
-  font-family: 'Baskervville', Baskerville, 'Iowan Old Style', Georgia, serif;
+  font-family: var(--ds-font-family);
   font-size: 32px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.08;
   letter-spacing: -0.02em !important;
 }
@@ -350,17 +349,8 @@ body.template-page-personalized-flow .personalized-hero__tag-dot {
 }
 
 /*
-  Baskervville for the headings.
-
-  The comp declares Canela but never loads it, and Canela is not installed
-  here either, so every rendering anyone has reviewed fell through to
-  Baskerville - the macOS system serif. Baskerville cannot be served as a
-  webfont, so this is Baskervville: the ANRT revival of the original, free on
-  Google Fonts, and the closest servable match to what the comp shows.
-
-  It is a wider face than Canela, so headings take more room; sizes below are
-  set against that. The Canela faces stay registered in the theme and are
-  untouched - this is a two-line change back if the brand goes that way.
+  Headings run in Manrope, the theme's own sans, which is what the narrative
+  comp specifies. The earlier serif experiment is gone with it.
 */
 
 /* ==========================================================================
@@ -665,10 +655,15 @@ body.template-page-personalized-flow .Accordion {
 }
 
 /* the two faces that are not the body sans keep theirs */
+/*
+  The narrative comp sets headings in Manrope, which the theme already has -
+  no serif, and no webfont beyond the two the page already loads.
+*/
 body.template-page-personalized-flow .section-heading,
 body.template-page-personalized-flow .personalized-hero__heading,
 body.template-page-personalized-flow .Faq_Heading .h4 {
-  font-family: 'Baskervville', Baskerville, 'Iowan Old Style', Georgia, serif;
+  font-family: var(--ds-font-family);
+  letter-spacing: -0.019em !important;
 }
 
 body.template-page-personalized-flow .section-eyebrow,
@@ -1180,3 +1175,10 @@ body.template-page-personalized-flow .why-personalized__col-label--ours .visuall
   clip-path: none;
   white-space: normal;
 }
+
+/* the new how-to-start section sits on the design's silver */
+body.template-page-personalized-flow .how-to-start { background: var(--pdp-silver, #f4f6f8); }
+body.template-page-personalized-flow .how-to-start__inner { gap: 16px; }
+body.template-page-personalized-flow .how-to-start__body { font-size: 15px; }
+body.template-page-personalized-flow .how-to-start__steps,
+body.template-page-personalized-flow .how-to-start__step { border-color: var(--flow-rule); }

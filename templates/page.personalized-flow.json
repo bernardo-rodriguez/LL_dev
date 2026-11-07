@@ -71,11 +71,11 @@
         "rating_text": "4.7/5 from 2,316 reviews",
         "heading": "Treat all root causes holding your smile back.",
         "body": "",
-        "button_label": "Build my formula",
+        "button_label": "Find my formula",
         "button_link": "",
         "button_opens_quiz": true,
         "quiz_destination": "/products/at-home-whitening-kit?view=personalized",
-        "microcopy": "<p>Free 2-min quiz · Your kit: $39 $65</p>",
+        "microcopy": "<p>1-min Smile Assessment</p>",
         "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_7.png",
         "label_before": "Before",
         "focal_before": 80,
@@ -170,7 +170,7 @@
           "type": "cause",
           "settings": {
             "title": "Plaque film",
-            "text": "Glossy, even shine",
+            "text": "A dull film along the gumline",
             "colour": "#8A6420"
           }
         },
@@ -178,7 +178,7 @@
           "type": "cause",
           "settings": {
             "title": "Surface stains",
-            "text": "Coffee and wine stains lifted",
+            "text": "Coffee, tea and wine on the surface",
             "colour": "#8A5A3C"
           }
         },
@@ -186,7 +186,7 @@
           "type": "cause",
           "settings": {
             "title": "Deep stains",
-            "text": "Years-old yellow fades",
+            "text": "Yellowing from inside the tooth",
             "colour": "#73476E"
           }
         },
@@ -194,7 +194,7 @@
           "type": "cause",
           "settings": {
             "title": "Thin enamel",
-            "text": "Remineralizes & rebuilds enamel",
+            "text": "Lets the yellow core show through",
             "colour": "#4F7A91"
           }
         }
@@ -206,11 +206,11 @@
         "cause_4"
       ],
       "settings": {
-        "eyebrow": "Treats every root cause",
-        "heading": "Analysis first. Treatment second.",
-        "body": "There are many factors that can make your smile dull. Our assessment analyzes <strong>your root causes</strong> and creates a formula to treat all.",
+        "eyebrow": "Step 1",
+        "heading": "First, we find what’s yellowing your teeth.",
+        "body": "It’s rarely just coffee. Your free smile assessment checks for 4 root causes, and most people have more than one.",
         "image": "shopify://shop_images/Landing_page_mobile_-selection_9448ecfa-232d-4621-9079-a2b4005e2df5.png",
-        "button_label": "Build my formula",
+        "button_label": "Find my formula",
         "button_link": "",
         "button_opens_quiz": true,
         "margin_bottom": false,
@@ -223,22 +223,22 @@
         "row_TxEMbp": {
           "type": "row",
           "settings": {
-            "them": "Only removes surface stains",
-            "ours": "Treat all 4 root causes"
+            "them": "Plaque film",
+            "ours": "Plaque-removing enzymes, xylitol, coconut oil"
           }
         },
         "row_2": {
           "type": "row",
           "settings": {
-            "them": "20~40mg of Whitening Actives",
-            "ours": "80~125mg of Whitening Actives"
+            "them": "Surface & deep stains",
+            "ours": "Peroxide, sodium bicarbonate"
           }
         },
         "row_3": {
           "type": "row",
           "settings": {
-            "them": "Zings and sore teeth",
-            "ours": "Sensitivity blockers matched to you"
+            "them": "Thin enamel & sensitivity",
+            "ours": "Nano-hydroxyapatite, aloe vera"
           }
         }
       },
@@ -248,10 +248,10 @@
         "row_3"
       ],
       "settings": {
-        "eyebrow": "",
-        "heading": "Why {personalized} whitening works better.",
-        "them_label": "OTC whitening",
-        "ours_label": "Laughland",
+        "eyebrow": "Step 2",
+        "heading": "Then, we create a formula to treat them.",
+        "them_label": "Your root cause",
+        "ours_label": "What we blend in",
         "ours_logo_svg": "",
         "footnote": "",
         "margin_bottom": false,
@@ -298,113 +298,6 @@
         "guarantee": "Noticeably whiter in 30 days or your money back",
         "trust": "Enamel-safe · Dentist-formulated · FDA-registered",
         "shipping": "",
-        "margin_bottom": false,
-        "flow_visibility": "all"
-      }
-    },
-    "strength_chart": {
-      "type": "strength-comparison",
-      "settings": {
-        "eyebrow": "Your max strength",
-        "heading": "Stronger whitening for {faster, bigger results.}",
-        "body": "One-size fits all whitening is dosed for the most sensitive teeth, so everyone gets a weak formula. Yours is dosed to the strongest whitening your teeth can handle.",
-        "footnote": "",
-        "chart_label": "Average whitening strength (peroxide)",
-        "chart_badge": "",
-        "compare_label": "One-size OTC kits",
-        "compare_label_short": "One-size OTC kits",
-        "compare_value": "30",
-        "ours_label": "Your Laughland formula",
-        "ours_value": "100",
-        "axis_suffix": "mg",
-        "axis_max": "120",
-        "axis_step": "30",
-        "threshold_value": "0",
-        "threshold_label": "",
-        "chart_footnote": "",
-        "margin_bottom": false,
-        "flow_visibility": "all",
-        "heading_quiz": "",
-        "body_quiz": "",
-        "compare_note": "Dosed for the weakest teeth",
-        "ours_note": "Dosed to your max"
-      }
-    },
-    "sensitivity_match": {
-      "type": "sensitivity-match",
-      "blocks": {
-        "choice_1": {
-          "type": "choice",
-          "settings": {
-            "label": "Pain",
-            "selected": false,
-            "power": 35,
-            "power_label": "Gentle",
-            "shield": 95,
-            "shield_label": "Highest",
-            "formula": "Gentle 19-2",
-            "note": "Kind to sensitive teeth"
-          }
-        },
-        "choice_2": {
-          "type": "choice",
-          "settings": {
-            "label": "Wince",
-            "selected": true,
-            "power": 60,
-            "power_label": "Balanced",
-            "shield": 60,
-            "shield_label": "Balanced",
-            "formula": "Everyday 8-16",
-            "note": "Bright and comfortable"
-          }
-        },
-        "choice_3": {
-          "type": "choice",
-          "settings": {
-            "label": "Feel fine",
-            "selected": false,
-            "power": 95,
-            "power_label": "Highest",
-            "shield": 35,
-            "shield_label": "Standard",
-            "formula": "Super Strength 8-17",
-            "note": "Fastest results"
-          }
-        },
-        "meter_4": {
-          "type": "meter",
-          "settings": {
-            "label": "Whitening power",
-            "value": "Balanced",
-            "level": 60,
-            "highlight": false
-          }
-        },
-        "meter_5": {
-          "type": "meter",
-          "settings": {
-            "label": "Sensitivity protection",
-            "value": "Balanced",
-            "level": 60,
-            "highlight": true
-          }
-        }
-      },
-      "block_order": [
-        "choice_1",
-        "choice_2",
-        "choice_3",
-        "meter_4",
-        "meter_5"
-      ],
-      "settings": {
-        "eyebrow": "Your max strength",
-        "heading": "Max whitening, minimum sensitivity.",
-        "body": "Sensitivity blockers are matched to your sensitivity level, so you get the strongest dose without pain.",
-        "question": "Cold drinks make my teeth…",
-        "result_name": "Everyday 8-16",
-        "result_note": "Bright and comfortable",
         "margin_bottom": false,
         "flow_visibility": "all"
       }
@@ -590,7 +483,7 @@
     "quiz_cta_panel": {
       "type": "quiz-cta-panel",
       "settings": {
-        "eyebrow": "Free 2-minute quiz",
+        "eyebrow": "Free 1-min smile assessment",
         "heading": "Find out what's holding your smile back.",
         "button_label": "Build my formula",
         "button_link": "",
@@ -606,11 +499,48 @@
       "settings": {
         "price_text": "Your kit, $39",
         "price_was": "$65",
-        "note": "Starts with a 2-min quiz",
+        "note": "Starts with a 1-min assessment",
         "button_label": "Build my formula",
         "button_link": "",
         "button_opens_quiz": true,
         "mobile_only": true,
+        "flow_visibility": "all"
+      }
+    },
+    "how_to_start": {
+      "type": "how-to-start",
+      "blocks": {
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Take the 1-min assessment",
+            "text": "Find what’s making your teeth yellow"
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "We blend your formula",
+            "text": "Blended for your causes and sensitivity"
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "20 minutes before bed. 6 Treatments.",
+            "text": "Avg. 7 shades whiter in 6 days"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "settings": {
+        "heading": "How to get started",
+        "body": "Three easy steps. No dentist visit.",
+        "margin_bottom": false,
         "flow_visibility": "all"
       }
     }
@@ -619,12 +549,11 @@
     "personalized_hero",
     "press_logos",
     "root_causes",
-    "personalized_offer",
     "why_personalized",
-    "strength_chart",
-    "sensitivity_match",
-    "dentist_cards",
+    "personalized_offer",
     "results_cards",
+    "how_to_start",
+    "dentist_cards",
     "faq_section_Aifz8F",
     "quiz_cta_panel",
     "sticky_quiz_bar"

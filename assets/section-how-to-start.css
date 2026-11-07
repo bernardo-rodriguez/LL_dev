@@ -1,0 +1,110 @@
+/*
+  How To Start — the three-step narrative close.
+
+  Measured from the artboard: a silver band, an illustration, then three
+  ruled rows each with a square accent numeral. Type comes from the shared
+  classes; only what the design specifies beyond them is set here.
+*/
+
+.how-to-start { background: var(--cream); color: var(--navy); }
+
+.how-to-start__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: var(--section-space-y) 0 0;
+}
+
+.how-to-start--with-spacing .how-to-start__inner { padding-bottom: var(--section-space-y); }
+
+.how-to-start__eyebrow { margin: 0; }
+.how-to-start__heading { margin: 0; text-transform: none; }
+.how-to-start__body { margin: 0; max-width: 52ch; }
+
+/* 16:11, matching the frame the design draws */
+.how-to-start__media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.how-to-start__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.how-to-start__media-note {
+  padding: 0 16px;
+  font-family: var(--ds-font-family);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy-tint-60);
+  text-align: center;
+}
+
+/*
+  Ruled rows rather than cards: the list opens with a hairline and each row
+  carries its own, so the three read as one sequence.
+*/
+.how-to-start__steps {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--navy-tint-20);
+}
+
+.how-to-start__step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--navy-tint-20);
+}
+
+/* a square chip, white on the silver band, with the numeral in the accent */
+.how-to-start__step-number {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: #ffffff;
+  color: var(--pdp-accent, #2369c9);
+  font-family: var(--ds-font-family);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.how-to-start__step-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.how-to-start__step-title {
+  font-family: var(--ds-font-family);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--navy);
+}
+
+.how-to-start__step-text {
+  font-family: var(--ds-font-family);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--navy-tint-60);
+}
+
+@media screen and (min-width: 769px) {
+  .how-to-start__inner { max-width: 760px; margin-inline: auto; }
+}
