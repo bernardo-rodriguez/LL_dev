@@ -421,3 +421,22 @@ body.template-product-personalized .Faq_Heading .h4 .stylized {
   margin-right: 0;
   white-space: inherit;
 }
+
+/*
+  Word spacing on the headings.
+
+  Canela's space glyph is far narrower than the Baskerville the comp renders:
+  5.23px against 8.27px at 36px. Our letters are a touch wider, so the two
+  cancel and the line totals land within 0.2 per cent of each other - which is
+  why tracking and width checks all came back clean while the words still read
+  cramped against the comp.
+
+  Letter spacing is already on spec at -0.02em and is left alone. This opens
+  the word gaps to the comp's, and is the right call for Canela at headline
+  size regardless, since its default fit is drawn tight.
+*/
+body.template-product-personalized .section-heading,
+body.template-product-personalized .product__title,
+body.template-product-personalized .Faq_Heading .h4 {
+  word-spacing: 0.085em;
+}

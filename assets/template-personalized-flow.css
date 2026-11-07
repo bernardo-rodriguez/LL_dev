@@ -1,0 +1,414 @@
+/*
+  Personalized-flow landing page — design alignment layer.
+  =======================================================
+
+  Everything here is scoped to body.template-page-personalized-flow, the class
+  the layout emits from template.suffix. No other page is affected.
+
+  This works through the framework rather than around it: the section rhythm
+  comes from --section-space-y, the alternating panels come from --cream, and
+  the type comes from .section-heading / .section-eyebrow. Retoning those
+  tokens recolours and respaces every section at once, so there is almost no
+  per-section CSS here and section widths and layout are untouched.
+*/
+
+body.template-page-personalized-flow {
+  /*
+    The design runs a 36px top and bottom on each section, so the gap between
+    one section's content and the next is ~72px. Our sections carry their
+    space on top only, so the bottom half is added below.
+  */
+  --section-space-y: 36px;
+
+  /*
+    The design has no cream in it: the alternating panels are a cool silver.
+    Retoning the token moves every section that uses it — hero, why-
+    personalized and dentist-cards — in one line.
+  */
+  --cream: #f4f6f8;
+  --cream-tint-50: rgba(244, 246, 248, 0.5);
+
+  /* The design's own muted ink for eyebrows and secondary copy */
+  --flow-muted: #61718a;
+  --flow-rule: #d8dce1;
+  --flow-accent: #2369c9;
+}
+
+@media screen and (min-width: 769px) {
+  body.template-page-personalized-flow { --section-space-y: 72px; }
+}
+
+/*
+  The matching bottom half of each section's rhythm. Every section on this
+  page wraps its content in a __inner element, so this is one rule rather
+  than a block per section.
+*/
+body.template-page-personalized-flow [class$="__inner"] {
+  padding-bottom: var(--section-space-y);
+}
+
+/* ==========================================================================
+   Type
+   ========================================================================== */
+
+/*
+  Canela for every section heading, at the design's size and rhythm. It is
+  already an @font-face in the theme, so no new font file is involved.
+*/
+body.template-page-personalized-flow .section-heading,
+body.template-page-personalized-flow .personalized-hero__heading {
+  font-family: canela-display, canela, Baskerville, 'Iowan Old Style', Georgia, serif;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.02em !important;
+  text-transform: none;
+}
+
+/* The hero carries the page, and the design sets it a step larger */
+body.template-page-personalized-flow .personalized-hero__heading {
+  font-size: 36px;
+}
+
+@media screen and (min-width: 769px) {
+  body.template-page-personalized-flow .section-heading { font-size: 40px; }
+  body.template-page-personalized-flow .personalized-hero__heading { font-size: 46px; }
+}
+
+/* JetBrains Mono for the small uppercase labels, as the design sets them */
+body.template-page-personalized-flow .section-eyebrow,
+body.template-page-personalized-flow .quiz-cta-panel__eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase;
+  color: var(--flow-muted);
+}
+
+/* ==========================================================================
+   Surfaces
+   ==========================================================================
+
+   The design draws one card: a square corner and a single cool-grey hairline.
+   Across the whole artboard there is exactly one border colour (#D8E0E8) and
+   the card radius is 0 — our sections were using a 12px radius and a pale
+   blue edge, which is most of what reads as "the borders don't match".
+
+   Pills and circles keep their shape; those are deliberate in both designs.
+   ========================================================================== */
+
+body.template-page-personalized-flow .personalized-hero__pair,
+body.template-page-personalized-flow .personalized-offer__media,
+body.template-page-personalized-flow .personalized-offer__guarantee,
+body.template-page-personalized-flow .why-personalized__table,
+body.template-page-personalized-flow .sensitivity-match__card,
+body.template-page-personalized-flow .dentist-cards__card,
+body.template-page-personalized-flow .results-cards__card,
+body.template-page-personalized-flow .quiz-cta-panel__inner {
+  border-radius: 0;
+}
+
+body.template-page-personalized-flow .why-personalized__table,
+body.template-page-personalized-flow .sensitivity-match__card,
+body.template-page-personalized-flow .sensitivity-match__choice,
+body.template-page-personalized-flow .dentist-cards__card,
+body.template-page-personalized-flow .results-cards__card {
+  border-color: var(--flow-rule);
+}
+
+/* The chart bar is drawn square in the design, not domed */
+body.template-page-personalized-flow .strength-comparison__bar {
+  border-radius: 0;
+}
+
+/* ==========================================================================
+   Call to action
+   ==========================================================================
+
+   One button in the design: a navy block, 54px, barely-there 2px corner,
+   uppercase and letter-spaced. Ours were light blue pills, which is the other
+   half of the mismatch.
+   ========================================================================== */
+
+body.template-page-personalized-flow .personalized-hero__cta,
+body.template-page-personalized-flow .personalized-offer__cta,
+body.template-page-personalized-flow .quiz-cta-panel__cta,
+body.template-page-personalized-flow .sticky-quiz-bar__cta {
+  min-height: 54px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 2px;
+  background: var(--navy);
+  color: #ffffff;
+  font-family: var(--ds-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+  Inside the navy panel the button inverts, as the design has it: white block,
+  navy text.
+*/
+body.template-page-personalized-flow .quiz-cta-panel__cta {
+  background: #ffffff;
+  color: var(--navy);
+}
+
+/* The sticky bar's button is the compact variant */
+body.template-page-personalized-flow .sticky-quiz-bar__cta {
+  min-height: 46px;
+  font-size: 13px;
+}
+
+/*
+  The page's own ground. Sections that sit transparent — the FAQ among them —
+  were letting the theme's cream body show through as a warm band between the
+  silver and white panels. The design's ground is white throughout.
+*/
+body.template-page-personalized-flow { background: #ffffff; }
+
+/* ==========================================================================
+   Questions
+   ==========================================================================
+
+   A plain white block in the design — no blue panel, no rounded corner, a
+   centred heading over hairline-ruled rows. The section is shared, so every
+   rule here is scoped to this template, exactly as it is on the PDP.
+   ========================================================================== */
+
+body.template-page-personalized-flow .FAQ_Section .Faq_section_inner {
+  /*
+    The side padding stays: .Row is laid out with margin: 0 -20px against 20px
+    padding on its children, so zeroing it lets those negative margins escape
+    and pushes the page wider than the screen.
+  */
+  padding: var(--section-space-y) 16px;
+  border-radius: 0;
+  background: #ffffff;
+}
+
+body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Row { margin: 0; }
+body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Faq_Heading,
+body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Faq_Area { padding: 0; }
+
+body.template-page-personalized-flow .Faq_Heading { text-align: center; }
+
+body.template-page-personalized-flow .Faq_Heading .h4 {
+  margin-bottom: 24px;
+  font-family: canela-display, canela, Baskerville, 'Iowan Old Style', Georgia, serif;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.02em !important;
+}
+
+body.template-page-personalized-flow .FAQ_Section .Accordion-Block {
+  border-top-color: var(--flow-rule);
+}
+
+body.template-page-personalized-flow .FAQ_Section .Accordion {
+  font-family: var(--ds-font-family);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 992px) {
+  body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Row { display: block; }
+  body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Faq_Heading,
+  body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Faq_Area { width: 100%; }
+  body.template-page-personalized-flow .Faq_Heading .h4 { font-size: 40px; }
+}
+
+/*
+  .stylized exists to contrast an italic Canela phrase against a Manrope
+  heading. Now that the headings are Canela themselves that contrast reads as
+  a mistake — the design sets each heading in one uniform face — so inside a
+  heading the span simply inherits. Its nowrap is dropped too: at phone width
+  it forced long phrases past the screen edge.
+*/
+body.template-page-personalized-flow .section-heading .stylized,
+body.template-page-personalized-flow .personalized-hero__heading .stylized,
+body.template-page-personalized-flow .Faq_Heading .h4 .stylized {
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  margin-right: 0;
+  white-space: inherit;
+}
+
+/* ==========================================================================
+   Hero formula card
+   ==========================================================================
+
+   Two corrections against the design:
+
+   1. The formula tags were wrapping onto a second line. The design sets them
+      tighter than we did — 3px 9px against our 4px 11px, and a square chip
+      rather than a full pill — which is most of the width back. Each tag is
+      also kept from breaking internally, so a long one moves as a unit
+      instead of splitting across lines.
+
+   2. That second line is what pushed the card up over the teeth: the card is
+      anchored to the bottom of the frame, so every extra row of tags grows it
+      upward into the photo. One row of tags gives the teeth their clearance
+      back, and the card takes the design's square corner and softer shadow.
+   ========================================================================== */
+
+body.template-page-personalized-flow .personalized-hero__card {
+  padding: 12px 14px;
+  border-radius: 0;
+  box-shadow: 0 10px 28px rgba(13, 36, 76, 0.12);
+}
+
+body.template-page-personalized-flow .personalized-hero__card-title {
+  letter-spacing: 0.14em;
+}
+
+body.template-page-personalized-flow .personalized-hero__tags {
+  gap: 5px;
+}
+
+body.template-page-personalized-flow .personalized-hero__tag {
+  padding: 3px 9px;
+  border-radius: 0;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  /* a tag moves as a unit rather than breaking across lines */
+  white-space: nowrap;
+}
+
+/* Square, like the dots in the treatment rows and the rest of the design */
+body.template-page-personalized-flow .personalized-hero__tag-dot {
+  border-radius: 0;
+}
+
+/*
+  Below about 360px there is not enough room for three tags at the design's
+  size, so they step down rather than wrap.
+*/
+@media screen and (max-width: 360px) {
+  body.template-page-personalized-flow .personalized-hero__tag {
+    padding: 3px 7px;
+    font-size: 10px;
+  }
+}
+
+/*
+  The frame needs to be taller than 3/4 on a phone for the card to sit where
+  the design puts it.
+
+  In the design the card begins 58% down the photo, well clear of the teeth.
+  That artboard is 480px wide, so its frame is 250px tall and the card takes
+  42% of it. On a 375px phone our frame is only 222px, so the same card takes
+  51% and starts at 42% — up over the teeth.
+
+  A 3/5 frame restores the proportion: ~277px at 375px wide, putting the card
+  back at ~55% and leaving the teeth in the clear. Desktop keeps 3/4, where
+  the column is wide enough that it was never a problem.
+*/
+@media screen and (max-width: 768px) {
+  body.template-page-personalized-flow .personalized-hero__frame {
+    aspect-ratio: 3 / 5;
+  }
+}
+
+/*
+  Canela, display cut, Light.
+
+  The design's type panel says Canela / Medium, but the comp was never
+  rendering Canela at all — the artboard declares it and then loads only
+  Inter Tight and JetBrains Mono, so both the export and the design tool's
+  canvas fall back to Baskerville. "Medium" therefore describes a weight in
+  a face nobody has been looking at.
+
+  Two things follow. The theme's `canela` is CanelaDeck, the sturdier optical
+  cut meant for mid-size text, which at 36px sets much heavier and wider than
+  the comp — heavy enough to push the hero onto a third line where the comp
+  holds two. And the base Canela cut, which is what display headings want, is
+  in the theme but was never registered.
+
+  So headings take the base cut at Light, which carries the weight and width
+  the comp shows while staying on the brand's own typeface.
+*/
+
+/* ==========================================================================
+   Before / after labels
+   ==========================================================================
+   The design squares them off, puts both at the top left of their own pane,
+   and sets the after state in its accent blue rather than navy.
+   ========================================================================== */
+
+body.template-page-personalized-flow .personalized-hero__pill {
+  top: 10px;
+  left: 10px;
+  padding: 3px 8px;
+  border-radius: 0;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+body.template-page-personalized-flow .personalized-hero__pill--after {
+  left: 10px;
+  right: auto;
+  background: var(--flow-accent);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Label tracking
+   ==========================================================================
+
+   The design tracks its small caps per role rather than uniformly, and three
+   of ours were inheriting .label-sm's 12px / 0.04em instead:
+
+     before / after labels   10px    0.1em   (already matched)
+     root-cause list labels  11px    0.1em
+     chart legend            11px    0.12em
+     formula card title      10.5px  0.14em
+
+   Size and tracking move together — tracking is relative to font-size, so
+   setting one without the other lands in the wrong place.
+   ========================================================================== */
+
+body.template-page-personalized-flow .root-causes__item-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+
+body.template-page-personalized-flow .strength-comparison__chart-label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+body.template-page-personalized-flow .personalized-hero__card-title {
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+}
+
+/*
+  Word spacing on the headings.
+
+  Canela's space glyph is far narrower than the Baskerville the comp renders:
+  5.23px against 8.27px at 36px. Our letters are a touch wider, so the two
+  cancel and the line totals land within 0.2 per cent of each other - which is
+  why tracking and width checks all came back clean while the words still read
+  cramped against the comp.
+
+  Letter spacing is already on spec at -0.02em and is left alone. This opens
+  the word gaps to the comp's, and is the right call for Canela at headline
+  size regardless, since its default fit is drawn tight.
+*/
+body.template-page-personalized-flow .section-heading,
+body.template-page-personalized-flow .personalized-hero__heading,
+body.template-page-personalized-flow .Faq_Heading .h4 {
+  word-spacing: 0.085em;
+}
