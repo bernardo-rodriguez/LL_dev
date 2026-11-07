@@ -959,3 +959,53 @@ body.template-page-personalized-flow .strength-comparison__bar-caption {
 body.template-page-personalized-flow .strength-comparison__bar-caption--ours {
   color: var(--navy);
 }
+
+/* ==========================================================================
+   Vertical rhythm inside sections
+   ==========================================================================
+
+   This is the geometry counterpart to the type audit, and it was the real
+   reason the offer section read so much looser than the comp.
+
+   The comp spaces the blocks inside a section with one flat gap - 16px in the
+   offer, 14px in the hero - and no margins on the blocks themselves. Ours set
+   a 24px gap AND a bottom margin on nearly every block, so the two added up
+   and every gap came out close to double.
+
+   The price group is the one exception: eyebrow, price and the dentist
+   comparison sit 6px apart as a unit. So the container carries the tight 6px
+   and the blocks that need the full 16px add the difference back, rather than
+   fighting a large gap with negative margins.
+   ========================================================================== */
+
+body.template-page-personalized-flow .personalized-offer__inner {
+  gap: 6px;
+}
+
+body.template-page-personalized-flow .personalized-offer__media,
+body.template-page-personalized-flow .personalized-offer__eyebrow,
+body.template-page-personalized-flow .personalized-offer__steps,
+body.template-page-personalized-flow .personalized-offer__cta,
+body.template-page-personalized-flow .personalized-offer__guarantee {
+  margin-top: 10px;
+}
+
+/* the margins that were stacking on top of the gap */
+body.template-page-personalized-flow .personalized-offer__trust,
+body.template-page-personalized-flow .personalized-offer__eyebrow,
+body.template-page-personalized-flow .personalized-offer__price,
+body.template-page-personalized-flow .personalized-offer__price-note,
+body.template-page-personalized-flow .personalized-offer__steps {
+  margin-bottom: 0;
+}
+
+/* the step list's rules are the design's hairline, not a blue tint */
+body.template-page-personalized-flow .personalized-offer__steps,
+body.template-page-personalized-flow .personalized-offer__step {
+  border-color: var(--flow-rule);
+}
+
+/* the hero spaces its blocks 14px apart, against our 24 */
+body.template-page-personalized-flow .personalized-hero__inner {
+  gap: 14px;
+}
