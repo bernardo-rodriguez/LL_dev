@@ -413,3 +413,73 @@ body.template-page-personalized-flow .personalized-hero__heading,
 body.template-page-personalized-flow .Faq_Heading .h4 {
   word-spacing: normal;
 }
+
+/* ==========================================================================
+   Press bar
+   ==========================================================================
+   The comp runs this as a quiet 43px strip - 14px of padding above and below
+   small marks. Ours was 103px with 25px logos, which is why it reads as a
+   band of its own rather than a footnote under the hero.
+   ========================================================================== */
+
+body.template-page-personalized-flow .logo-bar__inner {
+  padding: 14px 0;
+}
+
+body.template-page-personalized-flow .logo-bar__list-item {
+  height: 15px;
+}
+
+/* ==========================================================================
+   Root causes - sized to the comp
+   ========================================================================== */
+
+/* 15.5px / 400 / 1.5, against our 14px / 500 / 1.5 */
+body.template-page-personalized-flow .root-causes__body {
+  font-size: 15.5px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* 14.5px / 500, and the comp sets no tracking here */
+body.template-page-personalized-flow .root-causes__item-text {
+  font-size: 14.5px;
+  font-weight: 500;
+  letter-spacing: normal;
+}
+
+/*
+  The comp draws the tooth at 112x142 beside the list. Ours was 178x226, so
+  it dominated the row and pushed the list text narrow.
+*/
+body.template-page-personalized-flow .root-causes__diagram {
+  max-width: 112px;
+}
+
+/*
+  The comp closes this section with the same navy block as every other call
+  to action, not an underlined text link.
+*/
+body.template-page-personalized-flow .root-causes__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 18px;
+  border: 0;
+  border-bottom: 0;
+  border-radius: 2px;
+  background: var(--navy);
+  color: #ffffff;
+  font-family: var(--ds-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* the arrow belongs to the link treatment, not the button */
+body.template-page-personalized-flow .root-causes__link-arrow {
+  display: none;
+}
