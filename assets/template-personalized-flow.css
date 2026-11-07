@@ -895,6 +895,8 @@ body.template-page-personalized-flow .why-personalized__col-label {
 
 body.template-page-personalized-flow .why-personalized__col-label--ours {
   color: var(--flow-accent);
+  /* the left header gets its caps from .label-sm; this one carries none */
+  text-transform: uppercase;
 }
 
 /* the OTC column is 400 in muted ink, ours 600 in navy - not 500/700 */
