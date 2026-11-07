@@ -404,3 +404,20 @@ body.template-product-personalized .ll-plan-guarantee svg {
   flex: none;
   color: var(--pdp-accent);
 }
+
+/*
+  .stylized exists to contrast an italic Canela phrase against a Manrope
+  heading. Now that the headings are Canela themselves that contrast reads as
+  a mistake — the design sets each heading in one uniform face — so inside a
+  heading the span simply inherits. Its nowrap is dropped too: at phone width
+  it forced long phrases past the screen edge.
+*/
+body.template-product-personalized .section-heading,
+body.template-product-personalized .product__title,
+body.template-product-personalized .Faq_Heading .h4 .stylized {
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  margin-right: 0;
+  white-space: inherit;
+}
