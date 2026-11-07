@@ -220,25 +220,18 @@
     "why_personalized": {
       "type": "why-personalized",
       "blocks": {
-        "row_1": {
-          "type": "row",
-          "settings": {
-            "them": "One-Size-Fits-All Formula",
-            "ours": "Personalized Formula"
-          }
-        },
         "row_TxEMbp": {
           "type": "row",
           "settings": {
             "them": "Only removes surface stains",
-            "ours": "Treats all 4 root causes"
+            "ours": "Treat all 4 root causes"
           }
         },
         "row_2": {
           "type": "row",
           "settings": {
-            "them": "20–40mg of whitening actives",
-            "ours": "80–125mg of whitening actives"
+            "them": "20~40mg of Whitening Actives",
+            "ours": "80~125mg of Whitening Actives"
           }
         },
         "row_3": {
@@ -250,7 +243,6 @@
         }
       },
       "block_order": [
-        "row_1",
         "row_TxEMbp",
         "row_2",
         "row_3"
@@ -258,7 +250,7 @@
       "settings": {
         "eyebrow": "",
         "heading": "Why {personalized} whitening works better.",
-        "them_label": "OTC whitening (Strips, powders..)",
+        "them_label": "OTC whitening",
         "ours_label": "Laughland",
         "ours_logo_svg": "",
         "footnote": "",
@@ -315,12 +307,12 @@
       "settings": {
         "eyebrow": "Your max strength",
         "heading": "Stronger whitening for {faster, bigger results.}",
-        "body": "One-size-fits-all whitening is dosed for the most sensitive teeth, so everyone gets a weak formula. Yours is dosed to the strongest whitening your teeth can handle.",
+        "body": "One-size fits all whitening is dosed for the most sensitive teeth, so everyone gets a weak formula. Yours is dosed to the strongest whitening your teeth can handle.",
         "footnote": "",
         "chart_label": "Average whitening strength (peroxide)",
         "chart_badge": "",
         "compare_label": "One-size OTC kits",
-        "compare_label_short": "Avg. OTC",
+        "compare_label_short": "One-size OTC kits",
         "compare_value": "30",
         "ours_label": "Your Laughland formula",
         "ours_value": "100",
@@ -329,11 +321,13 @@
         "axis_step": "30",
         "threshold_value": "0",
         "threshold_label": "",
-        "chart_footnote": "Dosed for the weakest teeth vs. dosed to your max",
+        "chart_footnote": "",
         "margin_bottom": false,
         "flow_visibility": "all",
         "heading_quiz": "",
-        "body_quiz": ""
+        "body_quiz": "",
+        "compare_note": "Dosed for the weakest teeth",
+        "ours_note": "Dosed to your max"
       }
     },
     "sensitivity_match": {

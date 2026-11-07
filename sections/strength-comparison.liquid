@@ -136,6 +136,9 @@
                     <span class="strength-comparison__caption-full">{{ section.settings.compare_label }}</span>
                     <span class="strength-comparison__caption-short">{{ section.settings.compare_label_short | default: section.settings.compare_label }}</span>
                   </span>
+                  {% if section.settings.compare_note != blank %}
+                    <span class="strength-comparison__bar-note">{{ section.settings.compare_note }}</span>
+                  {% endif %}
                 </div>
                 <div class="strength-comparison__bar-col">
                   <div
@@ -145,6 +148,9 @@
                     <span class="strength-comparison__bar-value">{{ section.settings.ours_value }}{{ section.settings.axis_suffix }}</span>
                   </div>
                   <span class="strength-comparison__bar-caption strength-comparison__bar-caption--ours body-sm">{{ section.settings.ours_label }}</span>
+                  {% if section.settings.ours_note != blank %}
+                    <span class="strength-comparison__bar-note">{{ section.settings.ours_note }}</span>
+                  {% endif %}
                 </div>
               </div>
             </div>
@@ -225,6 +231,12 @@
       "id": "compare_value",
       "label": "Comparison bar value",
       "default": "6.5"
+    },
+    {
+      "type": "text",
+      "id": "compare_note",
+      "label": "OTC sub-line",
+      "info": "Optional line under the left bar's caption."
     },
     {
       "type": "text",
@@ -324,6 +336,12 @@
       "id": "body_quiz",
       "label": "Body copy — quiz arrivals",
       "info": "Optional. Wording for visitors who came through the quiz. One per line: a line on its own applies to all of them, a line starting strong:, medium: or sensitive: applies to that formula only. Anything left out falls back to the wording above."
+    },
+    {
+      "type": "text",
+      "id": "ours_note",
+      "label": "Ours sub-line",
+      "info": "Optional line under the right bar's caption."
     }
   ],
   "blocks": [
