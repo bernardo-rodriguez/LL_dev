@@ -1050,8 +1050,10 @@ body.template-page-personalized-flow .strength-comparison { background: var(--pd
 body.template-page-personalized-flow .strength-comparison__inner { gap: 18px; }
 
 /* neither of these is in the comp */
+/* the comp has no axis at all: no labels, no gridlines, and no legend */
 body.template-page-personalized-flow .strength-comparison__legend,
-body.template-page-personalized-flow .strength-comparison__axis-label { display: none; }
+body.template-page-personalized-flow .strength-comparison__axis-label,
+body.template-page-personalized-flow .strength-comparison__gridline { display: none; }
 
 body.template-page-personalized-flow .strength-comparison__chart-card {
   padding: 18px 16px 16px;
@@ -1098,15 +1100,26 @@ body.template-page-personalized-flow .strength-comparison__bar-caption {
   white-space: normal;
   width: 100%;
   text-align: center;
+  /*
+    Both captions reserve two lines whether or not they need them, so the
+    sub-lines under each column start level and neither can collide with the
+    caption above it.
+  */
+  min-height: 2.6em;
 }
 
 body.template-page-personalized-flow .strength-comparison__bar-note {
   position: absolute;
   left: 50%;
-  top: calc(100% + 32px);
+  top: calc(100% + 48px);
   transform: translateX(-50%);
   width: 100%;
   margin-top: 0;
+}
+
+/* room under the plot for the caption and its sub-line */
+body.template-page-personalized-flow .strength-comparison__plot {
+  margin-bottom: 76px;
 }
 
 /* square but for a clipped top-right corner, as the comp draws them */
