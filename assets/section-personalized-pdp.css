@@ -98,6 +98,7 @@ body.template-product-personalized {
     them render on this template only.
   */
   --pdp-accent: #2369c9;
+  --pdp-cta: #67b9e8;
   --pdp-silver: #f4f6f8;
 
   /* The treatment cards take the same soft shape as everything else here */
@@ -358,13 +359,13 @@ body.template-product-personalized #main-clickable-button.ll-plan-cta {
   min-height: 54px;
   margin: 0;
   border: 0;
-  border-radius: 2px;
+  border-radius: 6px;
   /* The theme's #main-clickable-button is an id rule carrying !important on
      background, colour and border, so each of those is matched here. */
-  background: var(--navy) !important;
+  background: var(--pdp-cta) !important;
   color: #ffffff !important;
   border: 0 !important;
-  border-radius: 2px !important;
+  border-radius: 6px !important;
   padding: 0 !important;
   font-family: var(--ds-font-family);
   font-size: 14px !important;
@@ -374,7 +375,7 @@ body.template-product-personalized #main-clickable-button.ll-plan-cta {
 }
 
 body.template-product-personalized #main-clickable-button.ll-plan-cta:hover:not(:disabled) {
-  background: var(--navy) !important;
+  background: var(--pdp-cta) !important;
   color: #ffffff !important;
   border: 0 !important;
 }
