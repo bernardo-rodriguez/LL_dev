@@ -57,9 +57,9 @@ body.template-page-personalized-flow [class$="__inner"] {
 */
 body.template-page-personalized-flow .section-heading,
 body.template-page-personalized-flow .personalized-hero__heading {
-  font-family: canela-display, canela, Baskerville, 'Iowan Old Style', Georgia, serif;
+  font-family: 'Baskervville', Baskerville, 'Iowan Old Style', Georgia, serif;
   font-size: 32px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.08;
   letter-spacing: -0.02em !important;
   text-transform: none;
@@ -202,9 +202,9 @@ body.template-page-personalized-flow .Faq_Heading { text-align: center; }
 
 body.template-page-personalized-flow .Faq_Heading .h4 {
   margin-bottom: 24px;
-  font-family: canela-display, canela, Baskerville, 'Iowan Old Style', Georgia, serif;
+  font-family: 'Baskervville', Baskerville, 'Iowan Old Style', Georgia, serif;
   font-size: 32px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.08;
   letter-spacing: -0.02em !important;
 }
@@ -321,22 +321,17 @@ body.template-page-personalized-flow .personalized-hero__tag-dot {
 }
 
 /*
-  Canela, display cut, Light.
+  Baskervville for the headings.
 
-  The design's type panel says Canela / Medium, but the comp was never
-  rendering Canela at all — the artboard declares it and then loads only
-  Inter Tight and JetBrains Mono, so both the export and the design tool's
-  canvas fall back to Baskerville. "Medium" therefore describes a weight in
-  a face nobody has been looking at.
+  The comp declares Canela but never loads it, and Canela is not installed
+  here either, so every rendering anyone has reviewed fell through to
+  Baskerville - the macOS system serif. Baskerville cannot be served as a
+  webfont, so this is Baskervville: the ANRT revival of the original, free on
+  Google Fonts, and the closest servable match to what the comp shows.
 
-  Two things follow. The theme's `canela` is CanelaDeck, the sturdier optical
-  cut meant for mid-size text, which at 36px sets much heavier and wider than
-  the comp — heavy enough to push the hero onto a third line where the comp
-  holds two. And the base Canela cut, which is what display headings want, is
-  in the theme but was never registered.
-
-  So headings take the base cut at Light, which carries the weight and width
-  the comp shows while staying on the brand's own typeface.
+  It is a wider face than Canela, so headings take more room; sizes below are
+  set against that. The Canela faces stay registered in the theme and are
+  untouched - this is a two-line change back if the brand goes that way.
 */
 
 /* ==========================================================================
@@ -410,5 +405,5 @@ body.template-page-personalized-flow .personalized-hero__card-title {
 body.template-page-personalized-flow .section-heading,
 body.template-page-personalized-flow .personalized-hero__heading,
 body.template-page-personalized-flow .Faq_Heading .h4 {
-  word-spacing: 0.085em;
+  word-spacing: normal;
 }
