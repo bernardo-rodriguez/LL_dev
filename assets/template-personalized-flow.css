@@ -84,3 +84,84 @@ body.template-page-personalized-flow .quiz-cta-panel__eyebrow {
   text-transform: uppercase;
   color: var(--flow-muted);
 }
+
+/* ==========================================================================
+   Surfaces
+   ==========================================================================
+
+   The design draws one card: a square corner and a single cool-grey hairline.
+   Across the whole artboard there is exactly one border colour (#D8E0E8) and
+   the card radius is 0 — our sections were using a 12px radius and a pale
+   blue edge, which is most of what reads as "the borders don't match".
+
+   Pills and circles keep their shape; those are deliberate in both designs.
+   ========================================================================== */
+
+body.template-page-personalized-flow .personalized-hero__pair,
+body.template-page-personalized-flow .personalized-offer__media,
+body.template-page-personalized-flow .personalized-offer__guarantee,
+body.template-page-personalized-flow .why-personalized__table,
+body.template-page-personalized-flow .sensitivity-match__card,
+body.template-page-personalized-flow .dentist-cards__card,
+body.template-page-personalized-flow .results-cards__card,
+body.template-page-personalized-flow .quiz-cta-panel__inner {
+  border-radius: 0;
+}
+
+body.template-page-personalized-flow .why-personalized__table,
+body.template-page-personalized-flow .sensitivity-match__card,
+body.template-page-personalized-flow .sensitivity-match__choice,
+body.template-page-personalized-flow .dentist-cards__card,
+body.template-page-personalized-flow .results-cards__card {
+  border-color: var(--flow-rule);
+}
+
+/* The chart bar is drawn square in the design, not domed */
+body.template-page-personalized-flow .strength-comparison__bar {
+  border-radius: 0;
+}
+
+/* ==========================================================================
+   Call to action
+   ==========================================================================
+
+   One button in the design: a navy block, 54px, barely-there 2px corner,
+   uppercase and letter-spaced. Ours were light blue pills, which is the other
+   half of the mismatch.
+   ========================================================================== */
+
+body.template-page-personalized-flow .personalized-hero__cta,
+body.template-page-personalized-flow .personalized-offer__cta,
+body.template-page-personalized-flow .quiz-cta-panel__cta,
+body.template-page-personalized-flow .sticky-quiz-bar__cta {
+  min-height: 54px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 2px;
+  background: var(--navy);
+  color: #ffffff;
+  font-family: var(--ds-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+  Inside the navy panel the button inverts, as the design has it: white block,
+  navy text.
+*/
+body.template-page-personalized-flow .quiz-cta-panel__cta {
+  background: #ffffff;
+  color: var(--navy);
+}
+
+/* The sticky bar's button is the compact variant */
+body.template-page-personalized-flow .sticky-quiz-bar__cta {
+  min-height: 46px;
+  font-size: 13px;
+}
