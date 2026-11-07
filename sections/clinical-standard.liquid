@@ -1,0 +1,139 @@
+{{ 'section-clinical-standard.css' | asset_url | stylesheet_tag }}
+
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+{% assign claims = section.blocks | where: 'type', 'claim' %}
+
+<section
+  class="clinical-standard {% if section.settings.margin_bottom %}clinical-standard--with-spacing{% endif %}"
+  {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
+>
+  <div class="page-width {% if template.name == 'product' %}page-width--product{% endif %}">
+    <div class="clinical-standard__inner">
+      {% if section.settings.eyebrow != blank %}
+        <p class="section-eyebrow clinical-standard__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="section-heading clinical-standard__heading">{{ formatted_heading }}</h2>
+      {% endif %}
+
+      {%- comment -%}
+        The image is optional: with none set the frame falls back to a labelled
+        placeholder rather than collapsing, so the section still reads while
+        the photography is being produced.
+      {%- endcomment -%}
+      <figure class="clinical-standard__media">
+        {% if section.settings.image != blank %}
+          <img
+            src="{{ section.settings.image | image_url: width: 1200 }}"
+            alt="{{ section.settings.image.alt | default: section.settings.image_caption | escape }}"
+            loading="lazy"
+          >
+        {% elsif section.settings.image_caption != blank %}
+          <figcaption class="clinical-standard__media-note">{{ section.settings.image_caption }}</figcaption>
+        {% endif %}
+      </figure>
+
+      {% if claims.size > 0 %}
+        <ul class="clinical-standard__claims list-unstyled">
+          {% for block in claims %}
+            <li class="clinical-standard__claim" {{ block.shopify_attributes }}>
+              <span class="clinical-standard__icon" aria-hidden="true">
+                {% case block.settings.icon %}
+                  {% when 'flask' %}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                      <path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3"/>
+                    </svg>
+                  {% when 'molecule' %}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                      <path d="M8.3 7l7.4.8M7 8.3l2.2 7.4M16.6 10.1l-5 6"/>
+                      <circle cx="6" cy="7" r="2"/><circle cx="17.5" cy="8.5" r="2"/><circle cx="10.5" cy="17" r="2"/>
+                    </svg>
+                  {% else %}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                      <path d="M5.5 7.5c0-2 1.6-3.5 3.3-3.5 1 0 1.6.6 2.2.6s1.2-.6 2.2-.6c1.7 0 3.3 1.5 3.3 3.5 0 4-1.6 5-1.9 8-.2 1.8-.9 3-2 3-1.6 0-1.3-3.5-2.6-3.5S9.4 18.5 8 18.5c-1.1 0-1.8-1.2-2-3-.3-3-1.9-4-1.9-8"/>
+                    </svg>
+                {% endcase %}
+              </span>
+              <span class="clinical-standard__claim-text">{{ block.settings.text }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Clinical Standard",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label" },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Made to a clinical standard.",
+      "info": "Wrap emphasized text in {} for the italic style"
+    },
+    { "type": "header", "content": "Image" },
+    { "type": "image_picker", "id": "image", "label": "Image", "info": "Optional. A labelled placeholder shows while this is empty." },
+    { "type": "text", "id": "image_caption", "label": "Placeholder caption", "default": "Formulation lab" },
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "checkbox",
+      "id": "margin_bottom",
+      "label": "Extra space below",
+      "default": false,
+      "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap."
+    },
+    { "type": "header", "content": "Personalization flow" },
+    {
+      "type": "select",
+      "id": "flow_visibility",
+      "label": "Show this section to",
+      "default": "all",
+      "options": [
+        { "value": "all", "label": "Everyone" },
+        { "value": "quiz", "label": "Quiz arrivals only" },
+        { "value": "direct", "label": "Direct arrivals only" }
+      ],
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "claim",
+      "name": "Claim",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Claim", "default": "All formulas designed by dentists" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "tooth",
+          "options": [
+            { "value": "tooth", "label": "Tooth" },
+            { "value": "flask", "label": "Flask" },
+            { "value": "molecule", "label": "Molecule" }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Clinical Standard",
+      "blocks": [
+        { "type": "claim", "settings": { "text": "All formulas designed by dentists", "icon": "tooth" } },
+        { "type": "claim", "settings": { "text": "Clinically tested for efficacy", "icon": "flask" } },
+        { "type": "claim", "settings": { "text": "Pharmaceutical-grade ingredients at clinical doses", "icon": "molecule" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

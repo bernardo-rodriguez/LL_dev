@@ -49,7 +49,7 @@
         "cause_3"
       ],
       "settings": {
-        "eyebrow": "Your analysis",
+        "eyebrow": "Hi {INSERT NAME}",
         "heading": "We found 3 causes dulling your smile.",
         "body": "",
         "close_label": "Close",
@@ -297,6 +297,43 @@
         "section_heading": "Questions",
         "section_sub_heading": ""
       }
+    },
+    "clinical_standard": {
+      "type": "clinical-standard",
+      "blocks": {
+        "c1": {
+          "type": "claim",
+          "settings": {
+            "text": "All formulas designed by dentists",
+            "icon": "tooth"
+          }
+        },
+        "c2": {
+          "type": "claim",
+          "settings": {
+            "text": "Clinically tested for efficacy",
+            "icon": "flask"
+          }
+        },
+        "c3": {
+          "type": "claim",
+          "settings": {
+            "text": "Pharmaceutical-grade ingredients at clinical doses",
+            "icon": "molecule"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "settings": {
+        "heading": "Made to a clinical standard.",
+        "image_caption": "Formulation lab",
+        "margin_bottom": false,
+        "flow_visibility": "all"
+      }
     }
   },
   "order": [
@@ -305,6 +342,7 @@
     "main",
     "how_to_timeline",
     "reviews",
+    "clinical_standard",
     "faq_section"
   ]
 }

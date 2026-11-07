@@ -441,3 +441,111 @@ body.template-product-personalized .product__title,
 body.template-product-personalized .Faq_Heading .h4 {
   word-spacing: normal;
 }
+
+/* ==========================================================================
+   v4 alignment
+   ==========================================================================
+
+   Measured element by element against the v4 artboard at its true 480px.
+   The ink moves first: the design's navy is #0D244C against the theme's
+   #0D2244, and its muted grey #61718A against #6E7A8F, so retoning the
+   tokens corrects every section at once.
+   ========================================================================== */
+
+body.template-product-personalized {
+  --navy: #0d244c;
+  --navy-tint-60: #61718a;
+  --pdp-rule: #d8dce1;
+}
+
+/* every section heading is 31px / -0.019em in the comp, not 32 */
+body.template-product-personalized .section-heading,
+body.template-product-personalized .Faq_Heading .h4,
+body.template-product-personalized .product__title {
+  font-size: 31px;
+}
+
+/* the mono eyebrows run 11.5px / 0.08em */
+body.template-product-personalized .section-eyebrow,
+body.template-product-personalized .how-to-timeline__stages-label {
+  font-size: 11.5px;
+}
+
+/* ---- Treatment, on the navy band ------------------------------------- */
+
+/*
+  The eyebrow is pale blue against the band, not the muted grey it inherits,
+  and tracked a shade wider.
+*/
+body.template-product-personalized .treatment-plan__eyebrow {
+  color: #bdddfc;
+  letter-spacing: 0.09em !important;
+}
+
+body.template-product-personalized .treatment-plan__cause { color: #d3e2f5; }
+
+body.template-product-personalized .treatment-plan__agent {
+  letter-spacing: -0.022em;
+}
+
+body.template-product-personalized .treatment-plan__effect {
+  font-size: 12.5px;
+  font-weight: 400;
+  color: #afc3de;
+}
+
+/* ---- How to use ------------------------------------------------------ */
+
+/*
+  The comp numbers its steps with a filled navy disc rather than a drawn
+  numeral: 24px, white figure, 12.5px.
+*/
+body.template-product-personalized .how-to-timeline__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+body.template-product-personalized .how-to-timeline__step {
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 10px 12px 0;
+}
+
+body.template-product-personalized .how-to-timeline__step-text {
+  font-size: 13.5px;
+  font-weight: 500;
+}
+
+body.template-product-personalized .how-to-timeline__stage-when,
+body.template-product-personalized .how-to-timeline__demo-badge {
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+}
+
+body.template-product-personalized .how-to-timeline__stage-text {
+  font-size: 13.5px;
+  font-weight: 500;
+}
+
+/* the demo frame is navy at 16:11, as the comp draws it */
+body.template-product-personalized .how-to-timeline__demo {
+  aspect-ratio: 16 / 11;
+  background: var(--navy);
+}
+
+/* the rules around both column groups are the design's hairline */
+body.template-product-personalized .how-to-timeline__steps,
+body.template-product-personalized .how-to-timeline__col + .how-to-timeline__col {
+  border-color: var(--pdp-rule);
+}

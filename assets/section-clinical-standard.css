@@ -1,0 +1,90 @@
+/*
+  Clinical standard — the credibility close.
+
+  Measured from the v4 artboard: a heading, a 16:11 image, then three ruled
+  rows each with a 34px pale-blue icon tile. Type comes from the shared
+  classes; only what the design specifies beyond them is set here.
+*/
+
+.clinical-standard { background: #ffffff; color: var(--navy); }
+
+.clinical-standard__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: var(--section-space-y) 0 0;
+}
+
+.clinical-standard--with-spacing .clinical-standard__inner { padding-bottom: var(--section-space-y); }
+
+.clinical-standard__eyebrow { margin: 0; }
+.clinical-standard__heading { margin: 0; text-transform: none; }
+
+.clinical-standard__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  background: var(--pdp-silver, #f4f6f8);
+}
+
+.clinical-standard__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.clinical-standard__media-note {
+  padding: 0 16px;
+  font-family: var(--ds-font-family);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy-tint-60);
+  text-align: center;
+}
+
+/*
+  Ruled rows rather than cards: the list opens with a hairline and each row
+  carries its own, so the three read as one set of credentials.
+*/
+.clinical-standard__claims {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--navy-tint-20);
+}
+
+.clinical-standard__claim {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--navy-tint-20);
+}
+
+/* a square tile in the design's pale blue, the glyph in the accent */
+.clinical-standard__icon {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: #d8ecff;
+  color: var(--pdp-accent, #2369c9);
+}
+
+.clinical-standard__icon svg { width: 18px; height: 18px; display: block; }
+
+.clinical-standard__claim-text {
+  font-family: var(--ds-font-family);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--navy);
+}
+
+@media screen and (min-width: 769px) {
+  .clinical-standard__inner { max-width: 760px; margin-inline: auto; }
+}
