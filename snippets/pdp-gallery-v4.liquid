@@ -9,11 +9,14 @@
   Rendered only when main-product is on the personalized template, so the
   production PDP keeps the swiper gallery exactly as it is.
 
-  Labels come from each image's alt text, so they stay editable where the
-  images are set. An image with no alt falls back to its position.
+  Labels come from the section's own comma-separated list rather than the
+  images' alt text: alt is usually the product title on every image, which
+  gave four identical thumbnails. Anything past the end of the list falls back
+  to the image's position.
 {%- endcomment -%}
 
 {% assign gallery_media = product.media | default: empty %}
+{% assign thumb_labels = section.settings.gallery_labels | split: ',' %}
 
 <div class="pdp-gallery" data-pdp-gallery>
   <div class="pdp-gallery__frame">
@@ -38,9 +41,13 @@
     {% endif %}
   </div>
 
+  {%- comment -%}
+    The comp shows four thumbnails. Rendering one per image would spill a
+    fifth onto its own row, so the list is capped at the labels given.
+  {%- endcomment -%}
   {% if gallery_media.size > 1 %}
     <div class="pdp-gallery__thumbs" role="tablist" aria-label="Product images">
-      {% for media in gallery_media %}
+      {% for media in gallery_media limit: thumb_labels.size %}
         <button
           type="button"
           class="pdp-gallery__thumb{% if forloop.first %} pdp-gallery__thumb--on{% endif %}"
@@ -48,7 +55,8 @@
           role="tab"
           aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
         >
-          {{ media.alt | default: forloop.index | escape }}
+          {%- assign label = thumb_labels[forloop.index0] | strip -%}
+          {{ label | default: forloop.index | escape }}
         </button>
       {% endfor %}
     </div>
