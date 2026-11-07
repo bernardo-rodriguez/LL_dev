@@ -436,28 +436,6 @@ body.template-page-personalized-flow .Faq_Heading .h4 {
    band of its own rather than a footnote under the hero.
    ========================================================================== */
 
-body.template-page-personalized-flow .logo-bar__inner {
-  padding: 14px 0;
-}
-
-body.template-page-personalized-flow .logo-bar__list {
-  /* the list carried 20px of its own on top of the inner's padding */
-  padding: 0;
-}
-
-body.template-page-personalized-flow .logo-bar__list-item {
-  height: 15px;
-}
-
-/* the marks themselves were still drawn at 25px and overflowed the row */
-body.template-page-personalized-flow .logo-bar__list-item img,
-body.template-page-personalized-flow .logo-bar__list-item svg,
-body.template-page-personalized-flow .logo-bar__list-item .header__heading-logo {
-  height: 15px;
-  width: auto;
-  max-height: 15px;
-}
-
 /* ==========================================================================
    Root causes - sized to the comp
    ========================================================================== */
@@ -578,9 +556,64 @@ body.template-page-personalized-flow .logo-bar {
   border-bottom: 1px solid var(--flow-rule);
 }
 
+/*
+  The section is built as a marquee: five duplicate lists inside an
+  overflow-hidden window, scrolling. Stopping the animation alone just froze
+  it mid-travel, which is what sliced the logos at both edges.
+
+  The comp holds four marks still and evenly spaced between the gutters, so
+  the marquee is dismantled here instead: one list, no clipping, spread
+  across the column.
+*/
+body.template-page-personalized-flow .logo-bar__inner {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  padding: 14px 20px;
+  overflow: visible;
+}
+
+/* the four extra copies exist only to make the scroll seamless */
+body.template-page-personalized-flow .logo-bar__list:not(:first-child) {
+  display: none;
+}
+
 body.template-page-personalized-flow .logo-bar__list {
-  /* the comp holds its marks still rather than scrolling them */
   animation: none;
   transform: none;
-  justify-content: space-around;
+  width: 100%;
+  padding: 0;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*
+  Eight marks in a phone column is a crowd - the comp carries four. The rest
+  stay in the markup so the editor still lists them, and so the other
+  placements of this section are unaffected.
+*/
+body.template-page-personalized-flow .logo-bar__list-item:nth-child(n + 5) {
+  display: none;
+}
+
+/*
+  Each mark is set to a common optical height and centred in its own share of
+  the row, so wordmarks of different proportions still sit on one line.
+*/
+body.template-page-personalized-flow .logo-bar__list-item {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  height: 15px;
+}
+
+body.template-page-personalized-flow .logo-bar__list-item > * {
+  max-width: 100%;
+  max-height: 15px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
