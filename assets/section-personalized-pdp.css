@@ -734,9 +734,12 @@ body.template-product-personalized .small-stars-section .jdgm-star::before {
 }
 
 body.template-product-personalized .small-stars-link {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0;
+  /*
+    Inline, not inline-flex: as a flex container each child gets its own
+    decoration box, so the underline broke either side of the separator. The
+    comp runs one continuous rule under the whole string.
+  */
+  display: inline;
   margin-left: 8px;
   color: var(--navy);
   font-size: 13px;
