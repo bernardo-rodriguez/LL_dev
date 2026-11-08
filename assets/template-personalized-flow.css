@@ -1065,3 +1065,20 @@ body.template-page-personalized-flow .strength-comparison__bar-note {
 /* the wordmark gives way to the word, set like the other column header */
 
 
+
+/* ==========================================================================
+   Boundaries the revised narrative design changes
+   ========================================================================== */
+
+/*
+  The dentist band is white with a hairline under it, not the silver the
+  section defaults to — the design keeps silver for the hero and the results
+  row only.
+*/
+body.template-page-personalized-flow .dentist-cards {
+  background: #ffffff;
+  border-bottom: 1px solid var(--flow-rule);
+}
+
+/* the press row butts straight onto the hero; it carried a 36px gap */
+body.template-page-personalized-flow .logo-bar--rules { margin-top: 0; }
