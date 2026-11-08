@@ -146,8 +146,9 @@ body.template-product-personalized .small-stars-rating {
 /* "4.7 · 2,583 Reviews", the separator drawn rather than typed */
 body.template-product-personalized .small-stars-review-count:not(:empty)::before {
   content: '·';
-  margin: 0 5px 0 3px;
-  color: var(--navy-tint-60);
+  margin: 0 4px;
+  /* part of the link's own run in the comp, so the same ink and underline */
+  color: inherit;
 }
 
 /*
@@ -698,21 +699,49 @@ body.template-product-personalized .treatment-plan__grid { margin-inline: 0; }
   one underlined link to the reviews. Ours ran 14px/600 with no underline and
   no link at all.
 */
+/*
+  The comp's row has two children - one span holding all five stars, then the
+  link - with a single 8px gap between them. Ours renders each star as its own
+  flex child, so a gap on the row spaced the stars apart as well. The gap is
+  removed and the 8px applied to the link alone.
+*/
 body.template-product-personalized .small-stars-section {
-  gap: 8px;
+  gap: 0;
   font-size: 13px;
   font-weight: 400;
+}
+
+/* 14px per star, navy, matching the comp's 70px run of five */
+body.template-product-personalized .small-stars-section .jdgm-star {
+  width: 14px;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: center;
+}
+
+body.template-product-personalized .small-stars-section .jdgm-star::before {
+  font-size: 13px !important;
+  color: var(--navy) !important;
 }
 
 body.template-product-personalized .small-stars-link {
   display: inline-flex;
   align-items: baseline;
   gap: 0;
+  margin-left: 8px;
   color: var(--navy);
   font-size: 13px;
   font-weight: 400;
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+body.template-product-personalized .small-stars-review-count {
+  /* "2,316 reviews" in the comp, not "Reviews" */
+  text-transform: lowercase;
 }
 
 body.template-product-personalized .small-stars-rating,
@@ -721,11 +750,6 @@ body.template-product-personalized .small-stars-review-count {
   font-weight: 400;
   color: var(--navy);
   text-decoration: inherit;
-}
-
-/* the stars carry the comp's 1px tracking so the row reads as five marks */
-body.template-product-personalized .small-stars-section .jdgm-star {
-  letter-spacing: 1px;
 }
 
 /* 14px under the title, 20px down to the first plan card */
