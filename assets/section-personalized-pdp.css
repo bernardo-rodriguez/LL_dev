@@ -456,7 +456,76 @@ body.template-product-personalized {
   --navy: #0d244c;
   --navy-tint-60: #61718a;
   --pdp-rule: #d8dce1;
+
+  /*
+    The design's body sans. The comp sets Inter Tight on the artboard root so
+    every label and paragraph inherits it, and only the headings are Manrope.
+    Ours ran Manrope throughout, which is why the type read subtly wrong
+    everywhere even where size and weight matched - Inter Tight sets narrower.
+  */
+  --ds-font-family: 'Inter Tight', Inter, 'Helvetica Neue', Arial, sans-serif;
 }
+
+/*
+  75 rules across the theme hardcode `manrope` rather than reading the token,
+  so the token alone does not reach them. This sets the face on the page and
+  the shared type classes; headings and the mono labels re-assert theirs.
+*/
+body.template-product-personalized,
+body.template-product-personalized .body-md,
+body.template-product-personalized .body-sm,
+body.template-product-personalized .body-xs,
+body.template-product-personalized .sh1,
+body.template-product-personalized .sh2,
+body.template-product-personalized .sh3,
+body.template-product-personalized .label,
+body.template-product-personalized .label-sm,
+body.template-product-personalized p,
+body.template-product-personalized li,
+body.template-product-personalized span,
+body.template-product-personalized a,
+body.template-product-personalized button,
+body.template-product-personalized .Accordion {
+  font-family: var(--ds-font-family);
+}
+
+/* headings stay Manrope, as the comp sets them */
+body.template-product-personalized .section-heading,
+body.template-product-personalized .Faq_Heading .h4,
+body.template-product-personalized .product__title {
+  font-family: manrope, 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* the mono labels keep theirs */
+body.template-product-personalized .section-eyebrow,
+body.template-product-personalized .how-to-timeline__stages-label,
+body.template-product-personalized .how-to-timeline__demo-badge,
+body.template-product-personalized .how-to-timeline__stage-when,
+body.template-product-personalized .pdp-gallery__caption {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/*
+  The treatment band's eyebrow is a shade smaller and wider than the others:
+  11px at 0.09em against the page's 11.5px at 0.08em.
+*/
+body.template-product-personalized .treatment-plan__eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.09em !important;
+}
+
+/* 13.25px/1.32, not 12.5 */
+body.template-product-personalized .treatment-plan__effect {
+  font-size: 13.25px;
+  line-height: 1.32;
+}
+
+/*
+  v4 drops the formula and duration stamp that closed this section in v6.
+  Hidden rather than removed so the setting stays available to other
+  placements of the section.
+*/
+body.template-product-personalized .treatment-plan__meta { display: none; }
 
 /* every section heading is 31px / -0.019em in the comp, not 32 */
 body.template-product-personalized .section-heading,
