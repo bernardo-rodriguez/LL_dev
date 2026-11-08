@@ -836,3 +836,27 @@ body.template-product-personalized .product__info-container {
 
 /* the greeting stays out of the way until quiz-name.js has a name to use */
 body.template-product-personalized .smile-analysis__eyebrow[hidden] { display: none; }
+
+/* ==========================================================================
+   The page gutter
+   ========================================================================== */
+
+/*
+  Every section on this template rules its content to a 20px gutter — the
+  gallery, the analysis, the timeline, the results row. The theme's product
+  wrapper sets 10px on mobile and the FAQ sets 16px, so the buy box and the
+  questions sat wider than everything above and below them. Both are shared
+  with the production templates, so both are corrected here rather than in
+  their own stylesheets.
+*/
+@media screen and (max-width: 768px) {
+  body.template-product-personalized .product__info-wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+body.template-product-personalized .FAQ_Section .Faq_section_inner {
+  padding-left: 20px;
+  padding-right: 20px;
+}
