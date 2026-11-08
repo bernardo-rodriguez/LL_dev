@@ -114,53 +114,193 @@
   "tag": "section",
   "class": "section",
   "settings": [
-    { "type": "text", "id": "step_number", "label": "Step number", "default": "2" },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Formulate" },
-    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Then, we create a formula to treat them.", "info": "Wrap emphasized text in {} for the italic Canela style" },
-    { "type": "textarea", "id": "body", "label": "Body copy", "default": "Different causes, different actives. Here's how a few formulas stack up." },
-    { "type": "header", "content": "Widget" },
-    { "type": "text", "id": "widget_label", "label": "Label above the card", "default": "Real customer formulas" },
-    { "type": "text", "id": "causes_label", "label": "Left column label", "default": "If you have" },
-    { "type": "text", "id": "actives_label", "label": "Right column label", "default": "We add" },
-    { "type": "text", "id": "count_suffix", "label": "Count suffix", "default": " actives" },
-    { "type": "text", "id": "sensitivity_key", "label": "Sensitivity cause key", "default": "sens", "info": "The cause whose name is replaced by the person's sensitivity level." },
-    { "type": "text", "id": "sensitivity_suffix", "label": "Sensitivity suffix", "default": " sensitivity" },
-    { "type": "header", "content": "Call to action" },
-    { "type": "text", "id": "button_label", "label": "Button label", "default": "Find my formula" },
-    { "type": "url", "id": "button_link", "label": "Link" },
-    { "type": "checkbox", "id": "button_opens_quiz", "label": "Button opens the quiz", "default": true },
-    { "type": "header", "content": "Layout" },
-    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." },
-    { "type": "header", "content": "Personalization flow" },
-    { "type": "select", "id": "flow_visibility", "label": "Show this section to", "default": "all",
+    {
+      "type": "text",
+      "id": "step_number",
+      "label": "Step number",
+      "default": "2"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Formulate"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Then, we create a formula to treat them.",
+      "info": "Wrap emphasized text in {} for the italic Canela style"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body copy",
+      "default": "Different causes, different actives. Here's how a few formulas stack up."
+    },
+    {
+      "type": "header",
+      "content": "Widget"
+    },
+    {
+      "type": "text",
+      "id": "widget_label",
+      "label": "Label above the card",
+      "default": "Real customer formulas"
+    },
+    {
+      "type": "text",
+      "id": "causes_label",
+      "label": "Left column label",
+      "default": "If you have"
+    },
+    {
+      "type": "text",
+      "id": "actives_label",
+      "label": "Right column label",
+      "default": "We add"
+    },
+    {
+      "type": "text",
+      "id": "count_suffix",
+      "label": "Count suffix",
+      "default": " actives"
+    },
+    {
+      "type": "text",
+      "id": "sensitivity_key",
+      "label": "Sensitivity cause key",
+      "default": "sens",
+      "info": "The cause whose name is replaced by the person's sensitivity level."
+    },
+    {
+      "type": "text",
+      "id": "sensitivity_suffix",
+      "label": "Sensitivity suffix",
+      "default": " sensitivity"
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "info": "Off by default — the design carries the next call to action at the top of the kit section."
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_opens_quiz",
+      "label": "Button opens the quiz",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "margin_bottom",
+      "label": "Extra space below",
+      "default": false,
+      "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap."
+    },
+    {
+      "type": "header",
+      "content": "Personalization flow"
+    },
+    {
+      "type": "select",
+      "id": "flow_visibility",
+      "label": "Show this section to",
+      "default": "all",
       "options": [
-        { "value": "all", "label": "Everyone" },
-        { "value": "quiz", "label": "Quiz arrivals only" },
-        { "value": "direct", "label": "Direct arrivals only" }
+        {
+          "value": "all",
+          "label": "Everyone"
+        },
+        {
+          "value": "quiz",
+          "label": "Quiz arrivals only"
+        },
+        {
+          "value": "direct",
+          "label": "Direct arrivals only"
+        }
       ],
-      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL." }
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL."
+    }
   ],
   "blocks": [
     {
       "type": "cause",
       "name": "Cause",
       "settings": [
-        { "type": "text", "id": "key", "label": "Key", "default": "surface", "info": "Referenced by the people below." },
-        { "type": "text", "id": "name", "label": "Name", "default": "Surface stains" },
-        { "type": "color", "id": "colour", "label": "Colour", "default": "#B03A2E" },
-        { "type": "text", "id": "ingredients", "label": "Actives", "default": "Sodium bicarbonate, Peroxide", "info": "Comma separated." }
+        {
+          "type": "text",
+          "id": "key",
+          "label": "Key",
+          "default": "surface",
+          "info": "Referenced by the people below."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Surface stains"
+        },
+        {
+          "type": "color",
+          "id": "colour",
+          "label": "Colour",
+          "default": "#B03A2E"
+        },
+        {
+          "type": "text",
+          "id": "ingredients",
+          "label": "Actives",
+          "default": "Sodium bicarbonate, Peroxide",
+          "info": "Comma separated."
+        }
       ]
     },
     {
       "type": "example",
       "name": "Person",
       "settings": [
-        { "type": "text", "id": "name", "label": "Name", "default": "Sophia" },
-        { "type": "text", "id": "sensitivity", "label": "Sensitivity level", "default": "Mild" },
-        { "type": "text", "id": "causes", "label": "Cause keys", "default": "surface, plaque, sens", "info": "Comma separated, in the order they should appear." }
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Sophia"
+        },
+        {
+          "type": "text",
+          "id": "sensitivity",
+          "label": "Sensitivity level",
+          "default": "Mild"
+        },
+        {
+          "type": "text",
+          "id": "causes",
+          "label": "Cause keys",
+          "default": "surface, plaque, sens",
+          "info": "Comma separated, in the order they should appear."
+        }
       ]
     }
   ],
-  "presets": [{ "name": "Formula Builder" }]
+  "presets": [
+    {
+      "name": "Formula Builder"
+    }
+  ]
 }
 {% endschema %}

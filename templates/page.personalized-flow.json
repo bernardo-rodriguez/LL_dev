@@ -315,7 +315,7 @@
         "count_suffix": " actives",
         "sensitivity_key": "sens",
         "sensitivity_suffix": " sensitivity",
-        "button_label": "Find my formula",
+        "button_label": "",
         "button_link": "",
         "button_opens_quiz": true,
         "margin_bottom": false,
