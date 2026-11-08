@@ -37,14 +37,22 @@
   align-items: flex-start;
 }
 
-/* 13px book, not the shared .body-sm 12px, and a shade darker */
+/*
+  13px book, not the shared .body-sm 12px, and a shade darker.
+
+  The comp spaces this off the heading with the hero column's own 14px gap,
+  but our rating sits inside the __copy wrapper rather than being a direct
+  child of that column, so the gap never reaches it. It carries the 14px
+  itself.
+*/
 .personalized-hero__rating {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin: 0;
+  margin: 0 0 14px;
   font-size: 13px;
   font-weight: 400;
+  line-height: 1.55;
   color: #22405f;
 }
 
