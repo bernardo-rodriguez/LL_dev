@@ -714,26 +714,18 @@ body.template-product-personalized .small-stars-section {
   font-weight: 400;
 }
 
-/* 14px per star, navy, matching the comp's 70px run of five */
-body.template-product-personalized .small-stars-section .jdgm-star {
-  width: 14px;
-  margin: 0;
-  padding: 0;
-  font-size: 13px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-align: center;
-}
-
 /*
-  The glyph takes its colour from the element, which Judge.me paints yellow
-  via `:not(.jdgm-prev-badge__stars) > .jdgm-star`. Colouring only ::before
-  leaves that showing through, so both are set.
+  The comp's star run: one text node of five ★ at 13px with 1px tracking, in
+  navy. 70px for the five, which the character's own side bearings space
+  rather than any gap we add.
 */
-body.template-product-personalized .small-stars-section .jdgm-star,
-body.template-product-personalized .small-stars-section .jdgm-star::before {
-  font-size: 13px !important;
-  color: var(--navy) !important;
+body.template-product-personalized .small-stars-glyphs {
+  font-family: var(--ds-font-family);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: var(--navy);
 }
 
 body.template-product-personalized .small-stars-link {

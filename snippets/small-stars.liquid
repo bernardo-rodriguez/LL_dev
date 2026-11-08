@@ -22,11 +22,22 @@
 </style>
 
 <div class="small-stars-section">
-  <span class="jdgm-star jdgm--on"></span>
-  <span class="jdgm-star jdgm--on"></span>
-  <span class="jdgm-star jdgm--on"></span>
-  <span class="jdgm-star jdgm--on"></span>
-  <span class="jdgm-star jdgm--half"></span>
+  {%- comment -%}
+    The personalized template draws the stars as literal characters, which is
+    what the design uses. Judge.me's icon font sets each glyph flush to the
+    edge of its box, so the row reads as one fused block however it is sized
+    or tracked; the text character carries its own side bearings and the marks
+    separate. Every other template keeps the icon font.
+  {%- endcomment -%}
+  {% if template.suffix == 'personalized' %}
+    <span class="small-stars-glyphs" aria-hidden="true">★★★★★</span>
+  {% else %}
+    <span class="jdgm-star jdgm--on"></span>
+    <span class="jdgm-star jdgm--on"></span>
+    <span class="jdgm-star jdgm--on"></span>
+    <span class="jdgm-star jdgm--on"></span>
+    <span class="jdgm-star jdgm--half"></span>
+  {% endif %}
   {%- comment -%}
     The rating reads as one link to the reviews further down the page, which
     is how the design treats it. The anchor is resolved by script so it works
