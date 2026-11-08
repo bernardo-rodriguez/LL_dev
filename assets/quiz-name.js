@@ -30,11 +30,11 @@
     return value.charAt(0).toUpperCase() + value.slice(1);
   }
 
-  function resolve(el) {
+  // The quiz taker, and nobody else: a signed-in shopper who never took the
+  // quiz is not someone we have an analysis for. ?name= is for previewing.
+  function resolve() {
     var params = new URLSearchParams(window.location.search);
-    return clean(params.get('name') || '') ||
-           clean(fromCookie('firstname')) ||
-           clean(el.getAttribute('data-quiz-name-fallback'));
+    return clean(params.get('name') || '') || clean(fromCookie('firstname'));
   }
 
   function fill(el) {
@@ -42,7 +42,7 @@
     if (!TOKEN.test(template)) { el.hidden = false; return; }
     TOKEN.lastIndex = 0;
 
-    var name = resolve(el);
+    var name = resolve();
     if (!name) { el.remove(); return; }
 
     el.textContent = template.replace(TOKEN, name);
