@@ -155,6 +155,13 @@
   flex-shrink: 0;
 }
 
+/*
+  Both comps print the testimonial inside straight quotation marks. They are
+  rendered rather than stored, so the setting stays clean copy.
+*/
+.results-cards__quote::before { content: '"'; }
+.results-cards__quote::after { content: '"'; }
+
 .results-cards__quote {
   margin: 0;
   font-size: 14px;
