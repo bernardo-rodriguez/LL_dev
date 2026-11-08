@@ -64,11 +64,14 @@ body.template-product-personalized {
   --skio-sub-border-left-style: solid;
   --skio-once-border-right-style: solid;
 
-  /* Sits on the border rather than across it, so the edge stays unbroken */
-  --skio-ribbon-top: 0;
+  /*
+    v4 overlaps the chip onto the card's top edge rather than resting it
+    above: top -10px with no transform, so it straddles the border.
+  */
+  --skio-ribbon-top: -10px;
   --skio-ribbon-left: auto;
   --skio-ribbon-right: 12px;
-  --skio-ribbon-transform: translateY(-100%);
+  --skio-ribbon-transform: none;
   --skio-ribbon-bg: var(--navy);
   --skio-ribbon-color: #ffffff;
   --skio-ribbon-size: 10px;
@@ -666,3 +669,55 @@ body.template-product-personalized .smile-analysis__inner {
 
 /* the treatment rows are a centred grid in our section; the comp left-aligns */
 body.template-product-personalized .treatment-plan__grid { margin-inline: 0; }
+
+/* ==========================================================================
+   Buy box — rating row, plan label, accordions
+   ========================================================================== */
+
+/*
+  The comp sets the rating at 13px/400 with the figure and count together as
+  one underlined link to the reviews. Ours ran 14px/600 with no underline and
+  no link at all.
+*/
+body.template-product-personalized .small-stars-section {
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+body.template-product-personalized .small-stars-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+body.template-product-personalized .small-stars-rating,
+body.template-product-personalized .small-stars-review-count {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--navy);
+  text-decoration: inherit;
+}
+
+/* the stars carry the comp's 1px tracking so the row reads as five marks */
+body.template-product-personalized .small-stars-section .jdgm-star {
+  letter-spacing: 1px;
+}
+
+/* 14px under the title, 20px down to the first plan card */
+body.template-product-personalized .pdp-product-options__form-row { margin-top: 14px; }
+
+/*
+  v4 carries no accordions in the buy box - "Why Subscribe" is absent from the
+  artboard entirely and "How to use" there is a section heading, not a toggle.
+  Hidden rather than removed so the content stays on the production template.
+*/
+body.template-product-personalized .product__why-subscribe,
+body.template-product-personalized .product__how-to-use {
+  display: none;
+}

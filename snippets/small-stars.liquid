@@ -27,8 +27,15 @@
   <span class="jdgm-star jdgm--on"></span>
   <span class="jdgm-star jdgm--on"></span>
   <span class="jdgm-star jdgm--half"></span>
-  <span class="small-stars-rating">4.7<span class="small-stars-outof">/5</span></span>
-  <span class="small-stars-review-count"></span>
+  {%- comment -%}
+    The rating reads as one link to the reviews further down the page, which
+    is how the design treats it. The anchor is resolved by script so it works
+    wherever the reviews section sits on a given template.
+  {%- endcomment -%}
+  <a class="small-stars-link" href="#reviews" data-stars-to-reviews>
+    <span class="small-stars-rating">4.7<span class="small-stars-outof">/5</span></span>
+    <span class="small-stars-review-count"></span>
+  </a>
 </div>
 
 <script>
@@ -62,6 +69,23 @@
       }
       return false;
     }
+    // Point the rating at whichever section carries the reviews on this page.
+    function wireReviewsLink() {
+      var link = document.querySelector('[data-stars-to-reviews]');
+      if (!link) return;
+      var target = document.querySelector('#reviews, .results-cards, #judgeme_product_reviews, .jdgm-rev-widg');
+      if (!target) return;
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', wireReviewsLink);
+    } else {
+      wireReviewsLink();
+    }
+
     if (!updateSmallStarsReviewCount()) {
       var obs = new MutationObserver(function(mutations, observer) {
         if (updateSmallStarsReviewCount()) observer.disconnect();

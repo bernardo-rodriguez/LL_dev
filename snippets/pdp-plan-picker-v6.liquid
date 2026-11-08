@@ -52,11 +52,18 @@
       '.skio-group-title{text-transform:none!important;font-size:16px!important;font-weight:600!important;',
       'letter-spacing:0!important;color:var(--navy,#0D2244)!important}',
 
-      /* A ring that fills in, rather than a solid disc */
-      '.skio-radio__container svg circle:first-child{stroke:#9AA7B8;stroke-width:2}',
-      '.skio-group-container--selected .skio-radio__container svg circle:first-child{stroke:var(--navy,#0D2244)}',
-      '.skio-radio{color:var(--navy,#0D2244)!important;transform:scale(.52)!important;opacity:1!important}',
-      '.skio-group-container--available:not(.skio-group-container--selected) .skio-radio{opacity:0!important}',
+      /*
+        The comp draws the radio as a plain ring: 20px, white centre, a
+        1.5px grey edge unselected and a 6px navy edge selected. Skio's own
+        SVG is replaced rather than restyled - its two stacked circles
+        cannot make that shape.
+      */
+      '.skio-radio__container{position:relative;width:20px;height:20px;flex:none}',
+      '.skio-radio__container svg{display:none}',
+      '.skio-radio__container::before{content:"";position:absolute;inset:0;box-sizing:border-box;',
+      'border-radius:50%;background:#fff;border:1.5px solid #9AA7B8}',
+      '.skio-group-container--selected .skio-radio__container::before{',
+      'border:6px solid var(--navy,#0D244C)}',
 
       '.ll-plan-benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;width:100%}',
       '.ll-plan-benefit{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;',
