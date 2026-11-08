@@ -14,7 +14,11 @@
   <div class="page-width">
     <div class="results-cards__inner">
       {% if section.settings.eyebrow != blank %}
-        <p class="section-eyebrow results-cards__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+        {%- assign eyebrow_html = section.settings.eyebrow
+          | escape
+          | replace: '★★★★★', '<span class="results-cards__stars" aria-hidden="true">★★★★★</span>'
+        -%}
+        <p class="section-eyebrow results-cards__eyebrow label-sm">{{ eyebrow_html }}</p>
       {% endif %}
       {% if section.settings.heading != blank %}
         <h3 class="section-heading results-cards__heading">{{ formatted_heading }}</h3>

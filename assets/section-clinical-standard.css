@@ -20,7 +20,13 @@
 .clinical-standard__eyebrow { margin: 0; }
 .clinical-standard__heading { margin: 0; text-transform: none; }
 
+/*
+  align-self, because the template scope sets align-items: flex-start on the
+  inner column to range the type left — which otherwise shrinks every block
+  child down to its own content width, image box included.
+*/
 .clinical-standard__media {
+  align-self: stretch;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,6 +56,7 @@
   carries its own, so the three read as one set of credentials.
 */
 .clinical-standard__claims {
+  align-self: stretch;
   margin: 0;
   padding: 0;
   border-top: 1px solid var(--navy-tint-20);

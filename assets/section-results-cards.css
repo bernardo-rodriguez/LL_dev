@@ -19,6 +19,20 @@
 
 .results-cards__heading { margin: 0 0 16px; text-transform: none; }
 
+/*
+  The mono stack has no star, so the glyph comes from a fallback face that
+  draws it well under its em — at the eyebrow's 11.5px it reads as a row of
+  specks. Setting it on the body face at 13px brings it back to the size of
+  the digits beside it.
+*/
+.results-cards__stars {
+  font-family: var(--ds-font-family);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
 .results-cards__row {
   display: flex;
   gap: 12px;
