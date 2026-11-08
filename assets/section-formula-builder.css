@@ -14,10 +14,10 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 18px;
-  padding: var(--section-space-y) 0 0;
+  padding: 40px 0 36px;
 }
 
-.formula-builder--with-spacing .formula-builder__inner { padding-bottom: var(--section-space-y); }
+.formula-builder--with-spacing .formula-builder__inner { padding-bottom: calc(var(--section-space-y) * 1.5); }
 
 .formula-builder__header {
   align-self: stretch;

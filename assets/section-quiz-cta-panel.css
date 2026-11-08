@@ -11,7 +11,7 @@
 .quiz-cta-panel__inner {
   margin-top: 0;
   margin-bottom: var(--section-space-y);
-  padding: 44px 24px 48px;
+  padding: 44px 20px;
   border-radius: 12px;
   background: var(--navy);
   color: var(--cream);
@@ -64,7 +64,7 @@
     width: calc(100% + 40px);
     box-sizing: border-box;
     border-radius: 0;
-    padding: 44px 24px 48px;
+    padding: 44px 20px;
   }
 }
 

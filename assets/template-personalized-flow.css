@@ -1082,3 +1082,19 @@ body.template-page-personalized-flow .dentist-cards {
 
 /* the press row butts straight onto the hero; it carried a 36px gap */
 body.template-page-personalized-flow .logo-bar--rules { margin-top: 0; }
+
+/*
+  The page ground. The theme paints the body a warm cream (#faf5f1), which
+  every section that sets no background of its own was showing through — the
+  press row read cream against the comp's white, and the hero only looked
+  right because it had been given an explicit silver to cover it. The comp
+  grounds the whole page in white, so it is set once here.
+*/
+body.template-page-personalized-flow { background: #ffffff; }
+
+/* the FAQ is ruled top and bottom; the section is shared, so this is scoped */
+body.template-page-personalized-flow .faq-section,
+body.template-page-personalized-flow .Faq {
+  border-top: 1px solid var(--flow-rule);
+  border-bottom: 1px solid var(--flow-rule);
+}

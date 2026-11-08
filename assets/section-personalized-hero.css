@@ -14,15 +14,15 @@
 */
 
 .personalized-hero {
-  background: var(--cream);
+  background: #ffffff;
   color: var(--navy);
 }
 
 .personalized-hero__inner {
-  padding: var(--section-space-y) 0 0;
+  padding: 22px 0 28px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 14px;
 }
 
 .personalized-hero--with-spacing .personalized-hero__inner {
@@ -37,12 +37,15 @@
   align-items: flex-start;
 }
 
+/* 13px book, not the shared .body-sm 12px, and a shade darker */
 .personalized-hero__rating {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin: 0 0 14px;
-  color: var(--navy-tint-80);
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  color: #22405f;
 }
 
 .personalized-hero__stars {
