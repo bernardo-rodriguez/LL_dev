@@ -768,3 +768,48 @@ body.template-product-personalized .product__why-subscribe,
 body.template-product-personalized .product__how-to-use {
   display: none;
 }
+
+/* ==========================================================================
+   Section transitions
+   ==========================================================================
+
+   The comp pads every section 36px top and bottom, so content sits clear of
+   each boundary and a change of background reads as a deliberate band. Ours
+   padded the top only - the convention elsewhere in the theme, where the next
+   section supplies the gap - which left content butting against the next
+   section's colour.
+   ========================================================================== */
+
+body.template-product-personalized { --section-space-y: 36px; }
+
+/*
+  The matching bottom half. Every section here wraps its content in an
+  __inner, so this is one rule rather than a block per section.
+*/
+body.template-product-personalized .smile-analysis__inner,
+body.template-product-personalized .treatment-plan__inner,
+body.template-product-personalized .how-to-timeline__inner,
+body.template-product-personalized .results-cards__inner,
+body.template-product-personalized .clinical-standard__inner {
+  padding-bottom: var(--section-space-y);
+}
+
+/*
+  The hairline that opens How to use. It is the one rule the comp draws
+  between sections, separating the buy box from the instructions, and it runs
+  the full width rather than inside the gutters.
+*/
+body.template-product-personalized .how-to-timeline {
+  border-top: 1px solid var(--pdp-rule);
+}
+
+/*
+  The treatment band closes tighter than it opens, as the comp has it: 36
+  above, 24 below.
+*/
+body.template-product-personalized .treatment-plan__inner {
+  padding-bottom: 24px;
+}
+
+/* the gallery opens the buy box group rather than standing apart from it */
+body.template-product-personalized .pdp-gallery { padding-top: 16px; }
