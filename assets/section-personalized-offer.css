@@ -1,145 +1,206 @@
 /*
-  Personalized Offer. Type from the shared scale only:
-    price      -> .h2        34 / 48
-    steps      -> .sh3       14 / 16
-    notes      -> .body-sm   12 / 14
-    eyebrow    -> .label-sm via .section-eyebrow
+  Personalized offer — the "shipped to your door" step.
+
+  Measured from the narrative artboard at 480: the section is ruled top and
+  bottom, opens and closes with the same CTA, and runs header → product shot
+  → trust line → price → what's in the box.
 */
 
-/* White, so the kit reads as the page's own offer rather than a panel */
 .personalized-offer {
   background: #ffffff;
   color: var(--navy);
+  border-top: 1px solid var(--flow-rule, #d8e0e8);
+  border-bottom: 1px solid var(--flow-rule, #d8e0e8);
 }
 
 .personalized-offer__inner {
-  padding: var(--section-space-y) 0 0;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
+  padding: var(--section-space-y) 0;
 }
 
-.personalized-offer--with-spacing .personalized-offer__inner {
-  padding-bottom: var(--section-space-y);
+.personalized-offer--with-spacing .personalized-offer__inner { padding-bottom: calc(var(--section-space-y) * 1.5); }
+
+.personalized-offer__header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
+
+.personalized-offer__heading { margin: 0; text-transform: none; }
+
+.personalized-offer__body {
+  margin: 0;
+  max-width: 52ch;
+  color: var(--navy-tint-80);
+  line-height: var(--ds-line-height-copy);
+}
+
+/* ---- Product shot ----------------------------------------------------- */
 
 .personalized-offer__media {
   position: relative;
-  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 230px;
   overflow: hidden;
-  background: var(--blue-tint-10);
-  aspect-ratio: 4 / 3;
+  background: var(--flow-silver, #f4f6f8);
 }
 
-.personalized-offer__media img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.personalized-offer__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.personalized-offer__chip {
+  position: absolute;
+  left: 50%;
+  bottom: 56px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  white-space: nowrap;
+  background: #ffffff;
+  color: var(--navy);
+  font-family: var(--ds-font-family);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.25;
 }
+
+.personalized-offer__chip-dot { width: 9px; height: 9px; border-radius: 5px; flex-shrink: 0; }
 
 .personalized-offer__badge {
   position: absolute;
-  top: 14px;
-  left: 14px;
-  padding: 7px 13px;
-  border-radius: 40px;
-  background: var(--navy);
-  color: var(--cream);
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  white-space: nowrap;
+  background: var(--flow-accent, #2369c9);
+  color: #ffffff;
+  font-family: var(--ds-font-family);
+  font-size: 10.5px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
+
+/* ---- Detail ----------------------------------------------------------- */
 
 .personalized-offer__detail {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  gap: 16px;
+}
+
+.personalized-offer__trust {
+  margin: 0;
+  font-family: var(--ds-font-family);
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #22405f;
+}
+
+.personalized-offer__pricing {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .personalized-offer__price {
   display: flex;
   align-items: baseline;
   gap: 10px;
-  margin: 0 0 6px;
+  margin: 0;
 }
 
-/*
-  .h2 is borrowed here for the size, and it brings the heading margin with it —
-  30px, 20px on phones. A span would normally ignore a vertical margin, but a
-  flex item is block-level, so it applied and left a gap under the price that
-  looked like it came from the row.
-*/
+/* the design sets the price at book weight, not the theme's bold */
 .personalized-offer__price-now {
-  margin: 0;
-  /* the heading line-height left a band of empty leading under the figure */
+  font-family: var(--ds-font-family);
+  font-size: 36px;
+  font-weight: 400;
   line-height: 1;
+  letter-spacing: -0.01em;
   color: var(--navy);
-  text-transform: none;
 }
 
 .personalized-offer__price-was {
-  margin: 0;
+  font-family: var(--ds-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
   color: var(--navy-tint-60);
   text-decoration: line-through;
 }
 
 .personalized-offer__price-note {
-  margin: 0 0 20px;
-  line-height: var(--ds-line-height);
-  color: var(--navy-tint-80);
+  margin: 0;
+  font-family: var(--ds-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: #475f7d;
 }
 
-/* Ruled rows, as in the reference: the steps are a sequence, not a list of
-   loose lines, and the rules make that read. */
-.personalized-offer__steps {
+/* ---- What's in the box ------------------------------------------------ */
+
+.personalized-offer__includes-list {
   display: flex;
   flex-direction: column;
-  gap: 0;
-  width: 100%;
-  margin: 0 0 18px;
+  margin: 0;
   padding: 0;
-  list-style: none;
-  border-top: 1px solid var(--blue-tint-20);
+  border-top: 1px solid var(--flow-rule, #d8e0e8);
 }
 
-.personalized-offer__step {
+.personalized-offer__include {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--blue-tint-20);
+  padding: 11px 0;
+  border-bottom: 1px solid var(--flow-rule, #d8e0e8);
 }
 
-.personalized-offer__step-number {
+.personalized-offer__include:last-child { border-bottom: 0; }
+
+.personalized-offer__include-icon {
+  width: 15px;
+  height: 15px;
   flex-shrink: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.6em;
-  height: 1.6em;
-  margin-top: 0.05em;
-  border-radius: 50%;
-  background: var(--blue-tint-20);
-  color: var(--navy);
+  color: var(--flow-accent, #2369c9);
+}
+
+.personalized-offer__include-icon svg { width: 100%; height: 100%; display: block; }
+
+.personalized-offer__include-text {
   font-family: var(--ds-font-family);
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.personalized-offer__step-text {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
   color: var(--navy);
 }
 
-.personalized-offer__includes {
-  margin: 0 0 20px;
-  color: var(--navy-tint-60);
-}
+.personalized-offer__include-suffix { font-weight: 400; color: var(--navy-tint-60); }
+
+/* ---- Calls to action -------------------------------------------------- */
 
 .personalized-offer__cta {
-  display: inline-flex;
+  height: 54px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  box-sizing: border-box;
+  border-radius: 6px;
+  background: var(--flow-cta, #67b9e8);
+  color: #ffffff;
+  font-family: var(--ds-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   text-decoration: none;
 }
 
@@ -147,65 +208,26 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  width: 100%;
-  margin: 14px 0 0;
-  padding: 10px 14px;
-  box-sizing: border-box;
-  border-radius: 8px;
-  background: var(--blue-tint-10);
+  margin: 0;
+  font-family: var(--ds-font-family);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.25;
   color: var(--navy);
 }
 
 .personalized-offer__guarantee-icon {
-  display: flex;
-  align-items: center;
+  width: 15px;
+  height: 15px;
   flex-shrink: 0;
+  display: flex;
+  color: var(--flow-accent, #2369c9);
 }
 
-.personalized-offer__guarantee-icon svg {
-  width: 14px;
-  height: 14px;
-}
-
-.personalized-offer__guarantee-icon svg path {
-  fill: currentColor;
-}
-
-/*
-  Centred under the button rather than ranged left with the copy above: these
-  two read as a footer to the offer, not as more of its body. They need the
-  full column width to centre within, since the column itself packs to the
-  start.
-*/
-.personalized-offer__trust {
-  width: 100%;
-  margin: 12px 0 0;
-  color: var(--navy);
-  font-weight: 700;
-  text-align: center;
-}
-
-.personalized-offer__shipping {
-  width: 100%;
-  margin: 2px 0 0;
-  color: var(--navy-tint-60);
-  text-align: center;
-}
+.personalized-offer__guarantee-icon svg { width: 100%; height: 100%; display: block; }
 
 @media screen and (min-width: 769px) {
-  .personalized-offer__inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 56px;
-    align-items: center;
-  }
-
-  .personalized-offer__cta {
-    width: auto;
-    min-width: 300px;
-  }
-
-  .personalized-offer__guarantee {
-    width: auto;
-  }
+  .personalized-offer__media { min-height: 320px; }
+  .personalized-offer__cta { align-self: flex-start; min-width: 320px; }
+  .personalized-offer__cta--top { align-self: stretch; }
 }

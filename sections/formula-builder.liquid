@@ -1,0 +1,166 @@
+{{ 'section-formula-builder.css' | asset_url | stylesheet_tag }}
+{{ 'component-section-step.css' | asset_url | stylesheet_tag }}
+
+{% assign formatted_heading = section.settings.heading
+  | replace: '{', "<span class='stylized'>"
+  | replace: '}', '</span>'
+%}
+{% assign causes = section.blocks | where: 'type', 'cause' %}
+{% assign examples = section.blocks | where: 'type', 'example' %}
+
+<section
+  class="formula-builder {% if section.settings.margin_bottom %}formula-builder--with-spacing{% endif %}"
+  data-section-id="{{ section.id }}"
+  {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
+>
+  <div class="page-width">
+    <div class="formula-builder__inner">
+
+      <div class="formula-builder__header">
+        {% if section.settings.eyebrow != blank or section.settings.step_number != blank %}
+          {% render 'section-step', number: section.settings.step_number, label: section.settings.eyebrow %}
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h3 class="section-heading formula-builder__heading">{{ formatted_heading }}</h3>
+        {% endif %}
+        {% if section.settings.body != blank %}
+          <p class="formula-builder__body body-md">{{ section.settings.body }}</p>
+        {% endif %}
+      </div>
+
+      {% if examples.size > 0 and causes.size > 0 %}
+        <div class="formula-builder__widget" data-formula-builder>
+          {% if section.settings.widget_label != blank %}
+            <p class="formula-builder__label">{{ section.settings.widget_label }}</p>
+          {% endif %}
+
+          <div class="formula-builder__card">
+            <div class="formula-builder__tabs" role="tablist">
+              {% for block in examples %}
+                <button
+                  class="formula-builder__tab{% if forloop.first %} is-active{% endif %}"
+                  type="button"
+                  role="tab"
+                  aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+                  data-formula-tab="{{ forloop.index0 }}"
+                  {{ block.shopify_attributes }}
+                >
+                  <span class="formula-builder__avatar" aria-hidden="true">{{ block.settings.name | slice: 0 }}</span>
+                  <span class="formula-builder__tab-label">{{ block.settings.name }}</span>
+                </button>
+              {% endfor %}
+            </div>
+
+            <div class="formula-builder__panel">
+              <div class="formula-builder__col" data-formula-causes>
+                <span class="formula-builder__col-label">{{ section.settings.causes_label }}</span>
+              </div>
+              <span class="formula-builder__arrow" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+              </span>
+              <div class="formula-builder__col" data-formula-ings>
+                <span class="formula-builder__col-label">{{ section.settings.actives_label }} <b data-formula-count></b></span>
+                <div class="formula-builder__ings" data-formula-ing-row></div>
+              </div>
+            </div>
+          </div>
+
+          <script type="application/json" data-formula-data>
+            {
+              "causes": [
+                {% for b in causes %}
+                  {
+                    "key": {{ b.settings.key | default: b.settings.name | downcase | strip | json }},
+                    "name": {{ b.settings.name | json }},
+                    "color": {{ b.settings.colour | default: '#0D244C' | json }},
+                    "ings": {{ b.settings.ingredients | default: '' | split: ',' | json }}
+                  }{% unless forloop.last %},{% endunless %}
+                {% endfor %}
+              ],
+              "examples": [
+                {% for b in examples %}
+                  {
+                    "name": {{ b.settings.name | json }},
+                    "sensitivity": {{ b.settings.sensitivity | default: '' | json }},
+                    "causes": {{ b.settings.causes | default: '' | split: ',' | json }}
+                  }{% unless forloop.last %},{% endunless %}
+                {% endfor %}
+              ],
+              "sensitivityKey": {{ section.settings.sensitivity_key | default: 'sens' | json }},
+              "sensitivitySuffix": {{ section.settings.sensitivity_suffix | default: ' sensitivity' | json }},
+              "countSuffix": {{ section.settings.count_suffix | default: ' actives' | json }}
+            }
+          </script>
+        </div>
+      {% endif %}
+
+      {% if section.settings.button_label != blank %}
+        <a
+          class="formula-builder__cta"
+          {% if section.settings.button_link != blank %}href="{{ section.settings.button_link }}"{% else %}href="#"{% endif %}
+          {% if section.settings.button_opens_quiz %}data-open-quiz{% endif %}
+        >{{ section.settings.button_label }}</a>
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+
+<script src="{{ 'formula-builder.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Formula Builder",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "step_number", "label": "Step number", "default": "2" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Formulate" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Then, we create a formula to treat them.", "info": "Wrap emphasized text in {} for the italic Canela style" },
+    { "type": "textarea", "id": "body", "label": "Body copy", "default": "Different causes, different actives. Here's how a few formulas stack up." },
+    { "type": "header", "content": "Widget" },
+    { "type": "text", "id": "widget_label", "label": "Label above the card", "default": "Real customer formulas" },
+    { "type": "text", "id": "causes_label", "label": "Left column label", "default": "If you have" },
+    { "type": "text", "id": "actives_label", "label": "Right column label", "default": "We add" },
+    { "type": "text", "id": "count_suffix", "label": "Count suffix", "default": " actives" },
+    { "type": "text", "id": "sensitivity_key", "label": "Sensitivity cause key", "default": "sens", "info": "The cause whose name is replaced by the person's sensitivity level." },
+    { "type": "text", "id": "sensitivity_suffix", "label": "Sensitivity suffix", "default": " sensitivity" },
+    { "type": "header", "content": "Call to action" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Find my formula" },
+    { "type": "url", "id": "button_link", "label": "Link" },
+    { "type": "checkbox", "id": "button_opens_quiz", "label": "Button opens the quiz", "default": true },
+    { "type": "header", "content": "Layout" },
+    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." },
+    { "type": "header", "content": "Personalization flow" },
+    { "type": "select", "id": "flow_visibility", "label": "Show this section to", "default": "all",
+      "options": [
+        { "value": "all", "label": "Everyone" },
+        { "value": "quiz", "label": "Quiz arrivals only" },
+        { "value": "direct", "label": "Direct arrivals only" }
+      ],
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL." }
+  ],
+  "blocks": [
+    {
+      "type": "cause",
+      "name": "Cause",
+      "settings": [
+        { "type": "text", "id": "key", "label": "Key", "default": "surface", "info": "Referenced by the people below." },
+        { "type": "text", "id": "name", "label": "Name", "default": "Surface stains" },
+        { "type": "color", "id": "colour", "label": "Colour", "default": "#B03A2E" },
+        { "type": "text", "id": "ingredients", "label": "Actives", "default": "Sodium bicarbonate, Peroxide", "info": "Comma separated." }
+      ]
+    },
+    {
+      "type": "example",
+      "name": "Person",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name", "default": "Sophia" },
+        { "type": "text", "id": "sensitivity", "label": "Sensitivity level", "default": "Mild" },
+        { "type": "text", "id": "causes", "label": "Cause keys", "default": "surface, plaque, sens", "info": "Comma separated, in the order they should appear." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Formula Builder" }]
+}
+{% endschema %}

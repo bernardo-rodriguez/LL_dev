@@ -1,4 +1,5 @@
 {{ 'section-root-causes.css' | asset_url | stylesheet_tag }}
+{{ 'component-section-step.css' | asset_url | stylesheet_tag }}
 
 {% assign formatted_heading = section.settings.heading
   | replace: '{', "<span class='stylized'>"
@@ -15,8 +16,8 @@
     <div class="root-causes__inner">
 
       <div class="root-causes__header">
-        {% if section.settings.eyebrow != blank %}
-          <p class="section-eyebrow root-causes__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+        {% if section.settings.eyebrow != blank or section.settings.step_number != blank %}
+          {% render 'section-step', number: section.settings.step_number, label: section.settings.eyebrow %}
         {% endif %}
         {% if section.settings.heading != blank %}
           <h3 class="section-heading root-causes__heading">{{ formatted_heading }}</h3>
@@ -50,12 +51,32 @@
                 <span class="root-causes__item-label label-sm" {% if block.settings.colour != blank %}style="color: {{ block.settings.colour }};"{% endif %}>
                   {{ forloop.index }} · {{ block.settings.title }}
                 </span>
-                <span class="root-causes__item-text sh3">{{ block.settings.text }}</span>
+                {% if block.settings.text != blank %}
+                  <span class="root-causes__item-text sh3">{{ block.settings.text }}</span>
+                {% endif %}
               </li>
             {% endfor %}
           </ol>
         {% endif %}
       </div>
+
+      {% if section.settings.quote != blank %}
+        <figure class="root-causes__quote">
+          <span class="root-causes__quote-photo">
+            {% if section.settings.quote_image != blank %}
+              <img src="{{ section.settings.quote_image | image_url: width: 120 }}" alt="{{ section.settings.quote_attribution | escape }}" loading="lazy">
+            {% else %}
+              <span class="root-causes__quote-photo-note">{{ section.settings.quote_image_caption }}</span>
+            {% endif %}
+          </span>
+          <span class="root-causes__quote-body">
+            <blockquote class="root-causes__quote-text">{{ section.settings.quote }}</blockquote>
+            {% if section.settings.quote_attribution != blank %}
+              <figcaption class="root-causes__quote-by">{{ section.settings.quote_attribution }}</figcaption>
+            {% endif %}
+          </span>
+        </figure>
+      {% endif %}
 
       {% if section.settings.button_label != blank %}
         <a
@@ -78,10 +99,16 @@
   "tag": "section",
   "class": "section",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Treats every root cause" },
+    { "type": "text", "id": "step_number", "label": "Step number", "default": "1", "info": "Shown in the navy disc before the eyebrow. Leave blank to hide it." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Assess" },
     { "type": "textarea", "id": "heading", "label": "Heading", "default": "Analysis first. Treatment second.", "info": "Wrap emphasized text in {} for the italic Canela style" },
     { "type": "textarea", "id": "body", "label": "Body copy", "default": "Stains are just one of four reasons teeth look yellow. Miss one and your smile stays dull. Our assessment analyzes your root causes and creates a formula to treat all four." },
     { "type": "image_picker", "id": "image", "label": "Diagram image", "info": "The numbered markers in the artwork should match the order of the causes below." },
+    { "type": "header", "content": "Dentist line" },
+    { "type": "textarea", "id": "quote", "label": "Quote", "info": "Leave blank to hide the whole block." },
+    { "type": "text", "id": "quote_attribution", "label": "Attribution" },
+    { "type": "image_picker", "id": "quote_image", "label": "Photo" },
+    { "type": "text", "id": "quote_image_caption", "label": "Photo placeholder", "default": "[Photo]" },
     { "type": "header", "content": "Call to action" },
     { "type": "text", "id": "button_label", "label": "Link label", "default": "Build my formula" },
     { "type": "url", "id": "button_link", "label": "Link" },

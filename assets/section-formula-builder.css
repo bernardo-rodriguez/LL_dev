@@ -1,0 +1,238 @@
+/*
+  Formula builder — the "Formulate" step.
+
+  Measured from the narrative artboard at 480: a mono label over a squared
+  white card, a three-up tab strip of people, then two columns — the causes
+  they came in with, and the actives those causes call for — split by an
+  arrow.
+*/
+
+.formula-builder { background: #ffffff; color: var(--navy); }
+
+.formula-builder__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  padding: var(--section-space-y) 0 0;
+}
+
+.formula-builder--with-spacing .formula-builder__inner { padding-bottom: var(--section-space-y); }
+
+.formula-builder__header {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.formula-builder__heading { margin: 0; text-transform: none; }
+
+.formula-builder__body {
+  margin: 0;
+  max-width: 52ch;
+  color: var(--navy-tint-80);
+  line-height: var(--ds-line-height-copy);
+}
+
+/* ---- The card --------------------------------------------------------- */
+
+.formula-builder__widget {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formula-builder__label {
+  margin: 0;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10.5px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy-tint-60);
+}
+
+.formula-builder__card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--flow-rule, #d8e0e8);
+  border-radius: 0;
+  background: #ffffff;
+}
+
+/* ---- Tabs ------------------------------------------------------------- */
+
+.formula-builder__tabs {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 6px;
+  padding: 8px 10px;
+}
+
+.formula-builder__tab {
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 8px 0 5px;
+  border: 1px solid var(--flow-rule, #d8e0e8);
+  border-radius: 17px;
+  background: #ffffff;
+  color: #22405f;
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.formula-builder__tab.is-active {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.formula-builder__avatar {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--flow-rule, #d8e0e8);
+  color: #22405f;
+  font-size: 10.5px;
+  font-weight: 600;
+  line-height: 1;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.formula-builder__tab.is-active .formula-builder__avatar {
+  background: #ffffff;
+  color: var(--navy);
+}
+
+/* ---- The two columns -------------------------------------------------- */
+
+.formula-builder__panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 14px minmax(0, 1.35fr);
+  gap: 8px;
+  padding: 12px;
+}
+
+.formula-builder__col {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.formula-builder__col-label {
+  font-family: var(--ds-font-family);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #475f7d;
+}
+
+.formula-builder__col-label b { font-weight: 600; color: var(--navy); }
+
+.formula-builder__arrow {
+  align-self: center;
+  display: flex;
+  color: var(--navy-tint-60);
+}
+
+/*
+  A cause not yet reached is a dashed outline, so the row reads as a checklist
+  filling in rather than items appearing from nowhere.
+*/
+.formula-builder__chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border: 1px dashed #c6d0db;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #8a97a8;
+  font-family: var(--ds-font-family);
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.2;
+  transition: all 0.25s ease;
+}
+
+.formula-builder__chip.is-on {
+  border-style: solid;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.formula-builder__dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background: #c6d0db;
+}
+
+.formula-builder__chip.is-on .formula-builder__dot { background: #ffffff; }
+
+.formula-builder__ings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+/* the active is tagged with the colour of the cause that called for it */
+.formula-builder__ing {
+  display: inline-block;
+  padding: 5px 8px;
+  border-left: 3px solid var(--navy);
+  background: var(--flow-silver, #f4f6f8);
+  color: var(--navy);
+  font-family: var(--ds-font-family);
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* ---- Call to action --------------------------------------------------- */
+
+.formula-builder__cta {
+  align-self: stretch;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: var(--flow-cta, #67b9e8);
+  color: #ffffff;
+  font-family: var(--ds-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .formula-builder__chip,
+  .formula-builder__tab,
+  .formula-builder__avatar { transition: none; }
+}
+
+@media screen and (min-width: 769px) {
+  .formula-builder__panel { gap: 14px; padding: 16px; }
+  .formula-builder__cta { align-self: flex-start; min-width: 280px; }
+}

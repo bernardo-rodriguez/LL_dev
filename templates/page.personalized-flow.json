@@ -170,7 +170,7 @@
           "type": "cause",
           "settings": {
             "title": "Plaque film",
-            "text": "A dull film along the gumline",
+            "text": "",
             "colour": "#8A6420"
           }
         },
@@ -178,7 +178,7 @@
           "type": "cause",
           "settings": {
             "title": "Surface stains",
-            "text": "Coffee, tea and wine on the surface",
+            "text": "",
             "colour": "#8A5A3C"
           }
         },
@@ -186,7 +186,7 @@
           "type": "cause",
           "settings": {
             "title": "Deep stains",
-            "text": "Yellowing from inside the tooth",
+            "text": "",
             "colour": "#73476E"
           }
         },
@@ -194,7 +194,7 @@
           "type": "cause",
           "settings": {
             "title": "Thin enamel",
-            "text": "Lets the yellow core show through",
+            "text": "",
             "colour": "#4F7A91"
           }
         }
@@ -206,7 +206,7 @@
         "cause_4"
       ],
       "settings": {
-        "eyebrow": "Step 1",
+        "eyebrow": "Assess",
         "heading": "First, we find what’s yellowing your teeth.",
         "body": "It’s rarely just coffee. Your free smile assessment checks for 4 root causes, and most people have more than one.",
         "image": "shopify://shop_images/Landing_page_mobile_-selection_9448ecfa-232d-4621-9079-a2b4005e2df5.png",
@@ -214,50 +214,112 @@
         "button_link": "",
         "button_opens_quiz": true,
         "margin_bottom": false,
-        "flow_visibility": "all"
+        "flow_visibility": "all",
+        "step_number": "1",
+        "quote": "“In my office, we always find the cause before we whiten.”",
+        "quote_attribution": "Dr. [Name], DDS · [Disclosure]",
+        "quote_image_caption": "[Photo]"
       }
     },
     "why_personalized": {
-      "type": "why-personalized",
+      "type": "formula-builder",
       "blocks": {
-        "row_TxEMbp": {
-          "type": "row",
+        "cause_plaque": {
+          "type": "cause",
           "settings": {
-            "them": "Plaque film",
-            "ours": "Plaque-removing enzymes, xylitol, coconut oil"
+            "key": "plaque",
+            "name": "Plaque film",
+            "colour": "#9A6400",
+            "ingredients": "Plaque-removing enzymes, Xylitol, Coconut oil"
           }
         },
-        "row_2": {
-          "type": "row",
+        "cause_surface": {
+          "type": "cause",
           "settings": {
-            "them": "Surface & deep stains",
-            "ours": "Peroxide, sodium bicarbonate"
+            "key": "surface",
+            "name": "Surface stains",
+            "colour": "#B03A2E",
+            "ingredients": "Sodium bicarbonate, Peroxide"
           }
         },
-        "row_3": {
-          "type": "row",
+        "cause_deep": {
+          "type": "cause",
           "settings": {
-            "them": "Thin enamel & sensitivity",
-            "ours": "Nano-hydroxyapatite, aloe vera"
+            "key": "deep",
+            "name": "Deep stains",
+            "colour": "#6A3FA3",
+            "ingredients": "Peroxide"
+          }
+        },
+        "cause_enamel": {
+          "type": "cause",
+          "settings": {
+            "key": "enamel",
+            "name": "Thin enamel",
+            "colour": "#0F7A6E",
+            "ingredients": "Nano-hydroxyapatite"
+          }
+        },
+        "cause_sens": {
+          "type": "cause",
+          "settings": {
+            "key": "sens",
+            "name": "Sensitive teeth",
+            "colour": "#2A62C9",
+            "ingredients": "Aloe vera"
+          }
+        },
+        "person_kailey": {
+          "type": "example",
+          "settings": {
+            "name": "Kailey",
+            "sensitivity": "Medium",
+            "causes": "surface, plaque, deep, sens"
+          }
+        },
+        "person_sophia": {
+          "type": "example",
+          "settings": {
+            "name": "Sophia",
+            "sensitivity": "Mild",
+            "causes": "surface, plaque, sens"
+          }
+        },
+        "person_lesley": {
+          "type": "example",
+          "settings": {
+            "name": "Lesley",
+            "sensitivity": "High",
+            "causes": "deep, enamel, sens"
           }
         }
       },
       "block_order": [
-        "row_TxEMbp",
-        "row_2",
-        "row_3"
+        "cause_plaque",
+        "cause_surface",
+        "cause_deep",
+        "cause_enamel",
+        "cause_sens",
+        "person_kailey",
+        "person_sophia",
+        "person_lesley"
       ],
       "settings": {
-        "eyebrow": "Step 2",
+        "step_number": "2",
+        "eyebrow": "Formulate",
         "heading": "Then, we create a formula to treat them.",
-        "them_label": "Your root cause",
-        "ours_label": "What we blend in",
-        "ours_logo_svg": "",
-        "footnote": "",
-        "margin_bottom": false,
-        "flow_visibility": "all",
+        "body": "Different causes, different actives. Here’s how a few formulas stack up.",
+        "widget_label": "Real customer formulas",
+        "causes_label": "If you have",
+        "actives_label": "We add",
+        "count_suffix": " actives",
+        "sensitivity_key": "sens",
+        "sensitivity_suffix": " sensitivity",
         "button_label": "Find my formula",
-        "button_opens_quiz": true
+        "button_link": "",
+        "button_opens_quiz": true,
+        "margin_bottom": false,
+        "flow_visibility": "all"
       }
     },
     "personalized_offer": {
@@ -266,19 +328,25 @@
         "step_1": {
           "type": "step",
           "settings": {
-            "text": "Take the 2-min quiz"
+            "text": "Your custom formula gel",
+            "suffix": "· 6 treatments",
+            "icon": "gel"
           }
         },
         "step_2": {
           "type": "step",
           "settings": {
-            "text": "Get a formula made for your smile"
+            "text": "Blue LED mouthpiece",
+            "suffix": "",
+            "icon": "mouthpiece"
           }
         },
         "step_3": {
           "type": "step",
           "settings": {
-            "text": "Avg. 7 shades whiter in 6 days (20 min/daily)"
+            "text": "Free shipping",
+            "suffix": "",
+            "icon": "shipping"
           }
         }
       },
@@ -289,19 +357,22 @@
       ],
       "settings": {
         "badge": "Anniversary sale 40% off",
-        "eyebrow": "Your personalized kit",
+        "eyebrow": "Shipped to your door",
         "price": "$39",
         "price_was": "$65",
-        "price_note": "vs. $400–$1000 for whitening at the dentist",
-        "includes": "",
+        "price_note": "vs. $500 for personalized whitening at the dentist",
         "button_label": "Find my formula",
         "button_link": "",
         "button_opens_quiz": true,
         "guarantee": "Noticeably whiter in 30 days or your money back",
         "trust": "Enamel-safe · Dentist-formulated · FDA-registered",
-        "shipping": "",
         "margin_bottom": false,
-        "flow_visibility": "all"
+        "flow_visibility": "all",
+        "step_number": "3",
+        "heading": "Your formula, in one simple starter kit.",
+        "body": "Everything you need to start. Nothing else to buy.",
+        "media_chip": "Blended for your causes",
+        "media_chip_colours": "#A87B2A, #8A5A3C, #73476E, #4F7A91"
       }
     },
     "dentist_cards": {
@@ -312,7 +383,7 @@
           "settings": {
             "name": "Dr. Name, DDS",
             "practice": "Practice · City, State",
-            "tag": "Recommends to patients",
+            "tag": "Uses it with patients",
             "quote": "Matching strength to sensitivity is how we whiten in the office. Laughland brings that home.",
             "disclosure": "Paid Laughland advisor"
           }
@@ -322,7 +393,7 @@
           "settings": {
             "name": "Dr. Name, DMD",
             "practice": "Practice · City, State",
-            "tag": "Recommends to patients",
+            "tag": "Uses it with patients",
             "quote": "Whitening fades when it only treats stains. Treating plaque and enamel too is what makes it last.",
             "disclosure": "Paid Laughland advisor"
           }
@@ -332,7 +403,7 @@
           "settings": {
             "name": "Dr. Name, DDS",
             "practice": "Practice · City, State",
-            "tag": "Recommends to patients",
+            "tag": "Uses it with patients",
             "quote": "It's what I suggest for patients who couldn't get through strips.",
             "disclosure": "Paid Laughland advisor"
           }
@@ -345,7 +416,7 @@
       ],
       "settings": {
         "eyebrow": "Dentist approved",
-        "heading": "Dentists trust it. It's how they whiten teeth.",
+        "heading": "Made by dentists.\nTrusted by dentists.",
         "swipe_hint": "Swipe for more",
         "margin_bottom": false,
         "flow_visibility": "all"
@@ -361,7 +432,7 @@
             "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_6.png",
             "name": "Sophia S.",
             "formula": "8-16",
-            "tags": "Surface stains | #B03A2E\nMedium sensitivity",
+            "tags": "Surface stains | #B03A2E\nPlaque film | #9A6400\nMedium sensitivity",
             "quote": "After a single use I can actually tell a difference in the color of my teeth."
           }
         },
@@ -372,7 +443,7 @@
             "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png",
             "name": "Lesley C.",
             "formula": "19-2",
-            "tags": "Deep stains | #6A3FA3\nHigh sensitivity",
+            "tags": "Deep stains | #6A3FA3\nThin enamel | #0F7A6E\nHigh sensitivity",
             "quote": "Normally I have excruciating pain with strips. After the first day my teeth look 2 shades whiter."
           }
         }
@@ -508,43 +579,6 @@
         "mobile_only": true,
         "flow_visibility": "all"
       }
-    },
-    "how_to_start": {
-      "type": "how-to-start",
-      "blocks": {
-        "s1": {
-          "type": "step",
-          "settings": {
-            "title": "Take the 1-min assessment",
-            "text": "Find what’s making your teeth yellow"
-          }
-        },
-        "s2": {
-          "type": "step",
-          "settings": {
-            "title": "We blend your formula",
-            "text": "Blended for your causes and sensitivity"
-          }
-        },
-        "s3": {
-          "type": "step",
-          "settings": {
-            "title": "20 minutes before bed. 6 Treatments.",
-            "text": "Avg. 7 shades whiter in 6 days"
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3"
-      ],
-      "settings": {
-        "heading": "How to get started",
-        "body": "Three easy steps. No dentist visit.",
-        "margin_bottom": false,
-        "flow_visibility": "all"
-      }
     }
   },
   "order": [
@@ -554,7 +588,6 @@
     "why_personalized",
     "personalized_offer",
     "results_cards",
-    "how_to_start",
     "dentist_cards",
     "faq_section_Aifz8F",
     "quiz_cta_panel",

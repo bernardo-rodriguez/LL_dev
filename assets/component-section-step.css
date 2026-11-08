@@ -1,0 +1,28 @@
+/*
+  The numbered step badge shared by the narrative sections. Measured from the
+  artboard: a 22px navy disc at 12px/600, then the mono eyebrow 8px away.
+*/
+
+.section-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-step__badge {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background: var(--navy);
+  color: #ffffff;
+  font-family: var(--ds-font-family);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.section-step__label { margin: 0; }

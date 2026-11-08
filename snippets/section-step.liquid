@@ -1,0 +1,15 @@
+{%- comment -%}
+  The numbered step the narrative sections open with: a navy disc, then the
+  mono label beside it. Three sections share it, so it lives here rather than
+  being rebuilt per section.
+
+  Accepts: number, label.
+{%- endcomment -%}
+<div class="section-step">
+  {%- if number != blank -%}
+    <span class="section-step__badge" aria-hidden="true">{{ number }}</span>
+  {%- endif -%}
+  {%- if label != blank -%}
+    <p class="section-eyebrow section-step__label label-sm">{{ label }}</p>
+  {%- endif -%}
+</div>

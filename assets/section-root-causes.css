@@ -20,11 +20,14 @@
 }
 
 .root-causes__header {
-  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
 }
 
 .root-causes__heading {
-  margin: 0 0 14px;
+  margin: 0;
   text-transform: none;
 }
 
@@ -38,8 +41,8 @@
 /* Diagram beside the numbered causes */
 .root-causes__columns {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 18px;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 14px;
   align-items: center;
   width: 100%;
 }
@@ -62,23 +65,83 @@
 .root-causes__item {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  padding: 12px 0;
-  border-top: 1px solid var(--blue-tint-20);
+  gap: 1px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--flow-rule, #d8e0e8);
 }
 
-.root-causes__item:first-child {
-  border-top: 0;
-  padding-top: 0;
-}
+.root-causes__item:last-child { border-bottom: 0; }
 
 /* Falls back to the muted ink when a block sets no colour */
 .root-causes__item-label {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--navy-tint-60);
 }
 
 .root-causes__item-text {
   color: var(--navy);
+}
+
+/* ---- The dentist line that closes the section ------------------------- */
+
+.root-causes__quote {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0 0;
+  padding: 12px 14px;
+  background: var(--flow-silver, #f4f6f8);
+}
+
+.root-causes__quote-photo {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--flow-rule, #d8e0e8);
+}
+
+.root-causes__quote-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.root-causes__quote-photo-note {
+  font-family: var(--ds-font-family);
+  font-size: 9px;
+  color: var(--navy-tint-60);
+}
+
+.root-causes__quote-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.root-causes__quote-text {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--ds-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.4;
+  color: var(--navy);
+}
+
+.root-causes__quote-by {
+  font-family: var(--ds-font-family);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--navy-tint-60);
 }
 
 .root-causes__link {
@@ -102,7 +165,7 @@
 
 @media screen and (min-width: 769px) {
   .root-causes__header {
-    margin-bottom: 36px;
+    margin-bottom: 28px;
   }
 
   .root-causes__columns {
@@ -113,7 +176,65 @@
     padding: 16px 0;
   }
 
-  .root-causes__link {
+  /* ---- The dentist line that closes the section ------------------------- */
+
+.root-causes__quote {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0 0;
+  padding: 12px 14px;
+  background: var(--flow-silver, #f4f6f8);
+}
+
+.root-causes__quote-photo {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--flow-rule, #d8e0e8);
+}
+
+.root-causes__quote-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.root-causes__quote-photo-note {
+  font-family: var(--ds-font-family);
+  font-size: 9px;
+  color: var(--navy-tint-60);
+}
+
+.root-causes__quote-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.root-causes__quote-text {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--ds-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.4;
+  color: var(--navy);
+}
+
+.root-causes__quote-by {
+  font-family: var(--ds-font-family);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--navy-tint-60);
+}
+
+.root-causes__link {
     margin-top: 32px;
   }
 }

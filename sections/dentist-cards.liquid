@@ -1,6 +1,7 @@
 {{ 'section-dentist-cards.css' | asset_url | stylesheet_tag }}
 
 {% assign formatted_heading = section.settings.heading
+  | newline_to_br
   | replace: '{', "<span class='stylized'>"
   | replace: '}', '</span>'
 %}
