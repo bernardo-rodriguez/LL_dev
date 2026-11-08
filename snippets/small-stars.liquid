@@ -32,10 +32,15 @@
     is how the design treats it. The anchor is resolved by script so it works
     wherever the reviews section sits on a given template.
   {%- endcomment -%}
-  <a class="small-stars-link" href="#reviews" data-stars-to-reviews>
-    <span class="small-stars-rating">4.7<span class="small-stars-outof">/5</span></span>
-    <span class="small-stars-review-count"></span>
-  </a>
+  {%- comment -%}
+    No whitespace between the two spans: a collapsed text node there is not
+    painted by the link's underline and leaves a visible break in the rule.
+    The spacing comes from the separator instead.
+  {%- endcomment -%}
+  <a class="small-stars-link" href="#reviews" data-stars-to-reviews
+    ><span class="small-stars-rating">4.7<span class="small-stars-outof">/5</span></span
+    ><span class="small-stars-review-count"></span
+  ></a>
 </div>
 
 <script>
