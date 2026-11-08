@@ -60,12 +60,25 @@ body.template-page-personalized-flow { --section-space-y: 72px; }
 }
 
 /*
-  The matching bottom half of each section's rhythm. Every section on this
-  page wraps its content in a __inner element, so this is one rule rather
-  than a block per section.
+  Each section owns its own bottom padding.
+
+  This used to be one blanket rule on every element whose class ends in
+  __inner. It was more specific than any section's own padding, so it
+  silently overrode every section that pads itself symmetrically — and it
+  reached past the page itself, putting 36px inside the cart drawer, the
+  menu drawer and the sticky bar.
 */
 
-body.template-page-personalized-flow [class$="__inner"] {
+body.template-page-personalized-flow .root-causes__inner,
+body.template-page-personalized-flow .dentist-cards__inner {
+  padding-bottom: var(--section-space-y);
+}
+
+/*
+  Results carries its bottom space on the section: the card row and the hint
+  follow __inner, so padding there lands between the heading and the cards.
+*/
+body.template-page-personalized-flow .results-cards {
   padding-bottom: var(--section-space-y);
 }
 
