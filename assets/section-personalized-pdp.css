@@ -722,6 +722,12 @@ body.template-product-personalized .small-stars-section .jdgm-star {
   text-align: center;
 }
 
+/*
+  The glyph takes its colour from the element, which Judge.me paints yellow
+  via `:not(.jdgm-prev-badge__stars) > .jdgm-star`. Colouring only ::before
+  leaves that showing through, so both are set.
+*/
+body.template-product-personalized .small-stars-section .jdgm-star,
 body.template-product-personalized .small-stars-section .jdgm-star::before {
   font-size: 13px !important;
   color: var(--navy) !important;
