@@ -617,3 +617,42 @@ body.template-product-personalized .how-to-timeline__steps,
 body.template-product-personalized .how-to-timeline__col + .how-to-timeline__col {
   border-color: var(--pdp-rule);
 }
+
+/* ==========================================================================
+   Alignment
+   ==========================================================================
+
+   Nothing in the v4 comp is centred - every eyebrow, heading and intro ranges
+   left. Several of our sections centre theirs, and the intros are flex
+   columns that centre their children too, so both the text alignment and the
+   flex cross-axis have to move.
+   ========================================================================== */
+
+body.template-product-personalized .section-eyebrow,
+body.template-product-personalized .section-heading,
+body.template-product-personalized .smile-analysis__eyebrow,
+body.template-product-personalized .smile-analysis__heading,
+body.template-product-personalized .smile-analysis__body,
+body.template-product-personalized .treatment-plan__eyebrow,
+body.template-product-personalized .treatment-plan__heading,
+body.template-product-personalized .treatment-plan__body,
+body.template-product-personalized .how-to-timeline__eyebrow,
+body.template-product-personalized .how-to-timeline__heading,
+body.template-product-personalized .results-cards__eyebrow,
+body.template-product-personalized .results-cards__heading,
+body.template-product-personalized .Faq_Heading,
+body.template-product-personalized .Faq_Heading .h4 {
+  text-align: left;
+}
+
+/* the intros are flex columns: their cross-axis centring moves too */
+body.template-product-personalized .treatment-plan__intro,
+body.template-product-personalized .how-to-timeline__intro,
+body.template-product-personalized .clinical-standard__inner,
+body.template-product-personalized .smile-analysis__inner {
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* the treatment rows are a centred grid in our section; the comp left-aligns */
+body.template-product-personalized .treatment-plan__grid { margin-inline: 0; }
