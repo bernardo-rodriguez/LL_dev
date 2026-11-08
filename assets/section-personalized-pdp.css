@@ -434,7 +434,15 @@ body.template-product-personalized .section-heading,
 body.template-product-personalized .product__title,
 body.template-product-personalized .Faq_Heading .h4 {
   word-spacing: normal;
-  /* .h4 carries its own colour, so the --navy retone does not reach it */
+}
+
+/*
+  The FAQ heading only. .h4 carries its own colour so the --navy retone does
+  not reach it, but this must not be grouped with .section-heading: that
+  selector also matches the treatment heading, which is white on the navy
+  band, and outranks its own .treatment-plan__heading rule.
+*/
+body.template-product-personalized .Faq_Heading .h4 {
   color: var(--navy);
 }
 
@@ -541,6 +549,12 @@ body.template-product-personalized .how-to-timeline__stages-label {
   .section-eyebrow group below it matches the same element at equal
   specificity, and the later rule wins.
 */
+/* white on the band, and specific enough to beat the .section-heading group */
+body.template-product-personalized .treatment-plan .section-heading,
+body.template-product-personalized .treatment-plan__heading {
+  color: #ffffff;
+}
+
 body.template-product-personalized .treatment-plan__eyebrow {
   font-size: 11px;
   letter-spacing: 0.09em !important;
