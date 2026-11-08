@@ -833,3 +833,6 @@ body.template-product-personalized .product { margin-bottom: 0; }
 body.template-product-personalized .product__info-container {
   padding-bottom: 32px;
 }
+
+/* the greeting stays out of the way until quiz-name.js has a name to use */
+body.template-product-personalized .smile-analysis__eyebrow[hidden] { display: none; }

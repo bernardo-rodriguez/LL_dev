@@ -16,7 +16,7 @@
           "type": "cause",
           "settings": {
             "label": "Plaque film",
-            "image": "shopify://shop_images/Product_page_v4_ideal-version_style_-selection_f1a6b55c-0592-4cc5-b1b7-dabad813db1e.png",
+            "image": "shopify://shop_images/Product_page_post-quiz_mobile_-selection.png",
             "tint": "#f4ece6",
             "dot": "#a87b2a",
             "effect": "A sticky film coats your teeth and scatters light, so they look dull and yellow instead of glossy."
@@ -26,7 +26,7 @@
           "type": "cause",
           "settings": {
             "label": "Deep stains",
-            "image": "shopify://shop_images/Product_page_v4_ideal-version_style_-selection_1_cb13fb2b-69d1-4f61-9949-ab2e71e89bdc.png",
+            "image": "shopify://shop_images/Product_page_post-quiz_mobile_-selection_1.png",
             "tint": "#f6efe2",
             "dot": "#73476e",
             "effect": "Coffee and tea pigment sits inside the enamel, giving teeth a yellow cast that won’t brush off."
@@ -36,7 +36,7 @@
           "type": "cause",
           "settings": {
             "label": "Thin enamel",
-            "image": "shopify://shop_images/Product_page_v4_ideal-version_style_-selection_2_0b550705-b30d-483f-b6e2-d39f82ff6c1b.png",
+            "image": "shopify://shop_images/Product_page_post-quiz_mobile_-selection_2.png",
             "tint": "#f2eaf1",
             "dot": "#4f7a91",
             "effect": "Thinner enamel lets the yellow layer underneath show through, so teeth look darker and edges look see-through."
@@ -49,7 +49,7 @@
         "cause_3"
       ],
       "settings": {
-        "eyebrow": "Hi {INSERT NAME}",
+        "eyebrow": "Hi {name}",
         "heading": "We found 3 causes dulling your smile.",
         "body": "",
         "close_label": "Close",
@@ -242,49 +242,11 @@
         "heading": "Real results from\npeople with your profile",
         "label_before": "Before",
         "label_after": "After",
-        "cta_text": "See all 2,316 reviews",
-        "cta_url": "#judgeme_product_reviews",
         "swipe_hint": "Swipe for more",
         "margin_bottom": false,
-        "flow_visibility": "all"
-      }
-    },
-    "clinical_standard": {
-      "type": "clinical-standard",
-      "blocks": {
-        "c1": {
-          "type": "claim",
-          "settings": {
-            "text": "All formulas designed by dentists",
-            "icon": "tooth"
-          }
-        },
-        "c2": {
-          "type": "claim",
-          "settings": {
-            "text": "Clinically tested for efficacy",
-            "icon": "flask"
-          }
-        },
-        "c3": {
-          "type": "claim",
-          "settings": {
-            "text": "Pharmaceutical-grade ingredients at clinical doses",
-            "icon": "molecule"
-          }
-        }
-      },
-      "block_order": [
-        "c1",
-        "c2",
-        "c3"
-      ],
-      "settings": {
-        "eyebrow": "",
-        "heading": "Made to a clinical standard.",
-        "image_caption": "Formulation lab",
-        "margin_bottom": false,
-        "flow_visibility": "all"
+        "flow_visibility": "all",
+        "cta_text": "See all 2,316 reviews",
+        "cta_url": "#judgeme_product_reviews"
       }
     },
     "faq_section": {
@@ -336,6 +298,43 @@
       "settings": {
         "section_heading": "Questions",
         "section_sub_heading": ""
+      }
+    },
+    "clinical_standard": {
+      "type": "clinical-standard",
+      "blocks": {
+        "c1": {
+          "type": "claim",
+          "settings": {
+            "text": "All formulas designed by dentists",
+            "icon": "tooth"
+          }
+        },
+        "c2": {
+          "type": "claim",
+          "settings": {
+            "text": "Clinically tested for efficacy",
+            "icon": "flask"
+          }
+        },
+        "c3": {
+          "type": "claim",
+          "settings": {
+            "text": "Pharmaceutical-grade ingredients at clinical doses",
+            "icon": "molecule"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "settings": {
+        "heading": "Made to a clinical standard.",
+        "image_caption": "Formulation lab",
+        "margin_bottom": false,
+        "flow_visibility": "all"
       }
     }
   },

@@ -14,8 +14,23 @@
 >
   <div class="page-width {% if template.name == 'product' %}page-width--product{% endif %}">
     <div class="smile-analysis__inner">
+      {%- comment -%}
+        The eyebrow greets the quiz taker. When it carries a {name} token it
+        starts hidden and quiz-name.js fills it in — or removes it, if we
+        never learned a name.
+      {%- endcomment -%}
       {% if section.settings.eyebrow != blank %}
-        <p class="section-eyebrow smile-analysis__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+        {%- assign eyebrow_lower = section.settings.eyebrow | downcase -%}
+        {%- assign wants_name = false -%}
+        {%- if eyebrow_lower contains '{name}' or eyebrow_lower contains '{insert name}' or eyebrow_lower contains '{first_name}' or eyebrow_lower contains '{firstname}' -%}
+          {%- assign wants_name = true -%}
+        {%- endif -%}
+        <p
+          class="section-eyebrow smile-analysis__eyebrow label-sm"
+          data-quiz-name="{{ section.settings.eyebrow | escape }}"
+          data-quiz-name-fallback="{{ customer.first_name | default: '' | escape }}"
+          {% if wants_name %}hidden{% endif %}
+        >{% unless wants_name %}{{ section.settings.eyebrow }}{% endunless %}</p>
       {% endif %}
       {% if section.settings.heading != blank %}
         <h3 class="section-heading smile-analysis__heading">{{ formatted_heading }}</h3>
@@ -86,6 +101,8 @@
   </div>
 </section>
 
+<script src="{{ 'quiz-name.js' | asset_url }}" defer></script>
+
 <script>
   (function () {
     var root = document.querySelector('[data-section-id="{{ section.id }}"]');
@@ -128,7 +145,8 @@
       "type": "text",
       "id": "eyebrow",
       "label": "Eyebrow label",
-      "default": "Your analysis"
+      "default": "Your analysis",
+      "info": "Write {name} to greet the quiz taker. The whole line is dropped when no name is known."
     },
     {
       "type": "textarea",
