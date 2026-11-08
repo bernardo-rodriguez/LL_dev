@@ -1,10 +1,10 @@
 {{ 'section-results-cards.css' | asset_url | stylesheet_tag }}
 
 {% assign formatted_heading = section.settings.heading
+  | newline_to_br
   | replace: '{', "<span class='stylized'>"
   | replace: '}', '</span>'
 %}
-{% assign results = section.blocks | where: 'type', 'result' %}
 
 <section
   class="results-cards {% if section.settings.margin_bottom %}results-cards--with-spacing{% endif %}"
@@ -22,65 +22,101 @@
     </div>
   </div>
 
-  {% if results.size > 0 %}
+  {% if section.blocks.size > 0 %}
     <ul class="results-cards__row list-unstyled">
-      {% for block in results %}
-        <li class="results-cards__card" {{ block.shopify_attributes }}>
-          <div class="results-cards__pair">
-            {% for i in (1..2) %}
-              {% if i == 1 %}
-                {% assign img = block.settings.image_before %}
-                {% assign pill = section.settings.label_before %}
-              {% else %}
-                {% assign img = block.settings.image_after %}
-                {% assign pill = section.settings.label_after %}
-              {% endif %}
-              <figure class="results-cards__frame">
-                {% if img != blank %}
-                  <img
-                    src="{{ img | image_url: width: 600 }}"
-                    alt="{{ img.alt | default: block.settings.name | escape }}"
-                    loading="lazy"
-                  >
-                {% endif %}
-                {% if pill != blank %}
-                  <figcaption class="results-cards__pill label-sm {% if i == 2 %}results-cards__pill--after{% endif %}">{{ pill }}</figcaption>
-                {% endif %}
-              </figure>
-            {% endfor %}
-          </div>
-
-          <div class="results-cards__detail">
-            <div class="results-cards__top">
-              <span class="results-cards__name sh3">{{ block.settings.name }}</span>
-              {% if block.settings.formula != blank %}
-                <span class="results-cards__formula body-sm">{{ block.settings.formula }}</span>
-              {% endif %}
-            </div>
-
-            {% if block.settings.tags != blank %}
-              <ul class="results-cards__tags">
-                {% assign tag_lines = block.settings.tags | newline_to_br | split: '<br />' %}
-                {% for line in tag_lines %}
-                  {% assign tag = line | strip %}
-                  {% if tag != blank %}
-                    <li class="results-cards__tag body-sm">{{ tag }}</li>
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'result' %}
+            <li class="results-cards__card" {{ block.shopify_attributes }}>
+              <div class="results-cards__pair">
+                {% for i in (1..2) %}
+                  {% if i == 1 %}
+                    {% assign img = block.settings.image_before %}
+                    {% assign chip = section.settings.label_before %}
+                  {% else %}
+                    {% assign img = block.settings.image_after %}
+                    {% assign chip = section.settings.label_after %}
                   {% endif %}
+                  <figure class="results-cards__frame">
+                    {% if img != blank %}
+                      <img
+                        src="{{ img | image_url: width: 600 }}"
+                        alt="{{ img.alt | default: block.settings.name | escape }}"
+                        loading="lazy"
+                      >
+                    {% endif %}
+                    {% if chip != blank %}
+                      <figcaption class="results-cards__chip {% if i == 2 %}results-cards__chip--after{% endif %}">{{ chip }}</figcaption>
+                    {% endif %}
+                  </figure>
                 {% endfor %}
-              </ul>
-            {% endif %}
+              </div>
 
-            {% if block.settings.quote != blank %}
-              <blockquote class="results-cards__quote body-md">{{ block.settings.quote }}</blockquote>
-            {% endif %}
-          </div>
-        </li>
+              <div class="results-cards__detail">
+                <div class="results-cards__top">
+                  <span class="results-cards__name">{{ block.settings.name }}</span>
+                  {% if block.settings.formula != blank %}
+                    <span class="results-cards__formula">{{ block.settings.formula }}</span>
+                  {% endif %}
+                </div>
+
+                {% if block.settings.tags != blank %}
+                  <ul class="results-cards__tags">
+                    {% assign tag_lines = block.settings.tags | newline_to_br | split: '<br />' %}
+                    {% for line in tag_lines %}
+                      {%- assign parts = line | split: '|' -%}
+                      {%- assign tag = parts[0] | strip -%}
+                      {%- assign dot = parts[1] | default: '' | strip -%}
+                      {%- if tag != blank -%}
+                        <li class="results-cards__tag">{%- if dot != blank -%}<span class="results-cards__dot" style="background:{{ dot | escape }}" aria-hidden="true"></span>{%- endif -%}{{ tag }}</li>
+                      {%- endif -%}
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+
+                {% if block.settings.quote != blank %}
+                  <blockquote class="results-cards__quote">{{ block.settings.quote }}</blockquote>
+                {% endif %}
+              </div>
+            </li>
+
+          {% when 'video' %}
+            <li class="results-cards__card results-cards__card--video" {{ block.shopify_attributes }}>
+              {% if block.settings.video != blank %}
+                {{ block.settings.video | video_tag: image_size: '800x', controls: true, muted: true, playsinline: true }}
+              {% elsif block.settings.poster != blank %}
+                <img
+                  class="results-cards__video-poster"
+                  src="{{ block.settings.poster | image_url: width: 800 }}"
+                  alt="{{ block.settings.poster.alt | default: block.settings.caption | escape }}"
+                  loading="lazy"
+                >
+              {% else %}
+                <span class="results-cards__video-cue" aria-hidden="true">
+                  <span class="results-cards__video-glyph">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+                  </span>
+                </span>
+              {% endif %}
+              {% if block.settings.caption != blank %}
+                <div class="results-cards__video-caption">{{ block.settings.caption }}</div>
+              {% endif %}
+            </li>
+        {% endcase %}
       {% endfor %}
     </ul>
 
-    {% if section.settings.swipe_hint != blank %}
+    {% if section.settings.cta_text != blank %}
       <div class="page-width">
-        <p class="results-cards__hint body-sm">{{ section.settings.swipe_hint }}</p>
+        <a class="results-cards__cta" href="{{ section.settings.cta_url | default: '#reviews' }}">
+          <span class="results-cards__cta-arrow" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </span>{{ section.settings.cta_text }}
+        </a>
+      </div>
+    {% elsif section.settings.swipe_hint != blank %}
+      <div class="page-width">
+        <p class="results-cards__hint">{{ section.settings.swipe_hint }}</p>
       </div>
     {% endif %}
   {% endif %}
@@ -93,9 +129,12 @@
   "class": "section",
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Real results · 4.7/5 · 2,316 reviews" },
-    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Different causes. Different formulas. Same brighter smile.", "info": "Wrap emphasized text in {} for the italic Canela style" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Different causes. Different formulas. Same brighter smile.", "info": "Line breaks are kept. Wrap emphasized text in {} for the italic Canela style" },
     { "type": "text", "id": "label_before", "label": "Before label", "default": "Before" },
     { "type": "text", "id": "label_after", "label": "After label", "default": "After" },
+    { "type": "header", "content": "Under the row" },
+    { "type": "text", "id": "cta_text", "label": "Link text", "info": "Leave blank to show the swipe hint instead." },
+    { "type": "url", "id": "cta_url", "label": "Link target" },
     { "type": "text", "id": "swipe_hint", "label": "Hint under the row", "default": "Swipe for more" },
     { "type": "header", "content": "Layout" },
     { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." },
@@ -117,8 +156,17 @@
         { "type": "image_picker", "id": "image_after", "label": "After image" },
         { "type": "text", "id": "name", "label": "Name", "default": "Sophia S." },
         { "type": "text", "id": "formula", "label": "Formula", "default": "8-16" },
-        { "type": "textarea", "id": "tags", "label": "Causes and sensitivity", "info": "One per line", "default": "Surface stains\nMedium sensitivity" },
+        { "type": "textarea", "id": "tags", "label": "Causes and sensitivity", "info": "One per line. Add a dot by writing: Surface stains | #B03A2E", "default": "Surface stains\nMedium sensitivity" },
         { "type": "textarea", "id": "quote", "label": "Quote", "default": "After a single use I can actually tell a difference in the color of my teeth." }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        { "type": "video", "id": "video", "label": "Customer video", "info": "15-30 seconds works best." },
+        { "type": "image_picker", "id": "poster", "label": "Poster image", "info": "Used when no video is set." },
+        { "type": "text", "id": "caption", "label": "Caption", "default": "Kailey · 8-16" }
       ]
     }
   ],

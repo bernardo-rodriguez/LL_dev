@@ -361,7 +361,7 @@
             "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_6.png",
             "name": "Sophia S.",
             "formula": "8-16",
-            "tags": "Surface stains\nMedium sensitivity",
+            "tags": "Surface stains | #B03A2E\nMedium sensitivity",
             "quote": "After a single use I can actually tell a difference in the color of my teeth."
           }
         },
@@ -372,7 +372,7 @@
             "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png",
             "name": "Lesley C.",
             "formula": "19-2",
-            "tags": "Deep stains\nHigh sensitivity",
+            "tags": "Deep stains | #6A3FA3\nHigh sensitivity",
             "quote": "Normally I have excruciating pain with strips. After the first day my teeth look 2 shades whiter."
           }
         }
@@ -382,8 +382,8 @@
         "result_2"
       ],
       "settings": {
-        "eyebrow": "Real results · 4.7/5 · 2,316 reviews",
-        "heading": "Different causes. Different formulas. Same brighter smile.",
+        "eyebrow": "Over 100K+ smiles brightened",
+        "heading": "Different causes. Different formulas.\nReal results.",
         "label_before": "Before",
         "label_after": "After",
         "swipe_hint": "Swipe for more",

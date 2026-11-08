@@ -789,8 +789,16 @@ body.template-product-personalized { --section-space-y: 36px; }
 body.template-product-personalized .smile-analysis__inner,
 body.template-product-personalized .treatment-plan__inner,
 body.template-product-personalized .how-to-timeline__inner,
-body.template-product-personalized .results-cards__inner,
 body.template-product-personalized .clinical-standard__inner {
+  padding-bottom: var(--section-space-y);
+}
+
+/*
+  Results carries its bottom space on the section, not on __inner: the row
+  and the "see all" link follow the heading block, so padding on __inner
+  would land between the heading and the cards instead of under the band.
+*/
+body.template-product-personalized .results-cards {
   padding-bottom: var(--section-space-y);
 }
 
