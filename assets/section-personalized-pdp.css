@@ -813,3 +813,15 @@ body.template-product-personalized .treatment-plan__inner {
 
 /* the gallery opens the buy box group rather than standing apart from it */
 body.template-product-personalized .pdp-gallery { padding-top: 16px; }
+
+/*
+  .product carries a 20px bottom margin from the theme, which pushed the
+  How to use hairline away from the buy box. In the comp the rule sits
+  directly on the boundary.
+*/
+body.template-product-personalized .product { margin-bottom: 0; }
+
+/* the buy box closes with the comp's 32px rather than the theme's margin */
+body.template-product-personalized .product__info-container {
+  padding-bottom: 32px;
+}
