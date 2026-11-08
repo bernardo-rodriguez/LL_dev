@@ -41,6 +41,9 @@
             loading="lazy"
           >
         {% endif %}
+        {% if section.settings.image == blank and section.settings.image_caption != blank %}
+          <span class="personalized-offer__media-note">{{ section.settings.image_caption }}</span>
+        {% endif %}
         {% if section.settings.media_chip != blank %}
           <span class="personalized-offer__chip">
             {{ section.settings.media_chip }}
@@ -124,6 +127,12 @@
       "type": "image_picker",
       "id": "image",
       "label": "Product image"
+    },
+    {
+      "type": "text",
+      "id": "image_caption",
+      "label": "Image placeholder",
+      "default": "[Product photo: LED mouthpiece + gels]"
     },
     {
       "type": "text",
