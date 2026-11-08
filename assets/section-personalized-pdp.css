@@ -509,11 +509,6 @@ body.template-product-personalized .pdp-gallery__caption {
   The treatment band's eyebrow is a shade smaller and wider than the others:
   11px at 0.09em against the page's 11.5px at 0.08em.
 */
-body.template-product-personalized .treatment-plan__eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.09em !important;
-}
-
 /* 13.25px/1.32, not 12.5 */
 body.template-product-personalized .treatment-plan__effect {
   font-size: 13.25px;
@@ -542,8 +537,19 @@ body.template-product-personalized .how-to-timeline__stages-label {
 
 /* ---- Treatment, on the navy band ------------------------------------- */
 
-/* the eyebrow is pale blue against the band, not the muted grey it inherits */
-body.template-product-personalized .treatment-plan__eyebrow { color: #bdddfc; }
+/*
+  The eyebrow is pale blue against the band, and a shade smaller and wider
+  than the page's others: 11px at 0.09em against 11.5 at 0.08.
+
+  The size lives here rather than in the earlier rule because the generic
+  .section-eyebrow group below it matches the same element at equal
+  specificity, and the later rule wins.
+*/
+body.template-product-personalized .treatment-plan__eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.09em !important;
+  color: #bdddfc;
+}
 
 body.template-product-personalized .treatment-plan__cause { color: #d3e2f5; }
 
