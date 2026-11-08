@@ -1113,3 +1113,14 @@ body.template-page-personalized-flow .FAQ_Section {
 }
 
 body.template-page-personalized-flow .FAQ_Section .Faq_section_inner { padding: 36px 20px; }
+
+/*
+  The header band. The theme paints it the pale blue tint; the design has a
+  white header closed by the same hairline as the rest of the page, which is
+  also what gives the rating line its air above. Scoped, so every other
+  template keeps the tint.
+*/
+body.template-page-personalized-flow .outer-header-wrapper {
+  background: #ffffff;
+  border-bottom: 1px solid var(--flow-rule);
+}
