@@ -313,12 +313,6 @@ body.template-product-personalized .treatment-plan__inner {
   margin-inline: auto;
 }
 
-/* The reference centres the results intro, as it does every other section's */
-body.template-product-personalized .results-cards .section-eyebrow,
-body.template-product-personalized .results-cards .section-heading {
-  text-align: center;
-}
-
 /*
   The FAQ's desktop layout sets the heading in a column beside the list. The
   reference stacks it above and centres it, which is also how this section
@@ -440,6 +434,8 @@ body.template-product-personalized .section-heading,
 body.template-product-personalized .product__title,
 body.template-product-personalized .Faq_Heading .h4 {
   word-spacing: normal;
+  /* .h4 carries its own colour, so the --navy retone does not reach it */
+  color: var(--navy);
 }
 
 /* ==========================================================================
