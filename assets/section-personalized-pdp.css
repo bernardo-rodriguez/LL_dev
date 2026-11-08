@@ -503,6 +503,25 @@ body.template-product-personalized .product__title {
   font-family: manrope, 'Manrope', 'Helvetica Neue', Arial, sans-serif;
 }
 
+/*
+  Icon fonts must be exempt from the blanket rule above. Judge.me sets
+  JudgemeStar on .jdgm-star at a single class, which my span selector
+  outranks - the glyphs then render as empty boxes.
+*/
+body.template-product-personalized .jdgm-star,
+body.template-product-personalized [class*='jdgm-'] {
+  font-family: 'JudgemeStar', sans-serif;
+}
+
+body.template-product-personalized .jdgm-widget,
+body.template-product-personalized .jdgm-widget * {
+  font-family: var(--ds-font-family);
+}
+
+body.template-product-personalized .jdgm-widget .jdgm-star {
+  font-family: 'JudgemeStar', sans-serif;
+}
+
 /* the mono labels keep theirs */
 body.template-product-personalized .section-eyebrow,
 body.template-product-personalized .how-to-timeline__stages-label,
