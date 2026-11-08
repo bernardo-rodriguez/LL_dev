@@ -1092,9 +1092,11 @@ body.template-page-personalized-flow .logo-bar--rules { margin-top: 0; }
 */
 body.template-page-personalized-flow { background: #ffffff; }
 
-/* the FAQ is ruled top and bottom; the section is shared, so this is scoped */
-body.template-page-personalized-flow .faq-section,
-body.template-page-personalized-flow .Faq {
+
+/* the FAQ is ruled top and bottom and keeps the page's 20px gutters */
+body.template-page-personalized-flow .FAQ_Section {
   border-top: 1px solid var(--flow-rule);
   border-bottom: 1px solid var(--flow-rule);
 }
+
+body.template-page-personalized-flow .Faq_section_inner { padding: 36px 20px; }
