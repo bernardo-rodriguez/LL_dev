@@ -145,9 +145,12 @@ body.template-product-personalized .small-stars-rating {
 
 /* "4.7 · 2,583 Reviews", the separator drawn rather than typed */
 body.template-product-personalized .small-stars-review-count:not(:empty)::before {
-  content: '·';
-  margin: 0 4px;
-  /* part of the link's own run in the comp, so the same ink and underline */
+  /*
+    The spaces live inside the content rather than as margins: a margin on an
+    inline box punches a hole in the underline, so the rule broke either side
+    of the separator. Non-breaking spaces keep it one continuous run.
+  */
+  content: '\00a0·\00a0';
   color: inherit;
 }
 
