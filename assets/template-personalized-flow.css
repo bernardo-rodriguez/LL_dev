@@ -12,6 +12,7 @@
   per-section CSS here and section widths and layout are untouched.
 */
 
+
 body.template-page-personalized-flow {
   /*
     The design runs a 36px top and bottom on each section, so the gap between
@@ -54,7 +55,8 @@ body.template-page-personalized-flow {
 }
 
 @media screen and (min-width: 769px) {
-  body.template-page-personalized-flow { --section-space-y: 72px; }
+  
+body.template-page-personalized-flow { --section-space-y: 72px; }
 }
 
 /*
@@ -62,6 +64,7 @@ body.template-page-personalized-flow {
   page wraps its content in a __inner element, so this is one rule rather
   than a block per section.
 */
+
 body.template-page-personalized-flow [class$="__inner"] {
   padding-bottom: var(--section-space-y);
 }
@@ -74,6 +77,7 @@ body.template-page-personalized-flow [class$="__inner"] {
   Canela for every section heading, at the design's size and rhythm. It is
   already an @font-face in the theme, so no new font file is involved.
 */
+
 body.template-page-personalized-flow .section-heading,
 body.template-page-personalized-flow .personalized-hero__heading {
   font-family: manrope, 'Manrope', 'Inter Tight', 'Helvetica Neue', Arial, sans-serif;
@@ -90,16 +94,20 @@ body.template-page-personalized-flow .personalized-hero__heading {
   390 phone where the comp holds two. 32 keeps the comp's two-line block at
   every phone width.
 */
+
 body.template-page-personalized-flow .personalized-hero__heading {
   font-size: 32px;
 }
 
 @media screen and (min-width: 769px) {
-  body.template-page-personalized-flow .section-heading { font-size: 40px; }
-  body.template-page-personalized-flow .personalized-hero__heading { font-size: 46px; }
+  
+body.template-page-personalized-flow .section-heading { font-size: 40px; }
+  
+body.template-page-personalized-flow .personalized-hero__heading { font-size: 46px; }
 }
 
 /* JetBrains Mono for the small uppercase labels, as the design sets them */
+
 body.template-page-personalized-flow .section-eyebrow,
 body.template-page-personalized-flow .quiz-cta-panel__eyebrow {
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -122,17 +130,15 @@ body.template-page-personalized-flow .quiz-cta-panel__eyebrow {
    Pills and circles keep their shape; those are deliberate in both designs.
    ========================================================================== */
 
+
 body.template-page-personalized-flow .personalized-hero__pair,
-body.template-page-personalized-flow .personalized-offer__media,
-body.template-page-personalized-flow .personalized-offer__guarantee,
-body.template-page-personalized-flow .why-personalized__table,
 body.template-page-personalized-flow .sensitivity-match__card,
 body.template-page-personalized-flow .dentist-cards__card,
 body.template-page-personalized-flow .quiz-cta-panel__inner {
   border-radius: 0;
 }
 
-body.template-page-personalized-flow .why-personalized__table,
+
 body.template-page-personalized-flow .sensitivity-match__card,
 body.template-page-personalized-flow .sensitivity-match__choice,
 body.template-page-personalized-flow .dentist-cards__card {
@@ -140,6 +146,7 @@ body.template-page-personalized-flow .dentist-cards__card {
 }
 
 /* The chart bar is drawn square in the design, not domed */
+
 body.template-page-personalized-flow .strength-comparison__bar {
   border-radius: 0;
 }
@@ -153,9 +160,8 @@ body.template-page-personalized-flow .strength-comparison__bar {
    design's navy square block is gone with it.
    ========================================================================== */
 
+
 body.template-page-personalized-flow .personalized-hero__cta,
-body.template-page-personalized-flow .personalized-offer__cta,
-body.template-page-personalized-flow .why-personalized__cta,
 body.template-page-personalized-flow .quiz-cta-panel__cta,
 body.template-page-personalized-flow .sticky-quiz-bar__cta {
   min-height: 54px;
@@ -176,6 +182,7 @@ body.template-page-personalized-flow .sticky-quiz-bar__cta {
 }
 
 /* the sticky bar's is the compact variant */
+
 body.template-page-personalized-flow .sticky-quiz-bar__cta {
   min-height: 46px;
   font-size: 13px;
@@ -195,6 +202,7 @@ body.template-page-personalized-flow .sticky-quiz-bar__cta {
    rule here is scoped to this template, exactly as it is on the PDP.
    ========================================================================== */
 
+
 body.template-page-personalized-flow .FAQ_Section .Faq_section_inner {
   /*
     The side padding stays: .Row is laid out with margin: 0 -20px against 20px
@@ -206,11 +214,15 @@ body.template-page-personalized-flow .FAQ_Section .Faq_section_inner {
   background: #ffffff;
 }
 
+
 body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Row { margin: 0; }
+
 body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Faq_Heading,
 body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Faq_Area { padding: 0; }
 
+
 body.template-page-personalized-flow .Faq_Heading { text-align: center; }
+
 
 body.template-page-personalized-flow .Faq_Heading .h4 {
   margin-bottom: 24px;
@@ -221,6 +233,7 @@ body.template-page-personalized-flow .Faq_Heading .h4 {
   letter-spacing: -0.02em !important;
 }
 
+
 body.template-page-personalized-flow .FAQ_Section .Accordion-Block {
   border-top-color: var(--flow-rule);
 }
@@ -230,6 +243,7 @@ body.template-page-personalized-flow .FAQ_Section .Accordion-Block {
   query, which outranks a shorter selector however correct it is, so the same
   chain is matched here.
 */
+
 body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Faq_Area .Faq_List .Accordion-Block .Accordion {
   font-family: var(--ds-font-family);
   font-size: 15px;
@@ -238,10 +252,13 @@ body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Faq_Area .
 }
 
 @media screen and (min-width: 992px) {
-  body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Row { display: block; }
-  body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Faq_Heading,
-  body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Faq_Area { width: 100%; }
-  body.template-page-personalized-flow .Faq_Heading .h4 { font-size: 40px; }
+  
+body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Row { display: block; }
+  
+body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Faq_Heading,
+body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Faq_Area { width: 100%; }
+  
+body.template-page-personalized-flow .Faq_Heading .h4 { font-size: 40px; }
 }
 
 /*
@@ -251,6 +268,7 @@ body.template-page-personalized-flow .FAQ_Section .Faq_section_inner .Faq_Area .
   heading the span simply inherits. Its nowrap is dropped too: at phone width
   it forced long phrases past the screen edge.
 */
+
 body.template-page-personalized-flow .section-heading .stylized,
 body.template-page-personalized-flow .personalized-hero__heading .stylized,
 body.template-page-personalized-flow .Faq_Heading .h4 .stylized {
@@ -279,19 +297,23 @@ body.template-page-personalized-flow .Faq_Heading .h4 .stylized {
       back, and the card takes the design's square corner and softer shadow.
    ========================================================================== */
 
+
 body.template-page-personalized-flow .personalized-hero__card {
   padding: 12px 14px;
   border-radius: 0;
   box-shadow: 0 10px 28px rgba(13, 36, 76, 0.12);
 }
 
+
 body.template-page-personalized-flow .personalized-hero__card-title {
   letter-spacing: 0.14em;
 }
 
+
 body.template-page-personalized-flow .personalized-hero__tags {
   gap: 5px;
 }
+
 
 body.template-page-personalized-flow .personalized-hero__tag {
   padding: 3px 9px;
@@ -304,6 +326,7 @@ body.template-page-personalized-flow .personalized-hero__tag {
 }
 
 /* Square, like the dots in the treatment rows and the rest of the design */
+
 body.template-page-personalized-flow .personalized-hero__tag-dot {
   border-radius: 0;
 }
@@ -313,7 +336,8 @@ body.template-page-personalized-flow .personalized-hero__tag-dot {
   size, so they step down rather than wrap.
 */
 @media screen and (max-width: 360px) {
-  body.template-page-personalized-flow .personalized-hero__tag {
+  
+body.template-page-personalized-flow .personalized-hero__tag {
     padding: 3px 7px;
     font-size: 10px;
   }
@@ -333,7 +357,8 @@ body.template-page-personalized-flow .personalized-hero__tag-dot {
   the column is wide enough that it was never a problem.
 */
 @media screen and (max-width: 768px) {
-  body.template-page-personalized-flow .personalized-hero__frame {
+  
+body.template-page-personalized-flow .personalized-hero__frame {
     aspect-ratio: 3 / 5;
   }
 }
@@ -350,6 +375,7 @@ body.template-page-personalized-flow .personalized-hero__tag-dot {
    and sets the after state in its accent blue rather than navy.
    ========================================================================== */
 
+
 body.template-page-personalized-flow .personalized-hero__pill {
   top: 10px;
   left: 10px;
@@ -359,6 +385,7 @@ body.template-page-personalized-flow .personalized-hero__pill {
   font-weight: 600;
   letter-spacing: 0.1em;
 }
+
 
 body.template-page-personalized-flow .personalized-hero__pill--after {
   left: 10px;
@@ -383,15 +410,18 @@ body.template-page-personalized-flow .personalized-hero__pill--after {
    setting one without the other lands in the wrong place.
    ========================================================================== */
 
+
 body.template-page-personalized-flow .root-causes__item-label {
   font-size: 11px;
   letter-spacing: 0.1em;
 }
 
+
 body.template-page-personalized-flow .strength-comparison__chart-label {
   font-size: 11px;
   letter-spacing: 0.12em;
 }
+
 
 body.template-page-personalized-flow .personalized-hero__card-title {
   font-size: 10.5px;
@@ -411,6 +441,7 @@ body.template-page-personalized-flow .personalized-hero__card-title {
   the word gaps to the comp's, and is the right call for Canela at headline
   size regardless, since its default fit is drawn tight.
 */
+
 body.template-page-personalized-flow .section-heading,
 body.template-page-personalized-flow .personalized-hero__heading,
 body.template-page-personalized-flow .Faq_Heading .h4 {
@@ -430,6 +461,7 @@ body.template-page-personalized-flow .Faq_Heading .h4 {
    ========================================================================== */
 
 /* 15.5px / 400 / 1.5, against our 14px / 500 / 1.5 */
+
 body.template-page-personalized-flow .root-causes__body {
   font-size: 15.5px;
   font-weight: 400;
@@ -437,6 +469,7 @@ body.template-page-personalized-flow .root-causes__body {
 }
 
 /* 14.5px / 500, and the comp sets no tracking here */
+
 body.template-page-personalized-flow .root-causes__item-text {
   font-size: 14.5px;
   font-weight: 500;
@@ -447,6 +480,7 @@ body.template-page-personalized-flow .root-causes__item-text {
   The comp draws the tooth at 112x142 beside the list. Ours was 178x226, so
   it dominated the row and pushed the list text narrow.
 */
+
 body.template-page-personalized-flow .root-causes__diagram {
   max-width: 112px;
 }
@@ -465,6 +499,7 @@ body.template-page-personalized-flow .root-causes__diagram {
      sh2         15px   / 600         navy
    ========================================================================== */
 
+
 body.template-page-personalized-flow .body-md {
   font-size: 15.5px;
   font-weight: 400;
@@ -472,11 +507,13 @@ body.template-page-personalized-flow .body-md {
   color: var(--flow-body);
 }
 
+
 body.template-page-personalized-flow .sh3 {
   font-size: 14.5px;
   font-weight: 500;
   letter-spacing: normal;
 }
+
 
 body.template-page-personalized-flow .sh2,
 body.template-page-personalized-flow .Accordion {
@@ -486,10 +523,7 @@ body.template-page-personalized-flow .Accordion {
 }
 
 /* the comparison table sets its own weights against the design's 400/600 */
-body.template-page-personalized-flow .why-personalized__cell {
-  font-size: 14.5px;
-  letter-spacing: normal;
-}
+
 
 /* ==========================================================================
    Every call to action runs the full column
@@ -498,9 +532,8 @@ body.template-page-personalized-flow .why-personalized__cell {
    measure between its gutters. Ours were sizing to their content.
    ========================================================================== */
 
+
 body.template-page-personalized-flow .personalized-hero__cta,
-body.template-page-personalized-flow .personalized-offer__cta,
-body.template-page-personalized-flow .why-personalized__cta,
 body.template-page-personalized-flow .quiz-cta-panel__cta,
 body.template-page-personalized-flow .root-causes__link {
   width: 100%;
@@ -513,6 +546,7 @@ body.template-page-personalized-flow .root-causes__link {
    Hairlines top and bottom, marks centred in a 43px band. Ours was a moving
    marquee of large logos, which is what made it read as its own section.
    ========================================================================== */
+
 
 body.template-page-personalized-flow .logo-bar {
   border-top: 1px solid var(--flow-rule);
@@ -528,6 +562,7 @@ body.template-page-personalized-flow .logo-bar {
   the marquee is dismantled here instead: one list, no clipping, spread
   across the column.
 */
+
 body.template-page-personalized-flow .logo-bar__inner {
   display: flex;
   justify-content: center;
@@ -537,9 +572,11 @@ body.template-page-personalized-flow .logo-bar__inner {
 }
 
 /* the four extra copies exist only to make the scroll seamless */
+
 body.template-page-personalized-flow .logo-bar__list:not(:first-child) {
   display: none;
 }
+
 
 body.template-page-personalized-flow .logo-bar__list {
   animation: none;
@@ -556,6 +593,7 @@ body.template-page-personalized-flow .logo-bar__list {
   stay in the markup so the editor still lists them, and so the other
   placements of this section are unaffected.
 */
+
 body.template-page-personalized-flow .logo-bar__list-item:nth-child(n + 5) {
   display: none;
 }
@@ -564,6 +602,7 @@ body.template-page-personalized-flow .logo-bar__list-item:nth-child(n + 5) {
   Each mark is set to a common optical height and centred in its own share of
   the row, so wordmarks of different proportions still sit on one line.
 */
+
 body.template-page-personalized-flow .logo-bar__list-item {
   flex: 1 1 0;
   display: flex;
@@ -572,6 +611,7 @@ body.template-page-personalized-flow .logo-bar__list-item {
   min-width: 0;
   height: 15px;
 }
+
 
 body.template-page-personalized-flow .logo-bar__list-item > * {
   max-width: 100%;
@@ -589,6 +629,7 @@ body.template-page-personalized-flow .logo-bar__list-item > * {
   levelled to match the SVG fill. !important because the opacity is written
   inline on the element.
 */
+
 body.template-page-personalized-flow .logo-bar__list-item img {
   filter: grayscale(1);
   opacity: 0.38 !important;
@@ -600,6 +641,7 @@ body.template-page-personalized-flow .logo-bar__list-item img {
   page and on the shared type classes; the serif headings and the mono labels
   re-assert their own families below.
 */
+
 body.template-page-personalized-flow,
 body.template-page-personalized-flow .body-md,
 body.template-page-personalized-flow .body-sm,
@@ -624,12 +666,14 @@ body.template-page-personalized-flow .Accordion {
   rather than through --ds-font-family, which this template repoints at
   Inter Tight for body copy.
 */
+
 body.template-page-personalized-flow .section-heading,
 body.template-page-personalized-flow .personalized-hero__heading,
 body.template-page-personalized-flow .Faq_Heading .h4 {
   font-family: manrope, 'Manrope', 'Inter Tight', 'Helvetica Neue', Arial, sans-serif;
   letter-spacing: -0.019em !important;
 }
+
 
 body.template-page-personalized-flow .section-eyebrow,
 body.template-page-personalized-flow .quiz-cta-panel__eyebrow {
@@ -644,6 +688,7 @@ body.template-page-personalized-flow .quiz-cta-panel__eyebrow {
    ========================================================================== */
 
 /* the formula code reads as a value, not as body copy: 13px/600 navy */
+
 body.template-page-personalized-flow .personalized-hero__card-value {
   font-size: 13px;
   font-weight: 600;
@@ -652,6 +697,7 @@ body.template-page-personalized-flow .personalized-hero__card-value {
 }
 
 /* the card's sensitivity note: 12.5px/500 in the accent, not 12px/600 */
+
 body.template-page-personalized-flow .personalized-hero__card-note {
   font-size: 12.5px;
   font-weight: 500;
@@ -662,6 +708,7 @@ body.template-page-personalized-flow .personalized-hero__card-note {
   The comp marks this one section's eyebrow in the accent rather than the
   muted grey - it is the strength claim, and the colour ties it to the chart.
 */
+
 body.template-page-personalized-flow .strength-comparison__eyebrow {
   color: var(--flow-accent);
 }
@@ -671,11 +718,13 @@ body.template-page-personalized-flow .strength-comparison__eyebrow {
   and unequal: the Laughland figure at 30px and the OTC one at 20px, against
   a flat 16px here.
 */
+
 body.template-page-personalized-flow .strength-comparison__bar-value {
   font-size: 20px;
   font-weight: 500;
   color: #22405f;
 }
+
 
 body.template-page-personalized-flow .strength-comparison__bar--ours .strength-comparison__bar-value,
 body.template-page-personalized-flow .strength-comparison__bar-value--ours {
@@ -685,11 +734,13 @@ body.template-page-personalized-flow .strength-comparison__bar-value--ours {
 }
 
 /* the captions under each bar: 14.5px, 400 for the OTC and 600 for ours */
+
 body.template-page-personalized-flow .strength-comparison__bar-caption {
   font-size: 14.5px;
   font-weight: 400;
   color: var(--flow-muted);
 }
+
 
 body.template-page-personalized-flow .strength-comparison__bar-caption--ours {
   font-weight: 600;
@@ -708,10 +759,7 @@ body.template-page-personalized-flow .strength-comparison__bar-caption--ours {
   price block. Ours had it near the bottom, under the guarantee. The section
   is a flex column, so it is reordered rather than re-templated.
 */
-body.template-page-personalized-flow .personalized-offer__inner {
-  display: flex;
-  flex-direction: column;
-}
+
 
 /*
   The trust line lives inside __detail, which sits after __media, so ordering
@@ -719,171 +767,58 @@ body.template-page-personalized-flow .personalized-offer__inner {
   the flex container for all three and the line is promoted out of the detail
   column into it.
 */
-body.template-page-personalized-flow .personalized-offer__detail {
-  display: contents;
-}
 
-body.template-page-personalized-flow .personalized-offer__trust {
-  order: -1;
-  margin: 0 0 14px;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #22405f;
-  text-align: center;
-}
 
 /* the photo sits on the same silver as the rest of the design, not pale blue */
-body.template-page-personalized-flow .personalized-offer__media {
-  background: var(--pdp-silver, #f4f6f8);
-}
+
 
 /* a square chip in the accent, inset 12px - not a navy pill */
-body.template-page-personalized-flow .personalized-offer__badge {
-  top: 12px;
-  left: 12px;
-  padding: 5px 10px;
-  border-radius: 0;
-  background: var(--flow-accent);
-  color: #ffffff;
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-}
+
 
 /* 36px/400 against the theme's heading weight, and the was-price at 16px */
-body.template-page-personalized-flow .personalized-offer__price-now {
-  font-size: 36px;
-  font-weight: 400;
-  letter-spacing: normal;
-}
 
-body.template-page-personalized-flow .personalized-offer__price-was {
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--flow-muted);
-}
-
-body.template-page-personalized-flow .personalized-offer__price-note {
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--flow-body);
-}
 
 /* square number chips on silver, accent numeral - not blue-tinted circles */
-body.template-page-personalized-flow .personalized-offer__step {
-  padding: 11px 0;
-  gap: 12px;
-  align-items: center;
-}
 
-body.template-page-personalized-flow .personalized-offer__step-number {
-  width: 26px;
-  height: 26px;
-  flex: none;
-  border-radius: 0;
-  background: var(--pdp-silver, #f4f6f8);
-  color: var(--flow-accent);
-  font-size: 12px;
-  font-weight: 600;
-}
-
-body.template-page-personalized-flow .personalized-offer__step-text {
-  font-size: 15px;
-  font-weight: 400;
-  letter-spacing: normal;
-}
 
 /*
   The guarantee is a plain centred line in the comp, not a tinted box, and it
   carries the same shield as the rest of the flow rather than a tick.
 */
-body.template-page-personalized-flow .personalized-offer__guarantee {
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  padding: 0;
-  border-radius: 0;
-  background: transparent;
-  font-size: 13.5px;
-  font-weight: 500;
-  color: var(--navy);
-  /* the comp ranges this left, so a second line sits under the first */
-  text-align: left;
-}
 
-body.template-page-personalized-flow .personalized-offer__guarantee-icon svg {
-  display: block;
-  width: 16px;
-  height: 16px;
-}
 
-/*
-  section-personalized-offer.css fills the icon path with currentColor, which
-  was right for the tick it was written for but turns the shield into a solid
-  blob. The shield is drawn as an outline.
-*/
-body.template-page-personalized-flow .personalized-offer__guarantee-icon svg path {
-  fill: none;
-  stroke: currentColor;
-}
 
-body.template-page-personalized-flow .personalized-offer__guarantee-icon {
-  color: var(--flow-accent);
-}
+
 
 /* ==========================================================================
    Why personalized
    ========================================================================== */
 
 /* the comp sets this heading a step smaller than the rest: 30px, not 32 */
-body.template-page-personalized-flow .why-personalized__heading {
-  font-size: 30px;
-  letter-spacing: -0.02em !important;
-}
 
-@media screen and (min-width: 769px) {
-  body.template-page-personalized-flow .why-personalized__heading { font-size: 38px; }
-}
 
 /* column headers: 10.5px mono-ish caps, the Laughland side in the accent */
-body.template-page-personalized-flow .why-personalized__col-label {
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  color: var(--flow-muted);
-}
 
-body.template-page-personalized-flow .why-personalized__col-label--ours {
-  color: var(--flow-accent);
-  /* the left header gets its caps from .label-sm; this one carries none */
-  text-transform: uppercase;
-}
 
 /* the OTC column is 400 in muted ink, ours 600 in navy - not 500/700 */
-body.template-page-personalized-flow .why-personalized__cell {
-  font-size: 14.5px;
-  font-weight: 400;
-  color: var(--flow-muted);
-}
 
-body.template-page-personalized-flow .why-personalized__cell--ours {
-  font-weight: 600;
-  color: var(--navy);
-}
 
 /* ==========================================================================
    Sensitivity match
    ========================================================================== */
 
 /* the comp sets this one at 24px, below the page's 32 */
+
 body.template-page-personalized-flow .sensitivity-match__heading {
   font-size: 24px;
   letter-spacing: -0.02em !important;
 }
 
 @media screen and (min-width: 769px) {
-  body.template-page-personalized-flow .sensitivity-match__heading { font-size: 30px; }
+  
+body.template-page-personalized-flow .sensitivity-match__heading { font-size: 30px; }
 }
+
 
 body.template-page-personalized-flow .sensitivity-match__body {
   font-size: 15px;
@@ -892,6 +827,7 @@ body.template-page-personalized-flow .sensitivity-match__body {
 }
 
 /* the question above the choices */
+
 body.template-page-personalized-flow .sensitivity-match__copy {
   font-size: 13px;
   font-weight: 500;
@@ -899,11 +835,13 @@ body.template-page-personalized-flow .sensitivity-match__copy {
 }
 
 /* the three choices: 13.5px, the chosen one 600 navy */
+
 body.template-page-personalized-flow .sensitivity-match__choice {
   font-size: 13.5px;
   font-weight: 500;
   color: #22405f;
 }
+
 
 body.template-page-personalized-flow .sensitivity-match__choice[aria-pressed='true'],
 body.template-page-personalized-flow .sensitivity-match__choice--on {
@@ -912,6 +850,7 @@ body.template-page-personalized-flow .sensitivity-match__choice--on {
 }
 
 /* the meter rows: label navy, reading muted, both 13px/400 */
+
 body.template-page-personalized-flow .sensitivity-match__meter-label {
   font-size: 13px;
   font-weight: 400;
@@ -919,6 +858,7 @@ body.template-page-personalized-flow .sensitivity-match__meter-label {
   text-transform: none;
   color: var(--navy);
 }
+
 
 body.template-page-personalized-flow .sensitivity-match__meter-value {
   font-size: 13px;
@@ -930,11 +870,13 @@ body.template-page-personalized-flow .sensitivity-match__meter-value {
    Strength chart captions - the comp sets 14px/600 with a 12.5px sub-line
    ========================================================================== */
 
+
 body.template-page-personalized-flow .strength-comparison__bar-caption {
   font-size: 14px;
   font-weight: 600;
   color: #22405f;
 }
+
 
 body.template-page-personalized-flow .strength-comparison__bar-caption--ours {
   color: var(--navy);
@@ -958,39 +900,21 @@ body.template-page-personalized-flow .strength-comparison__bar-caption--ours {
    fighting a large gap with negative margins.
    ========================================================================== */
 
-body.template-page-personalized-flow .personalized-offer__inner {
-  gap: 6px;
-}
-
-body.template-page-personalized-flow .personalized-offer__media,
-body.template-page-personalized-flow .personalized-offer__eyebrow,
-body.template-page-personalized-flow .personalized-offer__steps,
-body.template-page-personalized-flow .personalized-offer__cta,
-body.template-page-personalized-flow .personalized-offer__guarantee {
-  margin-top: 10px;
-}
 
 /* the margins that were stacking on top of the gap */
-body.template-page-personalized-flow .personalized-offer__trust,
-body.template-page-personalized-flow .personalized-offer__eyebrow,
-body.template-page-personalized-flow .personalized-offer__price,
-body.template-page-personalized-flow .personalized-offer__price-note,
-body.template-page-personalized-flow .personalized-offer__steps {
-  margin-bottom: 0;
-}
+
 
 /* the step list's rules are the design's hairline, not a blue tint */
-body.template-page-personalized-flow .personalized-offer__steps,
-body.template-page-personalized-flow .personalized-offer__step {
-  border-color: var(--flow-rule);
-}
+
 
 /* the hero spaces its blocks 14px apart, against our 24 */
+
 body.template-page-personalized-flow .personalized-hero__inner {
   gap: 14px;
 }
 
 /* the sticky bar's sub-line: 12px/400 muted, as the comp sets it */
+
 body.template-page-personalized-flow .sticky-quiz-bar__note {
   font-size: 12px;
   font-weight: 400;
@@ -1008,14 +932,18 @@ body.template-page-personalized-flow .sticky-quiz-bar__note {
    ========================================================================== */
 
 /* the whole section sits on silver, not white above and silver below */
+
 body.template-page-personalized-flow .strength-comparison { background: var(--pdp-silver, #f4f6f8); }
+
 body.template-page-personalized-flow .strength-comparison__inner { gap: 18px; }
 
 /* neither of these is in the comp */
 /* the comp has no axis at all: no labels, no gridlines, and no legend */
+
 body.template-page-personalized-flow .strength-comparison__legend,
 body.template-page-personalized-flow .strength-comparison__axis-label,
 body.template-page-personalized-flow .strength-comparison__gridline { display: none; }
+
 
 body.template-page-personalized-flow .strength-comparison__chart-card {
   padding: 18px 16px 16px;
@@ -1025,6 +953,7 @@ body.template-page-personalized-flow .strength-comparison__chart-card {
 }
 
 /* the plot's own gridlines go with the axis */
+
 body.template-page-personalized-flow .strength-comparison__plot {
   background-image: none;
   border-left: 0;
@@ -1035,6 +964,7 @@ body.template-page-personalized-flow .strength-comparison__plot {
   The section's own CSS spaces the columns with space-evenly at 30% width,
   which gave 70px columns and left the bars narrow.
 */
+
 body.template-page-personalized-flow .strength-comparison__bars {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1043,10 +973,12 @@ body.template-page-personalized-flow .strength-comparison__bars {
   border-bottom: 1px solid #c6d0db;
 }
 
+
 body.template-page-personalized-flow .strength-comparison__bar-col {
   width: 100%;
   justify-content: center;
 }
+
 
 body.template-page-personalized-flow .strength-comparison__bar {
   width: min(78px, 100%);
@@ -1058,6 +990,7 @@ body.template-page-personalized-flow .strength-comparison__bar {
   squeezed it to a sliver. Captions wrap rather than run on, which is what
   the comp does at this column width.
 */
+
 body.template-page-personalized-flow .strength-comparison__bar-caption {
   white-space: normal;
   width: 100%;
@@ -1070,6 +1003,7 @@ body.template-page-personalized-flow .strength-comparison__bar-caption {
   min-height: 2.6em;
 }
 
+
 body.template-page-personalized-flow .strength-comparison__bar-note {
   position: absolute;
   left: 50%;
@@ -1080,23 +1014,30 @@ body.template-page-personalized-flow .strength-comparison__bar-note {
 }
 
 /* room under the plot for the caption and its sub-line */
+
 body.template-page-personalized-flow .strength-comparison__plot {
   margin-bottom: 76px;
 }
 
 /* square but for a clipped top-right corner, as the comp draws them */
+
 body.template-page-personalized-flow .strength-comparison__bar {
   border-radius: 0 4px 0 0;
 }
 
+
 body.template-page-personalized-flow .strength-comparison__bar--compare { background: #c6d0db; }
 
 /* the accent blue, not the theme's sky blue */
+
 body.template-page-personalized-flow .strength-comparison__bar--ours { background: var(--flow-accent); }
 
 /* the comp shows the full label under both bars, never an abbreviation */
+
 body.template-page-personalized-flow .strength-comparison__caption-short { display: none; }
+
 body.template-page-personalized-flow .strength-comparison__caption-full { display: inline; }
+
 
 body.template-page-personalized-flow .strength-comparison__bar-note {
   display: block;
@@ -1117,33 +1058,10 @@ body.template-page-personalized-flow .strength-comparison__bar-note {
    accent rather than as the script wordmark.
    ========================================================================== */
 
-body.template-page-personalized-flow .why-personalized__table {
-  border-color: var(--flow-rule);
-  background: #ffffff;
-}
-
-body.template-page-personalized-flow .why-personalized__row { border-color: var(--flow-rule); }
 
 /* no tint on our column; the comp distinguishes it by weight alone */
-body.template-page-personalized-flow .why-personalized__cell--ours { background: transparent; }
+
 
 /* the wordmark gives way to the word, set like the other column header */
-body.template-page-personalized-flow .why-personalized__logo { display: none; }
 
-body.template-page-personalized-flow .why-personalized__col-label--ours .visually-hidden {
-  position: static;
-  width: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  clip: auto;
-  clip-path: none;
-  white-space: normal;
-}
 
-/* the new how-to-start section sits on the design's silver */
-body.template-page-personalized-flow .how-to-start { background: var(--pdp-silver, #f4f6f8); }
-body.template-page-personalized-flow .how-to-start__inner { gap: 16px; }
-body.template-page-personalized-flow .how-to-start__body { font-size: 15px; }
-body.template-page-personalized-flow .how-to-start__steps,
-body.template-page-personalized-flow .how-to-start__step { border-color: var(--flow-rule); }
