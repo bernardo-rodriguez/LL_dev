@@ -1112,4 +1112,4 @@ body.template-page-personalized-flow .FAQ_Section {
   border-bottom: 1px solid var(--flow-rule);
 }
 
-body.template-page-personalized-flow .Faq_section_inner { padding: 36px 20px; }
+body.template-page-personalized-flow .FAQ_Section .Faq_section_inner { padding: 36px 20px; }
