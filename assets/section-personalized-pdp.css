@@ -542,14 +542,8 @@ body.template-product-personalized .how-to-timeline__stages-label {
 
 /* ---- Treatment, on the navy band ------------------------------------- */
 
-/*
-  The eyebrow is pale blue against the band, not the muted grey it inherits,
-  and tracked a shade wider.
-*/
-body.template-product-personalized .treatment-plan__eyebrow {
-  color: #bdddfc;
-  letter-spacing: 0.09em !important;
-}
+/* the eyebrow is pale blue against the band, not the muted grey it inherits */
+body.template-product-personalized .treatment-plan__eyebrow { color: #bdddfc; }
 
 body.template-product-personalized .treatment-plan__cause { color: #d3e2f5; }
 
@@ -558,7 +552,6 @@ body.template-product-personalized .treatment-plan__agent {
 }
 
 body.template-product-personalized .treatment-plan__effect {
-  font-size: 12.5px;
   font-weight: 400;
   color: #afc3de;
 }
