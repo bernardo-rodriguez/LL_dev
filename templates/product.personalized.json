@@ -16,7 +16,7 @@
           "type": "cause",
           "settings": {
             "label": "Plaque film",
-            "image": "shopify://shop_images/Product_page_v4_ideal-version_style_-selection_525bacd1-4d1c-4404-9574-6fd499df19f8.png",
+            "image": "shopify://shop_images/Plaque.png",
             "tint": "#f4ece6",
             "dot": "#a87b2a",
             "effect": "A sticky film coats your teeth and scatters light, so they look dull and yellow instead of glossy."
@@ -26,7 +26,7 @@
           "type": "cause",
           "settings": {
             "label": "Deep stains",
-            "image": "shopify://shop_images/Product_page_v4_ideal-version_style_-selection_1_dcab11ce-2998-41a4-8bbb-ba0b35c1b26a.png",
+            "image": "shopify://shop_images/Deep_Stains.png",
             "tint": "#f6efe2",
             "dot": "#73476e",
             "effect": "Coffee and tea pigment sits inside the enamel, giving teeth a yellow cast that won’t brush off."
@@ -36,7 +36,7 @@
           "type": "cause",
           "settings": {
             "label": "Thin enamel",
-            "image": "shopify://shop_images/Product_page_v4_ideal-version_style_-selection_2_9bfd9606-6d9c-410f-9986-26a6b50db39c.png",
+            "image": "shopify://shop_images/Thinning_Enamel.png",
             "tint": "#f2eaf1",
             "dot": "#4f7a91",
             "effect": "Thinner enamel lets the yellow layer underneath show through, so teeth look darker and edges look see-through."
