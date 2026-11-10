@@ -171,7 +171,7 @@
           "settings": {
             "title": "Plaque film",
             "text": "",
-            "colour": "#8A6420"
+            "colour": "#8a6420"
           }
         },
         "cause_2": {
@@ -179,7 +179,7 @@
           "settings": {
             "title": "Surface stains",
             "text": "",
-            "colour": "#8A5A3C"
+            "colour": "#8a5a3c"
           }
         },
         "cause_3": {
@@ -187,7 +187,7 @@
           "settings": {
             "title": "Deep stains",
             "text": "",
-            "colour": "#73476E"
+            "colour": "#73476e"
           }
         },
         "cause_4": {
@@ -195,7 +195,7 @@
           "settings": {
             "title": "Thin enamel",
             "text": "",
-            "colour": "#4F7A91"
+            "colour": "#4f7a91"
           }
         }
       },
@@ -206,19 +206,20 @@
         "cause_4"
       ],
       "settings": {
+        "step_number": "1",
         "eyebrow": "Assess",
         "heading": "First, we find what’s yellowing your teeth.",
         "body": "It’s rarely just coffee. Your free smile assessment checks for 4 root causes, and most people have more than one.",
         "image": "shopify://shop_images/Landing_page_mobile_-selection_9448ecfa-232d-4621-9079-a2b4005e2df5.png",
+        "quote": "Treating yellow teeth without diagnosing the root cause is pure guesswork. If you miss the real issue, you won't see results.",
+        "quote_attribution": "Dr. TJ Kwon, DMD",
+        "quote_image": "shopify://shop_images/DRTJKWON.png",
+        "quote_image_caption": "[Photo]",
         "button_label": "",
         "button_link": "",
         "button_opens_quiz": true,
         "margin_bottom": false,
-        "flow_visibility": "all",
-        "step_number": "1",
-        "quote": "“In my office, we always find the cause before we whiten.”",
-        "quote_attribution": "Dr. [Name], DDS · [Disclosure]",
-        "quote_image_caption": "[Photo]"
+        "flow_visibility": "all"
       }
     },
     "why_personalized": {
@@ -229,7 +230,7 @@
           "settings": {
             "key": "plaque",
             "name": "Plaque film",
-            "colour": "#9A6400",
+            "colour": "#9a6400",
             "ingredients": "Plaque-removing enzymes, Xylitol, Coconut oil"
           }
         },
@@ -238,7 +239,7 @@
           "settings": {
             "key": "surface",
             "name": "Surface stains",
-            "colour": "#B03A2E",
+            "colour": "#b03a2e",
             "ingredients": "Sodium bicarbonate, Peroxide"
           }
         },
@@ -247,7 +248,7 @@
           "settings": {
             "key": "deep",
             "name": "Deep stains",
-            "colour": "#6A3FA3",
+            "colour": "#6a3fa3",
             "ingredients": "Peroxide"
           }
         },
@@ -256,7 +257,7 @@
           "settings": {
             "key": "enamel",
             "name": "Thin enamel",
-            "colour": "#0F7A6E",
+            "colour": "#0f7a6e",
             "ingredients": "Nano-hydroxyapatite"
           }
         },
@@ -265,7 +266,7 @@
           "settings": {
             "key": "sens",
             "name": "Sensitive teeth",
-            "colour": "#2A62C9",
+            "colour": "#2a62c9",
             "ingredients": "Aloe vera"
           }
         },
@@ -312,9 +313,9 @@
         "widget_label": "Real customer formulas",
         "causes_label": "If you have",
         "actives_label": "We add",
-        "count_suffix": " actives",
+        "count_suffix": "actives",
         "sensitivity_key": "sens",
-        "sensitivity_suffix": " sensitivity",
+        "sensitivity_suffix": "sensitivity",
         "button_label": "",
         "button_link": "",
         "button_opens_quiz": true,
@@ -356,23 +357,68 @@
         "step_3"
       ],
       "settings": {
+        "image_caption": "[Product photo: LED mouthpiece + gels]",
         "badge": "Anniversary sale 40% off",
+        "media_chip": "Blended for your causes",
+        "media_chip_colours": "#A87B2A, #8A5A3C, #73476E, #4F7A91",
+        "step_number": "3",
         "eyebrow": "Shipped to your door",
+        "heading": "Your formula, in one simple starter kit.",
+        "body": "Everything you need to start. Nothing else to buy.",
         "price": "$39",
         "price_was": "$65",
         "price_note": "vs. $500 for personalized whitening at the dentist",
+        "includes": "Includes Blue LED mouthpiece and 3 custom gels",
         "button_label": "Find my formula",
         "button_link": "",
         "button_opens_quiz": true,
         "guarantee": "Noticeably whiter in 30 days or your money back",
         "trust": "Enamel-safe · Dentist-formulated · FDA-registered",
+        "shipping": "Free shipping",
         "margin_bottom": false,
-        "flow_visibility": "all",
-        "step_number": "3",
-        "heading": "Your formula, in one simple starter kit.",
-        "body": "Everything you need to start. Nothing else to buy.",
-        "media_chip": "Blended for your causes",
-        "media_chip_colours": "#A87B2A, #8A5A3C, #73476E, #4F7A91"
+        "flow_visibility": "all"
+      }
+    },
+    "results_cards": {
+      "type": "results-cards",
+      "blocks": {
+        "result_1": {
+          "type": "result",
+          "settings": {
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_5.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_6.png",
+            "name": "Sophia S.",
+            "formula": "8-16",
+            "tags": "Surface stains | #B03A2E\nPlaque film | #9A6400\nMedium sensitivity",
+            "quote": "After a single use I can actually tell a difference in the color of my teeth."
+          }
+        },
+        "result_2": {
+          "type": "result",
+          "settings": {
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png",
+            "name": "Lesley C.",
+            "formula": "19-2",
+            "tags": "Deep stains | #6A3FA3\nThin enamel | #0F7A6E\nHigh sensitivity",
+            "quote": "Normally I have excruciating pain with strips. After the first day my teeth look 2 shades whiter."
+          }
+        }
+      },
+      "block_order": [
+        "result_1",
+        "result_2"
+      ],
+      "settings": {
+        "eyebrow": "Over 100K+ smiles brightened",
+        "heading": "Different causes. Different formulas.\nReal results.",
+        "label_before": "Before",
+        "label_after": "After",
+        "cta_text": "",
+        "cta_url": "",
+        "swipe_hint": "Swipe for more",
+        "margin_bottom": false,
+        "flow_visibility": "all"
       }
     },
     "dentist_cards": {
@@ -417,46 +463,6 @@
       "settings": {
         "eyebrow": "Dentist approved",
         "heading": "Made by dentists.\nTrusted by dentists.",
-        "swipe_hint": "Swipe for more",
-        "margin_bottom": false,
-        "flow_visibility": "all"
-      }
-    },
-    "results_cards": {
-      "type": "results-cards",
-      "blocks": {
-        "result_1": {
-          "type": "result",
-          "settings": {
-            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_5.png",
-            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_6.png",
-            "name": "Sophia S.",
-            "formula": "8-16",
-            "tags": "Surface stains | #B03A2E\nPlaque film | #9A6400\nMedium sensitivity",
-            "quote": "After a single use I can actually tell a difference in the color of my teeth."
-          }
-        },
-        "result_2": {
-          "type": "result",
-          "settings": {
-            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
-            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png",
-            "name": "Lesley C.",
-            "formula": "19-2",
-            "tags": "Deep stains | #6A3FA3\nThin enamel | #0F7A6E\nHigh sensitivity",
-            "quote": "Normally I have excruciating pain with strips. After the first day my teeth look 2 shades whiter."
-          }
-        }
-      },
-      "block_order": [
-        "result_1",
-        "result_2"
-      ],
-      "settings": {
-        "eyebrow": "Over 100K+ smiles brightened",
-        "heading": "Different causes. Different formulas.\nReal results.",
-        "label_before": "Before",
-        "label_after": "After",
         "swipe_hint": "Swipe for more",
         "margin_bottom": false,
         "flow_visibility": "all"
