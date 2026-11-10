@@ -303,14 +303,14 @@
           "type": "faq",
           "settings": {
             "title": "Is this a subscription?",
-            "sub_title": "<p>Only if you choose it. Your first kit is $39, then refills in your formula ship every 2 months for $30. Each treatment cycle builds upon the last and prevent future stains from settling in.Skip, change or cancel anytime from your account.</p>"
+            "sub_title": "<p>Only if you choose it. Your first kit is $39, then refills in your formula ship every 2 months for $30. Each treatment cycle builds upon the last and prevent future stains from settling in. Skip, change or cancel anytime from your account.</p>"
           }
         },
         "faq_3": {
           "type": "faq",
           "settings": {
             "title": "Will it hurt my teeth?",
-            "sub_title": "<p>Your strength and sensitivity blockers are matched to how your teeth react to cold. 0% of testers reported more sensitivity.</p>"
+            "sub_title": "<p>Your strength and sensitivity blockers are matched to your estimated sensitivity level. While 0% of testers report sensitivity, we will tweak your formula and send it to you free of charge if you experience any pain in whitening.</p>"
           }
         },
         "faq_4": {
@@ -324,7 +324,7 @@
           "type": "faq",
           "settings": {
             "title": "How long do results last?",
-            "sub_title": "<p>Because your formula also clears plaque and strengthens enamel, stains come back slower.</p>"
+            "sub_title": "<p>The deep whitening effects last <strong>6 to 12 months</strong>. During that time, our formula actively strengthens your enamel and slows down future staining. That said, new stains from coffee, wine accumulate daily. Doing a brief touch-up every <strong>2 months</strong> clears away surface buildup before it can penetrate the enamel, keeping your teeth permanently bright without ever having to start over.</p><h4></h4>"
           }
         }
       },
