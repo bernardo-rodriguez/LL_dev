@@ -200,8 +200,9 @@
       "settings": {
         "eyebrow": "20 minutes / 6 treatments",
         "heading": "How to use",
+        "demo_image": "shopify://shop_images/laughland-unboxing-resize.gif",
         "demo_caption": "Applying gel + LED",
-        "demo_badge": "Watch · 0:30",
+        "demo_badge": "As easy as 1,2,3",
         "stages_label": "What to expect",
         "margin_bottom": false,
         "flow_visibility": "all"
