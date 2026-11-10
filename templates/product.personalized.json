@@ -185,7 +185,7 @@
           "type": "stage",
           "settings": {
             "when": "12 treatments",
-            "text": "Deep stains lifted, enamel stronger"
+            "text": "Deep stains lifted + opaque enamel"
           }
         }
       },
@@ -256,21 +256,21 @@
         "c1": {
           "type": "claim",
           "settings": {
-            "text": "All formulas designed by dentists",
+            "text": "Each formula is designed by dentists & clinically tested",
             "icon": "tooth"
           }
         },
         "c2": {
           "type": "claim",
           "settings": {
-            "text": "Clinically tested for efficacy",
+            "text": "Pharmaceutical-grade ingredients for higher purity & performance",
             "icon": "flask"
           }
         },
         "c3": {
           "type": "claim",
           "settings": {
-            "text": "Pharmaceutical-grade ingredients at clinical doses",
+            "text": "Manufactured in FDA-registered facilities following ISO standards",
             "icon": "molecule"
           }
         }
@@ -283,6 +283,7 @@
       "settings": {
         "eyebrow": "",
         "heading": "Made to a clinical standard.",
+        "image": "shopify://shop_images/scientist-in-lab-with-pipette.jpg",
         "image_caption": "Formulation lab",
         "margin_bottom": false,
         "flow_visibility": "all"
@@ -302,7 +303,7 @@
           "type": "faq",
           "settings": {
             "title": "Is this a subscription?",
-            "sub_title": "<p>Only if you choose it. Your first kit is $39, then refills in your formula ship every 1–2 months for $39. Skip, change or cancel anytime from your account.</p>"
+            "sub_title": "<p>Only if you choose it. Your first kit is $39, then refills in your formula ship every 2 months for $30. Each treatment cycle builds upon the last and prevent future stains from settling in.Skip, change or cancel anytime from your account.</p>"
           }
         },
         "faq_3": {
