@@ -14,7 +14,15 @@
   | replace: '}', '</span>'
 %}
 
-<section class="hero-two-column">
+{%- comment -%}
+  data-quiz-destination tells quiz.js where to send people when they finish.
+  It is read from the page rather than hardcoded in the script, so a landing
+  page built against a particular product template routes to that template.
+{%- endcomment -%}
+<section
+  class="hero-two-column"
+  {% if section.settings.quiz_destination != blank %}data-quiz-destination="{{ section.settings.quiz_destination }}"{% endif %}
+>
   <div class="page-width hero-two-column__inner">
     <div class="hero-two-column__flex">
       {%- comment -%} Left column: content {%- endcomment -%}
@@ -241,6 +249,13 @@
       "id": "mobile_image",
       "label": "Mobile Image",
       "info": "Optional. Uses product image if blank."
+    },
+    {
+      "type": "text",
+      "id": "quiz_destination",
+      "label": "Where the quiz lands",
+      "default": "/products/at-home-whitening-kit?view=personalized",
+      "info": "Where someone is sent after finishing the quiz on this page. Leave blank to use the theme's default product page. Affiliate links still take priority."
     }
   ],
   "presets": [
