@@ -215,20 +215,26 @@ customElements.define('formula-quiz', class FormulaQuiz extends HTMLElement {
       klaviyoForm.querySelector("#k_id_lastname").value = this.querySelector('#last_name').value
       klaviyoForm.querySelector("#klaviyo_form_sensitivity").value = formula_translate[sensitivity]
 
-      let goals = ""
-      this.querySelectorAll("[name='goals']:checked")?.forEach((goal) => {  goals == "" ? goals = goal.value : goals = goals + ", " + goal.value })
+      // Any question can be set to accept multiple answers in the theme
+      // editor, so every field collects all of them. A one-answer question
+      // has a single checked input and this returns exactly what it used to.
+      const answersFor = (name) =>
+        Array.from(this.querySelectorAll(`[name='${name}']:checked`))
+          .map((input) => input.value)
+          .filter(Boolean)
+          .join(", ")
 
-      klaviyoForm.querySelector("#klaviyo_form_goals").value = goals
-      klaviyoForm.querySelector("#klaviyo_form_brush_times").value = this.querySelector("[name='brushtimes']:checked")?.value || ""
-      klaviyoForm.querySelector("#klaviyo_form_cavities").value = this.querySelector("[name='cavities']:checked")?.value || ""
-      klaviyoForm.querySelector("#klaviyo_form_plaque_concern").value = this.querySelector("[name='plaque_concern']:checked")?.value || ""
+      klaviyoForm.querySelector("#klaviyo_form_goals").value = answersFor('goals')
+      klaviyoForm.querySelector("#klaviyo_form_brush_times").value = answersFor('brushtimes')
+      klaviyoForm.querySelector("#klaviyo_form_cavities").value = answersFor('cavities')
+      klaviyoForm.querySelector("#klaviyo_form_plaque_concern").value = answersFor('plaque_concern')
 
       let starting_shade = document.getElementById('quiz_shade_slider_start')?.value || ""
       let ending_shade = document.getElementById('quiz_shade_slider_end')?.value || ""
       klaviyoForm.querySelector("#klaviyo_form_shade").value = starting_shade
 
-      klaviyoForm.querySelector("#klaviyo_form_stain").value = this.querySelector("[name='stain']:checked")?.value || ""
-      klaviyoForm.querySelector("#klaviyo_form_previous_use").value = this.querySelector("[name='previous_use']:checked")?.value || ""
+      klaviyoForm.querySelector("#klaviyo_form_stain").value = answersFor('stain')
+      klaviyoForm.querySelector("#klaviyo_form_previous_use").value = answersFor('previous_use')
 
       let klaviyoFormData = new FormData(klaviyoForm)
       // for (var [key, value] of klaviyoFormData.entries()) { 
