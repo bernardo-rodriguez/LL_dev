@@ -209,7 +209,7 @@
           "q_goals": {
             "type": "question",
             "settings": {
-              "heading": "What are your goals?",
+              "heading": "What are your goals??",
               "subheading": "Select all that apply.",
               "name": "goals",
               "input_type": "checkbox",
@@ -268,6 +268,7 @@
             "type": "question",
             "settings": {
               "heading": "How often do you brush your teeth daily?",
+              "subheading": "",
               "name": "brushtimes",
               "input_type": "radio",
               "layout": "stack"
@@ -298,6 +299,7 @@
             "type": "question",
             "settings": {
               "heading": "How sensitive are your teeth?",
+              "subheading": "",
               "name": "sensitivity",
               "input_type": "radio",
               "layout": "row"
@@ -346,6 +348,7 @@
             "type": "question",
             "settings": {
               "heading": "Any dental operations or cavities in the last year?",
+              "subheading": "",
               "name": "cavities",
               "input_type": "radio",
               "layout": "stack"
@@ -369,6 +372,7 @@
             "type": "question",
             "settings": {
               "heading": "Do you have plaque buildup?",
+              "subheading": "",
               "name": "plaque_concern",
               "input_type": "radio",
               "layout": "stack"
@@ -412,6 +416,7 @@
             "type": "question",
             "settings": {
               "heading": "How often do you eat or drink foods that stain your teeth?",
+              "subheading": "",
               "name": "stain",
               "input_type": "radio",
               "layout": "stack"
@@ -442,6 +447,7 @@
             "type": "question",
             "settings": {
               "heading": "Have you used whitening products in the past?",
+              "subheading": "",
               "name": "previous_use",
               "input_type": "radio",
               "layout": "row"
