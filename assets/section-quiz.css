@@ -722,3 +722,139 @@ formula-quiz[data-state='1'] [data-form-back] {
 .quiz::-webkit-scrollbar-thumb {
   background-color: var(--navy);
 }
+/* ==========================================================================
+   Questions built from blocks
+   ========================================================================== */
+
+.quiz__question p.h5 { margin: 0; }
+.quiz__question p.body-sm { margin: 4px 0 0; }
+
+/* a question that follows another needs air; the first one takes the card's */
+.quiz__input-group + .quiz__question { margin-top: 24px; }
+
+.quiz__question-figure {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.quiz__question-figure img {
+  display: block;
+  width: 100%;
+  max-width: 236px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* ---- Picture cards ----------------------------------------------------- */
+
+/*
+  One card per option: the photo carries the answer and the label repeats it
+  underneath with its own tick box, so the whole card is the hit target.
+*/
+fieldset.fieldset-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  align-items: stretch;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.quiz__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #dbe3ec;
+  border-radius: 12px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.quiz__card-photo {
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #f1f4f8;
+}
+
+.quiz__card-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.quiz__card-foot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+}
+
+.quiz__card-tick {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  position: relative;
+  border: 2px solid var(--navy, #0d2244);
+  border-radius: 5px;
+  background: #ffffff;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+/* the tick itself, drawn rather than an image so it inherits the box */
+.quiz__card-tick::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.15s ease;
+}
+
+.quiz__card-text {
+  font-family: manrope, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--navy, #0d2244);
+}
+
+/*
+  The inputs are display:none across the quiz form, so the checked state is
+  read off the input and painted on its siblings.
+*/
+.quiz__form .quiz__card input:checked ~ .quiz__card-foot .quiz__card-tick {
+  border-color: #3db5ee;
+  background: #3db5ee;
+}
+
+.quiz__form .quiz__card input:checked ~ .quiz__card-foot .quiz__card-tick::after {
+  transform: rotate(45deg) scale(1);
+}
+
+.quiz__card:has(input:checked) {
+  border-color: #3db5ee;
+  box-shadow: 0 0 0 1px #3db5ee;
+}
+
+/* a radio card reads as one choice, so its tick is round */
+.quiz__card input[type='radio'] ~ .quiz__card-foot .quiz__card-tick { border-radius: 50%; }
+
+@media screen and (max-width: 480px) {
+  fieldset.fieldset-cards { gap: 8px; }
+  .quiz__card-foot { padding: 8px; gap: 6px; }
+  .quiz__card-text { font-size: 13px; }
+  .quiz__card-tick { width: 18px; height: 18px; }
+  .quiz__card-tick::after { left: 4.5px; top: 0.5px; }
+}

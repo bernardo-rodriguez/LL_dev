@@ -26,19 +26,18 @@
   }
 </style>
 
-{% liquid
-  assign formatted_heading_1 = section.settings.step1 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
+{%- comment -%}
+  The quiz is built from blocks: a `step` opens a screen, `question` blocks
+  sit inside it, and the `option` blocks after a question are its answers.
+  Consecutive `text_input` blocks share one row. `snippet` is the escape
+  hatch for the two screens that are not question-and-answer — the shade
+  sliders and the final report.
 
-  assign formatted_heading_2 = section.settings.step2 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
+  quiz.js addresses steps by number and answers by input `name`, so the step
+  order here and the Name field on each question are the contract with it.
+  Renaming a question's Name detaches it from the formula and from Klaviyo.
+{%- endcomment -%}
 
-  assign formatted_heading_3 = section.settings.step3 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
-
-  assign formatted_heading_4 = section.settings.step4 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
-
-  assign formatted_heading_5 = section.settings.step5 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
-
-  assign formatted_heading_6 = section.settings.step6 | replace: '{', "<span class='stylized'>" | replace: '}', '</span>'
-%}
 
 <formula-quiz data-state="1">
   <section class="quiz" aria-hidden="true">
@@ -82,17 +81,14 @@
 
       <div class="quiz__content page-width">
         <div class="quiz__content-headline">
-          <h3 class="quiz__headline active" data-step="1">{{ formatted_heading_1 }}</h3>
-
-          <h3 class="quiz__headline" data-step="2">{{ formatted_heading_2 }}</h3>
-
-          <h3 class="quiz__headline" data-step="3">{{ formatted_heading_3 }}</h3>
-
-          <h3 class="quiz__headline" data-step="4">{{ formatted_heading_4 }}</h3>
-
-          <h3 class="quiz__headline" data-step="5">{{ formatted_heading_5 }}</h3>
-
-          <h3 class="quiz__headline" data-step="6">{{ formatted_heading_6 }}</h3>
+          {%- assign headline_step = 0 -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'step' -%}
+              {%- assign headline_step = headline_step | plus: 1 -%}
+              {%- assign quiz_headline = block.settings.headline | replace: '{', "<span class='stylized'>" | replace: '}', '</span>' -%}
+              <h3 class="quiz__headline{% if headline_step == 1 %} active{% endif %}" data-step="{{ headline_step }}">{{ quiz_headline }}</h3>
+            {%- endif -%}
+          {%- endfor -%}
         </div>
         <div class="quiz__content-card">
           <div
@@ -120,29 +116,132 @@
           </div>
           <div class="quiz__form">
             {% form 'customer' %}
-              <div class="form__step-wrapper active" data-step="1">
-                {% render 'quiz-step-one' %}
-              </div>
+              {%- liquid
+                assign step_n = 0
+                assign open_step = false
+                assign open_options = false
+                assign open_text = false
+                assign q_name = ''
+                assign q_type = 'radio'
+                assign q_layout = 'stack'
+              -%}
 
-              <div class="form__step-wrapper" data-step="2">
-                {% render 'quiz-step-two' %}
-              </div>
+              {%- for block in section.blocks -%}
+                {%- case block.type -%}
 
-              <div class="form__step-wrapper" data-step="3">
-                {% render 'quiz-step-shade-slider' %}
-              </div>
+                  {%- when 'step' -%}
+                    {%- if open_options %}</fieldset></div>{% assign open_options = false %}{% endif -%}
+                    {%- if open_text %}</div>{% assign open_text = false %}{% endif -%}
+                    {%- if open_step %}</div>{% endif -%}
+                    {%- assign step_n = step_n | plus: 1 -%}
+                    <div class="form__step-wrapper{% if step_n == 1 %} active{% endif %}" data-step="{{ step_n }}" {{ block.shopify_attributes }}>
+                    {%- assign open_step = true -%}
 
-              <div class="form__step-wrapper" data-step="4">
-                {% render 'quiz-step-three' %}
-              </div>
+                  {%- when 'question' -%}
+                    {%- if open_options %}</fieldset></div>{% assign open_options = false %}{% endif -%}
+                    {%- if open_text %}</div>{% assign open_text = false %}{% endif -%}
+                    {%- liquid
+                      assign q_name = block.settings.name
+                      assign q_type = block.settings.input_type
+                      assign q_layout = block.settings.layout
+                    -%}
+                    <div class="quiz__question" {{ block.shopify_attributes }}>
+                      {%- if block.settings.heading != blank -%}
+                        <p class="h5">{{ block.settings.heading }}</p>
+                      {%- endif -%}
+                      {%- if block.settings.subheading != blank -%}
+                        <p class="body-sm">{{ block.settings.subheading }}</p>
+                      {%- endif -%}
+                      {%- if block.settings.image != blank -%}
+                        <div class="quiz__question-figure">
+                          <img
+                            src="{{ block.settings.image | image_url: width: 600 }}"
+                            alt="{{ block.settings.image.alt | default: block.settings.heading | escape }}"
+                            loading="lazy"
+                          >
+                        </div>
+                      {%- endif -%}
+                    </div>
+                    <div class="quiz__input-group{% if q_layout == 'columns' %} quiz__input-group-columns{% endif %}">
+                    <fieldset class="{% if q_layout == 'row' %}fieldset-row{% elsif q_layout == 'columns' %}fieldset-columns{% elsif q_layout == 'cards' %}fieldset-cards{% endif %}">
+                    {%- assign open_options = true -%}
 
-              <div class="form__step-wrapper" data-step="5">
-                {% render 'quiz-step-four' %}
-              </div>
+                  {%- when 'option' -%}
+                    {%- liquid
+                      assign opt_value = block.settings.value | default: block.settings.label
+                      assign opt_id = q_name | append: '_' | append: opt_value | handle
+                    -%}
+                    {%- if q_layout == 'cards' -%}
+                      <label class="quiz__card" for="{{ opt_id }}" {{ block.shopify_attributes }}>
+                        <input class="for_email_klaviyo" type="{{ q_type }}" id="{{ opt_id }}" name="{{ q_name }}" value="{{ opt_value | escape }}">
+                        <span class="quiz__card-photo">
+                          {%- if block.settings.image != blank -%}
+                            <img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.image.alt | default: block.settings.label | escape }}" loading="lazy">
+                          {%- endif -%}
+                        </span>
+                        <span class="quiz__card-foot">
+                          <span class="quiz__card-tick" aria-hidden="true"></span>
+                          <span class="quiz__card-text">{{ block.settings.label }}</span>
+                        </span>
+                      </label>
+                    {%- else -%}
+                      <label for="{{ opt_id }}" {{ block.shopify_attributes }}>
+                        <input class="for_email_klaviyo" type="{{ q_type }}" id="{{ opt_id }}" name="{{ q_name }}" value="{{ opt_value | escape }}">
+                        <div class="custom-radio-button"></div>
+                        {{ block.settings.label }}
+                      </label>
+                    {%- endif -%}
 
-              <div class="form__step-wrapper" data-step="6">
-                {% render 'quiz-step-five' %}
-              </div>
+                  {%- when 'text_input' -%}
+                    {%- if open_options %}</fieldset></div>{% assign open_options = false %}{% endif -%}
+                    {%- if block.settings.label != blank -%}
+                      {%- if open_text %}</div>{% assign open_text = false %}{% endif -%}
+                      <label class="{% if block.settings.label_hidden %}visually-hidden{% else %}h5{% endif %}" for="{{ block.settings.name }}">{{ block.settings.label }}</label>
+                    {%- endif -%}
+                    {%- unless open_text -%}
+                      <div class="quiz__input-group quiz__input-group-columns">
+                      {%- assign open_text = true -%}
+                    {%- endunless -%}
+                    <input
+                      type="text"
+                      id="{{ block.settings.name }}"
+                      name="{{ block.settings.name }}"
+                      placeholder="{{ block.settings.placeholder }}"
+                      {{ block.shopify_attributes }}
+                      {% if block.settings.required %}required{% endif %}
+                    >
+
+                  {%- when 'snippet' -%}
+                    {%- if open_options %}</fieldset></div>{% assign open_options = false %}{% endif -%}
+                    {%- if open_text %}</div>{% assign open_text = false %}{% endif -%}
+                    {%- comment -%} render needs a literal name, so the choices are enumerated {%- endcomment -%}
+                    {%- case block.settings.snippet -%}
+                      {%- when 'shade_slider' -%}
+                        {% render 'quiz-step-shade-slider' %}
+                      {%- when 'final_report' -%}
+                        {% render 'quiz-step-five' %}
+                    {%- endcase -%}
+
+                {%- endcase -%}
+              {%- endfor -%}
+
+              {%- if open_options %}</fieldset></div>{% endif -%}
+              {%- if open_text %}</div>{% endif -%}
+              {%- if open_step %}</div>{% endif -%}
+
+              {%- comment -%}
+                Safety net: a static section's blocks live in settings_data.json,
+                not in a preset, so a theme pushed without them would otherwise
+                render an empty quiz on a live revenue path.
+              {%- endcomment -%}
+              {%- if section.blocks.size == 0 -%}
+                <div class="form__step-wrapper active" data-step="1">{% render 'quiz-step-one' %}</div>
+                <div class="form__step-wrapper" data-step="2">{% render 'quiz-step-two' %}</div>
+                <div class="form__step-wrapper" data-step="3">{% render 'quiz-step-shade-slider' %}</div>
+                <div class="form__step-wrapper" data-step="4">{% render 'quiz-step-three' %}</div>
+                <div class="form__step-wrapper" data-step="5">{% render 'quiz-step-four' %}</div>
+                <div class="form__step-wrapper" data-step="6">{% render 'quiz-step-five' %}</div>
+              {%- endif -%}
             {% endform %}
 
             <div class="quiz__content-buttons">
@@ -298,42 +397,191 @@
       "type": "link_list",
       "id": "footer",
       "label": "Footer links"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "headline",
+          "label": "Headline",
+          "default": "Closer to Your Personalized Formula",
+          "info": "Shown above the card. Wrap stylized text in {}"
+        },
+        {
+          "type": "paragraph",
+          "content": "Everything after this block, until the next Step, appears on this screen."
+        }
+      ]
     },
     {
-      "type": "textarea",
-      "id": "step1",
-      "label": "Step 1 Heading",
-      "info": "Wrap stylized text in {}"
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Question",
+          "default": "How sensitive are your teeth?"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Helper line",
+          "info": "Optional, e.g. Select all that apply."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Reference image",
+          "info": "Optional, shown above the answers."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "sensitivity",
+          "info": "The answer's key. quiz.js and Klaviyo read answers by this, so changing it detaches the question from the formula."
+        },
+        {
+          "type": "select",
+          "id": "input_type",
+          "label": "Answer type",
+          "default": "radio",
+          "options": [
+            {
+              "value": "radio",
+              "label": "Pick one"
+            },
+            {
+              "value": "checkbox",
+              "label": "Pick any"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "layout",
+          "label": "Layout",
+          "default": "stack",
+          "options": [
+            {
+              "value": "stack",
+              "label": "List"
+            },
+            {
+              "value": "row",
+              "label": "Row"
+            },
+            {
+              "value": "columns",
+              "label": "Two columns"
+            },
+            {
+              "value": "cards",
+              "label": "Picture cards"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": "Add Option blocks under this question. Picture cards show each option's image."
+        }
+      ]
     },
     {
-      "type": "textarea",
-      "id": "step2",
-      "label": "Step 2 Heading",
-      "info": "Wrap stylized text in {}"
+      "type": "option",
+      "name": "Option",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Mild"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "info": "What gets submitted. Leave blank to use the label."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Picture",
+          "info": "Used when the question's layout is Picture cards."
+        }
+      ]
     },
     {
-      "type": "textarea",
-      "id": "step3",
-      "label": "Step 3 Heading",
-      "info": "Wrap stylized text in {}"
+      "type": "text_input",
+      "name": "Text field",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "What's your name?"
+        },
+        {
+          "type": "checkbox",
+          "id": "label_hidden",
+          "label": "Hide the label visually",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "first_name",
+          "info": "Also the field's id. quiz.js reads #first_name, #last_name."
+        },
+        {
+          "type": "text",
+          "id": "placeholder",
+          "label": "Placeholder",
+          "default": "First Name"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "Required",
+          "default": true
+        },
+        {
+          "type": "paragraph",
+          "content": "Consecutive text fields sit side by side on one row."
+        }
+      ]
     },
     {
-      "type": "textarea",
-      "id": "step4",
-      "label": "Step 4 Heading",
-      "info": "Wrap stylized text in {}"
-    },
-    {
-      "type": "textarea",
-      "id": "step5",
-      "label": "Step 5 Heading",
-      "info": "Wrap stylized text in {}"
-    },
-    {
-      "type": "textarea",
-      "id": "step6",
-      "label": "Step 6 Heading",
-      "info": "Wrap stylized text in {}"
+      "type": "snippet",
+      "name": "Built-in screen",
+      "settings": [
+        {
+          "type": "select",
+          "id": "snippet",
+          "label": "Screen",
+          "default": "shade_slider",
+          "options": [
+            {
+              "value": "shade_slider",
+              "label": "Shade sliders"
+            },
+            {
+              "value": "final_report",
+              "label": "Final report and email"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": "These two screens are built in code rather than from questions."
+        }
+      ]
     }
   ]
 }
