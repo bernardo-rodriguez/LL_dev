@@ -209,7 +209,7 @@
           "q_goals": {
             "type": "question",
             "settings": {
-              "heading": "What are your goals??",
+              "heading": "What are your goals?",
               "subheading": "Select all that apply.",
               "name": "goals",
               "input_type": "checkbox",
@@ -347,8 +347,8 @@
           "q_cavities": {
             "type": "question",
             "settings": {
-              "heading": "Any dental operations or cavities in the last year?",
-              "subheading": "",
+              "heading": "Do you notice any of these on the edges of you teeth?",
+              "subheading": "Select all that apply",
               "name": "cavities",
               "input_type": "radio",
               "layout": "stack"
@@ -357,15 +357,25 @@
           "cav_opt_1": {
             "type": "option",
             "settings": {
-              "label": "Yes",
-              "value": "yes"
+              "label": "white-spots",
+              "value": "white-spots",
+              "image": "shopify://shop_images/quiz-white-spots-800.jpg"
             }
           },
           "cav_opt_2": {
             "type": "option",
             "settings": {
-              "label": "No",
-              "value": "no"
+              "label": "chipped",
+              "value": "chipped",
+              "image": "shopify://shop_images/quiz-chipped-800.jpg"
+            }
+          },
+          "option_DhBnwb": {
+            "type": "option",
+            "settings": {
+              "label": "see-through",
+              "value": "see-through",
+              "image": "shopify://shop_images/quiz-see-through-enamel-800.jpg"
             }
           },
           "q_plaque": {
@@ -506,6 +516,7 @@
           "q_cavities",
           "cav_opt_1",
           "cav_opt_2",
+          "option_DhBnwb",
           "q_plaque",
           "plaque_opt_1",
           "plaque_opt_2",
