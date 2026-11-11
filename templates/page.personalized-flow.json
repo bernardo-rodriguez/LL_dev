@@ -76,7 +76,7 @@
         "button_opens_quiz": true,
         "quiz_destination": "/products/at-home-whitening-kit?view=personalized",
         "microcopy": "<p>1-min Smile Assessment</p>",
-        "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_7.png",
+        "image_before": "shopify://shop_images/bwisabefore.png",
         "label_before": "Before",
         "focal_before": 80,
         "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_8.png",
