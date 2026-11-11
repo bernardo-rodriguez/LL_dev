@@ -1,0 +1,6 @@
+/*
+  Content that belongs to one formula. formula-variants.js adds the class;
+  it is a class rather than the `hidden` attribute so it cannot collide with
+  elements that manage `hidden` themselves, such as the analysis accordion.
+*/
+.ll-formula-hidden { display: none !important; }

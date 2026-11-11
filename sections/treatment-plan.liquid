@@ -13,16 +13,42 @@
   {% if section.settings.flow_visibility == 'quiz' %}data-ll-only="quiz"{% elsif section.settings.flow_visibility == 'direct' %}data-ll-only="direct"{% endif %}
 >
   <div class="page-width {% if template.name == 'product' %}page-width--product{% endif %}">
-    <div class="treatment-plan__inner">
+    <div class="treatment-plan__inner" data-ll-formula-scope>
+      {%- comment -%}
+        Per-formula wording. The formula is only known in the browser, so all
+        three are emitted and formula-variants.js picks one.
+      {%- endcomment -%}
+      {%- assign copy_blocks = section.blocks | where: 'type', 'copy' -%}
+      {%- assign has_formula_copy = false -%}
+      {%- if copy_blocks.size > 0 -%}{%- assign has_formula_copy = true -%}{%- endif -%}
+      {%- if copy_blocks.size > 0 -%}
+        <script type="application/json" data-ll-formula-copy>
+          {
+            {%- for block in copy_blocks -%}
+              {{ block.settings.formula | json }}: {
+                "eyebrow": {{ block.settings.eyebrow | default: '' | json }},
+                "heading": {{ block.settings.heading | default: '' | json }},
+                "body": {{ block.settings.body | default: '' | json }}
+              }{% unless forloop.last %},{% endunless %}
+            {%- endfor -%}
+          }
+        </script>
+      {%- endif -%}
+
       <div class="treatment-plan__intro">
         {% if section.settings.eyebrow != blank %}
-          <p class="section-eyebrow treatment-plan__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+          <p class="section-eyebrow treatment-plan__eyebrow label-sm" data-ll-formula-eyebrow>{{ section.settings.eyebrow }}</p>
         {% endif %}
-        {% if section.settings.heading != blank %}
-          <h3 class="section-heading treatment-plan__heading">{{ formatted_heading }}</h3>
+      {%- comment -%}
+        Rendered even when blank once per-formula copy exists, so an override
+        has an element to fill — otherwise a formula could never add a line
+        the section itself leaves empty.
+      {%- endcomment -%}
+        {% if section.settings.heading != blank or has_formula_copy %}
+          <h3 class="section-heading treatment-plan__heading" data-ll-formula-heading {% if section.settings.heading == blank %}hidden{% endif %}>{{ formatted_heading }}</h3>
         {% endif %}
-        {% if section.settings.body != blank %}
-          <p class="treatment-plan__body body-md">{{ section.settings.body }}</p>
+        {% if section.settings.body != blank or has_formula_copy %}
+          <p class="treatment-plan__body body-md" data-ll-formula-body {% if section.settings.body == blank %}hidden{% endif %}>{{ section.settings.body }}</p>
         {% endif %}
       </div>
 
@@ -35,7 +61,7 @@
         <div class="treatment-plan__grid">
           <ul class="treatment-plan__rows list-unstyled">
             {% for block in treatments %}
-              <li class="treatment-plan__item" {{ block.shopify_attributes }}>
+              <li class="treatment-plan__item" data-ll-formula="{{ block.settings.formula | default: 'all' }}" {{ block.shopify_attributes }}>
                 <span class="treatment-plan__target">
                   {% if block.settings.dot != blank or block.settings.dot_two != blank %}
                     <span class="treatment-plan__dots" aria-hidden="true">
@@ -75,6 +101,9 @@
     </div>
   </div>
 </section>
+
+{{ 'component-formula-variants.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'formula-variants.js' | asset_url }}" defer></script>
 
 {% schema %}
 {
@@ -188,6 +217,72 @@
           "id": "effect",
           "label": "What it does",
           "default": "Lifts stains, surface to deep."
+        },
+        {
+          "type": "select",
+          "id": "formula",
+          "label": "Show for formula",
+          "default": "all",
+          "options": [
+            {
+              "value": "all",
+              "label": "Every formula"
+            },
+            {
+              "value": "sensitive",
+              "label": "Gentle (19-2)"
+            },
+            {
+              "value": "medium",
+              "label": "Everyday (8-16)"
+            },
+            {
+              "value": "strong",
+              "label": "Super Strength (8-17)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "copy",
+      "name": "Formula copy",
+      "settings": [
+        {
+          "type": "select",
+          "id": "formula",
+          "label": "Formula",
+          "default": "medium",
+          "options": [
+            {
+              "value": "sensitive",
+              "label": "Gentle (19-2)"
+            },
+            {
+              "value": "medium",
+              "label": "Everyday (8-16)"
+            },
+            {
+              "value": "strong",
+              "label": "Super Strength (8-17)"
+            }
+          ]
+        },
+        {
+          "type": "textarea",
+          "id": "heading",
+          "label": "Heading",
+          "info": "Leave blank to keep the section's own. Wrap emphasized text in {}"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Body copy",
+          "info": "Leave blank to keep the section's own."
+        },
+        {
+          "type": "paragraph",
+          "content": "Replaces the section's heading and body when this formula is on screen. Add one per formula."
         }
       ]
     }
