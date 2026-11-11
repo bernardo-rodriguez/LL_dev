@@ -350,7 +350,7 @@
               "heading": "Do you notice any of these on the edges of you teeth?",
               "subheading": "Select all that apply",
               "name": "cavities",
-              "input_type": "radio",
+              "input_type": "checkbox",
               "layout": "stack"
             }
           },
