@@ -18,6 +18,15 @@
     });
   }
 
+  // Shopify trims text settings, so a suffix cannot carry its own leading
+  // space. The words are joined here instead.
+  function words() {
+    return Array.prototype.slice.call(arguments)
+      .map(function (part) { return String(part == null ? '' : part).trim(); })
+      .filter(Boolean)
+      .join(' ');
+  }
+
   function clean(list) {
     return (list || []).map(function (s) { return String(s).trim(); }).filter(Boolean);
   }
@@ -52,7 +61,7 @@
     // The sensitivity cause is named for the person's level, not its own name.
     function nameFor(cause, example) {
       if (cause.key !== data.sensitivityKey || !example.sensitivity) return cause.name;
-      return example.sensitivity + (data.sensitivitySuffix || '');
+      return words(example.sensitivity, data.sensitivitySuffix);
     }
 
     function render() {
@@ -90,7 +99,7 @@
         return '<span class="formula-builder__ing" style="border-left-color:' + esc(i.color) + '">' + esc(i.name) + '</span>';
       }).join('');
 
-      if (countEl) countEl.textContent = ings.length ? '· ' + ings.length + (data.countSuffix || '') : '';
+      if (countEl) countEl.textContent = ings.length ? '· ' + words(ings.length, data.countSuffix) : '';
 
       tabs.forEach(function (tab, i) {
         var on = i === state.ex;
