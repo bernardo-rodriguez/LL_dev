@@ -390,7 +390,18 @@
             "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_6.png",
             "name": "Sophia S.",
             "formula": "8-16",
-            "tags": "Surface stains | #B03A2E\nPlaque film | #9A6400\nMedium sensitivity",
+            "tags": "Surface stains | #B03A2E\nPlaque film | #9A6400\nThin enamel | #0F7A6E\nMedium sensitivity",
+            "quote": "After a single use I can actually tell a difference in the color of my teeth."
+          }
+        },
+        "result_C3WDcz": {
+          "type": "result",
+          "settings": {
+            "image_before": "shopify://shop_images/Chris_Before.jpg",
+            "image_after": "shopify://shop_images/newchris.png",
+            "name": "Chris W.",
+            "formula": "8-17",
+            "tags": "Surface stains | #B03A2E\nPlaque film | #9A6400\nLow sensitivity",
             "quote": "After a single use I can actually tell a difference in the color of my teeth."
           }
         },
@@ -399,7 +410,7 @@
           "settings": {
             "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
             "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png",
-            "name": "Lesley C.",
+            "name": "Neha K.",
             "formula": "19-2",
             "tags": "Deep stains | #6A3FA3\nThin enamel | #0F7A6E\nHigh sensitivity",
             "quote": "Normally I have excruciating pain with strips. After the first day my teeth look 2 shades whiter."
@@ -408,6 +419,7 @@
       },
       "block_order": [
         "result_1",
+        "result_C3WDcz",
         "result_2"
       ],
       "settings": {
