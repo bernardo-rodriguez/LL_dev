@@ -357,8 +357,9 @@
         "step_3"
       ],
       "settings": {
+        "image": "shopify://shop_images/PDPV2.png",
         "image_caption": "[Product photo: LED mouthpiece + gels]",
-        "badge": "Anniversary sale 40% off",
+        "badge": "40% off",
         "media_chip": "Blended for your causes",
         "media_chip_colours": "#A87B2A, #8A5A3C, #73476E, #4F7A91",
         "step_number": "3",
