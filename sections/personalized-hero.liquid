@@ -30,7 +30,10 @@
             {% if section.settings.show_stars %}
               <span class="personalized-hero__stars" aria-hidden="true">★★★★★</span>
             {% endif %}
-            {{ section.settings.rating_text }}
+            {%- assign rating_lower = section.settings.rating_text | downcase -%}
+            <span
+              {%- if rating_lower contains '{reviews}' or rating_lower contains '{rating}' %} data-ll-reviews="{{ section.settings.rating_text | escape }}"{% endif -%}
+            >{{ section.settings.rating_text }}</span>
           </p>
         {% endif %}
 
@@ -159,7 +162,8 @@
       "type": "text",
       "id": "rating_text",
       "label": "Rating line",
-      "default": "4.7/5 from 2,316 reviews"
+      "default": "4.7/5 from 2,316 reviews",
+      "info": "Write {reviews} for the live total and {rating} for the rating."
     },
     {
       "type": "textarea",

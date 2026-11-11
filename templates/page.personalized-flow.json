@@ -77,7 +77,7 @@
       ],
       "settings": {
         "show_stars": true,
-        "rating_text": "4.7/5 from 2,316 reviews",
+        "rating_text": "{rating}/5 from {reviews} reviews",
         "heading": "Treat all root causes holding your smile back.",
         "body": "",
         "button_label": "Find my formula",

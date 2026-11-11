@@ -263,7 +263,7 @@
         "result_2"
       ],
       "settings": {
-        "eyebrow": "★★★★★ 4.7 · 2,316 reviews",
+        "eyebrow": "★★★★★ {rating} · {reviews} reviews",
         "heading": "Real results from\npeople with your profile",
         "label_before": "Before",
         "label_after": "After",

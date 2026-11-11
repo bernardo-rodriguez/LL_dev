@@ -1,0 +1,10 @@
+{%- comment -%}
+  Feeds review-totals.js from Theme settings > Reviews, so the number of
+  pre-Judge.me reviews and the rating are editable rather than buried in a
+  script. See assets/review-totals.js.
+{%- endcomment -%}
+<script>
+  window.LL_REVIEWS_LEGACY = {{ settings.reviews_legacy_count | default: 2000 | json }};
+  window.LL_REVIEWS_RATING = {{ settings.reviews_rating | default: '4.7' | json }};
+</script>
+<script src="{{ 'review-totals.js' | asset_url }}" defer></script>

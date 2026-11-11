@@ -78,7 +78,13 @@
         }
       }
       if (rawCount != null) {
-        var displayCount = rawCount < 1000 ? rawCount + 2000 : rawCount;
+        // The reviews that predate Judge.me, from Theme settings > Reviews.
+        // This used to be a literal 2000 added only when the raw count was
+        // under 1000, so the total would have silently stopped including them
+        // the moment Judge.me passed a thousand.
+        var legacy = parseInt(window.LL_REVIEWS_LEGACY, 10);
+        if (isNaN(legacy)) legacy = 2000;
+        var displayCount = rawCount + legacy;
         var text = displayCount.toLocaleString() + ' Reviews';
         document.querySelectorAll('.small-stars-review-count').forEach(function(el) { el.textContent = text; });
         return true;

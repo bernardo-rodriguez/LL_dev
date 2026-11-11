@@ -18,7 +18,10 @@
           | escape
           | replace: '★★★★★', '<span class="results-cards__stars" aria-hidden="true">★★★★★</span>'
         -%}
-        <p class="section-eyebrow results-cards__eyebrow label-sm">{{ eyebrow_html }}</p>
+        {%- assign eyebrow_lower = section.settings.eyebrow | downcase -%}
+        <p class="section-eyebrow results-cards__eyebrow label-sm"
+          {%- if eyebrow_lower contains '{reviews}' or eyebrow_lower contains '{rating}' %} data-ll-reviews="{{ section.settings.eyebrow | escape }}"{% endif -%}
+        >{{ eyebrow_html }}</p>
       {% endif %}
       {% if section.settings.heading != blank %}
         <h3 class="section-heading results-cards__heading">{{ formatted_heading }}</h3>
@@ -132,45 +135,154 @@
   "tag": "section",
   "class": "section",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Real results · 4.7/5 · 2,316 reviews" },
-    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Different causes. Different formulas. Same brighter smile.", "info": "Line breaks are kept. Wrap emphasized text in {} for the italic Canela style" },
-    { "type": "text", "id": "label_before", "label": "Before label", "default": "Before" },
-    { "type": "text", "id": "label_after", "label": "After label", "default": "After" },
-    { "type": "header", "content": "Under the row" },
-    { "type": "text", "id": "cta_text", "label": "Link text", "info": "Leave blank to show the swipe hint instead." },
-    { "type": "url", "id": "cta_url", "label": "Link target" },
-    { "type": "text", "id": "swipe_hint", "label": "Hint under the row", "default": "Swipe for more" },
-    { "type": "header", "content": "Layout" },
-    { "type": "checkbox", "id": "margin_bottom", "label": "Extra space below", "default": false, "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap." },
-    { "type": "header", "content": "Personalization flow" },
-    { "type": "select", "id": "flow_visibility", "label": "Show this section to", "default": "all",
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Real results · 4.7/5 · 2,316 reviews",
+      "info": "Write {reviews} for the live total and {rating} for the rating."
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Different causes. Different formulas. Same brighter smile.",
+      "info": "Line breaks are kept. Wrap emphasized text in {} for the italic Canela style"
+    },
+    {
+      "type": "text",
+      "id": "label_before",
+      "label": "Before label",
+      "default": "Before"
+    },
+    {
+      "type": "text",
+      "id": "label_after",
+      "label": "After label",
+      "default": "After"
+    },
+    {
+      "type": "header",
+      "content": "Under the row"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Link text",
+      "info": "Leave blank to show the swipe hint instead."
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Link target"
+    },
+    {
+      "type": "text",
+      "id": "swipe_hint",
+      "label": "Hint under the row",
+      "default": "Swipe for more"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "margin_bottom",
+      "label": "Extra space below",
+      "default": false,
+      "info": "Off by default. Sections carry their spacing on top, so the next one supplies the gap."
+    },
+    {
+      "type": "header",
+      "content": "Personalization flow"
+    },
+    {
+      "type": "select",
+      "id": "flow_visibility",
+      "label": "Show this section to",
+      "default": "all",
       "options": [
-        { "value": "all", "label": "Everyone" },
-        { "value": "quiz", "label": "Quiz arrivals only" },
-        { "value": "direct", "label": "Direct arrivals only" }
+        {
+          "value": "all",
+          "label": "Everyone"
+        },
+        {
+          "value": "quiz",
+          "label": "Quiz arrivals only"
+        },
+        {
+          "value": "direct",
+          "label": "Direct arrivals only"
+        }
       ],
-      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL." }
+      "info": "Preview either flow by adding ?ll_flow=quiz or ?ll_flow=direct to the page URL."
+    }
   ],
   "blocks": [
     {
       "type": "result",
       "name": "Result",
       "settings": [
-        { "type": "image_picker", "id": "image_before", "label": "Before image" },
-        { "type": "image_picker", "id": "image_after", "label": "After image" },
-        { "type": "text", "id": "name", "label": "Name", "default": "Sophia S." },
-        { "type": "text", "id": "formula", "label": "Formula", "default": "8-16" },
-        { "type": "textarea", "id": "tags", "label": "Causes and sensitivity", "info": "One per line. Add a dot by writing: Surface stains | #B03A2E", "default": "Surface stains\nMedium sensitivity" },
-        { "type": "textarea", "id": "quote", "label": "Quote", "default": "After a single use I can actually tell a difference in the color of my teeth." }
+        {
+          "type": "image_picker",
+          "id": "image_before",
+          "label": "Before image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_after",
+          "label": "After image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Sophia S."
+        },
+        {
+          "type": "text",
+          "id": "formula",
+          "label": "Formula",
+          "default": "8-16"
+        },
+        {
+          "type": "textarea",
+          "id": "tags",
+          "label": "Causes and sensitivity",
+          "info": "One per line. Add a dot by writing: Surface stains | #B03A2E",
+          "default": "Surface stains\nMedium sensitivity"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "After a single use I can actually tell a difference in the color of my teeth."
+        }
       ]
     },
     {
       "type": "video",
       "name": "Video",
       "settings": [
-        { "type": "video", "id": "video", "label": "Customer video", "info": "15-30 seconds works best." },
-        { "type": "image_picker", "id": "poster", "label": "Poster image", "info": "Used when no video is set." },
-        { "type": "text", "id": "caption", "label": "Caption", "default": "Kailey · 8-16" }
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Customer video",
+          "info": "15-30 seconds works best."
+        },
+        {
+          "type": "image_picker",
+          "id": "poster",
+          "label": "Poster image",
+          "info": "Used when no video is set."
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Caption",
+          "default": "Kailey · 8-16"
+        }
       ]
     }
   ],
@@ -178,8 +290,24 @@
     {
       "name": "Results Cards",
       "blocks": [
-        { "type": "result", "settings": { "name": "Sophia S.", "formula": "8-16", "tags": "Surface stains\nMedium sensitivity", "quote": "After a single use I can actually tell a difference in the color of my teeth." } },
-        { "type": "result", "settings": { "name": "Lesley C.", "formula": "19-2", "tags": "Deep stains\nHigh sensitivity", "quote": "Normally I have excruciating pain with strips. After the first day my teeth look 2 shades whiter." } }
+        {
+          "type": "result",
+          "settings": {
+            "name": "Sophia S.",
+            "formula": "8-16",
+            "tags": "Surface stains\nMedium sensitivity",
+            "quote": "After a single use I can actually tell a difference in the color of my teeth."
+          }
+        },
+        {
+          "type": "result",
+          "settings": {
+            "name": "Lesley C.",
+            "formula": "19-2",
+            "tags": "Deep stains\nHigh sensitivity",
+            "quote": "Normally I have excruciating pain with strips. After the first day my teeth look 2 shades whiter."
+          }
+        }
       ]
     }
   ]

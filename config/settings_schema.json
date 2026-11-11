@@ -784,4 +784,28 @@
       { "type": "text", "id": "formula_active_sensitive_short", "label": "Short label", "default": "25% SB", "info": "Used on the quiz unlock screen, where space is tight." }
     ]
   }
+  ,
+  {
+    "name": "Reviews",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Judge.me only counts reviews collected through Judge.me. The total shown around the site is its live count plus the reviews below, worked out in the browser so it never goes stale."
+      },
+      {
+        "type": "number",
+        "id": "reviews_legacy_count",
+        "label": "Reviews not counted by Judge.me",
+        "default": 2000,
+        "info": "Added to Judge.me's live count wherever a total is shown."
+      },
+      {
+        "type": "text",
+        "id": "reviews_rating",
+        "label": "Rating shown",
+        "default": "4.7",
+        "info": "Judge.me reports the average of its own reviews only, so this is set here rather than read from it."
+      }
+    ]
+  }
 ]
