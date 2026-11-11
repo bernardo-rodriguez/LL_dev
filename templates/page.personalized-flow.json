@@ -508,46 +508,11 @@
     "faq_section_Aifz8F": {
       "type": "faq-section",
       "blocks": {
-        "faq_jcePmi": {
-          "type": "faq",
-          "settings": {
-            "title": "How does the personalization actually work?",
-            "sub_title": "<p>Your initial smile assessment maps your enamel thickness, sensitivity history, diet, and stain type & depth. From those results, we adjust three core variables: the active ingredients to treat your root causes, the concentration of peroxide and the concentration of desensitizing agents. Even two people with coffee stains may receive completely different formulas depending on their underlying enamel & plaque condition.</p>"
-          }
-        },
         "faq_Fc7gWN": {
           "type": "faq",
           "settings": {
             "title": "I’ve tried strips and kits before and they didn't work. Why is this any different?",
             "sub_title": "<p>One-size-fits-all whitening fail because they assume all yellow teeth are the same. In reality, discoloration comes from four distinct root causes—plaque film, surface stains, deep stains, or thin enamel. If your yellowing is caused by thin enamel, traditional bleach will never work. We analyze your specific dental profile first to target the exact cause of your discoloration, not just surface symptoms.</p><h3></h3>"
-          }
-        },
-        "faq_FThF9j": {
-          "type": "faq",
-          "settings": {
-            "title": "Will this cause sensitivity?",
-            "sub_title": "<p>No. Unlike generic whitening strips that use harsh, uniform peroxide levels for every mouth, your formula is calibrated to your specific sensitivity score. If you report sensitive teeth, we adjust the active whitening agents and balance them with enamel-fortifying ingredients to lift stains without triggering nerve pain or thinning your enamel.<br/><br/>If you experience any pain, we will send you an updated formula free of charge.</p><h3></h3>"
-          }
-        },
-        "faq_kY37yt": {
-          "type": "faq",
-          "settings": {
-            "title": "What if my custom formula doesn’t work?",
-            "sub_title": "<p>We guarantee shade improvement. Because your formula is built specifically for your teeth, we stand behind the outcome: if you complete your treatment and aren't thrilled with your results, our team will review your feedback, reassess your teeth, and formulate a new blend for free.</p>"
-          }
-        },
-        "faq_TFKdWm": {
-          "type": "faq",
-          "settings": {
-            "title": "What are the ingredients?",
-            "sub_title": "<p><em>Our whitening formula has been rigorously tested in clinical trials for efficacy and includes different blends of:&nbsp;<br/><br/>Our active ingredients - Nano-Hydroxyapatite, Hydrogen Peroxide, Sodium Bicarbonate.<br/><br/>Other ingredients include Glycerin, Cellulose Gum, Sodium Hydroxide, Aloe Vera, and Mint Extract. To learn more about these ingredients and their reactions, visit our Science page.</em></p>"
-          }
-        },
-        "faq_44QXDj": {
-          "type": "faq",
-          "settings": {
-            "title": "Will this work on crowns, veneers, fillings, or bonding?",
-            "sub_title": "<p>Our Whitening formulas only lift stains from natural enamel—they cannot lighten synthetic porcelain, composite resin, or dental bonding. However, our formula is completely safe to use around dental work and will lift surface stains without compromising bonding agents. We use your quiz to account for existing dental work so your natural teeth match your restorations as closely as possible.</p>"
           }
         },
         "faq_4je8aW": {
@@ -557,23 +522,59 @@
             "sub_title": "<p>Most customers notice a visible lift after their <strong>very first 20-minute session</strong>, with full, peak whitening developing after <strong>6 treatments</strong>. Because your formula is calibrated to your specific root cause rather than a generic one-size-fits-all gel, the active ingredients go straight to work on your exact stain type without unnecessary treatment time.</p><h4></h4>"
           }
         },
+        "faq_jcePmi": {
+          "type": "faq",
+          "disabled": true,
+          "settings": {
+            "title": "How does the personalization actually work?",
+            "sub_title": "<p>Your initial smile assessment maps your enamel thickness, sensitivity history, diet, and stain type & depth. From those results, we adjust three core variables: the active ingredients to treat your root causes, the concentration of peroxide and the concentration of desensitizing agents. Even two people with coffee stains may receive completely different formulas depending on their underlying enamel & plaque condition.</p>"
+          }
+        },
+        "faq_FThF9j": {
+          "type": "faq",
+          "settings": {
+            "title": "Will this cause sensitivity?",
+            "sub_title": "<p>No. Unlike generic whitening strips that use harsh, uniform peroxide levels for every mouth, your formula is calibrated to your specific sensitivity score. If you report sensitive teeth, we adjust the active whitening agents and balance them with enamel-fortifying ingredients to lift stains without triggering nerve pain or thinning your enamel.<br/><br/>If you experience any pain, we will send you an updated formula free of charge.</p><h3></h3>"
+          }
+        },
         "faq_wna9ac": {
           "type": "faq",
           "settings": {
             "title": "Will this damage my enamel or gums?",
             "sub_title": "<p>No—it actively protects both. While traditional over-the-counter kits rely on harsh bleaches alone, our formula includes restorative ingredients rarely found in drugstore products: <strong>hydroxyapatite</strong> (the core building block of natural teeth) to rebuild and fortify your enamel, alongside <strong>aloe vera</strong> to calm and shield your gums. You get professional-level whitening with zero enamel loss or gum burn.</p>"
           }
+        },
+        "faq_TFKdWm": {
+          "type": "faq",
+          "settings": {
+            "title": "What are the ingredients?",
+            "sub_title": "<p><em>Our whitening formula has been rigorously tested in clinical trials for efficacy and includes different blends of:&nbsp;<br/><br/>Our active ingredients - Nano-Hydroxyapatite, Hydrogen Peroxide, Sodium Bicarbonate.<br/><br/>Other ingredients include Glycerin, Cellulose Gum, Sodium Hydroxide, Aloe Vera, and Mint Extract. To learn more about these ingredients and their reactions, visit our Science page.</em></p>"
+          }
+        },
+        "faq_kY37yt": {
+          "type": "faq",
+          "settings": {
+            "title": "What if my custom formula doesn’t work?",
+            "sub_title": "<p>We guarantee shade improvement. Because your formula is built specifically for your teeth, we stand behind the outcome: if you complete your treatment and aren't thrilled with your results, our team will review your feedback, reassess your teeth, and formulate a new blend for free.</p>"
+          }
+        },
+        "faq_44QXDj": {
+          "type": "faq",
+          "settings": {
+            "title": "Will this work on crowns, veneers, fillings, or bonding?",
+            "sub_title": "<p>Our Whitening formulas only lift stains from natural enamel—they cannot lighten synthetic porcelain, composite resin, or dental bonding. However, our formula is completely safe to use around dental work and will lift surface stains without compromising bonding agents. We use your quiz to account for existing dental work so your natural teeth match your restorations as closely as possible.</p>"
+          }
         }
       },
       "block_order": [
-        "faq_jcePmi",
         "faq_Fc7gWN",
-        "faq_FThF9j",
-        "faq_kY37yt",
-        "faq_TFKdWm",
-        "faq_44QXDj",
         "faq_4je8aW",
-        "faq_wna9ac"
+        "faq_jcePmi",
+        "faq_FThF9j",
+        "faq_wna9ac",
+        "faq_TFKdWm",
+        "faq_kY37yt",
+        "faq_44QXDj"
       ],
       "settings": {
         "section_heading": "Frequently asked questions",
@@ -588,7 +589,7 @@
         "button_label": "Find my formula",
         "button_link": "",
         "button_opens_quiz": true,
-        "note": "Then your kit is $39 (reg. $65).",
+        "note": "",
         "guarantee": "Noticeably whiter in 30 days or your money back.",
         "margin_bottom": false,
         "flow_visibility": "all"
