@@ -350,6 +350,13 @@
             "title": "How long do results last?",
             "sub_title": "<p>The deep whitening effects last <strong>6 to 12 months</strong>. During that time, our formula actively strengthens your enamel and slows down future staining. That said, new stains from coffee, wine accumulate daily. Doing a brief touch-up every <strong>2 months</strong> clears away surface buildup before it can penetrate the enamel, keeping your teeth permanently bright without ever having to start over.</p><h4></h4>"
           }
+        },
+        "faq_4m3LPU": {
+          "type": "faq",
+          "settings": {
+            "title": "What if my formula doesn’t work?",
+            "sub_title": "<p>We guarantee shade improvement. Because your formula is built specifically for your teeth, we stand behind the outcome: if you complete your treatment and aren't thrilled with your results, our team will review your feedback, reassess your teeth, and formulate a new blend for free.</p><h4></h4>"
+          }
         }
       },
       "block_order": [
@@ -357,7 +364,8 @@
         "faq_2",
         "faq_3",
         "faq_4",
-        "faq_5"
+        "faq_5",
+        "faq_4m3LPU"
       ],
       "settings": {
         "section_heading": "Questions",
