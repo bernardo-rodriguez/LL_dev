@@ -170,22 +170,22 @@
         "stage_4": {
           "type": "stage",
           "settings": {
-            "when": "1st treatment",
-            "text": "Glossier, cleaner-feeling teeth"
+            "when": "BLUE LIGHT MOUTHPIECE",
+            "text": "Speeds up stain removal."
           }
         },
         "stage_5": {
           "type": "stage",
           "settings": {
-            "when": "6 treatments",
-            "text": "Visibly brighter"
+            "when": "3 CUSTOM  GELS",
+            "text": "Lasts 6 treatments."
           }
         },
         "stage_6": {
           "type": "stage",
           "settings": {
-            "when": "12 treatments",
-            "text": "Deep stains lifted + opaque enamel"
+            "when": "STEP BY STEP GUIDE",
+            "text": "Easy 6-day routine."
           }
         }
       },
@@ -203,7 +203,7 @@
         "demo_image": "shopify://shop_images/laughland-unboxing-resize.gif",
         "demo_caption": "Applying gel + LED",
         "demo_badge": "As easy as 1,2,3",
-        "stages_label": "What to expect",
+        "stages_label": "Includes everything to get started",
         "margin_bottom": false,
         "flow_visibility": "all"
       }
