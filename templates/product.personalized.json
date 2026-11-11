@@ -217,9 +217,31 @@
             "image_before": "shopify://shop_images/Maggie_Before_1.png",
             "image_after": "shopify://shop_images/Maggie_After.png",
             "name": "Maggie T.",
-            "formula": "19-2",
+            "formula": "37",
             "tags": "Deep stains | #6A3FA3\nPlaque film | #9A6400\nThin enamel | #0F7A6E\nMedium sensitivity",
-            "quote": "Normally I have excruciating pain with strips. After the first day my teeth look 2 shades whiter."
+            "quote": "Used this leading up to our wedding and my planner literally thought I got veneers. So happy with the pictures."
+          }
+        },
+        "result_1": {
+          "type": "result",
+          "settings": {
+            "image_before": "shopify://shop_images/Faith_B.png",
+            "image_after": "shopify://shop_images/Faith_A.png",
+            "name": "Faith S.",
+            "formula": "43",
+            "tags": "Deep stains | #6A3FA3\nPlaque film | #9A6400\nThin enamel | #0F7A6E\nMedium sensitivity",
+            "quote": "My hubby actually thought I got them done at the dentist! Zero pain or gum burning and works so fast. On refill #3 now!"
+          }
+        },
+        "result_zxbAhR": {
+          "type": "result",
+          "settings": {
+            "image_before": "shopify://shop_images/Marco_B.png",
+            "image_after": "shopify://shop_images/Marco_A.png",
+            "name": "Marco W.",
+            "formula": "25",
+            "tags": "Deep stains | #6A3FA3\nPlaque film | #9A6400\nThin enamel | #0F7A6E\nMedium sensitivity",
+            "quote": "My dental hygienist literally asked what I was using."
           }
         },
         "result_2": {
@@ -228,34 +250,24 @@
             "image_before": "shopify://shop_images/Lesleybefore2.jpg",
             "image_after": "shopify://shop_images/LesleyAfter.jpg",
             "name": "Lesley C.",
-            "formula": "19-2",
+            "formula": "29",
             "tags": "Deep stains | #6A3FA3\nPlaque film | #9A6400\nThin enamel | #0F7A6E",
-            "quote": "Normally I have excruciating pain with strips. After the first day my teeth look 2 shades whiter."
-          }
-        },
-        "result_1": {
-          "type": "result",
-          "settings": {
-            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_5.png",
-            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_6.png",
-            "name": "Sophia S.",
-            "formula": "8-16",
-            "tags": "Deep stains | #6A3FA3\nPlaque film | #9A6400\nThin enamel | #0F7A6E\nMedium sensitivity",
-            "quote": "After a single use I can actually tell a difference in the color of my teeth."
+            "quote": "Honestly didn’t think taking a quiz would change anything, but my teeth are noticeably whiter and my gums don’t burn...?!"
           }
         }
       },
       "block_order": [
         "result_TrQe3y",
-        "result_2",
-        "result_1"
+        "result_1",
+        "result_zxbAhR",
+        "result_2"
       ],
       "settings": {
         "eyebrow": "★★★★★ 4.7 · 2,316 reviews",
         "heading": "Real results from\npeople with your profile",
         "label_before": "Before",
         "label_after": "After",
-        "cta_text": "See all 2,316 reviews",
+        "cta_text": "",
         "cta_url": "#judgeme_product_reviews",
         "swipe_hint": "Swipe for more",
         "margin_bottom": false,
