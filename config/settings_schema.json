@@ -753,4 +753,35 @@
       }
     ]
   }
+  ,
+  {
+    "name": "Formula actives",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "The lead active in each formula. One place, read by both the quiz's unlock screen and Your Formula on the product page, so the two cannot drift apart."
+      },
+      {
+        "type": "header",
+        "content": "Super Strength 8-17 (low sensitivity)"
+      },
+      { "type": "text", "id": "formula_active_strong_pct",   "label": "Percentage", "default": "14%" },
+      { "type": "text", "id": "formula_active_strong_name",  "label": "Active", "default": "Hydrogen Peroxide" },
+      { "type": "text", "id": "formula_active_strong_short", "label": "Short label", "default": "14% HP", "info": "Used on the quiz unlock screen, where space is tight." },
+      {
+        "type": "header",
+        "content": "Everyday 8-16 (medium sensitivity)"
+      },
+      { "type": "text", "id": "formula_active_medium_pct",   "label": "Percentage", "default": "11%" },
+      { "type": "text", "id": "formula_active_medium_name",  "label": "Active", "default": "Hydrogen Peroxide" },
+      { "type": "text", "id": "formula_active_medium_short", "label": "Short label", "default": "11% HP", "info": "Used on the quiz unlock screen, where space is tight." },
+      {
+        "type": "header",
+        "content": "Gentle 19-2 (high sensitivity)"
+      },
+      { "type": "text", "id": "formula_active_sensitive_pct",   "label": "Percentage", "default": "25%" },
+      { "type": "text", "id": "formula_active_sensitive_name",  "label": "Active", "default": "Sodium Bicarbonate" },
+      { "type": "text", "id": "formula_active_sensitive_short", "label": "Short label", "default": "25% SB", "info": "Used on the quiz unlock screen, where space is tight." }
+    ]
+  }
 ]

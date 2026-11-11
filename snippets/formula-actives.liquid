@@ -1,0 +1,45 @@
+{%- comment -%}
+  The lead active in each formula, from theme settings.
+
+  Two places tell a customer what is in their formula: the quiz's unlock
+  screen and Your Formula on the product page. They were written separately
+  and had drifted — a high-sensitivity quiz taker was promised 11% HP and
+  then shown 25% Sodium Bicarbonate, because the unlock screen tested a
+  *strength* value against a *sensitivity* answer and fell through to its
+  default.
+
+  Both now read this. It overwrites formula_ingredient_by_strength, which
+  in-house-tracking-constants.js defines and the product page already uses,
+  so that page needs no change at all.
+
+  Must be rendered after in-house-tracking-constants.js.
+{%- endcomment -%}
+<script>
+  (function () {
+    var actives = {
+      strong:    { percentage: {{ settings.formula_active_strong_pct     | default: '14%'                | json }},
+                   name:       {{ settings.formula_active_strong_name    | default: 'Hydrogen Peroxide'  | json }},
+                   short:      {{ settings.formula_active_strong_short   | default: '14% HP'             | json }} },
+      medium:    { percentage: {{ settings.formula_active_medium_pct     | default: '11%'                | json }},
+                   name:       {{ settings.formula_active_medium_name    | default: 'Hydrogen Peroxide'  | json }},
+                   short:      {{ settings.formula_active_medium_short   | default: '11% HP'             | json }} },
+      sensitive: { percentage: {{ settings.formula_active_sensitive_pct  | default: '25%'                | json }},
+                   name:       {{ settings.formula_active_sensitive_name | default: 'Sodium Bicarbonate' | json }},
+                   short:      {{ settings.formula_active_sensitive_short| default: '25% SB'             | json }} }
+    };
+    actives.gentle = actives.sensitive;
+
+    window.LL_FORMULA_ACTIVES = actives;
+
+    // the product page reads this global; keeping the name means that page
+    // is untouched and still works if this snippet is ever removed
+    window.formula_ingredient_by_strength = actives;
+
+    // the quiz asks about sensitivity; the formula is keyed by strength
+    window.LL_STRENGTH_FOR_SENSITIVITY = { mild: 'strong', medium: 'medium', very: 'sensitive' };
+
+    window.llFormulaActive = function (strength) {
+      return actives[strength] || actives.medium;
+    };
+  })();
+</script>

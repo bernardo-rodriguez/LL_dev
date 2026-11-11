@@ -109,11 +109,23 @@
       return Math.min((v / 3) + 70, 100);
     }
 
+    /*
+      The lead active for this answer, from theme settings — the same source
+      Your Formula reads on the product page, so the two cannot disagree.
+
+      This used to hold its own percentages and, worse, tested 'strong'
+      against a sensitivity answer. 'strong' is a *strength*, never a
+      sensitivity, so a 'very' answer fell through to the default and
+      promised 11% HP before the product page showed 25% Sodium Bicarbonate.
+    */
     function hpPercent(sensitivity) {
-      if (sensitivity == 'mild') return '14% HP';
-      if (sensitivity == 'medium') return '11% HP';
-      if (sensitivity == 'strong') return '25% SB';
-      return '11% HP';
+      var map = window.LL_STRENGTH_FOR_SENSITIVITY || { mild: 'strong', medium: 'medium', very: 'sensitive' };
+      var strength = map[sensitivity] || 'medium';
+      var active = (typeof window.llFormulaActive === 'function')
+        ? window.llFormulaActive(strength)
+        : null;
+      if (!active) return '11% HP';
+      return active.short || ((active.percentage || '') + ' ' + (active.name || '')).trim();
     }
 
     function stainHabitPhrase(stainRaw) {

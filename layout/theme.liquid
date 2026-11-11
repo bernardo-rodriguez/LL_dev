@@ -104,6 +104,8 @@
 
     <script src="{{ 'in-house-constants.js' | asset_url }}"></script>
     <script src="{{ 'in-house-tracking-constants.js' | asset_url }}"></script>
+    {%- comment -%} overrides the formula actives above from theme settings {%- endcomment -%}
+    {% render 'formula-actives' %}
 
     <script src="{{ 'in-house-tracking.js' | asset_url }}" defer='defer'></script>
     
