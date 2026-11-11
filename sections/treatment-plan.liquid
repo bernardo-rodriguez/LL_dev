@@ -83,7 +83,17 @@
                 </span>
 
                 <span class="treatment-plan__treatment">
-                  <span class="treatment-plan__agent">{{ block.settings.agent }}</span>
+                  {%- comment -%}
+                    {active} and friends are filled in by formula-variants.js
+                    from Theme settings > Formula actives — the same source the
+                    quiz's unlock screen reads, so the two cannot disagree.
+                  {%- endcomment -%}
+                  {%- assign agent_lower = block.settings.agent | downcase -%}
+                  {%- if agent_lower contains '{active' -%}
+                    <span class="treatment-plan__agent" data-ll-active="{{ block.settings.agent | escape }}">{{ block.settings.agent }}</span>
+                  {%- else -%}
+                    <span class="treatment-plan__agent">{{ block.settings.agent }}</span>
+                  {%- endif -%}
                   <span class="treatment-plan__effect">{{ block.settings.effect }}</span>
                 </span>
               </li>
@@ -210,7 +220,8 @@
           "type": "text",
           "id": "agent",
           "label": "Active",
-          "default": "Hydrogen peroxide + LED"
+          "default": "Hydrogen peroxide + LED",
+          "info": "Write {active} to show the formula's lead active (e.g. 14% Hydrogen Peroxide), which follows the visitor's formula. Also {active_pct}, {active_name}, {active_short}."
         },
         {
           "type": "text",

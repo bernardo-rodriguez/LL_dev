@@ -82,6 +82,28 @@
     });
   }
 
+  /*
+    Fills {active} and friends from Theme settings > Formula actives, so a
+    line like "11% Hydrogen Peroxide" follows the visitor's formula instead
+    of being fixed at whatever was typed. The quiz's unlock screen reads the
+    same source.
+  */
+  function applyActives(formula) {
+    var nodes = document.querySelectorAll('[data-ll-active]');
+    if (!nodes.length || typeof window.llFormulaActive !== 'function') return;
+    var a = window.llFormulaActive(formula) || {};
+    var full = ((a.percentage || '') + ' ' + (a.name || '')).trim();
+
+    nodes.forEach(function (el) {
+      el.textContent = (el.getAttribute('data-ll-active') || '')
+        .replace(/\{\s*active_pct\s*\}/gi, a.percentage || '')
+        .replace(/\{\s*active_name\s*\}/gi, a.name || '')
+        .replace(/\{\s*active_short\s*\}/gi, a.short || full)
+        .replace(/\{\s*active\s*\}/gi, full)
+        .trim();
+    });
+  }
+
   var last = null;
 
   function apply() {
@@ -91,6 +113,7 @@
     document.documentElement.setAttribute('data-ll-formula-active', formula);
     applyVisibility(formula);
     applyCopy(formula);
+    applyActives(formula);
   }
 
   var timer = null;
