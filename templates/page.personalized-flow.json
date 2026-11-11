@@ -28,6 +28,14 @@
             "dot": "#a87b2a"
           }
         },
+        "cause_Fh4L4t": {
+          "type": "cause",
+          "settings": {
+            "label": "Deep stains",
+            "tint": "#E7E7E7",
+            "dot": "#871515"
+          }
+        },
         "cause_3": {
           "type": "cause",
           "settings": {
@@ -61,6 +69,7 @@
       "block_order": [
         "cause_1",
         "cause_2",
+        "cause_Fh4L4t",
         "cause_3",
         "stat_1",
         "stat_2",
