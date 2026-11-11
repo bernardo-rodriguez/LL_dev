@@ -38,8 +38,20 @@
     return n;
   }
 
+  /*
+    Pages that are not a product have no Judge.me element to read — the
+    landing page, for one. Without a fallback the tokens stayed on screen
+    exactly as typed, which is worse than a stale number, so the last known
+    Judge.me count is kept in settings for those pages.
+  */
+  function fallbackCount() {
+    var n = parseInt(window.LL_REVIEWS_JUDGEME_FALLBACK, 10);
+    return isNaN(n) ? null : n;
+  }
+
   function total() {
     var n = judgemeCount();
+    if (n == null) n = fallbackCount();
     return n == null ? null : n + legacyCount();
   }
 
@@ -51,7 +63,13 @@
     if (!nodes.length) return true;
 
     var t = total();
-    if (t == null) return false;
+    // Never leave a token on screen. With no number at all the line has
+    // nothing left to say, so it is emptied rather than shown half-built —
+    // "4.7/5 from reviews" is worse than nothing.
+    if (t == null) {
+      nodes.forEach(function (el) { el.textContent = ''; el.hidden = true; });
+      return false;
+    }
 
     var count = t.toLocaleString();
     var rating = window.llReviewRating();
@@ -59,6 +77,7 @@
       el.textContent = (el.getAttribute('data-ll-reviews') || '')
         .replace(/\{\s*reviews\s*\}/gi, count)
         .replace(/\{\s*rating\s*\}/gi, rating);
+      el.hidden = false;
     });
     return true;
   }

@@ -6,5 +6,6 @@
 <script>
   window.LL_REVIEWS_LEGACY = {{ settings.reviews_legacy_count | default: 2000 | json }};
   window.LL_REVIEWS_RATING = {{ settings.reviews_rating | default: '4.7' | json }};
+  window.LL_REVIEWS_JUDGEME_FALLBACK = {{ settings.reviews_judgeme_fallback | default: 583 | json }};
 </script>
 <script src="{{ 'review-totals.js' | asset_url }}" defer></script>

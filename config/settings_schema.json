@@ -800,6 +800,13 @@
         "info": "Added to Judge.me's live count wherever a total is shown."
       },
       {
+        "type": "number",
+        "id": "reviews_judgeme_fallback",
+        "label": "Judge.me count for pages without the widget",
+        "default": 583,
+        "info": "Landing pages carry no Judge.me widget to read, so the total there is this plus the count above. Worth refreshing occasionally."
+      },
+      {
         "type": "text",
         "id": "reviews_rating",
         "label": "Rating shown",
