@@ -449,41 +449,44 @@
     "dentist_cards": {
       "type": "dentist-cards",
       "blocks": {
-        "dentist_1": {
-          "type": "dentist",
-          "settings": {
-            "name": "Dr. Name, DDS",
-            "practice": "Practice · City, State",
-            "tag": "Uses it with patients",
-            "quote": "Matching strength to sensitivity is how we whiten in the office. Laughland brings that home.",
-            "disclosure": "Paid Laughland advisor"
-          }
-        },
         "dentist_2": {
           "type": "dentist",
           "settings": {
-            "name": "Dr. Name, DMD",
-            "practice": "Practice · City, State",
-            "tag": "Uses it with patients",
-            "quote": "Whitening fades when it only treats stains. Treating plaque and enamel too is what makes it last.",
-            "disclosure": "Paid Laughland advisor"
+            "image": "shopify://shop_images/Dr_Ron_Ayzin_1_c3c539fc-cc1f-446a-b6d5-1ebae997b5c7.png",
+            "name": "Dr. Ron Ayzin, DDS",
+            "practice": "Faculty Instructor, UCLA Dentistry",
+            "tag": "Recommends to patients",
+            "quote": "“When patients ask me what the best way to whiten at home is, my answer is Laughland. I wouldn’t recommend anything I wouldn’t use myself and I’ve noticed a visible difference since using Laughland”",
+            "disclosure": ""
           }
         },
         "dentist_3": {
           "type": "dentist",
           "settings": {
-            "name": "Dr. Name, DDS",
-            "practice": "Practice · City, State",
-            "tag": "Uses it with patients",
-            "quote": "It's what I suggest for patients who couldn't get through strips.",
-            "disclosure": "Paid Laughland advisor"
+            "image": "shopify://shop_images/drkyra.png",
+            "name": "Dr. Kyra Jimenez, DDS",
+            "practice": "President, NSU Dental Cosmetic Society",
+            "tag": "Recommends to patients",
+            "quote": "“It’s important to find whitening that works and keeps things simple. Laughland does exactly that.”",
+            "disclosure": ""
+          }
+        },
+        "dentist_1": {
+          "type": "dentist",
+          "settings": {
+            "image": "shopify://shop_images/cara-hodgson2021_2.webp",
+            "name": "Dr. Cara Hodgson, DDS",
+            "practice": "UCLA School of Dentistry",
+            "tag": "Recommends to patients",
+            "quote": "It’s the next best thing to in office treatment and it’s how I keep my smile bright and shiny. Their obsession with quality won my trust.",
+            "disclosure": ""
           }
         }
       },
       "block_order": [
-        "dentist_1",
         "dentist_2",
-        "dentist_3"
+        "dentist_3",
+        "dentist_1"
       ],
       "settings": {
         "eyebrow": "Dentist approved",
