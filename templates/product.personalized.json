@@ -41,21 +41,12 @@
             "dot": "#4f7a91",
             "effect": "Daily wear has thinned your protective outer enamel, allowing the tooth’s naturally yellow core (dentin) to show through from underneath."
           }
-        },
-        "tmpcopy": {
-          "type": "copy",
-          "settings": {
-            "formula": "strong",
-            "heading": "TEMP strong heading",
-            "body": "TEMP strong body"
-          }
         }
       },
       "block_order": [
         "cause_1",
         "cause_2",
-        "cause_3",
-        "tmpcopy"
+        "cause_3"
       ],
       "settings": {
         "eyebrow": "Hi {name}",
