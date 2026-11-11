@@ -532,15 +532,15 @@
         "faq_kY37yt": {
           "type": "faq",
           "settings": {
-            "title": "What should I do if my order hasn't been delivered or was sent to the wrong address?",
-            "sub_title": "<p><em>If your package hasn’t arrived within the delivery time, please check your mailbox, front porch, and surrounding area, If still not found please contact the courier to see where the order has been delivered. Keep us updated on their response, and we’ll assist you further.</em></p>"
+            "title": "What if my custom formula doesn’t work for me?",
+            "sub_title": "<p>We guarantee shade improvement. Because your formula is built specifically for your teeth, we stand behind the outcome: if you complete your treatment and aren't thrilled with your results, our team will review your feedback, reassess your teeth, and formulate a new blend for free.</p>"
           }
         },
         "faq_TFKdWm": {
           "type": "faq",
           "settings": {
             "title": "What are the ingredients in Laughland’s whitening formula?",
-            "sub_title": "<p><em>Our whitening formula has been rigorously tested in clinical trials for efficacy and includes: <br/><br/>One of two active ingredients - Hydrogen Peroxide and Sodium Bicarbonate. Our Extra Strength Formula has 38% more active whitening ingredient than the Standard Formula. <br/><br/>Other ingredients include Glycerin, Cellulose Gum, Sodium Hydroxide, Aloe Vera, and Mint Extract. To learn more about these ingredients and their reactions, visit our Science page.</em></p>"
+            "sub_title": "<p><em>Our whitening formula has been rigorously tested in clinical trials for efficacy and includes:&nbsp;<br/><br/>One of two active ingredients - Hydrogen Peroxide and Sodium Bicarbonate. Our Extra Strength Formula has 38% more active whitening ingredient than the Standard Formula.&nbsp;<br/><br/>Other ingredients include Glycerin, Cellulose Gum, Sodium Hydroxide, Aloe Vera, and Mint Extract. To learn more about these ingredients and their reactions, visit our Science page.</em></p>"
           }
         },
         "faq_44QXDj": {
@@ -553,8 +553,8 @@
         "faq_4je8aW": {
           "type": "faq",
           "settings": {
-            "title": "What is the To-go pen?",
-            "sub_title": "<p><em>Our Whitening Pen is an instant whitener designed for on-the-go use. The size of a long lipstick, it fits neatly into purses and pockets, allowing you to quickly and conveniently brighten your smile whenever and wherever you need it. It uses the exact same whitening formula as the standard whitening kit. </em></p>"
+            "title": "How long does it take to see results?",
+            "sub_title": "<p>Most customers notice a visible lift after their <strong>very first 20-minute session</strong>, with full, peak whitening developing after <strong>6 treatments</strong>. Because your formula is calibrated to your specific root cause rather than a generic one-size-fits-all gel, the active ingredients go straight to work on your exact stain type without unnecessary treatment time.</p><h4></h4>"
           }
         },
         "faq_wna9ac": {
@@ -562,20 +562,6 @@
           "settings": {
             "title": "How do I login to my account?",
             "sub_title": "<p><em>The subscription plan now allows you to log in without a password. Simply click on \"My Account\", forgot password, enter your email, and you'll receive a login code to access your account.</em></p>"
-          }
-        },
-        "faq_BxiYDM": {
-          "type": "faq",
-          "settings": {
-            "title": "Will the treatment work in tetracycline stained teeth?",
-            "sub_title": "<p><em>Our Standard (8-16) and Extra Strength (8-17) formulas consist of Hydrogen Peroxide will work on the stained teeth, including tetracycline stained teeth.</em></p>"
-          }
-        },
-        "faq_Wt4ef7": {
-          "type": "faq",
-          "settings": {
-            "title": "Does Laughland test on Animals?",
-            "sub_title": "<p><em>No, Laughland does not test on any animals and is manufactured following cruelty-free standards. Also, all our ingredients are vegan!</em></p>"
           }
         }
       },
@@ -587,9 +573,7 @@
         "faq_TFKdWm",
         "faq_44QXDj",
         "faq_4je8aW",
-        "faq_wna9ac",
-        "faq_BxiYDM",
-        "faq_Wt4ef7"
+        "faq_wna9ac"
       ],
       "settings": {
         "section_heading": "Frequently asked questions",
