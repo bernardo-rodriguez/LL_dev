@@ -860,3 +860,48 @@ body.template-product-personalized .FAQ_Section .Faq_section_inner {
   padding-left: 20px;
   padding-right: 20px;
 }
+
+/* ==========================================================================
+   Desktop
+   ==========================================================================
+   Mobile is the design and is left exactly as it is: everything below sits
+   inside min-width 769, so none of it can apply to a phone.
+
+   smile-analysis, how-to-timeline and clinical-standard already hold their
+   content to a 760px column centred in the page. The rest of the template
+   ran the full 1275px, so the treatment band and the results row started at
+   the far gutter while the sections above and below them were centred. They
+   all take the same column now.
+   ========================================================================== */
+
+@media screen and (min-width: 769px) {
+  body.template-product-personalized {
+    --pdp-measure: 760px;
+  }
+
+  body.template-product-personalized .treatment-plan__inner,
+  body.template-product-personalized .results-cards__inner,
+  body.template-product-personalized .FAQ_Section .Faq_section_inner {
+    max-width: var(--pdp-measure);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /*
+    The card row sits outside __inner so it can bleed, so it is aligned by
+    padding rather than by a max-width — the first card lines up with the
+    heading above it and the row still scrolls.
+  */
+  body.template-product-personalized .results-cards__row {
+    padding-left: calc((100% - var(--pdp-measure)) / 2);
+    padding-right: calc((100% - var(--pdp-measure)) / 2);
+    scroll-padding-left: calc((100% - var(--pdp-measure)) / 2);
+  }
+
+  body.template-product-personalized .results-cards__cta,
+  body.template-product-personalized .results-cards__hint {
+    max-width: var(--pdp-measure);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
