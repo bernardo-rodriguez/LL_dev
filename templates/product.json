@@ -12,6 +12,10 @@
     "main": {
       "type": "main-product",
       "settings": {
+        "intro_title": "Starter Whitening Kit",
+        "personalized_title": "Formula",
+        "subhead": "Designed to treat all key root causes of yellow & dulling teeth.",
+        "subhead_quiz": "",
         "atc": "Buy Now",
         "satisfaction": "30 Day Satisfaction Guarantee",
         "satisfaction_svg": "<svg style=\"vertical-align: middle\" xmlns=\"http://www.w3.org/2000/svg\" width=\"26\" height=\"25\" viewbox=\"0 0 26 25\" fill=\"none\">\n<circle cx=\"11.5\" cy=\"13.5\" r=\"11\" fill=\"white\" stroke=\"#0D2244\"></circle>\n<g clip-path=\"url(#clip0_6_176)\">\n<path d=\"M24.6712 0C24.6712 0 17.4227 4.72968 11.3998 16.3691V16.3724L10.8333 15.6122C9.06901 13.3203 4.66836 9.65063 4.66836 9.65063L4 10.521C4 10.521 9.41322 15.9623 11.5279 22C11.5279 22 16.4333 7.96331 25.1852 0.781257L24.6712 0V0Z\" fill=\"#46BDF0\"></path>\n</g>\n<defs>\n<clippath id=\"clip0_6_176\">\n<rect width=\"21.1852\" height=\"22\" fill=\"white\" transform=\"translate(4)\"></rect>\n</clippath>\n</defs>\n</svg>",
@@ -26,7 +30,23 @@
         "show_why_subscribe_text": false,
         "offer_text": "LIMITED TIME OFFER: 30% OFF YOUR FIRST ORDER + FREE WHITENING PEN",
         "show_offer_banner": false,
-        "show_formula_line": false
+        "show_formula_line": false,
+        "plan_label": "Choose your plan:",
+        "plan_ribbon": "Best value",
+        "plan_sub_title": "Subscribe & save",
+        "plan_once_title": "One-time kit",
+        "plan_cta": "Add to cart",
+        "plan_guarantee": "Noticeably whiter in 30 days or your money back",
+        "plan_sub_note": "Then $39 refills every 1-2 months. Skip or cancel anytime.",
+        "plan_once_note": "6 treatments. No refills.",
+        "plan_benefit_1": "Save 40%",
+        "plan_benefit_1_sub": "Every order",
+        "plan_benefit_2": "Free shipping",
+        "plan_benefit_2_sub": "Every order",
+        "plan_benefit_3": "Free whitening pen",
+        "plan_benefit_3_sub": "($30 value)",
+        "gallery_caption": "Includes Blue Light mouthpiece + 3 gels",
+        "gallery_labels": "Kit, Box, Results, How to"
       }
     },
     "formula_blends_E38KV6": {
@@ -36,7 +56,7 @@
           "type": "blend",
           "settings": {
             "image": "shopify://shop_images/Screenshot_2026-09-09_at_6.25.02_PM.png",
-            "name": "Total Whitening",
+            "name": "Stain Removal",
             "summary": "Pharma-Grade Peroxide",
             "ingredients": "Hydroxyapatite | densifies enamel\nHydrogen Peroxide | lifts discoloration"
           }
@@ -53,15 +73,6 @@
           "settings": {
             "name": "Sodium Bicarbonate",
             "role": "targets  surface stains"
-          }
-        },
-        "blend_9mDc8T": {
-          "type": "blend",
-          "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_terzrrterzrrterz_554a6ecc-f365-488b-b304-7637df9afe0a.jpg",
-            "name": "Sensitivity Care",
-            "summary": "Hydroxyapatite + Aloe Vera",
-            "ingredients": "Glycerin | hydration barrier\nHydroxyapatite | enamel shield"
           }
         },
         "ingredient_KlQwBW": {
@@ -89,7 +100,7 @@
           "type": "blend",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_975skw975skw975s_1334a040-d856-4c20-ad8a-353a6cbbe604.jpg",
-            "name": "Healthier Enamel",
+            "name": "Thinning Enamel",
             "summary": "Nano-Hydroxyapatite",
             "ingredients": "Xylitol | starves bad bacteria\nPomegranate Extract | antioxidant defense\nCoconut Oil | balances the mouth"
           }
@@ -112,7 +123,7 @@
           "type": "blend",
           "settings": {
             "image": "shopify://shop_images/Screenshot_2026-09-09_at_6.24.43_PM.png",
-            "name": "Gloss & Brightness",
+            "name": "Plaque Film",
             "summary": "Coconut Oil + NaCl",
             "ingredients": "Hydrogen Peroxide | oxidizes deep stains\nCoconut Oil | sweeps surface stains"
           }
@@ -130,13 +141,21 @@
             "name": "Sodium Bicarbonate (NaCl)",
             "role": "breaks down surface tartar"
           }
+        },
+        "blend_9mDc8T": {
+          "type": "blend",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_terzrrterzrrterz_554a6ecc-f365-488b-b304-7637df9afe0a.jpg",
+            "name": "Sensitivity Care",
+            "summary": "Hydroxyapatite + Aloe Vera",
+            "ingredients": "Glycerin | hydration barrier\nHydroxyapatite | enamel shield"
+          }
         }
       },
       "block_order": [
         "blend_wgMWR7",
         "ingredient_5vMySD",
         "ingredient_hGje7T",
-        "blend_9mDc8T",
         "ingredient_KlQwBW",
         "ingredient_WdFCdG",
         "ingredient_e4TR1S",
@@ -145,12 +164,13 @@
         "ingredient_9NykBN",
         "blend_pQpqnp",
         "ingredient_7VGPLe",
-        "ingredient_HPwFBJ"
+        "ingredient_HPwFBJ",
+        "blend_9mDc8T"
       ],
       "name": "Formula Blends",
       "settings": {
         "eyebrow": "Your  formula",
-        "heading": "Targets all 3 key root causes of {yellow & dull teeth}",
+        "heading": "Targets all key root causes of {yellow & dull teeth}",
         "intro": "Our 11-ingredient formula targets four pillars: deep whitening, healthy enamel, plaque removal - while preventing sensitivity.",
         "image": "shopify://shop_images/Laughland_80136_1_1.png",
         "show_image_mobile": false,
@@ -169,21 +189,27 @@
       "settings": {
         "eyebrow": "Why It Works Faster",
         "heading": "Professional strength for {a real difference.}",
-        "body": "Most at-home whitening is too weak for dramatic results. We use higher concentrations of active ingredients for faster & bigger results.",
+        "body": "Most at-home whitening is too weak for visible results. We use dentist-grade concentrations for faster, dramatic shade lifts—safely balanced with sensitivity blockers so you get maximum brightness with zero nerve pain.",
         "footnote": "",
-        "chart_label": "whitening strength",
-        "chart_badge": "4x Stronger",
+        "chart_label": "",
+        "chart_badge": "",
         "compare_label": "Avg. OTC Whitening",
+        "compare_label_short": "Avg. OTC",
         "compare_value": "30",
+        "compare_note": "",
         "ours_label": "Laughland",
-        "ours_value": "120",
+        "ours_value": "100",
         "axis_suffix": "mg",
         "axis_max": "150",
         "axis_step": "30",
         "threshold_value": "100",
         "threshold_label": "Dentist strength = 100mg+",
         "chart_footnote": "Paired with sensitivity blockers like hydroxyapatite and aloe for a comfortable, pain-free whitening experience.",
-        "margin_bottom": false
+        "margin_bottom": false,
+        "flow_visibility": "all",
+        "heading_quiz": "",
+        "body_quiz": "",
+        "ours_note": ""
       }
     },
     "transformational_results_ddRMfc": {
@@ -721,6 +747,15 @@
         "flow_visibility": "all"
       }
     },
+    "buy_now_cta_pdp": {
+      "type": "buy-now-cta",
+      "settings": {
+        "button_label": "Buy now",
+        "scroll_target": "top",
+        "margin_bottom": false,
+        "flow_visibility": "all"
+      }
+    },
     "science_effects_yCEdFb": {
       "type": "science-effects",
       "blocks": {
@@ -1022,15 +1057,6 @@
       "type": "apps",
       "settings": {
         "include_margins": true
-      }
-    },
-    "buy_now_cta_pdp": {
-      "type": "buy-now-cta",
-      "settings": {
-        "button_label": "Buy now",
-        "scroll_target": "top",
-        "margin_bottom": false,
-        "flow_visibility": "all"
       }
     }
   },
