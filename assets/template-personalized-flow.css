@@ -1113,3 +1113,82 @@ body.template-page-personalized-flow .FAQ_Section {
 }
 
 body.template-page-personalized-flow .FAQ_Section .Faq_section_inner { padding: 36px 20px; }
+
+/* ==========================================================================
+   Desktop
+   ==========================================================================
+   Mobile is the design and is untouched: every rule below sits inside
+   min-width 769, so none of it reaches a phone.
+
+   The page was built to a 480px artboard, so at 1375 every section simply
+   stretched — a 112px tooth beside 1163px of hairlines, formula bars the
+   width of the window, a product shot taller than the viewport. The content
+   now holds to one centred column, so each section begins and ends on the
+   same two lines down the page.
+   ========================================================================== */
+
+@media screen and (min-width: 769px) {
+  body.template-page-personalized-flow {
+    --flow-measure: 1000px;
+  }
+
+  body.template-page-personalized-flow .personalized-hero__inner,
+  body.template-page-personalized-flow .logo-bar__inner,
+  body.template-page-personalized-flow .root-causes__inner,
+  body.template-page-personalized-flow .formula-builder__inner,
+  body.template-page-personalized-flow .personalized-offer__inner,
+  body.template-page-personalized-flow .results-cards__inner,
+  body.template-page-personalized-flow .dentist-cards__inner,
+  body.template-page-personalized-flow .FAQ_Section .Faq_section_inner {
+    max-width: var(--flow-measure);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /*
+    The card rows sit outside __inner so they can bleed. They are aligned by
+    padding instead, so the first card starts on the same line as the heading
+    above it and the row still scrolls.
+  */
+  body.template-page-personalized-flow .results-cards__row,
+  body.template-page-personalized-flow .dentist-cards__row {
+    padding-left: calc((100% - var(--flow-measure)) / 2);
+    padding-right: calc((100% - var(--flow-measure)) / 2);
+    scroll-padding-left: calc((100% - var(--flow-measure)) / 2);
+  }
+
+  body.template-page-personalized-flow .results-cards__hint,
+  body.template-page-personalized-flow .dentist-cards__hint {
+    max-width: var(--flow-measure);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /*
+    The product shot is a full-bleed lifestyle image with no intrinsic crop,
+    so across a wide column it grew taller than the screen. A fixed band with
+    object-fit keeps it to a reasonable height.
+  */
+  body.template-page-personalized-flow .personalized-offer__media {
+    height: 420px;
+    min-height: 0;
+  }
+
+  /*
+    Measure, not column width: a line of body copy reads badly at 1000px.
+    The columns stay centred; the words still range left inside them.
+  */
+  body.template-page-personalized-flow .root-causes__body,
+  body.template-page-personalized-flow .formula-builder__body,
+  body.template-page-personalized-flow .personalized-offer__body {
+    max-width: 58ch;
+  }
+
+  /* the tooth diagram carried the list at 112px; it can hold its own here */
+  body.template-page-personalized-flow .root-causes__columns {
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  body.template-page-personalized-flow .root-causes__diagram { max-width: 180px; }
+}
