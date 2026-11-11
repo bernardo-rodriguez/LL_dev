@@ -9,10 +9,10 @@
   Rendered only when main-product is on the personalized template, so the
   production PDP keeps the swiper gallery exactly as it is.
 
-  Labels come from the section's own comma-separated list rather than the
-  images' alt text: alt is usually the product title on every image, which
-  gave four identical thumbnails. Anything past the end of the list falls back
-  to the image's position.
+  The thumbnails are previews of the images themselves. The labels from the
+  section's comma-separated list name them for screen readers — the picture
+  carries the meaning for everyone else, and alt is the product title on
+  every image, so it says nothing useful here.
 {%- endcomment -%}
 
 {% assign gallery_media = product.media | default: empty %}
@@ -42,21 +42,29 @@
   </div>
 
   {%- comment -%}
-    The comp shows four thumbnails. Rendering one per image would spill a
-    fifth onto its own row, so the list is capped at the labels given.
+    One thumbnail per image. The row fits four and scrolls past that, rather
+    than capping: a capped list left any image beyond the fourth with nothing
+    to select it.
   {%- endcomment -%}
   {% if gallery_media.size > 1 %}
     <div class="pdp-gallery__thumbs" role="tablist" aria-label="Product images">
-      {% for media in gallery_media limit: thumb_labels.size %}
+      {% for media in gallery_media %}
         <button
           type="button"
           class="pdp-gallery__thumb{% if forloop.first %} pdp-gallery__thumb--on{% endif %}"
           data-gallery-thumb="{{ forloop.index0 }}"
           role="tab"
           aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
-        >
           {%- assign label = thumb_labels[forloop.index0] | strip -%}
-          {{ label | default: forloop.index | escape }}
+          aria-label="{{ label | default: forloop.index | escape }}"
+        >
+          <img
+            src="{{ media | image_url: width: 240 }}"
+            alt=""
+            loading="lazy"
+            width="120"
+            height="120"
+          >
         </button>
       {% endfor %}
     </div>
