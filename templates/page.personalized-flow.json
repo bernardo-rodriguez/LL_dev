@@ -391,7 +391,7 @@
             "name": "Sophia S.",
             "formula": "8-16",
             "tags": "Surface stains | #B03A2E\nPlaque film | #9A6400\nThin enamel | #0F7A6E\nMedium sensitivity",
-            "quote": "After a single use I can actually tell a difference in the color of my teeth."
+            "quote": "Crazy how after a single use I can actually tell a difference in the color of my teeth."
           }
         },
         "result_C3WDcz": {
@@ -402,7 +402,18 @@
             "name": "Chris W.",
             "formula": "8-17",
             "tags": "Surface stains | #B03A2E\nPlaque film | #9A6400\nLow sensitivity",
-            "quote": "After a single use I can actually tell a difference in the color of my teeth."
+            "quote": "OK. I've tried every strip, charcoal and even the purple stuff but this is the only thing that's made a difference"
+          }
+        },
+        "result_Vd3kVm": {
+          "type": "result",
+          "settings": {
+            "image_before": "shopify://shop_images/IMG_4505.jpg",
+            "image_after": "shopify://shop_images/IMG_6650.jpg",
+            "name": "Liz G.",
+            "formula": "8-17",
+            "tags": "Surface stains | #B03A2E\nPlaque film | #9A6400\nLow sensitivity",
+            "quote": "My teeth weren't crazy yellow but I could never get it to that celeb level bright until using Laughland. Thank THANK YOU!"
           }
         },
         "result_2": {
@@ -413,13 +424,14 @@
             "name": "Neha K.",
             "formula": "19-2",
             "tags": "Deep stains | #6A3FA3\nThin enamel | #0F7A6E\nHigh sensitivity",
-            "quote": "Normally I have excruciating pain with strips. After the first day my teeth look 2 shades whiter."
+            "quote": "Normally I have excruciating pain with strips but not this. Each use builds on the last so you see a real difference by day 6."
           }
         }
       },
       "block_order": [
         "result_1",
         "result_C3WDcz",
+        "result_Vd3kVm",
         "result_2"
       ],
       "settings": {
