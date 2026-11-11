@@ -86,7 +86,7 @@
             "cause": "Thin enamel",
             "dot": "#8fb3c6",
             "dot_two": "",
-            "agent": "Hydroxyapatite",
+            "agent": "Nano-Hydroxyapatite",
             "effect": "Remineralizes + repairs enamel."
           }
         }
@@ -125,17 +125,17 @@
         "subscribe_chart_aria": "Whitening results by session: fast early gains that keep compounding with continued use.",
         "subscribe_benefits": "Touch-ups every few months prevents stain buildup and keeps your smile bright\nResults guaranteed or money back",
         "show_why_subscribe_text": false,
-        "offer_text": "LIMITED TIME OFFER: 30% OFF YOUR FIRST ORDER + FREE WHITENING PEN",
+        "offer_text": "LIMITED TIME OFFER: 40% OFF YOUR FIRST ORDER + FREE WHITENING PEN",
         "show_offer_banner": false,
         "show_formula_line": false,
         "plan_label": "Choose your plan:",
         "plan_ribbon": "Best value",
-        "plan_sub_title": "Subscribe & save",
+        "plan_sub_title": "Subscribe & Save",
         "plan_once_title": "One-time kit",
         "plan_cta": "Add to cart",
         "plan_guarantee": "Noticeably whiter in 30 days or your money back",
-        "plan_sub_note": "Then $39 refills every 1-2 months. Skip or cancel anytime.",
-        "plan_once_note": "6 treatments. No refills.",
+        "plan_sub_note": "$30 refills every 2 months. Skip or cancel anytime.",
+        "plan_once_note": "6 treatments ($5 Shipping Fee)",
         "plan_benefit_1": "Save 40%",
         "plan_benefit_1_sub": "",
         "plan_benefit_2": "Free shipping",
@@ -143,7 +143,7 @@
         "plan_benefit_3": "Free whitening pen",
         "plan_benefit_3_sub": "($30 value)",
         "gallery_caption": "Includes Blue Light mouthpiece + 3 gels",
-        "gallery_labels": "Kit, Box, Results, How to"
+        "gallery_labels": "Kit, Box, How to, Results"
       }
     },
     "how_to_timeline": {
@@ -211,6 +211,28 @@
     "reviews": {
       "type": "results-cards",
       "blocks": {
+        "result_TrQe3y": {
+          "type": "result",
+          "settings": {
+            "image_before": "shopify://shop_images/Maggie_Before_1.png",
+            "image_after": "shopify://shop_images/Maggie_After.png",
+            "name": "Maggie T.",
+            "formula": "19-2",
+            "tags": "Deep stains | #6A3FA3\nPlaque film | #9A6400\nThin enamel | #0F7A6E\nMedium sensitivity",
+            "quote": "Normally I have excruciating pain with strips. After the first day my teeth look 2 shades whiter."
+          }
+        },
+        "result_2": {
+          "type": "result",
+          "settings": {
+            "image_before": "shopify://shop_images/Lesleybefore2.jpg",
+            "image_after": "shopify://shop_images/LesleyAfter.jpg",
+            "name": "Lesley C.",
+            "formula": "19-2",
+            "tags": "Deep stains | #6A3FA3\nPlaque film | #9A6400\nThin enamel | #0F7A6E",
+            "quote": "Normally I have excruciating pain with strips. After the first day my teeth look 2 shades whiter."
+          }
+        },
         "result_1": {
           "type": "result",
           "settings": {
@@ -218,25 +240,15 @@
             "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_6.png",
             "name": "Sophia S.",
             "formula": "8-16",
-            "tags": "Surface stains | #B03A2E\nMedium sensitivity",
+            "tags": "Deep stains | #6A3FA3\nPlaque film | #9A6400\nThin enamel | #0F7A6E\nMedium sensitivity",
             "quote": "After a single use I can actually tell a difference in the color of my teeth."
-          }
-        },
-        "result_2": {
-          "type": "result",
-          "settings": {
-            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
-            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png",
-            "name": "Lesley C.",
-            "formula": "19-2",
-            "tags": "Deep stains | #6A3FA3\nHigh sensitivity",
-            "quote": "Normally I have excruciating pain with strips. After the first day my teeth look 2 shades whiter."
           }
         }
       },
       "block_order": [
-        "result_1",
-        "result_2"
+        "result_TrQe3y",
+        "result_2",
+        "result_1"
       ],
       "settings": {
         "eyebrow": "★★★★★ 4.7 · 2,316 reviews",
