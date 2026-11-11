@@ -807,6 +807,13 @@
         "info": "Landing pages carry no Judge.me widget to read, so the total there is this plus the count above. Worth refreshing occasionally."
       },
       {
+        "type": "checkbox",
+        "id": "reviews_override_judgeme",
+        "label": "Show the total inside the Judge.me widget too",
+        "default": true,
+        "info": "Judge.me can only count its own reviews, so its widget shows the smaller number. This rewrites it to the total. The reviews listed underneath are still only the ones Judge.me holds, so the two will not reconcile if a visitor pages through them. Temporary, until the older reviews can be imported."
+      },
+      {
         "type": "text",
         "id": "reviews_rating",
         "label": "Rating shown",

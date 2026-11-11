@@ -24,8 +24,23 @@
     return m ? parseInt(m[1].replace(/,/g, ''), 10) : null;
   }
 
-  // Judge.me's own live count, however this page happens to show it
+  /*
+    Judge.me's own live count, cached on the first successful read.
+
+    The override below rewrites the counts Judge.me prints, so re-reading
+    the page afterwards would feed our own total back in and compound it.
+    This reads the raw number once and never again.
+  */
+  var cachedJudgeme = null;
+
   function judgemeCount() {
+    if (cachedJudgeme != null) return cachedJudgeme;
+    var n = readJudgemeCount();
+    if (n != null) cachedJudgeme = n;
+    return n;
+  }
+
+  function readJudgemeCount() {
     var n = fromSummary(document.querySelector('.jdgm-rev-widg__summary-text'));
     if (n == null) n = fromSummary(document.querySelector('.jdgm-all-reviews-text__text'));
     if (n == null) {
@@ -55,6 +70,39 @@
     return n == null ? null : n + legacyCount();
   }
 
+  /*
+    Rewrites the counts inside the Judge.me widget to the site-wide total.
+
+    Judge.me can only count what it holds, and the 2,000 older reviews are
+    not in it, so its widget disagreed with every other figure on the page.
+    This is a display override while those reviews cannot be imported — the
+    list underneath still holds only Judge.me's own reviews, so the two will
+    not reconcile if anyone pages through them.
+
+    Switch it off with Theme settings > Reviews.
+  */
+  function overrideJudgemeCounts() {
+    if (!window.LL_REVIEWS_OVERRIDE_JUDGEME) return;
+    var t = total();
+    if (t == null) return;
+    var pretty = t.toLocaleString();
+
+    var scopes = document.querySelectorAll('[class*="jdgm"],[class*="jm-"]');
+    scopes.forEach(function (el) {
+      if (el.children.length) return;
+      var txt = el.textContent;
+      if (!txt) return;
+
+      // "583 reviews" / "based on 583 reviews", and nothing else
+      var m = txt.match(/^(\s*(?:based on\s+)?)([\d,]+)(\s*(?:reviews?|ratings?)\s*)$/i);
+      if (!m) return;
+      if (m[2].replace(/,/g, '') === String(t)) return;   // already done — no mutation loop
+
+      el.textContent = m[1] + pretty + m[3];
+    });
+  }
+
+  window.llOverrideJudgemeCounts = overrideJudgemeCounts;
   window.llReviewTotal = total;
   window.llReviewRating = function () { return window.LL_REVIEWS_RATING || ''; };
 
@@ -84,9 +132,24 @@
 
   window.llFillReviewTotals = fill;
 
-  if (!fill()) {
-    var obs = new MutationObserver(function (m, o) { if (fill()) o.disconnect(); });
-    obs.observe(document.body, { childList: true, subtree: true, characterData: true });
-    [2000, 5000, 10000].forEach(function (ms) { window.setTimeout(fill, ms); });
+  function run() {
+    var done = fill();
+    overrideJudgemeCounts();
+    return done;
   }
+
+  /*
+    The widget redraws on sort, filter and pagination, so unlike the token
+    fill this never stops watching. The observer is disconnected around our
+    own writes so they cannot retrigger it.
+  */
+  var observer = new MutationObserver(function () {
+    observer.disconnect();
+    run();
+    observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+  });
+
+  run();
+  observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+  [2000, 5000, 10000, 20000].forEach(function (ms) { window.setTimeout(run, ms); });
 })();
