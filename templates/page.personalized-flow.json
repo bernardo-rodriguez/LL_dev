@@ -53,7 +53,7 @@
         "stat_3": {
           "type": "stat",
           "settings": {
-            "value": "100k+",
+            "value": "10k+",
             "label": "smiles whitened"
           }
         }
@@ -435,7 +435,7 @@
         "result_2"
       ],
       "settings": {
-        "eyebrow": "Over 100K+ smiles brightened",
+        "eyebrow": "Over 10K+ smiles brightened",
         "heading": "Different causes. Different formulas.\nReal results.",
         "label_before": "Before",
         "label_after": "After",
