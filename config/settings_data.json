@@ -391,21 +391,21 @@
           "plaque_opt_1": {
             "type": "option",
             "settings": {
-              "label": "Not really — it's not a big issue for me",
+              "label": "Not really",
               "value": "not_really"
             }
           },
           "plaque_opt_2": {
             "type": "option",
             "settings": {
-              "label": "Somewhat — I notice it but it doesn't bother me much",
+              "label": "Somewhat, I notice it",
               "value": "somewhat"
             }
           },
           "plaque_opt_3": {
             "type": "option",
             "settings": {
-              "label": "Yes — it's one of my main dental concerns",
+              "label": "Yes, it's a main concern",
               "value": "yes_main_concern"
             }
           },
