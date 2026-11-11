@@ -370,7 +370,7 @@
         "price_was": "$65",
         "price_note": "vs. $500 for personalized whitening at the dentist",
         "includes": "Includes Blue LED mouthpiece and 3 custom gels",
-        "button_label": "Find my formula",
+        "button_label": "",
         "button_link": "",
         "button_opens_quiz": true,
         "guarantee": "Noticeably whiter in 30 days or your money back",
@@ -589,9 +589,9 @@
     "sticky_quiz_bar": {
       "type": "sticky-quiz-bar",
       "settings": {
-        "price_text": "Your kit, $39",
-        "price_was": "$65",
-        "note": "Starts with a 1-min assessment",
+        "price_text": "Start Whitening for $39",
+        "price_was": "",
+        "note": "1-min assessment",
         "button_label": "Find my formula",
         "button_link": "",
         "button_opens_quiz": true,
