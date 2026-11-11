@@ -1,3 +1,10 @@
+// Keeps ?view= on the variant URL. Falls back to the original behaviour if
+// global.js has not run, so load order can never break the variant picker.
+function llKeepView(url, variantId) {
+  if (typeof window.llProductUrl === 'function') return window.llProductUrl(url, variantId);
+  return `${url}${variantId ? `?variant=${variantId}` : ''}`;
+}
+
 if (!customElements.get('product-info')) {
   customElements.define(
     'product-info',
@@ -223,11 +230,11 @@ if (!customElements.get('product-info')) {
 
       updateURL(url, variantId) {
         this.querySelector('share-button')?.updateUrl(
-          `${window.shopUrl}${url}${variantId ? `?variant=${variantId}` : ''}`
+          `${window.shopUrl}${llKeepView(url, variantId)}`
         );
 
         if (this.dataset.updateUrl === 'false') return;
-        window.history.replaceState({}, '', `${url}${variantId ? `?variant=${variantId}` : ''}`);
+        window.history.replaceState({}, '', llKeepView(url, variantId));
       }
 
       setUnavailable() {

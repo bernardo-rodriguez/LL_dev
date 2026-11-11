@@ -1,3 +1,33 @@
+/*
+  The alternate template chosen by ?view= has to survive the variant URL
+  rewrites below. They rebuilt the query string from the variant alone, so
+  within a second of loading /products/x?view=personalized the address bar
+  read /products/x?variant=123 — the page you were on stayed personalized,
+  but refreshing, bookmarking or sharing it silently served the default
+  product template.
+
+  Captured once at load, before anything has had a chance to rewrite it.
+*/
+const LL_VIEW_PARAM = (function () {
+  try {
+    return new URLSearchParams(window.location.search).get('view') || '';
+  } catch (e) {
+    return '';
+  }
+})();
+
+function llProductUrl(base, variantId) {
+  const parts = [];
+  if (variantId) parts.push('variant=' + variantId);
+  if (LL_VIEW_PARAM) parts.push('view=' + encodeURIComponent(LL_VIEW_PARAM));
+  return base + (parts.length ? '?' + parts.join('&') : '');
+}
+
+// product-info.js lives in a section and runs after this file, but it is
+// reached through window so that a change in load order cannot break the
+// variant picker on every product page.
+window.llProductUrl = llProductUrl;
+
 /*================ Shopify Common JS ================*/
 if ((typeof window.Shopify) == 'undefined') {
   window.Shopify = {};
@@ -632,7 +662,7 @@ var VariantSelects = class extends HTMLElement {
 
   updateURL() {
     if (!this.currentVariant || this.dataset.updateUrl === 'false') return;
-    window.history.replaceState({ }, '', `${this.dataset.url}?variant=${this.currentVariant.id}`);
+    window.history.replaceState({ }, '', llProductUrl(this.dataset.url, this.currentVariant.id));
   }
 
   updateShareUrl() {
