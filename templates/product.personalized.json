@@ -19,7 +19,7 @@
             "image": "shopify://shop_images/Plaque.png",
             "tint": "#f4ece6",
             "dot": "#a87b2a",
-            "effect": "A sticky film coats your teeth and scatters light, so they look dull and yellow instead of glossy."
+            "effect": "A sticky film of bacteria and debris coats your teeth and scatters light, so they look dull and yellow instead of glossy."
           }
         },
         "cause_2": {
@@ -39,7 +39,7 @@
             "image": "shopify://shop_images/Thinning_Enamel.png",
             "tint": "#f2eaf1",
             "dot": "#4f7a91",
-            "effect": "Thinner enamel lets the yellow layer underneath show through, so teeth look darker and edges look see-through."
+            "effect": "Daily wear has thinned your protective outer enamel, allowing the tooth’s naturally yellow core (dentin) to show through from underneath."
           }
         }
       },
