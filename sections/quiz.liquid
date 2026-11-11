@@ -145,6 +145,20 @@
                       assign q_type = block.settings.input_type
                       assign q_layout = block.settings.layout
                     -%}
+                    {%- comment -%}
+                      A picture on an option is the instruction. No other
+                      layout can draw one, so rather than ignore it and leave
+                      the merchant wondering, look ahead at this question's
+                      options and switch to cards if any carry an image.
+                    {%- endcomment -%}
+                    {%- assign scan_from = forloop.index -%}
+                    {%- for later in section.blocks offset: scan_from -%}
+                      {%- if later.type != 'option' -%}{%- break -%}{%- endif -%}
+                      {%- if later.settings.image != blank -%}
+                        {%- assign q_layout = 'cards' -%}
+                        {%- break -%}
+                      {%- endif -%}
+                    {%- endfor -%}
                     <div class="quiz__question" {{ block.shopify_attributes }}>
                       {%- if block.settings.heading != blank -%}
                         <p class="h5">{{ block.settings.heading }}</p>
@@ -484,7 +498,8 @@
               "value": "cards",
               "label": "Picture cards"
             }
-          ]
+          ],
+          "info": "Picture cards is used automatically as soon as any option has a picture."
         },
         {
           "type": "paragraph",
