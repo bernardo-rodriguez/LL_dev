@@ -318,7 +318,7 @@
         "step_number": "2",
         "eyebrow": "Formulate",
         "heading": "Then, we create a formula to treat them.",
-        "body": "Different causes, different actives. Here’s how a few formulas stack up.",
+        "body": "Different causes need different actives. Here’s how a few formulas stack up.",
         "widget_label": "Real customer formulas",
         "causes_label": "If you have",
         "actives_label": "We add",
@@ -444,8 +444,8 @@
         "result_2"
       ],
       "settings": {
-        "eyebrow": "Over 10K+ smiles brightened",
-        "heading": "Different causes. Different formulas.\nReal results.",
+        "eyebrow": "Over 100K+ smiles brightened",
+        "heading": "This is what happens when you treat what over-the-counter whitening miss.",
         "label_before": "Before",
         "label_after": "After",
         "cta_text": "",
