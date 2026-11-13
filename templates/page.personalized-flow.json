@@ -240,7 +240,7 @@
             "key": "plaque",
             "name": "Plaque film",
             "colour": "#9a6400",
-            "ingredients": "Plaque-removing enzymes, Xylitol, Coconut oil"
+            "ingredients": "Plaque-removing enzymes, Coconut oil"
           }
         },
         "cause_surface": {
@@ -249,7 +249,7 @@
             "key": "surface",
             "name": "Surface stains",
             "colour": "#b03a2e",
-            "ingredients": "Sodium bicarbonate, Peroxide"
+            "ingredients": "Sodium bicarbonate"
           }
         },
         "cause_deep": {
@@ -258,7 +258,7 @@
             "key": "deep",
             "name": "Deep stains",
             "colour": "#6a3fa3",
-            "ingredients": "Peroxide"
+            "ingredients": "Peroxide • 120mg"
           }
         },
         "cause_enamel": {
@@ -267,7 +267,7 @@
             "key": "enamel",
             "name": "Thin enamel",
             "colour": "#0f7a6e",
-            "ingredients": "Nano-hydroxyapatite"
+            "ingredients": "Nano-hydroxyapatite, Xylitol"
           }
         },
         "cause_sens": {
@@ -287,20 +287,20 @@
             "causes": "surface, plaque, deep, sens"
           }
         },
-        "person_sophia": {
-          "type": "example",
-          "settings": {
-            "name": "Sophia",
-            "sensitivity": "Mild",
-            "causes": "surface, plaque, sens"
-          }
-        },
         "person_lesley": {
           "type": "example",
           "settings": {
             "name": "Lesley",
             "sensitivity": "High",
             "causes": "deep, enamel, sens"
+          }
+        },
+        "person_sophia": {
+          "type": "example",
+          "settings": {
+            "name": "Sophia",
+            "sensitivity": "Mild",
+            "causes": "surface, plaque, sens"
           }
         }
       },
@@ -311,8 +311,8 @@
         "cause_enamel",
         "cause_sens",
         "person_kailey",
-        "person_sophia",
-        "person_lesley"
+        "person_lesley",
+        "person_sophia"
       ],
       "settings": {
         "step_number": "2",
