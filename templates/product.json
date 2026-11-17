@@ -125,7 +125,7 @@
           "type": "blend",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_terzrrterzrrterz_554a6ecc-f365-488b-b304-7637df9afe0a.jpg",
-            "name": "Sensitivity Care",
+            "name": "Sensitivity + Gum Protection",
             "summary": "Hydroxyapatite + Aloe Vera",
             "ingredients": "Glycerin | hydration barrier\nHydroxyapatite | enamel shield"
           }
@@ -141,7 +141,14 @@
           "type": "ingredient",
           "settings": {
             "name": "Aloe Vera",
-            "role": "soothes gums and irritation"
+            "role": "soothes gums and prevents irritation"
+          }
+        },
+        "ingredient_HKEjtM": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Glycerin",
+            "role": "Hydration barrier for gums"
           }
         }
       },
@@ -157,7 +164,8 @@
         "ingredient_HPwFBJ",
         "blend_9mDc8T",
         "ingredient_e4TR1S",
-        "ingredient_KlQwBW"
+        "ingredient_KlQwBW",
+        "ingredient_HKEjtM"
       ],
       "name": "Formula Blends",
       "settings": {
