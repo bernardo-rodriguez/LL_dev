@@ -14,7 +14,7 @@
       "settings": {
         "intro_title": "Starter Whitening Kit",
         "personalized_title": "Formula",
-        "subhead": "Designed to treat all key root causes of yellow & dulling teeth.",
+        "subhead": "Professional strength whitening to treat all key root causes of yellow & dulling teeth.f",
         "subhead_quiz": "",
         "atc": "Buy Now",
         "satisfaction": "30 Day Satisfaction Guarantee",
@@ -75,32 +75,11 @@
             "role": "targets  surface stains"
           }
         },
-        "ingredient_KlQwBW": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Aloe Vera",
-            "role": "soothes gums and irritation"
-          }
-        },
-        "ingredient_WdFCdG": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Glycerin",
-            "role": "hydrates enamel & mouth"
-          }
-        },
-        "ingredient_e4TR1S": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Hydroxyapatite",
-            "role": "fills microscopic gaps in enamel that trigger sensitivity."
-          }
-        },
         "blend_dj7YaT": {
           "type": "blend",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_975skw975skw975s_1334a040-d856-4c20-ad8a-353a6cbbe604.jpg",
-            "name": "Thinning Enamel",
+            "name": "Enamel Support",
             "summary": "Nano-Hydroxyapatite",
             "ingredients": "Xylitol | starves bad bacteria\nPomegranate Extract | antioxidant defense\nCoconut Oil | balances the mouth"
           }
@@ -123,7 +102,7 @@
           "type": "blend",
           "settings": {
             "image": "shopify://shop_images/Screenshot_2026-09-09_at_6.24.43_PM.png",
-            "name": "Plaque Film",
+            "name": "Plaque Removal",
             "summary": "Coconut Oil + NaCl",
             "ingredients": "Hydrogen Peroxide | oxidizes deep stains\nCoconut Oil | sweeps surface stains"
           }
@@ -150,28 +129,41 @@
             "summary": "Hydroxyapatite + Aloe Vera",
             "ingredients": "Glycerin | hydration barrier\nHydroxyapatite | enamel shield"
           }
+        },
+        "ingredient_e4TR1S": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Hydroxyapatite",
+            "role": "prevents sensitivity"
+          }
+        },
+        "ingredient_KlQwBW": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Aloe Vera",
+            "role": "soothes gums and irritation"
+          }
         }
       },
       "block_order": [
         "blend_wgMWR7",
         "ingredient_5vMySD",
         "ingredient_hGje7T",
-        "ingredient_KlQwBW",
-        "ingredient_WdFCdG",
-        "ingredient_e4TR1S",
         "blend_dj7YaT",
         "ingredient_0A0dEV",
         "ingredient_9NykBN",
         "blend_pQpqnp",
         "ingredient_7VGPLe",
         "ingredient_HPwFBJ",
-        "blend_9mDc8T"
+        "blend_9mDc8T",
+        "ingredient_e4TR1S",
+        "ingredient_KlQwBW"
       ],
       "name": "Formula Blends",
       "settings": {
         "eyebrow": "Your  formula",
         "heading": "Targets all key root causes of {yellow & dull teeth}",
-        "intro": "Our 11-ingredient formula targets four pillars: deep whitening, healthy enamel, plaque removal - while preventing sensitivity.",
+        "intro": "Hydroxyapatite toothpaste for enamel. Whitening strips for deep stains. Targeted cleaning for plaque. \nNormally that’s three products, three steps, and three bills.\nWe put them in one gel. It works without sensitivity to bring you the brightest smile you've seen.",
         "image": "shopify://shop_images/Laughland_80136_1_1.png",
         "show_image_mobile": false,
         "footnote": "",
