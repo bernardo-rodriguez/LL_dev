@@ -266,7 +266,7 @@ xhttp.send();
             Same radio ids and name, so every script that reads the choice is
             untouched.
           {%- endcomment -%}
-          {% if section.settings.use_v2_buybox %}
+          {% if v2_here %}
           <span class="buybox-v2__kit-label">{{ section.settings.kit_label }}</span>
           <div class="quantity-radio-group pdp-kit-selector pdp-kit-selector--v2">
             <input type="radio" id="quantity-6" name="treatment-quantity" value="6" checked>
