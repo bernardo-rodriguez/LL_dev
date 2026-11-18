@@ -1074,39 +1074,42 @@
       }
     },
     "survey_stats": {
-      "type": "transformational-results",
+      "type": "survey-rings",
       "blocks": {
-        "stat_1": {
+        "s1": {
           "type": "stat",
           "settings": {
-            "percent": "97%",
+            "value": "97%",
+            "scale": "100",
             "text": "saw whiter teeth after 6 uses"
           }
         },
-        "stat_2": {
+        "s2": {
           "type": "stat",
           "settings": {
-            "percent": "99%",
+            "value": "99%",
+            "scale": "100",
             "text": "reported zero increased sensitivity"
           }
         },
-        "stat_3": {
+        "s3": {
           "type": "stat",
           "settings": {
-            "percent": "4.7★",
+            "value": "4.7★",
+            "scale": "5",
             "text": "average rating from {reviews} reviews"
           }
         }
       },
       "block_order": [
-        "stat_1",
-        "stat_2",
-        "stat_3"
+        "s1",
+        "s2",
+        "s3"
       ],
       "settings": {
+        "eyebrow": "Customer survey",
         "heading": "Results you can see, and feel good about.",
-        "show_stats": true,
-        "eyebrow": "Customer survey"
+        "footnote": "Laughland customer survey, n = 918. Individual results vary."
       }
     },
     "what_to_expect_pdp": {
