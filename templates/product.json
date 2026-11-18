@@ -235,7 +235,7 @@
         "row_1": {
           "type": "row",
           "settings": {
-            "label": "Whitens Enamel",
+            "label": "Whitens enamel",
             "row_type": "marks",
             "col_1": true,
             "col_2": false,
@@ -251,7 +251,7 @@
         "row_7": {
           "type": "row",
           "settings": {
-            "label": "Lifts Surface Stains",
+            "label": "Lifts surface stains",
             "row_type": "marks",
             "col_1": false,
             "col_2": true,
@@ -267,7 +267,7 @@
         "row_5": {
           "type": "row",
           "settings": {
-            "label": "Removes Plaque",
+            "label": "Removes plaque",
             "row_type": "marks",
             "col_1": false,
             "col_2": true,
@@ -283,7 +283,7 @@
         "row_3": {
           "type": "row",
           "settings": {
-            "label": "Strengthens Enamel",
+            "label": "Strengthens enamel",
             "row_type": "marks",
             "col_1": false,
             "col_2": false,
@@ -299,7 +299,7 @@
         "row_mGUq86": {
           "type": "row",
           "settings": {
-            "label": "Fixes Translucent Edges",
+            "label": "Fixes see-through edges",
             "row_type": "marks",
             "col_1": false,
             "col_2": false,
@@ -315,7 +315,7 @@
         "row_4": {
           "type": "row",
           "settings": {
-            "label": "Prevents Sensitivity",
+            "label": "Built-in sensitivity care",
             "row_type": "marks",
             "col_1": false,
             "col_2": false,
@@ -331,7 +331,7 @@
         "row_6": {
           "type": "row",
           "settings": {
-            "label": "Supports Oral Microbiome",
+            "label": "Supports the oral microbiome",
             "row_type": "marks",
             "col_1": false,
             "col_2": false,
@@ -359,13 +359,14 @@
       "name": "Comparison Table",
       "settings": {
         "heading": "Everything your smile needs, in one treatment.",
-        "ours_label": "Laughland",
+        "ours_label": "laughland",
         "ours_logo_svg": "",
         "footnote": "",
         "margin_bottom": false,
         "flow_visibility": "all",
         "heading_quiz": "",
-        "eyebrow": "More than bleaching"
+        "eyebrow": "More than bleaching",
+        "ours_logo": ""
       }
     },
     "product-recommendations": {

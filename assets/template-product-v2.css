@@ -454,3 +454,79 @@ body:has(.buybox-v2) .transformational-results__footnote {
   color: var(--v2-label);
   text-align: center;
 }
+
+/* ---- Everything your smile needs ---------------------------------------
+   Shared with the personalized page, which sets the marks as circles and
+   the brand column with the script logo. The v2 artboard squares the marks
+   off, sets the brand as a plain lowercase wordmark, and labels the rival
+   columns in the mono face.
+   ------------------------------------------------------------------------ */
+
+body:has(.buybox-v2) .comparison-table__grid {
+  grid-template-columns: 129fr 104fr 104fr 104fr;
+}
+
+body:has(.buybox-v2) .comparison-table__cell--head {
+  padding: 14px 4px;
+}
+
+body:has(.buybox-v2) .comparison-table__col-label {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 9.5px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.57px !important;
+  text-transform: uppercase;
+  color: var(--v2-muted);
+  text-align: center;
+}
+
+body:has(.buybox-v2) .comparison-table__logo {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.45px !important;
+  text-transform: lowercase;
+  color: #ffffff;
+}
+
+body:has(.buybox-v2) .comparison-table__label {
+  padding: 12px 8px 12px 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--v2-ink);
+}
+
+body:has(.buybox-v2) .comparison-table__row {
+  border-top: 1px solid var(--v2-rule);
+}
+
+body:has(.buybox-v2) .comparison-table__cell--ours {
+  border-top-color: rgba(255, 255, 255, 0.14);
+}
+
+/*
+  Square marks, 26px: a filled tile where the answer is yes, a hairline
+  outline where it is no.
+*/
+body:has(.buybox-v2) .comparison-table__mark {
+  width: 26px;
+  height: 26px;
+  border-radius: 0;
+}
+
+body:has(.buybox-v2) .comparison-table__mark--yes {
+  border: 0;
+  background: #d8ecff;
+  color: var(--v2-accent);
+}
+
+body:has(.buybox-v2) .comparison-table__cell--ours .comparison-table__mark--yes {
+  color: var(--v2-ink);
+}
+
+body:has(.buybox-v2) .comparison-table__mark--no {
+  border: 1px solid var(--v2-rule);
+  background: transparent;
+  color: var(--v2-label);
+}
