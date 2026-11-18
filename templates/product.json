@@ -497,7 +497,6 @@
         "benefit_BxCKhA",
         "benefit_BLGLmP"
       ],
-      "disabled": true,
       "name": "Ingredients",
       "settings": {
         "heading": "Your Formula:",
@@ -583,7 +582,8 @@
         "slide_C7CWMk",
         "slide_ArCbGL"
       ],
-      "settings": {}
+      "settings": {},
+      "disabled": true
     },
     "6916709c-578f-4b73-afd1-d8e53aa1db15": {
       "type": "carousel",
@@ -698,7 +698,6 @@
         "83b0fb1b-8e72-454e-ac9e-75ebdb17eaf8",
         "ea2bda35-88d0-42e1-b5a6-aee3275092ff"
       ],
-      "disabled": true,
       "custom_css": [
         ".testimonials__inner {background-color: #faf5f1;}"
       ],
@@ -755,7 +754,8 @@
         "scroll_target": "top",
         "margin_bottom": false,
         "flow_visibility": "all"
-      }
+      },
+      "disabled": true
     },
     "science_effects_yCEdFb": {
       "type": "science-effects",
@@ -1032,7 +1032,8 @@
         "slide_HF6HP8",
         "slide_zWjdBa"
       ],
-      "settings": {}
+      "settings": {},
+      "disabled": true
     },
     "1674168377f629ea2c": {
       "type": "apps",
@@ -1054,26 +1055,77 @@
         "include_margins": true
       }
     },
-    "17036014317451426f": {
-      "type": "apps",
+    "survey_stats": {
+      "type": "transformational-results",
+      "blocks": {
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "percent": "97%",
+            "text": "saw whiter teeth after 6 uses"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "percent": "99%",
+            "text": "reported zero increased sensitivity"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "percent": "4.7★",
+            "text": "average rating from {reviews} reviews"
+          }
+        }
+      },
+      "block_order": [
+        "stat_1",
+        "stat_2",
+        "stat_3"
+      ],
       "settings": {
-        "include_margins": true
+        "heading": "Results you can see, and feel good about.",
+        "show_stats": true
       }
+    },
+    "what_to_expect_pdp": {
+      "type": "what-to-expect",
+      "settings": {
+        "title": "What consistent use looks like."
+      }
+    },
+    "dentist_cards_pdp": {
+      "type": "dentist-cards",
+      "settings": {
+        "eyebrow": "Dentist approved",
+        "heading": "Used and loved by dentists."
+      }
+    },
+    "faq_section_pdp": {
+      "type": "faq-section",
+      "settings": {}
     }
   },
   "order": [
     "main",
+    "survey_stats",
     "formula_blends_E38KV6",
+    "ingredients_that_work_N67RbP",
     "strength_comparison_gNykFW",
+    "1c8af4c9-5992-4bfb-9d4a-a8e06e025318",
+    "1674168377f629ea2c",
+    "what_to_expect_pdp",
     "transformational_results_ddRMfc",
     "comparison_table_pdp",
-    "product-recommendations",
-    "ingredients_that_work_N67RbP",
     "how_to_steps_bpjbpm",
+    "dentist_cards_pdp",
+    "our_standards_pdp",
+    "faq_section_pdp",
+    "product-recommendations",
     "multi_slide_carousel_rc9KtU",
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
-    "1c8af4c9-5992-4bfb-9d4a-a8e06e025318",
-    "our_standards_pdp",
     "buy_now_cta_pdp",
     "science_effects_yCEdFb",
     "health_and_safety_7jXKQb",
@@ -1081,8 +1133,6 @@
     "d7a83216-e232-4258-9705-5edf54558f0b",
     "a4ec3822-cf26-400b-a01b-564ae2a93dfc",
     "9a2e356e-af66-4e8f-99d8-12bc66bd56dd",
-    "carousel_2_VmRAx9",
-    "1674168377f629ea2c",
-    "17036014317451426f"
+    "carousel_2_VmRAx9"
   ]
 }
