@@ -306,8 +306,9 @@ body:has(.buybox-v2) .pdp-kit-selector--v2 .pdp-kit-option {
 }
 
 body:has(.buybox-v2) .pdp-kit-selector--v2 input:checked + .pdp-kit-option {
-  background: var(--v2-silver);
-  border-color: var(--v2-ink);
+  background: var(--v2-silver) !important;
+  border-color: var(--v2-ink) !important;
+  box-shadow: none !important;
 }
 
 body:has(.buybox-v2) .pdp-kit-selector--v2 .pdp-kit-title {
@@ -334,6 +335,10 @@ body:has(.buybox-v2) .pdp-kit-selector--v2 .pdp-kit-badge {
   position: absolute;
   top: -9px;
   right: 11px;
+  left: auto;
+  bottom: auto;
+  width: auto;
+  transform: none;
   padding: 5px 8px;
   border-radius: 0;
   background: var(--v2-ink);
