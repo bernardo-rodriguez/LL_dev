@@ -142,6 +142,13 @@ body:has(.buybox-v2) .jdgm-star {
   font-family: 'JudgemeStar', sans-serif !important;
 }
 
+/*
+  The formula section's intro line is written for a quiz taker — "Based on
+  your low sensitivity…" — and is rewritten at runtime from the strength
+  cookie. The v2 design states the same thing once, above, for everyone.
+*/
+body:has(.buybox-v2) .ingredients-that-work__intro { display: none; }
+
 /* ---- Bands -------------------------------------------------------------
    White, silver, white… down the page, as the artboard alternates them.
    ------------------------------------------------------------------------ */
