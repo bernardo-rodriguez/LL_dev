@@ -60,8 +60,8 @@
           "type": "blend",
           "settings": {
             "image": "shopify://shop_images/Screenshot_2026-09-09_at_6.25.02_PM.png",
-            "name": "Stain Removal",
-            "summary": "Pharma-Grade Peroxide",
+            "name": "Coffee, tea or wine stains",
+            "summary": "Pigment settles inside enamel. Our peroxide lifts it from within.",
             "ingredients": "Hydroxyapatite | densifies enamel\nHydrogen Peroxide | lifts discoloration"
           }
         },
@@ -83,8 +83,8 @@
           "type": "blend",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_975skw975skw975s_1334a040-d856-4c20-ad8a-353a6cbbe604.jpg",
-            "name": "Enamel Support",
-            "summary": "Nano-Hydroxyapatite",
+            "name": "See-through edges",
+            "summary": "Thin enamel lets the yellow layer show. Hydroxyapatite strengthens it.",
             "ingredients": "Xylitol | starves bad bacteria\nPomegranate Extract | antioxidant defense\nCoconut Oil | balances the mouth"
           }
         },
@@ -106,8 +106,8 @@
           "type": "blend",
           "settings": {
             "image": "shopify://shop_images/Screenshot_2026-09-09_at_6.24.43_PM.png",
-            "name": "Plaque Removal",
-            "summary": "Coconut Oil + NaCl",
+            "name": "Dull, filmy teeth",
+            "summary": "A plaque film scatters light. We clear it so teeth look glossy again.",
             "ingredients": "Hydrogen Peroxide | oxidizes deep stains\nCoconut Oil | sweeps surface stains"
           }
         },
@@ -129,8 +129,8 @@
           "type": "blend",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_terzrrterzrrterz_554a6ecc-f365-488b-b304-7637df9afe0a.jpg",
-            "name": "Sensitivity + Gum Protection",
-            "summary": "Hydroxyapatite + Aloe Vera",
+            "name": "Teeth that feel sensitive",
+            "summary": "Built-in blockers keep every session comfortable.",
             "ingredients": "Glycerin | hydration barrier\nHydroxyapatite | enamel shield"
           }
         },
@@ -160,12 +160,12 @@
         "blend_wgMWR7",
         "ingredient_5vMySD",
         "ingredient_hGje7T",
-        "blend_dj7YaT",
-        "ingredient_0A0dEV",
-        "ingredient_9NykBN",
         "blend_pQpqnp",
         "ingredient_7VGPLe",
         "ingredient_HPwFBJ",
+        "blend_dj7YaT",
+        "ingredient_0A0dEV",
+        "ingredient_9NykBN",
         "blend_9mDc8T",
         "ingredient_e4TR1S",
         "ingredient_KlQwBW",
@@ -175,7 +175,7 @@
       "settings": {
         "eyebrow": "Is this right for me?",
         "heading": "Made for more than surface stains.",
-        "intro": "Hydroxyapatite toothpaste for enamel. Whitening strips for deep stains. Targeted cleaning for plaque. \nNormally that’s three products, three steps, and three bills.\nWe put them in one gel. It works without sensitivity to bring you the brightest smile you've seen.",
+        "intro": "Hydroxyapatite toothpaste for enamel. Whitening strips for deep stains. Targeted cleaning for plaque. Normally that’s three products, three steps, and three bills. We put them in one gel.",
         "image": "shopify://shop_images/Laughland_80136_1_1.png",
         "show_image_mobile": false,
         "footnote": "",
