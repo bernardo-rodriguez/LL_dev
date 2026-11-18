@@ -91,6 +91,14 @@
       </div>
 
       {%- comment -%}
+        The v2 artboard closes the band with a qualifier under the pair of
+        photographs rather than naming the person in them.
+      {%- endcomment -%}
+      {%- if section.settings.footnote != blank -%}
+        <p class="transformational-results__footnote">{{ section.settings.footnote }}</p>
+      {%- endif -%}
+
+      {%- comment -%}
         The statistics column is optional. With it off the slider becomes the
         only column and the whole section centres on desktop, so the images do
         not sit alone against a half-empty panel. Stat blocks are left in place
@@ -169,6 +177,11 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "text",
+      "id": "footnote",
+      "label": "Footnote"
+    },
     {
       "type": "text",
       "id": "eyebrow",
