@@ -6,6 +6,13 @@
     <div class="Faq_section_inner">
       <div class="Row">
         <div class="Faq_Heading">
+          {%- comment -%}
+            The v2 artboard labels the band "FAQ" above the question, the
+            same mono eyebrow every other section on that page carries.
+          {%- endcomment -%}
+          {% if section.settings.section_eyebrow != blank %}
+            <span class="section-eyebrow Faq_Eyebrow">{{ section.settings.section_eyebrow }}</span>
+          {% endif %}
           {% if section.settings.section_heading != blank %}
             <h2 class="h4">{{ section.settings.section_heading }}</h2>
           {% endif %}
@@ -33,44 +40,49 @@
 </div>
 
 {% schema %}
-  {
-    "name": "FAQ Section",
-    "settings": [
-      {
-        "type": "text",
-        "id": "section_heading",
-        "label": "Heading"        
-      },
-      {
-        "type": "text",
-        "id": "section_sub_heading",
-        "label": "Sub Heading"        
-      }
-    ],
-    "blocks": [
-      {
-        "type": "faq",
-        "name": "Question/Answer",
-        "settings": [
-          {
-            "type": "textarea",
-            "id": "title",
-            "label": "Question"
-          },
-          {
-            "type": "richtext",
-            "id": "sub_title",
-            "label": "Answer"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "FAQ Section"
-      }
-    ]
-  }
+{
+  "name": "FAQ Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "section_sub_heading",
+      "label": "Sub Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Question/Answer",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "sub_title",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Section"
+    }
+  ]
+}
 {% endschema %}
 
 {% stylesheet %}
