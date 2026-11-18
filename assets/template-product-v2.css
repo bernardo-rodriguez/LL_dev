@@ -225,7 +225,24 @@ body:has(.buybox-v2) .product__title {
 
 body:has(.buybox-v2) .product__subhead {
   font-size: 15px;
+  font-weight: 400;
   line-height: 1.5;
   color: var(--v2-muted);
   text-align: left;
+}
+
+/* ---- Gallery -----------------------------------------------------------
+   The personalized page insets the frame 20px either side. The v2 artboard
+   runs it full bleed, 480 square, flush under the header, with the caption
+   chip tucked 12px into its lower-left corner.
+   ------------------------------------------------------------------------ */
+
+body:has(.buybox-v2) .pdp-gallery { padding-top: 0; gap: 8px; }
+
+body:has(.buybox-v2) .pdp-gallery__frame { margin: 0; }
+
+body:has(.buybox-v2) .pdp-gallery__caption {
+  left: 12px;
+  bottom: 12px;
+  padding: 6px 9px;
 }
