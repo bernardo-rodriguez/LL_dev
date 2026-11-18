@@ -1,0 +1,177 @@
+{%- comment -%}
+  "Professional strength, made comfortable." on the v2 artboard: a silver
+  panel holding a two-bar peroxide chart with a dashed dentist-strength
+  line, two supporting cards, and a navy figure banner.
+
+  The strength-comparison section it replaces draws a different chart — a
+  legend, a 150mg axis, a red threshold line and the theme's cream ground —
+  and has neither the cards nor the banner.
+{%- endcomment -%}
+
+{{ 'section-strength-chart.css' | asset_url | stylesheet_tag }}
+
+{%- assign otc = section.settings.otc_value | times: 1.0 -%}
+{%- assign ours = section.settings.our_value | times: 1.0 -%}
+{%- assign axis_max = section.settings.axis_max | times: 1.0 -%}
+{%- if axis_max <= 0 -%}{%- assign axis_max = 120.0 -%}{%- endif -%}
+{%- assign threshold = section.settings.threshold_value | times: 1.0 -%}
+
+{%- comment -%}
+  The plot runs from y=170 (zero) up to y=20 (the top gridline), so 150
+  units of height carry axis_max milligrams.
+{%- endcomment -%}
+{%- assign plot_h = 150.0 -%}
+{%- assign base_y = 170.0 -%}
+
+{%- assign otc_h = otc | divided_by: axis_max | times: plot_h -%}
+{%- assign otc_y = base_y | minus: otc_h -%}
+{%- assign ours_h = ours | divided_by: axis_max | times: plot_h -%}
+{%- assign ours_y = base_y | minus: ours_h -%}
+{%- assign thr_y = threshold | divided_by: axis_max | times: plot_h -%}
+{%- assign thr_y = base_y | minus: thr_y -%}
+{%- assign thr_label_y = thr_y | minus: 6 -%}
+{%- assign otc_label_y = otc_y | minus: 8 -%}
+{%- assign ours_label_y = ours_y | plus: 23 -%}
+
+<div class="strength-chart">
+  <div class="strength-chart__inner">
+    <div class="strength-chart__head">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="strength-chart__eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="strength-chart__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.intro != blank -%}
+        <p class="strength-chart__intro">{{ section.settings.intro }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="strength-chart__panel">
+      <svg
+        class="strength-chart__svg"
+        viewBox="0 0 320 236"
+        role="img"
+        aria-label="{{ section.settings.chart_alt | escape }}"
+      >
+        {%- comment -%} Gridlines at each quarter of the axis. {%- endcomment -%}
+        <line x1="40" y1="20" x2="312" y2="20" stroke="#D8E0E8" stroke-width="1"></line>
+        <line x1="40" y1="70" x2="312" y2="70" stroke="#D8E0E8" stroke-width="1"></line>
+        <line x1="40" y1="120" x2="312" y2="120" stroke="#D8E0E8" stroke-width="1"></line>
+        <line x1="40" y1="170" x2="312" y2="170" stroke="#D8E0E8" stroke-width="1"></line>
+
+        {%- assign tick_3 = axis_max -%}
+        {%- assign tick_2 = axis_max | times: 0.6667 | round -%}
+        {%- assign tick_1 = axis_max | divided_by: 3.0 | round -%}
+        <text x="32" y="24" text-anchor="end" font-family="Inter Tight, Arial, sans-serif" font-size="10.5" fill="#61718A">{{ tick_3 | round }}{{ section.settings.unit }}</text>
+        <text x="32" y="74" text-anchor="end" font-family="Inter Tight, Arial, sans-serif" font-size="10.5" fill="#61718A">{{ tick_2 }}{{ section.settings.unit }}</text>
+        <text x="32" y="124" text-anchor="end" font-family="Inter Tight, Arial, sans-serif" font-size="10.5" fill="#61718A">{{ tick_1 }}{{ section.settings.unit }}</text>
+        <text x="32" y="174" text-anchor="end" font-family="Inter Tight, Arial, sans-serif" font-size="10.5" fill="#61718A">0</text>
+
+        <rect x="74" y="{{ otc_y }}" width="78" height="{{ otc_h }}" fill="#B7C3D2"></rect>
+        <rect x="200" y="{{ ours_y }}" width="78" height="{{ ours_h }}" fill="#2369C9"></rect>
+
+        <line x1="40" y1="{{ thr_y }}" x2="312" y2="{{ thr_y }}" stroke="#0D244C" stroke-width="1.5" stroke-dasharray="5 4"></line>
+        <text x="44" y="{{ thr_label_y }}" font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="0.6" fill="#0D244C">{{ section.settings.threshold_label }}</text>
+
+        <text x="113" y="{{ otc_label_y }}" text-anchor="middle" font-family="Manrope, Inter Tight, Arial, sans-serif" font-size="17" font-weight="600" fill="#61718A">{{ section.settings.otc_label }}</text>
+        <text x="239" y="{{ ours_label_y }}" text-anchor="middle" font-family="Manrope, Inter Tight, Arial, sans-serif" font-size="19" font-weight="600" fill="#FFFFFF">{{ section.settings.our_label }}</text>
+
+        <line x1="40" y1="170" x2="312" y2="170" stroke="#0D244C" stroke-width="1.5"></line>
+
+        <text x="113" y="190" text-anchor="middle" font-family="Inter Tight, Arial, sans-serif" font-size="12" font-weight="500" fill="#475F7D">{{ section.settings.otc_name }}</text>
+        <text x="239" y="190" text-anchor="middle" font-family="Inter Tight, Arial, sans-serif" font-size="12" font-weight="700" fill="#0D244C">{{ section.settings.our_name }}</text>
+        <text x="113" y="206" text-anchor="middle" font-family="Inter Tight, Arial, sans-serif" font-size="10.5" fill="#61718A">{{ section.settings.otc_note }}</text>
+        <text x="239" y="206" text-anchor="middle" font-family="Inter Tight, Arial, sans-serif" font-size="10.5" fill="#61718A">{{ section.settings.our_note }}</text>
+
+        <text x="40" y="230" font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="0.6" fill="#61718A">{{ section.settings.chart_footer }}</text>
+      </svg>
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="strength-chart__cards">
+        {%- for block in section.blocks -%}
+          <div class="strength-chart__card" {{ block.shopify_attributes }}>
+            <span class="strength-chart__card-icon">
+              {%- case block.settings.icon -%}
+                {%- when 'flask' -%}
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 3h6"/><path d="M10 3v6L5 19a2 2 0 0 0 1.8 2h10.4A2 2 0 0 0 19 19l-5-10V3"/></svg>
+                {%- else -%}
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 19 6v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+              {%- endcase -%}
+            </span>
+            <span class="strength-chart__card-title">{{ block.settings.title }}</span>
+            <span class="strength-chart__card-body">{{ block.settings.body }}</span>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.banner_figure != blank or section.settings.banner_text != blank -%}
+      <div class="strength-chart__banner">
+        {%- if section.settings.banner_figure != blank -%}
+          <span class="strength-chart__banner-figure">{{ section.settings.banner_figure }}</span>
+        {%- endif -%}
+        <span class="strength-chart__banner-copy">
+          <span class="strength-chart__banner-text">{{ section.settings.banner_text }}</span>
+          {%- if section.settings.banner_note != blank -%}
+            <span class="strength-chart__banner-note">{{ section.settings.banner_note }}</span>
+          {%- endif -%}
+        </span>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Strength chart",
+  "tag": "section",
+  "class": "section-strength-chart",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why it works faster" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Professional strength, made comfortable." },
+    { "type": "textarea", "id": "intro", "label": "Intro" },
+    { "type": "header", "content": "Chart" },
+    { "type": "text", "id": "unit", "label": "Unit", "default": "mg" },
+    { "type": "text", "id": "axis_max", "label": "Axis maximum", "default": "120" },
+    { "type": "text", "id": "threshold_value", "label": "Threshold", "default": "100" },
+    { "type": "text", "id": "threshold_label", "label": "Threshold label", "default": "DENTIST STRENGTH · 100MG+" },
+    { "type": "text", "id": "otc_value", "label": "Their bar value", "default": "35" },
+    { "type": "text", "id": "otc_label", "label": "Their bar figure", "default": "30–40mg" },
+    { "type": "text", "id": "otc_name", "label": "Their name", "default": "Typical strips" },
+    { "type": "text", "id": "otc_note", "label": "Their note", "default": "Same dose for everyone" },
+    { "type": "text", "id": "our_value", "label": "Our bar value", "default": "100" },
+    { "type": "text", "id": "our_label", "label": "Our bar figure", "default": "100mg" },
+    { "type": "text", "id": "our_name", "label": "Our name", "default": "Laughland" },
+    { "type": "text", "id": "our_note", "label": "Our note", "default": "Nearly 3× the strength" },
+    { "type": "text", "id": "chart_footer", "label": "Chart footer", "default": "PEROXIDE PER TREATMENT" },
+    { "type": "text", "id": "chart_alt", "label": "Chart description", "default": "Peroxide per treatment: typical strips 30 to 40mg, Laughland 100mg, against a 100mg dentist-strength line." },
+    { "type": "header", "content": "Banner" },
+    { "type": "text", "id": "banner_figure", "label": "Figure", "default": "99%" },
+    { "type": "text", "id": "banner_text", "label": "Text", "default": "of users report zero increased sensitivity." },
+    { "type": "text", "id": "banner_note", "label": "Note", "default": "Customer survey, n = 918" }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "flask", "label": "Flask" },
+            { "value": "shield", "label": "Shield" }
+          ],
+          "default": "flask"
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Pharmaceutical-grade peroxide" },
+        { "type": "textarea", "id": "body", "label": "Body" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Strength chart", "blocks": [{ "type": "card" }, { "type": "card" }] }]
+}
+{% endschema %}
