@@ -626,19 +626,19 @@
         "standard_1": {
           "type": "standard",
           "settings": {
-            "title": "Pharmaceutical-grade ingredients for higher purity & performance"
+            "title": "Pharmaceutical-grade ingredients for higher purity and performance"
           }
         },
         "standard_2": {
           "type": "standard",
           "settings": {
-            "title": "Manufactured in FDA-registered facilities following ISO standards"
+            "title": "Made in FDA-registered facilities following ISO standards"
           }
         },
         "standard_3": {
           "type": "standard",
           "settings": {
-            "title": "Each formula is designed by dentists & clinically tested for efficacy"
+            "title": "Designed by dentists and clinically tested for efficacy"
           }
         }
       },
