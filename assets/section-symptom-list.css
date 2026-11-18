@@ -97,12 +97,26 @@
   color: #475f7d;
 }
 
+/*
+  The artboard draws the quiz link as a bordered bar the width of the
+  column, the arrow pushed to its far edge — not an inline underlined link.
+*/
 .symptom-list__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 52px;
+  padding: 0 16px;
+  border: 1px solid #0d244c;
+  border-radius: 0;
   font-family: manrope, 'Manrope', 'Helvetica Neue', Arial, sans-serif;
   font-size: 14.5px;
   font-weight: 600;
   line-height: 1.4;
   color: #0d244c;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: none;
+}
+
+.symptom-list__cta svg {
+  flex: 0 0 16px;
 }
