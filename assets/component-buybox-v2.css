@@ -5,6 +5,14 @@
   reach the personalized template or the other product pages.
 */
 
+/*
+  The theme parks the cart drawer and the page transition off-canvas to the
+  right. They are meant to be clipped, and are everywhere else, but on this
+  template they left the page scrolling sideways. clip rather than hidden:
+  hidden would make the body a scroll container and break sticky positioning.
+*/
+body:has(.buybox-v2) { overflow-x: clip; }
+
 .buybox-v2 { display: flex; flex-direction: column; gap: 8px; }
 
 /* ---- Social proof ------------------------------------------------------ */

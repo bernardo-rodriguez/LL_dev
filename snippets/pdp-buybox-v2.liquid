@@ -43,15 +43,26 @@
     {% if section.settings.personalized_title != blank %}data-name-title="{{ section.settings.personalized_title | escape }}"{% endif %}
   >{{ section.settings.intro_title | default: product.metafields.custom.title | default: product.title }}</h3>
 
-  {%- comment -%} Price comes from the product, never typed into a setting {%- endcomment -%}
+  {%- comment -%}
+    The design shows the subscription price struck through the one-time one.
+    Both come from Shopify: the plan price is the selling-plan allocation, so
+    nothing here is a number somebody typed into a setting.
+  {%- endcomment -%}
+  {%- assign v = product.selected_or_first_available_variant -%}
+  {%- assign full = v.price -%}
+  {%- if v.compare_at_price > full -%}{%- assign full = v.compare_at_price -%}{%- endif -%}
+  {%- assign best = full -%}
+  {%- for alloc in v.selling_plan_allocations -%}
+    {%- if alloc.price < best -%}{%- assign best = alloc.price -%}{%- endif -%}
+  {%- endfor -%}
   <div class="buybox-v2__price">
-    {%- if product.compare_at_price > product.price -%}
-      <span class="buybox-v2__was">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
-    {%- endif -%}
-    <span class="buybox-v2__now">{{ product.price | money_without_trailing_zeros }}</span>
-    {%- if product.compare_at_price > product.price -%}
-      {%- assign off = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+    {%- if best < full -%}
+      <span class="buybox-v2__was">{{ full | money_without_trailing_zeros }}</span>
+      <span class="buybox-v2__now">{{ best | money_without_trailing_zeros }}</span>
+      {%- assign off = full | minus: best | times: 100.0 | divided_by: full | round -%}
       <span class="buybox-v2__off">{{ off }}% off</span>
+    {%- else -%}
+      <span class="buybox-v2__now">{{ full | money_without_trailing_zeros }}</span>
     {%- endif -%}
   </div>
 
