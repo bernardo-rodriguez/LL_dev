@@ -489,8 +489,16 @@ body:has(.buybox-v2) .comparison-table__logo {
   color: #ffffff;
 }
 
-body:has(.buybox-v2) .comparison-table__label {
+/*
+  The spacing lives on the cell, not on the label inside it; setting it in
+  both places is what made every row two lines tall.
+*/
+body:has(.buybox-v2) .comparison-table__cell--label {
   padding: 12px 8px 12px 0;
+}
+
+body:has(.buybox-v2) .comparison-table__label {
+  padding: 0;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.3;
