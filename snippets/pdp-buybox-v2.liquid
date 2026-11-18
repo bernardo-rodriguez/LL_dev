@@ -102,7 +102,12 @@
             {%- if rest_head == ',' or rest_head == '.' or rest_head == ':' or rest_head == ';' or rest_head == '!' or rest_head == '?' -%}
               {%- assign tight = true -%}
             {%- endif -%}
-            <span class="buybox-v2__claim-text"><b>{{ lead }}</b>{% if rest != blank %}{% unless tight %} {% endunless %}{{ rest }}{% endif %}</span>
+            {%- if tight -%}
+              {%- assign claim_tail = rest -%}
+            {%- else -%}
+              {%- assign claim_tail = rest | prepend: ' ' -%}
+            {%- endif -%}
+            <span class="buybox-v2__claim-text"><b>{{ lead }}</b>{% if rest != blank %}{{ claim_tail }}{% endif %}</span>
           </li>
         {%- endif -%}
       {%- endfor -%}
