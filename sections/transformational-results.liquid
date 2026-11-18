@@ -19,11 +19,19 @@
         {%- endif -%}
         <h3 class="section-heading transformational-results__heading">{% if section.settings.heading_quiz != blank %}{% render 'flow-text', base: section.settings.heading, default: 'Transformational Results', quiz: section.settings.heading_quiz %}{% else %}{{ section.settings.heading | default: 'Transformational Results' }}{% endif %}</h3>
 
+        {%- comment -%}
+          The tabs switch the before-and-after slider. An instance with no
+          profile blocks is a statistics row — the v2 design's customer
+          survey — so there is nothing for them to switch.
+        {%- endcomment -%}
+        {%- assign profile_blocks = section.blocks | where: 'type', 'profile' -%}
+        {%- if profile_blocks.size > 0 -%}
         <div class="transformational-results__tabs" role="tablist">
           <button type="button" class="transformational-results__tab active" data-duration="2" aria-selected="true">2 MONTHS</button>
           <button type="button" class="transformational-results__tab" data-duration="4" aria-selected="false">4 MONTHS</button>
           <button type="button" class="transformational-results__tab" data-duration="6" aria-selected="false">6 MONTHS</button>
         </div>
+        {%- endif -%}
       </div>
 
       <div class="transformational-results__slider-column">
@@ -95,7 +103,10 @@
             {% for block in stat_blocks %}
               <li class="test-results__item" {{ block.shopify_attributes }}>
                 <h3 class="stylized test-results__item-percent">{{ block.settings.percent }}</h3>
-                <p class="body-sm test-results__item-details">{{ block.settings.text }}</p>
+                {%- assign stat_lower = block.settings.text | downcase -%}
+                <p class="body-sm test-results__item-details"
+                  {%- if stat_lower contains '{reviews}' %} data-ll-reviews="{{ block.settings.text | escape }}"{% endif -%}
+                >{{ block.settings.text }}</p>
               </li>
             {% endfor %}
           </ul>
@@ -246,7 +257,8 @@
           "type": "textarea",
           "id": "text",
           "label": "Description",
-          "default": "100% of clinical participants reported whiter teeth after only 6 treatments."
+          "default": "100% of clinical participants reported whiter teeth after only 6 treatments.",
+          "info": "Write {reviews} for the live review total."
         }
       ]
     }
