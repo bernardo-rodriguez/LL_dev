@@ -104,32 +104,50 @@
       }
     },
     "strength_comparison_gNykFW": {
-      "type": "strength-comparison",
-      "name": "Strength Comparison",
+      "type": "strength-chart",
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "icon": "flask",
+            "title": "Pharmaceutical-grade peroxide",
+            "body": "99% purity, with fewer impurities to irritate gums."
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "icon": "shield",
+            "title": "Sensitivity blockers",
+            "body": "Hydroxyapatite and aloe keep every session calm."
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2"
+      ],
       "settings": {
         "eyebrow": "Why it works faster",
         "heading": "Professional strength, made comfortable.",
-        "body": "Most at-home whitening is too weak to show real results. We use the strength dentists use, balanced with sensitivity blockers so every session stays comfortable.",
-        "footnote": "",
-        "chart_label": "",
-        "chart_badge": "",
-        "compare_label": "Avg. OTC Whitening",
-        "compare_label_short": "Avg. OTC",
-        "compare_value": "30",
-        "compare_note": "",
-        "ours_label": "Laughland",
-        "ours_value": "100",
-        "axis_suffix": "mg",
-        "axis_max": "150",
-        "axis_step": "30",
+        "intro": "Most at-home whitening is too weak to show real results. We use the strength dentists use, balanced with sensitivity blockers so every session stays comfortable.",
+        "unit": "mg",
+        "axis_max": "120",
         "threshold_value": "100",
-        "threshold_label": "Dentist strength = 100mg+",
-        "chart_footnote": "Paired with sensitivity blockers like hydroxyapatite and aloe for a comfortable, pain-free whitening experience.",
-        "margin_bottom": false,
-        "flow_visibility": "all",
-        "heading_quiz": "",
-        "body_quiz": "",
-        "ours_note": ""
+        "threshold_label": "DENTIST STRENGTH · 100MG+",
+        "otc_value": "35",
+        "otc_label": "30–40mg",
+        "otc_name": "Typical strips",
+        "otc_note": "Same dose for everyone",
+        "our_value": "100",
+        "our_label": "100mg",
+        "our_name": "Laughland",
+        "our_note": "Nearly 3× the strength",
+        "chart_footer": "PEROXIDE PER TREATMENT",
+        "chart_alt": "Peroxide per treatment: typical strips 30 to 40mg, Laughland 100mg, against a 100mg dentist-strength line.",
+        "banner_figure": "99%",
+        "banner_text": "of users report zero increased sensitivity.",
+        "banner_note": "Customer survey, n = 918"
       }
     },
     "transformational_results_ddRMfc": {
