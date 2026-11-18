@@ -97,7 +97,26 @@ xhttp.send();
       element up by id on the document rather than inside the info column.
     {%- endcomment -%}
     <div class="product__intro">
-      {% if section.settings.use_v2_buybox %}
+      {%- comment -%}
+        The v2 copy — the title, the claims, the sale banner — is written for
+        one product, but this template is the default for every product
+        without its own. So it renders only for the handles named in the
+        setting; anything else falls through to the plain heading and its own
+        title. Before this, the refill kit was titled "Hybrid Whitening Kit".
+      {%- endcomment -%}
+      {%- assign v2_here = false -%}
+      {%- if section.settings.use_v2_buybox -%}
+        {%- assign v2_handles = section.settings.v2_handles | default: '' | split: ',' -%}
+        {%- if v2_handles.size == 0 -%}
+          {%- assign v2_here = true -%}
+        {%- else -%}
+          {%- for h in v2_handles -%}
+            {%- assign handle_clean = h | strip -%}
+            {%- if handle_clean == product.handle -%}{%- assign v2_here = true -%}{%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+      {%- endif -%}
+      {% if v2_here %}
         {% render 'pdp-buybox-v2', section: section, product: product %}
       {% else %}
       <h3
@@ -107,7 +126,11 @@ xhttp.send();
           data-name-title="{{ section.settings.personalized_title | escape }}"
         {% endif %}
       >
-        {{ section.settings.intro_title | default: product.metafields.custom.title | default: product.title }}
+        {%- if v2_here or section.settings.v2_handles == blank -%}
+          {{ section.settings.intro_title | default: product.metafields.custom.title | default: product.title }}
+        {%- else -%}
+          {{ product.metafields.custom.title | default: product.title }}
+        {%- endif -%}
       </h3>
 
       {% if section.settings.subhead != blank %}
@@ -508,7 +531,7 @@ xhttp.send();
                     </svg>
                   </div>
 
-              {% if section.settings.use_v2_buybox %}
+              {% if v2_here %}
                 {% render 'pdp-buybox-v2-foot', section: section %}
               {% endif %}
                 </button>
@@ -1238,6 +1261,13 @@ xhttp.send();
       "label": "Use the v2 buy box",
       "default": false,
       "info": "Social proof, rating, price, claims, sale banner, shipping line and guarantee, in the v2 design's order."
+    },
+    {
+      "type": "text",
+      "id": "v2_handles",
+      "label": "Only for these products",
+      "default": "at-home-whitening-kit",
+      "info": "Comma-separated product handles. This template is the default for every product, and the v2 copy names one. Leave blank to show it on all of them."
     },
     {
       "type": "text",
