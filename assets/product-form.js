@@ -109,9 +109,18 @@ customElements.define('product-form', class ProductForm extends HTMLElement {
     // above the gallery, so look it up by id on the document. It is a unique
     // id, so this is the same element, found wherever the layout puts it.
     const titleEl = document.querySelector('#product__title_id')
-    // Sections can name the word to use after the first name — "Sarah's
-    // Formula" rather than "Sarah's Starter Whitening Kit".
-    const storedProductName = titleEl?.dataset?.nameTitle || titleEl?.innerHTML
+    /*
+      Sections name the word to use after the first name — "Sarah's Formula"
+      rather than "Sarah's Starter Whitening Kit".
+
+      Its presence is also what asks for the greeting at all. This used to
+      fall back to the heading's own text, so any template with the cookie
+      set got personalised whether it wanted to be or not: the v2 standalone
+      page, which titles the product rather than the shopper, read
+      "sd's Hybrid Whitening Kit". Only main-product writes the attribute,
+      and only when its Personalized title setting is filled.
+    */
+    const storedProductName = titleEl?.dataset?.nameTitle
 
     let name = `${first_name}${ last_name != "" ? ' ' + last_name : ''}`
 
