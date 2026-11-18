@@ -87,6 +87,15 @@ body:has(.buybox-v2) .shopify-section:has(.jdgm-widget) > .page-width {
   padding-bottom: var(--v2-pad-y);
 }
 
+/*
+  A 50px seam opens above the reviews section that is not the theme's: both
+  siblings compute zero margins, neither has padding, a border or a pseudo
+  element, and there is no node between them — the space comes from the
+  Judge.me embed's own stylesheet. Pulled closed here, since every other
+  band on the page butts the next.
+*/
+body:has(.buybox-v2) .shopify-section:has(.jdgm-review-widget) { margin-top: -50px; }
+
 /* ---- Type --------------------------------------------------------------
    The same scale as the personalized page: a mono label, a Manrope heading
    at 31px, and a 15px intro in the muted ink.
