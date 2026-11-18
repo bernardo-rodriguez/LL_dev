@@ -18,12 +18,6 @@
     return isNaN(n) ? 0 : n;
   }
 
-  function fromSummary(el) {
-    if (!el || !el.textContent) return null;
-    var m = el.textContent.match(/based on (\d[\d,]*)\s*reviews?/i);
-    return m ? parseInt(m[1].replace(/,/g, ''), 10) : null;
-  }
-
   /*
     Judge.me's own live count, cached on the first successful read.
 
@@ -40,17 +34,21 @@
     return n;
   }
 
+  /*
+    Read the count from Judge.me's own data attribute and from nothing else.
+
+    It used to fall back to the widget's summary *text*, which the override
+    below rewrites to the site total — so a later read saw 2,583, added the
+    2,000 again and showed 4,583. Caching the first read was meant to stop
+    that and did not: nothing guarantees a read happens before the first
+    rewrite. The attribute is written by Judge.me and never touched here, so
+    it cannot feed itself.
+  */
   function readJudgemeCount() {
-    var n = fromSummary(document.querySelector('.jdgm-rev-widg__summary-text'));
-    if (n == null) n = fromSummary(document.querySelector('.jdgm-all-reviews-text__text'));
-    if (n == null) {
-      var badge = document.querySelector('.jdgm-prev-badge[data-number-of-reviews]');
-      if (badge) {
-        var attr = parseInt(badge.getAttribute('data-number-of-reviews'), 10);
-        if (!isNaN(attr)) n = attr;
-      }
-    }
-    return n;
+    var badge = document.querySelector('[data-number-of-reviews]');
+    if (!badge) return null;
+    var attr = parseInt(badge.getAttribute('data-number-of-reviews'), 10);
+    return isNaN(attr) ? null : attr;
   }
 
   /*
