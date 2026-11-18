@@ -375,8 +375,18 @@ body:has(.buybox-v2) .pdp-product-options__form-row {
    selected tab navy, and closes with a qualifier instead of a name.
    ------------------------------------------------------------------------ */
 
+/*
+  This section nests a padded panel inside the page gutter, so the two
+  paddings stack to 40px. The gutter moves off the wrapper and the panel
+  keeps it, which leaves the artboard's 440px column.
+*/
+body:has(.buybox-v2) .transformational-results > .page-width {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 body:has(.buybox-v2) .transformational-results__inner {
-  padding: var(--v2-pad-y) 0;
+  padding: var(--v2-pad-y) var(--v2-pad-x);
   background: transparent;
 }
 
