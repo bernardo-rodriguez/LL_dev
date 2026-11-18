@@ -11,6 +11,9 @@
   template they left the page scrolling sideways. clip rather than hidden:
   hidden would make the body a scroll container and break sticky positioning.
 */
+/* the v2 stack has its own rating line, so the shared one is a duplicate */
+body:has(.buybox-v2) .small-stars-section { display: none; }
+
 html:has(.buybox-v2),
 body:has(.buybox-v2) { overflow-x: clip; }
 
@@ -145,8 +148,14 @@ body:has(.buybox-v2) { overflow-x: clip; }
   width: 30px;
   height: 30px;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #d8ecff;
+  color: #2369c9;
 }
+
+.buybox-v2__claim-icon svg { width: 16px; height: 16px; display: block; }
 
 .buybox-v2__claim-text {
   font-family: var(--ds-font-family);

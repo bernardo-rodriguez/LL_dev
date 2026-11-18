@@ -79,7 +79,17 @@
         {%- assign rest = parts[1] | default: '' | strip -%}
         {%- if lead != blank -%}
           <li class="buybox-v2__claim">
-            <span class="buybox-v2__claim-icon" aria-hidden="true"></span>
+            <span class="buybox-v2__claim-icon" aria-hidden="true">
+              {%- comment -%} bolt, target, shield: the three the artboard draws {%- endcomment -%}
+              {%- case forloop.index -%}
+                {%- when 1 -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg>
+                {%- when 2 -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
+                {%- else -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 3 L19 6 V11 C19 16 16 19.5 12 21 C8 19.5 5 16 5 11 V6 Z"/><path d="M9 12l2 2 4-4"/></svg>
+              {%- endcase -%}
+            </span>
             <span class="buybox-v2__claim-text"><b>{{ lead }}</b>{% if rest != blank %} {{ rest }}{% endif %}</span>
           </li>
         {%- endif -%}
