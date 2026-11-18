@@ -30,7 +30,12 @@ xhttp.send();
         thumbnails by role rather than showing previews, which the swiper
         gallery below has no way to express. Every other template keeps it.
       {%- endcomment -%}
-      {% if template.suffix == 'personalized' %}
+      {%- comment -%}
+        Opted into per template rather than keyed to one suffix: the v2
+        standalone design uses the same gallery and the same plan picker as
+        the personalized page.
+      {%- endcomment -%}
+      {% if template.suffix == 'personalized' or section.settings.use_v4_gallery %}
         {% render 'pdp-gallery-v4', product: product, section: section %}
       {% else %}
       {%- comment -%}
@@ -412,7 +417,7 @@ xhttp.send();
                   that Skio has no markup for. Personalized template only, so
                   the production picker renders exactly as it does today.
                 {%- endcomment -%}
-                {% if template.suffix == 'personalized' %}
+                {% if template.suffix == 'personalized' or section.settings.use_v6_picker %}
                   {% render 'pdp-plan-picker-v6', section: section %}
                 {% endif %}
               {% endif %}
@@ -1075,6 +1080,13 @@ xhttp.send();
       "info": "Used only by the personalized product template."
     },
     {
+      "type": "checkbox",
+      "id": "use_v6_picker",
+      "label": "Use the v6 plan picker",
+      "default": false,
+      "info": "The picker with the label, benefit tiles and per-plan notes. Always on for the personalized template."
+    },
+    {
       "type": "text",
       "id": "plan_label",
       "label": "Label above the plans",
@@ -1163,6 +1175,13 @@ xhttp.send();
       "type": "header",
       "content": "Gallery (personalized)",
       "info": "Used only by the personalized product template."
+    },
+    {
+      "type": "checkbox",
+      "id": "use_v4_gallery",
+      "label": "Use the v4 gallery",
+      "default": false,
+      "info": "Square frame, caption chip and picture thumbnails. Always on for the personalized template."
     },
     {
       "type": "text",
