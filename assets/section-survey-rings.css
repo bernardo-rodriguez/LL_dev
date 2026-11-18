@@ -1,0 +1,122 @@
+/*
+  Survey rings — the v2 artboard's customer-survey band.
+
+  Three 84px gauges on a 140px column each, 10px apart, centred under a
+  centred heading on the silver ground.
+*/
+
+.survey-rings {
+  background: #f4f6f8;
+}
+
+.survey-rings__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 48px 20px;
+}
+
+.survey-rings__head {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.survey-rings__eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.92px;
+  text-transform: uppercase;
+  color: #61718a;
+}
+
+.survey-rings__heading {
+  margin: 0;
+  font-family: manrope, 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 31px;
+  font-weight: 500;
+  line-height: 33.48px;
+  letter-spacing: -0.6px;
+  color: #0d244c;
+  text-wrap: balance;
+}
+
+.survey-rings__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--survey-cols, 3), 1fr);
+  gap: 10px;
+  justify-items: center;
+}
+
+.survey-rings__cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.survey-rings__ring {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+}
+
+/*
+  The arc starts at twelve o'clock rather than three, so the ring is turned
+  a quarter back on itself. Rotating the element would turn the number with
+  it, so only the drawing turns.
+*/
+.survey-rings__ring svg {
+  display: block;
+  transform: rotate(-90deg);
+}
+
+.survey-rings__track,
+.survey-rings__arc {
+  fill: none;
+  stroke-width: 6px;
+}
+
+.survey-rings__track {
+  stroke: #d8e0e8;
+}
+
+.survey-rings__arc {
+  stroke: #2369c9;
+}
+
+.survey-rings__value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: manrope, 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1;
+  color: #0d244c;
+}
+
+.survey-rings__text {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 17.55px;
+  color: #22405f;
+}
+
+.survey-rings__footnote {
+  margin: 0;
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 16.675px;
+  color: #61718a;
+  text-align: center;
+}
