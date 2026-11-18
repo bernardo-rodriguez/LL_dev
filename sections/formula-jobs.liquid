@@ -1,0 +1,143 @@
+{%- comment -%}
+  "Four jobs. One gel." on the v2 artboard: a square photograph of the gel,
+  then the four jobs as a 2x2 grid of cards. Tapping one turns it navy and
+  opens a single panel below the grid listing that job's ingredients.
+
+  The ingredients-that-work section it replaces draws the same four jobs as
+  a vertical list of circular photos with a bullet under each, and carries a
+  quiz-written intro line; both belong to the personalized page, which still
+  uses it.
+{%- endcomment -%}
+
+{{ 'section-formula-jobs.css' | asset_url | stylesheet_tag }}
+
+<div class="formula-jobs">
+  <div class="formula-jobs__inner">
+    <div class="formula-jobs__head">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="formula-jobs__eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="formula-jobs__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.intro != blank -%}
+        <p class="formula-jobs__intro">{{ section.settings.intro }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.image != blank -%}
+      {{
+        section.settings.image
+        | image_url: width: 880
+        | image_tag:
+          class: 'formula-jobs__image',
+          loading: 'lazy',
+          widths: '440, 660, 880',
+          sizes: '(min-width: 480px) 440px, calc(100vw - 40px)',
+          alt: section.settings.heading
+      }}
+    {%- else -%}
+      <div class="formula-jobs__image formula-jobs__image--empty" aria-hidden="true"></div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="formula-jobs__picker" data-formula-jobs>
+        <div class="formula-jobs__grid">
+          {%- for block in section.blocks -%}
+            {%- assign n = forloop.index | prepend: '0' | slice: -2, 2 -%}
+            <button
+              type="button"
+              class="formula-jobs__card"
+              data-formula-job="{{ forloop.index0 }}"
+              aria-expanded="false"
+              aria-controls="{{ section.id }}-job-panel"
+              {{ block.shopify_attributes }}
+            >
+              <span class="formula-jobs__card-top">
+                <span class="formula-jobs__num">{{ block.settings.number | default: n }}</span>
+                <span class="formula-jobs__toggle">
+                  <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 1v10"/><path d="M1 6h10"/></svg>
+                </span>
+              </span>
+              <span class="formula-jobs__name">{{ block.settings.name }}</span>
+              <span class="formula-jobs__sub">{{ block.settings.benefits }}</span>
+            </button>
+          {%- endfor -%}
+        </div>
+
+        <p class="formula-jobs__hint" data-formula-jobs-hint>{{ section.settings.hint }}</p>
+
+        {%- comment -%}
+          One panel for all four cards rather than one each: the artboard
+          opens it under the whole grid, not under the card that was tapped.
+        {%- endcomment -%}
+        <div class="formula-jobs__panel" id="{{ section.id }}-job-panel" data-formula-jobs-panel hidden></div>
+
+        <script type="application/json" data-formula-jobs-data>
+          [
+            {%- for block in section.blocks -%}
+              {
+                "rows": [
+                  {%- assign lines = block.settings.ingredients | newline_to_br | split: '<br />' -%}
+                  {%- assign first = true -%}
+                  {%- for line in lines -%}
+                    {%- assign clean = line | strip -%}
+                    {%- if clean != blank -%}
+                      {%- unless first %},{% endunless -%}
+                      {%- assign first = false -%}
+                      {%- assign bits = clean | split: '|' -%}
+                      {
+                        "name": {{ bits[0] | strip | json }},
+                        "role": {{ bits[1] | default: '' | strip | json }}
+                      }
+                    {%- endif -%}
+                  {%- endfor -%}
+                ]
+              }{%- unless forloop.last -%},{%- endunless -%}
+            {%- endfor -%}
+          ]
+        </script>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script src="{{ 'section-formula-jobs.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Formula jobs",
+  "tag": "section",
+  "class": "section-formula-jobs",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "What's in your formula" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Four jobs. One gel." },
+    { "type": "textarea", "id": "intro", "label": "Intro" },
+    { "type": "image_picker", "id": "image", "label": "Photo" },
+    { "type": "text", "id": "hint", "label": "Hint", "default": "Tap a box to see the ingredients" }
+  ],
+  "blocks": [
+    {
+      "type": "job",
+      "name": "Job",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Number" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Stain removal" },
+        { "type": "text", "id": "benefits", "label": "Short answer", "default": "Pharma-grade peroxide" },
+        {
+          "type": "textarea",
+          "id": "ingredients",
+          "label": "Ingredients",
+          "info": "One per line, written as  Name | what it does"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Formula jobs",
+      "blocks": [{ "type": "job" }, { "type": "job" }, { "type": "job" }, { "type": "job" }]
+    }
+  ]
+}
+{% endschema %}
