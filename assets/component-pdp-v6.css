@@ -1,0 +1,88 @@
+/*
+  The v6 product page component layer.
+
+  The plan picker and the square gallery were built for the personalized
+  template and scoped to its body class. The v2 standalone design uses the
+  same two, so what they need is keyed to a class the section adds when
+  either is switched on, rather than to one template.
+
+  Skio renders in a shadow DOM that ordinary selectors cannot reach, but
+  custom properties cross that boundary — which is why its look is set here
+  as variables rather than rules.
+*/
+
+.ll-pdp-v6 {
+  /* Stacked rows rather than two columns side by side */
+  --skio-row-columns: minmax(0, 1fr);
+  --skio-row-gap: 10px;
+
+  /* v6: white when unchosen, silver when chosen, navy edge on the choice */
+  --skio-card-radius: 0;
+  --skio-card-border: var(--navy-tint-20);
+  --skio-card-bg: #ffffff;
+  --skio-card-border-selected: var(--navy);
+  --skio-card-bg-selected: var(--pdp-silver);
+
+  /*
+  */
+
+  /* The dot is hidden by an inline style everywhere else; this turns it on */
+  --skio-radio-display: flex;
+  --skio-radio-order: -1;
+  --skio-radio-margin-right: 0;
+  --skio-radio-margin-left: 0;
+  --skio-radio-size: 20px;
+
+  /* One line: dot, title, price */
+  --skio-topline-direction: row;
+  --skio-topline-align: center;
+  --skio-topline-gap: 12px;
+  --skio-wrapper-direction: row;
+  --skio-wrapper-align: center;
+  --skio-wrapper-justify: space-between;
+  --skio-wrapper-gap: 12px;
+  --skio-label-padding: 14px;
+  --skio-label-gap: 10px;
+  --skio-price-size: 17px;
+
+  /*
+  */
+  --skio-sub-border-left-style: solid;
+  --skio-once-border-right-style: solid;
+
+  /*
+  */
+  --skio-ribbon-top: -10px;
+  --skio-ribbon-left: auto;
+  --skio-ribbon-right: 12px;
+  --skio-ribbon-transform: none;
+  --skio-ribbon-bg: var(--navy);
+  --skio-ribbon-color: #ffffff;
+  --skio-ribbon-size: 10px;
+  --skio-ribbon-weight: 600;
+  --skio-ribbon-padding: 5px 8px;
+
+  /* The joined look relied on removed borders and inset dividers. Stacked
+     cards want their own edges back and no dividers. */
+  --skio-selected-border-bottom: 1px solid var(--navy);
+  --skio-selected-border-side: 1px solid var(--navy);
+  --skio-selected-divider-left: none;
+  --skio-selected-divider-right: none;
+  --skio-unselected-border: 1px solid var(--navy-tint-20);
+  --skio-unselected-border-bottom: 1px solid var(--navy-tint-20);
+
+  /*
+    -----------------
+    --navy-tint-60, its #D8ECFF pale blue as --blue-tint-20, and its hairlines
+
+  */
+  --pdp-accent: #2369c9;
+  --pdp-cta: #67b9e8;
+  --pdp-silver: #f4f6f8;
+
+  /* The treatment cards take the same soft shape as everything else here */
+  --kit-card-radius: 12px;
+  --kit-card-border: var(--blue-tint-20);
+  --kit-card-border-selected: var(--blue);
+  --kit-card-bg-selected: var(--blue-tint-10);
+}

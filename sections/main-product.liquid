@@ -1,7 +1,19 @@
 {% comment %}theme-check-disable TemplateLength{% endcomment %}
 {{ 'all-product.css' | asset_url | stylesheet_tag }}
 {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
-{% if template.suffix == 'personalized' %}{{ 'section-pdp-gallery.css' | asset_url | stylesheet_tag }}{% endif %}
+{%- comment -%}
+  The v6 plan picker and the square gallery were built for the personalized
+  template. The v2 standalone design uses both, so they are keyed to a class
+  this section adds rather than to one template suffix.
+{%- endcomment -%}
+{%- assign ll_v6 = false -%}
+{%- if template.suffix == 'personalized' or section.settings.use_v6_picker or section.settings.use_v4_gallery -%}
+  {%- assign ll_v6 = true -%}
+{%- endif -%}
+{% if ll_v6 %}
+  {{ 'component-pdp-v6.css' | asset_url | stylesheet_tag }}
+  {{ 'section-pdp-gallery.css' | asset_url | stylesheet_tag }}
+{% endif %}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
 {{ 'component-results-curve.css' | asset_url | stylesheet_tag }}
@@ -18,7 +30,7 @@ xhttp.open("POST", "/cart/clear.js", true);
 xhttp.send();
 </script>
 {% render 'upsell-popup' %}
-<section>
+<section{% if ll_v6 %} class="ll-pdp-v6"{% endif %}>
   <div class="product">
     <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
       {{ 'accessibility.skip_to_product_info' | t }}
