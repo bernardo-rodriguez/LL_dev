@@ -169,3 +169,63 @@ body:has(.buybox-v2) .dentist-cards,
 body:has(.buybox-v2) .FAQ_Section {
   background: #ffffff;
 }
+
+/* ---- Top of page -------------------------------------------------------
+   The artboard opens with the gallery, full bleed, directly under the
+   header, and only then the buy box. The theme's phone layout orders the
+   headline above the gallery instead (intro 1, media 2, info 3), which is
+   right for every other product and wrong for this one.
+
+   The buy box is one continuous block on the artboard — 24px top, 20px
+   sides, 48px bottom — but our tree splits it over .product__intro and
+   .product__info-wrapper, so the padding is shared between the two halves
+   rather than set on either.
+   ------------------------------------------------------------------------ */
+
+body:has(.buybox-v2) .product__media-wrapper {
+  order: 0;
+  padding: 0;
+  margin: 0;
+}
+
+body:has(.buybox-v2) .product__intro {
+  order: 1;
+  padding: 24px var(--v2-pad-x) 0;
+  text-align: left;
+}
+
+body:has(.buybox-v2) .product__info-wrapper {
+  order: 2;
+  padding: 0 var(--v2-pad-x) 48px;
+}
+
+/*
+  The theme centres everything in the product column on phones. The artboard
+  ranges the whole buy box left, so the centring is undone once here rather
+  than per element — anything that genuinely centres (the plan buttons' own
+  labels) re-centres itself below.
+*/
+body:has(.buybox-v2) .product__intro,
+body:has(.buybox-v2) .product__intro *,
+body:has(.buybox-v2) .product__info-wrapper,
+body:has(.buybox-v2) .product__info-wrapper > * {
+  text-align: left;
+}
+
+body:has(.buybox-v2) .product__title {
+  font-size: 31px;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.019em;
+  color: var(--v2-ink);
+  font-family: manrope, 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+  text-align: left;
+  margin: 0;
+}
+
+body:has(.buybox-v2) .product__subhead {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--v2-muted);
+  text-align: left;
+}
