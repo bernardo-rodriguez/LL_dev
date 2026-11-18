@@ -1003,18 +1003,46 @@
       }
     },
     "what_to_expect_pdp": {
-      "type": "what-to-expect",
+      "type": "expect-timeline",
+      "blocks": {
+        "st1": {
+          "type": "stage",
+          "settings": {
+            "label": "First treatment",
+            "text": "Teeth look cleaner and brighter as surface stains and the dulling film lift."
+          }
+        },
+        "st2": {
+          "type": "stage",
+          "settings": {
+            "label": "6 treatments",
+            "text": "97% of customers saw whiter teeth. Deep stains lift from inside the enamel."
+          }
+        },
+        "st3": {
+          "type": "stage",
+          "settings": {
+            "label": "30 days",
+            "text": "Noticeably whiter, or your money back."
+          }
+        },
+        "st4": {
+          "type": "stage",
+          "settings": {
+            "label": "Every 60 days",
+            "text": "Your refill arrives to keep new stains from setting in."
+          }
+        }
+      },
+      "block_order": [
+        "st1",
+        "st2",
+        "st3",
+        "st4"
+      ],
       "settings": {
-        "title": "What consistent use looks like.",
         "eyebrow": "What to expect",
-        "feature1_title": "First treatment",
-        "feature1_text": "Teeth look cleaner and brighter as surface stains and the dulling film lift.",
-        "feature2_title": "6 treatments",
-        "feature2_text": "97% of customers saw whiter teeth. Deep stains lift from inside the enamel.",
-        "feature3_title": "30 days",
-        "feature3_text": "Noticeably whiter, or your money back.",
-        "feature4_title": "Every 60 days",
-        "feature4_text": "Your refill arrives to keep new stains from setting in."
+        "heading": "What consistent use looks like."
       }
     },
     "dentist_cards_pdp": {
