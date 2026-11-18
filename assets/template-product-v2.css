@@ -816,16 +816,20 @@ body:has(.buybox-v2) .Faq_Heading {
   padding: 0;
 }
 
-body:has(.buybox-v2) .Faq_List {
+/*
+  The theme reaches these through a five-class chain, so the overrides have
+  to come down the same path to outrank it.
+*/
+body:has(.buybox-v2) .FAQ_Section .Faq_section_inner .Faq_Area .Faq_List {
   border-top: 1px solid var(--v2-rule);
 }
 
-body:has(.buybox-v2) .Accordion-Block {
+body:has(.buybox-v2) .FAQ_Section .Faq_section_inner .Faq_Area .Faq_List .Accordion-Block {
   padding: 0;
   border-bottom: 1px solid var(--v2-rule);
 }
 
-body:has(.buybox-v2) .Accordion {
+body:has(.buybox-v2) .FAQ_Section .Faq_section_inner .Faq_Area .Faq_List .Accordion-Block .Accordion {
   display: flex;
   align-items: center;
   justify-content: space-between;
