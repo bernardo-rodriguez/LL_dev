@@ -797,3 +797,63 @@ body:has(.buybox-v2) .our-standards__item-title {
   line-height: 19.5px;
   color: var(--v2-ink);
 }
+
+/* ---- Questions, answered -----------------------------------------------
+   The theme panels the FAQ on a pale ground with a 25px gutter and a navy
+   rule under each question. The artboard runs it on the page's own white,
+   in the 20px gutter, with hairline rules and a bordered toggle.
+   ------------------------------------------------------------------------ */
+
+body:has(.buybox-v2) .Faq_section_inner {
+  padding: var(--v2-pad-y) var(--v2-pad-x) 56px;
+  background: transparent;
+}
+
+body:has(.buybox-v2) .Faq_Heading {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+}
+
+body:has(.buybox-v2) .Faq_List {
+  border-top: 1px solid var(--v2-rule);
+}
+
+body:has(.buybox-v2) .Accordion-Block {
+  padding: 0;
+  border-bottom: 1px solid var(--v2-rule);
+}
+
+body:has(.buybox-v2) .Accordion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 0;
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--v2-ink);
+}
+
+/*
+  The theme draws the toggle as a bare 20px glyph. The artboard boxes it in
+  a 26px hairline square, so the glyph is centred inside a bordered tile.
+*/
+body:has(.buybox-v2) .FAQ_Section .Faq_section_inner .Faq_Area .Faq_List .Accordion-Block .Accordion:after {
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  border: 1px solid #9bb1cd;
+  background-size: 14px 14px;
+  background-position: center;
+}
+
+body:has(.buybox-v2) .Accordion-Inr-Content,
+body:has(.buybox-v2) .Accordion-Content p {
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 21.75px;
+  color: var(--v2-muted);
+}

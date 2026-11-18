@@ -1098,7 +1098,8 @@
     "faq_section_pdp": {
       "type": "faq-section",
       "settings": {
-        "section_heading": "Questions, answered."
+        "section_heading": "Questions, answered.",
+        "section_eyebrow": "FAQ"
       },
       "blocks": {
         "faq_1": {
