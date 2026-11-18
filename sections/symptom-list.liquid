@@ -1,0 +1,118 @@
+{%- comment -%}
+  "Made for more than surface stains" on the v2 artboard is a plain list:
+  a 64px photo, a name and one line of explanation, four times, under a
+  navy rule. There is nothing to open — the formula-blends accordion this
+  replaces hides the explanation behind a toggle and adds a number, an
+  ingredient table and an expander the design does not have.
+{%- endcomment -%}
+
+{{ 'section-symptom-list.css' | asset_url | stylesheet_tag }}
+
+<div class="symptom-list">
+  <div class="symptom-list__inner">
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank -%}
+      <div class="symptom-list__head">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="symptom-list__eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="symptom-list__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <ul class="symptom-list__items list-unstyled">
+        {%- for block in section.blocks -%}
+          <li class="symptom-list__item" {{ block.shopify_attributes }}>
+            <span class="symptom-list__thumb">
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 192
+                  | image_tag:
+                    loading: 'lazy',
+                    widths: '64, 128, 192',
+                    sizes: '64px',
+                    alt: block.settings.name
+                }}
+              {%- endif -%}
+            </span>
+            <span class="symptom-list__copy">
+              <span class="symptom-list__name">{{ block.settings.name }}</span>
+              {%- if block.settings.summary != blank -%}
+                <span class="symptom-list__summary">{{ block.settings.summary }}</span>
+              {%- endif -%}
+            </span>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- if section.settings.cta_text != blank -%}
+      <a class="symptom-list__cta" href="{{ section.settings.cta_url | default: '#' }}">
+        {{- section.settings.cta_text -}}
+      </a>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Symptom list",
+  "tag": "section",
+  "class": "section-symptom-list",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Is this right for me?"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Made for more than surface stains."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Link text",
+      "default": "Want it personalized? Take the 2-min quiz"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "symptom",
+      "name": "Symptom",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Coffee, tea or wine stains" },
+        {
+          "type": "text",
+          "id": "summary",
+          "label": "Explanation",
+          "default": "Pigment settles inside enamel. Our peroxide lifts it from within."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Symptom list",
+      "blocks": [
+        { "type": "symptom" },
+        { "type": "symptom" },
+        { "type": "symptom" },
+        { "type": "symptom" }
+      ]
+    }
+  ]
+}
+{% endschema %}
