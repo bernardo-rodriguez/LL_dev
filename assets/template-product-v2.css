@@ -736,3 +736,64 @@ body:has(.buybox-v2) .dentist-cards__tag,
 body:has(.buybox-v2) .dentist-cards__hint {
   display: none;
 }
+
+/* ---- If it touches your smile ------------------------------------------
+   The artboard puts the laboratory photograph between the heading and the
+   three standards, and sets each standard as a square tinted tile beside a
+   single bold line, divided by hairlines.
+   ------------------------------------------------------------------------ */
+
+body:has(.buybox-v2) .our-standards__columns {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+body:has(.buybox-v2) .our-standards__rail { order: 1; }
+body:has(.buybox-v2) .our-standards__main { order: 2; display: contents; }
+body:has(.buybox-v2) .our-standards__image { order: 1; }
+body:has(.buybox-v2) .our-standards__list { order: 2; }
+
+body:has(.buybox-v2) .our-standards__image {
+  width: 100%;
+  aspect-ratio: 440 / 293;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+body:has(.buybox-v2) .our-standards__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--v2-rule);
+}
+
+body:has(.buybox-v2) .our-standards__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--v2-rule);
+}
+
+body:has(.buybox-v2) .our-standards__item-icon {
+  flex: 0 0 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 0;
+  background: #d8ecff;
+  color: var(--v2-accent);
+}
+
+body:has(.buybox-v2) .our-standards__item-title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 19.5px;
+  color: var(--v2-ink);
+}
