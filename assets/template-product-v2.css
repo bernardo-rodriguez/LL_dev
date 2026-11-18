@@ -1,0 +1,117 @@
+/*
+  The v2 standalone product page.
+
+  Every section on the artboard is built to one set of conventions —
+  48px/20px padding, alternating white and silver bands, a mono eyebrow, a
+  Manrope heading, a 15px intro — so they are set once here rather than
+  thirteen times over.
+
+  Scoped with :has(.buybox-v2), which is true only on a page rendering the v2
+  buy box. body.template-product would also match the personalized page,
+  which carries that class too.
+*/
+
+body:has(.buybox-v2) {
+  --v2-ink: #0d244c;
+  --v2-muted: #475f7d;
+  --v2-label: #61718a;
+  --v2-rule: #d8e0e8;
+  --v2-silver: #f4f6f8;
+  --v2-accent: #2369c9;
+  --v2-pad-y: 48px;
+  --v2-pad-x: 20px;
+}
+
+/* ---- Band rhythm -------------------------------------------------------
+   The artboard alternates white and silver and butts the sections flush.
+   Each section pads itself top and bottom so no gap can open between them.
+   ------------------------------------------------------------------------ */
+
+body:has(.buybox-v2) .shopify-section > section > .page-width,
+body:has(.buybox-v2) .shopify-section > .page-width {
+  padding-left: var(--v2-pad-x);
+  padding-right: var(--v2-pad-x);
+}
+
+body:has(.buybox-v2) .root-causes__inner,
+body:has(.buybox-v2) .formula-blends__inner,
+body:has(.buybox-v2) .ingredients-that-work__inner,
+body:has(.buybox-v2) .strength-comparison__inner,
+body:has(.buybox-v2) .testimonials__inner,
+body:has(.buybox-v2) .what-to-expect__inner,
+body:has(.buybox-v2) .transformational-results__inner,
+body:has(.buybox-v2) .comparison-table__inner,
+body:has(.buybox-v2) .how-to-steps__inner,
+body:has(.buybox-v2) .dentist-cards__inner,
+body:has(.buybox-v2) .our-standards__inner,
+body:has(.buybox-v2) .Faq_section_inner {
+  padding-top: var(--v2-pad-y);
+  padding-bottom: var(--v2-pad-y);
+}
+
+/* ---- Type --------------------------------------------------------------
+   The same scale as the personalized page: a mono label, a Manrope heading
+   at 31px, and a 15px intro in the muted ink.
+   ------------------------------------------------------------------------ */
+
+body:has(.buybox-v2) .section-eyebrow,
+body:has(.buybox-v2) [class$="__eyebrow"] {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase;
+  color: var(--v2-label);
+}
+
+body:has(.buybox-v2) .section-heading,
+body:has(.buybox-v2) .ingredients-that-work__title,
+body:has(.buybox-v2) .testimonials__heading,
+body:has(.buybox-v2) .what-to-expect__title,
+body:has(.buybox-v2) .Faq_Heading .h4,
+body:has(.buybox-v2) .Faq_Heading {
+  font-family: manrope, 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 31px;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.019em !important;
+  text-transform: none;
+  text-align: left;
+  color: var(--v2-ink);
+}
+
+/*
+  Icon fonts are exempt from the face above: setting a family on a broad
+  group outranks a vendor's own single-class rule and turns its glyphs into
+  empty boxes.
+*/
+body:has(.buybox-v2) [class*='jdgm-'],
+body:has(.buybox-v2) [class*='jm-'] {
+  font-family: inherit;
+}
+
+body:has(.buybox-v2) .jdgm-star {
+  font-family: 'JudgemeStar', sans-serif !important;
+}
+
+/* ---- Bands -------------------------------------------------------------
+   White, silver, white… down the page, as the artboard alternates them.
+   ------------------------------------------------------------------------ */
+
+body:has(.buybox-v2) .formula-blends,
+body:has(.buybox-v2) .testimonials,
+body:has(.buybox-v2) .transformational-results,
+body:has(.buybox-v2) .how-to-steps,
+body:has(.buybox-v2) .our-standards {
+  background: var(--v2-silver);
+}
+
+body:has(.buybox-v2) .ingredients-that-work,
+body:has(.buybox-v2) .strength-comparison,
+body:has(.buybox-v2) .what-to-expect,
+body:has(.buybox-v2) .comparison-table,
+body:has(.buybox-v2) .dentist-cards,
+body:has(.buybox-v2) .FAQ_Section {
+  background: #ffffff;
+}

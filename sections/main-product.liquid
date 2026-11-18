@@ -16,6 +16,7 @@
 {% endif %}
 {% if section.settings.use_v2_buybox %}
   {{ 'component-buybox-v2.css' | asset_url | stylesheet_tag }}
+  {{ 'template-product-v2.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'buybox-promo-timer.js' | asset_url }}" defer></script>
 {% endif %}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
