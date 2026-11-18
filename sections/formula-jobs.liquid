@@ -10,6 +10,11 @@
 {%- endcomment -%}
 
 {{ 'section-formula-jobs.css' | asset_url | stylesheet_tag }}
+{%- comment -%}
+  The formulator's signature is set in a script face the theme does not
+  otherwise load, so this section asks for it itself.
+{%- endcomment -%}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap">
 
 <div class="formula-jobs">
   <div class="formula-jobs__inner">
@@ -99,6 +104,40 @@
         </script>
       </div>
     {%- endif -%}
+
+    {%- if section.settings.formulator_name != blank or section.settings.formulator_signature != blank -%}
+      {%- comment -%}
+        The credit closes the section on the artboard: a portrait, a small
+        blue label, the formulator's name set as a signature, and their
+        qualification underneath.
+      {%- endcomment -%}
+      <div class="formula-jobs__credit">
+        <span class="formula-jobs__credit-photo">
+          {%- if section.settings.formulator_image != blank -%}
+            {{
+              section.settings.formulator_image
+              | image_url: width: 156
+              | image_tag:
+                loading: 'lazy',
+                widths: '52, 104, 156',
+                sizes: '52px',
+                alt: section.settings.formulator_name
+            }}
+          {%- endif -%}
+        </span>
+        <span class="formula-jobs__credit-copy">
+          {%- if section.settings.formulator_eyebrow != blank -%}
+            <span class="formula-jobs__credit-eyebrow">{{ section.settings.formulator_eyebrow }}</span>
+          {%- endif -%}
+          {%- if section.settings.formulator_signature != blank -%}
+            <span class="formula-jobs__credit-signature">{{ section.settings.formulator_signature }}</span>
+          {%- endif -%}
+          {%- if section.settings.formulator_name != blank -%}
+            <span class="formula-jobs__credit-name">{{ section.settings.formulator_name }}</span>
+          {%- endif -%}
+        </span>
+      </div>
+    {%- endif -%}
   </div>
 </div>
 
@@ -114,7 +153,12 @@
     { "type": "text", "id": "heading", "label": "Heading", "default": "Four jobs. One gel." },
     { "type": "textarea", "id": "intro", "label": "Intro" },
     { "type": "image_picker", "id": "image", "label": "Photo" },
-    { "type": "text", "id": "hint", "label": "Hint", "default": "Tap a box to see the ingredients" }
+    { "type": "text", "id": "hint", "label": "Hint", "default": "Tap a box to see the ingredients" },
+    { "type": "header", "content": "Formulated by" },
+    { "type": "image_picker", "id": "formulator_image", "label": "Portrait" },
+    { "type": "text", "id": "formulator_eyebrow", "label": "Label", "default": "Formulated by" },
+    { "type": "text", "id": "formulator_signature", "label": "Signature", "default": "TJ Kwon" },
+    { "type": "text", "id": "formulator_name", "label": "Name", "default": "Dr. TJ Kwon, DMD" }
   ],
   "blocks": [
     {

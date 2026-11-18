@@ -413,7 +413,11 @@
         "heading": "Four jobs. One gel.",
         "intro": "Strips for stains, hydroxyapatite toothpaste for enamel, a deep clean for plaque. Normally that's three products. Ours does it all in one treatment.",
         "image": "",
-        "hint": "Tap a box to see the ingredients"
+        "hint": "Tap a box to see the ingredients",
+        "formulator_eyebrow": "Formulated by",
+        "formulator_signature": "TJ Kwon",
+        "formulator_name": "Dr. TJ Kwon, DMD",
+        "formulator_image": ""
       }
     },
     "how_to_steps_bpjbpm": {
