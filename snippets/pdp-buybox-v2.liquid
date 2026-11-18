@@ -90,7 +90,19 @@
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 3 L19 6 V11 C19 16 16 19.5 12 21 C8 19.5 5 16 5 11 V6 Z"/><path d="M9 12l2 2 4-4"/></svg>
               {%- endcase -%}
             </span>
-            <span class="buybox-v2__claim-text"><b>{{ lead }}</b>{% if rest != blank %} {{ rest }}{% endif %}</span>
+            {%- comment -%}
+              A claim is written "bold part|rest". Shopify trims a setting, so
+              the rest cannot carry its own leading space and the space has to
+              be added here — except when the rest opens with punctuation, as
+              ", nearly 3x typical strips" does, where a space before the
+              comma is a typo on the page.
+            {%- endcomment -%}
+            {%- assign rest_head = rest | slice: 0 -%}
+            {%- assign tight = false -%}
+            {%- if rest_head == ',' or rest_head == '.' or rest_head == ':' or rest_head == ';' or rest_head == '!' or rest_head == '?' -%}
+              {%- assign tight = true -%}
+            {%- endif -%}
+            <span class="buybox-v2__claim-text"><b>{{ lead }}</b>{% if rest != blank %}{% unless tight %} {% endunless %}{{ rest }}{% endif %}</span>
           </li>
         {%- endif -%}
       {%- endfor -%}
