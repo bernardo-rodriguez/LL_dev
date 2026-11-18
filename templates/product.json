@@ -213,7 +213,8 @@
         "show_stats": false,
         "flow_visibility": "all",
         "heading_quiz": "",
-        "eyebrow": "REAL RESULTS FROM REAL SMILES"
+        "eyebrow": "REAL RESULTS FROM REAL SMILES",
+        "footnote": "Results vary. Shown with a Subscribe & save plan."
       }
     },
     "comparison_table_pdp": {
