@@ -55,14 +55,23 @@
               </svg>
               <span class="survey-rings__value">{{ block.settings.value }}</span>
             </span>
-            <span class="survey-rings__text">
-              {%- assign parts = block.settings.text | split: '{reviews}' -%}
-              {%- if parts.size > 1 -%}
-                {{ parts[0] }}<span data-ll-reviews></span>{{ parts[1] }}
-              {%- else -%}
-                {{ block.settings.text }}
-              {%- endif -%}
-            </span>
+            {%- comment -%}
+              review-totals.js reads the line's template out of the
+              data-ll-reviews attribute and writes the finished line back as
+              the element's text, so the whole claim carries the attribute
+              rather than a token span inside it.
+            {%- endcomment -%}
+            {%- comment -%}
+              The token is built rather than written out: Shopify's Liquid
+              lexer will not accept a brace inside an output tag's string.
+            {%- endcomment -%}
+            {%- assign reviews_token = '{' | append: 'reviews' | append: '}' -%}
+            {%- if block.settings.text contains reviews_token -%}
+              {%- assign placeholder = block.settings.text | replace: reviews_token, '' | replace: '  ', ' ' -%}
+              <span class="survey-rings__text" data-ll-reviews="{{ block.settings.text | escape }}">{{ placeholder }}</span>
+            {%- else -%}
+              <span class="survey-rings__text">{{ block.settings.text }}</span>
+            {%- endif -%}
           </div>
         {%- endfor -%}
       </div>
