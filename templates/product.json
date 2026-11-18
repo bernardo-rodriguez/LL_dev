@@ -169,8 +169,8 @@
       ],
       "name": "Formula Blends",
       "settings": {
-        "eyebrow": "Your  formula",
-        "heading": "Targets all key root causes of {yellow & dull teeth}",
+        "eyebrow": "Is this right for me?",
+        "heading": "Made for more than surface stains.",
         "intro": "Hydroxyapatite toothpaste for enamel. Whitening strips for deep stains. Targeted cleaning for plaque. \nNormally that’s three products, three steps, and three bills.\nWe put them in one gel. It works without sensitivity to bring you the brightest smile you've seen.",
         "image": "shopify://shop_images/Laughland_80136_1_1.png",
         "show_image_mobile": false,
@@ -187,9 +187,9 @@
       "type": "strength-comparison",
       "name": "Strength Comparison",
       "settings": {
-        "eyebrow": "Why It Works Faster",
-        "heading": "Professional strength for {a real difference.}",
-        "body": "Most at-home whitening is too weak for visible results. We use dentist-grade concentrations for faster, dramatic shade lifts—safely balanced with sensitivity blockers so you get maximum brightness with zero nerve pain.",
+        "eyebrow": "Why it works faster",
+        "heading": "Professional strength, made comfortable.",
+        "body": "Most at-home whitening is too weak to show real results. We use the strength dentists use, balanced with sensitivity blockers so every session stays comfortable.",
         "footnote": "",
         "chart_label": "",
         "chart_badge": "",
@@ -271,7 +271,7 @@
       ],
       "name": "Transformational Results",
       "settings": {
-        "heading": "Over 100,000+ brighter smiles",
+        "heading": "Over 100,000 brighter smiles.",
         "show_stats": false,
         "flow_visibility": "all",
         "heading_quiz": ""
@@ -418,7 +418,7 @@
       ],
       "name": "Comparison Table",
       "settings": {
-        "heading": "Everything your smile needs, {in one treatment.}",
+        "heading": "Everything your smile needs, in one treatment.",
         "ours_label": "Laughland",
         "ours_logo_svg": "",
         "footnote": "",
@@ -499,8 +499,8 @@
       ],
       "name": "Ingredients",
       "settings": {
-        "heading": "Your Formula:",
-        "intro_text": "Given your medium-sensitivity, diet and current teeth shade, we prescribed:",
+        "heading": "Four jobs. One gel.",
+        "intro_text": "Strips for stains, hydroxyapatite toothpaste for enamel, a deep clean for plaque. Normally that's three products. Ours does it all in one treatment.",
         "summary": "With Laughland, you're matched to the exact strength your goals and tolerance demands — Dramatic results without the drama.",
         "margin_bottom": true
       }
@@ -534,8 +534,8 @@
       ],
       "name": "How To Use Steps",
       "settings": {
-        "eyebrow": "Quick, easy, effective",
-        "heading": "How to use:",
+        "eyebrow": "20 minutes · 6 days",
+        "heading": "How to use",
         "image": "shopify://shop_images/laughland-unboxing-resize.gif",
         "media_caption": "",
         "button_label": "BUY NOW",
@@ -702,7 +702,7 @@
         ".testimonials__inner {background-color: #faf5f1;}"
       ],
       "settings": {
-        "heading": "Results that {Shine}",
+        "heading": "What customers are saying.",
         "heading_refill": "Results from a {Routine}",
         "text": "",
         "profile_label": "Customer Profile",
@@ -739,8 +739,8 @@
       ],
       "name": "Our Standards",
       "settings": {
-        "eyebrow": "Higher Standards",
-        "heading": "If it touches your smile, {quality matters.}",
+        "eyebrow": "Higher standards",
+        "heading": "If it touches your smile, quality matters.",
         "image": "shopify://shop_images/scientist-in-lab-with-pipette.jpg",
         "top_border": false,
         "margin_bottom": false,
