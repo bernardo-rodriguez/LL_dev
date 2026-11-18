@@ -26,7 +26,7 @@
   font-size: 20px;
   font-weight: 400;
   line-height: 1.5;
-  letter-spacing: 2px;
+  letter-spacing: 2px !important;
   color: #2369c9;
 }
 
@@ -36,7 +36,7 @@
   font-size: 31px;
   font-weight: 500;
   line-height: 33.48px;
-  letter-spacing: -0.6px;
+  letter-spacing: -0.6px !important;
   color: #0d244c;
 }
 
@@ -86,7 +86,7 @@
   font-size: 13px;
   font-weight: 400;
   line-height: 1.5;
-  letter-spacing: 1px;
+  letter-spacing: 1px !important;
   color: #2369c9;
 }
 
@@ -129,7 +129,7 @@
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.6px !important;
   text-transform: uppercase;
   color: #2369c9;
 }
@@ -151,7 +151,7 @@
   background: #ffffff;
   font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.78px;
+  letter-spacing: 0.78px !important;
   text-transform: uppercase;
   text-align: center;
   text-decoration: none;
