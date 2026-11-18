@@ -538,3 +538,18 @@ body:has(.buybox-v2) .comparison-table__mark--no {
   background: transparent;
   color: var(--v2-label);
 }
+
+/*
+  The checkmark icon paints itself; in the navy column the artboard sets it
+  in the dark ink against the pale tile instead.
+*/
+body:has(.buybox-v2) .comparison-table__cell--ours .comparison-table__mark--yes svg,
+body:has(.buybox-v2) .comparison-table__cell--ours .comparison-table__mark--yes path {
+  stroke: var(--v2-ink);
+  fill: none;
+}
+
+body:has(.buybox-v2) .comparison-table__mark--yes svg,
+body:has(.buybox-v2) .comparison-table__mark--yes path {
+  stroke: var(--v2-accent);
+}
