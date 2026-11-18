@@ -363,78 +363,57 @@
       }
     },
     "ingredients_that_work_N67RbP": {
-      "type": "ingredients-that-work",
+      "type": "formula-jobs",
       "blocks": {
-        "ingredient_TeEhpt": {
-          "type": "ingredient",
+        "job1": {
+          "type": "job",
           "settings": {
-            "image_url": "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/Screenshot_2026-02-26_at_1.05.37_PM.png?v=1772129162",
-            "percentage": "01",
+            "number": "01",
             "name": "Stain removal",
-            "benefits": "Pharma-grade peroxide"
+            "benefits": "Pharma-grade peroxide",
+            "ingredients": "Hydrogen peroxide | Lifts deep stains inside enamel and dentin.\nSodium bicarbonate | Lifts surface stains from coffee, tea and wine."
           }
         },
-        "ingredient_TPPdAC": {
-          "type": "ingredient",
+        "job2": {
+          "type": "job",
           "settings": {
-            "image_url": "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/138695074-liquid-hyaluronic-acid-gel-on-a-digital-screen-of-microscope.jpg?v=1771286740",
-            "percentage": "02",
+            "number": "02",
             "name": "Enamel support",
-            "benefits": "Nano-hydroxyapatite"
+            "benefits": "Nano-hydroxyapatite",
+            "ingredients": "Nano-hydroxyapatite | Remineralizes thin spots so edges look less see-through."
           }
         },
-        "ingredient_BaMgrt": {
-          "type": "ingredient",
+        "job3": {
+          "type": "job",
           "settings": {
-            "image_url": "https://cdn.shopify.com/s/files/1/0066/4728/3782/files/mint-good-GettyImages-2216675819-Thumb.avif?v=1772128942",
-            "percentage": "03",
+            "number": "03",
             "name": "Plaque removal",
-            "benefits": "Coconut oil + NaCl"
+            "benefits": "Coconut oil + NaCl",
+            "ingredients": "Coconut oil | Loosens the sticky film that makes teeth look dull.\nSodium chloride | Helps clear plaque buildup."
           }
         },
-        "benefit_8E7Pkn": {
-          "type": "benefit",
+        "job4": {
+          "type": "job",
           "settings": {
-            "text": "As strong as your smile can comfortably handle."
-          }
-        },
-        "benefit_BxCKhA": {
-          "type": "benefit",
-          "settings": {
-            "text": "Same methodology used by dentists for whitening"
-          }
-        },
-        "benefit_BLGLmP": {
-          "type": "benefit",
-          "settings": {
-            "text": "Sensitivity-free guarantee"
-          }
-        },
-        "ingredient_job4": {
-          "type": "ingredient",
-          "settings": {
-            "percentage": "04",
+            "number": "04",
             "name": "Sensitivity + gum care",
-            "benefits": "Hydroxyapatite + aloe vera"
+            "benefits": "Hydroxyapatite + aloe vera",
+            "ingredients": "Hydroxyapatite | Seals exposed spots that cause sensitivity.\nAloe vera | Soothes gums during treatment."
           }
         }
       },
       "block_order": [
-        "ingredient_TeEhpt",
-        "ingredient_TPPdAC",
-        "ingredient_BaMgrt",
-        "ingredient_job4",
-        "benefit_8E7Pkn",
-        "benefit_BxCKhA",
-        "benefit_BLGLmP"
+        "job1",
+        "job2",
+        "job3",
+        "job4"
       ],
-      "name": "Ingredients",
       "settings": {
+        "eyebrow": "What's in your formula",
         "heading": "Four jobs. One gel.",
-        "intro_text": "Strips for stains, hydroxyapatite toothpaste for enamel, a deep clean for plaque. Normally that's three products. Ours does it all in one treatment.",
-        "summary": "Strips for stains, hydroxyapatite toothpaste for enamel, a deep clean for plaque. Normally that’s three products. Ours does it all in one treatment.",
-        "margin_bottom": true,
-        "eyebrow": "What's in your formula"
+        "intro": "Strips for stains, hydroxyapatite toothpaste for enamel, a deep clean for plaque. Normally that's three products. Ours does it all in one treatment.",
+        "image": "",
+        "hint": "Tap a box to see the ingredients"
       }
     },
     "how_to_steps_bpjbpm": {
