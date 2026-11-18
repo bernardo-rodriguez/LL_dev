@@ -274,7 +274,8 @@
         "heading": "Over 100,000 brighter smiles.",
         "show_stats": false,
         "flow_visibility": "all",
-        "heading_quiz": ""
+        "heading_quiz": "",
+        "eyebrow": "REAL RESULTS FROM REAL SMILES"
       }
     },
     "comparison_table_pdp": {
@@ -424,7 +425,8 @@
         "footnote": "",
         "margin_bottom": false,
         "flow_visibility": "all",
-        "heading_quiz": ""
+        "heading_quiz": "",
+        "eyebrow": "More than bleaching"
       }
     },
     "product-recommendations": {
@@ -502,7 +504,8 @@
         "heading": "Four jobs. One gel.",
         "intro_text": "Strips for stains, hydroxyapatite toothpaste for enamel, a deep clean for plaque. Normally that's three products. Ours does it all in one treatment.",
         "summary": "With Laughland, you're matched to the exact strength your goals and tolerance demands — Dramatic results without the drama.",
-        "margin_bottom": true
+        "margin_bottom": true,
+        "eyebrow": "What's in your formula"
       }
     },
     "how_to_steps_bpjbpm": {
@@ -707,7 +710,8 @@
         "text": "",
         "profile_label": "Customer Profile",
         "formula_label": "Whitening Formula",
-        "review_label": "Review"
+        "review_label": "Review",
+        "eyebrow": "Verified buyer"
       }
     },
     "our_standards_pdp": {
@@ -1087,13 +1091,15 @@
       ],
       "settings": {
         "heading": "Results you can see, and feel good about.",
-        "show_stats": true
+        "show_stats": true,
+        "eyebrow": "Customer survey"
       }
     },
     "what_to_expect_pdp": {
       "type": "what-to-expect",
       "settings": {
-        "title": "What consistent use looks like."
+        "title": "What consistent use looks like.",
+        "eyebrow": "What to expect"
       }
     },
     "dentist_cards_pdp": {

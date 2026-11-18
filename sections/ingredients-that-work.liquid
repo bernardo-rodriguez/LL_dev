@@ -13,6 +13,9 @@
         <div class="ingredients-that-work__left">
           <div class="ingredients-that-work__header">
             {% if section.settings.heading != blank %}
+              {%- if section.settings.eyebrow != blank -%}
+                <p class="section-eyebrow ingredients-that-work__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+              {%- endif -%}
               <h3 class="ingredients-that-work__title">{{ formatted_heading }}</h3>
             {% endif %}
           </div>
@@ -150,6 +153,12 @@
 {
   "name": "Ingredients",
   "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "info": "Optional. The small label above the heading; hidden when blank."
+    },
     {
       "type": "textarea",
       "id": "heading",

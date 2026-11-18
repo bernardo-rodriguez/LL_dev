@@ -8,6 +8,9 @@
   <div class="box-container page-width">
     <div class="what-to-expect__wrapper what-to-expect__colored-wrapper">
       <div class="what-to-expect__content">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="section-eyebrow what-to-expect__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
         <h3 class="what-to-expect__title">{{ section.settings.title }}</h3>
       </div>
       <div class="what-to-expect__mobile-wrapper">
@@ -377,6 +380,12 @@
   "settings": [
     {
       "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "info": "Optional. The small label above the heading; hidden when blank."
+    },
+    {
+      "type": "text",
       "id": "title",
       "label": "Section Title",
       "default": "What to Expect?"
@@ -474,8 +483,7 @@
     {
       "type": "ll_expect",
       "name": "LL_expect",
-      "settings": [
-      ]
+      "settings": []
     },
     {
       "type": "slide",

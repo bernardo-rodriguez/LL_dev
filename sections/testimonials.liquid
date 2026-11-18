@@ -16,6 +16,9 @@
 <section class="testimonials">
   <div class="page-width {% if template.name == 'product' %}page-width--product{% endif %}">
     <div class="testimonials__inner">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="section-eyebrow testimonials__eyebrow label-sm">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
       <h3 class="testimonials__heading">{{ formatted_heading }}</h3>
       <p class="testimonials__text">{{ section.settings.text }}</p>
 
@@ -176,6 +179,12 @@
 {
   "name": "Testimonials",
   "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "info": "Optional. The small label above the heading; hidden when blank."
+    },
     {
       "type": "textarea",
       "id": "heading",
