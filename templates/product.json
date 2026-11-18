@@ -49,7 +49,8 @@
         "gallery_labels": "Kit, Box, Results, How to",
         "use_v6_picker": true,
         "use_v4_gallery": true,
-        "gallery_thumbs_across": 5
+        "gallery_thumbs_across": 5,
+        "use_v2_buybox": true
       }
     },
     "formula_blends_E38KV6": {

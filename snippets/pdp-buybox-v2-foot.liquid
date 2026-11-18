@@ -1,0 +1,23 @@
+{%- comment -%}
+  What the v2 design puts under the add-to-cart button: the shipping line and
+  the money-back guarantee. Each renders only when filled.
+{%- endcomment -%}
+{%- if section.settings.ships_note != blank -%}
+  <p class="buybox-v2__ships">{{ section.settings.ships_note }}</p>
+{%- endif -%}
+
+{%- if section.settings.guarantee_title != blank -%}
+  <div class="buybox-v2__guarantee">
+    <span class="buybox-v2__guarantee-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+        <path d="M12 3 L19 6 V11 C19 16 16 19.5 12 21 C8 19.5 5 16 5 11 V6 Z"/><path d="M9 12 l2 2 l4 -4"/>
+      </svg>
+    </span>
+    <span class="buybox-v2__guarantee-copy">
+      <span class="buybox-v2__guarantee-title">{{ section.settings.guarantee_title }}</span>
+      {%- if section.settings.guarantee_text != blank -%}
+        <span class="buybox-v2__guarantee-text">{{ section.settings.guarantee_text }}</span>
+      {%- endif -%}
+    </span>
+  </div>
+{%- endif -%}

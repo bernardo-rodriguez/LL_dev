@@ -14,6 +14,10 @@
   {{ 'component-pdp-v6.css' | asset_url | stylesheet_tag }}
   {{ 'section-pdp-gallery.css' | asset_url | stylesheet_tag }}
 {% endif %}
+{% if section.settings.use_v2_buybox %}
+  {{ 'component-buybox-v2.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'buybox-promo-timer.js' | asset_url }}" defer></script>
+{% endif %}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
 {{ 'component-results-curve.css' | asset_url | stylesheet_tag }}
@@ -92,6 +96,9 @@ xhttp.send();
       element up by id on the document rather than inside the info column.
     {%- endcomment -%}
     <div class="product__intro">
+      {% if section.settings.use_v2_buybox %}
+        {% render 'pdp-buybox-v2', section: section, product: product %}
+      {% else %}
       <h3
         class="product__title"
         id="product__title_id"
@@ -110,6 +117,7 @@ xhttp.send();
             {{ section.settings.subhead }}
           {% endif %}
         </p>
+      {% endif %}
       {% endif %}
     </div>
 
@@ -498,6 +506,10 @@ xhttp.send();
                       <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
                     </svg>
                   </div>
+
+              {% if section.settings.use_v2_buybox %}
+                {% render 'pdp-buybox-v2-foot', section: section %}
+              {% endif %}
                 </button>
 
                 {% if block.settings.show_dynamic_checkout %}
@@ -1214,6 +1226,86 @@ xhttp.send();
       "label": "Thumbnail labels",
       "default": "Kit, Box, Results, How to",
       "info": "Comma separated, in image order."
+    },
+    {
+      "type": "header",
+      "content": "Buy box (v2 standalone)"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_v2_buybox",
+      "label": "Use the v2 buy box",
+      "default": false,
+      "info": "Social proof, rating, price, claims, sale banner, shipping line and guarantee, in the v2 design's order."
+    },
+    {
+      "type": "text",
+      "id": "proof_initials",
+      "label": "Avatar initials",
+      "default": "K, S, L",
+      "info": "Comma separated."
+    },
+    {
+      "type": "text",
+      "id": "proof_lead",
+      "label": "Named customer",
+      "default": "Kailey"
+    },
+    {
+      "type": "text",
+      "id": "proof_text",
+      "label": "Social proof line",
+      "default": "and 100,000+ others love their brighter smile"
+    },
+    {
+      "type": "text",
+      "id": "rating_line",
+      "label": "Rating line",
+      "default": "4.7/5 ({reviews} reviews)",
+      "info": "{reviews} is replaced with the live review total."
+    },
+    {
+      "type": "textarea",
+      "id": "claims",
+      "label": "Claims",
+      "default": "100mg peroxide|, nearly 3× typical strips\nTreats all 4 root causes of yellow teeth:|surface stains, enamel stains, plaque, thin enamel\nSensitivity blockers|built into every gel",
+      "info": "One per line. Text before the | is bold."
+    },
+    {
+      "type": "text",
+      "id": "promo_label",
+      "label": "Sale label",
+      "default": "Anniversary sale · 40% off"
+    },
+    {
+      "type": "text",
+      "id": "promo_sub",
+      "label": "Sale sub-line",
+      "default": "Our biggest sale of the year"
+    },
+    {
+      "type": "text",
+      "id": "promo_deadline",
+      "label": "Sale ends",
+      "info": "An ISO date and time, e.g. 2026-12-01T23:59:59. Leave blank for no countdown."
+    },
+    {
+      "type": "text",
+      "id": "ships_note",
+      "label": "Shipping line",
+      "default": "Ships in 24 hours"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_title",
+      "label": "Guarantee title",
+      "default": "30-day money-back guarantee"
+    },
+    {
+      "type": "textarea",
+      "id": "guarantee_text",
+      "label": "Guarantee text",
+      "default": "Noticeably whiter in 30 days or your money back."
     }
   ]
 }

@@ -1,0 +1,95 @@
+{%- comment -%}
+  The v2 standalone buy box: the pieces above and below the plan picker that
+  the design adds — social proof, rating, price, the three claims, the sale
+  banner, the shipping note and the guarantee.
+
+  Every piece renders only when its setting is filled, and the whole stack is
+  behind a section setting, so the personalized template and the other
+  product templates are untouched.
+
+  The heading keeps id="product__title_id": product-form.js looks it up by id
+  to greet a quiz taker by name on the templates that ask for it.
+{%- endcomment -%}
+
+<div class="buybox-v2">
+
+  {%- assign proof_initials = section.settings.proof_initials | split: ',' -%}
+  {%- if section.settings.proof_text != blank -%}
+    <div class="buybox-v2__proof">
+      {%- if proof_initials.size > 0 -%}
+        <span class="buybox-v2__avatars" aria-hidden="true">
+          {%- for initial in proof_initials -%}
+            <span class="buybox-v2__avatar">{{ initial | strip }}</span>
+          {%- endfor -%}
+        </span>
+      {%- endif -%}
+      <span class="buybox-v2__proof-text">
+        {%- if section.settings.proof_lead != blank -%}<b>{{ section.settings.proof_lead }}</b> {% endif -%}
+        {{ section.settings.proof_text }}
+      </span>
+    </div>
+  {%- endif -%}
+
+  {%- if section.settings.rating_line != blank -%}
+    <div class="buybox-v2__rating">
+      <span class="buybox-v2__stars" aria-hidden="true">★★★★★</span>
+      {%- comment -%} {reviews} is filled by review-totals.js from the live count {%- endcomment -%}
+      <a class="buybox-v2__rating-link" href="#judgeme_product_reviews"
+        data-ll-reviews="{{ section.settings.rating_line | escape }}">{{ section.settings.rating_line }}</a>
+    </div>
+  {%- endif -%}
+
+  <h3 class="product__title buybox-v2__title" id="product__title_id"
+    {% if section.settings.personalized_title != blank %}data-name-title="{{ section.settings.personalized_title | escape }}"{% endif %}
+  >{{ section.settings.intro_title | default: product.metafields.custom.title | default: product.title }}</h3>
+
+  {%- comment -%} Price comes from the product, never typed into a setting {%- endcomment -%}
+  <div class="buybox-v2__price">
+    {%- if product.compare_at_price > product.price -%}
+      <span class="buybox-v2__was">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
+    {%- endif -%}
+    <span class="buybox-v2__now">{{ product.price | money_without_trailing_zeros }}</span>
+    {%- if product.compare_at_price > product.price -%}
+      {%- assign off = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+      <span class="buybox-v2__off">{{ off }}% off</span>
+    {%- endif -%}
+  </div>
+
+  {%- if section.settings.subhead != blank -%}
+    <p class="product__subhead buybox-v2__subhead">{{ section.settings.subhead }}</p>
+  {%- endif -%}
+
+  {%- assign claims = section.settings.claims | newline_to_br | split: '<br />' -%}
+  {%- if section.settings.claims != blank -%}
+    <ul class="buybox-v2__claims list-unstyled">
+      {%- for line in claims -%}
+        {%- assign parts = line | split: '|' -%}
+        {%- assign lead = parts[0] | strip -%}
+        {%- assign rest = parts[1] | default: '' | strip -%}
+        {%- if lead != blank -%}
+          <li class="buybox-v2__claim">
+            <span class="buybox-v2__claim-icon" aria-hidden="true"></span>
+            <span class="buybox-v2__claim-text"><b>{{ lead }}</b>{% if rest != blank %} {{ rest }}{% endif %}</span>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+
+  {%- if section.settings.promo_label != blank -%}
+    <div class="buybox-v2__promo">
+      <span class="buybox-v2__promo-copy">
+        <span class="buybox-v2__promo-label">{{ section.settings.promo_label }}</span>
+        {%- if section.settings.promo_sub != blank -%}
+          <span class="buybox-v2__promo-sub">{{ section.settings.promo_sub }}</span>
+        {%- endif -%}
+      </span>
+      {%- if section.settings.promo_deadline != blank -%}
+        <span class="buybox-v2__promo-timer" data-promo-deadline="{{ section.settings.promo_deadline }}" hidden>
+          <span class="buybox-v2__promo-timer-label">Ends in</span>
+          <span class="buybox-v2__promo-timer-value"></span>
+        </span>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</div>
