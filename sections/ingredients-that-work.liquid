@@ -115,6 +115,13 @@
     return m ? m[1].trim() : null;
   }
   function updateFormulaIngredientCopy() {
+    /*
+      The first card is rewritten to the visitor's active and its strength —
+      "14% Hydrogen Peroxide" — which is the personalized page's story. The
+      v2 standalone design names four jobs instead, 01 to 04, and must keep
+      what the section settings say.
+    */
+    if (document.querySelector('.buybox-v2')) return;
     var refillPid = typeof window.ProductConfig !== 'undefined' && window.ProductConfig.REFILL_DEFAULT && window.ProductConfig.REFILL_DEFAULT.product_id;
     var pagePid = document.querySelector('input[name="product_id"]');
     var pagePidVal = pagePid && pagePid.value;
