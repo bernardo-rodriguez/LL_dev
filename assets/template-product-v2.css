@@ -38,7 +38,7 @@ body:has(.buybox-v2) .formula-blends__inner,
 body:has(.buybox-v2) .ingredients-that-work__inner,
 body:has(.buybox-v2) .strength-comparison__inner,
 body:has(.buybox-v2) .testimonials__inner,
-body:has(.buybox-v2) .what-to-expect__inner,
+body:has(.buybox-v2) .what-to-expect > .page-width,
 body:has(.buybox-v2) .transformational-results__inner,
 body:has(.buybox-v2) .comparison-table__inner,
 body:has(.buybox-v2) .how-to-steps__inner,
@@ -48,6 +48,24 @@ body:has(.buybox-v2) .Faq_section_inner {
   padding-top: var(--v2-pad-y);
   padding-bottom: var(--v2-pad-y);
 }
+
+/* ---- Boundaries --------------------------------------------------------
+   The artboard butts every band against the next. Sections that carry their
+   spacing as an outer margin leave a gap of the page's own colour between
+   two bands, so the margins come off and each section pads itself instead.
+   ------------------------------------------------------------------------ */
+
+body:has(.buybox-v2) .shopify-section > section,
+body:has(.buybox-v2) .shopify-section > div,
+body:has(.buybox-v2) .product,
+body:has(.buybox-v2) .testimonials,
+body:has(.buybox-v2) .what-to-expect,
+body:has(.buybox-v2) .FAQ_Section {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+body:has(.buybox-v2) .product__info-wrapper { padding-bottom: 0; }
 
 /* ---- Type --------------------------------------------------------------
    The same scale as the personalized page: a mono label, a Manrope heading
