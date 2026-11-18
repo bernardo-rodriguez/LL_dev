@@ -1,0 +1,127 @@
+{%- comment -%}
+  "What customers are saying." on the v2 artboard: a centred rating header
+  over stacked review cards — a photo, then the stars, headline, quote and
+  a verified-buyer attribution — closed by two buttons.
+
+  The testimonials section it replaces is a named-tab carousel with three
+  accordions per person, which belongs to the personalized page.
+{%- endcomment -%}
+
+{{ 'section-review-cards-v2.css' | asset_url | stylesheet_tag }}
+
+<div class="review-cards">
+  <div class="review-cards__inner">
+    <div class="review-cards__head">
+      <span class="review-cards__stars" aria-hidden="true">★★★★★</span>
+      {%- if section.settings.heading != blank -%}
+        <h2 class="review-cards__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.summary != blank -%}
+        {%- comment -%}
+          The total is written by review-totals.js from the attribute, so the
+          figure stays the same one the buy box and the survey quote.
+        {%- endcomment -%}
+        {%- assign reviews_token = '{' | append: 'reviews' | append: '}' -%}
+        {%- if section.settings.summary contains reviews_token -%}
+          {%- assign placeholder = section.settings.summary | replace: reviews_token, '' | replace: '  ', ' ' -%}
+          <span class="review-cards__summary" data-ll-reviews="{{ section.settings.summary | escape }}">{{ placeholder }}</span>
+        {%- else -%}
+          <span class="review-cards__summary">{{ section.settings.summary }}</span>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="review-cards__list">
+        {%- for block in section.blocks -%}
+          <article class="review-cards__card" {{ block.shopify_attributes }}>
+            <div class="review-cards__photo">
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 876
+                  | image_tag:
+                    loading: 'lazy',
+                    widths: '438, 657, 876',
+                    sizes: '(min-width: 480px) 438px, calc(100vw - 42px)',
+                    alt: block.settings.headline
+                }}
+              {%- endif -%}
+            </div>
+            <div class="review-cards__body">
+              <span class="review-cards__card-stars" aria-hidden="true">★★★★★</span>
+              {%- if block.settings.headline != blank -%}
+                <span class="review-cards__headline">{{ block.settings.headline }}</span>
+              {%- endif -%}
+              {%- if block.settings.quote != blank -%}
+                <blockquote class="review-cards__quote">{{ block.settings.quote }}</blockquote>
+              {%- endif -%}
+              <span class="review-cards__attrib">
+                {{ block.settings.name }}
+                {%- if block.settings.verified -%}
+                  <span class="review-cards__verified">
+                    <svg viewBox="0 0 12 12" width="12" height="12" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6 0a6 6 0 1 0 0 12A6 6 0 0 0 6 0zm2.8 4.5L5.6 7.9a.6.6 0 0 1-.9 0L3.2 6.4a.6.6 0 1 1 .9-.8l1 1 2.8-3a.6.6 0 1 1 .9.9z"/></svg>
+                    {{ section.settings.verified_label }}
+                  </span>
+                {%- endif -%}
+              </span>
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.all_text != blank or section.settings.write_text != blank -%}
+      <div class="review-cards__actions">
+        {%- if section.settings.all_text != blank -%}
+          <a class="review-cards__btn review-cards__btn--primary" href="{{ section.settings.all_url | default: '#' }}">
+            {{- section.settings.all_text -}}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.write_text != blank -%}
+          <a class="review-cards__btn" href="{{ section.settings.write_url | default: '#' }}">
+            {{- section.settings.write_text -}}
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Review cards",
+  "tag": "section",
+  "class": "section-review-cards",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What customers are saying." },
+    {
+      "type": "text",
+      "id": "summary",
+      "label": "Summary",
+      "default": "4.7 out of 5 · Based on {reviews} reviews",
+      "info": "Use {reviews} to drop in the live review total."
+    },
+    { "type": "text", "id": "verified_label", "label": "Verified label", "default": "Verified buyer" },
+    { "type": "header", "content": "Buttons" },
+    { "type": "text", "id": "all_text", "label": "First button", "default": "See all reviews" },
+    { "type": "url", "id": "all_url", "label": "First button link" },
+    { "type": "text", "id": "write_text", "label": "Second button", "default": "Write a review" },
+    { "type": "url", "id": "write_url", "label": "Second button link" }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "headline", "label": "Headline", "default": "I could tell after one use" },
+        { "type": "textarea", "id": "quote", "label": "Quote" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Sophia S." },
+        { "type": "checkbox", "id": "verified", "label": "Verified buyer", "default": true }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Review cards", "blocks": [{ "type": "review" }, { "type": "review" }] }]
+}
+{% endschema %}
