@@ -111,7 +111,8 @@
   justify-content: center;
   width: 24px;
   height: 24px;
-  color: #61718a;
+  border: 1px solid #9bb1cd;
+  color: #0d244c;
 }
 
 /*
@@ -141,7 +142,10 @@
 .formula-jobs__card[aria-expanded='true'] .formula-jobs__num { color: #bddafc; }
 .formula-jobs__card[aria-expanded='true'] .formula-jobs__name { color: #ffffff; }
 .formula-jobs__card[aria-expanded='true'] .formula-jobs__sub { color: #c8daef; }
-.formula-jobs__card[aria-expanded='true'] .formula-jobs__toggle { color: #bddafc; }
+.formula-jobs__card[aria-expanded='true'] .formula-jobs__toggle {
+  border-color: #4a6a9b;
+  color: #bddafc;
+}
 .formula-jobs__card[aria-expanded='true'] .formula-jobs__toggle svg { transform: rotate(45deg); }
 
 .formula-jobs__hint {
@@ -204,6 +208,7 @@
   width: 52px;
   height: 52px;
   overflow: hidden;
+  border-radius: 50%;
   background: #d8e0e8;
 }
 
@@ -222,9 +227,12 @@
 }
 
 .formula-jobs__credit-eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 10.5px;
   font-weight: 500;
   line-height: 14.7px;
+  letter-spacing: 0.84px;
+  text-transform: uppercase;
   color: #2369c9;
 }
 
