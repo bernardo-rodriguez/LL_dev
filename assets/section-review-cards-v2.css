@@ -1,0 +1,157 @@
+/*
+  Review cards — "What customers are saying." on the v2 artboard.
+
+  A centred rating header, stacked photo-over-quote cards, and two buttons.
+*/
+
+.review-cards {
+  background: #f4f6f8;
+}
+
+.review-cards__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 48px 20px;
+}
+
+.review-cards__head {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.review-cards__stars {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 2px;
+  color: #2369c9;
+}
+
+.review-cards__heading {
+  margin: 0;
+  font-family: manrope, 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 31px;
+  font-weight: 500;
+  line-height: 33.48px;
+  letter-spacing: -0.6px;
+  color: #0d244c;
+}
+
+.review-cards__summary {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #61718a;
+}
+
+.review-cards__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.review-cards__card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #d8e0e8;
+  border-radius: 0;
+  background: #ffffff;
+}
+
+.review-cards__photo {
+  display: flex;
+  aspect-ratio: 438 / 274;
+  overflow: hidden;
+  background: #e4eaf0;
+}
+
+.review-cards__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.review-cards__body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+}
+
+.review-cards__card-stars {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  color: #2369c9;
+}
+
+.review-cards__headline {
+  font-size: 16.5px;
+  font-weight: 600;
+  line-height: 20.625px;
+  color: #0d244c;
+}
+
+.review-cards__quote {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: #22405f;
+}
+
+.review-cards__attrib {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #0d244c;
+}
+
+.review-cards__verified {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #2369c9;
+}
+
+.review-cards__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.review-cards__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 10px;
+  border: 1px solid #d8e0e8;
+  border-radius: 0;
+  background: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.78px;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  color: #0d244c;
+}
+
+.review-cards__btn--primary {
+  border-color: #0d244c;
+  background: transparent;
+}
