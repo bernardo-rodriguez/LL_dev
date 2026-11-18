@@ -657,3 +657,80 @@ body:has(.buybox-v2) .how-to-steps__cta {
 body:has(.buybox-v2) .how-to-steps__cta-arrow {
   display: none;
 }
+
+/* ---- Used and loved by dentists ----------------------------------------
+   The artboard leads each card with the dentist's portrait at full card
+   width and puts the practice last, in the mono face. The theme's card
+   sets the portrait as a 46px avatar beside the name and adds a
+   recommendation tag the artboard does not carry.
+   ------------------------------------------------------------------------ */
+
+body:has(.buybox-v2) .dentist-cards__row {
+  gap: 12px;
+  padding: 0 var(--v2-pad-x) 6px;
+}
+
+body:has(.buybox-v2) .dentist-cards__card {
+  flex: 0 0 370px;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  border: 1px solid var(--v2-rule);
+  border-radius: 0;
+  background: #ffffff;
+}
+
+/*
+  The person block and the identity inside it give up their boxes so the
+  portrait, name, quote and practice can be ordered as one column.
+*/
+body:has(.buybox-v2) .dentist-cards__person,
+body:has(.buybox-v2) .dentist-cards__identity {
+  display: contents;
+}
+
+body:has(.buybox-v2) .dentist-cards__photo {
+  order: 1;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 0;
+  object-fit: cover;
+  background: #eef5fc;
+}
+
+body:has(.buybox-v2) .dentist-cards__name {
+  order: 2;
+  margin: 16px 16px 0;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--v2-ink);
+}
+
+body:has(.buybox-v2) .dentist-cards__quote {
+  order: 3;
+  margin: 10px 16px 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  font-style: normal;
+  color: #22405f;
+}
+
+body:has(.buybox-v2) .dentist-cards__practice {
+  order: 4;
+  margin: 10px 16px 16px;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10.5px;
+  font-weight: 500;
+  line-height: 14.7px;
+  letter-spacing: 0.84px !important;
+  text-transform: uppercase;
+  color: var(--v2-accent);
+}
+
+body:has(.buybox-v2) .dentist-cards__tag,
+body:has(.buybox-v2) .dentist-cards__hint {
+  display: none;
+}
