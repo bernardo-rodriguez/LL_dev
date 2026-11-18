@@ -14,7 +14,10 @@
 
 <script>
   (function () {
-    var LABEL = {{ section.settings.plan_label | default: 'Choose your plan:' | json }};
+    // An empty label means no label: the v2 artboard puts "Kit size:" above
+    // the kit cards and leaves the plan picker unlabelled, so `default` must
+    // not fill a blank back in.
+    var LABEL = {{ section.settings.plan_label | json }};
     var RIBBON = {{ section.settings.plan_ribbon | default: '' | json }};
     var SUB_TITLE = {{ section.settings.plan_sub_title | default: '' | json }};
     var ONCE_TITLE = {{ section.settings.plan_once_title | default: '' | json }};
