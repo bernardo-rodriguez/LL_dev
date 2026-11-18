@@ -67,6 +67,26 @@ body:has(.buybox-v2) .FAQ_Section {
 
 body:has(.buybox-v2) .product__info-wrapper { padding-bottom: 0; }
 
+/*
+  The testimonials carousel and the Judge.me widget each carry their own
+  outer spacing, which opened a band-coloured gap either side of the reviews.
+  They take the page's own rhythm instead.
+*/
+body:has(.buybox-v2) .testimonials__inner { padding-bottom: var(--v2-pad-y); }
+
+body:has(.buybox-v2) .jdgm-widget,
+body:has(.buybox-v2) .jdgm-rev-widg,
+body:has(.buybox-v2) .jdgm-review-widget {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+body:has(.buybox-v2) .shopify-section:has(.jdgm-review-widget) > .page-width,
+body:has(.buybox-v2) .shopify-section:has(.jdgm-widget) > .page-width {
+  padding-top: var(--v2-pad-y);
+  padding-bottom: var(--v2-pad-y);
+}
+
 /* ---- Type --------------------------------------------------------------
    The same scale as the personalized page: a mono label, a Manrope heading
    at 31px, and a 15px intro in the muted ink.
