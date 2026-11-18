@@ -354,9 +354,10 @@ body:has(.buybox-v2) .pdp-kit-selector--v2 .pdp-kit-badge {
 /*
   The artboard has no formula picker on the standalone page — choosing a
   formula is the personalized page's job, and this product ships its default.
-  Kept in the DOM so the form still posts the variant it always did.
+  Only the variant picker itself is taken off screen: the row around it also
+  holds the add-to-cart form, the shipping line and the guarantee.
 */
-body:has(.buybox-v2) .pdp-product-options__form-row {
+body:has(.buybox-v2) .pdp-product-options__form-row .product-form__input:not(.product-form__quantity) {
   position: absolute;
   width: 1px;
   height: 1px;
