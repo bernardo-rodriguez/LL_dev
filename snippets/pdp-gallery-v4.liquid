@@ -47,7 +47,8 @@
     to select it.
   {%- endcomment -%}
   {% if gallery_media.size > 1 %}
-    <div class="pdp-gallery__thumbs" role="tablist" aria-label="Product images">
+    {%- assign thumbs_across = section.settings.gallery_thumbs_across | default: 4 -%}
+    <div class="pdp-gallery__thumbs" role="tablist" aria-label="Product images" style="--pdp-thumbs: {{ thumbs_across }}">
       {% for media in gallery_media %}
         <button
           type="button"

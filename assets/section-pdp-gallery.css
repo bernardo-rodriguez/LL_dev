@@ -82,7 +82,9 @@
   cannot nudge the row.
 */
 .ll-pdp-v6 .pdp-gallery__thumb {
-  flex: 0 0 calc((100% - 18px) / 4);
+  /* the design fits four across on the personalized page, five on the v2
+     standalone one, so the count is a variable the section sets */
+  flex: 0 0 calc((100% - (var(--pdp-thumbs, 4) - 1) * 6px) / var(--pdp-thumbs, 4));
   scroll-snap-align: start;
   aspect-ratio: 1;
   display: block;

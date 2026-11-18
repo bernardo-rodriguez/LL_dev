@@ -48,7 +48,8 @@
         "gallery_caption": "Includes Blue Light mouthpiece + 3 gels",
         "gallery_labels": "Kit, Box, Results, How to",
         "use_v6_picker": true,
-        "use_v4_gallery": true
+        "use_v4_gallery": true,
+        "gallery_thumbs_across": 5
       }
     },
     "formula_blends_E38KV6": {
