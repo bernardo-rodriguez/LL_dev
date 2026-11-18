@@ -258,6 +258,31 @@ xhttp.send();
         {% unless product.id == cfg.REFILL_DEFAULT.product_id %}
         <div class="pdp-product-options">
         <div class="pdp-product-options__row treatment-quantity-selector" id = 'treatment-quantity-selector-id'>
+          {%- comment -%}
+            The v2 artboard draws the kit sizes as two plain cards under a
+            "Kit size:" label — a name, a supply length and nothing else.
+            The product photographs the theme shows here carry no information
+            the two words do not, and at 216x64 they crowd out both lines.
+            Same radio ids and name, so every script that reads the choice is
+            untouched.
+          {%- endcomment -%}
+          {% if section.settings.use_v2_buybox %}
+          <span class="buybox-v2__kit-label">{{ section.settings.kit_label }}</span>
+          <div class="quantity-radio-group pdp-kit-selector pdp-kit-selector--v2">
+            <input type="radio" id="quantity-6" name="treatment-quantity" value="6" checked>
+            <label for="quantity-6" class="quantity-option quantity-option-1 pdp-kit-option">
+              <span class="pdp-kit-title">{{ section.settings.kit_6_title }}</span>
+              <span class="pdp-kit-sub">{{ section.settings.kit_6_sub }}</span>
+            </label>
+
+            <input type="radio" id="quantity-12" name="treatment-quantity" value="12">
+            <label for="quantity-12" class="quantity-option quantity-option-2 pdp-kit-option">
+              <span class="pdp-kit-badge label-sm">{{ section.settings.kit_badge }}</span>
+              <span class="pdp-kit-title">{{ section.settings.kit_12_title }}</span>
+              <span class="pdp-kit-sub">{{ section.settings.kit_12_sub }}</span>
+            </label>
+          </div>
+          {% else %}
           <div class="quantity-radio-group pdp-kit-selector">
             <input type="radio" id="quantity-6" name="treatment-quantity" value="6" checked>
             <label for="quantity-6" class="quantity-option quantity-option-1 pdp-kit-option">
@@ -280,6 +305,7 @@ xhttp.send();
               </div>
             </label>
           </div>
+          {% endif %}
         </div>
         {% else %}
         <div class="pdp-product-options">
@@ -1261,6 +1287,42 @@ xhttp.send();
       "label": "Use the v2 buy box",
       "default": false,
       "info": "Social proof, rating, price, claims, sale banner, shipping line and guarantee, in the v2 design's order."
+    },
+    {
+      "type": "text",
+      "id": "kit_label",
+      "label": "Kit size label",
+      "default": "Kit size:"
+    },
+    {
+      "type": "text",
+      "id": "kit_6_title",
+      "label": "Small kit name",
+      "default": "6 treatments"
+    },
+    {
+      "type": "text",
+      "id": "kit_6_sub",
+      "label": "Small kit supply",
+      "default": "2-month supply"
+    },
+    {
+      "type": "text",
+      "id": "kit_12_title",
+      "label": "Large kit name",
+      "default": "12 treatments"
+    },
+    {
+      "type": "text",
+      "id": "kit_12_sub",
+      "label": "Large kit supply",
+      "default": "4-month supply"
+    },
+    {
+      "type": "text",
+      "id": "kit_badge",
+      "label": "Large kit badge",
+      "default": "Best value"
     },
     {
       "type": "text",
