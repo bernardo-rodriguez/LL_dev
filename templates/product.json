@@ -31,6 +31,7 @@
         "offer_text": "LIMITED TIME OFFER: 30% OFF YOUR FIRST ORDER + FREE WHITENING PEN",
         "show_offer_banner": false,
         "show_formula_line": false,
+        "use_v6_picker": true,
         "plan_label": "Kit size:",
         "plan_ribbon": "Best value",
         "plan_sub_title": "Subscribe & save",
@@ -45,11 +46,10 @@
         "plan_benefit_2_sub": "Every order",
         "plan_benefit_3": "Free whitening pen",
         "plan_benefit_3_sub": "($30 value)",
-        "gallery_caption": "Includes Blue Light mouthpiece + 3 gels",
-        "gallery_labels": "Kit, Box, Results, How to",
-        "use_v6_picker": true,
         "use_v4_gallery": true,
         "gallery_thumbs_across": 5,
+        "gallery_caption": "Includes Blue Light mouthpiece + 3 gels",
+        "gallery_labels": "Kit, Box, Results, How to",
         "use_v2_buybox": true
       }
     },
@@ -275,11 +275,11 @@
       ],
       "name": "Transformational Results",
       "settings": {
+        "eyebrow": "REAL RESULTS FROM REAL SMILES",
         "heading": "Over 100,000 brighter smiles.",
         "show_stats": false,
         "flow_visibility": "all",
-        "heading_quiz": "",
-        "eyebrow": "REAL RESULTS FROM REAL SMILES"
+        "heading_quiz": ""
       }
     },
     "comparison_table_pdp": {
@@ -423,14 +423,14 @@
       ],
       "name": "Comparison Table",
       "settings": {
+        "eyebrow": "More than bleaching",
         "heading": "Everything your smile needs, in one treatment.",
         "ours_label": "Laughland",
         "ours_logo_svg": "",
         "footnote": "",
         "margin_bottom": false,
         "flow_visibility": "all",
-        "heading_quiz": "",
-        "eyebrow": "More than bleaching"
+        "heading_quiz": ""
       }
     },
     "product-recommendations": {
@@ -514,11 +514,11 @@
       ],
       "name": "Ingredients",
       "settings": {
+        "eyebrow": "What's in your formula",
         "heading": "Four jobs. One gel.",
         "intro_text": "Strips for stains, hydroxyapatite toothpaste for enamel, a deep clean for plaque. Normally that's three products. Ours does it all in one treatment.",
         "summary": "Strips for stains, hydroxyapatite toothpaste for enamel, a deep clean for plaque. Normally that’s three products. Ours does it all in one treatment.",
-        "margin_bottom": true,
-        "eyebrow": "What's in your formula"
+        "margin_bottom": true
       }
     },
     "how_to_steps_bpjbpm": {
@@ -598,8 +598,8 @@
         "slide_C7CWMk",
         "slide_ArCbGL"
       ],
-      "settings": {},
-      "disabled": true
+      "disabled": true,
+      "settings": {}
     },
     "6916709c-578f-4b73-afd1-d8e53aa1db15": {
       "type": "carousel",
@@ -718,13 +718,13 @@
         ".testimonials__inner {background-color: #faf5f1;}"
       ],
       "settings": {
+        "eyebrow": "Verified buyer",
         "heading": "What customers are saying.",
         "heading_refill": "Results from a {Routine}",
         "text": "",
         "profile_label": "Customer Profile",
         "formula_label": "Whitening Formula",
-        "review_label": "Review",
-        "eyebrow": "Verified buyer"
+        "review_label": "Review"
       }
     },
     "our_standards_pdp": {
@@ -766,13 +766,13 @@
     },
     "buy_now_cta_pdp": {
       "type": "buy-now-cta",
+      "disabled": true,
       "settings": {
         "button_label": "Buy now",
         "scroll_target": "top",
         "margin_bottom": false,
         "flow_visibility": "all"
-      },
-      "disabled": true
+      }
     },
     "science_effects_yCEdFb": {
       "type": "science-effects",
@@ -1049,8 +1049,8 @@
         "slide_HF6HP8",
         "slide_zWjdBa"
       ],
-      "settings": {},
-      "disabled": true
+      "disabled": true,
+      "settings": {}
     },
     "1674168377f629ea2c": {
       "type": "apps",
@@ -1103,16 +1103,16 @@
         "stat_3"
       ],
       "settings": {
+        "eyebrow": "Customer survey",
         "heading": "Results you can see, and feel good about.",
-        "show_stats": true,
-        "eyebrow": "Customer survey"
+        "show_stats": true
       }
     },
     "what_to_expect_pdp": {
       "type": "what-to-expect",
       "settings": {
-        "title": "What consistent use looks like.",
         "eyebrow": "What to expect",
+        "title": "What consistent use looks like.",
         "feature1_title": "First treatment",
         "feature1_text": "Teeth look cleaner and brighter as surface stains and the dulling film lift.",
         "feature2_title": "6 treatments",
@@ -1125,11 +1125,6 @@
     },
     "dentist_cards_pdp": {
       "type": "dentist-cards",
-      "settings": {
-        "eyebrow": "Dentist approved",
-        "heading": "Used and loved by dentists.",
-        "swipe_hint": "Swipe for more"
-      },
       "blocks": {
         "dentist_1": {
           "type": "dentist",
@@ -1169,13 +1164,15 @@
         "dentist_1",
         "dentist_2",
         "dentist_3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Dentist approved",
+        "heading": "Used and loved by dentists.",
+        "swipe_hint": "Swipe for more"
+      }
     },
     "faq_section_pdp": {
       "type": "faq-section",
-      "settings": {
-        "section_heading": "Questions, answered."
-      },
       "blocks": {
         "faq_1": {
           "type": "faq",
@@ -1219,7 +1216,10 @@
         "faq_3",
         "faq_4",
         "faq_5"
-      ]
+      ],
+      "settings": {
+        "section_heading": "Questions, answered."
+      }
     }
   },
   "order": [
