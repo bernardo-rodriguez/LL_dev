@@ -553,3 +553,107 @@ body:has(.buybox-v2) .comparison-table__mark--yes svg,
 body:has(.buybox-v2) .comparison-table__mark--yes path {
   stroke: var(--v2-accent);
 }
+
+/* ---- How to use --------------------------------------------------------
+   The artboard reads head, film, steps, button. The theme puts the film
+   first and keeps the head, steps and button together below it, so the
+   content wrapper gives up its box and its children are ordered against
+   the film directly.
+   ------------------------------------------------------------------------ */
+
+body:has(.buybox-v2) .how-to-steps__columns {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+body:has(.buybox-v2) .how-to-steps__content {
+  display: contents;
+}
+
+body:has(.buybox-v2) .how-to-steps__eyebrow { order: 1; }
+body:has(.buybox-v2) .how-to-steps__heading { order: 2; margin: -14px 0 0; }
+body:has(.buybox-v2) .how-to-steps__media { order: 3; }
+body:has(.buybox-v2) .how-to-steps__list { order: 4; }
+body:has(.buybox-v2) .how-to-steps__cta { order: 5; }
+body:has(.buybox-v2) .how-to-steps__caption,
+body:has(.buybox-v2) .how-to-steps__reassurance { order: 6; }
+
+body:has(.buybox-v2) .how-to-steps__media {
+  aspect-ratio: 440 / 303;
+  border-radius: 0;
+  background: var(--v2-ink);
+}
+
+body:has(.buybox-v2) .how-to-steps__media img,
+body:has(.buybox-v2) .how-to-steps__media video,
+body:has(.buybox-v2) .how-to-steps__media iframe {
+  border-radius: 0;
+}
+
+/*
+  Three steps side by side, divided by hairlines, with the number set as a
+  disc above its line rather than beside it.
+*/
+body:has(.buybox-v2) .how-to-steps__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--v2-rule);
+}
+
+body:has(.buybox-v2) .how-to-steps__step {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 12px 10px;
+  border-left: 1px solid var(--v2-rule);
+}
+
+body:has(.buybox-v2) .how-to-steps__step:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+body:has(.buybox-v2) .how-to-steps__number {
+  display: flex;
+  flex: 0 0 24px;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--v2-ink);
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+body:has(.buybox-v2) .how-to-steps__text {
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.33;
+  color: var(--v2-ink);
+}
+
+body:has(.buybox-v2) .how-to-steps__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 54px;
+  border-radius: 6px;
+  background: #67b9e8;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.12px !important;
+  text-transform: uppercase;
+}
+
+body:has(.buybox-v2) .how-to-steps__cta-arrow {
+  display: none;
+}
