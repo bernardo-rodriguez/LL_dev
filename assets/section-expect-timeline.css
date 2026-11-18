@@ -1,0 +1,113 @@
+/*
+  Expect timeline — "What consistent use looks like." on the v2 artboard.
+
+  A 32px navy disc per stage in a 32px column, a 2px hairline running from
+  one disc to the next, and the copy in a 394px column beside it.
+*/
+
+.expect-timeline {
+  background: #ffffff;
+}
+
+.expect-timeline__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 48px 20px;
+}
+
+.expect-timeline__head {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.expect-timeline__eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.92px;
+  text-transform: uppercase;
+  color: #61718a;
+}
+
+.expect-timeline__heading {
+  margin: 0;
+  font-family: manrope, 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 31px;
+  font-weight: 500;
+  line-height: 33.48px;
+  letter-spacing: -0.6px;
+  color: #0d244c;
+}
+
+.expect-timeline__list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.expect-timeline__row {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  column-gap: 14px;
+}
+
+.expect-timeline__marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.expect-timeline__disc {
+  display: flex;
+  flex: 0 0 32px;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #0d244c;
+  color: #ffffff;
+}
+
+/*
+  The hairline fills whatever is left of the row under the disc, so a long
+  stage and a short one both join cleanly to the next.
+*/
+.expect-timeline__line {
+  flex: 1 1 auto;
+  width: 2px;
+  background: #c8daef;
+}
+
+.expect-timeline__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 24px;
+}
+
+.expect-timeline__row--last .expect-timeline__copy {
+  padding-bottom: 0;
+}
+
+.expect-timeline__label {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 13.2px;
+  letter-spacing: 0.88px;
+  text-transform: uppercase;
+  color: #2369c9;
+}
+
+.expect-timeline__text {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 21.75px;
+  color: #0d244c;
+}
