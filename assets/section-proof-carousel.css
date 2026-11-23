@@ -1,0 +1,244 @@
+/*
+  Proof carousel — "Trusted by 100,000+ people…" on the r6 artboard.
+
+  A centred rating header over 370px cards that scroll sideways. Each card
+  pairs a before and an after photograph above the quote. The track runs
+  full bleed so a card can sit half off the edge and read as scrollable.
+*/
+
+.proof-carousel {
+  background: var(--v2-band, #eaf4fd);
+}
+
+.proof-carousel__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 40px 0;
+}
+
+.proof-carousel__head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.proof-carousel__stars {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 2px;
+  color: #0d244c;
+}
+
+.proof-carousel__heading {
+  margin: 0;
+  font-family: manrope, 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 31px;
+  font-weight: 500;
+  line-height: 37.2px;
+  letter-spacing: -0.6px !important;
+  color: #0d244c;
+}
+
+.proof-carousel__summary {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #0d244c;
+}
+
+/* ---- Track ------------------------------------------------------------- */
+
+.proof-carousel__track {
+  display: flex;
+  gap: 12px;
+  padding: 0 20px 6px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.proof-carousel__track::-webkit-scrollbar { display: none; }
+
+.proof-carousel__card {
+  flex: 0 0 370px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #d8e0e8;
+  border-radius: 0;
+  background: #ffffff;
+  scroll-snap-align: start;
+}
+
+/*
+  A 2px gap with the pair's own background showing through draws the seam
+  between before and after without a border on either photograph.
+*/
+.proof-carousel__pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: #d8e0e8;
+}
+
+.proof-carousel__shot {
+  position: relative;
+  display: flex;
+  aspect-ratio: 183 / 160;
+  overflow: hidden;
+  background: #dcebf8;
+}
+
+.proof-carousel__shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.proof-carousel__shot-label {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  padding: 5px 7px;
+  background: #ffffff;
+  color: #0d244c;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10.5px;
+  font-weight: 500;
+  line-height: 10.5px;
+  letter-spacing: 0.63px !important;
+  text-transform: uppercase;
+}
+
+.proof-carousel__shot-label--after {
+  background: #2369c9;
+  color: #ffffff;
+}
+
+/* ---- Card body --------------------------------------------------------- */
+
+.proof-carousel__body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+}
+
+.proof-carousel__byline {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.proof-carousel__name {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #0d244c;
+}
+
+.proof-carousel__card-stars {
+  flex: none;
+  font-size: 12.5px;
+  font-weight: 400;
+  letter-spacing: 1px !important;
+  color: #0d244c;
+}
+
+.proof-carousel__headline {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20.8px;
+  color: #0d244c;
+}
+
+.proof-carousel__quote {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21.7px;
+  font-style: normal;
+  color: #0d244c;
+}
+
+.proof-carousel__verified {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10.5px;
+  font-weight: 500;
+  line-height: 10.5px;
+  letter-spacing: 0.63px !important;
+  text-transform: uppercase;
+  color: #2369c9;
+}
+
+/* ---- Pager ------------------------------------------------------------- */
+
+.proof-carousel__pager {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 20px;
+}
+
+.proof-carousel__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: #c8d3e0;
+  cursor: pointer;
+  transition: width 0.18s ease, background-color 0.18s ease;
+}
+
+.proof-carousel__dot--on {
+  width: 22px;
+  border: 1px solid #0d244c;
+  background: #ddf568;
+}
+
+.proof-carousel__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 0 20px;
+}
+
+.proof-carousel__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 10px;
+  border: 1px solid #d8e0e8;
+  border-radius: 0;
+  background: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.78px !important;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  color: #0d244c;
+}
+
+.proof-carousel__btn--primary {
+  border-color: #0d244c;
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proof-carousel__dot { transition: none; }
+  .proof-carousel__track { scroll-behavior: auto; }
+}
