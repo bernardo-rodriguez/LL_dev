@@ -1174,3 +1174,26 @@ body:has(.buybox-v2) .Accordion-Content p {
   line-height: 21.75px;
   color: var(--v2-muted);
 }
+
+/* ---- Call to action ----------------------------------------------------
+   r6 puts the button in the brand navy rather than the pale blue, and the
+   sale banner that used to sit above the kits has moved up to the
+   announcement bar's countdown.
+   ------------------------------------------------------------------------ */
+
+body:has(.buybox-v2) .product-form__submit,
+body:has(.buybox-v2) #main-clickable-button {
+  min-height: 54px;
+  border-radius: 6px;
+  background: var(--v2-ink) !important;
+  border-color: var(--v2-ink) !important;
+  color: #ffffff !important;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.12px !important;
+  text-transform: uppercase;
+}
+
+body:has(.buybox-v2) .pdp-offer-banner {
+  display: none;
+}
