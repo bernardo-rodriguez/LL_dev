@@ -1312,3 +1312,12 @@ body:has(.buybox-v2) .comparison-table__price-arrow {
   flex: 0 0 18px;
   color: var(--v2-ink);
 }
+
+/*
+  A tick cell padded 16px top and bottom makes every row 59px tall; the
+  artboard's short rows are 43, so the padding comes down to meet the
+  26px mark. Label and header cells keep their own.
+*/
+body:has(.buybox-v2) .comparison-table__cell:has(.comparison-table__mark) {
+  padding: 8px 6px;
+}
