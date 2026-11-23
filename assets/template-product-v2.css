@@ -788,12 +788,27 @@ body:has(.buybox-v2) .comparison-table__col-label {
   text-align: center;
 }
 
+/*
+  The brand column carries the real wordmark, not typed text, so the only
+  thing to set here is how big it sits in the cell and that it reads white
+  against the navy.
+*/
 body:has(.buybox-v2) .comparison-table__logo {
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -0.45px !important;
-  text-transform: lowercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #ffffff;
+}
+
+body:has(.buybox-v2) .comparison-table__logo svg {
+  width: auto;
+  height: 22px;
+  max-width: 100%;
+}
+
+body:has(.buybox-v2) .comparison-table__logo svg path,
+body:has(.buybox-v2) .comparison-table__logo svg * {
+  fill: #ffffff;
 }
 
 /*
