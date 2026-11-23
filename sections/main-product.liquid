@@ -18,6 +18,7 @@
   {{ 'component-buybox-v2.css' | asset_url | stylesheet_tag }}
   {{ 'template-product-v2.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'buybox-promo-timer.js' | asset_url }}" defer></script>
+  <script src="{{ 'kit-subscribe.js' | asset_url }}" defer></script>
 {% endif %}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
@@ -1402,6 +1403,63 @@ xhttp.send();
       "id": "kit_badge",
       "label": "Large kit badge",
       "default": "Best value"
+    },
+    {
+      "type": "text",
+      "id": "kit_6_save",
+      "label": "Small kit saving",
+      "default": "Save 40%"
+    },
+    {
+      "type": "text",
+      "id": "kit_6_price",
+      "label": "Small kit price",
+      "default": "$39",
+      "info": "Shown on the kit row. Not read from the variant, so update it when prices change."
+    },
+    {
+      "type": "text",
+      "id": "kit_6_was",
+      "label": "Small kit was",
+      "default": "$65"
+    },
+    {
+      "type": "textarea",
+      "id": "kit_6_gifts",
+      "label": "Small kit extras",
+      "default": "+ FREE whitening pen | $30\n+ FREE shipping | $5",
+      "info": "One per line, written as  Label | struck price"
+    },
+    {
+      "type": "text",
+      "id": "kit_12_save",
+      "label": "Large kit saving",
+      "default": "Save 55%"
+    },
+    {
+      "type": "text",
+      "id": "kit_12_price",
+      "label": "Large kit price",
+      "default": "$59",
+      "info": "Shown on the kit row. Not read from the variant, so update it when prices change."
+    },
+    {
+      "type": "text",
+      "id": "kit_12_was",
+      "label": "Large kit was",
+      "default": "$130"
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "Subscribe label",
+      "default": "Save 40% with automatic refills"
+    },
+    {
+      "type": "text",
+      "id": "sub_note",
+      "label": "Subscribe note",
+      "default": "No commitment · Cancel anytime · Refills 60 days"
     },
     {
       "type": "text",
