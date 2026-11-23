@@ -444,7 +444,7 @@
       "settings": {
         "eyebrow": "What's in your formula",
         "heading": "Four jobs. One gel.",
-        "intro": "Strips for stains, hydroxyapatite toothpaste for enamel, a deep clean for plaque. Normally that's three products. Ours does it all in one treatment.",
+        "intro": "<p>Strips for stains, hydroxyapatite toothpaste for enamel, daily oil pulling for plaque. Normally That’s three products and a lot of effort.</p><p>Ours does it all in <strong>one gel,</strong> in 20 minutes a day.</p>",
         "image": "",
         "hint": "Tap a box to see the ingredients",
         "formulator_eyebrow": "Formulated by",
@@ -1006,7 +1006,7 @@
       "settings": {
         "eyebrow": "Customer survey",
         "heading": "Loved by customers. The results show it.",
-        "footnote": "Laughland customer survey, n = 918. Individual results vary."
+        "footnote": "Laughland customer survey, n = 918."
       }
     },
     "what_to_expect_pdp": {

@@ -43,11 +43,23 @@
 }
 
 .formula-jobs__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   margin: 0;
   font-size: 15px;
   font-weight: 400;
   line-height: 22.5px;
   color: #475f7d;
+}
+
+.formula-jobs__intro p {
+  margin: 0;
+}
+
+.formula-jobs__intro strong,
+.formula-jobs__intro b {
+  font-weight: 600;
 }
 
 .formula-jobs__image {
