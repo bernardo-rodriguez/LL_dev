@@ -1299,6 +1299,11 @@ body:has(.buybox-v2) .comparison-table__price-side--ours {
   text-align: right;
 }
 
+/* ours is named in the accent, theirs in the muted ink */
+body:has(.buybox-v2) .comparison-table__price-side--ours .comparison-table__price-label {
+  color: var(--v2-accent);
+}
+
 body:has(.buybox-v2) .comparison-table__price-label {
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 10.5px;
