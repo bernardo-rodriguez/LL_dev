@@ -1,0 +1,112 @@
+/*
+  The navy band that closes the r6 artboard: a centred heading whose tail
+  is struck through with a marker-pen highlight, three reasons across, and
+  a last call to action in the same highlight colour.
+*/
+
+.ll-difference {
+  background: #0d244c;
+  color: #ffffff;
+}
+
+.ll-difference__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 40px 20px;
+}
+
+.ll-difference__head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+
+.ll-difference__eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.92px !important;
+  text-transform: uppercase;
+  color: #bdddfc;
+}
+
+.ll-difference__heading {
+  margin: 0;
+  font-family: manrope, 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 31px;
+  font-weight: 500;
+  line-height: 37.2px;
+  letter-spacing: -0.6px !important;
+  color: #ffffff;
+}
+
+/*
+  A gradient rather than a background colour, so the highlight sits behind
+  the word like a marker stroke instead of boxing it.
+*/
+.ll-difference__mark {
+  padding: 0 6px;
+  background-image: linear-gradient(
+    transparent 14%,
+    #ddf568 14%,
+    #ddf568 90%,
+    transparent 90%
+  );
+  color: #0d244c;
+}
+
+.ll-difference__reasons {
+  display: grid;
+  grid-template-columns: repeat(var(--ll-difference-cols, 3), 1fr);
+  gap: 10px;
+}
+
+.ll-difference__reason {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.ll-difference__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(216, 236, 255, 0.14);
+  color: #ffffff;
+}
+
+.ll-difference__title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 17.5px;
+  color: #ffffff;
+}
+
+.ll-difference__sub {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16.2px;
+  color: #afc3de;
+}
+
+.ll-difference__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  border-radius: 6px;
+  background: #ddf568;
+  color: #0d244c;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.12px !important;
+  text-transform: uppercase;
+  text-decoration: none;
+}

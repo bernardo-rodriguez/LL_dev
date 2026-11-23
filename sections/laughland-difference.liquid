@@ -1,0 +1,102 @@
+{%- comment -%}
+  "The Laughland difference." — the navy band that closes the r6 artboard:
+  three reasons across, then one last call to action.
+
+  The heading can carry a highlighted tail, drawn as a marker-pen gradient
+  behind the last few words.
+{%- endcomment -%}
+
+{{ 'section-laughland-difference.css' | asset_url | stylesheet_tag }}
+
+<div class="ll-difference">
+  <div class="ll-difference__inner">
+    <div class="ll-difference__head">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="ll-difference__eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="ll-difference__heading">
+          {{- section.settings.heading -}}
+          {%- if section.settings.heading_highlight != blank -%}
+            <span class="ll-difference__mark">{{ section.settings.heading_highlight }}</span>
+          {%- endif -%}
+        </h2>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="ll-difference__reasons" style="--ll-difference-cols: {{ section.blocks.size }};">
+        {%- for block in section.blocks -%}
+          <div class="ll-difference__reason" {{ block.shopify_attributes }}>
+            <span class="ll-difference__icon">
+              {%- case block.settings.icon -%}
+                {%- when 'target' -%}
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
+                {%- when 'bolt' -%}
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg>
+                {%- else -%}
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 19 6v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+              {%- endcase -%}
+            </span>
+            <span class="ll-difference__title">{{ block.settings.title }}</span>
+            <span class="ll-difference__sub">{{ block.settings.sub }}</span>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.cta_text != blank -%}
+      <a class="ll-difference__cta" href="{{ section.settings.cta_url | default: '#' }}">
+        {{- section.settings.cta_text -}}
+      </a>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Laughland difference",
+  "tag": "section",
+  "class": "section-laughland-difference",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why you'll love it" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The Laughland " },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "label": "Highlighted tail",
+      "default": "difference.",
+      "info": "Drawn with a marker-pen highlight behind it."
+    },
+    { "type": "text", "id": "cta_text", "label": "Button", "default": "Claim 40% off" },
+    { "type": "url", "id": "cta_url", "label": "Button link" }
+  ],
+  "blocks": [
+    {
+      "type": "reason",
+      "name": "Reason",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "target", "label": "Target" },
+            { "value": "bolt", "label": "Bolt" },
+            { "value": "shield", "label": "Shield" }
+          ],
+          "default": "target"
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "4 causes, 1 gel" },
+        { "type": "text", "id": "sub", "label": "Detail", "default": "Stains, plaque, thin enamel and sensitivity" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Laughland difference",
+      "blocks": [{ "type": "reason" }, { "type": "reason" }, { "type": "reason" }]
+    }
+  ]
+}
+{% endschema %}
