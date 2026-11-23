@@ -1019,21 +1019,21 @@
           "type": "stage",
           "settings": {
             "label": "6 treatments",
-            "text": "97% of customers saw whiter teeth. Deep stains lift from inside the enamel."
+            "text": "Visibly whiter. 97% of customers saw whiter teeth as deep stains lift from inside the enamel."
           }
         },
         "st3": {
           "type": "stage",
           "settings": {
-            "label": "30 days",
-            "text": "Noticeably whiter, or your money back."
+            "label": "12 treatments",
+            "text": "Your brightest smile yet, or your money back."
           }
         },
         "st4": {
           "type": "stage",
           "settings": {
-            "label": "Every 60 days",
-            "text": "Your refill arrives to keep new stains from setting in."
+            "label": "Every few months",
+            "text": "A quick touch-up keeps coffee and tea stains from settling back in."
           }
         }
       },
