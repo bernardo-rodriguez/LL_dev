@@ -267,20 +267,99 @@ xhttp.send();
             untouched.
           {%- endcomment -%}
           {% if v2_here %}
-          <span class="buybox-v2__kit-label">{{ section.settings.kit_label }}</span>
-          <div class="quantity-radio-group pdp-kit-selector pdp-kit-selector--v2">
+          <span class="kitpick__label">{{ section.settings.kit_label }}</span>
+          <div class="quantity-radio-group kitpick">
+            {%- comment -%}
+              Each kit is one full-width row: a radio, the name with its
+              saving, the supply length, then the price beside the struck
+              one. The smaller kit also lists what comes free with it.
+              Same input ids and name as before, so everything that reads
+              the choice keeps working.
+            {%- endcomment -%}
             <input type="radio" id="quantity-6" name="treatment-quantity" value="6" checked>
-            <label for="quantity-6" class="quantity-option quantity-option-1 pdp-kit-option">
-              <span class="pdp-kit-title">{{ section.settings.kit_6_title }}</span>
-              <span class="pdp-kit-sub">{{ section.settings.kit_6_sub }}</span>
+            <label for="quantity-6" class="kitpick__opt">
+              <span class="kitpick__head">
+                <span class="kitpick__radio" aria-hidden="true"></span>
+                <span class="kitpick__copy">
+                  <span class="kitpick__titlerow">
+                    <span class="kitpick__title">{{ section.settings.kit_6_title }}</span>
+                    {%- if section.settings.kit_6_save != blank -%}
+                      <span class="kitpick__save">{{ section.settings.kit_6_save }}</span>
+                    {%- endif -%}
+                  </span>
+                  <span class="kitpick__supply">{{ section.settings.kit_6_sub }}</span>
+                </span>
+                <span class="kitpick__prices">
+                  <span class="kitpick__now">{{ section.settings.kit_6_price }}</span>
+                  {%- if section.settings.kit_6_was != blank -%}
+                    <s class="kitpick__was">{{ section.settings.kit_6_was }}</s>
+                  {%- endif -%}
+                </span>
+              </span>
+              {%- assign gift_lines = section.settings.kit_6_gifts | newline_to_br | split: '<br />' -%}
+              {%- if section.settings.kit_6_gifts != blank -%}
+                <span class="kitpick__gifts">
+                  {%- for line in gift_lines -%}
+                    {%- assign clean = line | strip -%}
+                    {%- if clean != blank -%}
+                      {%- assign bits = clean | split: '|' -%}
+                      <span class="kitpick__gift">
+                        <span class="kitpick__gift-icon" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M4 9h16v11H4z"/><path d="M2 9h20v4H2z"/><path d="M12 9v11"/><path d="M12 9S9.5 4 7.5 4 5 7 7 8s5 1 5 1 3 0 5-1 1.5-4-.5-4S12 9 12 9z"/></svg>
+                        </span>
+                        <span class="kitpick__gift-label">{{ bits[0] | strip }}</span>
+                        {%- if bits[1] -%}
+                          <s class="kitpick__gift-was">{{ bits[1] | strip }}</s>
+                        {%- endif -%}
+                      </span>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </span>
+              {%- endif -%}
             </label>
 
             <input type="radio" id="quantity-12" name="treatment-quantity" value="12">
-            <label for="quantity-12" class="quantity-option quantity-option-2 pdp-kit-option">
-              <span class="pdp-kit-badge label-sm">{{ section.settings.kit_badge }}</span>
-              <span class="pdp-kit-title">{{ section.settings.kit_12_title }}</span>
-              <span class="pdp-kit-sub">{{ section.settings.kit_12_sub }}</span>
+            <label for="quantity-12" class="kitpick__opt">
+              {%- if section.settings.kit_badge != blank -%}
+                <span class="kitpick__badge">{{ section.settings.kit_badge }}</span>
+              {%- endif -%}
+              <span class="kitpick__head">
+                <span class="kitpick__radio" aria-hidden="true"></span>
+                <span class="kitpick__copy">
+                  <span class="kitpick__titlerow">
+                    <span class="kitpick__title">{{ section.settings.kit_12_title }}</span>
+                    {%- if section.settings.kit_12_save != blank -%}
+                      <span class="kitpick__save">{{ section.settings.kit_12_save }}</span>
+                    {%- endif -%}
+                  </span>
+                  <span class="kitpick__supply">{{ section.settings.kit_12_sub }}</span>
+                </span>
+                <span class="kitpick__prices">
+                  <span class="kitpick__now">{{ section.settings.kit_12_price }}</span>
+                  {%- if section.settings.kit_12_was != blank -%}
+                    <s class="kitpick__was">{{ section.settings.kit_12_was }}</s>
+                  {%- endif -%}
+                </span>
+              </span>
             </label>
+
+            {%- comment -%}
+              Subscribing is a checkbox on this design rather than a second
+              card. It drives Skio's own choice inside its shadow root, so
+              the cart receives exactly what the Skio picker would have
+              sent; the picker itself is taken off screen in CSS.
+            {%- endcomment -%}
+            {%- if section.settings.sub_title != blank -%}
+              <button type="button" class="kitpick__sub" data-kit-subscribe aria-pressed="true">
+                <span class="kitpick__check" aria-hidden="true">
+                  <svg viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M2 7.5l3.5 3.5L12 3.5"/></svg>
+                </span>
+                <span class="kitpick__sub-copy">
+                  <span class="kitpick__sub-title">{{ section.settings.sub_title }}</span>
+                  <span class="kitpick__sub-note">{{ section.settings.sub_note }}</span>
+                </span>
+              </button>
+            {%- endif -%}
           </div>
           {% else %}
           <div class="quantity-radio-group pdp-kit-selector">
