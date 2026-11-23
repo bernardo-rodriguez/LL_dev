@@ -47,6 +47,26 @@
     // inside the root it can also reach Skio's own elements directly, which is
     // how the pieces v6 drops are hidden. Palette tokens still cross in.
     var STYLE = [
+      /*
+        r6 replaces the two plan cards with a single "automatic refills"
+        checkbox in the buy box, and that checkbox presses these same
+        controls. The rows therefore come off screen while Skio's own
+        add-to-cart — which is what the form submits through — stays, in
+        the brand navy the artboard asks for.
+      */
+      '.skio-plan-picker.ll-v6-compact .skio-plan-picker__purchase-row,',
+      '.skio-plan-picker.ll-v6-compact .ll-plan-label,',
+      '.skio-plan-picker.ll-v6-compact .skio-manage-link,',
+      '.skio-plan-picker.ll-v6-compact .powered-by-skio{position:absolute!important;width:1px!important;',
+      'height:1px!important;margin:-1px!important;overflow:hidden!important;clip-path:inset(50%)!important}',
+
+      '.skio-plan-picker.ll-v6-compact{gap:0!important;margin:0!important;padding:0!important;border:0!important}',
+
+      '.skio-plan-picker.ll-v6-compact .add-to-cart{width:100%;min-height:54px;border-radius:6px;',
+      'background:#0D244C!important;border-color:#0D244C!important;color:#fff!important;',
+      'font-size:14px!important;font-weight:600!important;letter-spacing:1.12px!important;',
+      'text-transform:uppercase!important}',
+
       '.ll-plan-label{display:block;margin-bottom:2px;font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;',
       'font-size:11.5px;font-weight:500;letter-spacing:.08em;',
       'text-transform:uppercase;color:var(--navy,#0D2244)}',
@@ -147,6 +167,12 @@
       var fieldset = root.querySelector('.skio-plan-picker');
       var row = root.querySelector('.skio-plan-picker__purchase-row');
       if (!fieldset || !row) return false;
+
+      // The r6 buy box drives the plan from its own checkbox, so the picker
+      // shows nothing but its button.
+      if (document.querySelector('.buybox-v2')) {
+        fieldset.classList.add('ll-v6-compact');
+      }
 
       // The label belongs to the picker as a whole, so it goes above the row
       if (LABEL && !root.querySelector('.ll-plan-label')) {
