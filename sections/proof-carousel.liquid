@@ -1,0 +1,175 @@
+{%- comment -%}
+  "Trusted by 100,000+ people…" on the r6 artboard.
+
+  This band merges what used to be two: the before/after month slider and
+  the review cards. Each card now carries its own before and after
+  photographs above the quote, and the set scrolls sideways under a pager.
+
+  The two sections it replaces stay in the theme — the personalized page
+  still uses both.
+{%- endcomment -%}
+
+{{ 'section-proof-carousel.css' | asset_url | stylesheet_tag }}
+
+<div class="proof-carousel">
+  <div class="proof-carousel__inner">
+    <div class="proof-carousel__head">
+      <span class="proof-carousel__stars" aria-hidden="true">★★★★★</span>
+      {%- if section.settings.heading != blank -%}
+        <h2 class="proof-carousel__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.summary != blank -%}
+        {%- assign reviews_token = '{' | append: 'reviews' | append: '}' -%}
+        {%- if section.settings.summary contains reviews_token -%}
+          {%- assign placeholder = section.settings.summary | replace: reviews_token, '' | replace: '  ', ' ' -%}
+          <span class="proof-carousel__summary" data-ll-reviews="{{ section.settings.summary | escape }}">{{ placeholder }}</span>
+        {%- else -%}
+          <span class="proof-carousel__summary">{{ section.settings.summary }}</span>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="proof-carousel__track" data-proof-track>
+        {%- for block in section.blocks -%}
+          <article class="proof-carousel__card" data-proof-card {{ block.shopify_attributes }}>
+            <div class="proof-carousel__pair">
+              <div class="proof-carousel__shot">
+                {%- if block.settings.before_image != blank -%}
+                  {{
+                    block.settings.before_image
+                    | image_url: width: 549
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '183, 366, 549',
+                      sizes: '183px',
+                      alt: block.settings.before_label
+                  }}
+                {%- endif -%}
+                <span class="proof-carousel__shot-label">{{ block.settings.before_label }}</span>
+              </div>
+              <div class="proof-carousel__shot">
+                {%- if block.settings.after_image != blank -%}
+                  {{
+                    block.settings.after_image
+                    | image_url: width: 549
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '183, 366, 549',
+                      sizes: '183px',
+                      alt: block.settings.after_label
+                  }}
+                {%- endif -%}
+                <span class="proof-carousel__shot-label proof-carousel__shot-label--after">
+                  {{- block.settings.after_label -}}
+                </span>
+              </div>
+            </div>
+
+            <div class="proof-carousel__body">
+              <div class="proof-carousel__byline">
+                <span class="proof-carousel__name">{{ block.settings.name }}</span>
+                <span class="proof-carousel__card-stars" aria-hidden="true">★★★★★</span>
+              </div>
+              {%- if block.settings.headline != blank -%}
+                <span class="proof-carousel__headline">{{ block.settings.headline }}</span>
+              {%- endif -%}
+              {%- if block.settings.quote != blank -%}
+                <blockquote class="proof-carousel__quote">{{ block.settings.quote }}</blockquote>
+              {%- endif -%}
+              {%- if block.settings.verified -%}
+                <span class="proof-carousel__verified">
+                  <svg viewBox="0 0 12 12" width="12" height="12" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6 0a6 6 0 1 0 0 12A6 6 0 0 0 6 0zm2.8 4.5L5.6 7.9a.6.6 0 0 1-.9 0L3.2 6.4a.6.6 0 1 1 .9-.8l1 1 2.8-3a.6.6 0 1 1 .9.9z"/></svg>
+                  {{ section.settings.verified_label }}
+                </span>
+              {%- endif -%}
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+
+      {%- comment -%}
+        One dot per card, the current one drawn as a wider bar. Buttons, so
+        the set can be reached from the keyboard as well as by swiping.
+      {%- endcomment -%}
+      <div class="proof-carousel__pager" data-proof-pager>
+        {%- for block in section.blocks -%}
+          <button
+            type="button"
+            class="proof-carousel__dot{% if forloop.first %} proof-carousel__dot--on{% endif %}"
+            data-proof-dot="{{ forloop.index0 }}"
+            aria-label="{{ 'general.slider.of' | t: index: forloop.index, count: section.blocks.size | default: forloop.index }}"
+          ></button>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.all_text != blank or section.settings.write_text != blank -%}
+      <div class="proof-carousel__actions">
+        {%- if section.settings.all_text != blank -%}
+          <a class="proof-carousel__btn proof-carousel__btn--primary" href="{{ section.settings.all_url | default: '#' }}">
+            {{- section.settings.all_text -}}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.write_text != blank -%}
+          <a class="proof-carousel__btn" href="{{ section.settings.write_url | default: '#' }}">
+            {{- section.settings.write_text -}}
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script src="{{ 'section-proof-carousel.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Proof carousel",
+  "tag": "section",
+  "class": "section-proof-carousel",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Trusted by 100,000+ people who finally found whitening that works."
+    },
+    {
+      "type": "text",
+      "id": "summary",
+      "label": "Summary",
+      "default": "4.7 out of 5 · Based on {reviews} reviews",
+      "info": "Use {reviews} to drop in the live review total."
+    },
+    { "type": "text", "id": "verified_label", "label": "Verified label", "default": "Verified buyer" },
+    { "type": "header", "content": "Buttons" },
+    { "type": "text", "id": "all_text", "label": "First button" },
+    { "type": "url", "id": "all_url", "label": "First button link" },
+    { "type": "text", "id": "write_text", "label": "Second button" },
+    { "type": "url", "id": "write_url", "label": "Second button link" }
+  ],
+  "blocks": [
+    {
+      "type": "proof",
+      "name": "Customer",
+      "settings": [
+        { "type": "image_picker", "id": "before_image", "label": "Before photo" },
+        { "type": "text", "id": "before_label", "label": "Before label", "default": "Before" },
+        { "type": "image_picker", "id": "after_image", "label": "After photo" },
+        { "type": "text", "id": "after_label", "label": "After label", "default": "After" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Sophia S." },
+        { "type": "text", "id": "headline", "label": "Headline", "default": "I could tell after one use" },
+        { "type": "textarea", "id": "quote", "label": "Quote" },
+        { "type": "checkbox", "id": "verified", "label": "Verified buyer", "default": true }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Proof carousel",
+      "blocks": [{ "type": "proof" }, { "type": "proof" }, { "type": "proof" }]
+    }
+  ]
+}
+{% endschema %}
