@@ -1024,7 +1024,7 @@ body:has(.buybox-v2) .dentist-cards__photo {
 body:has(.buybox-v2) .dentist-cards__name {
   order: 2;
   margin: 16px 16px 0;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
   line-height: 1.25;
   color: var(--v2-ink);
@@ -1037,9 +1037,9 @@ body:has(.buybox-v2) .dentist-cards__quote {
   border: 0;
   font-size: 14px;
   font-weight: 400;
-  line-height: 21px;
+  line-height: 21.7px;
   font-style: normal;
-  color: #22405f;
+  color: var(--v2-ink);
 }
 
 body:has(.buybox-v2) .dentist-cards__practice {
