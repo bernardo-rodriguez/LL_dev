@@ -1196,3 +1196,42 @@ body:has(.buybox-v2) .pdp-offer-banner,
 body:has(.buybox-v2) .buybox-v2__promo {
   display: none;
 }
+
+/* ---- Under the button --------------------------------------------------
+   The theme lays the add-to-cart row out as a flex row, which put the
+   shipping line and the guarantee side by side once they moved out of the
+   button. They belong in a column under it, in the same 440px measure as
+   the kit rows above.
+   ------------------------------------------------------------------------ */
+
+body:has(.buybox-v2) .pdp-product-options__row:not(.treatment-quantity-selector) {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+body:has(.buybox-v2) .product-form__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+body:has(.buybox-v2) .buybox-v2__ships {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+body:has(.buybox-v2) .buybox-v2__guarantee {
+  width: 100%;
+  margin: 0;
+}
+
+body:has(.buybox-v2) skio-plan-picker {
+  display: block;
+  width: 100%;
+}
