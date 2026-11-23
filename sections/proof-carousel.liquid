@@ -38,6 +38,19 @@
       <div class="proof-carousel__track" data-proof-track>
         {%- for block in section.blocks -%}
           <article class="proof-carousel__card" data-proof-card {{ block.shopify_attributes }}>
+            {%- comment -%}
+              The artboard's last card is a customer clip rather than a
+              before/after pair, so a block with a video shows one full-width
+              media in place of the two photographs.
+            {%- endcomment -%}
+            {%- if block.settings.video != blank -%}
+              <div class="proof-carousel__clip">
+                {{ block.settings.video | video_tag: image_size: '740x', controls: true, muted: true, playsinline: true }}
+                {%- if block.settings.before_label != blank -%}
+                  <span class="proof-carousel__shot-label">{{ block.settings.before_label }}</span>
+                {%- endif -%}
+              </div>
+            {%- else -%}
             <div class="proof-carousel__pair">
               <div class="proof-carousel__shot">
                 {%- if block.settings.before_image != blank -%}
@@ -70,6 +83,7 @@
                 </span>
               </div>
             </div>
+            {%- endif -%}
 
             <div class="proof-carousel__body">
               <div class="proof-carousel__byline">
@@ -166,6 +180,7 @@
       "type": "proof",
       "name": "Customer",
       "settings": [
+        { "type": "video", "id": "video", "label": "Customer clip", "info": "Set this and the card shows one clip instead of a before/after pair." },
         { "type": "image_picker", "id": "before_image", "label": "Before photo" },
         { "type": "text", "id": "before_label", "label": "Before label", "default": "Before" },
         { "type": "image_picker", "id": "after_image", "label": "After photo" },

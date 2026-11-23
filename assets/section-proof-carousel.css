@@ -255,3 +255,20 @@
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
+
+/* A clip card: one media across the card instead of the before/after pair. */
+.proof-carousel__clip {
+  position: relative;
+  display: flex;
+  aspect-ratio: 368 / 160;
+  overflow: hidden;
+  background: #dcebf8;
+}
+
+.proof-carousel__clip video,
+.proof-carousel__clip img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
