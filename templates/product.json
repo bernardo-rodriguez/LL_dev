@@ -402,7 +402,7 @@
           "type": "job",
           "settings": {
             "number": "01",
-            "name": "Stain removal",
+            "name": "Lifts Years of Stains",
             "benefits": "Pharma-grade peroxide",
             "ingredients": "Hydrogen peroxide | Lifts deep stains inside enamel and dentin.\nSodium bicarbonate | Lifts surface stains from coffee, tea and wine."
           }
@@ -411,7 +411,7 @@
           "type": "job",
           "settings": {
             "number": "02",
-            "name": "Enamel support",
+            "name": "Healthier & Brighter Enamel",
             "benefits": "Nano-hydroxyapatite",
             "ingredients": "Nano-hydroxyapatite | Remineralizes thin spots so edges look less see-through."
           }
@@ -420,8 +420,8 @@
           "type": "job",
           "settings": {
             "number": "03",
-            "name": "Plaque removal",
-            "benefits": "Coconut oil + NaCl",
+            "name": "Plaque Control",
+            "benefits": "Coconut oil + enzymes",
             "ingredients": "Coconut oil | Loosens the sticky film that makes teeth look dull.\nSodium chloride | Helps clear plaque buildup."
           }
         },
@@ -429,8 +429,8 @@
           "type": "job",
           "settings": {
             "number": "04",
-            "name": "Sensitivity + gum care",
-            "benefits": "Hydroxyapatite + aloe vera",
+            "name": "Sensitivity + Gum Care",
+            "benefits": "Hydroxyapatite + Aloe",
             "ingredients": "Hydroxyapatite | Seals exposed spots that cause sensitivity.\nAloe vera | Soothes gums during treatment."
           }
         }
@@ -446,7 +446,7 @@
         "heading": "Four jobs. One gel.",
         "intro": "<p>Strips for stains, hydroxyapatite toothpaste for enamel, daily oil pulling for plaque. Normally That’s three products and a lot of effort.</p><p>Ours does it all in <strong>one gel,</strong> in 20 minutes a day.</p>",
         "image": "",
-        "hint": "Tap a box to see the ingredients",
+        "hint": "",
         "formulator_eyebrow": "Formulated by",
         "formulator_signature": "TJ Kwon",
         "formulator_name": "Dr. TJ Kwon, DMD",
