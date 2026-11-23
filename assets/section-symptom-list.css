@@ -65,7 +65,7 @@
   width: 64px;
   height: 64px;
   overflow: hidden;
-  background: var(--v2-band, #ffffff);
+  background: #f4f6f8;
 }
 
 .symptom-list__thumb img {
