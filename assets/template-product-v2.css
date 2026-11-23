@@ -1408,6 +1408,25 @@ body:has(.buybox-v2) .kitpick__gift-label {
 }
 
 /*
+  The extra sits on a white tile against the tinted strip, which is what
+  separates it from the kit row above.
+*/
+body:has(.buybox-v2) .kitpick__gift-icon {
+  flex: 0 0 36px;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #ffffff;
+  color: var(--v2-ink);
+}
+
+body:has(.buybox-v2) .kitpick__gift-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/*
   The extras come with the subscription, so they are listed only while it
   is on. kit-subscribe.js sets this flag from Skio's own state.
 */
