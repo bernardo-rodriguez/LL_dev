@@ -33,8 +33,14 @@
     var pair = groups(root);
     if (!pair.sub || !pair.once) return false;
 
+    var list = button.closest('.kitpick');
+
     function paint() {
-      button.setAttribute('aria-pressed', pair.sub.checked ? 'true' : 'false');
+      var on = pair.sub.checked;
+      button.setAttribute('aria-pressed', on ? 'true' : 'false');
+      // The free pen and free shipping come with the subscription, so the
+      // kit rows stop advertising them the moment it is switched off.
+      if (list) list.setAttribute('data-subscribed', on ? 'true' : 'false');
     }
 
     button.addEventListener('click', function () {
