@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 48px 20px;
+  padding: 40px 20px;
 }
 
 .expect-timeline__head {
@@ -37,7 +37,7 @@
   font-family: manrope, 'Manrope', 'Helvetica Neue', Arial, sans-serif;
   font-size: 31px;
   font-weight: 500;
-  line-height: 33.48px;
+  line-height: 35.65px;
   letter-spacing: -0.6px !important;
   color: #0d244c;
 }

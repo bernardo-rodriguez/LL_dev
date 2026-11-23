@@ -19,7 +19,7 @@ body:has(.buybox-v2) {
   --v2-silver: #f4f6f8;
   --v2-tint: #eaf4fd;
   --v2-accent: #2369c9;
-  --v2-pad-y: 48px;
+  --v2-pad-y: 40px;
   --v2-pad-x: 20px;
 }
 
@@ -122,8 +122,8 @@ body:has(.buybox-v2) .Faq_Heading {
   font-family: manrope, 'Manrope', 'Helvetica Neue', Arial, sans-serif;
   font-size: 31px;
   font-weight: 500;
-  line-height: 1.08;
-  letter-spacing: -0.019em !important;
+  line-height: 35.65px;
+  letter-spacing: -0.6px !important;
   text-transform: none;
   text-align: left;
   color: var(--v2-ink);
@@ -213,7 +213,7 @@ body:has(.buybox-v2) .product__intro {
 
 body:has(.buybox-v2) .product__info-wrapper {
   order: 2;
-  padding: 0 var(--v2-pad-x) 48px;
+  padding: 0 var(--v2-pad-x) var(--v2-pad-y);
 }
 
 /*
