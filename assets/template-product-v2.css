@@ -17,6 +17,7 @@ body:has(.buybox-v2) {
   --v2-label: #61718a;
   --v2-rule: #d8e0e8;
   --v2-silver: #f4f6f8;
+  --v2-tint: #eaf4fd;
   --v2-accent: #2369c9;
   --v2-pad-y: 48px;
   --v2-pad-x: 20px;
@@ -153,21 +154,37 @@ body:has(.buybox-v2) .ingredients-that-work__intro { display: none; }
    White, silver, white… down the page, as the artboard alternates them.
    ------------------------------------------------------------------------ */
 
-body:has(.buybox-v2) .formula-blends,
-body:has(.buybox-v2) .testimonials,
-body:has(.buybox-v2) .transformational-results,
-body:has(.buybox-v2) .how-to-steps,
-body:has(.buybox-v2) .our-standards {
-  background: var(--v2-silver);
+/*
+  The r6 artboard tints with #eaf4fd rather than the old silver, and the
+  alternation restarts from the proof carousel: tint, white, tint, white
+  down to the navy closing band. Each section reads --v2-band, so the run
+  is set once here and no section hard-codes its own ground.
+*/
+body:has(.buybox-v2) .shopify-section:has(.proof-carousel),
+body:has(.buybox-v2) .shopify-section:has(.formula-jobs),
+body:has(.buybox-v2) .shopify-section:has(.expect-timeline),
+body:has(.buybox-v2) .shopify-section:has(.how-to-steps),
+body:has(.buybox-v2) .shopify-section:has(.our-standards) {
+  --v2-band: var(--v2-tint);
 }
 
-body:has(.buybox-v2) .ingredients-that-work,
-body:has(.buybox-v2) .strength-comparison,
-body:has(.buybox-v2) .what-to-expect,
+body:has(.buybox-v2) .shopify-section:has(.survey-rings),
+body:has(.buybox-v2) .shopify-section:has(.strength-chart),
+body:has(.buybox-v2) .shopify-section:has(.comparison-table),
+body:has(.buybox-v2) .shopify-section:has(.dentist-cards),
+body:has(.buybox-v2) .shopify-section:has(.FAQ_Section) {
+  --v2-band: #ffffff;
+}
+
+body:has(.buybox-v2) .how-to-steps,
+body:has(.buybox-v2) .our-standards {
+  background: var(--v2-band, #ffffff);
+}
+
 body:has(.buybox-v2) .comparison-table,
 body:has(.buybox-v2) .dentist-cards,
 body:has(.buybox-v2) .FAQ_Section {
-  background: #ffffff;
+  background: var(--v2-band, #ffffff);
 }
 
 /* ---- Top of page -------------------------------------------------------
