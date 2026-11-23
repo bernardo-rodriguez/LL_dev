@@ -6,7 +6,12 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */
+
+  Dropped to stay under Shopify's 25-section cap, both already disabled
+  and carrying no blocks:
+    product-recommendations (product-recommendations): {"heading": "You may also like", "image_ratio": "adapt", "show_secondary_image": false, "add_image_padding": false, "show_image_outline": true, "show_vendor": false, "show_rating": false}
+    9a2e356e-af66-4e8f-99d8-12bc66bd56dd (stars): {"svg": "<svg width=\"176\" height=\"31\" viewbox=\"0 0 176 31\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M17 0L20.9969 11.4987L33.168 11.7467L23.4672 19.1013L26.9923 30.7533L17 23.8L7.00765 30.7533L10.5328 19.1013L0.832039 11.7467L13.0031 11.4987L17 0Z\" fill=\"#46BDF0\"></path>\n<path d=\"M52.5459 0L56.5428 11.4987L68.7139 11.7467L59.0131 19.1013L62.5382 30.7533L52.5459 23.8L42.5535 30.7533L46.0787 19.1013L36.3779 11.7467L48.549 11.4987L52.5459 0Z\" fill=\"#46BDF0\"></path>\n<path d=\"M88.0908 0L92.0878 11.4987L104.259 11.7467L94.558 19.1013L98.0832 30.7533L88.0908 23.8L78.0985 30.7533L81.6236 19.1013L71.9229 11.7467L84.0939 11.4987L88.0908 0Z\" fill=\"#46BDF0\"></path>\n<path d=\"M123.637 0L127.634 11.4987L139.805 11.7467L130.104 19.1013L133.629 30.7533L123.637 23.8L113.644 30.7533L117.17 19.1013L107.469 11.7467L119.64 11.4987L123.637 0Z\" fill=\"#46BDF0\"></path>\n<path d=\"M159.182 0L163.179 11.4987L175.35 11.7467L165.649 19.1013L169.174 30.7533L159.182 23.8L149.189 30.7533L152.714 19.1013L143.014 11.7467L155.185 11.4987L159.182 0Z\" fill=\"#46BDF0\"></path>\n</svg>", "rating": "4.6/5", "text": "out of 1512 reviews"}
+*/
 {
   "sections": {
     "main": {
@@ -101,7 +106,8 @@
         "heading": "Made for more than surface stains.",
         "cta_text": "Want it personalized? Take the 2-min quiz",
         "cta_url": "/pages/personalized-flow"
-      }
+      },
+      "disabled": true
     },
     "strength_comparison_gNykFW": {
       "type": "strength-chart",
@@ -129,7 +135,7 @@
       ],
       "settings": {
         "eyebrow": "Why it works faster",
-        "heading": "Professional strength, made comfortable.",
+        "heading": "3x faster whitening, yet still comfortable.",
         "intro": "Most at-home whitening is too weak to show real results. We use the strength dentists use, balanced with sensitivity blockers so every session stays comfortable.",
         "unit": "mg",
         "axis_max": "120",
@@ -215,7 +221,8 @@
         "heading_quiz": "",
         "eyebrow": "REAL RESULTS FROM REAL SMILES",
         "footnote": "Results vary. Shown with a Subscribe & save plan."
-      }
+      },
+      "disabled": true
     },
     "comparison_table_pdp": {
       "type": "comparison-table",
@@ -358,7 +365,7 @@
       ],
       "name": "Comparison Table",
       "settings": {
-        "heading": "Everything your smile needs, in one treatment.",
+        "heading": "Why Laughland?",
         "ours_label": "laughland",
         "ours_logo_svg": "laughland",
         "footnote": "",
@@ -367,19 +374,6 @@
         "heading_quiz": "",
         "eyebrow": "More than bleaching",
         "ours_logo": ""
-      }
-    },
-    "product-recommendations": {
-      "type": "product-recommendations",
-      "disabled": true,
-      "settings": {
-        "heading": "You may also like",
-        "image_ratio": "adapt",
-        "show_secondary_image": false,
-        "add_image_padding": false,
-        "show_image_outline": true,
-        "show_vendor": false,
-        "show_rating": false
       }
     },
     "ingredients_that_work_N67RbP": {
@@ -618,7 +612,8 @@
         "all_url": "#judgeme_product_reviews",
         "write_text": "Write a review",
         "write_url": "#judgeme_product_reviews"
-      }
+      },
+      "disabled": true
     },
     "our_standards_pdp": {
       "type": "our-standards",
@@ -875,15 +870,6 @@
         "link_text": "Learn More"
       }
     },
-    "9a2e356e-af66-4e8f-99d8-12bc66bd56dd": {
-      "type": "stars",
-      "disabled": true,
-      "settings": {
-        "svg": "<svg width=\"176\" height=\"31\" viewbox=\"0 0 176 31\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M17 0L20.9969 11.4987L33.168 11.7467L23.4672 19.1013L26.9923 30.7533L17 23.8L7.00765 30.7533L10.5328 19.1013L0.832039 11.7467L13.0031 11.4987L17 0Z\" fill=\"#46BDF0\"></path>\n<path d=\"M52.5459 0L56.5428 11.4987L68.7139 11.7467L59.0131 19.1013L62.5382 30.7533L52.5459 23.8L42.5535 30.7533L46.0787 19.1013L36.3779 11.7467L48.549 11.4987L52.5459 0Z\" fill=\"#46BDF0\"></path>\n<path d=\"M88.0908 0L92.0878 11.4987L104.259 11.7467L94.558 19.1013L98.0832 30.7533L88.0908 23.8L78.0985 30.7533L81.6236 19.1013L71.9229 11.7467L84.0939 11.4987L88.0908 0Z\" fill=\"#46BDF0\"></path>\n<path d=\"M123.637 0L127.634 11.4987L139.805 11.7467L130.104 19.1013L133.629 30.7533L123.637 23.8L113.644 30.7533L117.17 19.1013L107.469 11.7467L119.64 11.4987L123.637 0Z\" fill=\"#46BDF0\"></path>\n<path d=\"M159.182 0L163.179 11.4987L175.35 11.7467L165.649 19.1013L169.174 30.7533L159.182 23.8L149.189 30.7533L152.714 19.1013L143.014 11.7467L155.185 11.4987L159.182 0Z\" fill=\"#46BDF0\"></path>\n</svg>",
-        "rating": "4.6/5",
-        "text": "out of 1512 reviews"
-      }
-    },
     "carousel_2_VmRAx9": {
       "type": "carousel_2",
       "blocks": {
@@ -1000,7 +986,7 @@
       ],
       "settings": {
         "eyebrow": "Customer survey",
-        "heading": "Results you can see, and feel good about.",
+        "heading": "Loved by customers. The results show it.",
         "footnote": "Laughland customer survey, n = 918. Individual results vary."
       }
     },
@@ -1044,14 +1030,14 @@
       ],
       "settings": {
         "eyebrow": "What to expect",
-        "heading": "What consistent use looks like."
+        "heading": "What should I expect from consistent use?"
       }
     },
     "dentist_cards_pdp": {
       "type": "dentist-cards",
       "settings": {
         "eyebrow": "Dentist approved",
-        "heading": "Used and loved by dentists.",
+        "heading": "Made by dentists. Loved by dentists.",
         "swipe_hint": "Swipe for more"
       },
       "blocks": {
@@ -1098,7 +1084,7 @@
     "faq_section_pdp": {
       "type": "faq-section",
       "settings": {
-        "section_heading": "Questions, answered.",
+        "section_heading": "Still deciding? We’ve got answers.",
         "section_eyebrow": "FAQ"
       },
       "blocks": {
@@ -1145,33 +1131,130 @@
         "faq_4",
         "faq_5"
       ]
+    },
+    "proof_carousel": {
+      "type": "proof-carousel",
+      "blocks": {
+        "p1": {
+          "type": "proof",
+          "settings": {
+            "before_image": "",
+            "before_label": "Before",
+            "after_image": "",
+            "after_label": "After",
+            "name": "Sophia S.",
+            "headline": "I could tell after one use",
+            "quote": "“After a single use I can actually tell a difference in the color of my teeth.”",
+            "verified": true
+          }
+        },
+        "p2": {
+          "type": "proof",
+          "settings": {
+            "before_image": "",
+            "before_label": "Before",
+            "after_image": "",
+            "after_label": "After",
+            "name": "Lesley C.",
+            "headline": "Strips hurt. This didn’t.",
+            "quote": "“Normally I have excruciating pain with strips… after the first day my teeth look 2 shades whiter.”",
+            "verified": true
+          }
+        },
+        "p3": {
+          "type": "proof",
+          "settings": {
+            "before_image": "",
+            "before_label": "Before",
+            "after_image": "",
+            "after_label": "After",
+            "name": "Bailey W.",
+            "headline": "Two months of refills",
+            "quote": "“I kept going with the refills and the change over two months speaks for itself.”",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "settings": {
+        "heading": "Trusted by 100,000+ people who finally found whitening that works.",
+        "summary": "4.7 out of 5 · Based on {reviews} reviews",
+        "verified_label": "Verified buyer",
+        "all_text": "",
+        "write_text": ""
+      }
+    },
+    "laughland_difference": {
+      "type": "laughland-difference",
+      "blocks": {
+        "d1": {
+          "type": "reason",
+          "settings": {
+            "icon": "target",
+            "title": "4 causes, 1 gel",
+            "sub": "Stains, plaque, thin enamel and sensitivity"
+          }
+        },
+        "d2": {
+          "type": "reason",
+          "settings": {
+            "icon": "bolt",
+            "title": "Professional strength",
+            "sub": "Dentist strength, nearly 3× strips"
+          }
+        },
+        "d3": {
+          "type": "reason",
+          "settings": {
+            "icon": "shield",
+            "title": "Dentist formulated",
+            "sub": "By Dr. TJ Kwon, DMD"
+          }
+        }
+      },
+      "block_order": [
+        "d1",
+        "d2",
+        "d3"
+      ],
+      "settings": {
+        "eyebrow": "Why you'll love it",
+        "heading": "The Laughland ",
+        "heading_highlight": "difference.",
+        "cta_text": "Claim 40% off",
+        "cta_url": ""
+      }
     }
   },
   "order": [
     "main",
+    "proof_carousel",
     "survey_stats",
-    "formula_blends_E38KV6",
     "ingredients_that_work_N67RbP",
     "strength_comparison_gNykFW",
-    "1c8af4c9-5992-4bfb-9d4a-a8e06e025318",
-    "1674168377f629ea2c",
     "what_to_expect_pdp",
-    "transformational_results_ddRMfc",
     "comparison_table_pdp",
     "how_to_steps_bpjbpm",
     "dentist_cards_pdp",
     "our_standards_pdp",
     "faq_section_pdp",
-    "product-recommendations",
+    "1674168377f629ea2c",
+    "laughland_difference",
+    "formula_blends_E38KV6",
+    "transformational_results_ddRMfc",
     "multi_slide_carousel_rc9KtU",
     "6916709c-578f-4b73-afd1-d8e53aa1db15",
+    "1c8af4c9-5992-4bfb-9d4a-a8e06e025318",
     "buy_now_cta_pdp",
     "science_effects_yCEdFb",
     "health_and_safety_7jXKQb",
     "30a71a58-b5ad-472f-9d70-97379fc62b74",
     "d7a83216-e232-4258-9705-5edf54558f0b",
     "a4ec3822-cf26-400b-a01b-564ae2a93dfc",
-    "9a2e356e-af66-4e8f-99d8-12bc66bd56dd",
     "carousel_2_VmRAx9"
   ]
 }
