@@ -1056,7 +1056,13 @@ body:has(.buybox-v2) .our-standards__columns {
   gap: 24px;
 }
 
-body:has(.buybox-v2) .our-standards__rail { order: 1; }
+/*
+  The column already spaces its children by 24px; the heading's own bottom
+  margin and the rail's top margin stacked a third gap on top of that.
+*/
+body:has(.buybox-v2) .our-standards__heading { margin-bottom: 0; }
+
+body:has(.buybox-v2) .our-standards__rail { order: 1; margin-top: 0; }
 body:has(.buybox-v2) .our-standards__main { order: 2; display: contents; }
 body:has(.buybox-v2) .our-standards__image { order: 1; }
 body:has(.buybox-v2) .our-standards__list { order: 2; }
