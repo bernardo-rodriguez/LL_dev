@@ -485,7 +485,7 @@ body:has(.buybox-v2) .kitpick__sub {
   align-items: center;
   gap: 12px;
   padding: 12px 14px;
-  border: 1px solid #b9d3ec;
+  border: 1px dashed #b9d3ec;
   border-radius: 0;
   background: #f7fafd;
   text-align: left;
@@ -1194,6 +1194,11 @@ body:has(.buybox-v2) #main-clickable-button {
   text-transform: uppercase;
 }
 
-body:has(.buybox-v2) .pdp-offer-banner {
+/*
+  The sale banner has moved out of the buy box and into the announcement
+  bar's countdown, so both copies of it come off the page here.
+*/
+body:has(.buybox-v2) .pdp-offer-banner,
+body:has(.buybox-v2) .buybox-v2__promo {
   display: none;
 }
