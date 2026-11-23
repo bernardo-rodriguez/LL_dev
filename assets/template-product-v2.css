@@ -1241,3 +1241,68 @@ body:has(.buybox-v2) skio-plan-picker {
   display: block;
   width: 100%;
 }
+
+/*
+  r6 fills the brand column's ticks with the lime rather than the pale
+  blue, so the one column that answers yes to everything reads at a glance.
+*/
+body:has(.buybox-v2) .comparison-table__cell--ours .comparison-table__mark--yes {
+  background: var(--v2-lime);
+}
+
+/* ---- The price comparison that closes the table ------------------------ */
+
+body:has(.buybox-v2) .comparison-table__price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 14px;
+  border: 1px solid var(--v2-ink);
+}
+
+body:has(.buybox-v2) .comparison-table__price-side {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+body:has(.buybox-v2) .comparison-table__price-side--ours {
+  align-items: flex-end;
+  text-align: right;
+}
+
+body:has(.buybox-v2) .comparison-table__price-label {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10.5px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.84px !important;
+  text-transform: uppercase;
+  color: var(--v2-label);
+}
+
+body:has(.buybox-v2) .comparison-table__price-was {
+  font-family: manrope, 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--v2-label);
+  text-decoration: line-through;
+}
+
+body:has(.buybox-v2) .comparison-table__price-now {
+  padding: 0 6px;
+  background: var(--v2-lime);
+  font-family: manrope, 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--v2-ink);
+}
+
+body:has(.buybox-v2) .comparison-table__price-arrow {
+  flex: 0 0 18px;
+  color: var(--v2-ink);
+}

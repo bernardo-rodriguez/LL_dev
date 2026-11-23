@@ -388,7 +388,11 @@
         "flow_visibility": "all",
         "heading_quiz": "",
         "eyebrow": "More than bleaching",
-        "ours_logo": ""
+        "ours_logo": "",
+        "price_theirs_label": "In-office whitening",
+        "price_theirs": "$500+",
+        "price_ours_label": "Laughland kit",
+        "price_ours": "$39"
       }
     },
     "ingredients_that_work_N67RbP": {
