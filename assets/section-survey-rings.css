@@ -6,7 +6,7 @@
 */
 
 .survey-rings {
-  background: #f4f6f8;
+  background: var(--v2-band, #ffffff);
 }
 
 .survey-rings__inner {

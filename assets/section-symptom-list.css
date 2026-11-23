@@ -6,7 +6,7 @@
 */
 
 .symptom-list {
-  background: #ffffff;
+  background: var(--v2-band, #ffffff);
 }
 
 .symptom-list__inner {
@@ -65,7 +65,7 @@
   width: 64px;
   height: 64px;
   overflow: hidden;
-  background: #f4f6f8;
+  background: var(--v2-band, #ffffff);
 }
 
 .symptom-list__thumb img {

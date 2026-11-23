@@ -5,7 +5,7 @@
 */
 
 .review-cards {
-  background: #f4f6f8;
+  background: var(--v2-band, #ffffff);
 }
 
 .review-cards__inner {
@@ -58,7 +58,7 @@
   flex-direction: column;
   border: 1px solid #d8e0e8;
   border-radius: 0;
-  background: #ffffff;
+  background: var(--v2-band, #ffffff);
 }
 
 .review-cards__photo {

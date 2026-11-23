@@ -6,7 +6,7 @@
 */
 
 .expect-timeline {
-  background: #ffffff;
+  background: var(--v2-band, #ffffff);
 }
 
 .expect-timeline__inner {
