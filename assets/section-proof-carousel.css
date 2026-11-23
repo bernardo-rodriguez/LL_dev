@@ -242,3 +242,16 @@
   .proof-carousel__dot { transition: none; }
   .proof-carousel__track { scroll-behavior: auto; }
 }
+
+/*
+  A flat highlight rather than the marker-pen gradient the closing band
+  uses: this one runs over three lines, and box-decoration-break keeps the
+  padding on each of them instead of only the first and last.
+*/
+.proof-carousel__mark {
+  padding: 0 6px;
+  background-color: #ddf568;
+  color: #0d244c;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}

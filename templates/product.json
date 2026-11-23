@@ -6,12 +6,7 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
-
-  Dropped to stay under Shopify's 25-section cap, both already disabled
-  and carrying no blocks:
-    product-recommendations (product-recommendations): {"heading": "You may also like", "image_ratio": "adapt", "show_secondary_image": false, "add_image_padding": false, "show_image_outline": true, "show_vendor": false, "show_rating": false}
-    9a2e356e-af66-4e8f-99d8-12bc66bd56dd (stars): {"svg": "<svg width=\"176\" height=\"31\" viewbox=\"0 0 176 31\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M17 0L20.9969 11.4987L33.168 11.7467L23.4672 19.1013L26.9923 30.7533L17 23.8L7.00765 30.7533L10.5328 19.1013L0.832039 11.7467L13.0031 11.4987L17 0Z\" fill=\"#46BDF0\"></path>\n<path d=\"M52.5459 0L56.5428 11.4987L68.7139 11.7467L59.0131 19.1013L62.5382 30.7533L52.5459 23.8L42.5535 30.7533L46.0787 19.1013L36.3779 11.7467L48.549 11.4987L52.5459 0Z\" fill=\"#46BDF0\"></path>\n<path d=\"M88.0908 0L92.0878 11.4987L104.259 11.7467L94.558 19.1013L98.0832 30.7533L88.0908 23.8L78.0985 30.7533L81.6236 19.1013L71.9229 11.7467L84.0939 11.4987L88.0908 0Z\" fill=\"#46BDF0\"></path>\n<path d=\"M123.637 0L127.634 11.4987L139.805 11.7467L130.104 19.1013L133.629 30.7533L123.637 23.8L113.644 30.7533L117.17 19.1013L107.469 11.7467L119.64 11.4987L123.637 0Z\" fill=\"#46BDF0\"></path>\n<path d=\"M159.182 0L163.179 11.4987L175.35 11.7467L165.649 19.1013L169.174 30.7533L159.182 23.8L149.189 30.7533L152.714 19.1013L143.014 11.7467L155.185 11.4987L159.182 0Z\" fill=\"#46BDF0\"></path>\n</svg>", "rating": "4.6/5", "text": "out of 1512 reviews"}
-*/
+ */
 {
   "sections": {
     "main": {
@@ -36,6 +31,7 @@
         "offer_text": "LIMITED TIME OFFER: 30% OFF YOUR FIRST ORDER + FREE WHITENING PEN",
         "show_offer_banner": false,
         "show_formula_line": false,
+        "use_v6_picker": true,
         "plan_label": "",
         "plan_ribbon": "Save 40%",
         "plan_sub_title": "Subscribe & save",
@@ -50,11 +46,10 @@
         "plan_benefit_2_sub": "Every order",
         "plan_benefit_3": "Free whitening pen",
         "plan_benefit_3_sub": "($30 value)",
-        "gallery_caption": "Blue light + 3 custom gels",
-        "gallery_labels": "Kit, Box, Results, How to",
-        "use_v6_picker": true,
         "use_v4_gallery": true,
         "gallery_thumbs_across": 5,
+        "gallery_caption": "Blue light + 3 custom gels",
+        "gallery_labels": "Kit, Box, Results, How to",
         "use_v2_buybox": true,
         "v2_handles": "at-home-whitening-kit"
       }
@@ -101,13 +96,13 @@
         "sym3",
         "sym4"
       ],
+      "disabled": true,
       "settings": {
         "eyebrow": "Is this right for me?",
         "heading": "Made for more than surface stains.",
         "cta_text": "Want it personalized? Take the 2-min quiz",
         "cta_url": "/pages/personalized-flow"
-      },
-      "disabled": true
+      }
     },
     "strength_comparison_gNykFW": {
       "type": "strength-chart",
@@ -213,16 +208,16 @@
         "stat_WDyFBB",
         "stat_jx3cyR"
       ],
+      "disabled": true,
       "name": "Transformational Results",
       "settings": {
+        "footnote": "Results vary. Shown with a Subscribe & save plan.",
+        "eyebrow": "REAL RESULTS FROM REAL SMILES",
         "heading": "Over 100,000 brighter smiles.",
         "show_stats": false,
         "flow_visibility": "all",
-        "heading_quiz": "",
-        "eyebrow": "REAL RESULTS FROM REAL SMILES",
-        "footnote": "Results vary. Shown with a Subscribe & save plan."
-      },
-      "disabled": true
+        "heading_quiz": ""
+      }
     },
     "comparison_table_pdp": {
       "type": "comparison-table",
@@ -365,15 +360,15 @@
       ],
       "name": "Comparison Table",
       "settings": {
+        "eyebrow": "More than bleaching",
         "heading": "Why Laughland?",
         "ours_label": "laughland",
         "ours_logo_svg": "laughland",
+        "ours_logo": "",
         "footnote": "",
         "margin_bottom": false,
         "flow_visibility": "all",
-        "heading_quiz": "",
-        "eyebrow": "More than bleaching",
-        "ours_logo": ""
+        "heading_quiz": ""
       }
     },
     "ingredients_that_work_N67RbP": {
@@ -428,10 +423,10 @@
         "intro": "Strips for stains, hydroxyapatite toothpaste for enamel, a deep clean for plaque. Normally that's three products. Ours does it all in one treatment.",
         "image": "",
         "hint": "Tap a box to see the ingredients",
+        "formulator_image": "",
         "formulator_eyebrow": "Formulated by",
         "formulator_signature": "TJ Kwon",
-        "formulator_name": "Dr. TJ Kwon, DMD",
-        "formulator_image": ""
+        "formulator_name": "Dr. TJ Kwon, DMD"
       }
     },
     "how_to_steps_bpjbpm": {
@@ -511,8 +506,8 @@
         "slide_C7CWMk",
         "slide_ArCbGL"
       ],
-      "settings": {},
-      "disabled": true
+      "disabled": true,
+      "settings": {}
     },
     "6916709c-578f-4b73-afd1-d8e53aa1db15": {
       "type": "carousel",
@@ -604,6 +599,7 @@
         "r1",
         "r2"
       ],
+      "disabled": true,
       "settings": {
         "heading": "What customers are saying.",
         "summary": "4.7 out of 5 · Based on {reviews} reviews",
@@ -612,8 +608,7 @@
         "all_url": "#judgeme_product_reviews",
         "write_text": "Write a review",
         "write_url": "#judgeme_product_reviews"
-      },
-      "disabled": true
+      }
     },
     "our_standards_pdp": {
       "type": "our-standards",
@@ -654,13 +649,13 @@
     },
     "buy_now_cta_pdp": {
       "type": "buy-now-cta",
+      "disabled": true,
       "settings": {
         "button_label": "Buy now",
         "scroll_target": "top",
         "margin_bottom": false,
         "flow_visibility": "all"
-      },
-      "disabled": true
+      }
     },
     "science_effects_yCEdFb": {
       "type": "science-effects",
@@ -928,8 +923,8 @@
         "slide_HF6HP8",
         "slide_zWjdBa"
       ],
-      "settings": {},
-      "disabled": true
+      "disabled": true,
+      "settings": {}
     },
     "1674168377f629ea2c": {
       "type": "apps",
@@ -1035,11 +1030,6 @@
     },
     "dentist_cards_pdp": {
       "type": "dentist-cards",
-      "settings": {
-        "eyebrow": "Dentist approved",
-        "heading": "Made by dentists. Loved by dentists.",
-        "swipe_hint": "Swipe for more"
-      },
       "blocks": {
         "dentist_1": {
           "type": "dentist",
@@ -1079,14 +1069,15 @@
         "dentist_1",
         "dentist_2",
         "dentist_3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Dentist approved",
+        "heading": "Made by dentists. Loved by dentists.",
+        "swipe_hint": "Swipe for more"
+      }
     },
     "faq_section_pdp": {
       "type": "faq-section",
-      "settings": {
-        "section_heading": "Still deciding? We’ve got answers.",
-        "section_eyebrow": "FAQ"
-      },
       "blocks": {
         "faq_1": {
           "type": "faq",
@@ -1130,7 +1121,11 @@
         "faq_3",
         "faq_4",
         "faq_5"
-      ]
+      ],
+      "settings": {
+        "section_eyebrow": "FAQ",
+        "section_heading": "Still deciding? We’ve got answers."
+      }
     },
     "proof_carousel": {
       "type": "proof-carousel",
@@ -1139,11 +1134,11 @@
           "type": "proof",
           "settings": {
             "before_image": "",
-            "before_label": "Before",
+            "before_label": "Month 0",
             "after_image": "",
-            "after_label": "After",
-            "name": "Sophia S.",
-            "headline": "I could tell after one use",
+            "after_label": "Month 2",
+            "name": "[Customer name]",
+            "headline": "Two months of refills",
             "quote": "“After a single use I can actually tell a difference in the color of my teeth.”",
             "verified": true
           }
@@ -1181,7 +1176,7 @@
         "p3"
       ],
       "settings": {
-        "heading": "Trusted by 100,000+ people who finally found whitening that works.",
+        "heading": "Trusted by 100,000+ people who ",
         "summary": "4.7 out of 5 · Based on {reviews} reviews",
         "verified_label": "Verified buyer",
         "all_text": "",
