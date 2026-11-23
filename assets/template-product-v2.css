@@ -1204,7 +1204,13 @@ body:has(.buybox-v2) .buybox-v2__promo {
    the kit rows above.
    ------------------------------------------------------------------------ */
 
+/*
+  The theme widens this row past its column by 20px; on the artboard the
+  button lines up with the kit rows above it.
+*/
 body:has(.buybox-v2) .pdp-product-options__row:not(.treatment-quantity-selector) {
+  width: 100%;
+  max-width: 100%;
   padding-left: 0;
   padding-right: 0;
   margin-left: 0;
