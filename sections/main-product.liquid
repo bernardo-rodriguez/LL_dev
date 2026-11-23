@@ -637,10 +637,18 @@ xhttp.send();
                     </svg>
                   </div>
 
-              {% if v2_here %}
-                {% render 'pdp-buybox-v2-foot', section: section %}
-              {% endif %}
                 </button>
+
+                {%- comment -%}
+                  The shipping line and the guarantee sit under the button,
+                  not inside it. Nested in the button they inherited its
+                  state, and the theme hides that button whenever Skio
+                  supplies its own add-to-cart — which took the whole foot
+                  off the page with it.
+                {%- endcomment -%}
+                {% if v2_here %}
+                  {% render 'pdp-buybox-v2-foot', section: section %}
+                {% endif %}
 
                 {% if block.settings.show_dynamic_checkout %}
                   {{ form | payment_button }}

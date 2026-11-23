@@ -531,17 +531,11 @@ body:has(.buybox-v2) .kitpick__sub-note {
 }
 
 /*
-  Skio's own picker is what the checkbox above drives, so it is taken off
-  screen rather than removed — the form still posts through it.
+  Skio's picker carries the real add-to-cart button, so it stays on the
+  page. Only its plan rows are hidden — and those live in its shadow root,
+  so that is done from the stylesheet the plan-picker snippet injects in
+  there, not from here.
 */
-body:has(.buybox-v2) skio-plan-picker {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-}
 
 /* ---- Gallery -----------------------------------------------------------
    The personalized page insets the frame 20px either side. The v2 artboard
