@@ -1535,6 +1535,27 @@ xhttp.send();
     },
     {
       "type": "text",
+      "id": "delivery_days",
+      "label": "Delivery lead time (days)",
+      "default": "3",
+      "info": "Used by {delivery} in the shipping line."
+    },
+    {
+      "type": "text",
+      "id": "delivery_format",
+      "label": "Delivery date format",
+      "default": "%b %-d",
+      "info": "Ruby strftime, e.g. %b %-d gives \"Nov 26\"."
+    },
+    {
+      "type": "textarea",
+      "id": "kit_12_gifts",
+      "label": "Large kit extras",
+      "default": "+ FREE whitening pen | $30\n+ FREE shipping | $5",
+      "info": "One per line, written as  Label | struck price"
+    },
+    {
+      "type": "text",
       "id": "guarantee_title",
       "label": "Guarantee title",
       "default": "30-day money-back guarantee"

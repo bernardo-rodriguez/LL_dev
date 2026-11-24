@@ -3,7 +3,16 @@
   the money-back guarantee. Each renders only when filled.
 {%- endcomment -%}
 {%- if section.settings.ships_note != blank -%}
-  <p class="buybox-v2__ships">{{ section.settings.ships_note }}</p>
+  {%- comment -%}
+    {delivery} is replaced with a real date — today plus however many days
+    the section is set to — so the line never shows a placeholder or a date
+    that has quietly gone stale.
+  {%- endcomment -%}
+  {%- assign lead_days = section.settings.delivery_days | default: 3 | times: 1 -%}
+  {%- assign lead_seconds = lead_days | times: 86400 -%}
+  {%- assign delivery_on = 'now' | date: '%s' | plus: lead_seconds | date: section.settings.delivery_format | default: '%b %-d' -%}
+  {%- assign delivery_token = '{' | append: 'delivery' | append: '}' -%}
+  <p class="buybox-v2__ships">{{ section.settings.ships_note | replace: delivery_token, delivery_on }}</p>
 {%- endif -%}
 
 {%- if section.settings.guarantee_title != blank -%}
