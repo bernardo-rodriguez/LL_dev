@@ -1576,11 +1576,11 @@ body:has(.buybox-v2) .kitpick input:checked + .kitpick__opt {
 }
 
 /* ---- The dentists get a margin before the blue band ------------------
-   The row's bottom padding was taken to zero in the last pass to close
-   the gap under the heading; that also pulled the next section up against
-   the cards.
+   The heading's wrapper lost its bottom padding in the last pass to close
+   the gap under the title, but the card row sits outside that wrapper and
+   ends the section flush against the blue band below it.
    ------------------------------------------------------------------------ */
 
-body:has(.buybox-v2) .dentist-cards__inner {
-  padding-bottom: 28px;
+body:has(.buybox-v2) .dentist-cards__row {
+  margin-bottom: 28px;
 }
