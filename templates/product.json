@@ -52,6 +52,10 @@
         "gallery_labels": "Kit, Box, Results, How to",
         "use_v2_buybox": true,
         "kit_label": "Choose your kit:",
+        "kit_6_title": "6 treatments",
+        "kit_6_sub": "2-month supply",
+        "kit_12_title": "12 treatments",
+        "kit_12_sub": "4-month supply",
         "kit_badge": "Best value",
         "kit_6_save": "Save 40%",
         "kit_6_price": "$39",
@@ -63,60 +67,177 @@
         "sub_title": "Save 40% with automatic refills",
         "sub_note": "No commitment · Cancel anytime · Refills 60 days",
         "v2_handles": "at-home-whitening-kit",
+        "proof_initials": "K, S, L",
+        "proof_lead": "Kailey",
+        "proof_text": "and 100,000+ others love their brighter smile",
+        "rating_line": "4.7/5 ({reviews} reviews)",
         "claims": "Dentist-strength formula|, 3× typical strips\nWhiter in 6 uses|: 97% saw a visible difference\n99% of customers| felt no extra sensitivity",
+        "promo_label": "Anniversary sale · 40% off",
+        "promo_sub": "Our biggest sale of the year",
+        "promo_deadline": "",
         "ships_note": "Delivery by [date +3 days] · Free shipping",
         "guarantee_title": "30-day money-back guarantee",
         "guarantee_text": "If you don't see noticeably whiter teeth, you'll get your money back."
       }
     },
-    "formula_blends_E38KV6": {
-      "type": "symptom-list",
+    "proof_carousel": {
+      "type": "proof-carousel",
       "blocks": {
-        "sym1": {
-          "type": "symptom",
+        "p1": {
+          "type": "proof",
           "settings": {
-            "image": "shopify://shop_images/Screenshot_2026-09-09_at_6.25.02_PM.png",
-            "name": "Coffee, tea or wine stains",
-            "summary": "Pigment settles inside enamel. Our peroxide lifts it from within."
+            "before_label": "Month 0",
+            "after_label": "Month 2",
+            "name": "[Customer name]",
+            "headline": "Two months of refills",
+            "quote": "“[Customer quote about their results.]”",
+            "verified": true
           }
         },
-        "sym2": {
-          "type": "symptom",
+        "p2": {
+          "type": "proof",
           "settings": {
-            "image": "shopify://shop_images/Screenshot_2026-09-09_at_6.24.43_PM.png",
-            "name": "Dull, filmy teeth",
-            "summary": "A plaque film scatters light. We clear it so teeth look glossy again."
+            "before_label": "Before",
+            "after_label": "After",
+            "name": "Sophia S.",
+            "headline": "I could tell after one use",
+            "quote": "“After a single use I can actually tell a difference in the color of my teeth.”",
+            "verified": true
           }
         },
-        "sym3": {
-          "type": "symptom",
+        "p3": {
+          "type": "proof",
           "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_975skw975skw975s_1334a040-d856-4c20-ad8a-353a6cbbe604.jpg",
-            "name": "See-through edges",
-            "summary": "Thin enamel lets the yellow layer show. Hydroxyapatite strengthens it."
+            "before_label": "Before",
+            "after_label": "After",
+            "name": "Lesley C.",
+            "headline": "Strips hurt. This didn’t.",
+            "quote": "“Normally I have excruciating pain with strips… after the first day my teeth look 2 shades whiter.”",
+            "verified": true
           }
         },
-        "sym4": {
-          "type": "symptom",
+        "p4": {
+          "type": "proof",
           "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_terzrrterzrrterz_554a6ecc-f365-488b-b304-7637df9afe0a.jpg",
-            "name": "Teeth that feel sensitive",
-            "summary": "Built-in blockers keep every session comfortable."
+            "before_label": "[Customer video, 15–30s]",
+            "after_label": "",
+            "name": "[Name]",
+            "headline": "",
+            "quote": "",
+            "verified": true
           }
         }
       },
       "block_order": [
-        "sym1",
-        "sym2",
-        "sym3",
-        "sym4"
+        "p1",
+        "p2",
+        "p3",
+        "p4"
       ],
-      "disabled": true,
       "settings": {
-        "eyebrow": "Is this right for me?",
-        "heading": "Made for more than surface stains.",
-        "cta_text": "Want it personalized? Take the 2-min quiz",
-        "cta_url": "/pages/personalized-flow"
+        "heading": "Trusted by 100,000+ people who",
+        "heading_highlight": "finally found whitening that works.",
+        "summary": "4.7 out of 5 · Based on {reviews} reviews",
+        "verified_label": "Verified buyer",
+        "all_text": "",
+        "all_url": "",
+        "write_text": "",
+        "write_url": ""
+      }
+    },
+    "survey_stats": {
+      "type": "survey-rings",
+      "blocks": {
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "value": "97%",
+            "scale": "100",
+            "text": "saw whiter teeth after 6 uses"
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "value": "99%",
+            "scale": "100",
+            "text": "reported zero increased sensitivity"
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "value": "4.7★",
+            "scale": "5",
+            "text": "average rating from {reviews} reviews"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "settings": {
+        "eyebrow": "Customer survey",
+        "heading": "Loved by customers. The results show it.",
+        "footnote": "Laughland customer survey, n = 918."
+      }
+    },
+    "ingredients_that_work_N67RbP": {
+      "type": "formula-jobs",
+      "blocks": {
+        "job1": {
+          "type": "job",
+          "settings": {
+            "number": "01",
+            "name": "Lifts Years of Stains",
+            "benefits": "Pharma-grade peroxide",
+            "ingredients": "Hydrogen peroxide | Lifts deep stains inside enamel and dentin.\nSodium bicarbonate | Lifts surface stains from coffee, tea and wine."
+          }
+        },
+        "job2": {
+          "type": "job",
+          "settings": {
+            "number": "02",
+            "name": "Healthier & Brighter Enamel",
+            "benefits": "Nano-hydroxyapatite",
+            "ingredients": "Nano-hydroxyapatite | Remineralizes thin spots so edges look less see-through."
+          }
+        },
+        "job3": {
+          "type": "job",
+          "settings": {
+            "number": "03",
+            "name": "Plaque Control",
+            "benefits": "Coconut oil + enzymes",
+            "ingredients": "Coconut oil | Loosens the sticky film that makes teeth look dull.\nSodium chloride | Helps clear plaque buildup."
+          }
+        },
+        "job4": {
+          "type": "job",
+          "settings": {
+            "number": "04",
+            "name": "Sensitivity + Gum Care",
+            "benefits": "Hydroxyapatite + Aloe",
+            "ingredients": "Hydroxyapatite | Seals exposed spots that cause sensitivity.\nAloe vera | Soothes gums during treatment."
+          }
+        }
+      },
+      "block_order": [
+        "job1",
+        "job2",
+        "job3",
+        "job4"
+      ],
+      "settings": {
+        "eyebrow": "What's in your formula",
+        "heading": "Four jobs. One gel.",
+        "intro": "<p>Strips for stains, hydroxyapatite toothpaste for enamel, daily oil pulling for plaque. Normally That’s three products and a lot of effort.</p><p>Ours does it all in <strong>one gel,</strong> in 20 minutes a day.</p>",
+        "hint": "",
+        "formulator_eyebrow": "Formulated by",
+        "formulator_signature": "TJ Kwon",
+        "formulator_name": "Dr. TJ Kwon, DMD"
       }
     },
     "strength_comparison_gNykFW": {
@@ -127,7 +248,7 @@
           "settings": {
             "icon": "flask",
             "title": "Pharmaceutical-grade peroxide",
-            "body": "99% purity, with fewer impurities to irritate teeth."
+            "body": "99% pure peroxide that whitens deep stains without stressing enamel."
           }
         },
         "c2": {
@@ -135,7 +256,7 @@
           "settings": {
             "icon": "shield",
             "title": "Sensitivity blockers",
-            "body": "Hydroxyapatite, glycerin and aloe vera keep every session calm."
+            "body": "Hydroxyapatite, glycerin, and aloe vera shield nerves and soothe gums."
           }
         }
       },
@@ -145,7 +266,7 @@
       ],
       "settings": {
         "eyebrow": "Why it works faster",
-        "heading": "3x faster whitening, yet still comfortable.",
+        "heading": "Dentist-strength whitening. Zero sensitivity.",
         "intro": "Most at-home whitening skimps out on whitening actives - leading to slow, small results. We use the ingredients & strength dentists use, balanced with sensitivity blockers so every session stays comfortable.",
         "unit": "mg",
         "axis_max": "120",
@@ -166,72 +287,47 @@
         "banner_note": "Customer survey, n = 918"
       }
     },
-    "transformational_results_ddRMfc": {
-      "type": "transformational-results",
+    "what_to_expect_pdp": {
+      "type": "expect-timeline",
       "blocks": {
-        "profile_8JMmJK": {
-          "type": "profile",
+        "st1": {
+          "type": "stage",
           "settings": {
-            "person_name": "BAILEY W.",
-            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_7.png",
-            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_8.png"
+            "label": "First treatment",
+            "text": "Teeth look cleaner and brighter as surface stains and the dulling film lift."
           }
         },
-        "profile_bbgBRd": {
-          "type": "profile",
+        "st2": {
+          "type": "stage",
           "settings": {
-            "person_name": "SOPHIA T.",
-            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_5.png",
-            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_6.png"
+            "label": "6 treatments",
+            "text": "Visibly whiter. 97% of customers saw whiter teeth as deep stains lift from inside the enamel."
           }
         },
-        "profile_TyzdzQ": {
-          "type": "profile",
+        "st3": {
+          "type": "stage",
           "settings": {
-            "person_name": "NEELAM S.",
-            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
-            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png"
+            "label": "12 treatments",
+            "text": "Your brightest smile yet, or your money back."
           }
         },
-        "stat_ETKGJE": {
-          "type": "stat",
+        "st4": {
+          "type": "stage",
           "settings": {
-            "percent": "100%",
-            "text": "100% of clinical trial participants reported whiter teeth after 6 treatments"
-          }
-        },
-        "stat_WDyFBB": {
-          "type": "stat",
-          "settings": {
-            "percent": "74%",
-            "text": "Clinical trial participants reported, on average, a 74% whiter teeth shade"
-          }
-        },
-        "stat_jx3cyR": {
-          "type": "stat",
-          "settings": {
-            "percent": "0%",
-            "text": "0% of clinical trial participants reported an increase in sensitivity after whitening"
+            "label": "Every few months",
+            "text": "A quick touch-up keeps coffee and tea stains from settling back in."
           }
         }
       },
       "block_order": [
-        "profile_8JMmJK",
-        "profile_bbgBRd",
-        "profile_TyzdzQ",
-        "stat_ETKGJE",
-        "stat_WDyFBB",
-        "stat_jx3cyR"
+        "st1",
+        "st2",
+        "st3",
+        "st4"
       ],
-      "disabled": true,
-      "name": "Transformational Results",
       "settings": {
-        "footnote": "Results vary. Shown with a Subscribe & save plan.",
-        "eyebrow": "REAL RESULTS FROM REAL SMILES",
-        "heading": "Over 100,000 brighter smiles.",
-        "show_stats": false,
-        "flow_visibility": "all",
-        "heading_quiz": ""
+        "eyebrow": "What to expect",
+        "heading": "What should I expect from consistent use?"
       }
     },
     "comparison_table_pdp": {
@@ -379,7 +475,6 @@
         "heading": "Why Laughland?",
         "ours_label": "laughland",
         "ours_logo_svg": "",
-        "ours_logo": "",
         "footnote": "",
         "margin_bottom": false,
         "flow_visibility": "all",
@@ -388,64 +483,6 @@
         "price_theirs": "$500+",
         "price_ours_label": "Laughland kit",
         "price_ours": "$39"
-      }
-    },
-    "ingredients_that_work_N67RbP": {
-      "type": "formula-jobs",
-      "blocks": {
-        "job1": {
-          "type": "job",
-          "settings": {
-            "number": "01",
-            "name": "Lifts Years of Stains",
-            "benefits": "Pharma-grade peroxide",
-            "ingredients": "Hydrogen peroxide | Lifts deep stains inside enamel and dentin.\nSodium bicarbonate | Lifts surface stains from coffee, tea and wine."
-          }
-        },
-        "job2": {
-          "type": "job",
-          "settings": {
-            "number": "02",
-            "name": "Healthier & Brighter Enamel",
-            "benefits": "Nano-hydroxyapatite",
-            "ingredients": "Nano-hydroxyapatite | Remineralizes thin spots so edges look less see-through."
-          }
-        },
-        "job3": {
-          "type": "job",
-          "settings": {
-            "number": "03",
-            "name": "Plaque Control",
-            "benefits": "Coconut oil + enzymes",
-            "ingredients": "Coconut oil | Loosens the sticky film that makes teeth look dull.\nSodium chloride | Helps clear plaque buildup."
-          }
-        },
-        "job4": {
-          "type": "job",
-          "settings": {
-            "number": "04",
-            "name": "Sensitivity + Gum Care",
-            "benefits": "Hydroxyapatite + Aloe",
-            "ingredients": "Hydroxyapatite | Seals exposed spots that cause sensitivity.\nAloe vera | Soothes gums during treatment."
-          }
-        }
-      },
-      "block_order": [
-        "job1",
-        "job2",
-        "job3",
-        "job4"
-      ],
-      "settings": {
-        "eyebrow": "What's in your formula",
-        "heading": "Four jobs. One gel.",
-        "intro": "<p>Strips for stains, hydroxyapatite toothpaste for enamel, daily oil pulling for plaque. Normally That’s three products and a lot of effort.</p><p>Ours does it all in <strong>one gel,</strong> in 20 minutes a day.</p>",
-        "image": "",
-        "hint": "",
-        "formulator_image": "",
-        "formulator_eyebrow": "Formulated by",
-        "formulator_signature": "TJ Kwon",
-        "formulator_name": "Dr. TJ Kwon, DMD"
       }
     },
     "how_to_steps_bpjbpm": {
@@ -487,6 +524,324 @@
         "media_position": "left",
         "margin_bottom": false,
         "flow_visibility": "all"
+      }
+    },
+    "dentist_cards_pdp": {
+      "type": "dentist-cards",
+      "blocks": {
+        "dentist_1": {
+          "type": "dentist",
+          "settings": {
+            "image": "shopify://shop_images/cara-hodgson2021_2.webp",
+            "name": "Dr. Cara Hodgson, DDS",
+            "practice": "UCLA School of Dentistry",
+            "tag": "Recommends to patients",
+            "quote": "“It’s the next best thing to in office treatment and it’s how I keep my smile bright and shiny. Their obsession with quality won my trust.”",
+            "disclosure": ""
+          }
+        },
+        "dentist_2": {
+          "type": "dentist",
+          "settings": {
+            "image": "shopify://shop_images/Dr_Ron_Ayzin_1_c3c539fc-cc1f-446a-b6d5-1ebae997b5c7.png",
+            "name": "Dr. Ron Ayzin, DDS",
+            "practice": "Faculty Instructor, UCLA Dentistry",
+            "tag": "Recommends to patients",
+            "quote": "“When patients ask me what the best way to whiten at home is, my answer is Laughland. I wouldn’t recommend anything I wouldn’t use myself and I’ve noticed a visible difference since using Laughland”",
+            "disclosure": ""
+          }
+        },
+        "dentist_3": {
+          "type": "dentist",
+          "settings": {
+            "image": "shopify://shop_images/drkyra.png",
+            "name": "Dr. Kyra Jimenez, DDS",
+            "practice": "President, NSU Dental Cosmetic Society",
+            "tag": "Recommends to patients",
+            "quote": "“It’s important to find whitening that works and keeps things simple. Laughland does exactly that.”",
+            "disclosure": ""
+          }
+        }
+      },
+      "block_order": [
+        "dentist_1",
+        "dentist_2",
+        "dentist_3"
+      ],
+      "settings": {
+        "eyebrow": "Dentist approved",
+        "heading": "Made by dentists. Loved by dentists.",
+        "swipe_hint": "Swipe for more",
+        "margin_bottom": false,
+        "flow_visibility": "all"
+      }
+    },
+    "our_standards_pdp": {
+      "type": "our-standards",
+      "blocks": {
+        "standard_1": {
+          "type": "standard",
+          "settings": {
+            "title": "Pharmaceutical-grade ingredients for higher purity and performance"
+          }
+        },
+        "standard_2": {
+          "type": "standard",
+          "settings": {
+            "title": "Made in FDA-registered facilities following ISO standards"
+          }
+        },
+        "standard_3": {
+          "type": "standard",
+          "settings": {
+            "title": "Designed by dentists and clinically tested for efficacy"
+          }
+        }
+      },
+      "block_order": [
+        "standard_1",
+        "standard_2",
+        "standard_3"
+      ],
+      "name": "Our Standards",
+      "settings": {
+        "eyebrow": "Higher standards",
+        "heading": "If it touches your smile, quality matters.",
+        "image": "shopify://shop_images/scientist-in-lab-with-pipette.jpg",
+        "top_border": false,
+        "margin_bottom": false,
+        "flow_visibility": "all"
+      }
+    },
+    "faq_section_pdp": {
+      "type": "faq-section",
+      "blocks": {
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "title": "Will it make my teeth sensitive?",
+            "sub_title": "<p>Every gel has sensitivity blockers (hydroxyapatite and aloe vera). In our survey, 99% of customers reported zero increased sensitivity.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "title": "Is it safe for my enamel?",
+            "sub_title": "<p>Yes. It’s formulated by Dr. TJ Kwon, DMD, and includes nano-hydroxyapatite, which strengthens enamel while you whiten.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "title": "How long do results last?",
+            "sub_title": "<p>A refill every 60 days keeps new stains from setting in.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "title": "Does it work on crowns or veneers?",
+            "sub_title": "<p>Whitening works on natural teeth. Crowns, veneers and fillings keep their current shade.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I cancel my subscription?",
+            "sub_title": "<p>Anytime from your account before your next ship date. No fees, no calls.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5"
+      ],
+      "settings": {
+        "section_eyebrow": "FAQ",
+        "section_heading": "Still deciding? We’ve got answers.",
+        "section_sub_heading": ""
+      }
+    },
+    "1674168377f629ea2c": {
+      "type": "apps",
+      "blocks": {
+        "7a7484a7-a212-4abe-9cc8-8965128c84fd": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "7a7484a7-a212-4abe-9cc8-8965128c84fd"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "laughland_difference": {
+      "type": "laughland-difference",
+      "blocks": {
+        "d1": {
+          "type": "reason",
+          "settings": {
+            "icon": "target",
+            "title": "4 causes, 1 gel",
+            "sub": "Stains, plaque, thin enamel and sensitivity"
+          }
+        },
+        "d2": {
+          "type": "reason",
+          "settings": {
+            "icon": "bolt",
+            "title": "Professional strength",
+            "sub": "Dentist strength, nearly 3× strips"
+          }
+        },
+        "d3": {
+          "type": "reason",
+          "settings": {
+            "icon": "shield",
+            "title": "Dentist formulated",
+            "sub": "By Dr. TJ Kwon, DMD"
+          }
+        }
+      },
+      "block_order": [
+        "d1",
+        "d2",
+        "d3"
+      ],
+      "settings": {
+        "eyebrow": "Why you'll love it",
+        "heading": "The Laughland",
+        "heading_highlight": "difference.",
+        "cta_text": "Claim 40% off",
+        "cta_url": ""
+      }
+    },
+    "formula_blends_E38KV6": {
+      "type": "symptom-list",
+      "blocks": {
+        "sym1": {
+          "type": "symptom",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-09-09_at_6.25.02_PM.png",
+            "name": "Coffee, tea or wine stains",
+            "summary": "Pigment settles inside enamel. Our peroxide lifts it from within."
+          }
+        },
+        "sym2": {
+          "type": "symptom",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-09-09_at_6.24.43_PM.png",
+            "name": "Dull, filmy teeth",
+            "summary": "A plaque film scatters light. We clear it so teeth look glossy again."
+          }
+        },
+        "sym3": {
+          "type": "symptom",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_975skw975skw975s_1334a040-d856-4c20-ad8a-353a6cbbe604.jpg",
+            "name": "See-through edges",
+            "summary": "Thin enamel lets the yellow layer show. Hydroxyapatite strengthens it."
+          }
+        },
+        "sym4": {
+          "type": "symptom",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_terzrrterzrrterz_554a6ecc-f365-488b-b304-7637df9afe0a.jpg",
+            "name": "Teeth that feel sensitive",
+            "summary": "Built-in blockers keep every session comfortable."
+          }
+        }
+      },
+      "block_order": [
+        "sym1",
+        "sym2",
+        "sym3",
+        "sym4"
+      ],
+      "disabled": true,
+      "settings": {
+        "eyebrow": "Is this right for me?",
+        "heading": "Made for more than surface stains.",
+        "cta_text": "Want it personalized? Take the 2-min quiz",
+        "cta_url": "/pages/personalized-flow"
+      }
+    },
+    "transformational_results_ddRMfc": {
+      "type": "transformational-results",
+      "blocks": {
+        "profile_8JMmJK": {
+          "type": "profile",
+          "settings": {
+            "person_name": "BAILEY W.",
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_7.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_8.png"
+          }
+        },
+        "profile_bbgBRd": {
+          "type": "profile",
+          "settings": {
+            "person_name": "SOPHIA T.",
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_5.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_6.png"
+          }
+        },
+        "profile_TyzdzQ": {
+          "type": "profile",
+          "settings": {
+            "person_name": "NEELAM S.",
+            "image_before": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_3.png",
+            "image_after": "shopify://shop_images/LANDING_PAGE_TRANSFORMATION_4.png"
+          }
+        },
+        "stat_ETKGJE": {
+          "type": "stat",
+          "settings": {
+            "percent": "100%",
+            "text": "100% of clinical trial participants reported whiter teeth after 6 treatments"
+          }
+        },
+        "stat_WDyFBB": {
+          "type": "stat",
+          "settings": {
+            "percent": "74%",
+            "text": "Clinical trial participants reported, on average, a 74% whiter teeth shade"
+          }
+        },
+        "stat_jx3cyR": {
+          "type": "stat",
+          "settings": {
+            "percent": "0%",
+            "text": "0% of clinical trial participants reported an increase in sensitivity after whitening"
+          }
+        }
+      },
+      "block_order": [
+        "profile_8JMmJK",
+        "profile_bbgBRd",
+        "profile_TyzdzQ",
+        "stat_ETKGJE",
+        "stat_WDyFBB",
+        "stat_jx3cyR"
+      ],
+      "disabled": true,
+      "name": "Transformational Results",
+      "settings": {
+        "footnote": "Results vary. Shown with a Subscribe & save plan.",
+        "eyebrow": "REAL RESULTS FROM REAL SMILES",
+        "heading": "Over 100,000 brighter smiles.",
+        "show_stats": false,
+        "flow_visibility": "all",
+        "heading_quiz": ""
       }
     },
     "multi_slide_carousel_rc9KtU": {
@@ -596,7 +951,6 @@
         "r1": {
           "type": "review",
           "settings": {
-            "image": "",
             "headline": "I could tell after one use",
             "quote": "“After a single use I can actually tell a difference in the color of my teeth.”",
             "name": "Sophia S.",
@@ -606,7 +960,6 @@
         "r2": {
           "type": "review",
           "settings": {
-            "image": "",
             "headline": "Strips hurt. This didn’t.",
             "quote": "“Normally I have excruciating pain with strips… after the first day my teeth look 2 shades whiter.”",
             "name": "Lesley C.",
@@ -627,43 +980,6 @@
         "all_url": "#judgeme_product_reviews",
         "write_text": "Write a review",
         "write_url": "#judgeme_product_reviews"
-      }
-    },
-    "our_standards_pdp": {
-      "type": "our-standards",
-      "blocks": {
-        "standard_1": {
-          "type": "standard",
-          "settings": {
-            "title": "Pharmaceutical-grade ingredients for higher purity and performance"
-          }
-        },
-        "standard_2": {
-          "type": "standard",
-          "settings": {
-            "title": "Made in FDA-registered facilities following ISO standards"
-          }
-        },
-        "standard_3": {
-          "type": "standard",
-          "settings": {
-            "title": "Designed by dentists and clinically tested for efficacy"
-          }
-        }
-      },
-      "block_order": [
-        "standard_1",
-        "standard_2",
-        "standard_3"
-      ],
-      "name": "Our Standards",
-      "settings": {
-        "eyebrow": "Higher standards",
-        "heading": "If it touches your smile, quality matters.",
-        "image": "shopify://shop_images/scientist-in-lab-with-pipette.jpg",
-        "top_border": false,
-        "margin_bottom": false,
-        "flow_visibility": "all"
       }
     },
     "buy_now_cta_pdp": {
@@ -944,319 +1260,6 @@
       ],
       "disabled": true,
       "settings": {}
-    },
-    "1674168377f629ea2c": {
-      "type": "apps",
-      "blocks": {
-        "7a7484a7-a212-4abe-9cc8-8965128c84fd": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "7a7484a7-a212-4abe-9cc8-8965128c84fd"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "survey_stats": {
-      "type": "survey-rings",
-      "blocks": {
-        "s1": {
-          "type": "stat",
-          "settings": {
-            "value": "97%",
-            "scale": "100",
-            "text": "saw whiter teeth after 6 uses"
-          }
-        },
-        "s2": {
-          "type": "stat",
-          "settings": {
-            "value": "99%",
-            "scale": "100",
-            "text": "reported zero increased sensitivity"
-          }
-        },
-        "s3": {
-          "type": "stat",
-          "settings": {
-            "value": "4.7★",
-            "scale": "5",
-            "text": "average rating from {reviews} reviews"
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3"
-      ],
-      "settings": {
-        "eyebrow": "Customer survey",
-        "heading": "Loved by customers. The results show it.",
-        "footnote": "Laughland customer survey, n = 918."
-      }
-    },
-    "what_to_expect_pdp": {
-      "type": "expect-timeline",
-      "blocks": {
-        "st1": {
-          "type": "stage",
-          "settings": {
-            "label": "First treatment",
-            "text": "Teeth look cleaner and brighter as surface stains and the dulling film lift."
-          }
-        },
-        "st2": {
-          "type": "stage",
-          "settings": {
-            "label": "6 treatments",
-            "text": "Visibly whiter. 97% of customers saw whiter teeth as deep stains lift from inside the enamel."
-          }
-        },
-        "st3": {
-          "type": "stage",
-          "settings": {
-            "label": "12 treatments",
-            "text": "Your brightest smile yet, or your money back."
-          }
-        },
-        "st4": {
-          "type": "stage",
-          "settings": {
-            "label": "Every few months",
-            "text": "A quick touch-up keeps coffee and tea stains from settling back in."
-          }
-        }
-      },
-      "block_order": [
-        "st1",
-        "st2",
-        "st3",
-        "st4"
-      ],
-      "settings": {
-        "eyebrow": "What to expect",
-        "heading": "What should I expect from consistent use?"
-      }
-    },
-    "dentist_cards_pdp": {
-      "type": "dentist-cards",
-      "blocks": {
-        "dentist_1": {
-          "type": "dentist",
-          "settings": {
-            "image": "shopify://shop_images/cara-hodgson2021_2.webp",
-            "name": "Dr. Cara Hodgson, DDS",
-            "practice": "UCLA School of Dentistry",
-            "tag": "Recommends to patients",
-            "quote": "“It’s the next best thing to in office treatment and it’s how I keep my smile bright and shiny. Their obsession with quality won my trust.”",
-            "disclosure": ""
-          }
-        },
-        "dentist_2": {
-          "type": "dentist",
-          "settings": {
-            "image": "shopify://shop_images/Dr_Ron_Ayzin_1_c3c539fc-cc1f-446a-b6d5-1ebae997b5c7.png",
-            "name": "Dr. Ron Ayzin, DDS",
-            "practice": "Faculty Instructor, UCLA Dentistry",
-            "tag": "Recommends to patients",
-            "quote": "“When patients ask me what the best way to whiten at home is, my answer is Laughland. I wouldn’t recommend anything I wouldn’t use myself and I’ve noticed a visible difference since using Laughland”",
-            "disclosure": ""
-          }
-        },
-        "dentist_3": {
-          "type": "dentist",
-          "settings": {
-            "image": "shopify://shop_images/drkyra.png",
-            "name": "Dr. Kyra Jimenez, DDS",
-            "practice": "President, NSU Dental Cosmetic Society",
-            "tag": "Recommends to patients",
-            "quote": "“It’s important to find whitening that works and keeps things simple. Laughland does exactly that.”",
-            "disclosure": ""
-          }
-        }
-      },
-      "block_order": [
-        "dentist_1",
-        "dentist_2",
-        "dentist_3"
-      ],
-      "settings": {
-        "eyebrow": "Dentist approved",
-        "heading": "Made by dentists. Loved by dentists.",
-        "swipe_hint": "Swipe for more"
-      }
-    },
-    "faq_section_pdp": {
-      "type": "faq-section",
-      "blocks": {
-        "faq_1": {
-          "type": "faq",
-          "settings": {
-            "title": "Will it make my teeth sensitive?",
-            "sub_title": "<p>Every gel has sensitivity blockers (hydroxyapatite and aloe vera). In our survey, 99% of customers reported zero increased sensitivity.</p>"
-          }
-        },
-        "faq_2": {
-          "type": "faq",
-          "settings": {
-            "title": "Is it safe for my enamel?",
-            "sub_title": "<p>Yes. It’s formulated by Dr. TJ Kwon, DMD, and includes nano-hydroxyapatite, which strengthens enamel while you whiten.</p>"
-          }
-        },
-        "faq_3": {
-          "type": "faq",
-          "settings": {
-            "title": "How long do results last?",
-            "sub_title": "<p>A refill every 60 days keeps new stains from setting in.</p>"
-          }
-        },
-        "faq_4": {
-          "type": "faq",
-          "settings": {
-            "title": "Does it work on crowns or veneers?",
-            "sub_title": "<p>Whitening works on natural teeth. Crowns, veneers and fillings keep their current shade.</p>"
-          }
-        },
-        "faq_5": {
-          "type": "faq",
-          "settings": {
-            "title": "How do I cancel my subscription?",
-            "sub_title": "<p>Anytime from your account before your next ship date. No fees, no calls.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "faq_1",
-        "faq_2",
-        "faq_3",
-        "faq_4",
-        "faq_5"
-      ],
-      "settings": {
-        "section_eyebrow": "FAQ",
-        "section_heading": "Still deciding? We’ve got answers."
-      }
-    },
-    "proof_carousel": {
-      "type": "proof-carousel",
-      "blocks": {
-        "p1": {
-          "type": "proof",
-          "settings": {
-            "before_image": "",
-            "before_label": "Month 0",
-            "after_image": "",
-            "after_label": "Month 2",
-            "name": "[Customer name]",
-            "headline": "Two months of refills",
-            "quote": "“[Customer quote about their results.]”",
-            "verified": true
-          }
-        },
-        "p2": {
-          "type": "proof",
-          "settings": {
-            "before_image": "",
-            "before_label": "Before",
-            "after_image": "",
-            "after_label": "After",
-            "name": "Sophia S.",
-            "headline": "I could tell after one use",
-            "quote": "“After a single use I can actually tell a difference in the color of my teeth.”",
-            "verified": true
-          }
-        },
-        "p3": {
-          "type": "proof",
-          "settings": {
-            "before_image": "",
-            "before_label": "Before",
-            "after_image": "",
-            "after_label": "After",
-            "name": "Lesley C.",
-            "headline": "Strips hurt. This didn’t.",
-            "quote": "“Normally I have excruciating pain with strips… after the first day my teeth look 2 shades whiter.”",
-            "verified": true
-          }
-        },
-        "p4": {
-          "type": "proof",
-          "settings": {
-            "before_image": "",
-            "before_label": "[Customer video, 15–30s]",
-            "after_image": "",
-            "after_label": "",
-            "name": "[Name]",
-            "headline": "",
-            "quote": "",
-            "verified": true
-          }
-        }
-      },
-      "block_order": [
-        "p1",
-        "p2",
-        "p3",
-        "p4"
-      ],
-      "settings": {
-        "heading": "Trusted by 100,000+ people who ",
-        "heading_highlight": "finally found whitening that works.",
-        "summary": "4.7 out of 5 · Based on {reviews} reviews",
-        "verified_label": "Verified buyer",
-        "all_text": "",
-        "write_text": ""
-      }
-    },
-    "laughland_difference": {
-      "type": "laughland-difference",
-      "blocks": {
-        "d1": {
-          "type": "reason",
-          "settings": {
-            "icon": "target",
-            "title": "4 causes, 1 gel",
-            "sub": "Stains, plaque, thin enamel and sensitivity"
-          }
-        },
-        "d2": {
-          "type": "reason",
-          "settings": {
-            "icon": "bolt",
-            "title": "Professional strength",
-            "sub": "Dentist strength, nearly 3× strips"
-          }
-        },
-        "d3": {
-          "type": "reason",
-          "settings": {
-            "icon": "shield",
-            "title": "Dentist formulated",
-            "sub": "By Dr. TJ Kwon, DMD"
-          }
-        }
-      },
-      "block_order": [
-        "d1",
-        "d2",
-        "d3"
-      ],
-      "settings": {
-        "eyebrow": "Why you'll love it",
-        "heading": "The Laughland ",
-        "heading_highlight": "difference.",
-        "cta_text": "Claim 40% off",
-        "cta_url": ""
-      }
     }
   },
   "order": [
