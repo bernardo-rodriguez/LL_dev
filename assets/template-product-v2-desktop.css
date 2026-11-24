@@ -351,15 +351,41 @@
      button that stops at 360.
      -------------------------------------------------------------------- */
 
-  body:has(.buybox-v2) .how-to-steps__columns { gap: var(--v2d-gap); }
+  /*
+    The phone flattens this into one column by giving the content wrapper
+    `display: contents` and ordering its children against the film. Here the
+    wrapper takes its box back so the film can hold a column of its own.
+  */
+  body:has(.buybox-v2) .how-to-steps__columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--v2d-gap);
+    align-items: center;
+  }
+
+  body:has(.buybox-v2) .how-to-steps__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--v2d-stack);
+    order: 2;
+  }
+
+  body:has(.buybox-v2) .how-to-steps__media {
+    order: 1;
+    aspect-ratio: 16 / 10;
+  }
+
+  /* 24px between blocks, 12 between the eyebrow and the heading it labels. */
+  body:has(.buybox-v2) .how-to-steps__heading { margin: -12px 0 0; }
 
   body:has(.buybox-v2) .how-to-steps__list {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
+    margin: 0;
   }
 
-  body:has(.buybox-v2) .how-to-steps__cta { max-width: 360px; }
+  body:has(.buybox-v2) .how-to-steps__cta { max-width: 360px; margin: 0; }
 
   /* ---- Made by dentists ----------------------------------------------
      Three cards side by side rather than a swipeable row. The row is a
@@ -388,12 +414,22 @@
   /* ---- Higher standards ----------------------------------------------- */
 
   body:has(.buybox-v2) .our-standards__columns {
-    gap: var(--v2d-gap);
+    display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--v2d-gap);
     align-items: center;
   }
 
-  body:has(.buybox-v2) .our-standards__rail { order: -1; position: static; }
+  /* As with the steps above: the wrapper takes its box back. */
+  body:has(.buybox-v2) .our-standards__main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--v2d-stack);
+    order: 2;
+  }
+
+  body:has(.buybox-v2) .our-standards__rail { order: 1; position: static; margin: 0; }
+  body:has(.buybox-v2) .our-standards__heading { margin: -12px 0 0; }
   body:has(.buybox-v2) .our-standards__item { padding: 12px 0; }
   body:has(.buybox-v2) .our-standards__item-title { font-size: 18px; line-height: 1.3; }
 
