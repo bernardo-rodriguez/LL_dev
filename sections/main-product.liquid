@@ -17,6 +17,7 @@
 {% if section.settings.use_v2_buybox %}
   {{ 'component-buybox-v2.css' | asset_url | stylesheet_tag }}
   {{ 'template-product-v2.css' | asset_url | stylesheet_tag }}
+  {{ 'template-product-v2-desktop.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'buybox-promo-timer.js' | asset_url }}" defer></script>
   <script src="{{ 'kit-subscribe.js' | asset_url }}" defer></script>
   <script src="{{ 'carousel-rest.js' | asset_url }}" defer></script>

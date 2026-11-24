@@ -1,0 +1,436 @@
+/*
+  The v2 standalone product page, desktop.
+
+  The phone layout is the one that shipped and is not touched here: every
+  rule in this file sits inside one min-width query, so below the breakpoint
+  this stylesheet contributes nothing at all.
+
+  The desktop artboard is drawn at 1440 with a 1200 content column and 40px
+  gutters, so a section is `max-width: 1280px` (1200 + two gutters), centred,
+  with 40px of side padding. Vertical rhythm is a flat 80px a side; the hero
+  takes 40 above and 80 below because the header sits directly on it.
+
+  Headings are set with clamp() rather than a second breakpoint: they reach
+  the artboard's exact sizes once the content column is full (about 1280 up)
+  and step down smoothly through tablet widths instead of falling off a
+  cliff at one pixel value.
+*/
+
+@media screen and (min-width: 769px) {
+  body:has(.buybox-v2) {
+    --v2-pad-y: 80px;
+    --v2-pad-x: 40px;
+
+    --v2d-max: 1280px;        /* 1200 content + 2 × 40 gutter */
+    --v2d-gap: 64px;          /* between the two columns */
+    --v2d-stack: 24px;        /* between blocks within a column */
+    --v2d-head: 12px;         /* eyebrow to heading */
+
+    --v2d-h1: clamp(28px, 3.13vw, 40px);
+    --v2d-h2: clamp(28px, 3.44vw, 44px);
+    --v2d-body: clamp(15px, 1.33vw, 17px);
+    --v2d-eyebrow: 12.5px;
+  }
+
+  /* ---- Shell ----------------------------------------------------------
+     One width and one gutter for every band, whether the section brings its
+     own wrapper or borrows the theme's .page-width.
+     -------------------------------------------------------------------- */
+
+  body:has(.buybox-v2) .proof-carousel__inner,
+  body:has(.buybox-v2) .survey-rings__inner,
+  body:has(.buybox-v2) .formula-jobs__inner,
+  body:has(.buybox-v2) .strength-chart__inner,
+  body:has(.buybox-v2) .expect-timeline__inner,
+  body:has(.buybox-v2) .ll-difference__inner,
+  body:has(.buybox-v2) .shopify-section:has(.buybox-v2) .product,
+  body:has(.buybox-v2) .shopify-section > section > .page-width,
+  body:has(.buybox-v2) .shopify-section > .page-width {
+    max-width: var(--v2d-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--v2-pad-x);
+    padding-right: var(--v2-pad-x);
+    box-sizing: border-box;
+  }
+
+  body:has(.buybox-v2) .proof-carousel__inner,
+  body:has(.buybox-v2) .survey-rings__inner,
+  body:has(.buybox-v2) .formula-jobs__inner,
+  body:has(.buybox-v2) .strength-chart__inner,
+  body:has(.buybox-v2) .expect-timeline__inner,
+  body:has(.buybox-v2) .ll-difference__inner {
+    padding-top: var(--v2-pad-y);
+    padding-bottom: var(--v2-pad-y);
+  }
+
+  /* The theme's own wrappers already pad themselves; drop the doubling. */
+  body:has(.buybox-v2) .comparison-table__inner,
+  body:has(.buybox-v2) .how-to-steps__inner,
+  body:has(.buybox-v2) .our-standards__inner,
+  body:has(.buybox-v2) .dentist-cards__inner,
+  body:has(.buybox-v2) .Faq_section_inner {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* ---- Type -----------------------------------------------------------
+     Every band on the artboard uses one eyebrow, one heading and one intro
+     size, so they are set once against both the new sections' classes and
+     the theme's shared .section-heading / .section-eyebrow.
+     -------------------------------------------------------------------- */
+
+  body:has(.buybox-v2) .proof-carousel__heading,
+  body:has(.buybox-v2) .survey-rings__heading,
+  body:has(.buybox-v2) .formula-jobs__heading,
+  body:has(.buybox-v2) .strength-chart__heading,
+  body:has(.buybox-v2) .expect-timeline__heading,
+  body:has(.buybox-v2) .ll-difference__heading,
+  body:has(.buybox-v2) .section-heading,
+  body:has(.buybox-v2) .Faq_Heading .h4 {
+    font-size: var(--v2d-h2);
+    line-height: 1.15;
+    font-weight: 500;
+  }
+
+  body:has(.buybox-v2) .proof-carousel__heading {
+    line-height: 1.2;
+  }
+
+  body:has(.buybox-v2) .proof-carousel__eyebrow,
+  body:has(.buybox-v2) .survey-rings__eyebrow,
+  body:has(.buybox-v2) .formula-jobs__eyebrow,
+  body:has(.buybox-v2) .strength-chart__eyebrow,
+  body:has(.buybox-v2) .expect-timeline__eyebrow,
+  body:has(.buybox-v2) .section-eyebrow {
+    font-size: var(--v2d-eyebrow);
+  }
+
+  body:has(.buybox-v2) .formula-jobs__intro,
+  body:has(.buybox-v2) .formula-jobs__intro p,
+  body:has(.buybox-v2) .strength-chart__intro {
+    font-size: var(--v2d-body);
+    line-height: 1.6;
+  }
+
+  /* ---- A two-column band ---------------------------------------------
+     Media or heading left, the rest right, 64px between, both columns
+     stacking their own blocks 24px apart.
+     -------------------------------------------------------------------- */
+
+  body:has(.buybox-v2) .formula-jobs__inner,
+  body:has(.buybox-v2) .strength-chart__inner,
+  body:has(.buybox-v2) .expect-timeline__inner {
+    display: grid;
+    column-gap: var(--v2d-gap);
+    row-gap: var(--v2d-stack);
+    align-items: center;
+  }
+
+  /* ---- Hero -----------------------------------------------------------
+     The gallery takes the wider column (1.15fr against 1fr) with a 56px
+     gutter, and the buy box stacks its blocks 16px apart.
+     -------------------------------------------------------------------- */
+
+  body:has(.buybox-v2) .shopify-section:has(.buybox-v2) .product {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    column-gap: 56px;
+    align-items: start;
+    padding-top: 40px;
+    padding-bottom: var(--v2-pad-y);
+  }
+
+  body:has(.buybox-v2) .product__media-wrapper,
+  body:has(.buybox-v2) .product__column,
+  body:has(.buybox-v2) .product__intro,
+  body:has(.buybox-v2) .product__info-wrapper,
+  body:has(.buybox-v2) .product__info-container {
+    width: 100%;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  body:has(.buybox-v2) .pdp-gallery { gap: 10px; }
+
+  body:has(.buybox-v2) .pdp-gallery__thumbs {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 6px;
+    padding: 0;
+    overflow: visible;
+  }
+
+  body:has(.buybox-v2) .buybox-v2 { gap: 16px; }
+  body:has(.buybox-v2) .buybox-v2__title { font-size: var(--v2d-h1); line-height: 1.08; }
+  body:has(.buybox-v2) .buybox-v2__now { font-size: clamp(28px, 2.5vw, 32px); }
+  body:has(.buybox-v2) .buybox-v2__was { font-size: clamp(20px, 1.8vw, 23px); }
+  body:has(.buybox-v2) .buybox-v2__subhead { font-size: var(--v2d-body); line-height: 1.6; }
+  body:has(.buybox-v2) .buybox-v2__proof-text { font-size: 15px; }
+  body:has(.buybox-v2) .buybox-v2__stars { font-size: 17px; }
+  body:has(.buybox-v2) .buybox-v2__rating-link { font-size: 16px; }
+  body:has(.buybox-v2) .buybox-v2__claim { padding: 10px 0; }
+  body:has(.buybox-v2) .buybox-v2__claim-icon { width: 30px; height: 30px; }
+  body:has(.buybox-v2) .buybox-v2__claim-text { font-size: 16px; line-height: 1.35; }
+  body:has(.buybox-v2) .buybox-v2__ships { font-size: 14.5px; }
+  body:has(.buybox-v2) .buybox-v2__guarantee { padding: 14px; }
+  body:has(.buybox-v2) .buybox-v2__guarantee-icon { width: 38px; height: 38px; }
+  body:has(.buybox-v2) .buybox-v2__guarantee-title { font-size: 18px; line-height: 1.3; }
+  body:has(.buybox-v2) .buybox-v2__guarantee-text { font-size: 16px; line-height: 1.55; }
+
+  /* ---- Proof ----------------------------------------------------------
+     The phone reads this as a swipeable track; the artboard lays all four
+     cards out at once, so the track becomes a four-column grid and the
+     pager and scroll affordances have nothing left to do.
+     -------------------------------------------------------------------- */
+
+  body:has(.buybox-v2) .proof-carousel__inner { gap: 40px; }
+
+  body:has(.buybox-v2) .proof-carousel__head {
+    max-width: 760px;
+    margin: 0 auto;
+    gap: var(--v2d-head);
+    text-align: center;
+    align-items: center;
+  }
+
+  body:has(.buybox-v2) .proof-carousel__stars { font-size: 22px; }
+  body:has(.buybox-v2) .proof-carousel__summary { font-size: 16px; }
+
+  body:has(.buybox-v2) .proof-carousel__track {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    padding: 0;
+    overflow: visible;
+  }
+
+  body:has(.buybox-v2) .proof-carousel__card {
+    flex: 1 1 auto;
+    max-width: none;
+    width: auto;
+  }
+
+  body:has(.buybox-v2) .proof-carousel__body { padding: 14px; gap: 6px; }
+  body:has(.buybox-v2) .proof-carousel__name { font-size: 16px; }
+  body:has(.buybox-v2) .proof-carousel__headline { font-size: 18px; line-height: 1.3; }
+  body:has(.buybox-v2) .proof-carousel__quote { font-size: 16px; line-height: 1.55; }
+  body:has(.buybox-v2) .proof-carousel__pager { display: none; }
+
+  /* ---- Customer survey ------------------------------------------------ */
+
+  body:has(.buybox-v2) .survey-rings__inner {
+    gap: 32px;
+    align-items: center;
+    text-align: center;
+  }
+
+  body:has(.buybox-v2) .survey-rings__head {
+    gap: var(--v2d-head);
+    align-items: center;
+    text-align: center;
+  }
+
+  body:has(.buybox-v2) .survey-rings__grid {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px;
+  }
+
+  body:has(.buybox-v2) .survey-rings__ring { width: 84px; height: 84px; }
+  body:has(.buybox-v2) .survey-rings__value { font-size: 24px; }
+  body:has(.buybox-v2) .survey-rings__text { font-size: 14.5px; line-height: 1.45; }
+
+  /* ---- Four jobs. One gel. -------------------------------------------
+     Photograph left across the full height, heading, cards and the
+     formulator's credit stacked in the right column.
+     -------------------------------------------------------------------- */
+
+  body:has(.buybox-v2) .formula-jobs__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  body:has(.buybox-v2) .formula-jobs__image {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    align-self: center;
+    margin: 0;
+  }
+
+  body:has(.buybox-v2) .formula-jobs__head { grid-column: 2; grid-row: 1; gap: var(--v2d-head); }
+  body:has(.buybox-v2) .formula-jobs__picker { grid-column: 2; grid-row: 2; }
+  body:has(.buybox-v2) .formula-jobs__credit { grid-column: 2; grid-row: 3; }
+
+  body:has(.buybox-v2) .formula-jobs__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  /* ---- Professional strength ------------------------------------------
+     Copy, the two cards and the survey banner left; the dose chart right.
+     -------------------------------------------------------------------- */
+
+  body:has(.buybox-v2) .strength-chart__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  body:has(.buybox-v2) .strength-chart__head { grid-column: 1; grid-row: 1; gap: var(--v2d-head); }
+  body:has(.buybox-v2) .strength-chart__cards { grid-column: 1; grid-row: 2; }
+  body:has(.buybox-v2) .strength-chart__banner { grid-column: 1; grid-row: 3; }
+
+  body:has(.buybox-v2) .strength-chart__panel {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    align-self: center;
+    width: 100%;
+    max-width: 460px;
+    padding: 16px 14px 12px;
+  }
+
+  body:has(.buybox-v2) .strength-chart__cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  body:has(.buybox-v2) .strength-chart__card { padding: 14px 12px; }
+  body:has(.buybox-v2) .strength-chart__card-title { font-size: 18px; line-height: 1.3; }
+  body:has(.buybox-v2) .strength-chart__card-body { font-size: 14.5px; line-height: 1.45; }
+  body:has(.buybox-v2) .strength-chart__banner { padding: 16px 14px; gap: 14px; }
+  body:has(.buybox-v2) .strength-chart__banner-figure { font-size: 40px; line-height: 1; }
+  body:has(.buybox-v2) .strength-chart__banner-text { font-size: 17px; line-height: 1.3; }
+  body:has(.buybox-v2) .strength-chart__banner-note { font-size: 13.5px; }
+
+  /* ---- What to expect -------------------------------------------------
+     The heading holds the narrower column here, as it does for the FAQ.
+     -------------------------------------------------------------------- */
+
+  body:has(.buybox-v2) .expect-timeline__inner {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  body:has(.buybox-v2) .expect-timeline__head { gap: var(--v2d-head); }
+  body:has(.buybox-v2) .expect-timeline__text { font-size: 16px; line-height: 1.55; }
+
+  /* ---- Why Laughland? -------------------------------------------------
+     Heading and the price comparison left, the table right.
+     -------------------------------------------------------------------- */
+
+  body:has(.buybox-v2) .comparison-table__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+    column-gap: var(--v2d-gap);
+    row-gap: var(--v2d-stack);
+    align-items: center;
+  }
+
+  body:has(.buybox-v2) .comparison-table__eyebrow { grid-column: 1; grid-row: 1; margin-bottom: 0; }
+  body:has(.buybox-v2) .comparison-table__heading { grid-column: 1; grid-row: 2; margin: 0; }
+  body:has(.buybox-v2) .comparison-table__price { grid-column: 1; grid-row: 3; margin: 0; }
+  body:has(.buybox-v2) .comparison-table__grid { grid-column: 2; grid-row: 1 / span 3; align-self: center; }
+  body:has(.buybox-v2) .comparison-table__footnote { grid-column: 2; grid-row: 4; }
+
+  /* ---- How to use -----------------------------------------------------
+     The theme already splits this two ways at this width; the artboard's
+     proportions are a wider gutter, three numbered steps across and a
+     button that stops at 360.
+     -------------------------------------------------------------------- */
+
+  body:has(.buybox-v2) .how-to-steps__columns { gap: var(--v2d-gap); }
+
+  body:has(.buybox-v2) .how-to-steps__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  body:has(.buybox-v2) .how-to-steps__cta { max-width: 360px; }
+
+  /* ---- Made by dentists ----------------------------------------------
+     Three cards side by side rather than a swipeable row. The row is a
+     sibling of the heading's wrapper, so it carries the shell itself.
+     -------------------------------------------------------------------- */
+
+  body:has(.buybox-v2) .dentist-cards__row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    max-width: var(--v2d-max);
+    margin: 40px auto var(--v2-pad-y);
+    padding: 0 var(--v2-pad-x);
+    overflow: visible;
+  }
+
+  body:has(.buybox-v2) .dentist-cards__card {
+    flex: 1 1 auto;
+    width: auto;
+    max-width: none;
+  }
+
+  body:has(.buybox-v2) .dentist-cards__name { font-size: 18px; }
+  body:has(.buybox-v2) .dentist-cards__quote { font-size: 16px; line-height: 1.55; }
+
+  /* ---- Higher standards ----------------------------------------------- */
+
+  body:has(.buybox-v2) .our-standards__columns {
+    gap: var(--v2d-gap);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  body:has(.buybox-v2) .our-standards__rail { order: -1; position: static; }
+  body:has(.buybox-v2) .our-standards__item { padding: 12px 0; }
+  body:has(.buybox-v2) .our-standards__item-title { font-size: 18px; line-height: 1.3; }
+
+  /* ---- FAQ ------------------------------------------------------------
+     The theme gives the heading 28% of the row; the artboard gives it the
+     0.8fr column every other band uses.
+     -------------------------------------------------------------------- */
+
+  body:has(.buybox-v2) .FAQ_Section .Faq_section_inner .Row {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+    column-gap: var(--v2d-gap);
+    align-items: start;
+    margin: 0;
+  }
+
+  body:has(.buybox-v2) .FAQ_Section .Faq_section_inner .Faq_Heading,
+  body:has(.buybox-v2) .FAQ_Section .Faq_section_inner .Faq_Area {
+    width: auto;
+    padding: 0;
+  }
+
+  /* ---- The Laughland difference --------------------------------------- */
+
+  body:has(.buybox-v2) .ll-difference__inner {
+    max-width: 980px;            /* 900 content + two gutters */
+    gap: 36px;
+  }
+
+  body:has(.buybox-v2) .ll-difference__head { gap: var(--v2d-head); }
+
+  body:has(.buybox-v2) .ll-difference__reasons {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px;
+  }
+
+  body:has(.buybox-v2) .ll-difference__icon { width: 40px; height: 40px; }
+  body:has(.buybox-v2) .ll-difference__title { font-size: 16px; line-height: 1.25; }
+  body:has(.buybox-v2) .ll-difference__sub { font-size: 13.5px; line-height: 1.35; }
+  body:has(.buybox-v2) .ll-difference__cta { width: 360px; max-width: 100%; }
+
+  /* ---- The bar that follows the page ---------------------------------- */
+
+  body:has(.buybox-v2) .product-sticky-bar__inner {
+    max-width: var(--v2d-max);
+    margin: 0 auto;
+    padding: 14px var(--v2-pad-x);
+    box-sizing: border-box;
+  }
+}
