@@ -162,7 +162,18 @@
     overflow: visible;
   }
 
-  body:has(.buybox-v2) .buybox-v2 { gap: 16px; }
+  /*
+    The artboard sets the identity block (proof, rating, title, price,
+    subhead) tight at 8px and opens to 16 before the claims, so the head of
+    the buy box reads as one unit rather than five stacked lines.
+  */
+  body:has(.buybox-v2) .buybox-v2 { gap: 8px; }
+  body:has(.buybox-v2) .buybox-v2__claims { margin-top: 8px; }
+
+  /* The hero section pads itself; the theme's own column padding doubles it. */
+  body:has(.buybox-v2) .product__intro { padding-top: 0; }
+  body:has(.buybox-v2) .product__info-wrapper { padding-bottom: 0; }
+  body:has(.buybox-v2) .pdp-product-options { margin-top: 16px; }
   body:has(.buybox-v2) .buybox-v2__title { font-size: var(--v2d-h1); line-height: 1.08; }
   body:has(.buybox-v2) .buybox-v2__now { font-size: clamp(28px, 2.5vw, 32px); }
   body:has(.buybox-v2) .buybox-v2__was { font-size: clamp(20px, 1.8vw, 23px); }
