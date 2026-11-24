@@ -1555,3 +1555,32 @@ body:has(.buybox-v2) .dentist-cards__row {
 body:has(.buybox-v2) .proof-carousel__track {
   scroll-padding-left: 20px;
 }
+
+/* ======================================================================
+   Third review pass
+   ====================================================================== */
+
+/* ---- The chosen kit is tinted, not white -----------------------------
+   The extras underneath sit on the pale blue tint, so a white card put a
+   hard edge between the kit and the gifts that come with it. Tinting the
+   chosen card instead lets the two read as one block, and the unchosen
+   card goes white so the pair still separate.
+   ------------------------------------------------------------------------ */
+
+body:has(.buybox-v2) .kitpick__opt {
+  background: #ffffff;
+}
+
+body:has(.buybox-v2) .kitpick input:checked + .kitpick__opt {
+  background: var(--v2-tint) !important;
+}
+
+/* ---- The dentists get a margin before the blue band ------------------
+   The row's bottom padding was taken to zero in the last pass to close
+   the gap under the heading; that also pulled the next section up against
+   the cards.
+   ------------------------------------------------------------------------ */
+
+body:has(.buybox-v2) .dentist-cards__inner {
+  padding-bottom: 28px;
+}
