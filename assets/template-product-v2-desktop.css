@@ -229,6 +229,14 @@
   body:has(.buybox-v2) .proof-carousel__quote { font-size: 16px; line-height: 1.55; }
   body:has(.buybox-v2) .proof-carousel__pager { display: none; }
 
+  /*
+    The before/after photographs are still to come. The artboard sets each
+    one a little taller than it is wide, so the pair holds that shape
+    whether or not there is an image in it yet.
+  */
+  body:has(.buybox-v2) .proof-carousel__shot,
+  body:has(.buybox-v2) .proof-carousel__clip { aspect-ratio: 143 / 160; }
+
   /* ---- Customer survey ------------------------------------------------ */
 
   body:has(.buybox-v2) .survey-rings__inner {
@@ -386,6 +394,7 @@
   }
 
   body:has(.buybox-v2) .how-to-steps__cta { max-width: 360px; margin: 0; }
+  body:has(.buybox-v2) .how-to-steps__text { font-size: 16px; line-height: 1.45; }
 
   /* ---- Made by dentists ----------------------------------------------
      Three cards side by side rather than a swipeable row. The row is a
@@ -397,10 +406,16 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
     max-width: var(--v2d-max);
-    margin: 40px auto var(--v2-pad-y);
+    margin: 40px auto 0;
     padding: 0 var(--v2-pad-x);
     overflow: visible;
   }
+
+  /*
+    The row is the section's last child, so a bottom margin on it escapes
+    rather than ending the band. The space belongs to the section.
+  */
+  body:has(.buybox-v2) .dentist-cards { padding-bottom: var(--v2-pad-y); }
 
   body:has(.buybox-v2) .dentist-cards__card {
     flex: 1 1 auto;
@@ -450,6 +465,16 @@
   body:has(.buybox-v2) .FAQ_Section .Faq_section_inner .Faq_Area {
     width: auto;
     padding: 0;
+  }
+
+  /*
+    The theme pads the band and the panel inside it; the artboard pads once.
+  */
+  body:has(.buybox-v2) .FAQ_Section { padding: 0; }
+
+  body:has(.buybox-v2) .Faq_section_inner {
+    padding-top: var(--v2-pad-y);
+    padding-bottom: var(--v2-pad-y);
   }
 
   /* ---- The Laughland difference --------------------------------------- */
