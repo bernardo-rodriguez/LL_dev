@@ -14,7 +14,7 @@
       "settings": {
         "intro_title": "Hybrid Whitening Kit",
         "personalized_title": "",
-        "subhead": "Professional-strength whitening that treats every root cause of yellow, dull teeth, not just surface stains.",
+        "subhead": "Say goodbye to whitening that barely works. Our treatment goes beyond surface stains to fix thinning enamel and plaque for a bright, glossy smile.",
         "subhead_quiz": "",
         "atc": "Add to cart",
         "satisfaction": "30-day money-back guarantee",
@@ -64,7 +64,10 @@
         "sub_note": "No commitment · Cancel anytime · Refills 60 days",
         "v2_handles": "at-home-whitening-kit",
         "claims": "Dentist-strength formula|, 3× typical strips\nWhiter in 6 uses|: 97% saw a visible difference\n99% of customers| felt no extra sensitivity",
-        "ships_note": "Delivery by [date +3 days] · Free shipping",
+        "ships_note": "Delivery by {delivery} · Free shipping",
+        "delivery_days": "3",
+        "delivery_format": "%b %-d",
+        "kit_12_gifts": "+ FREE whitening pen | $30\n+ FREE shipping | $5",
         "guarantee_title": "30-day money-back guarantee",
         "guarantee_text": "If you don't see noticeably whiter teeth, you'll get your money back."
       }

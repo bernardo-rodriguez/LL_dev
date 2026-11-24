@@ -1463,3 +1463,95 @@ body:has(.buybox-v2) .dentist-cards__card {
   flex: 0 0 84%;
   max-width: 370px;
 }
+
+/* ======================================================================
+   Second review pass
+   ====================================================================== */
+
+/*
+  "40% off" is a chip after all — the artboard's own render sets it in the
+  lime with navy mono type. It stays on the price's baseline.
+*/
+body:has(.buybox-v2) .buybox-v2__off {
+  display: inline-block;
+  padding: 6px 8px;
+  background: #d6ec65;
+  color: var(--v2-ink);
+  line-height: 1;
+}
+
+/* ---- Both kits list their extras, the chosen one shows them ----------- */
+
+body:has(.buybox-v2) .kitpick input:not(:checked) + .kitpick__opt .kitpick__gifts {
+  display: none;
+}
+
+/* ---- Subscribing is an aside, not a headline -------------------------- */
+
+body:has(.buybox-v2) .kitpick__sub {
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px dashed #b9d3ec;
+  background: #f7fafd;
+}
+
+/*
+  An outlined box that simply holds a tick, rather than a filled navy
+  square: at this size the fill read as the loudest thing in the buy box.
+*/
+body:has(.buybox-v2) .kitpick__check {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  padding: 1px;
+  border: 1px solid #141413;
+  background: #eaf4fd;
+  color: transparent;
+}
+
+body:has(.buybox-v2) .kitpick__check svg {
+  display: block;
+  width: 13px;
+  height: 13px;
+  stroke-width: 3;
+}
+
+body:has(.buybox-v2) .kitpick__sub[aria-pressed='true'] .kitpick__check {
+  background: #eaf4fd;
+  color: var(--v2-ink);
+}
+
+body:has(.buybox-v2) .kitpick__sub-title {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+body:has(.buybox-v2) .kitpick__sub-note {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--v2-label);
+}
+
+/* ---- Dentists ---------------------------------------------------------
+   The heading carried a 20px margin on top of the wrapper's own 40px
+   padding, so the cards sat far below the title; and the row was being
+   scrolled by exactly its own 20px padding, which put the first card
+   flush against the edge with no gutter.
+   ------------------------------------------------------------------------ */
+
+body:has(.buybox-v2) .dentist-cards__inner {
+  padding-bottom: 0;
+}
+
+body:has(.buybox-v2) .dentist-cards__heading {
+  margin-bottom: 0;
+}
+
+body:has(.buybox-v2) .dentist-cards__row {
+  margin-top: 24px;
+  scroll-padding-left: 20px;
+}
+
+body:has(.buybox-v2) .proof-carousel__track {
+  scroll-padding-left: 20px;
+}
