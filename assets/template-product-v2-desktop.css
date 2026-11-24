@@ -497,13 +497,4 @@
   body:has(.buybox-v2) .ll-difference__title { font-size: 16px; line-height: 1.25; }
   body:has(.buybox-v2) .ll-difference__sub { font-size: 13.5px; line-height: 1.35; }
   body:has(.buybox-v2) .ll-difference__cta { width: 360px; max-width: 100%; }
-
-  /* ---- The bar that follows the page ---------------------------------- */
-
-  body:has(.buybox-v2) .product-sticky-bar__inner {
-    max-width: var(--v2d-max);
-    margin: 0 auto;
-    padding: 14px var(--v2-pad-x);
-    box-sizing: border-box;
-  }
 }
