@@ -13,7 +13,8 @@
   Headings are set with clamp() rather than a second breakpoint: they reach
   the artboard's exact sizes once the content column is full (about 1280 up)
   and step down smoothly through tablet widths instead of falling off a
-  cliff at one pixel value.
+  cliff at one pixel value. Their floors are the phone's own sizes, so
+  nothing shrinks as the layout crosses the breakpoint.
 */
 
 @media screen and (min-width: 769px) {
@@ -26,8 +27,8 @@
     --v2d-stack: 24px;        /* between blocks within a column */
     --v2d-head: 12px;         /* eyebrow to heading */
 
-    --v2d-h1: clamp(28px, 3.13vw, 40px);
-    --v2d-h2: clamp(28px, 3.44vw, 44px);
+    --v2d-h1: clamp(31px, 3.13vw, 40px);
+    --v2d-h2: clamp(31px, 3.44vw, 44px);
     --v2d-body: clamp(15px, 1.33vw, 17px);
     --v2d-eyebrow: 12.5px;
   }
