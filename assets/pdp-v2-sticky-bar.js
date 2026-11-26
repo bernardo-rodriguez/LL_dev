@@ -57,12 +57,14 @@
 
   function watch(bar) {
     /*
-      The anchor is the real add-to-cart, which Skio owns: `skio-plan-picker`
-      is its host element and has a layout box even though the button itself
-      is in a shadow root. (`.product__info-container` is NOT it — that is the
-      options block further down the page.)
+      The anchor is the block holding the real add-to-cart. It cannot be the
+      Skio picker itself: Skio injects `skio-plan-picker` at runtime, so at
+      boot it does not exist yet. `product-form` is rendered by the theme,
+      wraps the picker, and is therefore there from the first paint. (And
+      `.product__info-container` is NOT it — that is the whole options block
+      further down the page.)
     */
-    var anchor = document.querySelector('skio-plan-picker')
+    var anchor = document.querySelector('product-form')
       || document.querySelector('.product-form__submit')
       || document.querySelector('.buybox-v2');
     if (!anchor || !document.querySelector('.buybox-v2')) { bar.hidden = true; return; }
