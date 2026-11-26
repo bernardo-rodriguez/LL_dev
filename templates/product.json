@@ -64,6 +64,7 @@
         "sub_note": "No commitment · Cancel anytime · Refills 60 days",
         "v2_handles": "at-home-whitening-kit",
         "claims": "Dentist-strength formula|, 3× typical strips\nWhiter in 6 uses|: 97% saw a visible difference\n99% of customers| felt no extra sensitivity",
+        "promo_deadline": "2026-12-02T23:59:59",
         "ships_note": "Delivery by {delivery} · Free shipping",
         "delivery_days": "3",
         "delivery_format": "%b %-d",
