@@ -94,6 +94,30 @@
     }
   }
 
+  function liftStrip() {
+    /*
+      The sale strip is authored inside the product section, because that is
+      where its countdown deadline is set — one deadline for both the strip
+      and the buy box's sale banner. But it belongs above the store header,
+      so it is moved there once, before anything else runs. It stays hidden
+      until it has been placed, so it is never seen in the wrong spot.
+    */
+    var strip = document.querySelector('[data-pdp-chrome]');
+    if (!strip || strip.classList.contains('is-placed')) return;
+
+    var before = document.querySelector('#shopify-section-announcement-bar')
+      || document.querySelector('.outer-header-wrapper')
+      || document.querySelector('#shopify-section-header')
+      || document.body.firstChild;
+
+    if (before && before.parentNode === document.body) {
+      document.body.insertBefore(strip, before);
+    } else {
+      document.body.insertBefore(strip, document.body.firstChild);
+    }
+    strip.classList.add('is-placed');
+  }
+
   function boot() {
     liftStrip();
 
