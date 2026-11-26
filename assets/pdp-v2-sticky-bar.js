@@ -76,22 +76,28 @@
       customer has scrolled past the place they could already have bought.
       While it is still below the fold, on the way down, the page has not
       been read yet and the bar would just be in the way.
+
+      This reads the position on scroll rather than through an
+      IntersectionObserver. The observer missed crossings here — scrolling
+      back to the top left the bar showing over a visible add-to-cart — and
+      a rect read inside a rAF is both cheap and exact.
     */
-    function paint(rect, visible) {
-      bar.classList.toggle('is-on', !visible && rect.bottom <= 0);
+    var queued = false;
+
+    function paint() {
+      queued = false;
+      bar.classList.toggle('is-on', anchor.getBoundingClientRect().bottom <= 0);
     }
 
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) { paint(e.boundingClientRect, e.isIntersecting); });
-      }, { threshold: 0 });
-      io.observe(anchor);
-    } else {
-      window.addEventListener('scroll', function () {
-        var r = anchor.getBoundingClientRect();
-        paint(r, r.bottom > 0 && r.top < window.innerHeight);
-      }, { passive: true });
+    function schedule() {
+      if (queued) return;
+      queued = true;
+      window.requestAnimationFrame(paint);
     }
+
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule, { passive: true });
+    schedule();
   }
 
   function liftStrip() {
