@@ -1,0 +1,299 @@
+/*
+  The v2 standalone page's announcement strip and following bar.
+
+  Written phone-first from the 390px artboard, with the 1440px draft's
+  values in one min-width: 769px block, the same breakpoint the rest of the
+  desktop work uses.
+
+  Everything is scoped with :has(.buybox-v2) so it reaches only the page
+  rendering the v2 buy box. The theme's own announcement bar is hidden under
+  that same scope, since this strip stands in its place; the store header is
+  left exactly as it is, here and everywhere else.
+*/
+
+body:has(.buybox-v2) #shopify-section-announcement-bar {
+  display: none;
+}
+
+/* Shown only once the script has moved it above the store header. */
+.pdpchrome:not(.is-placed) { display: none; }
+
+.pdpchrome {
+  --pdpc-ink: #0d244c;
+  --pdpc-rule: #d8e0e8;
+  --pdpc-lime: #ddf568;
+  font-family: 'Inter Tight', Inter, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--pdpc-ink);
+}
+
+/* ---- The sale strip ---------------------------------------------------- */
+
+.pdpchrome__strip {
+  padding: 8px 16px;
+  background: var(--pdpc-ink);
+  color: #ffffff;
+}
+
+.pdpchrome__strip[hidden] { display: none; }
+
+.pdpchrome__strip-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pdpchrome__sale {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.pdpchrome__sale-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.pdpchrome__sale-sub {
+  font-size: 12px;
+  opacity: 0.92;
+}
+
+.pdpchrome__clock {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.pdpchrome__cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.pdpchrome__cell-value {
+  min-width: 24px;
+  padding: 4px 3px;
+  background: var(--pdpc-lime);
+  color: var(--pdpc-ink);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.pdpchrome__cell-label {
+  font-size: 8px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+/* ---- The bar that follows the page ------------------------------------- */
+
+.pdpsticky {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  padding: 10px 16px;
+  border-top: 1px solid #d8e0e8;
+  background: #ffffff;
+  box-shadow: 0 -6px 18px rgba(13, 36, 76, 0.08);
+  font-family: 'Inter Tight', Inter, 'Helvetica Neue', Arial, sans-serif;
+  color: #0d244c;
+  transform: translateY(100%);
+  transition: transform 0.28s ease;
+}
+
+.pdpsticky[hidden] { display: none; }
+.pdpsticky.is-on { transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pdpsticky { transition: none; }
+}
+
+.pdpsticky__inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pdpsticky__product {
+  display: flex;
+  flex-grow: 1;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+}
+
+.pdpsticky__thumb {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  object-fit: cover;
+  display: block;
+}
+
+.pdpsticky__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.pdpsticky__title {
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* The phone draft gives the row to the price, not to the review count. */
+.pdpsticky__rating { display: none; }
+
+.pdpsticky__price {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.pdpsticky__now {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.pdpsticky__was {
+  font-size: 13px;
+  color: #61718a;
+  text-decoration: line-through;
+}
+
+.pdpsticky__was[hidden],
+.pdpsticky__off[hidden] { display: none; }
+
+.pdpsticky__off {
+  padding: 4px 6px;
+  background: #ddf568;
+  color: #0d244c;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10.5px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.pdpsticky__cta {
+  display: flex;
+  flex-shrink: 0;
+  height: 48px;
+  padding: 0 18px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 6px;
+  background: #0d244c;
+  color: #ffffff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* On a phone the price sits under the title, inside the copy column. */
+@media screen and (max-width: 768px) {
+  .pdpsticky__inner { flex-wrap: nowrap; }
+  .pdpsticky__buy {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+/* =======================================================================
+   Desktop: the 1440 draft
+   ======================================================================= */
+
+@media screen and (min-width: 769px) {
+  .pdpchrome__strip {
+    padding: 10px 40px;
+  }
+
+  .pdpchrome__strip-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 28px;
+  }
+
+  .pdpchrome__sale-label { font-size: 14px; }
+  .pdpchrome__sale-sub { font-size: 13.5px; }
+  .pdpchrome__cell-value { font-size: 13.5px; }
+  .pdpchrome__cell-label { font-size: 9px; }
+
+  /* ---- The following bar ---------------------------------------------- */
+
+  .pdpsticky { padding: 14px 40px; }
+
+  .pdpsticky__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .pdpsticky__product { flex-grow: 0; gap: 16px; }
+  .pdpsticky__thumb { width: 60px; height: 60px; }
+  .pdpsticky__copy { gap: 4px; }
+  .pdpsticky__title { font-size: 19px; }
+
+  .pdpsticky__rating {
+    display: block;
+    font-size: 14.5px;
+    color: #0d244c;
+  }
+
+  .pdpsticky__stars { letter-spacing: 1px; }
+
+  .pdpsticky__buy {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .pdpsticky__price { gap: 10px; }
+
+  .pdpsticky__now {
+    font-family: 'Manrope', 'Inter Tight', sans-serif;
+    font-size: 26px;
+    letter-spacing: -0.4px;
+  }
+
+  .pdpsticky__was { font-size: 17px; }
+
+  .pdpsticky__off {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .pdpsticky__cta {
+    height: 60px;
+    min-width: 300px;
+    padding: 0 40px;
+    font-size: 16px;
+  }
+}

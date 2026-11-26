@@ -1,0 +1,42 @@
+{%- comment -%}
+  The v2 standalone page's own announcement strip.
+
+  The design replaces the store's announcement bar on this page with a navy
+  sale strip carrying a live countdown. The store's header itself is left
+  exactly as it is, here and everywhere else.
+
+  It is authored here, rather than in the layout, because its countdown reads
+  the same deadline setting as the buy box's sale banner — one deadline, two
+  displays, no way for them to disagree. `pdp-v2-sticky-bar.js` then lifts it
+  above the header on load, where the design puts it.
+
+  The strip removes itself once that deadline has passed.
+{%- endcomment -%}
+
+{%- if section.settings.chrome_sale_label != blank -%}
+  <div class="pdpchrome" data-pdp-chrome>
+    <div class="pdpchrome__strip"
+      {% if section.settings.promo_deadline != blank %}data-promo-deadline="{{ section.settings.promo_deadline }}"{% endif %}>
+      <div class="pdpchrome__strip-inner">
+        <span class="pdpchrome__sale">
+          <span class="pdpchrome__sale-label">{{ section.settings.chrome_sale_label }}</span>
+          {%- if section.settings.chrome_sale_sub != blank -%}
+            <span class="pdpchrome__sale-sub">{{ section.settings.chrome_sale_sub }}</span>
+          {%- endif -%}
+        </span>
+
+        {%- if section.settings.promo_deadline != blank -%}
+          <span class="pdpchrome__clock" aria-label="Time left in this sale">
+            {%- assign units = 'days,hrs,min,sec' | split: ',' -%}
+            {%- for unit in units -%}
+              <span class="pdpchrome__cell">
+                <span class="pdpchrome__cell-value" data-count-{{ unit }}>--</span>
+                <span class="pdpchrome__cell-label">{{ unit }}</span>
+              </span>
+            {%- endfor -%}
+          </span>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}

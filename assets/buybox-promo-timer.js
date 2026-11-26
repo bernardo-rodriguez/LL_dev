@@ -24,6 +24,18 @@
     if (value) {
       value.textContent = (days > 0 ? days + 'd ' : '') + pad(hrs) + ':' + pad(min) + ':' + pad(sec);
     }
+
+    /*
+      The announcement strip shows the same deadline as four separate cells.
+      It reads from this one timer rather than running a second clock, so the
+      two can never drift apart or disagree about when the sale ends.
+    */
+    var cells = { days: days, hrs: hrs, min: min, sec: sec };
+    Object.keys(cells).forEach(function (unit) {
+      var cell = el.querySelector('[data-count-' + unit + ']');
+      if (cell) cell.textContent = pad(cells[unit]);
+    });
+
     el.hidden = false;
     return true;
   }

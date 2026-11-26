@@ -1,0 +1,56 @@
+{%- comment -%}
+  The bar that follows the page down, from the foot of both artboards.
+
+  Its button does not build a second add-to-cart. Skio owns the real one and
+  the page already drives it; this button forwards a click to it, so the
+  kit and the subscription the customer chose above are exactly what goes in
+  the cart, and there is one submit path rather than two that can drift.
+
+  The price is rendered here from Shopify for the first paint and then
+  mirrors the chosen kit, which pdp-v2-sticky-bar.js keeps in step.
+{%- endcomment -%}
+
+{%- assign v = product.selected_or_first_available_variant -%}
+{%- assign full = v.price -%}
+{%- if v.compare_at_price > full -%}{%- assign full = v.compare_at_price -%}{%- endif -%}
+{%- assign best = full -%}
+{%- for alloc in v.selling_plan_allocations -%}
+  {%- if alloc.price < best -%}{%- assign best = alloc.price -%}{%- endif -%}
+{%- endfor -%}
+
+<div class="pdpsticky" data-pdp-sticky hidden>
+  <div class="pdpsticky__inner">
+    <span class="pdpsticky__product">
+      {%- if product.featured_image -%}
+        <img class="pdpsticky__thumb" src="{{ product.featured_image | image_url: width: 180 }}"
+          alt="" width="60" height="60" loading="lazy">
+      {%- endif -%}
+      <span class="pdpsticky__copy">
+        <span class="pdpsticky__title">{{ section.settings.intro_title | default: product.metafields.custom.title | default: product.title }}</span>
+        {%- if section.settings.rating_line != blank -%}
+          <span class="pdpsticky__rating">
+            <span class="pdpsticky__stars" aria-hidden="true">★★★★★</span>
+            <span data-ll-reviews="{{ section.settings.rating_line | escape }}">{{ section.settings.rating_line }}</span>
+          </span>
+        {%- endif -%}
+      </span>
+    </span>
+
+    <span class="pdpsticky__buy">
+      <span class="pdpsticky__price">
+        <span class="pdpsticky__now" data-pdp-sticky-now>{{ best | money_without_trailing_zeros }}</span>
+        {%- if best < full -%}
+          <span class="pdpsticky__was" data-pdp-sticky-was>{{ full | money_without_trailing_zeros }}</span>
+          {%- assign off = full | minus: best | times: 100.0 | divided_by: full | round -%}
+          <span class="pdpsticky__off" data-pdp-sticky-off>{{ off }}% off</span>
+        {%- else -%}
+          <span class="pdpsticky__was" data-pdp-sticky-was hidden></span>
+          <span class="pdpsticky__off" data-pdp-sticky-off hidden></span>
+        {%- endif -%}
+      </span>
+      <button type="button" class="pdpsticky__cta" data-pdp-sticky-cta>
+        {{- section.settings.sticky_cta | default: 'Add to cart' -}}
+      </button>
+    </span>
+  </div>
+</div>

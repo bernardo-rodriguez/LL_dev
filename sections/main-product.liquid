@@ -21,6 +21,8 @@
   <script src="{{ 'buybox-promo-timer.js' | asset_url }}" defer></script>
   <script src="{{ 'kit-subscribe.js' | asset_url }}" defer></script>
   <script src="{{ 'carousel-rest.js' | asset_url }}" defer></script>
+  {{ 'component-pdp-v2-chrome.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'pdp-v2-sticky-bar.js' | asset_url }}" defer></script>
 {% endif %}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-rte.css' | asset_url | stylesheet_tag }}
@@ -37,7 +39,28 @@ var xhttp = new XMLHttpRequest();
 xhttp.open("POST", "/cart/clear.js", true);
 xhttp.send();
 </script>
+{%- comment -%}
+  Whether this product is the one the v2 copy was written for. Computed here
+  rather than beside the buy box because the page's own header and following
+  bar are gated on it too, and all three must agree.
+{%- endcomment -%}
+{%- assign v2_here = false -%}
+{%- if section.settings.use_v2_buybox -%}
+  {%- assign v2_handles = section.settings.v2_handles | default: '' | split: ',' -%}
+  {%- if v2_handles.size == 0 -%}
+    {%- assign v2_here = true -%}
+  {%- else -%}
+    {%- for h in v2_handles -%}
+      {%- assign handle_clean = h | strip -%}
+      {%- if handle_clean == product.handle -%}{%- assign v2_here = true -%}{%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endif -%}
+
 {% render 'upsell-popup' %}
+{%- if v2_here -%}
+  {% render 'pdp-v2-chrome', section: section %}
+{%- endif -%}
 <section{% if ll_v6 %} class="ll-pdp-v6"{% endif %}>
   <div class="product">
     <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
@@ -107,18 +130,6 @@ xhttp.send();
         setting; anything else falls through to the plain heading and its own
         title. Before this, the refill kit was titled "Hybrid Whitening Kit".
       {%- endcomment -%}
-      {%- assign v2_here = false -%}
-      {%- if section.settings.use_v2_buybox -%}
-        {%- assign v2_handles = section.settings.v2_handles | default: '' | split: ',' -%}
-        {%- if v2_handles.size == 0 -%}
-          {%- assign v2_here = true -%}
-        {%- else -%}
-          {%- for h in v2_handles -%}
-            {%- assign handle_clean = h | strip -%}
-            {%- if handle_clean == product.handle -%}{%- assign v2_here = true -%}{%- endif -%}
-          {%- endfor -%}
-        {%- endif -%}
-      {%- endif -%}
       {% if v2_here %}
         {% render 'pdp-buybox-v2', section: section, product: product %}
       {% else %}
@@ -788,6 +799,10 @@ xhttp.send();
     </div>
   </div>
 </section>
+
+{%- if v2_here -%}
+  {% render 'pdp-v2-sticky-bar', section: section, product: product %}
+{%- endif -%}
 
 {% javascript %}
   // Why Subscribe follows the purchase choice: it opens on one-time, so the
@@ -1497,6 +1512,33 @@ xhttp.send();
       "label": "Only for these products",
       "default": "at-home-whitening-kit",
       "info": "Comma-separated product handles. This template is the default for every product, and the v2 copy names one. Leave blank to show it on all of them."
+    },
+    {
+      "type": "header",
+      "content": "v2 page header and following bar"
+    },
+    {
+      "type": "paragraph",
+      "content": "Shown only on the products named above. The store's own announcement bar and header are hidden on that page and untouched everywhere else. The countdown uses the sale deadline set further down."
+    },
+    {
+      "type": "text",
+      "id": "chrome_sale_label",
+      "label": "Sale strip heading",
+      "default": "Anniversary sale"
+    },
+    {
+      "type": "text",
+      "id": "chrome_sale_sub",
+      "label": "Sale strip second line",
+      "default": "40% OFF + FREE WHITENING PEN"
+    },
+    {
+      "type": "text",
+      "id": "sticky_cta",
+      "label": "Following bar button",
+      "default": "Add to cart",
+      "info": "The button hands the click to the real add-to-cart, so it buys the kit and plan chosen above."
     },
     {
       "type": "text",
