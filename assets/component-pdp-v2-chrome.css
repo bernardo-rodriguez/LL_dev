@@ -102,7 +102,7 @@ body:has(.buybox-v2) #shopify-section-announcement-bar {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 5;
+  z-index: 50;
   padding: 10px 16px;
   border-top: 1px solid #d8e0e8;
   background: #ffffff;

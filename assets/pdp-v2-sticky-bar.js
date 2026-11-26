@@ -124,11 +124,23 @@
     strip.classList.add('is-placed');
   }
 
+  function liftBar(bar) {
+    /*
+      Moved to the end of <body> for the same reason it is fixed: inside the
+      product section it is painted over by the sections that follow it, so
+      it is on screen and invisible at once. As the last child of <body> it
+      sits above the page without having to outbid anything.
+    */
+    if (bar.parentNode !== document.body) document.body.appendChild(bar);
+  }
+
   function boot() {
     liftStrip();
 
     var bar = document.querySelector('[data-pdp-sticky]');
     if (!bar) return;
+
+    liftBar(bar);
 
     watch(bar);
     mirrorPrice(bar);
