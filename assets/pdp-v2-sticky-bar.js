@@ -56,55 +56,40 @@
   }
 
   function watch(bar) {
-    var anchor = document.querySelector('.buybox-v2')
-      ? document.querySelector('.product__info-container') : null;
-    if (!anchor) { bar.hidden = true; return; }
+    /*
+      The anchor is the real add-to-cart, which Skio owns: `skio-plan-picker`
+      is its host element and has a layout box even though the button itself
+      is in a shadow root. (`.product__info-container` is NOT it — that is the
+      options block further down the page.)
+    */
+    var anchor = document.querySelector('skio-plan-picker')
+      || document.querySelector('.product-form__submit')
+      || document.querySelector('.buybox-v2');
+    if (!anchor || !document.querySelector('.buybox-v2')) { bar.hidden = true; return; }
 
     bar.hidden = false;
 
     /*
-      Shown when the buy box is above the fold's top edge — that is, once the
+      Shown only once the button has gone off the TOP of the screen — the
       customer has scrolled past the place they could already have bought.
-      A fallback on scroll covers browsers without IntersectionObserver.
+      While it is still below the fold, on the way down, the page has not
+      been read yet and the bar would just be in the way.
     */
-    function paint(visible) {
-      bar.classList.toggle('is-on', !visible);
+    function paint(rect, visible) {
+      bar.classList.toggle('is-on', !visible && rect.bottom <= 0);
     }
 
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) { paint(e.isIntersecting); });
-      }, { rootMargin: '0px 0px -40% 0px' });
+        entries.forEach(function (e) { paint(e.boundingClientRect, e.isIntersecting); });
+      }, { threshold: 0 });
       io.observe(anchor);
     } else {
       window.addEventListener('scroll', function () {
-        paint(anchor.getBoundingClientRect().bottom > 0);
+        var r = anchor.getBoundingClientRect();
+        paint(r, r.bottom > 0 && r.top < window.innerHeight);
       }, { passive: true });
     }
-  }
-
-  function liftStrip() {
-    /*
-      The strip is authored inside the product section, because that is where
-      its countdown deadline is set — one deadline for both the strip and the
-      buy box's sale banner. But it belongs above the store header, so it is
-      moved there once, before anything else runs. It stays hidden until it
-      has been placed, so it is never seen in the wrong spot.
-    */
-    var strip = document.querySelector('[data-pdp-chrome]');
-    if (!strip || strip.classList.contains('is-placed')) return;
-
-    var before = document.querySelector('#shopify-section-announcement-bar')
-      || document.querySelector('.outer-header-wrapper')
-      || document.querySelector('#shopify-section-header')
-      || document.body.firstChild;
-
-    if (before && before.parentNode === document.body) {
-      document.body.insertBefore(strip, before);
-    } else {
-      document.body.insertBefore(strip, document.body.firstChild);
-    }
-    strip.classList.add('is-placed');
   }
 
   function boot() {
