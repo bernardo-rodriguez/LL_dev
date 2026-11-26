@@ -212,15 +212,30 @@ body:has(.buybox-v2) #shopify-section-announcement-bar {
   cursor: pointer;
 }
 
-/* On a phone the price sits under the title, inside the copy column. */
+/*
+  On a phone the draft stacks the title over the price in one column, with
+  the thumb and the button spanning both rows. `display: contents` flattens
+  the product and buy wrappers so all four parts can be placed on one grid;
+  without it the price is trapped beside the button and squeezes the title
+  down to an ellipsis.
+*/
 @media screen and (max-width: 768px) {
-  .pdpsticky__inner { flex-wrap: nowrap; }
-  .pdpsticky__buy {
-    display: flex;
-    flex-shrink: 0;
+  .pdpsticky__product,
+  .pdpsticky__buy { display: contents; }
+
+  .pdpsticky__inner {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
     align-items: center;
-    gap: 12px;
+    column-gap: 12px;
+    row-gap: 2px;
   }
+
+  .pdpsticky__thumb { grid-column: 1; grid-row: 1 / 3; }
+  .pdpsticky__copy { grid-column: 2; grid-row: 1; }
+  .pdpsticky__price { grid-column: 2; grid-row: 2; }
+  .pdpsticky__cta { grid-column: 3; grid-row: 1 / 3; }
 }
 
 /* =======================================================================
