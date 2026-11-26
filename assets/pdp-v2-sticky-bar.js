@@ -46,12 +46,20 @@
       }
     });
 
-    /* The discount chip is the buy box's, which already tracks the offer. */
+    /*
+      The chip comes from the selected kit too, not from the buy box's own
+      chip: that one does not follow the kit choice, so mirroring it put
+      "40% off" next to the 12-treatment kit's $59/$130, which is 55%.
+      Reading both numbers and the chip from the same card keeps the bar
+      saying one thing.
+    */
     var off = bar.querySelector('[data-pdp-sticky-off]');
-    var offSource = document.querySelector('.buybox-v2__off');
-    if (off && offSource && offSource.textContent.trim()) {
-      off.textContent = offSource.textContent.trim();
-      off.hidden = false;
+    var offSource = opt.querySelector('.kitpick__save')
+      || document.querySelector('.buybox-v2__off');
+    if (off) {
+      var text = offSource ? offSource.textContent.trim() : '';
+      off.textContent = text.replace(/^save\s+/i, '') + (/^save\s/i.test(text) ? ' off' : '');
+      off.hidden = !text;
     }
   }
 
